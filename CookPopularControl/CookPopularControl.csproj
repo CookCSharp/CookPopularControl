@@ -1,23 +1,75 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
     <PropertyGroup>
-        <TargetFrameworks>net461;net5.0-windows</TargetFrameworks>
+        <TargetFrameworks>net5.0-windows;net461</TargetFrameworks>
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
         <LangVersion>9.0</LangVersion>
+        <OutputType>Library</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Remove="Resources\Fonts\Roboto\Roboto-Black.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-Bold.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-BoldItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-Italic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-Light.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-LightItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-Medium.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-MediumItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-Regular.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-Thin.ttf" />
+        <None Remove="Resources\Fonts\Roboto\Roboto-ThinItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Bold.ttf" />
+        <None Remove="Resources\Fonts\Roboto\RobotoCondensed-BoldItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Italic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Light.ttf" />
+        <None Remove="Resources\Fonts\Roboto\RobotoCondensed-LightItalic.ttf" />
+        <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Regular.ttf" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.css" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.eot" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.js" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.json" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.svg" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.ttf" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.woff" />
+        <None Remove="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <None Remove="Resources\Images\CookCSharp.ico" />
         <None Remove="Resources\Images\CookCSharp.png" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Communal\" />
-        <Folder Include="Themes\" />
+      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
     </ItemGroup>
 
     <ItemGroup>
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Black.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Bold.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-BoldItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Italic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Light.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-LightItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Medium.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-MediumItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Regular.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-Thin.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\Roboto-ThinItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Bold.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-BoldItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Italic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Light.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-LightItalic.ttf" />
+        <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Regular.ttf" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.css" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.eot" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.js" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.json" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.svg" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.ttf" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff" />
+        <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <Resource Include="Resources\Images\CookCSharp.ico" />
         <Resource Include="Resources\Images\CookCSharp.png" />
     </ItemGroup>

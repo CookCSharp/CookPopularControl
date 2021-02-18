@@ -1,0 +1,86 @@
+{
+  "id": "2187253",
+  "name": "CourseScheduling",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "排课系统",
+  "glyphs": [
+    {
+      "icon_id": "13292592",
+      "name": "高中留学",
+      "font_class": "gaozhongliuxue-copy",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "8323422",
+      "name": "大学",
+      "font_class": "daxue1",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "976427",
+      "name": "小学",
+      "font_class": "xiaoxue1",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "2879438",
+      "name": "初中",
+      "font_class": "chuzhong",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "1073505",
+      "name": "目录",
+      "font_class": "mulu",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "10440714",
+      "name": "左箭头",
+      "font_class": "forward",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "11742084",
+      "name": "左箭头",
+      "font_class": "zuoxia",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "7971188",
+      "name": "最小化",
+      "font_class": "ic_minimize",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "7621829",
+      "name": "关 闭",
+      "font_class": "guanbi-copy",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "13625107",
+      "name": "最大化",
+      "font_class": "zuidahua",
+      "unicode": "e712",
+      "unicode_decimal": 59154
+    },
+    {
+      "icon_id": "15486544",
+      "name": "最大化",
+      "font_class": "zuidahua1",
+      "unicode": "e8a5",
+      "unicode_decimal": 59557
+    }
+  ]
+}

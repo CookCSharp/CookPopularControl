@@ -11,7 +11,7 @@ using System.Windows.Media;
 
 /*
  * Copyright (c) 2021 All Rights Reserved.
- * Description：$Do something$ 
+ * Description：ChromeWindowClient
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-18 09:20:55
  */

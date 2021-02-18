@@ -1,0 +1,122 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctl="clr-namespace:CookPopularControl.Controls.Windows"
+                    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Skins/DefaultPopularColor.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--Icon<—☐✕>-->
+    <Style x:Key="WindowIconStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Padding" Value="0,12" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource AssistantForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BaseChromeWindowStyle" TargetType="{x:Type ctl:ChromeWindow}">
+        <Setter Property="WindowState" Value="Normal" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="40" GlassFrameThickness="-1" CornerRadius="10"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctl:ChromeWindow}">
+                    <AdornerDecorator>
+                        <ctl:ChromeWindowClient>
+                            <Border Background="{TemplateBinding Background}" Effect="{DynamicResource CustomShadowDepth2}"
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="&#xe660;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="功能">
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.SidebarPopupCommand"/>
+                                                    </behavior:EventTrigger>     
+                                                </behavior:Interaction.Triggers>
+                                            </TextBlock>
+                                            <TextBlock Text="&#xe602;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="上一个">
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MinimizedWindowCommand"/>
+                                                    </behavior:EventTrigger>     
+                                                </behavior:Interaction.Triggers>
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <TextBlock Text="优课排" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                            <TextBlock Text="&#xe603;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="最小化">
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MinimizedWindowCommand"/>
+                                                    </behavior:EventTrigger>     
+                                                </behavior:Interaction.Triggers>
+                                            </TextBlock>
+                                            <TextBlock Text="&#xe8a5;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" x:Name="maximized" ToolTip="最大化">
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MaximizedWindowCommand"/>
+                                                    </behavior:EventTrigger>     
+                                                </behavior:Interaction.Triggers>
+                                            </TextBlock>
+                                            <TextBlock Text="&#xe712;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" x:Name="normal" ToolTip="向下还原" Visibility="Collapsed">
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.NormalWindowCommand"/>
+                                                    </behavior:EventTrigger>     
+                                                </behavior:Interaction.Triggers>
+                                            </TextBlock>
+                                            <TextBlock Text="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="关闭">
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.ClosedWindowCommand"/>
+                                                    </behavior:EventTrigger>     
+                                                </behavior:Interaction.Triggers>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <ContentPresenter x:Name="win_content" ClipToBounds="True"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </ctl:ChromeWindowClient>
+                    </AdornerDecorator>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Visibility" Value="Visible" TargetName="normal"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="maximized"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter Property="Visibility" Value="Visible" TargetName="maximized"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type ctl:ChromeWindow}" TargetType="{x:Type ctl:ChromeWindow}" BasedOn="{StaticResource BaseChromeWindowStyle}"/>
+
+</ResourceDictionary>

@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="RobotoFonts">pack://application:,,,/CookPopularControl;component/Resources/Fonts/Roboto/#Roboto</FontFamily>
+    <FontFamily x:Key="WindowIcons">pack://application:,,,/CookPopularControl;component/Resources/Fonts/WindowIcons/#iconfont</FontFamily>
+
+</ResourceDictionary>

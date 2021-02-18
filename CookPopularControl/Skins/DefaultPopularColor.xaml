@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="PrimaryColorTheme" Color="	#1E90FF"/>
+    <SolidColorBrush x:Key="AssistantColorTheme" Color="#FF5722"/>
+    <SolidColorBrush x:Key="PrimaryForeground" Color="#6C6C6C"/>
+    <SolidColorBrush x:Key="AssistantForeground" Color="#FFFFFF"/>
+
+
+    <LinearGradientBrush x:Key="LinearTheme" StartPoint="0,0" EndPoint="1,1">
+        <GradientStopCollection>
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="0.5" Color="#88FFFFFF"/>
+            <GradientStop Offset="1.0" Color="#FFFFFFFF"/>
+        </GradientStopCollection>
+    </LinearGradientBrush>
+
+</ResourceDictionary>
