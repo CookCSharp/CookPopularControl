@@ -4,8 +4,6 @@
 
     <Style x:Key="BaseToolTip" TargetType="{x:Type ToolTip}">
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="MinWidth" Value="50" />
-        <Setter Property="MinHeight" Value="30" />
         <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
         <Setter Property="Placement" Value="Mouse" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
@@ -15,7 +13,7 @@
                 <ControlTemplate TargetType="{x:Type ToolTip}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

@@ -11,28 +11,36 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--Icon<—☐✕>-->
-    <Style x:Key="WindowIconStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="Width" Value="40" />
-        <Setter Property="Height" Value="40" />
-        <Setter Property="Padding" Value="0,12" />
-        <Setter Property="TextAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="White" />
+    <Style x:Key="WindowIconStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=ctl:ChromeWindow,Mode=FindAncestor},Path=IconWidth}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=ctl:ChromeWindow,Mode=FindAncestor},Path=IconHeight}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=ctl:ChromeWindow,Mode=FindAncestor},Path=Foreground}" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Cursor" Value="Hand" />
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource AssistantForeground}" />
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
-            </Trigger>
-        </Style.Triggers>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderThickness="0" Background="Transparent">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource BlockColor}" TargetName="border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="BaseChromeWindowStyle" TargetType="{x:Type ctl:ChromeWindow}">
+        <Setter Property="IconWidth" Value="30" />
+        <Setter Property="IconHeight" Value="30" />
         <Setter Property="WindowState" Value="Normal" />
+        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
-                <WindowChrome CaptionHeight="40" GlassFrameThickness="-1" CornerRadius="10"/>
+                <WindowChrome CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=ctl:ChromeWindow, Mode=FindAncestor},Path=IconHeight}" GlassFrameThickness="-1" CornerRadius="10"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
@@ -44,56 +52,36 @@
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource AncestorType=ctl:ChromeWindow,Mode=FindAncestor},Path=IconHeight}"/>
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="&#xe660;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="功能">
+                                            <Button Content="&#xe660;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="功能">
                                                 <behavior:Interaction.Triggers>
                                                     <behavior:EventTrigger EventName="MouseLeftButtonDown">
                                                         <behavior:InvokeCommandAction Command="ctl:ChromeWindow.SidebarPopupCommand"/>
                                                     </behavior:EventTrigger>     
                                                 </behavior:Interaction.Triggers>
-                                            </TextBlock>
-                                            <TextBlock Text="&#xe602;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="上一个">
+                                            </Button>
+                                            <Button Content="&#xe602;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="上一个">
                                                 <behavior:Interaction.Triggers>
                                                     <behavior:EventTrigger EventName="MouseLeftButtonDown">
                                                         <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MinimizedWindowCommand"/>
                                                     </behavior:EventTrigger>     
                                                 </behavior:Interaction.Triggers>
-                                            </TextBlock>
+                                            </Button>
                                         </StackPanel>
                                         <TextBlock Text="优课排" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                            <TextBlock Text="&#xe603;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="最小化">
-                                                <behavior:Interaction.Triggers>
-                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MinimizedWindowCommand"/>
-                                                    </behavior:EventTrigger>     
-                                                </behavior:Interaction.Triggers>
-                                            </TextBlock>
-                                            <TextBlock Text="&#xe8a5;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" x:Name="maximized" ToolTip="最大化">
-                                                <behavior:Interaction.Triggers>
-                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MaximizedWindowCommand"/>
-                                                    </behavior:EventTrigger>     
-                                                </behavior:Interaction.Triggers>
-                                            </TextBlock>
-                                            <TextBlock Text="&#xe712;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" x:Name="normal" ToolTip="向下还原" Visibility="Collapsed">
-                                                <behavior:Interaction.Triggers>
-                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.NormalWindowCommand"/>
-                                                    </behavior:EventTrigger>     
-                                                </behavior:Interaction.Triggers>
-                                            </TextBlock>
-                                            <TextBlock Text="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="关闭">
-                                                <behavior:Interaction.Triggers>
-                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.ClosedWindowCommand"/>
-                                                    </behavior:EventTrigger>     
-                                                </behavior:Interaction.Triggers>
-                                            </TextBlock>
+                                            <Button Content="&#xe603;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                                    Command="ctl:ChromeWindow.MinimizedWindowCommand" ToolTip="最小化"/>
+                                            <Button x:Name="maximized" Content="&#xe8a5;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                                    Command="ctl:ChromeWindow.MaximizedWindowCommand" ToolTip="最大化"/>
+                                            <Button x:Name="normal" Content="&#xe712;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" 
+                                                    Command="ctl:ChromeWindow.NormalWindowCommand" ToolTip="向下还原" Visibility="Collapsed"/>
+                                            <Button Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                                    Command="ctl:ChromeWindow.ClosedWindowCommand" ToolTip="关闭"/>
                                         </StackPanel>
                                     </Grid>
                                     <Grid Grid.Row="1">

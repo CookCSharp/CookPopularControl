@@ -87,5 +87,28 @@ namespace CookPopularControl.Controls.Windows
         /// </summary>
         public static readonly DependencyProperty IsShowBlockProperty =
             DependencyProperty.Register("IsShowBlock", typeof(bool), typeof(ChromeWindow), new PropertyMetadata(default(bool)));
+
+        public double IconWidth
+        {
+            get { return (double)GetValue(IconWidthProperty); }
+            set { SetValue(IconWidthProperty, value); }
+        }
+        /// <summary>
+        /// 最小化、最大化、关闭操作按钮的宽度
+        /// </summary>
+        public static readonly DependencyProperty IconWidthProperty =
+            DependencyProperty.Register("IconWidth", typeof(double), typeof(ChromeWindow), new PropertyMetadata());
+
+
+        public double IconHeight
+        {
+            get { return (double)GetValue(IconHeightProperty); }
+            set { SetValue(IconHeightProperty, value); }
+        }
+        /// <summary>
+        /// 最小化、最大化、关闭操作按钮的高度
+        /// </summary>
+        public static readonly DependencyProperty IconHeightProperty =
+            DependencyProperty.Register("IconHeight", typeof(double), typeof(ChromeWindow), new PropertyMetadata());
     }
 }
