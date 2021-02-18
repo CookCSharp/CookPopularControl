@@ -6,4 +6,20 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\Images\CookCSharp.ico" />
+    <None Remove="Resources\Images\CookCSharp.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tools\" />
+    <Folder Include="Communal\" />
+    <Folder Include="Themes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\CookCSharp.ico" />
+    <Resource Include="Resources\Images\CookCSharp.png" />
+  </ItemGroup>
+
 </Project>
