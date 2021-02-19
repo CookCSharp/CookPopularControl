@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CookPopularControl</name>
+    </assembly>
+    <members>
+        <member name="T:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached">
+            <summary>
+            提供WPF控件附加属性的基类
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Internal.Boxes.ValueBoxes">
+            <summary>
+            装箱后的值类型（用于提高效率）
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Windows.ChromeWindow">
+            <summary>
+            标准窗口<see cref="T:CookPopularControl.Controls.Windows.ChromeWindow"/>
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IsFullScreen">
+            <summary>
+            是否全屏
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IsFullScreenProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IsFullScreen"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IsShowBlock">
+            <summary>
+            是否显示菜单栏
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IsShowBlockProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IsShowBlock"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IconWidth">
+            <summary>
+            最小化、最大化、关闭操作按钮的宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IconWidthProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IconWidth"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IconHeight">
+            <summary>
+            最小化、最大化、关闭操作按钮的高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IconHeightProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IconHeight"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Windows.ChromeWindowClient">
+            <summary>
+            为 <see cref="T:CookPopularControl.Controls.Windows.ChromeWindow" /> 提供客户端区域。无法继承此类。
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Windows.ChromeWindowClient.#ctor">
+            <summary>
+            初始化 <see cref="T:CookPopularControl.Controls.Windows.ChromeWindowClient" /> 类的新实例。
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Screenshot">
+            <summary>
+            提供屏幕截图相关静态方法。
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.GetScale">
+            <summary>
+            获取屏幕 PDI 缩放系数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.GetDpiX">
+            <summary>
+            获取屏幕的每英寸水平逻辑像素数（DPI）。
+            </summary>
+            <returns>返回屏幕的每英寸水平逻辑像素数（DPI）。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.GetDpiY">
+            <summary>
+            获取屏幕的每英寸垂直逻辑像素数（DPI）。
+            </summary>
+            <returns>返回屏幕的每英寸垂直逻辑像素数（DPI）。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.GetSnapshot">
+            <summary>
+            捕获屏幕快照。
+            </summary>
+            <returns>返回一个包含屏幕快照的 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.GetResolution">
+            <summary>
+            获取当前屏幕的原始分辨率。
+            </summary>
+            <returns>返回当前屏幕的原始分辨率。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.Compression(System.Drawing.Bitmap,System.Int64,System.Boolean)">
+            <summary>
+            使用 JPEG 图像质量级别来压缩当前 GDI+ 位图。
+            </summary>
+            <param name="bitmap">当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</param>
+            <param name="level">指定 JPEG 图像质量级别（0 ~ 100）。</param>
+            <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
+            <returns>返回一个已压缩的 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Screenshot.ToBitmapSource(System.Drawing.Bitmap,System.Boolean)">
+            <summary>
+            基于当前 GDI+ 位图创建一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" />。
+            </summary>
+            <param name="bitmap">当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</param>
+            <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
+            <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
+        </member>
+    </members>
+</doc>

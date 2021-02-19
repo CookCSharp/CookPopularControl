@@ -8,7 +8,13 @@
         <OutputType>Library</OutputType>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
+      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
+      <DefineConstants>DEBUG;TRACE</DefineConstants>
+    </PropertyGroup>
+
     <ItemGroup>
+        <None Remove="CookPopularControl.xml" />
         <None Remove="Resources\Fonts\Roboto\Roboto-Black.ttf" />
         <None Remove="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf" />
         <None Remove="Resources\Fonts\Roboto\Roboto-Bold.ttf" />
@@ -37,6 +43,10 @@
         <None Remove="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <None Remove="Resources\Images\CookCSharp.ico" />
         <None Remove="Resources\Images\CookCSharp.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\.editorconfig" Link=".editorconfig" />
     </ItemGroup>
 
     <ItemGroup>

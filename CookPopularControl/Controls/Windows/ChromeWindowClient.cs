@@ -18,7 +18,7 @@ using System.Windows.Media;
 namespace CookPopularControl.Controls.Windows
 {
     /// <summary>
-    /// 为 <see cref="WindowChrome" /> 提供客户端区域。无法继承此类。
+    /// 为 <see cref="ChromeWindow" /> 提供客户端区域。无法继承此类。
     /// </summary>
     public sealed class ChromeWindowClient : Decorator
     {
@@ -31,7 +31,7 @@ namespace CookPopularControl.Controls.Windows
         }
 
         /// <summary>
-        /// 初始化 <see cref="ClientChrome" /> 类的新实例。
+        /// 初始化 <see cref="ChromeWindowClient" /> 类的新实例。
         /// </summary>
         public ChromeWindowClient()
         {

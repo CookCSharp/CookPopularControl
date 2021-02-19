@@ -33,11 +33,12 @@
         </Setter>
     </Style>
     <Style x:Key="BaseChromeWindowStyle" TargetType="{x:Type ctl:ChromeWindow}">
-        <Setter Property="IconWidth" Value="30" />
-        <Setter Property="IconHeight" Value="30" />
+        <!--<Setter Property="IconWidth" Value="30" />
+        <Setter Property="IconHeight" Value="30" />-->
         <Setter Property="WindowState" Value="Normal" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="Effect" Value="{DynamicResource CustomShadowDepth2}" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=ctl:ChromeWindow, Mode=FindAncestor},Path=IconHeight}" GlassFrameThickness="-1" CornerRadius="10"/>
@@ -48,7 +49,7 @@
                 <ControlTemplate TargetType="{x:Type ctl:ChromeWindow}">
                     <AdornerDecorator>
                         <ctl:ChromeWindowClient>
-                            <Border Background="{TemplateBinding Background}" Effect="{DynamicResource CustomShadowDepth2}"
+                            <Border Background="{TemplateBinding Background}" Effect="{TemplateBinding Effect}"
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -57,31 +58,21 @@
                                     </Grid.RowDefinitions>
                                     <Grid>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Content="&#xe660;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="功能">
-                                                <behavior:Interaction.Triggers>
-                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.SidebarPopupCommand"/>
-                                                    </behavior:EventTrigger>     
-                                                </behavior:Interaction.Triggers>
-                                            </Button>
-                                            <Button Content="&#xe602;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" ToolTip="上一个">
-                                                <behavior:Interaction.Triggers>
-                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <behavior:InvokeCommandAction Command="ctl:ChromeWindow.MinimizedWindowCommand"/>
-                                                    </behavior:EventTrigger>     
-                                                </behavior:Interaction.Triggers>
-                                            </Button>
+                                            <Button Content="&#xe660;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" 
+                                                    Command="ctl:ChromeWindow.SidebarPopupCommand" ToolTip="功能" />
+                                            <Button Content="&#xe602;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" 
+                                                    Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="上一个" />
                                         </StackPanel>
-                                        <TextBlock Text="优课排" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{TemplateBinding Title}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                                             <Button Content="&#xe603;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
-                                                    Command="ctl:ChromeWindow.MinimizedWindowCommand" ToolTip="最小化"/>
+                                                    Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="最小化"/>
                                             <Button x:Name="maximized" Content="&#xe8a5;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
-                                                    Command="ctl:ChromeWindow.MaximizedWindowCommand" ToolTip="最大化"/>
+                                                    Command="{x:Static SystemCommands.MaximizeWindowCommand}" ToolTip="最大化"/>
                                             <Button x:Name="normal" Content="&#xe712;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" 
-                                                    Command="ctl:ChromeWindow.NormalWindowCommand" ToolTip="向下还原" Visibility="Collapsed"/>
+                                                    Command="{x:Static SystemCommands.RestoreWindowCommand}" ToolTip="向下还原" Visibility="Collapsed"/>
                                             <Button Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
-                                                    Command="ctl:ChromeWindow.ClosedWindowCommand" ToolTip="关闭"/>
+                                                    Command="{x:Static SystemCommands.CloseWindowCommand}" ToolTip="关闭"/>
                                         </StackPanel>
                                     </Grid>
                                     <Grid Grid.Row="1">

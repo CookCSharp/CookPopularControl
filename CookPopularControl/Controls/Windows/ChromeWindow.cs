@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using CookPopularControl.Communal.Internal.Boxes;
+using System;
+using System.Windows;
 using System.Windows.Input;
 
 
@@ -17,10 +19,10 @@ namespace CookPopularControl.Controls.Windows
     {
         public static readonly RoutedCommand SidebarPopupCommand = new RoutedCommand(nameof(SidebarPopupCommand), typeof(ChromeWindow));
         public static readonly RoutedCommand MoveWindowCommand = new RoutedCommand(nameof(MoveWindowCommand), typeof(ChromeWindow));
-        public static readonly RoutedCommand ClosedWindowCommand = new RoutedCommand(nameof(ClosedWindowCommand), typeof(ChromeWindow));
-        public static readonly RoutedCommand MaximizedWindowCommand = new RoutedCommand(nameof(MaximizedWindowCommand), typeof(ChromeWindow));
-        public static readonly RoutedCommand NormalWindowCommand = new RoutedCommand(nameof(NormalWindowCommand), typeof(ChromeWindow));
-        public static readonly RoutedCommand MinimizedWindowCommand = new RoutedCommand(nameof(MinimizedWindowCommand), typeof(ChromeWindow));
+        //public static readonly RoutedCommand ClosedWindowCommand = new RoutedCommand(nameof(ClosedWindowCommand), typeof(ChromeWindow));
+        //public static readonly RoutedCommand MaximizedWindowCommand = new RoutedCommand(nameof(MaximizedWindowCommand), typeof(ChromeWindow));
+        //public static readonly RoutedCommand NormalWindowCommand = new RoutedCommand(nameof(NormalWindowCommand), typeof(ChromeWindow));
+        //public static readonly RoutedCommand MinimizedWindowCommand = new RoutedCommand(nameof(MinimizedWindowCommand), typeof(ChromeWindow));
 
         static ChromeWindow()
         {
@@ -38,10 +40,11 @@ namespace CookPopularControl.Controls.Windows
         {
             CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(SidebarPopupCommand, Executed));
             CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(MoveWindowCommand, Executed));
-            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(ClosedWindowCommand, Executed));
-            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(MaximizedWindowCommand, Executed));
-            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(NormalWindowCommand, Executed));
-            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(MinimizedWindowCommand, Executed));
+            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(SystemCommands.CloseWindowCommand, Executed));
+            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(SystemCommands.MaximizeWindowCommand, Executed));
+            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(SystemCommands.RestoreWindowCommand, Executed));
+            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(SystemCommands.MinimizeWindowCommand, Executed));
+            CommandManager.RegisterClassCommandBinding(typeof(ChromeWindow), new CommandBinding(SystemCommands.ShowSystemMenuCommand, Executed));
         }
 
         private static void Executed(object sender, ExecutedRoutedEventArgs e)
@@ -56,59 +59,104 @@ namespace CookPopularControl.Controls.Windows
                 {
                     window.IsShowBlock = true;
                 }
-                else if (e.Command == ClosedWindowCommand)
+                else if (e.Command == SystemCommands.CloseWindowCommand)
                 {
                     window.Close();
                 }
-                else if (e.Command == MaximizedWindowCommand)
+                else if (e.Command == SystemCommands.MaximizeWindowCommand)
                 {
                     window.WindowState = WindowState.Maximized;
                 }
-                else if (e.Command == NormalWindowCommand)
+                else if (e.Command == SystemCommands.RestoreWindowCommand)
                 {
                     window.WindowState = WindowState.Normal;
                 }
-                else if (e.Command == MinimizedWindowCommand)
+                else if (e.Command == SystemCommands.MinimizeWindowCommand)
                 {
                     window.WindowState = WindowState.Minimized;
+                }
+                else if (e.Command == SystemCommands.ShowSystemMenuCommand)
+                {
+                    SystemCommands.ShowSystemMenu(window, default);
                 }
             }
         }
 
+
+        /// <summary>
+        /// 是否全屏
+        /// </summary>
+        public bool IsFullScreen
+        {
+            get { return (bool)GetValue(IsFullScreenProperty); }
+            set { SetValue(IsFullScreenProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="IsFullScreen"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsFullScreenProperty =
+            DependencyProperty.Register("IsFullScreen", typeof(bool), typeof(ChromeWindow),
+                new PropertyMetadata(ValueBoxes.FalseBox, new PropertyChangedCallback(OnIsFullScreenValueChanged)));
+        private static void OnIsFullScreenValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var win = d as ChromeWindow;
+            if (win != null)
+            {
+                if ((bool)e.NewValue)
+                {
+                    win.WindowStyle = WindowStyle.None;
+                    win.WindowState = WindowState.Maximized;
+                    win.WindowState = WindowState.Minimized;
+                    win.WindowState = WindowState.Maximized;
+                }
+                else
+                    win.WindowStyle = WindowStyle.SingleBorderWindow;
+            }
+        }
+
+
+        /// <summary>
+        /// 是否显示菜单栏
+        /// </summary>
         public bool IsShowBlock
         {
             get { return (bool)GetValue(IsShowBlockProperty); }
             set { SetValue(IsShowBlockProperty, value); }
         }
-
         /// <summary>
-        /// 是否显示菜单栏
-        /// <see cref="IsShowBlock"/>
+        /// 提供<see cref="IsShowBlock"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IsShowBlockProperty =
-            DependencyProperty.Register("IsShowBlock", typeof(bool), typeof(ChromeWindow), new PropertyMetadata(default(bool)));
+            DependencyProperty.Register("IsShowBlock", typeof(bool), typeof(ChromeWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
+
+        /// <summary>
+        /// 最小化、最大化、关闭操作按钮的宽度
+        /// </summary>
         public double IconWidth
         {
             get { return (double)GetValue(IconWidthProperty); }
             set { SetValue(IconWidthProperty, value); }
         }
         /// <summary>
-        /// 最小化、最大化、关闭操作按钮的宽度
+        /// 提供<see cref="IconWidth"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IconWidthProperty =
-            DependencyProperty.Register("IconWidth", typeof(double), typeof(ChromeWindow), new PropertyMetadata());
+            DependencyProperty.Register("IconWidth", typeof(double), typeof(ChromeWindow), new PropertyMetadata(ValueBoxes.Double30Box));
 
 
+        /// <summary>
+        /// 最小化、最大化、关闭操作按钮的高度
+        /// </summary>
         public double IconHeight
         {
             get { return (double)GetValue(IconHeightProperty); }
             set { SetValue(IconHeightProperty, value); }
         }
         /// <summary>
-        /// 最小化、最大化、关闭操作按钮的高度
+        /// 提供<see cref="IconHeight"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IconHeightProperty =
-            DependencyProperty.Register("IconHeight", typeof(double), typeof(ChromeWindow), new PropertyMetadata());
+            DependencyProperty.Register("IconHeight", typeof(double), typeof(ChromeWindow), new PropertyMetadata(ValueBoxes.Double30Box));
     }
 }
