@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Internal.Boxes;
+﻿using CookPopularControl.Tools.Boxes;
 using System;
 using System.Windows;
 using System.Windows.Input;

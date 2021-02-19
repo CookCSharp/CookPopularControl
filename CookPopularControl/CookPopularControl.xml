@@ -9,11 +9,6 @@
             提供WPF控件附加属性的基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Internal.Boxes.ValueBoxes">
-            <summary>
-            装箱后的值类型（用于提高效率）
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindow">
             <summary>
             标准窗口<see cref="T:CookPopularControl.Controls.Windows.ChromeWindow"/>
@@ -67,6 +62,221 @@
         <member name="M:CookPopularControl.Controls.Windows.ChromeWindowClient.#ctor">
             <summary>
             初始化 <see cref="T:CookPopularControl.Controls.Windows.ChromeWindowClient" /> 类的新实例。
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
+            <summary>
+            装箱后的值类型（用于提高效率）
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Extensions.WindowExtensions">
+            <summary>
+            为提 <see cref="T:System.Windows.Window" /> 供静态扩展方法。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_STOP">
+            <summary>
+            停止闪烁。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FALSHW_CAPTION">
+            <summary>
+            只闪烁标题。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_TRAY">
+            <summary>
+            只闪烁任务栏。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_ALL">
+            <summary>
+            标题和任务栏同时闪烁。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_PARAM1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_PARAM2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_TIMER">
+            <summary>
+            无条件闪烁任务栏直到发送停止标志或者窗口被激活，如果未激活，停止时高亮。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_TIMERNOFG">
+            <summary>
+            未激活时闪烁任务栏直到发送停止标志或者窗体被激活，停止后高亮。
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO">
+            <summary>
+            包含系统应在指定时间内闪烁窗口次数和闪烁状态的信息
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.cbSize">
+            <summary>
+            结构大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.hwnd">
+            <summary>
+            要闪烁或停止的窗口句柄
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.dwFlags">
+            <summary>
+            闪烁的类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.uCount">
+            <summary>
+            闪烁窗口的次数
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.dwTimeout">
+            <summary>
+            窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.SetTopmost(System.Windows.Window,System.Boolean,System.Int32)">
+            <summary>
+            设置当前窗口的置顶状态。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <param name="topmost">指定是否置顶。</param>
+            <param name="millisecondsTimeout">指定操作失败时，应重试的毫秒数。</param>
+            <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.SafeActivate(System.Windows.Window)">
+            <summary>
+            安全的激活窗口（如果尚未创建窗口的 HWND，则创建 HWND）。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.FlashWindow(System.Windows.Window)">
+            <summary>
+            闪烁窗口的任务栏图标。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.HwndCreatedButNotShown(System.Windows.Window)">
+            <summary>
+            获取当前窗口是否已创建句柄但从未显示。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.IsClosing(System.Windows.Window)">
+            <summary>
+            获取当前窗口是否正在关闭。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.IsDisposed(System.Windows.Window)">
+            <summary>
+            获取当前窗口是否已释放。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.ShowingAsDialog(System.Windows.Window)">
+            <summary>
+            获取当前窗口是否正在作为对话框显示。
+            </summary>
+            <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_ASYNCWINDOWPOS">
+            <summary>
+                If the calling thread and the thread that owns the window are attached to different input queues, the system posts
+                the request to the thread that owns the window. This prevents the calling thread from blocking its execution while
+                other threads process the request.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_DEFERERASE">
+            <summary>
+                Prevents generation of the WM_SYNCPAINT message.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_DRAWFRAME">
+            <summary>
+                Draws a frame (defined in the window's class description) around the window.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_FRAMECHANGED">
+            <summary>
+                Applies new frame styles set using the SetWindowLong function. Sends a WM_NCCALCSIZE message to the window, even if
+                the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE is sent only when the window's
+                size is being changed.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_HIDEWINDOW">
+            <summary>
+                Hides the window.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOACTIVATE">
+            <summary>
+                Does not activate the window. If this flag is not set, the window is activated and moved to the top of either the
+                topmost or non-topmost group (depending on the setting of the hWndInsertAfter parameter).
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOCOPYBITS">
+            <summary>
+                Discards the entire contents of the client area. If this flag is not specified, the valid contents of the client
+                area are saved and copied back into the client area after the window is sized or repositioned.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOMOVE">
+            <summary>
+                Retains the current position (ignores X and Y parameters).
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOOWNERZORDER">
+            <summary>
+                Does not change the owner window's position in the Z order.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOREDRAW">
+            <summary>
+                Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to the client area,
+                the nonclient area (including the title bar and scroll bars), and any part of the parent window uncovered as a
+                result of the window being moved. When this flag is set, the application must explicitly invalidate or redraw any
+                parts of the window and parent window that need redrawing.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOREPOSITION">
+            <summary>
+                Same as the SWP_NOOWNERZORDER flag.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOSENDCHANGING">
+            <summary>
+                Prevents the window from receiving the WM_WINDOWPOSCHANGING message.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOSIZE">
+            <summary>
+                Retains the current size (ignores the cx and cy parameters).
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_NOZORDER">
+            <summary>
+                Retains the current Z order (ignores the hWndInsertAfter parameter).
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_SHOWWINDOW">
+            <summary>
+                Displays the window.
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Screenshot">

@@ -12,7 +12,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-19 16:05:08
  */
-namespace CookPopularControl.Communal.Internal.Boxes
+namespace CookPopularControl.Tools.Boxes
 {
     /// <summary>
     /// 装箱后的值类型（用于提高效率）

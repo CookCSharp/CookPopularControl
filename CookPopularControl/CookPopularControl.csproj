@@ -84,4 +84,8 @@
         <Resource Include="Resources\Images\CookCSharp.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Communal\Internal\" />
+    </ItemGroup>
+
 </Project>

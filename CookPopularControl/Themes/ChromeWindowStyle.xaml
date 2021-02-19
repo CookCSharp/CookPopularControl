@@ -33,8 +33,6 @@
         </Setter>
     </Style>
     <Style x:Key="BaseChromeWindowStyle" TargetType="{x:Type ctl:ChromeWindow}">
-        <!--<Setter Property="IconWidth" Value="30" />
-        <Setter Property="IconHeight" Value="30" />-->
         <Setter Property="WindowState" Value="Normal" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
