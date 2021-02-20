@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
-namespace FuZiStar.Interop
+namespace CookPopularControl.Tools.Interop
 {
     internal static class NativeMethods
     {

@@ -14,8 +14,8 @@ using System.Windows;
  */
 namespace CookPopularControl.Controls.Windows
 {
-    public class MessageDialog : Window
+    public class MessageDialog : ChromeWindow
     {
-
+        
     }
 }

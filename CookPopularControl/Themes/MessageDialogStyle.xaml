@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctl="clr-namespace:CookPopularControl.Controls.Windows">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Skins/DefaultPopularColor.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ChromeWindowStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="BaseTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource RobotoFonts}" />
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="FontStretch" Value="Normal" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}" />
+    </Style>
+
+    <Style x:Key="BaseMessageDialog" TargetType="{x:Type ctl:MessageDialog}" BasedOn="{StaticResource BaseChromeWindowStyle}">
+        <Setter Property="MinHeight" Value="172"/>
+        <Setter Property="MinWidth" Value="335"/>
+        <Setter Property="MaxWidth" Value="476"/>
+        <Setter Property="MaxHeight" Value="680"/>
+        <Setter Property="ResizeMode" Value="CanMinimize"/>
+        <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        <Setter Property="ShowInTaskbar" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctl:MessageDialog}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel>
+                                <TextBlock Text="{TemplateBinding Title}" Style="{StaticResource BaseTextBlockStyle}"/>
+                                <Button />
+                            </DockPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
