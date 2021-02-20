@@ -4,10 +4,21 @@
         <name>CookPopularControl</name>
     </assembly>
     <members>
+        <member name="T:CookPopularControl.Communal.Attached.ButtonBaseAttached">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Primitives.ButtonBase"/>的附加属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached">
             <summary>
             提供WPF控件附加属性的基类
             </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.IconMarginProperty">
+            <summary>
+            提供<see cref="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.IconMarginProperty"/>的附加属性
+            </summary>
+            <remarks>Icon与Content的间距</remarks>
         </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
             <summary>

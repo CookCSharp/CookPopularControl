@@ -5,8 +5,11 @@
     <SolidColorBrush x:Key="AssistantColorTheme" Color="#FF5722"/>
     <SolidColorBrush x:Key="PrimaryForeground" Color="#4A4A4A"/>
     <SolidColorBrush x:Key="AssistantForeground" Color="#FFFFFF"/>
-    
-    
+
+    <!--#FF9C8844-->
+    <SolidColorBrush x:Key="ButtonBaseMouseOverBackground" Color="	#2E80FF"/>
+    <SolidColorBrush x:Key="ButtonBasePressBackground" Color="#4169E1"/>
+
     <SolidColorBrush x:Key="BlockColor" Color="#664A4A4A"/>
     <LinearGradientBrush x:Key="LinearTheme" StartPoint="0,0" EndPoint="1,1">
         <GradientStopCollection>

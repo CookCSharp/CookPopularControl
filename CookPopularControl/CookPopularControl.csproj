@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
     <PropertyGroup>
-        <TargetFrameworks>net5.0-windows;net461</TargetFrameworks>
+        <TargetFrameworks>net461;net5.0-windows</TargetFrameworks>
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
         <LangVersion>9.0</LangVersion>
@@ -85,6 +85,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Communal\Data\Enum\" />
       <Folder Include="Communal\Internal\" />
     </ItemGroup>
 

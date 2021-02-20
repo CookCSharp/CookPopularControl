@@ -1,23 +1,61 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctl="clr-namespace:CookPopularControl.Controls"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Width" Value="30" />
-        <Setter Property="Height" Value="30" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                    <Border x:Name="border" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                             Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                        <StackPanel/>
+                        <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Path x:Name="PART_ICON" Stretch="Uniform" SnapsToDevicePixels="True"
+                                  DockPanel.Dock="{TemplateBinding attached:ButtonBaseAttached.IconDirection}"
+                                  Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                  Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                  Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
+                            <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </DockPanel>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="border"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource ButtonBasePressBackground}" TargetName="border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="10,0,0,0" />
+    </Style>
+
+    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="0" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="0" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
 
 </ResourceDictionary>
