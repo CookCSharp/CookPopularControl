@@ -9,6 +9,12 @@
             提供WPF控件附加属性的基类
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.OverlayPanel">
+            <summary>
+            重叠面板
+            </summary>
+            <remarks>用于代替Grid</remarks>
+        </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindow">
             <summary>
             标准窗口<see cref="T:CookPopularControl.Controls.Windows.ChromeWindow"/>
