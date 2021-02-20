@@ -26,6 +26,56 @@
             </summary>
             <remarks>用于代替Grid</remarks>
         </member>
+        <member name="F:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKeyProperty">
+            <summary>
+              The DependencyProperty for the RecognizesAccessKey property. 
+              Default Value: false 
+            </summary> 
+        </member>
+        <member name="P:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKey">
+            <summary> 
+              Determine if Ripple should use AccessText in its style
+            </summary> 
+        </member>
+        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.SetIsCentered(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set to <c>true</c> to cause the ripple to originate from the centre of the 
+            content.  Otherwise the effect will originate from the mouse down position.        
+            </summary>
+            <param name="element"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.GetIsCentered(System.Windows.DependencyObject)">
+            <summary>
+            Set to <c>true</c> to cause the ripple to originate from the centre of the 
+            content.  Otherwise the effect will originate from the mouse down position.        
+            </summary>
+            <param name="element"></param>        
+        </member>
+        <member name="F:CookPopularControl.Controls.Ripple.RippleAssist.IsCenteredProperty">
+            <summary>
+            Set to <c>true</c> to cause the ripple to originate from the centre of the 
+            content.  Otherwise the effect will originate from the mouse down position.        
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.SetIsDisabled(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set to <c>True</c> to disable ripple effect
+            </summary>
+            <param name="element"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.GetIsDisabled(System.Windows.DependencyObject)">
+            <summary>
+            Set to <c>True</c> to disable ripple effect
+            </summary>
+            <param name="element"></param>        
+        </member>
+        <member name="F:CookPopularControl.Controls.Ripple.RippleAssist.IsDisabledProperty">
+            <summary>
+            Set to <c>True</c> to disable ripple effect
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindow">
             <summary>
             标准窗口<see cref="T:CookPopularControl.Controls.Windows.ChromeWindow"/>

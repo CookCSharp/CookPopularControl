@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 
 /*
@@ -49,5 +50,10 @@ namespace CookPopularControl.Communal.Attached
         /// <remarks>Icon与Content的间距</remarks>
         public static readonly DependencyProperty IconMarginProperty =
             DependencyProperty.RegisterAttached("IconMargin", typeof(Thickness), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.MarginLeft10Box));
+
+        public static DropShadowEffect GetShadowEffect(DependencyObject obj) => (DropShadowEffect)obj.GetValue(ShadowEffectProperty);
+        public static void SetShadowEffect(DependencyObject obj, DropShadowEffect value) => obj.SetValue(ShadowEffectProperty, value);
+        public static readonly DependencyProperty ShadowEffectProperty =
+            DependencyProperty.RegisterAttached("ShadowEffect", typeof(DropShadowEffect), typeof(FrameworkElementBaseAttached), new PropertyMetadata());
     }
 }
