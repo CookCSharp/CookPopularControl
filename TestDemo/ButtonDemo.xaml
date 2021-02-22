@@ -12,6 +12,7 @@
             <Setter Property="Width" Value="300" />
             <Setter Property="Height" Value="60" />
             <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="{StaticResource RobotoFonts}" />
             <Setter Property="Content" Value="IconWithContentButton" />
             <Setter Property="pc:FrameworkElementBaseAttached.IconGeometry" Value="{StaticResource SuccessGeometry}" />
         </Style>
@@ -35,9 +36,7 @@
                     pc:FrameworkElementBaseAttached.IconMargin="0,5,0,0"/>
         </WrapPanel>
 
-        <Button Width="300" Height="60" FontSize="20" Margin="0,20,0,0"
-                Content="DefaultButton" 
-                pc:ButtonBaseAttached.IconDirection="Top"/>
+        <Button Width="300" Height="60" Content="DefaultButton" FontSize="20" Margin="0,20,0,0"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <TextBlock Text="OnlyIconButton" FontSize="20" FontFamily="{StaticResource RobotoFonts}" VerticalAlignment="Center"/>
             <Button Width="300" Height="60" FontSize="20" Margin="20,0,155,0"

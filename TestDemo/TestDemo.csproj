@@ -12,4 +12,13 @@
     <ProjectReference Include="..\CookPopularControl\CookPopularControl.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors">
+      <HintPath>..\..\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\bin\Debug\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>..\..\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\bin\Debug\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
