@@ -1,4 +1,4 @@
-![Logo](CookPopularControl\Resources\Images\CookCSharp.ico)
+![Logo](CookPopularControl\Resources\Images\CookCSharp.png)
 
 # Welcome to CookPopularControl
 
