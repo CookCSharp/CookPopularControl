@@ -7,7 +7,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
 
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RippleStyle.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RippleStyle.xaml" />-->
 
         <!--Other-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
