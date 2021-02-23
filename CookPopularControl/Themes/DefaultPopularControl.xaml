@@ -6,7 +6,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
 
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonBaseStyle.xaml" />
 
         <!--Other-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
@@ -17,6 +17,7 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}"/>
+    <Style x:Key="{x:Type ButtonBase}" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource DefaultButtonStyle}"/>
+    <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>
 
 </ResourceDictionary>

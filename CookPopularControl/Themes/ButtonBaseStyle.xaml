@@ -15,7 +15,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RippleStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
+    <Style x:Key="BaseButtonBaseStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
@@ -25,7 +25,7 @@
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
                         <AdornerDecorator CacheMode="{TemplateBinding CacheMode}">
                             <Grid>
@@ -74,13 +74,13 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="10,0,0,0" />
     </Style>
 
-    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="0" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="0" />
