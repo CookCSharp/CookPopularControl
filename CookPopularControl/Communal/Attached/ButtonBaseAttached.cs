@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 
 /*
@@ -20,11 +21,16 @@ namespace CookPopularControl.Communal.Attached
     /// <summary>
     /// 提供<see cref="ButtonBase"/>的附加属性
     /// </summary>
-    public class ButtonBaseAttached : FrameworkElementBaseAttached
+    public class ButtonBaseAttached
     {
-        public static Dock GetIconDirection(DependencyObject obj) => (Dock)obj.GetValue(IconDirectionProperty);
-        public static void SetIconDirection(DependencyObject obj, Dock value) => obj.SetValue(IconDirectionProperty, value);
-        public static readonly DependencyProperty IconDirectionProperty =
-            DependencyProperty.RegisterAttached("IconDirection", typeof(Dock), typeof(ButtonBaseAttached), new PropertyMetadata(Dock.Right));
+        public static Brush GetButtonBaseMouseOverBackground(DependencyObject obj) => (Brush)obj.GetValue(ButtonBaseMouseOverBackgroundProperty);
+        public static void SetButtonBaseMouseOverBackground(DependencyObject obj, Brush value) => obj.SetValue(ButtonBaseMouseOverBackgroundProperty, value);
+        public static readonly DependencyProperty ButtonBaseMouseOverBackgroundProperty =
+            DependencyProperty.RegisterAttached("ButtonBaseMouseOverBackground", typeof(Brush), typeof(ButtonBaseAttached), new PropertyMetadata());
+
+        public static Brush GetButtonBasePressBackground(DependencyObject obj) => (Brush)obj.GetValue(ButtonBasePressBackgroundProperty);
+        public static void SetButtonBasePressBackground(DependencyObject obj, Brush value) => obj.SetValue(ButtonBasePressBackgroundProperty, value);
+        public static readonly DependencyProperty ButtonBasePressBackgroundProperty =
+            DependencyProperty.RegisterAttached("ButtonBasePressBackground", typeof(Brush), typeof(ButtonBaseAttached), new PropertyMetadata());
     }
 }

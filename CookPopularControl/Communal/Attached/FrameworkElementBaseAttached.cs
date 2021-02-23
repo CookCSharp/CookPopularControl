@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
@@ -42,6 +43,11 @@ namespace CookPopularControl.Communal.Attached
         public static readonly DependencyProperty IconHeightProperty =
             DependencyProperty.RegisterAttached("IconHeight", typeof(double), typeof(FrameworkElementBaseAttached), new PropertyMetadata(Double.NaN));
 
+        public static Dock GetIconDirection(DependencyObject obj) => (Dock)obj.GetValue(IconDirectionProperty);
+        public static void SetIconDirection(DependencyObject obj, Dock value) => obj.SetValue(IconDirectionProperty, value);
+        public static readonly DependencyProperty IconDirectionProperty =
+            DependencyProperty.RegisterAttached("IconDirection", typeof(Dock), typeof(FrameworkElementBaseAttached), new PropertyMetadata(Dock.Right));
+
         public static Thickness GetIconMargin(DependencyObject obj) => (Thickness)obj.GetValue(IconMarginProperty);
         public static void SetIconMargin(DependencyObject obj, Thickness value) => obj.SetValue(IconMarginProperty, value);
         /// <summary>
@@ -49,7 +55,7 @@ namespace CookPopularControl.Communal.Attached
         /// </summary>
         /// <remarks>Icon与Content的间距</remarks>
         public static readonly DependencyProperty IconMarginProperty =
-            DependencyProperty.RegisterAttached("IconMargin", typeof(Thickness), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.MarginLeft10Box));
+            DependencyProperty.RegisterAttached("IconMargin", typeof(Thickness), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.MarginRight10Box));
 
         public static DropShadowEffect GetShadowEffect(DependencyObject obj) => (DropShadowEffect)obj.GetValue(ShadowEffectProperty);
         public static void SetShadowEffect(DependencyObject obj, DropShadowEffect value) => obj.SetValue(ShadowEffectProperty, value);

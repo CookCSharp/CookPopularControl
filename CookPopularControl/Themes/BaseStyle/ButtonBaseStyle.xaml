@@ -2,7 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors">
+                    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+                    xmlns:buttonassist="clr-namespace:CookPopularControl.Controls.Button">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
@@ -23,6 +25,8 @@
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Effect" Value="{StaticResource CustomShadowDepth1}" />
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
+        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{StaticResource ButtonBaseMouseOverBackground}" />
+        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{StaticResource ButtonBasePressBackground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -32,16 +36,21 @@
                                 <Border x:Name="border" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                         BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                         Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                        Effect="{TemplateBinding Effect}"/>
+                                        Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"/>
                                 <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                    <Path x:Name="PART_ICON" Stretch="Uniform" SnapsToDevicePixels="True"
-                                          DockPanel.Dock="{TemplateBinding attached:ButtonBaseAttached.IconDirection}"
+                                    <Path x:Name="PART_ICON" Stretch="Uniform" SnapsToDevicePixels="True" 
+                                          DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                           Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                           Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                           Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                          Fill="{TemplateBinding Foreground}"
-                                          Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
-                                    <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                          Fill="{TemplateBinding Foreground}"/>
+                                    <Image x:Name="PART_Gif" Stretch="Uniform"
+                                           Width="{TemplateBinding buttonassist:ButtonAssist.GifWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.GifHeight}"
+                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                           gif:ImageBehavior.RepeatBehavior="0x" gif:ImageBehavior.AutoStart="True"
+                                           gif:ImageBehavior.AnimatedSource="{TemplateBinding buttonassist:ButtonAssist.GifSource}"/>
+                                    <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                      Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                                 </DockPanel>
                             </Grid>
                         </AdornerDecorator>
@@ -63,10 +72,10 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="border"/>
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="border"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonBasePressBackground}" TargetName="border"/>
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="border"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

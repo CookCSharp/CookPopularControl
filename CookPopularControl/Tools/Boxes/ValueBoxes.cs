@@ -48,10 +48,11 @@ namespace CookPopularControl.Tools.Boxes
         internal static readonly object FalseBox = false;
         internal static object Box(this bool value) => value ? TrueBox : FalseBox;
 
+        internal static readonly object Double0Box = 0.0;
         internal static readonly object Double10Box = 10.0;
         internal static readonly object Double30Box = 30.0;
 
         internal static readonly object CornerRadius10Box = new CornerRadius(10);
-        internal static readonly object MarginLeft10Box = new Thickness(10, 0, 0, 0);
+        internal static readonly object MarginRight10Box = new Thickness(0, 0, 10, 0);
     }
 }
