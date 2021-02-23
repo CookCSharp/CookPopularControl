@@ -12,7 +12,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
 
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RippleStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="BaseButtonBaseStyle" TargetType="{x:Type ButtonBase}">
@@ -74,17 +74,6 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonBaseStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="10,0,0,0" />
-    </Style>
-
-    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonBaseStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
-    </Style>
+    <Style x:Key="{x:Type ButtonBase}" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonBaseStyle}"/>
 
 </ResourceDictionary>
