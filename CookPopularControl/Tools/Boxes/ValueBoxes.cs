@@ -46,9 +46,10 @@ namespace CookPopularControl.Tools.Boxes
 
         internal static readonly object TrueBox = true;
         internal static readonly object FalseBox = false;
-        internal static object Box(this bool value) => value ? TrueBox : FalseBox;
+        internal static object BooleanBox(this bool value) => value ? TrueBox : FalseBox;
 
         internal static readonly object Double0Box = 0.0;
+        internal static readonly object Double1Box = 1.0;
         internal static readonly object Double10Box = 10.0;
         internal static readonly object Double30Box = 30.0;
 

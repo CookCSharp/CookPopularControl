@@ -1,13 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gifbox="clr-namespace:CookPopularControl.Controls.Animation">
 
     <ResourceDictionary.MergedDictionaries>
+        <!--Original Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ChromeWindowStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CheckBoxStyle.xaml" />
 
-        <!--Other-->
+        <!--Extension Control-->
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GifBoxStyle.xaml" />
+        
+        <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
@@ -18,5 +24,7 @@
 
     <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}"/>
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
+
+    <Style x:Key="{x:Type gifbox:GifBox}" TargetType="{x:Type gifbox:GifBox}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
 
 </ResourceDictionary>

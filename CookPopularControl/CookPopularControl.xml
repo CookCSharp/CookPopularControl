@@ -20,6 +20,41 @@
             </summary>
             <remarks>Icon与Content的间距</remarks>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.GifBox">
+            <summary>
+            提供<see cref="T:System.Windows.Media.Geometry"/>的Gif动画控件
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.GifBox._storyboard">
+            <summary>
+            动画面板
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.GifBox._pathLength">
+            <summary>
+            动画路径长度
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.GifBox.PathLength">
+            <summary>
+            Geometry路径长度
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.GifBox.Duration">
+            <summary>
+            动画持续时间
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.GifBox.RepeatBehavior">
+            <summary>
+            指定动画的重复行为
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.GifBox.IsPlay">
+            <summary>
+            动画是否播放
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
             <summary>
             重叠面板
@@ -136,82 +171,98 @@
             装箱后的值类型（用于提高效率）
             </summary>
         </member>
-        <member name="T:CookPopularControl.Tools.Extensions.WindowExtensions">
+        <member name="M:CookPopularControl.Tools.Extensions.GeometryExtension.GetTotalLength(System.Windows.Media.Geometry)">
+            <summary>
+            获取<see cref="T:System.Windows.Media.Geometry"/>路径总长度
+            </summary>
+            <param name="geometry"></param>
+            <returns><see cref="T:System.Windows.Media.Geometry"/>路径总长度</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GeometryExtension.GetTotalLength(System.Windows.Media.Geometry,System.Windows.Size,System.Double)">
+            <summary>
+            获取<see cref="T:System.Windows.Media.Geometry"/>路径总长度
+            </summary>
+            <param name="geometry"></param>
+            <param name="size"></param>
+            <param name="strokeThickness"></param>
+            <returns><see cref="T:System.Windows.Media.Geometry"/>路径总长度</returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Extensions.WindowExtension">
             <summary>
             为提 <see cref="T:System.Windows.Window" /> 供静态扩展方法。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_STOP">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_STOP">
             <summary>
             停止闪烁。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FALSHW_CAPTION">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FALSHW_CAPTION">
             <summary>
             只闪烁标题。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_TRAY">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_TRAY">
             <summary>
             只闪烁任务栏。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_ALL">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_ALL">
             <summary>
             标题和任务栏同时闪烁。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_PARAM1">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_PARAM1">
             <summary>
             
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_PARAM2">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_PARAM2">
             <summary>
             
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_TIMER">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_TIMER">
             <summary>
             无条件闪烁任务栏直到发送停止标志或者窗口被激活，如果未激活，停止时高亮。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FlashType.FLASHW_TIMERNOFG">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FlashType.FLASHW_TIMERNOFG">
             <summary>
             未激活时闪烁任务栏直到发送停止标志或者窗体被激活，停止后高亮。
             </summary>
         </member>
-        <member name="T:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO">
+        <member name="T:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FLASHWINFO">
             <summary>
             包含系统应在指定时间内闪烁窗口次数和闪烁状态的信息
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.cbSize">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FLASHWINFO.cbSize">
             <summary>
             结构大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.hwnd">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FLASHWINFO.hwnd">
             <summary>
             要闪烁或停止的窗口句柄
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.dwFlags">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FLASHWINFO.dwFlags">
             <summary>
             闪烁的类型
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.uCount">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FLASHWINFO.uCount">
             <summary>
             闪烁窗口的次数
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Extensions.WindowExtensions.NativeMethods.FLASHWINFO.dwTimeout">
+        <member name="F:CookPopularControl.Tools.Extensions.WindowExtension.NativeMethods.FLASHWINFO.dwTimeout">
             <summary>
             窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
             </summary>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.SetTopmost(System.Windows.Window,System.Boolean,System.Int32)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.SetTopmost(System.Windows.Window,System.Boolean,System.Int32)">
             <summary>
             设置当前窗口的置顶状态。
             </summary>
@@ -220,42 +271,42 @@
             <param name="millisecondsTimeout">指定操作失败时，应重试的毫秒数。</param>
             <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.SafeActivate(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.SafeActivate(System.Windows.Window)">
             <summary>
             安全的激活窗口（如果尚未创建窗口的 HWND，则创建 HWND）。
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.FlashWindow(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.FlashWindow(System.Windows.Window)">
             <summary>
             闪烁窗口的任务栏图标。
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.HwndCreatedButNotShown(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.HwndCreatedButNotShown(System.Windows.Window)">
             <summary>
             获取当前窗口是否已创建句柄但从未显示。
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.IsClosing(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.IsClosing(System.Windows.Window)">
             <summary>
             获取当前窗口是否正在关闭。
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.IsDisposed(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.IsDisposed(System.Windows.Window)">
             <summary>
             获取当前窗口是否已释放。
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtensions.ShowingAsDialog(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.ShowingAsDialog(System.Windows.Window)">
             <summary>
             获取当前窗口是否正在作为对话框显示。
             </summary>

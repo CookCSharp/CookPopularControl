@@ -15,7 +15,7 @@ namespace CookPopularControl.Tools.Extensions
     /// </summary>
     [SuppressMessage("Design", "CA1062:验证公共方法的参数", Justification = "<挂起>")]
     [SuppressMessage("Security", "CA2153:不要捕获损坏状态异常", Justification = "<挂起>")]
-    public static class WindowExtensions
+    public static class WindowExtension
     {
         private static class NativeMethods
         {
