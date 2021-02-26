@@ -3,7 +3,7 @@
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
-                    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:buttonassist="clr-namespace:CookPopularControl.Controls.Button">
 
     <ResourceDictionary.MergedDictionaries>
@@ -47,8 +47,8 @@
                                     <Image x:Name="PART_Gif" Stretch="Uniform"
                                            Width="{TemplateBinding buttonassist:ButtonAssist.GifWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.GifHeight}"
                                            DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                           gif:ImageBehavior.RepeatBehavior="0x" gif:ImageBehavior.AutoStart="True"
-                                           gif:ImageBehavior.AnimatedSource="{TemplateBinding buttonassist:ButtonAssist.GifSource}"/>
+                                           gif:AnimationBehavior.RepeatBehavior="0x" gif:AnimationBehavior.AutoStart="True"
+                                           gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"/>
                                     <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                       Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                                 </DockPanel>

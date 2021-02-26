@@ -19,10 +19,10 @@ namespace CookPopularControl.Controls.Button
 {
     public class ButtonAssist
     {
-        public static ImageSource GetGifSource(DependencyObject obj) => (ImageSource)obj.GetValue(GifSourceProperty);
-        public static void SetGifSource(DependencyObject obj, ImageSource value) => obj.SetValue(GifSourceProperty, value);
+        public static Uri GetGifSource(DependencyObject obj) => (Uri)obj.GetValue(GifSourceProperty);
+        public static void SetGifSource(DependencyObject obj, Uri value) => obj.SetValue(GifSourceProperty, value);
         public static readonly DependencyProperty GifSourceProperty =
-            DependencyProperty.RegisterAttached("GifSource", typeof(ImageSource), typeof(ButtonAssist), new PropertyMetadata(default(ImageSource)));
+            DependencyProperty.RegisterAttached("GifSource", typeof(Uri), typeof(ButtonAssist), new PropertyMetadata(default(Uri)));
 
         public static double GetGifWidth(DependencyObject obj) => (double)obj.GetValue(GifWidthProperty);
         public static void SetGifWidth(DependencyObject obj, double value) => obj.SetValue(GifWidthProperty, value);
