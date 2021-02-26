@@ -47,7 +47,7 @@ namespace CookPopularControl.Tools.Extensions
         /// <summary>
         /// 使用句柄创建gif图像
         /// </summary>
-        /// <param name="stream">句柄</param>
+        /// <param name="hbitmap">句柄</param>
         /// <param name="savePath">保存路径</param>
         public static void CreateGifFromImageFile(IntPtr hbitmap, string savePath)
         {
@@ -61,7 +61,7 @@ namespace CookPopularControl.Tools.Extensions
         /// <param name="image"></param>
         /// <param name="savePath"></param>
         /// <returns></returns>
-        private static Bitmap CreateGifFromImage(Image image, string savePath)
+        private static Bitmap? CreateGifFromImage(Image image, string savePath)
         {
             GifBitmapEncoder gifEncoder = new GifBitmapEncoder();
             bool isStop = false;

@@ -32,8 +32,8 @@
 
     <Style x:Key="ContentWithGifButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
-        <Setter Property="buttonassist:ButtonAssist.GifWidth" Value="{StaticResource Double30Value}"/>
-        <Setter Property="buttonassist:ButtonAssist.GifHeight" Value="{StaticResource Double30Value}"/>
+        <Setter Property="buttonassist:ButtonAssist.ImageWidth" Value="{StaticResource Double30Value}"/>
+        <Setter Property="buttonassist:ButtonAssist.ImageHeight" Value="{StaticResource Double30Value}"/>
     </Style>
 
     <Style x:Key="GifButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ContentWithGifButtonStyle}">

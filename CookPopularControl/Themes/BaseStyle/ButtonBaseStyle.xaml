@@ -45,7 +45,8 @@
                                           Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
                                           Fill="{TemplateBinding Foreground}"/>
                                     <Image x:Name="PART_Gif" Stretch="Uniform"
-                                           Width="{TemplateBinding buttonassist:ButtonAssist.GifWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.GifHeight}"
+                                           Source="{TemplateBinding buttonassist:ButtonAssist.ImageSource}"
+                                           Width="{TemplateBinding buttonassist:ButtonAssist.ImageWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.ImageHeight}"
                                            DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                            gif:AnimationBehavior.RepeatBehavior="0x" gif:AnimationBehavior.AutoStart="True"
                                            gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"

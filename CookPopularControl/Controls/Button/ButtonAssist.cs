@@ -33,14 +33,19 @@ namespace CookPopularControl.Controls.Button
         public static readonly DependencyProperty GifStreamProperty =
             DependencyProperty.RegisterAttached("GifStream", typeof(Stream), typeof(ButtonAssist), new PropertyMetadata(default(Stream)));
 
-        public static double GetGifWidth(DependencyObject obj) => (double)obj.GetValue(GifWidthProperty);
-        public static void SetGifWidth(DependencyObject obj, double value) => obj.SetValue(GifWidthProperty, value);
-        public static readonly DependencyProperty GifWidthProperty =
-            DependencyProperty.RegisterAttached("GifWidth", typeof(double), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.Double0Box));
+        public static ImageSource GetImageSource(DependencyObject obj) => (ImageSource)obj.GetValue(ImageSourceProperty);
+        public static void SetImageSource(DependencyObject obj, ImageSource value) => obj.SetValue(ImageSourceProperty, value);
+        public static readonly DependencyProperty ImageSourceProperty =
+            DependencyProperty.RegisterAttached("ImageSource", typeof(ImageSource), typeof(ButtonAssist), new PropertyMetadata(default(ImageSource)));
 
-        public static double GetGifHeight(DependencyObject obj) => (double)obj.GetValue(GifHeightProperty);
-        public static void SetGifHeight(DependencyObject obj, double value) => obj.SetValue(GifHeightProperty, value);
-        public static readonly DependencyProperty GifHeightProperty =
-            DependencyProperty.RegisterAttached("GifHeight", typeof(double), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.Double0Box));
+        public static double GetImageWidth(DependencyObject obj) => (double)obj.GetValue(ImageWidthProperty);
+        public static void SetImageWidth(DependencyObject obj, double value) => obj.SetValue(ImageWidthProperty, value);
+        public static readonly DependencyProperty ImageWidthProperty =
+            DependencyProperty.RegisterAttached("ImageWidth", typeof(double), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.Double0Box));
+
+        public static double GetImageHeight(DependencyObject obj) => (double)obj.GetValue(ImageHeightProperty);
+        public static void SetImageHeight(DependencyObject obj, double value) => obj.SetValue(ImageHeightProperty, value);
+        public static readonly DependencyProperty ImageHeightProperty =
+            DependencyProperty.RegisterAttached("ImageHeight", typeof(double), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.Double0Box));
     }
 }
