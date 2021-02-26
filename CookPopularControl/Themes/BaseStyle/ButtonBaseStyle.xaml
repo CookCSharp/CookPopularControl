@@ -27,6 +27,8 @@
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{StaticResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{StaticResource ButtonBasePressBackground}" />
+        <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
+        <Setter Property="gif:AnimationBehavior.AutoStart" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -48,7 +50,8 @@
                                            Source="{TemplateBinding buttonassist:ButtonAssist.ImageSource}"
                                            Width="{TemplateBinding buttonassist:ButtonAssist.ImageWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.ImageHeight}"
                                            DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                           gif:AnimationBehavior.RepeatBehavior="0x" gif:AnimationBehavior.AutoStart="True"
+                                           gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
+                                           gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
                                            gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"
                                            gif:AnimationBehavior.SourceStream="{TemplateBinding buttonassist:ButtonAssist.GifStream}"/>
                                     <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"

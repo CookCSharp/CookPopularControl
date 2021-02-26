@@ -14,6 +14,7 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
       <DefineConstants>DEBUG;TRACE</DefineConstants>
+      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -54,7 +55,7 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
-      <PackageReference Include="WpfAnimatedGif" Version="2.0.0" />
+      <PackageReference Include="XamlAnimatedGif" Version="2.0.0-alpha.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -91,6 +92,7 @@
     <ItemGroup>
       <Folder Include="Communal\Data\Enum\" />
       <Folder Include="Communal\Internal\" />
+      <Folder Include="Controls\Animation\Loading\" />
     </ItemGroup>
 
 </Project>

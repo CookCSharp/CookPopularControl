@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace CookPopularControl.Communal.Converters
 {
-    internal class BorderClipConverter : IMultiValueConverter
+    public class BorderClipConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

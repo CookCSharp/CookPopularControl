@@ -55,6 +55,11 @@
             动画是否播放
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
+            <summary>
+            提供<see cref="T:System.IO.Stream"/>的Gif图像
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
             <summary>
             重叠面板
@@ -186,6 +191,40 @@
             <param name="size"></param>
             <param name="strokeThickness"></param>
             <returns><see cref="T:System.Windows.Media.Geometry"/>路径总长度</returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Extensions.GifExtension">
+            <summary>
+            提供Gif创建的扩展方法
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromImageFile(System.String,System.String)">
+            <summary>
+            从指定的文件名创建Gif图像
+            </summary>
+            <param name="fileName">文件名</param>
+            <param name="savePath">保存路径</param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromStream(System.IO.Stream,System.String)">
+            <summary>
+            使用文件流创建gif图像
+            </summary>
+            <param name="stream">文件流</param>
+            <param name="savePath">保存路径</param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromImageFile(System.IntPtr,System.String)">
+            <summary>
+            使用句柄创建gif图像
+            </summary>
+            <param name="hbitmap">句柄</param>
+            <param name="savePath">保存路径</param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromImage(System.Drawing.Image,System.String)">
+            <summary>
+            创建gif文件
+            </summary>
+            <param name="image"></param>
+            <param name="savePath"></param>
+            <returns></returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.WindowExtension">
             <summary>
