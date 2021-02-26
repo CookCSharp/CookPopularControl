@@ -48,7 +48,8 @@
                                            Width="{TemplateBinding buttonassist:ButtonAssist.GifWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.GifHeight}"
                                            DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                            gif:AnimationBehavior.RepeatBehavior="0x" gif:AnimationBehavior.AutoStart="True"
-                                           gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"/>
+                                           gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"
+                                           gif:AnimationBehavior.SourceStream="{TemplateBinding buttonassist:ButtonAssist.GifStream}"/>
                                     <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                       Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                                 </DockPanel>
