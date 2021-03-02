@@ -90,9 +90,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Communal\Data\Enum\" />
       <Folder Include="Communal\Internal\" />
-      <Folder Include="Controls\Animation\Loading\" />
     </ItemGroup>
 
 </Project>

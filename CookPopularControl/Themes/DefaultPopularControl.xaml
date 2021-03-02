@@ -28,15 +28,7 @@
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
 
     <Style x:Key="{x:Type gifbox:GifBox}" TargetType="{x:Type gifbox:GifBox}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
-    <!--<Style x:Key="{x:Type loading:DotLoading}" TargetType="{x:Type loading:DotLoading}" BasedOn="{StaticResource BaseLoadingStyle}"/>-->
+    <Style x:Key="{x:Type loading:DotLoading}" TargetType="{x:Type loading:DotLoading}" BasedOn="{StaticResource BaseLoadingStyle}"/>
 
-    <Style x:Key="{x:Type loading:DotLoading}" TargetType="{x:Type loading:DotLoading}">
-        <Setter Property="DotCount" Value="5" />
-        <Setter Property="DotInterval" Value="20" />
-        <Setter Property="DotRadius" Value="10" />
-        <Setter Property="DotRunSpeed" Value="1.5" />
-        <Setter Property="DotStroke" Value="DodgerBlue" />
-        <Setter Property="DotStrokeThickness" Value="1" />
-    </Style>
 
 </ResourceDictionary>

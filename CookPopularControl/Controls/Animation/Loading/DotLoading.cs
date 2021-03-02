@@ -116,6 +116,21 @@ namespace CookPopularControl.Controls.Animation.Loading
             DependencyProperty.Register("DotRunSpeed", typeof(double), typeof(DotLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
+        /// <summary>
+        /// 点之间延迟时间
+        /// </summary>
+        public double DotDelayTime
+        {
+            get { return (double)GetValue(DotDelayTimeProperty); }
+            set { SetValue(DotDelayTimeProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="DotDelayTime"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty DotDelayTimeProperty =
+            DependencyProperty.Register("DotDelayTime", typeof(double), typeof(DotLoading),
+                new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesValueChanged));
+
 
         /// <summary>
         /// 依赖属性值改变时触发
@@ -130,17 +145,25 @@ namespace CookPopularControl.Controls.Animation.Loading
         }
 
         private const double duration = 4D;
-        private const double delayTime = 230D;
         private Canvas canvas = new Canvas { ClipToBounds = true };
 
         static DotLoading()
         {
-            //DefaultStyleKeyProperty.OverrideMetadata(typeof(DotLoading), new FrameworkPropertyMetadata(typeof(DotLoading)));
+            ContentProperty.OverrideMetadata(typeof(DotLoading), new FrameworkPropertyMetadata(typeof(DotLoading),
+                FrameworkPropertyMetadataOptions.None,new PropertyChangedCallback(ContentValueChanged)));
+        }
+
+        private static void ContentValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var dot = d as DotLoading;
+            if (dot != null)
+                dot.Content = dot.canvas;
         }
 
         public DotLoading()
         {
             Content = canvas;
+            canvas.SetBinding(Canvas.BackgroundProperty, new Binding(BackgroundProperty.Name) { Source = this });
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -149,6 +172,9 @@ namespace CookPopularControl.Controls.Animation.Loading
             UpdateDotsAnimation();
         }
 
+        /// <summary>
+        /// 更新点动画
+        /// </summary>
         private void UpdateDotsAnimation()
         {
             if (DotCount < 1) return;
@@ -163,10 +189,10 @@ namespace CookPopularControl.Controls.Animation.Loading
             for (int i = 0; i < DotCount; i++)
             {
                 var container = CreateContainer(i);
-                var angle = -DotInterval * i + 360;
+                var angle = -DotInterval * i / (2 * Math.PI * Width / 2) * 360;
                 var frames = new DoubleAnimationUsingKeyFrames
                 {
-                    BeginTime = TimeSpan.FromMilliseconds(delayTime * i)
+                    BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i),                    
                 };
 
                 var frame1 = new LinearDoubleKeyFrame
@@ -174,24 +200,86 @@ namespace CookPopularControl.Controls.Animation.Loading
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero),
                     Value = angle + 0,
                 };
+
+                //第一个180°上坡
                 var frame2 = new EasingDoubleKeyFrame
                 {
-                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseInOut },
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.90 * duration)),
+                    EasingFunction = new SineEase { EasingMode = EasingMode.EaseOut },
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.3 * duration)),
+                    Value = angle + 180,
+                };
+                var frame3 = new LinearDoubleKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.35 * duration)),
+                    Value = angle + 182,
+                };
+
+                //第一个180°下坡
+                var frame4 = new EasingDoubleKeyFrame
+                {
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn },
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5 * duration)),
                     Value = angle + 360,
+                };
+
+                //第二个180°上坡
+                var frame5 = new EasingDoubleKeyFrame
+                {
+                    EasingFunction = new SineEase { EasingMode = EasingMode.EaseOut },
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.8 * duration)),
+                    Value = angle + 540,
+                };
+                var frame6 = new LinearDoubleKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.85 * duration)),
+                    Value = angle + 542,
+                };
+
+                //第二个180°下坡
+                var frame7 = new EasingDoubleKeyFrame
+                {
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn },
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1.0 * duration)),
+                    Value = angle + 720,
                 };
 
                 frames.KeyFrames.Add(frame1);
                 frames.KeyFrames.Add(frame2);
-
+                frames.KeyFrames.Add(frame3);
+                frames.KeyFrames.Add(frame4);
+                frames.KeyFrames.Add(frame5);
+                frames.KeyFrames.Add(frame6);
+                frames.KeyFrames.Add(frame7);
                 Storyboard.SetTarget(frames, container);
                 Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
                 storyboard.Children.Add(frames);
+
+                //控制Dot的显示与隐藏，模仿windows效果
+                var frame8 = new DiscreteObjectKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1.0 * duration)),
+                    Value = Visibility.Collapsed,
+                };
+                var frame9 = new DiscreteObjectKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero),
+                    Value = Visibility.Visible,
+                };
+                var framesVisibility = new ObjectAnimationUsingKeyFrames
+                {
+                    BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i)
+                };
+                framesVisibility.KeyFrames.Add(frame8);
+                framesVisibility.KeyFrames.Add(frame9);
+                Storyboard.SetTarget(framesVisibility, container);
+                Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
+                storyboard.Children.Add(framesVisibility);
 
                 canvas.Children.Add(container);
             }
 
             storyboard.Begin(canvas, HandoffBehavior.SnapshotAndReplace, true);
+            storyboard.Freeze();
         }
 
         /// <summary>
@@ -203,15 +291,16 @@ namespace CookPopularControl.Controls.Animation.Loading
         {
             var dot = CreateEllipse(index);
             dot.HorizontalAlignment = HorizontalAlignment.Center;
-            dot.VerticalAlignment = VerticalAlignment.Top;
+            dot.VerticalAlignment = VerticalAlignment.Bottom;
 
             var border = new Border();
-            RotateTransform rt = new RotateTransform() { Angle = -DotInterval * index };
+            RotateTransform rt = new RotateTransform() { Angle = -DotInterval * index / (2 * Math.PI * Width / 2) * 360 };
             TransformGroup transformGroup = new TransformGroup();
             transformGroup.Children.Add(rt);
             border.RenderTransformOrigin = new Point(0.5, 0.5);
             border.RenderTransform = transformGroup;
             border.Child = dot;
+            border.Visibility = Visibility.Collapsed; //隐藏Dot，由动画控制显示
             border.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
             border.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });
 

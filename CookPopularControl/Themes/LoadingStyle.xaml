@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="BaseLoadingStyle" TargetType="{x:Type loading:DotLoading}">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="80" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="DotCount" Value="6" />
+        <Setter Property="DotInterval" Value="14" />
+        <Setter Property="DotRadius" Value="10" />
+        <Setter Property="DotRunSpeed" Value="1" />
+        <Setter Property="DotDelayTime" Value="80" />
+        <Setter Property="DotStroke" Value="DodgerBlue" />
+        <Setter Property="DotStrokeThickness" Value="1" />
+    </Style>
+
+</ResourceDictionary>
