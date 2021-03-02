@@ -28,7 +28,7 @@
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
 
     <Style x:Key="{x:Type gifbox:GifBox}" TargetType="{x:Type gifbox:GifBox}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
-    <Style x:Key="{x:Type loading:DotLoading}" TargetType="{x:Type loading:DotLoading}" BasedOn="{StaticResource BaseLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:DotLoading}" TargetType="{x:Type loading:DotLoading}" BasedOn="{StaticResource CircleLoadingStyle}"/>
 
 
 </ResourceDictionary>

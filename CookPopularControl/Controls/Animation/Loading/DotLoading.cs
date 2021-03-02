@@ -27,6 +27,21 @@ namespace CookPopularControl.Controls.Animation.Loading
     public class DotLoading : ContentControl
     {
         /// <summary>
+        /// Dot是否正在运动
+        /// </summary>
+        public bool IsDotRunning
+        {
+            get { return (bool)GetValue(IsDotRunningProperty); }
+            set { SetValue(IsDotRunningProperty, ValueBoxes.BooleanBox(value)); }
+        }
+        /// <summary>
+        /// 提供<see cref="IsDotRunning"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsDotRunningProperty =
+            DependencyProperty.Register("IsDotRunning", typeof(bool), typeof(DotLoading),
+                new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+
+        /// <summary>
         /// 点的数量
         /// </summary>
         public int DotCount
@@ -57,19 +72,20 @@ namespace CookPopularControl.Controls.Animation.Loading
                 new FrameworkPropertyMetadata(ValueBoxes.Double5Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
-        /// 点的BoderThcikness
+        /// Dot半径是按照否比例系数变化
         /// </summary>
-        public double DotStrokeThickness
+        /// <remarks>默认值为false</remarks>
+        public bool IsDotRadiusEqualScale
         {
-            get { return (double)GetValue(DotStrokeThicknessProperty); }
-            set { SetValue(DotStrokeThicknessProperty, value); }
+            get { return (bool)GetValue(IsDotRadiusEqualScaleProperty); }
+            set { SetValue(IsDotRadiusEqualScaleProperty, ValueBoxes.BooleanBox(value)); }
         }
         /// <summary>
-        /// 提供<see cref="DotStrokeThickness"/>的依赖属性
+        /// 提供<see cref="IsDotRadiusEqualScale"/>的依赖属性
         /// </summary>
-        public static readonly DependencyProperty DotStrokeThicknessProperty =
-            DependencyProperty.Register("DotStrokeThickness", typeof(double), typeof(DotLoading),
-                new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+        public static readonly DependencyProperty IsDotRadiusEqualScaleProperty =
+            DependencyProperty.Register("IsDotRadiusEqualScale", typeof(bool), typeof(DotLoading),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
         /// 点的BorderBrush
@@ -87,6 +103,21 @@ namespace CookPopularControl.Controls.Animation.Loading
                 new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
+        /// 点的BoderThcikness
+        /// </summary>
+        public double DotStrokeThickness
+        {
+            get { return (double)GetValue(DotStrokeThicknessProperty); }
+            set { SetValue(DotStrokeThicknessProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="DotStrokeThickness"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty DotStrokeThicknessProperty =
+            DependencyProperty.Register("DotStrokeThickness", typeof(double), typeof(DotLoading),
+                new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+
+        /// <summary>
         /// 相邻点之间的间隔距离
         /// </summary>
         public double DotInterval
@@ -100,6 +131,21 @@ namespace CookPopularControl.Controls.Animation.Loading
         public static readonly DependencyProperty DotIntervalProperty =
             DependencyProperty.Register("DotInterval", typeof(double), typeof(DotLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+
+        /// <summary>
+        /// 动画持续时间
+        /// </summary>
+        public Duration DotDuration
+        {
+            get { return (Duration)GetValue(DotDurationProperty); }
+            set { SetValue(DotDurationProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="DotDuration"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty DotDurationProperty =
+            DependencyProperty.Register("DotDuration", typeof(Duration), typeof(DotLoading),
+                new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(4)), FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
         /// 点的运行速率
@@ -131,6 +177,20 @@ namespace CookPopularControl.Controls.Animation.Loading
             DependencyProperty.Register("DotDelayTime", typeof(double), typeof(DotLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesValueChanged));
 
+        /// <summary>
+        /// 点是否匀速运动
+        /// </summary>
+        public bool IsDotRunAsConstant
+        {
+            get { return (bool)GetValue(IsDotRunAsConstantProperty); }
+            set { SetValue(IsDotRunAsConstantProperty, ValueBoxes.BooleanBox(value)); }
+        }
+        /// <summary>
+        /// 提供的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsDotRunAsConstantProperty =
+            DependencyProperty.Register("IsDotRunAsConstant", typeof(bool), typeof(DotLoading),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
         /// 依赖属性值改变时触发
@@ -144,13 +204,13 @@ namespace CookPopularControl.Controls.Animation.Loading
                 dotloading.UpdateDotsAnimation();
         }
 
-        private const double duration = 4D;
-        private Canvas canvas = new Canvas { ClipToBounds = true };
+        private Storyboard? storyboard;
+        private Canvas canvas = new Canvas { ClipToBounds = true }; //绘图面板
 
         static DotLoading()
         {
             ContentProperty.OverrideMetadata(typeof(DotLoading), new FrameworkPropertyMetadata(typeof(DotLoading),
-                FrameworkPropertyMetadataOptions.None,new PropertyChangedCallback(ContentValueChanged)));
+                FrameworkPropertyMetadataOptions.None, new PropertyChangedCallback(ContentValueChanged)));
         }
 
         private static void ContentValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -180,19 +240,40 @@ namespace CookPopularControl.Controls.Animation.Loading
             if (DotCount < 1) return;
             canvas.Children.Clear();
 
-            Storyboard storyboard = new Storyboard
+            //定义一个点动画
+            storyboard = new Storyboard
             {
                 RepeatBehavior = RepeatBehavior.Forever,
                 SpeedRatio = DotRunSpeed,
             };
 
+            if (IsDotRunAsConstant)
+                ConstantSpeedRun();
+            else
+                UDSpeedRun();
+
+            storyboard?.Begin();
+            storyboard?.Freeze();
+
+            if (IsDotRunning)
+                storyboard?.Resume();
+            else
+                storyboard?.Pause();
+        }
+
+        /// <summary>
+        /// 加速与减速运动
+        /// </summary>
+        private void UDSpeedRun()
+        {
+            var duration = DotDuration.TimeSpan.TotalSeconds;
             for (int i = 0; i < DotCount; i++)
             {
                 var container = CreateContainer(i);
                 var angle = -DotInterval * i / (2 * Math.PI * Width / 2) * 360;
                 var frames = new DoubleAnimationUsingKeyFrames
                 {
-                    BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i),                    
+                    BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i),
                 };
 
                 var frame1 = new LinearDoubleKeyFrame
@@ -252,12 +333,12 @@ namespace CookPopularControl.Controls.Animation.Loading
                 frames.KeyFrames.Add(frame7);
                 Storyboard.SetTarget(frames, container);
                 Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
-                storyboard.Children.Add(frames);
+                storyboard?.Children.Add(frames);
 
                 //控制Dot的显示与隐藏，模仿windows效果
                 var frame8 = new DiscreteObjectKeyFrame
                 {
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1.0 * duration)),
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(duration)),
                     Value = Visibility.Collapsed,
                 };
                 var frame9 = new DiscreteObjectKeyFrame
@@ -273,13 +354,57 @@ namespace CookPopularControl.Controls.Animation.Loading
                 framesVisibility.KeyFrames.Add(frame9);
                 Storyboard.SetTarget(framesVisibility, container);
                 Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
-                storyboard.Children.Add(framesVisibility);
+                storyboard?.Children.Add(framesVisibility);
 
                 canvas.Children.Add(container);
             }
+        }
 
-            storyboard.Begin(canvas, HandoffBehavior.SnapshotAndReplace, true);
-            storyboard.Freeze();
+        /// <summary>
+        /// 匀速运动
+        /// </summary>
+        private void ConstantSpeedRun()
+        {
+            for (int i = 0; i < DotCount; i++)
+            {
+                var container = CreateContainer(i);
+                var angle = -DotInterval * i / (2 * Math.PI * Width / 2) * 360;
+                var frames = new DoubleAnimationUsingKeyFrames
+                {
+                    BeginTime = TimeSpan.Zero,
+                };
+
+                var frame1 = new LinearDoubleKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero),
+                    Value = angle + 0,
+                };
+                var frame2 = new LinearDoubleKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotDuration.TimeSpan.TotalSeconds)),
+                    Value = angle + 360,
+                };
+
+                frames.KeyFrames.Add(frame1);
+                frames.KeyFrames.Add(frame2);
+
+                Storyboard.SetTarget(frames, container);
+                Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
+                storyboard?.Children.Add(frames);
+
+                var framesVisibility = new ObjectAnimationUsingKeyFrames();
+                var frame3 = new DiscreteObjectKeyFrame
+                {
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero),
+                    Value = Visibility.Visible,
+                };
+                framesVisibility.KeyFrames.Add(frame3);
+                Storyboard.SetTarget(framesVisibility, container);
+                Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
+                storyboard?.Children.Add(framesVisibility);
+
+                canvas.Children.Add(container);
+            }
         }
 
         /// <summary>
@@ -315,8 +440,16 @@ namespace CookPopularControl.Controls.Animation.Loading
         private Ellipse CreateEllipse(int index)
         {
             var ellipse = new Ellipse();
-            ellipse.SetBinding(WidthProperty, new Binding(DotRadiusProperty.Name) { Source = this });
-            ellipse.SetBinding(HeightProperty, new Binding(DotRadiusProperty.Name) { Source = this });
+            if (IsDotRadiusEqualScale)
+            {
+                ellipse.SetValue(Ellipse.WidthProperty, (index + 1D) / DotCount * DotRadius);
+                ellipse.SetValue(Ellipse.HeightProperty, (index + 1D) / DotCount * DotRadius);
+            }
+            else
+            {
+                ellipse.SetBinding(Ellipse.WidthProperty, new Binding(DotRadiusProperty.Name) { Source = this });
+                ellipse.SetBinding(Ellipse.HeightProperty, new Binding(DotRadiusProperty.Name) { Source = this });
+            }
             ellipse.SetBinding(Shape.FillProperty, new Binding(ForegroundProperty.Name) { Source = this });
             ellipse.SetBinding(Shape.StrokeProperty, new Binding(DotStrokeProperty.Name) { Source = this });
             ellipse.SetBinding(Shape.StrokeThicknessProperty, new Binding(DotStrokeThicknessProperty.Name) { Source = this });
