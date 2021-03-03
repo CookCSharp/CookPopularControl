@@ -272,11 +272,13 @@ namespace CookPopularControl.Controls.Animation.Loading
         /// <summary>
         /// 匀速运动
         /// </summary>
+        /// <remarks><see cref="IsDotRunAsConstant"/>为True时</remarks>
         protected abstract void ConstantSpeedRun();
 
         /// <summary>
         /// 加速与减速运动
         /// </summary>
+        /// <remarks><see cref="IsDotRunAsConstant"/>为False时</remarks>
         protected abstract void UDSpeedRun();
 
         /// <summary>

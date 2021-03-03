@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows;
 using System.Windows.Media.Animation;
 using CookPopularControl.Tools.Boxes;
+using System.Windows.Media.Effects;
 
 
 /*
@@ -35,69 +36,41 @@ namespace CookPopularControl.Controls.Animation.Loading
         /// 钟摆的滑动距离
         /// </summary>
         public static readonly DependencyProperty PendulumSlipDistanceProperty =
-            DependencyProperty.RegisterAttached("PendulumSlipDistance", typeof(double), typeof(DotPendulumLoading), 
+            DependencyProperty.RegisterAttached("PendulumSlipDistance", typeof(double), typeof(DotPendulumLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+
 
         protected override void ConstantSpeedRun()
         {
-            throw new NotImplementedException();
-        }
-
-        protected override void UDSpeedRun()
-        {
             double angle;
             double distance;
-            double value;
             for (int i = 0; i < DotCount; i++)
             {
                 var container = CreateContainer(i);
                 if (i == 0 || i == DotCount - 1)
                 {
-                    if (i == 0)
-                        angle = -GetPendulumSwingAngle(this);
-                    else
-                        angle = GetPendulumSwingAngle(this);
-
-                    value = angle;
-
-                    if (angle.Equals(0))
-                    {
-                        if (i == 0)
-                            distance = GetPendulumSlipDistance(this) + StartValue(i);
-                        else
-                            distance = -GetPendulumSlipDistance(this) + StartValue(i);
-
-                        value = distance;
-                    }
-
                     var frames = new DoubleAnimationUsingKeyFrames
                     {
                         BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i),
                     };
 
-                    var frame1 = new LinearDoubleKeyFrame
-                    {
-                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero),
-                        Value = 0,
-                    };
-                    var frame2 = new EasingDoubleKeyFrame
-                    {
-                        EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut },
-                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.65 * duration)),
-                        Value = value,
-                    };
-                    var frame3 = new EasingDoubleKeyFrame
-                    {
-                        EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn },
-                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(duration)),
-                        Value = 0,
-                    };
+                    if (i == 0)
+                        angle = -GetPendulumSwingAngle(this);
+                    else
+                        angle = GetPendulumSwingAngle(this);
 
-                    frames.KeyFrames.Add(frame1);
-                    frames.KeyFrames.Add(frame2);
-                    frames.KeyFrames.Add(frame3);
+                    if (angle.Equals(0))
+                    {
+                        if (i == 0)
+                            distance = StartValue(i) + halfOfAllDotsLength + GetPendulumSlipDistance(this);
+                        else
+                            distance = StartValue(i) + halfOfAllDotsLength - GetPendulumSlipDistance(this);
 
-                    storyboard!.AutoReverse = true;
+                        GetFramesWhenAngleChanged(frames, i, distance, 1);
+                    }
+                    else
+                        GetFramesWhenAngleChanged(frames, i, angle, 0);
+
                     Storyboard.SetTarget(frames, container);
                     if (!angle.Equals(0))
                         Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
@@ -108,6 +81,81 @@ namespace CookPopularControl.Controls.Animation.Loading
 
                 dotLoadingCanvas?.Children.Add(container);
             }
+        }
+
+        protected override void UDSpeedRun()
+        {
+            double angle;
+            double distance;
+            for (int i = 0; i < DotCount; i++)
+            {
+                var container = CreateContainer(i);
+                if (i == 0 || i == DotCount - 1)
+                {
+                    var frames = new DoubleAnimationUsingKeyFrames
+                    {
+                        BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i),
+                    };
+
+                    if (i == 0)
+                        angle = -GetPendulumSwingAngle(this);
+                    else
+                        angle = GetPendulumSwingAngle(this);
+
+                    if (angle.Equals(0))
+                    {
+                        if (i == 0)
+                            distance = StartValue(i) + halfOfAllDotsLength + GetPendulumSlipDistance(this);
+                        else
+                            distance = StartValue(i) + halfOfAllDotsLength - GetPendulumSlipDistance(this);
+
+                        GetFramesWhenAngleChanged(frames, i, distance, 1);
+                    }
+                    else
+                        GetFramesWhenAngleChanged(frames, i, angle, 0);
+
+                    Storyboard.SetTarget(frames, container);
+                    if (!angle.Equals(0))
+                        Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
+                    else
+                        Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"));
+                    storyboard?.Children.Add(frames);
+                }
+
+                dotLoadingCanvas?.Children.Add(container);
+            }
+        }
+
+        /// <summary>
+        /// 获取动画的<see cref="DoubleKeyFrame"/>对象的集合
+        /// </summary>
+        /// <param name="frames"></param>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        /// <param name="flag">标志位,angle为0时值为1，angle不为0是，值为0</param>
+        private void GetFramesWhenAngleChanged(DoubleAnimationUsingKeyFrames frames, int index, double value, int flag)
+        {
+            var frame1 = new LinearDoubleKeyFrame
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero),
+                Value = (StartValue(index) + halfOfAllDotsLength) * flag,
+            };
+            var frame2 = new EasingDoubleKeyFrame
+            {
+                EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut },
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.65 * duration)),
+                Value = value,
+            };
+            var frame3 = new EasingDoubleKeyFrame
+            {
+                EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn },
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(duration)),
+                Value = (StartValue(index) + halfOfAllDotsLength) * flag,
+            };
+
+            frames.KeyFrames.Add(frame1);
+            frames.KeyFrames.Add(frame2);
+            frames.KeyFrames.Add(frame3);
         }
 
         protected override Border CreateContainer(int index)
@@ -130,6 +178,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.Child = dot;
             border.Width = Width;
             border.Height = Height;
+            //border.Effect = Application.Current.Resources["CustomShadowDepth2"] as DropShadowEffect;
 
             return border;
         }

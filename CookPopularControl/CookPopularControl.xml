@@ -217,11 +217,13 @@
             <summary>
             匀速运动
             </summary>
+            <remarks><see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstant"/>为True时</remarks>
         </member>
         <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.UDSpeedRun">
             <summary>
             加速与减速运动
             </summary>
+            <remarks><see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstant"/>为False时</remarks>
         </member>
         <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.CreateContainer(System.Int32)">
             <summary>
@@ -253,6 +255,15 @@
             <summary>
             钟摆的滑动距离
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.GetFramesWhenAngleChanged(System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames,System.Int32,System.Double,System.Int32)">
+            <summary>
+            获取动画的<see cref="T:System.Windows.Media.Animation.DoubleKeyFrame"/>对象的集合
+            </summary>
+            <param name="frames"></param>
+            <param name="index"></param>
+            <param name="value"></param>
+            <param name="flag">标志位,angle为0时值为1，angle不为0是，值为0</param>
         </member>
         <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
             <summary>
@@ -686,36 +697,6 @@
             <param name="bitmap">当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</param>
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>
