@@ -30,7 +30,9 @@
 
     <Grid>
         <!--<local:ButtonDemo />-->
-        <local:GifBoxDemo />
+        <!--<local:GifBoxDemo />-->
+        <!--<local:AnimationDemo />-->
+        <local:LoadingDemo />
     </Grid>
 
 

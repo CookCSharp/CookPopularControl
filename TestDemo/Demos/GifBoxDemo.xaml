@@ -11,7 +11,7 @@
     <Grid>
         <Viewbox Width="200" Height="200">
             <pc:GifBox Width="200" Height="200" Duration="0:0:5" Stretch="Uniform"
-                       Stroke="DodgerBlue" StrokeThickness="10" Data="{StaticResource CloseGeometry}"/>
+                       Stroke="DodgerBlue" StrokeThickness="10" Data="{StaticResource FatalGeometry}"/>
         </Viewbox>
     </Grid>
     

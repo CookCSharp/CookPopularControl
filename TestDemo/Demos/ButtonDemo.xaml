@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -56,19 +56,21 @@
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
                 <Button Width="320" Height="200" Content="ContentWithGifButton" FontSize="20"
                         pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
-                        pc:ButtonAssist.GifWidth="50"
-                        pc:ButtonAssist.GifHeight="50"
+                        pc:ButtonAssist.ImageWidth="50"
+                        pc:ButtonAssist.ImageHeight="50"
                         pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
                         Style="{StaticResource ContentWithGifButtonStyle}"/>
                 <Button Width="200" Height="200" Margin="20,0"
                         pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
-                        pc:ButtonAssist.GifWidth="100"
-                        pc:ButtonAssist.GifHeight="100"
+                        pc:ButtonAssist.ImageWidth="100"
+                        pc:ButtonAssist.ImageHeight="100"
+                        gif:AnimationBehavior.AutoStart="True"
+                        gif:AnimationBehavior.RepeatBehavior="10x"
                         Style="{StaticResource GifButtonStyle}"/>
-                <Button Width="105" Height="50"
-                        pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
-                        pc:ButtonAssist.GifWidth="100"
-                        pc:ButtonAssist.GifHeight="100"
+                <Button Width="200" Height="200"
+                        pc:ButtonAssist.ImageSource="/Resources/Gif/tomcat.jpg"
+                        pc:ButtonAssist.ImageWidth="200"
+                        pc:ButtonAssist.ImageHeight="200"
                         Style="{StaticResource GifTransparentButtonStyle}"/>
             </WrapPanel>
             
