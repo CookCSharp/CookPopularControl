@@ -16,9 +16,19 @@ namespace CookPopularControl.Communal.Data.Enum
     /// <summary>
     /// 加载缓动画类型
     /// </summary>
-    public enum LoadingEase
+    public enum DotLoadingTrack
     {
-        Normal,
-        Dealy,
+        /// <summary>
+        /// 圆
+        /// </summary>
+        Circle,
+        /// <summary>
+        /// 直线
+        /// </summary>
+        Line,
+        /// <summary>
+        /// 钟摆
+        /// </summary>
+        Pendulum
     }
 }
