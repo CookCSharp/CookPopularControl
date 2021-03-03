@@ -75,179 +75,184 @@
             动画是否播放
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.DotLoading">
+        <member name="T:CookPopularControl.Controls.Animation.Loading.DotCircleLoading">
             <summary>
-            由点组成的加载动画
-            </summary>
-            <remarks>包含圆、直线、摆钟</remarks>
-        </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.LoadingTrack">
-            <summary>
-            运动轨迹
+            表示点按照圆的轨迹运动形成的动画
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.LoadingTrackProperty">
+        <member name="T:CookPopularControl.Controls.Animation.Loading.DotLineLoading">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.LoadingTrack"/>的依赖属性
+            表示点按照直线的轨迹运动形成的动画
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRunning">
+        <member name="T:CookPopularControl.Controls.Animation.Loading.DotLoadingBase">
+            <summary>
+            表示由点组成的动画的基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunning">
             <summary>
             Dot是否正在运动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRunningProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunningProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRunning"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunning"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotCount">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotCount">
             <summary>
             点的数量
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotCountProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotCountProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotCount"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotCount"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDiameter">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDiameter">
             <summary>
             点的半径
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDiameterProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDiameterProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDiameter"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDiameter"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRadiusEqualScale">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRadiusEqualScale">
             <summary>
             Dot半径是按照否比例系数变化
             </summary>
             <remarks>默认值为false</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRadiusEqualScaleProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRadiusEqualScaleProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRadiusEqualScale"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRadiusEqualScale"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotStroke">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStroke">
             <summary>
             点的BorderBrush
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotStrokeProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotStroke"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStroke"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotStrokeThickness">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeThickness">
             <summary>
             点的BoderThcikness
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotStrokeThicknessProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeThicknessProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotStrokeThickness"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeThickness"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotInterval">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotInterval">
             <summary>
             相邻点之间的间隔距离
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotIntervalProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotIntervalProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotInterval"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotInterval"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDuration">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDuration">
             <summary>
             动画持续时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDurationProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDurationProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDuration"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDuration"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotRunSpeed">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotRunSpeed">
             <summary>
             点的运行速率
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotRunSpeedProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotRunSpeedProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotRunSpeed"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotRunSpeed"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDelayTime">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDelayTime">
             <summary>
             点之间延迟时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDelayTimeProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDelayTimeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoading.DotDelayTime"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDelayTime"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRunAsConstant">
+        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstant">
             <summary>
             点是否匀速运动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoading.IsDotRunAsConstantProperty">
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstantProperty">
             <summary>
             提供的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.OnPropertiesValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.OnPropertiesValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
             依赖属性值改变时触发
             </summary>
             <param name="d"></param>
             <param name="e"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.UpdateDotsAnimation">
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.UpdateDotsAnimation">
             <summary>
             更新点动画
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.CreateCircleContainer(System.Int32)">
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.ConstantSpeedRun">
             <summary>
-            创建一个容器做旋转动画
+            匀速运动
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.UDSpeedRun">
+            <summary>
+            加速与减速运动
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.CreateContainer(System.Int32)">
+            <summary>
+            创建一个容器来做动画
             </summary>
             <param name="index"></param>
-            <returns>做旋转运动时使用</returns>
+            <returns>容器</returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.CreateLineContainer(System.Int32)">
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.CreateEllipse(System.Int32)">
             <summary>
-            创建一个容器做直线动画
-            </summary>
-            <param name="index"></param>
-            <returns>做直线运动时使用</returns>
-        </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.CreateEllipse(System.Int32)">
-            <summary>
-            创建Dot
+            创建点
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.StartAngle(System.Int32)">
+        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.StartValue(System.Int32)">
             <summary>
-            起始角度
-            </summary>
-            <param name="index"></param>
-            <returns>角度</returns>
-        </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoading.StartDistanceX(System.Int32)">
-            <summary>
-            起始X偏移值
+            初始值
             </summary>
             <param name="index"></param>
             <returns></returns>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.PendulumSwingAngleProperty">
+            <summary>
+            钟摆的摆幅
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.PendulumSlipDistanceProperty">
+            <summary>
+            钟摆的滑动距离
+            </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
             <summary>
@@ -681,6 +686,36 @@
             <param name="bitmap">当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</param>
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

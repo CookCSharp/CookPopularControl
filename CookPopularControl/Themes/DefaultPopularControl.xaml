@@ -28,7 +28,8 @@
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
 
     <Style x:Key="{x:Type gifbox:GifBox}" TargetType="{x:Type gifbox:GifBox}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
-    <Style x:Key="{x:Type loading:DotLoading}" TargetType="{x:Type loading:DotLoading}" BasedOn="{StaticResource CircleLoadingStyle}"/>
-
+    <Style x:Key="{x:Type loading:DotCircleLoading}" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultCircleLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultLineLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:DotPendulumLoading}" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource DefaultPendulumLoadingStyle}"/>
 
 </ResourceDictionary>
