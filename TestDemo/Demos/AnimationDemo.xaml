@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="TestDemo.Demos.AnimationDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestDemo.Demos"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <StackPanel>
+            <Canvas>
+                <Canvas.Resources>
+                    <!--绘制几何图形-->
+                    <PathGeometry x:Key="path">
+                        <PathFigure StartPoint="40,40" IsClosed="True">
+                            <LineSegment Point="40,130"></LineSegment>
+                            <ArcSegment Point="60,150" Size="20,20" ></ArcSegment>
+                            <LineSegment Point="200,150"></LineSegment>
+                            <ArcSegment Point="220,130" Size="20,20"></ArcSegment>
+                            <LineSegment Point="220,40"></LineSegment>
+                            <ArcSegment Point="200,20" Size="20,20"></ArcSegment>
+                            <LineSegment Point="60,20"></LineSegment>
+                            <ArcSegment Point="40,40" Size="20,20"></ArcSegment>
+                        </PathFigure>
+                    </PathGeometry>
+                    <Storyboard x:Key="pathStoryboard" >
+                        <MatrixAnimationUsingPath PathGeometry="{StaticResource path}" Storyboard.TargetName="ButtonMatrixTransform"
+                                          Storyboard.TargetProperty="Matrix"
+                                          DoesRotateWithTangent="True"
+                                          Duration="0:0:5" RepeatBehavior="Forever" AutoReverse="True">
+                        </MatrixAnimationUsingPath>
+                    </Storyboard>
+                </Canvas.Resources>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Control.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
+                    </EventTrigger>
+                </Canvas.Triggers>
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+                <Ellipse Fill="#eee" Width="20" Height="20" >
+                    <Ellipse.RenderTransform>
+                        <MatrixTransform x:Name="ButtonMatrixTransform" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Canvas>
+
+            <Canvas>
+                <Canvas.Resources>
+                    <PathGeometry x:Key="path">
+                        <PathFigure StartPoint="40,40" IsClosed="True">
+                            <LineSegment Point="40,130"></LineSegment>
+                            <ArcSegment Point="60,150" Size="20,20" ></ArcSegment>
+                            <LineSegment Point="200,150"></LineSegment>
+                            <ArcSegment Point="220,130" Size="20,20"></ArcSegment>
+                            <LineSegment Point="220,40"></LineSegment>
+                            <ArcSegment Point="200,20" Size="20,20"></ArcSegment>
+                            <LineSegment Point="60,20"></LineSegment>
+                            <ArcSegment Point="40,40" Size="20,20"></ArcSegment>
+                        </PathFigure>
+                    </PathGeometry>
+                    <Storyboard x:Key="pathStoryboard" >
+                        <DoubleAnimationUsingPath PathGeometry="{StaticResource path}"
+                                          Storyboard.TargetName="translateTransform"
+                                          Storyboard.TargetProperty="X"
+                                          Source="X"
+                                          Duration="0:0:5" RepeatBehavior="Forever" >
+                        </DoubleAnimationUsingPath>
+                        <DoubleAnimationUsingPath PathGeometry="{StaticResource path}"
+                                          Storyboard.TargetName="translateTransform"
+                                          Storyboard.TargetProperty="Y"
+                                          Source="Y"
+                                          Duration="0:0:5" RepeatBehavior="Forever" >
+                        </DoubleAnimationUsingPath>
+                    </Storyboard>
+                </Canvas.Resources>
+
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Control.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
+                    </EventTrigger>
+                </Canvas.Triggers>
+
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+
+                <Path Fill="#FF0000">
+                    <Path.Data>
+                        <EllipseGeometry x:Name="ellipses" Center="5,5" RadiusX="12" RadiusY="12"/>
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="translateTransform"/>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+
+            <Canvas Grid.Row="1" >
+                <Canvas.Resources>
+                    <PathGeometry x:Key="path" Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100" />
+                    <Storyboard x:Key="pathStoryboard" >
+                        <PointAnimationUsingPath PathGeometry="{StaticResource path}"
+                                          Storyboard.TargetName="ellipse"
+                                          Storyboard.TargetProperty="Center"
+                                          Duration="0:0:5" RepeatBehavior="0:0:8" >
+                        </PointAnimationUsingPath>
+                    </Storyboard>
+                </Canvas.Resources>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Control.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
+                    </EventTrigger>
+                </Canvas.Triggers>
+
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+                <Path Fill="#eee">
+                    <Path.Data>
+                        <EllipseGeometry x:Name="ellipse" Center="5,5" RadiusX="12" RadiusY="12"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+
+        </StackPanel>
+    </Grid>
+    
+</UserControl>
