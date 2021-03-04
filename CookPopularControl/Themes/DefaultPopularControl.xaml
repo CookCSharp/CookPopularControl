@@ -28,8 +28,9 @@
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
 
     <Style x:Key="{x:Type gifbox:GifBox}" TargetType="{x:Type gifbox:GifBox}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
-    <Style x:Key="{x:Type loading:DotCircleLoading}" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultCircleLoadingStyle}"/>
-    <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultLineLoadingStyle}"/>
-    <Style x:Key="{x:Type loading:DotPendulumLoading}" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource DefaultPendulumLoadingStyle}"/>
-
+    <Style x:Key="{x:Type loading:DotCircleLoading}" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:DotPendulumLoading}" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource DefaultDotPendulumLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:RecCircleLoading}" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}"/>
+    
 </ResourceDictionary>
