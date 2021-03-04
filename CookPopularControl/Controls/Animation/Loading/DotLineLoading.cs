@@ -18,7 +18,7 @@ using System.Windows.Media.Animation;
 namespace CookPopularControl.Controls.Animation.Loading
 {
     /// <summary>
-    /// 表示点按照直线的轨迹运动形成的动画
+    /// 表示点按照直线的运动轨迹形成的动画
     /// </summary>
     public class DotLineLoading : DotLoadingBase
     {

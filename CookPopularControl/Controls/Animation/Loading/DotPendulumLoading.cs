@@ -19,6 +19,9 @@ using System.Windows.Media.Effects;
  */
 namespace CookPopularControl.Controls.Animation.Loading
 {
+    /// <summary>
+    /// 表示点按照钟摆运动的轨迹形成的动画
+    /// </summary>
     public class DotPendulumLoading : DotLoadingBase
     {
         public static double GetPendulumSwingAngle(DependencyObject obj) => (double)obj.GetValue(PendulumSwingAngleProperty);

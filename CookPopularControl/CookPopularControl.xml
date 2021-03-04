@@ -77,12 +77,12 @@
         </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.DotCircleLoading">
             <summary>
-            表示点按照圆的轨迹运动形成的动画
+            表示点按照圆的运动轨迹形成的动画
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.DotLineLoading">
             <summary>
-            表示点按照直线的轨迹运动形成的动画
+            表示点按照直线的运动轨迹形成的动画
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.DotLoadingBase">
@@ -245,6 +245,11 @@
             </summary>
             <param name="index"></param>
             <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading">
+            <summary>
+            表示点按照钟摆运动的轨迹形成的动画
+            </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.PendulumSwingAngleProperty">
             <summary>
