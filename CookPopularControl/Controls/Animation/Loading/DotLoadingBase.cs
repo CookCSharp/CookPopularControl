@@ -298,8 +298,8 @@ namespace CookPopularControl.Controls.Animation.Loading
             var ellipse = new Ellipse();
             if (IsDotRadiusEqualScale)
             {
-                ellipse.SetValue(Ellipse.WidthProperty, (index + 1D) / DotCount * DotDiameter);
-                ellipse.SetValue(Ellipse.HeightProperty, (index + 1D) / DotCount * DotDiameter);
+                ellipse.SetValue(Ellipse.WidthProperty, (double)(DotCount - index) / DotCount * DotDiameter);
+                ellipse.SetValue(Ellipse.HeightProperty, (double)(DotCount - index) / DotCount * DotDiameter);
             }
             else
             {

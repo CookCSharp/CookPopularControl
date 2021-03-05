@@ -270,6 +270,137 @@
             <param name="value"></param>
             <param name="flag">标志位,angle为0时值为1，angle不为0是，值为0</param>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.RecCircleLoading">
+            <summary>
+            表示一组矩形按照圆的轨迹形成的动画
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityChanging">
+            <summary>
+            Opacity是否从小到大变化
+            </summary>
+            <remarks>由小到大为false，恒定为true</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityChangingProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityChanging"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.RecLoadingBase">
+            <summary>
+            表示由矩形组成的一组动画基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.IsRecRunning">
+            <summary>
+            是否正在运动
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.IsRecRunningProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.IsRecRunning"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecWidth">
+            <summary>
+            矩形宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecWidthProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecWidth"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecHeight">
+            <summary>
+            矩形高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecHeightProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecHeight"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecCount">
+            <summary>
+            矩形数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecCountProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecCount"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecInterval">
+            <summary>
+            相邻矩形的间距
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecIntervalProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecInterval"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDuration">
+            <summary>
+            动画持续时间
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDurationProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDuration"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecRunSpeed">
+            <summary>
+            速率
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecRunSpeedProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecRunSpeed"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDelayTime">
+            <summary>
+            延迟时间
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDelayTimeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDelayTime"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.UpdateRectangleAnimation">
+            <summary>
+            更新动画
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.PrepareRun">
+            <summary>
+            准备矩形
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.CreateContainer(System.Int32)">
+            <summary>
+            创建一个容器装载矩形
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.CreateRectangle(System.Int32)">
+            <summary>
+            创建一个矩形
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.StartValue(System.Int32)">
+            <summary>
+            起始值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
         <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
             <summary>
             提供<see cref="T:System.IO.Stream"/>的Gif图像

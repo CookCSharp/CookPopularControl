@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading">
+                    xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
@@ -78,18 +79,29 @@
 
 
     <Style x:Key="{x:Type loading:RecLoadingBase}" TargetType="{x:Type loading:RecLoadingBase}">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="IsRecRunning" Value="True" />
-        <Setter Property="RecWidth" Value="100" />
-        <Setter Property="RecHeight" Value="5" />
+        <Setter Property="RecWidth" Value="30" />
+        <Setter Property="RecHeight" Value="10" />
         <Setter Property="RecCount" Value="5" />
         <Setter Property="RecDelayTime" Value="200" />
         <Setter Property="RecDuration" Value="0:0:4" />
         <Setter Property="RecRunSpeed" Value="1" />
     </Style>
 
-    <Style x:Key="DefaultRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}"/>
+    <Style x:Key="DefaultRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}">
+        <Setter Property="IsOpacityChanging" Value="True" />
+        <Setter Property="RecCount" Value="10" />
+        <Setter Property="RecDelayTime" Value="0" />
+        <Setter Property="RecDuration" Value="0:0:3" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="10" />
+    </Style>
+    <Style x:Key="FullOpacityRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}">
+        <Setter Property="IsOpacityChanging" Value="False" />
+    </Style>
 
 </ResourceDictionary>
