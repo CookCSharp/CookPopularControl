@@ -9,26 +9,31 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="Orange">
         <WrapPanel Margin="0,20,0,0">
-            <pc:DotCircleLoading Style="{StaticResource DefaultCircleLoadingStyle}" Margin="20,0"/>
-            <pc:DotCircleLoading Style="{StaticResource FullCircleLoadingStyle}" Margin="20,0"/>
-            <pc:DotCircleLoading Style="{StaticResource CircleLoadingRunAsConstantStyle}" Margin="20,0" IsDotRunning="False"/>
-            <pc:DotCircleLoading Style="{StaticResource FullCircleLoadingRunAsConstantStyle}" Margin="20,0" />
+            <pc:DotCircleLoading Style="{StaticResource DefaultDotCircleLoadingStyle}" Margin="20,0"/>
+            <pc:DotCircleLoading Style="{StaticResource DotFullCircleLoadingStyle}" Margin="20,0"/>
+            <pc:DotCircleLoading Style="{StaticResource DotCircleLoadingRunAsConstantStyle}" Margin="20,0" IsDotRunning="False"/>
+            <pc:DotCircleLoading Style="{StaticResource DotFullCircleLoadingRunAsConstantStyle}" Margin="20,0" IsDotRunning="True"/>
         </WrapPanel>
         <StackPanel Width="480" Margin="0,20,0,0">
-            <pc:DotLineLoading Width="480" Style="{StaticResource DefaultLineLoadingStyle}"/>
-            <pc:DotLineLoading Width="480" Style="{StaticResource LineLoadingRunAsContantStyle}" Margin="0,20"/>
+            <pc:DotLineLoading Width="480" Style="{StaticResource DefaultDotLineLoadingStyle}"/>
+            <pc:DotLineLoading Width="480" Style="{StaticResource DotLineLoadingRunAsContantStyle}" Margin="0,20"/>
         </StackPanel>
         <WrapPanel Margin="0,20,0,0">
-            <pc:DotPendulumLoading Style="{StaticResource DefaultPendulumLoadingStyle}" Margin="20,0"/>
-            <pc:DotPendulumLoading Style="{StaticResource DefaultPendulumLoadingStyle}" Margin="20,0"
+            <pc:DotPendulumLoading Style="{StaticResource DefaultDotPendulumLoadingStyle}" Margin="20,0" />
+            <pc:DotPendulumLoading Style="{StaticResource DefaultDotPendulumLoadingStyle}" Margin="20,0" 
                                    pc:DotPendulumLoading.PendulumSwingAngle="0"
                                    pc:DotPendulumLoading.PendulumSlipDistance="50"/>
         </WrapPanel>
         <WrapPanel Margin="0,20,0,0">
-            <pc:DotPendulumLoading Style="{StaticResource PendulumLoadingRunAsContantStyle}" Margin="20,0"/>
-            <pc:DotPendulumLoading Style="{StaticResource PendulumLoadingRunAsContantStyle}" Margin="20,0"
+            <pc:DotPendulumLoading Style="{StaticResource DotPendulumLoadingRunAsContantStyle}" Margin="20,0" />
+            <pc:DotPendulumLoading Style="{StaticResource DotPendulumLoadingRunAsContantStyle}" Margin="20,0" 
                                    pc:DotPendulumLoading.PendulumSwingAngle="0"
                                    pc:DotPendulumLoading.PendulumSlipDistance="50"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+            <pc:RecCircleLoading Style="{StaticResource DefaultRecCircleLoadingStyle}" />
+            <pc:RecCircleLoading Style="{StaticResource FullOpacityRecCircleLoadingStyle}" Margin="20,0" />
+            <pc:RecColumnLoading Style="{StaticResource DefaultRecColumnLoadingStyle}" IsRecRunning="True"/>
         </WrapPanel>
     </StackPanel>
 
