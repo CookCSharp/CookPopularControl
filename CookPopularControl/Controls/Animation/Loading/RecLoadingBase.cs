@@ -89,7 +89,7 @@ namespace CookPopularControl.Controls.Animation.Loading
         /// <summary>
         /// 相邻矩形的间距
         /// </summary>
-        private double RecInterval
+        public double RecInterval
         {
             get { return (double)GetValue(RecIntervalProperty); }
             set { SetValue(RecIntervalProperty, value); }
@@ -97,7 +97,7 @@ namespace CookPopularControl.Controls.Animation.Loading
         /// <summary>
         /// 提供<see cref="RecInterval"/>的依赖属性
         /// </summary>
-        private static readonly DependencyProperty RecIntervalProperty =
+        public static readonly DependencyProperty RecIntervalProperty =
             DependencyProperty.Register("RecInterval", typeof(double), typeof(RecLoadingBase),
                 new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
@@ -157,9 +157,8 @@ namespace CookPopularControl.Controls.Animation.Loading
 
         protected Storyboard storyboard;
         protected Canvas recLoadingCanvas = new Canvas { ClipToBounds = true };
-        private const double FullCircleAngel = 360D;
         protected double duration; //持续时长
-        protected double recInterval; //相邻矩形的间距
+        protected double moveXDistance; //移动距离，为了排列在水平中间位置
         protected double averageOpacity; //每等份透明度
 
         static RecLoadingBase()
@@ -196,7 +195,7 @@ namespace CookPopularControl.Controls.Animation.Loading
 
             duration = RecDuration.TimeSpan.TotalSeconds;
             averageOpacity = Opacity / RecCount;
-            recInterval = FullCircleAngel / RecCount;
+            moveXDistance = (Width - (RecCount - 1) * RecInterval - RecCount * RecWidth) / 2D;
 
             storyboard = new Storyboard
             {

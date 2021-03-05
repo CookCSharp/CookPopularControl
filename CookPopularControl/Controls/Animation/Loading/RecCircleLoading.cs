@@ -105,9 +105,9 @@ namespace CookPopularControl.Controls.Animation.Loading
 
         protected override Border CreateContainer(int index)
         {
-            var container = CreateRectangle(index);
-            container.HorizontalAlignment = HorizontalAlignment.Center;
-            container.VerticalAlignment = VerticalAlignment.Bottom;
+            var rec = CreateRectangle(index);
+            rec.HorizontalAlignment = HorizontalAlignment.Center;
+            rec.VerticalAlignment = VerticalAlignment.Bottom;
 
             var border = new Border();
             TransformGroup transformGroup = new TransformGroup();
@@ -115,7 +115,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             transformGroup.Children.Add(rt);
             border.RenderTransformOrigin = new Point(0.5, 0.5);
             border.RenderTransform = transformGroup;
-            border.Child = container;
+            border.Child = rec;
             border.Padding = new Thickness(0, 0, 0, RecWidth / 2D + 5);
             border.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
             border.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });
@@ -123,6 +123,6 @@ namespace CookPopularControl.Controls.Animation.Loading
             return border;
         }
 
-        protected override double StartValue(int index) => -recInterval * index;
+        protected override double StartValue(int index) => -360 / RecCount * index;
     }
 }

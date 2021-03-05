@@ -104,4 +104,14 @@
         <Setter Property="IsOpacityChanging" Value="False" />
     </Style>
 
+    <Style x:Key="DefaultRecColumnLoadingStyle" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}">
+        <Setter Property="RecWidth" Value="10" />
+        <Setter Property="RecHeight" Value="80" />
+        <Setter Property="RecCount" Value="5" />
+        <Setter Property="RecDelayTime" Value="100" />
+        <Setter Property="RecDuration" Value="0:0:0.8" />
+        <Setter Property="RecInterval" Value="5" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
+    </Style>
+
 </ResourceDictionary>
