@@ -76,7 +76,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 loading.UpdateLoadingAnimation();
         }
 
-        protected Storyboard storyboard; 
+        protected Storyboard storyboard;
         protected Grid RootGrid = new Grid { ClipToBounds = true };
         protected double totalDuration;
 
@@ -102,9 +102,8 @@ namespace CookPopularControl.Controls.Animation.Loading
         }
 
         protected override void OnRender(DrawingContext drawingContext)
-        {
+        { 
             base.OnRender(drawingContext);
-
             UpdateLoadingAnimation();
         }
 

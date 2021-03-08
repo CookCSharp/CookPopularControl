@@ -36,5 +36,6 @@
     <Style x:Key="{x:Type loading:RecColumnLoading}" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}"/>
     <Style x:Key="{x:Type loading:RecGridLoading}" TargetType="{x:Type loading:RecGridLoading}" BasedOn="{StaticResource DefaultRecGridLoadingStyle}"/>
     <Style x:Key="{x:Type loading:RaindropLoading}" TargetType="{x:Type loading:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:CharacterLoading}" TargetType="{x:Type loading:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}"/>
     
 </ResourceDictionary>

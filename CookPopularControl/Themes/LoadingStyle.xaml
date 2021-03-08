@@ -153,5 +153,13 @@
         <Setter Property="RaindropStroke" Value="Orange" />
         <Setter Property="RaindropStrokeThickness" Value="3" />
     </Style>
+    <Style x:Key="CharacterLoadingStyle" TargetType="{x:Type loading:CharacterLoading}" BasedOn="{StaticResource {x:Type loading:LoadingBase}}">
+        <Setter Property="DotDiameter" Value="14" />
+        <Setter Property="DotCount" Value="3" />
+        <Setter Property="Duration" Value="0:0:0.5" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Width" Value="200" />
+        <Setter Property="FontSize" Value="22" />
+    </Style>
 
 </ResourceDictionary>

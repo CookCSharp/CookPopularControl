@@ -75,6 +75,37 @@
             动画是否播放
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.CharacterLoading">
+            <summary>
+            表示简单的Loading...文字
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.CharacterLoading.DotDiameter">
+            <summary>
+            点(省略号)的直径
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.CharacterLoading.DotDiameterProperty">
+            <summary>
+            提供的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.CharacterLoading.DotCount">
+            <summary>
+            点(省略号)的数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.CharacterLoading.DotCountProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.CharacterLoading.DotCount"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.CharacterLoading.CreateEllipse(System.Int32)">
+            <summary>
+            创建点
+            </summary>
+            <returns>圆点</returns>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.DotCircleLoading">
             <summary>
             表示点按照圆的运动轨迹形成的动画
