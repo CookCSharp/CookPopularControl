@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Media.Animation;
 using CookPopularControl.Tools.Boxes;
 using System.Windows.Media.Effects;
+using System.Windows.Data;
 
 
 /*
@@ -82,7 +83,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                     storyboard?.Children.Add(frames);
                 }
 
-                dotLoadingCanvas?.Children.Add(container);
+                dotLoadingGrid?.Children.Add(container);
             }
         }
 
@@ -125,7 +126,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                     storyboard?.Children.Add(frames);
                 }
 
-                dotLoadingCanvas?.Children.Add(container);
+                dotLoadingGrid?.Children.Add(container);
             }
         }
 
@@ -181,11 +182,13 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.Child = dot;
             border.Width = Width;
             border.Height = Height;
+            border.SetBinding(VerticalAlignmentProperty, new Binding(VerticalContentAlignmentProperty.Name) { Source = this });
+            border.SetBinding(HorizontalAlignmentProperty, new Binding(HorizontalContentAlignmentProperty.Name) { Source = this });
             //border.Effect = Application.Current.Resources["CustomShadowDepth2"] as DropShadowEffect;
 
             return border;
         }
 
-        protected override double StartValue(int index) => -DotInterval * index;
+        protected override double StartValue(int index) => -(DotInterval + DotDiameter) * index;
     }
 }

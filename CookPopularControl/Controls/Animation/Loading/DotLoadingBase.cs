@@ -68,7 +68,7 @@ namespace CookPopularControl.Controls.Animation.Loading
         /// </summary>
         public static readonly DependencyProperty DotDiameterProperty =
             DependencyProperty.Register("DotDiameter", typeof(double), typeof(DotLoadingBase),
-                new FrameworkPropertyMetadata(ValueBoxes.Double5Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+                new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
         /// Dot半径是按照否比例系数变化
@@ -208,7 +208,8 @@ namespace CookPopularControl.Controls.Animation.Loading
         protected const double dotoffset = 5D; //缓动距离
         protected double duration; //动画持续时长
         protected double halfOfAllDotsLength; //所有点长度的一半，为了使点排列在中间位置
-        protected Canvas dotLoadingCanvas = new Canvas { ClipToBounds = true }; //绘图面板
+        protected double averageUnitAngle; //一个长度单位所对应的角度
+        protected Grid dotLoadingGrid = new Grid() { ClipToBounds = true }; //装载Loading动画的容器
 
 
         static DotLoadingBase()
@@ -221,13 +222,15 @@ namespace CookPopularControl.Controls.Animation.Loading
         {
             var dot = d as DotLoadingBase;
             if (dot != null)
-                dot.Content = dot.dotLoadingCanvas;
+                dot.Content = dot.dotLoadingGrid;
         }
 
         public DotLoadingBase()
         {
-            Content = dotLoadingCanvas;
-            dotLoadingCanvas.SetBinding(Canvas.BackgroundProperty, new Binding(BackgroundProperty.Name) { Source = this });
+            Content = dotLoadingGrid;
+            dotLoadingGrid.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
+            dotLoadingGrid.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });
+            dotLoadingGrid.SetBinding(Grid.BackgroundProperty, new Binding(BackgroundProperty.Name) { Source = this });
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -242,10 +245,12 @@ namespace CookPopularControl.Controls.Animation.Loading
         private void UpdateDotsAnimation()
         {
             if (DotCount < 1) return;
-            dotLoadingCanvas.Children.Clear();
+            dotLoadingGrid.Children.Clear();
 
             duration = DotDuration.TimeSpan.TotalSeconds;
             halfOfAllDotsLength = (DotCount - 1) * DotInterval / 2D;
+            var minLength = Width > Height ? Height : Width;
+            averageUnitAngle = 360D / (2 * Math.PI * minLength / 2);
 
             //定义一个点动画
             storyboard = new Storyboard

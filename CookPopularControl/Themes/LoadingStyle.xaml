@@ -14,13 +14,13 @@
 
     
     <Style x:Key="{x:Type loading:DotLoadingBase}" TargetType="{x:Type loading:DotLoadingBase}">
-        <Setter Property="Width" Value="80" />
-        <Setter Property="Height" Value="80" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
         <Setter Property="IsDotRunning" Value="True" />
         <Setter Property="DotCount" Value="6" />
-        <Setter Property="DotInterval" Value="14" />
-        <Setter Property="DotDiameter" Value="10" />
+        <Setter Property="DotInterval" Value="8" />
+        <Setter Property="DotDiameter" Value="12" />
         <Setter Property="IsDotRadiusEqualScale" Value="False" />
         <Setter Property="DotRunSpeed" Value="1" />
         <Setter Property="IsDotRunAsConstant" Value="False" />
@@ -32,22 +32,19 @@
 
     <Style x:Key="DefaultDotCircleLoadingStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}"/>
     <Style x:Key="DotFullCircleLoadingStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
-        <Setter Property="DotCount" Value="20" />
+        <Setter Property="DotCount" Value="15" />
+        <Setter Property="DotInterval" Value="9" />
         <Setter Property="DotDelayTime" Value="0" />
+    </Style>
+    <Style x:Key="DotCircleLoadingRunAsConstantStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
+        <Setter Property="IsDotRunAsConstant" Value="True" />
         <Setter Property="IsDotRadiusEqualScale" Value="True" />
-    </Style>
-    <Style x:Key="DotCircleLoadingRunAsConstantStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}">
-        <Setter Property="IsDotRunAsConstant" Value="True" />
-        <Setter Property="DotCount" Value="10" />
         <Setter Property="DotDelayTime" Value="0" />
         <Setter Property="DotDuration" Value="0:0:2" />
-        <Setter Property="DotRunSpeed" Value="1.5" />
     </Style>
-    <Style x:Key="DotFullCircleLoadingRunAsConstantStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DotFullCircleLoadingStyle}">
-        <Setter Property="IsDotRunAsConstant" Value="True" />
-        <Setter Property="DotDelayTime" Value="0" />
-        <Setter Property="DotDuration" Value="0:0:2" />
-        <Setter Property="DotRunSpeed" Value="2" />
+    <Style x:Key="DotFullCircleLoadingRunAsConstantStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DotCircleLoadingRunAsConstantStyle}">
+        <Setter Property="DotCount" Value="15" />
+        <Setter Property="DotInterval" Value="9" />
     </Style>
 
     <Style x:Key="DefaultDotLineLoadingStyle" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
@@ -56,31 +53,29 @@
     </Style>
     <Style x:Key="DotLineLoadingRunAsContantStyle" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}">
         <Setter Property="IsDotRunAsConstant" Value="True" />
-        <Setter Property="DotDelayTime" Value="50" />
+        <Setter Property="DotDelayTime" Value="0" />
         <Setter Property="DotDuration" Value="0:0:2" />
+        <Setter Property="DotInterval" Value="30" />
     </Style>
 
     <Style x:Key="DefaultDotPendulumLoadingStyle" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
         <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="200"/>
-        <Setter Property="DotCount" Value="5" />
-        <Setter Property="DotRunSpeed" Value="2" />
+        <Setter Property="Width" Value="300"/>
         <Setter Property="DotDelayTime" Value="0" />
-        <Setter Property="DotDuration" Value="0:0:1" />
-        <Setter Property="loading:DotPendulumLoading.PendulumSwingAngle" Value="100" />
+        <Setter Property="DotDuration" Value="0:0:0.5" />
+        <Setter Property="loading:DotPendulumLoading.PendulumSwingAngle" Value="80" />
     </Style>
     <Style x:Key="DotPendulumLoadingRunAsContantStyle" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource DefaultDotPendulumLoadingStyle}">
         <Setter Property="IsDotRunAsConstant" Value="True" />
         <Setter Property="DotDelayTime" Value="100" />
-        <Setter Property="DotRunSpeed" Value="1" />
-        <Setter Property="DotDuration" Value="0:0:0.5" />
     </Style>
 
     <Style x:Key="DefaultDotOpacityLoadingStyle" TargetType="{x:Type loading:DotOpacityLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
-        <Setter Property="DotDelayTime" Value="100" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="DotDelayTime" Value="200" />
         <Setter Property="DotDuration" Value="0:0:1" />
-        <Setter Property="DotCount" Value="8" />
         <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=DotDiameter}" />
     </Style>
 
 

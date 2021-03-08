@@ -66,7 +66,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
                 storyboard?.Children.Add(framesVisibility);
 
-                dotLoadingCanvas.Children.Add(container);
+                dotLoadingGrid.Children.Add(container);
             }
         }
 
@@ -161,7 +161,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
                 storyboard?.Children.Add(framesVisibility);
 
-                dotLoadingCanvas?.Children.Add(container);
+                dotLoadingGrid.Children.Add(container);
             }
         }
 
@@ -179,12 +179,15 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.RenderTransform = transformGroup;
             border.Child = dot;
             border.Visibility = Visibility.Collapsed; //隐藏Dot，由动画控制显示
-            border.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
-            border.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });
+            var minLength = Width > Height ? Height : Width;
+            border.Width = minLength;
+            border.Height = minLength;
+            border.SetBinding(VerticalAlignmentProperty, new Binding(VerticalContentAlignmentProperty.Name) { Source = this });
+            border.SetBinding(HorizontalAlignmentProperty, new Binding(HorizontalContentAlignmentProperty.Name) { Source = this });
 
             return border;
         }
 
-        protected override double StartValue(int index) => -DotInterval * index / (2 * Math.PI * Width / 2) * 360D;
+        protected override double StartValue(int index) => -(DotInterval * index + (index + 1) * DotDiameter) * averageUnitAngle;
     }
 }

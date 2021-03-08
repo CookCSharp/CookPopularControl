@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Media.Animation;
+using System.Windows.Data;
 
 
 /*
@@ -66,7 +67,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
                 storyboard?.Children.Add(framesVisibility);
 
-                dotLoadingCanvas?.Children.Add(container);
+                dotLoadingGrid?.Children.Add(container);
             }
         }
 
@@ -131,7 +132,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 Storyboard.SetTargetProperty(framesVisibility, new PropertyPath("(UIElement.Visibility)"));
                 storyboard?.Children.Add(framesVisibility);
 
-                dotLoadingCanvas?.Children.Add(container);
+                dotLoadingGrid?.Children.Add(container);
             }
         }
 
@@ -147,10 +148,12 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.Visibility = Visibility.Collapsed;
             border.Width = DotDiameter;
             border.Height = DotDiameter;
+            border.SetBinding(VerticalAlignmentProperty, new Binding(VerticalContentAlignmentProperty.Name) { Source = this });
+            border.SetBinding(HorizontalAlignmentProperty, new Binding(HorizontalContentAlignmentProperty.Name) { Source = this });
 
             return border;
         }
 
-        protected override double StartValue(int index) => -DotInterval * index;
+        protected override double StartValue(int index) => -(DotInterval + DotDiameter) * index;
     }
 }
