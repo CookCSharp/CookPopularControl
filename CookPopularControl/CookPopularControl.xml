@@ -246,6 +246,11 @@
             <param name="index"></param>
             <returns></returns>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.DotOpacityLoading">
+            <summary>
+            表示一组点按照直线轨迹运动并附加有透明度变化的加载动画
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading">
             <summary>
             表示点按照钟摆运动的轨迹形成的动画

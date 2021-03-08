@@ -12,6 +12,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    
     <Style x:Key="{x:Type loading:DotLoadingBase}" TargetType="{x:Type loading:DotLoadingBase}">
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="80" />
@@ -49,7 +50,6 @@
         <Setter Property="DotRunSpeed" Value="2" />
     </Style>
 
-
     <Style x:Key="DefaultDotLineLoadingStyle" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=DotDiameter}" />
@@ -59,8 +59,7 @@
         <Setter Property="DotDelayTime" Value="50" />
         <Setter Property="DotDuration" Value="0:0:2" />
     </Style>
-    
-    
+
     <Style x:Key="DefaultDotPendulumLoadingStyle" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="200"/>
@@ -75,6 +74,13 @@
         <Setter Property="DotDelayTime" Value="100" />
         <Setter Property="DotRunSpeed" Value="1" />
         <Setter Property="DotDuration" Value="0:0:0.5" />
+    </Style>
+
+    <Style x:Key="DefaultDotOpacityLoadingStyle" TargetType="{x:Type loading:DotOpacityLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
+        <Setter Property="DotDelayTime" Value="100" />
+        <Setter Property="DotDuration" Value="0:0:1" />
+        <Setter Property="DotCount" Value="8" />
+        <Setter Property="Width" Value="120" />
     </Style>
 
 

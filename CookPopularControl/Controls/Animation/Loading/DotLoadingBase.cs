@@ -247,7 +247,6 @@ namespace CookPopularControl.Controls.Animation.Loading
             duration = DotDuration.TimeSpan.TotalSeconds;
             halfOfAllDotsLength = (DotCount - 1) * DotInterval / 2D;
 
-
             //定义一个点动画
             storyboard = new Storyboard
             {
