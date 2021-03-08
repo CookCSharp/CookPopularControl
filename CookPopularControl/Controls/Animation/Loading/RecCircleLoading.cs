@@ -41,6 +41,22 @@ namespace CookPopularControl.Controls.Animation.Loading
             DependencyProperty.Register("IsOpacityChanging", typeof(bool), typeof(RecCircleLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
+        /// <summary>
+        /// Opacity是否循环变化
+        /// </summary>
+        public bool IsOpacityCycle
+        {
+            get { return (bool)GetValue(IsOpacityCycleProperty); }
+            set { SetValue(IsOpacityCycleProperty, ValueBoxes.BooleanBox(value)); }
+        }
+        /// <summary>
+        /// 提供<see cref="IsOpacityCycle"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsOpacityCycleProperty =
+            DependencyProperty.Register("IsOpacityCycle", typeof(bool), typeof(RecCircleLoading),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+
+
         protected override void PrepareRun()
         {
             for (int i = 0; i < RecCount; i++)
@@ -69,7 +85,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 Storyboard.SetTargetProperty(frames, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"));
                 storyboard?.Children.Add(frames);
 
-                if (IsOpacityChanging)
+                if (IsOpacityCycle)
                     GetChangingFramesOpacity(container, i);
 
                 recLoadingCanvas.Children.Add(container);
@@ -117,6 +133,8 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.RenderTransform = transformGroup;
             border.Child = rec;
             border.Padding = new Thickness(0, 0, 0, RecWidth / 2D + 5);
+            if(IsOpacityChanging)
+                border.Opacity = (index + 1D) / RecCount;
             border.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
             border.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });
 

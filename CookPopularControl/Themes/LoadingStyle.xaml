@@ -96,12 +96,17 @@
 
     <Style x:Key="DefaultRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}">
         <Setter Property="IsOpacityChanging" Value="True" />
+        <Setter Property="IsOpacityCycle" Value="False" />
         <Setter Property="RecCount" Value="10" />
         <Setter Property="RecDelayTime" Value="0" />
-        <Setter Property="RecDuration" Value="0:0:3" />
+        <Setter Property="RecDuration" Value="0:0:1.5" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="10" />
     </Style>
+    <Style x:Key="OpacityCycleRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}">
+        <Setter Property="IsOpacityCycle" Value="True" />
+    </Style>
     <Style x:Key="FullOpacityRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}">
+        <Setter Property="IsOpacityCycle" Value="False" />
         <Setter Property="IsOpacityChanging" Value="False" />
     </Style>
 
@@ -114,10 +119,10 @@
         <Setter Property="RecInterval" Value="5" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
     </Style>
-    <Style x:Key="DefaultRecColumnLoadingStyle1" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}">
+    <Style x:Key="RecColumnLoadingStyle1" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}">
         <Setter Property="RecDelayTime" Value="200" />
     </Style>
-    <Style x:Key="DefaultRecColumnLoadingStyle2" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle }">
+    <Style x:Key="RecColumnLoadingStyle2" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle }">
         <Setter Property="RecDelayTime" Value="100" />
         <Setter Property="RecDuration" Value="0:0:2" />
     </Style>
