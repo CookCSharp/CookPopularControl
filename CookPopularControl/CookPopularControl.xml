@@ -275,6 +275,77 @@
             <param name="value"></param>
             <param name="flag">标志位,angle为0时值为1，angle不为0是，值为0</param>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.LoadingBase">
+            <summary>
+            简单动画的基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.LoadingBase.IsRunning">
+            <summary>
+            是否正在运动
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.LoadingBase.IsRunningProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.LoadingBase.IsRunning"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.LoadingBase.Duration">
+            <summary>
+            动画持续时长
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.LoadingBase.DurationProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.LoadingBase.Duration"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.LoadingBase.RunSpeed">
+            <summary>
+            速率
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.LoadingBase.RunSpeedProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.LoadingBase.RunSpeed"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.LoadingBase.PrepareRun">
+            <summary>
+            准备图形
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.RaindropLoading">
+            <summary>
+            表示一个雨点轨迹动画
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RaindropLoading.RaindropStroke">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RaindropLoading.RaindropStrokeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RaindropLoading.RaindropStroke"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.RaindropLoading.RaindropStrokeThickness">
+            <summary>
+            厚度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.RaindropLoading.RaindropStrokeThicknessProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RaindropLoading.RaindropStrokeThickness"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Animation.Loading.RaindropLoading.CreateRaindrop">
+            <summary>
+            创建雨点
+            </summary>
+            <returns>圆点</returns>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.RecCircleLoading">
             <summary>
             表示一组矩形按照圆的轨迹形成的动画

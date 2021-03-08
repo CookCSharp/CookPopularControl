@@ -13,6 +13,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     
+    <!--DotLoadingAnimation-->
     <Style x:Key="{x:Type loading:DotLoadingBase}" TargetType="{x:Type loading:DotLoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
@@ -40,7 +41,7 @@
         <Setter Property="IsDotRunAsConstant" Value="True" />
         <Setter Property="IsDotRadiusEqualScale" Value="True" />
         <Setter Property="DotDelayTime" Value="0" />
-        <Setter Property="DotDuration" Value="0:0:2" />
+        <Setter Property="DotDuration" Value="0:0:1" />
     </Style>
     <Style x:Key="DotFullCircleLoadingRunAsConstantStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DotCircleLoadingRunAsConstantStyle}">
         <Setter Property="DotCount" Value="15" />
@@ -79,7 +80,8 @@
     </Style>
 
 
-
+    
+    <!--RecLoadingAnimation-->
     <Style x:Key="{x:Type loading:RecLoadingBase}" TargetType="{x:Type loading:RecLoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
@@ -90,6 +92,7 @@
         <Setter Property="RecWidth" Value="30" />
         <Setter Property="RecHeight" Value="10" />
         <Setter Property="RecCount" Value="5" />
+        <Setter Property="RecInterval" Value="5" />
         <Setter Property="RecDelayTime" Value="200" />
         <Setter Property="RecDuration" Value="0:0:4" />
         <Setter Property="RecRunSpeed" Value="1" />
@@ -117,7 +120,6 @@
         <Setter Property="RecCount" Value="5" />
         <Setter Property="RecDelayTime" Value="100" />
         <Setter Property="RecDuration" Value="0:0:0.8" />
-        <Setter Property="RecInterval" Value="5" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
     </Style>
     <Style x:Key="RecColumnLoadingStyle1" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}">
@@ -131,13 +133,25 @@
     <Style x:Key="DefaultRecGridLoadingStyle" TargetType="{x:Type loading:RecGridLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}">
         <Setter Property="RecWidth" Value="12" />
         <Setter Property="RecHeight" Value="12" />
-        <Setter Property="RecCount" Value="5" />
-        <Setter Property="RecInterval" Value="15" />
         <Setter Property="RecDelayTime" Value="100" />
         <Setter Property="RecDuration" Value="0:0:1" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
-        <Setter Property="Width" Value="150" />
-        <Setter Property="Height" Value="150" />
+    </Style>
+    
+    
+    
+    <!--SimpleLoadingAnimation-->
+    <Style x:Key="{x:Type loading:LoadingBase}" TargetType="{x:Type loading:LoadingBase}">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="IsRunning" Value="True" />
+        <Setter Property="RunSpeed" Value="1" />
+        <Setter Property="Duration" Value="0:0:4" />
+    </Style>
+    <Style x:Key="RaindropLoadingStyle" TargetType="{x:Type loading:RaindropLoading}" BasedOn="{StaticResource {x:Type loading:LoadingBase}}">
+        <Setter Property="RaindropStroke" Value="Orange" />
+        <Setter Property="RaindropStrokeThickness" Value="3" />
     </Style>
 
 </ResourceDictionary>
