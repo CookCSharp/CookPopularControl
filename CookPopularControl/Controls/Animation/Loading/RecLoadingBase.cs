@@ -159,6 +159,7 @@ namespace CookPopularControl.Controls.Animation.Loading
         protected Canvas recLoadingCanvas = new Canvas { ClipToBounds = true };
         protected double duration; //持续时长
         protected double moveXDistance; //移动距离，为了排列在水平中间位置
+        protected double moveYDistance; //移动距离，为了排列在垂直中间位置
         protected double averageOpacity; //每等份透明度
 
         static RecLoadingBase()
@@ -196,6 +197,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             duration = RecDuration.TimeSpan.TotalSeconds;
             averageOpacity = Opacity / RecCount;
             moveXDistance = (Width - (RecCount - 1) * RecInterval - RecCount * RecWidth) / 2D;
+            moveYDistance = (Height - (RecCount - 1) * RecInterval - RecCount * RecHeight) / 2D;
 
             storyboard = new Storyboard
             {

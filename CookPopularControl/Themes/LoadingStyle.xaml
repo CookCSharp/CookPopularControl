@@ -37,6 +37,7 @@
     </Style>
     <Style x:Key="DotCircleLoadingRunAsConstantStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}">
         <Setter Property="IsDotRunAsConstant" Value="True" />
+        <Setter Property="DotCount" Value="10" />
         <Setter Property="DotDelayTime" Value="0" />
         <Setter Property="DotDuration" Value="0:0:2" />
         <Setter Property="DotRunSpeed" Value="1.5" />
@@ -112,6 +113,25 @@
         <Setter Property="RecDuration" Value="0:0:0.8" />
         <Setter Property="RecInterval" Value="5" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
+    </Style>
+    <Style x:Key="DefaultRecColumnLoadingStyle1" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}">
+        <Setter Property="RecDelayTime" Value="200" />
+    </Style>
+    <Style x:Key="DefaultRecColumnLoadingStyle2" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle }">
+        <Setter Property="RecDelayTime" Value="100" />
+        <Setter Property="RecDuration" Value="0:0:2" />
+    </Style>
+
+    <Style x:Key="DefaultRecGridLoadingStyle" TargetType="{x:Type loading:RecGridLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}">
+        <Setter Property="RecWidth" Value="12" />
+        <Setter Property="RecHeight" Value="12" />
+        <Setter Property="RecCount" Value="5" />
+        <Setter Property="RecInterval" Value="15" />
+        <Setter Property="RecDelayTime" Value="100" />
+        <Setter Property="RecDuration" Value="0:0:1" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
+        <Setter Property="Width" Value="150" />
+        <Setter Property="Height" Value="150" />
     </Style>
 
 </ResourceDictionary>

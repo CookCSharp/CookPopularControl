@@ -14,7 +14,7 @@
         <!--Extension Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GifBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
-        
+
         <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
@@ -32,5 +32,7 @@
     <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}"/>
     <Style x:Key="{x:Type loading:DotPendulumLoading}" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource DefaultDotPendulumLoadingStyle}"/>
     <Style x:Key="{x:Type loading:RecCircleLoading}" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}"/>
-    
+    <Style x:Key="{x:Type loading:RecColumnLoading}" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}"/>
+    <Style x:Key="{x:Type loading:RecGridLoading}" TargetType="{x:Type loading:RecGridLoading}" BasedOn="{StaticResource DefaultRecGridLoadingStyle}"/>
+
 </ResourceDictionary>
