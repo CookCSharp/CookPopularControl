@@ -20,7 +20,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-08 18:10:45
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
 {
     /// <summary>
     /// 表示简单的Loading...文字

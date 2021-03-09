@@ -17,7 +17,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-08 16:39:33
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
 {
     /// <summary>
     /// 简单动画的基类

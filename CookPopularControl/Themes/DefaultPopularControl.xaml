@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:gifbox="clr-namespace:CookPopularControl.Controls.Animation"
-                    xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading">
+                    xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
+                    xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -35,7 +36,7 @@
     <Style x:Key="{x:Type loading:RecCircleLoading}" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}"/>
     <Style x:Key="{x:Type loading:RecColumnLoading}" TargetType="{x:Type loading:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}"/>
     <Style x:Key="{x:Type loading:RecGridLoading}" TargetType="{x:Type loading:RecGridLoading}" BasedOn="{StaticResource DefaultRecGridLoadingStyle}"/>
-    <Style x:Key="{x:Type loading:RaindropLoading}" TargetType="{x:Type loading:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}"/>
-    <Style x:Key="{x:Type loading:CharacterLoading}" TargetType="{x:Type loading:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}"/>
+    <Style x:Key="{x:Type simpleLoading:RaindropLoading}" TargetType="{x:Type simpleLoading:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}"/>
+    <Style x:Key="{x:Type simpleLoading:CharacterLoading}" TargetType="{x:Type simpleLoading:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}"/>
     
 </ResourceDictionary>
