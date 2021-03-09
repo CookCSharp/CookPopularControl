@@ -160,6 +160,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Width" Value="200" />
         <Setter Property="FontSize" Value="22" />
+        <Setter Property="CharacterContent" Value="Loading" />
     </Style>
 
 </ResourceDictionary>

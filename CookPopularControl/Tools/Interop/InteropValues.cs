@@ -667,8 +667,8 @@ namespace CookPopularControl.Tools.Interop
             public bool fIcon = false;
             public int xHotspot = 0;
             public int yHotspot = 0;
-            public BitmapHandle hbmMask = null;
-            public BitmapHandle hbmColor = null;
+            public BitmapHandle? hbmMask = null;
+            public BitmapHandle? hbmColor = null;
         }
 
         internal enum WINDOWCOMPOSITIONATTRIB

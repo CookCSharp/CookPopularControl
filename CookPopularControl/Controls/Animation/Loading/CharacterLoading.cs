@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Tools.Boxes;
+using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -55,7 +56,23 @@ namespace CookPopularControl.Controls.Animation.Loading
         public static readonly DependencyProperty DotCountProperty =
             DependencyProperty.Register("DotCount", typeof(int), typeof(CharacterLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.Inter5Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+        
+        /// <summary>
+        /// 文本内容
+        /// </summary>
+        public string CharacterContent
+        {
+            get { return (string)GetValue(CharacterContentProperty); }
+            set { SetValue(CharacterContentProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="CharacterContent"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty CharacterContentProperty =
+            DependencyProperty.Register("CharacterContent", typeof(string), typeof(CharacterLoading),
+                new FrameworkPropertyMetadata("Loading", FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
+        private double CharacterWidth;
 
         protected override void PrepareRun()
         {
@@ -84,21 +101,21 @@ namespace CookPopularControl.Controls.Animation.Loading
                 Storyboard.SetTarget(framesOpacity, dot);
                 Storyboard.SetTargetProperty(framesOpacity, new PropertyPath("(UIElement.Visibility)"));
                 storyboard?.Children.Add(framesOpacity);
-               
-                RootGrid.Children.Add(dot);
+
+                RootGrid?.Children.Add(dot);
             }
         }
 
         private void AddText()
         {
             TextBlock tb = new TextBlock();
-            tb.Text = "Loading";
+            tb.Text = CharacterContent;
             tb.FontSize = FontSize;
-            tb.Margin = new Thickness(0, 0, 0, 5);
             tb.HorizontalAlignment = HorizontalAlignment.Left;
             tb.VerticalAlignment = VerticalAlignment.Center;
 
-            RootGrid.Children.Add(tb);
+            CharacterWidth = FontHelper.GetFontWidthHeight(tb,CharacterContent,FontFamily.Source,FontSize).width + 10;
+            RootGrid?.Children.Add(tb);
         }
 
         /// <summary>
@@ -125,6 +142,6 @@ namespace CookPopularControl.Controls.Animation.Loading
             return ellipse;
         }
 
-        private double StartValue(int index) => (5 + DotDiameter) * index + 4.5 * FontSize;
+        private double StartValue(int index) => (5 + DotDiameter) * index + CharacterWidth;
     }
 }

@@ -73,7 +73,7 @@ namespace CookPopularControl.Controls.Windows
             return base.ArrangeOverride(arrangeSize);
         }
 
-        private bool TryGetAvailableSize(Size inputSize, out Size availableSize, out UIElement element)
+        private bool TryGetAvailableSize(Size inputSize, out Size availableSize, out UIElement? element)
         {
             if (TemplatedParent is Window window)
             {

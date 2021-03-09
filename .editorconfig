@@ -11,3 +11,9 @@ dotnet_diagnostic.CS8618.severity = silent
 
 # CS0809: 过时成员重写未过时成员
 dotnet_diagnostic.CS0809.severity = silent
+
+# CS8602: 解引用可能出现空引用。
+dotnet_diagnostic.CS8602.severity = silent
+
+# CS8603: 可能的 null 引用返回。
+dotnet_diagnostic.CS8603.severity = silent

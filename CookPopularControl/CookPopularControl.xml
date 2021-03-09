@@ -100,6 +100,16 @@
             提供<see cref="P:CookPopularControl.Controls.Animation.Loading.CharacterLoading.DotCount"/>的依赖属性
             </summary>
         </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.CharacterLoading.CharacterContent">
+            <summary>
+            文本内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.CharacterLoading.CharacterContentProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.CharacterLoading.CharacterContent"/>的依赖属性
+            </summary>
+        </member>
         <member name="M:CookPopularControl.Controls.Animation.Loading.CharacterLoading.CreateEllipse(System.Int32)">
             <summary>
             创建点
@@ -832,6 +842,16 @@
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.FontHelper.GetFontWidthHeight(System.Windows.Media.Visual,System.String,System.String,System.Double)">
+            <summary>
+            获取字体的宽度与高度
+            </summary>
+            <param name="visual"></param>
+            <param name="textToFormat"></param>
+            <param name="fontFamily"></param>
+            <param name="fontSize"></param>
+            <returns></returns>
         </member>
         <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_ASYNCWINDOWPOS">
             <summary>
