@@ -25,8 +25,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
     {
         protected override void PrepareRun()
         {
-            var min = Width > Height ? Height : Width;
-            var container = CreateContainer(5 * min / 6D);
+            var container = CreateContainer(5 * length / 6D);
             var frames = new DoubleAnimationUsingKeyFrames();
             var frame1 = new LinearDoubleKeyFrame
             {

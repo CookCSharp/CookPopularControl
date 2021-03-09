@@ -79,6 +79,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
         protected Storyboard storyboard;
         protected Grid RootGrid = new Grid { ClipToBounds = true };
         protected double totalDuration;
+        protected double length;
 
 
         static LoadingBase()
@@ -112,6 +113,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
             RootGrid?.Children.Clear();
 
             totalDuration = Duration.TimeSpan.TotalSeconds;
+            length = Width > Height ? Height : Width;
 
             //定义一个点动画
             storyboard = new Storyboard

@@ -520,6 +520,21 @@
             准备图形
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading">
+            <summary>
+            表示飞机飞行的动画
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading.PlaneText">
+            <summary>
+            文本内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading.PlaneTextProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading.PlaneText"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading">
             <summary>
             表示一个雨点轨迹动画

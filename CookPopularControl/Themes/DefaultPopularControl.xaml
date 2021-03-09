@@ -39,5 +39,6 @@
     <Style x:Key="{x:Type simpleLoading:RaindropLoading}" TargetType="{x:Type simpleLoading:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}"/>
     <Style x:Key="{x:Type simpleLoading:CharacterLoading}" TargetType="{x:Type simpleLoading:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}"/>
     <Style x:Key="{x:Type simpleLoading:BraceletLoading}" TargetType="{x:Type simpleLoading:BraceletLoading}" BasedOn="{StaticResource BraceletLoadingStyle}"/>
+    <Style x:Key="{x:Type simpleLoading:PlaneLoading}" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}"/>
     
 </ResourceDictionary>

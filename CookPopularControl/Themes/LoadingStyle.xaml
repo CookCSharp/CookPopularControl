@@ -172,4 +172,14 @@
         <Setter Property="Duration" Value="0:0:2" />
     </Style>
 
+    <Style x:Key="PlaneLoadingStyle" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="PlaneText" Value="Loading..." />
+        <Setter Property="Duration" Value="0:0:2" />
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="BorderThickness" Value="1.5" />
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Height" Value="200" />
+    </Style>
+
 </ResourceDictionary>
