@@ -38,5 +38,6 @@
     <Style x:Key="{x:Type loading:RecGridLoading}" TargetType="{x:Type loading:RecGridLoading}" BasedOn="{StaticResource DefaultRecGridLoadingStyle}"/>
     <Style x:Key="{x:Type simpleLoading:RaindropLoading}" TargetType="{x:Type simpleLoading:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}"/>
     <Style x:Key="{x:Type simpleLoading:CharacterLoading}" TargetType="{x:Type simpleLoading:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}"/>
+    <Style x:Key="{x:Type simpleLoading:BraceletLoading}" TargetType="{x:Type simpleLoading:BraceletLoading}" BasedOn="{StaticResource BraceletLoadingStyle}"/>
     
 </ResourceDictionary>

@@ -166,4 +166,10 @@
         <Setter Property="CharacterContent" Value="Loading" />
     </Style>
 
+    <Style x:Key="BraceletLoadingStyle" TargetType="{x:Type simpleLoading:BraceletLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="BorderThickness" Value="1.5" />
+        <Setter Property="Duration" Value="0:0:2" />
+    </Style>
+
 </ResourceDictionary>

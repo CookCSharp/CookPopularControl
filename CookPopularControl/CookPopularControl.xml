@@ -434,6 +434,11 @@
             <param name="index"></param>
             <returns></returns>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.BraceletLoading">
+            <summary>
+            表示像手环一样的动画
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading">
             <summary>
             表示简单的Loading...文字
