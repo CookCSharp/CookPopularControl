@@ -74,7 +74,7 @@
 
     <Style x:Key="DefaultDotOpacityLoadingStyle" TargetType="{x:Type loading:DotOpacityLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}">
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="DotDelayTime" Value="200" />
+        <Setter Property="DotDelayTime" Value="120" />
         <Setter Property="DotDuration" Value="0:0:1" />
         <Setter Property="Width" Value="120" />
         <Setter Property="Height" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=DotDiameter}" />
@@ -148,7 +148,7 @@
         <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
         <Setter Property="IsRunning" Value="True" />
         <Setter Property="RunSpeed" Value="1" />
-        <Setter Property="Duration" Value="0:0:4" />
+        <Setter Property="Duration" Value="0:0:2" />
     </Style>
 
     <Style x:Key="RaindropLoadingStyle" TargetType="{x:Type simpleLoading:RaindropLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
@@ -169,13 +169,11 @@
     <Style x:Key="BraceletLoadingStyle" TargetType="{x:Type simpleLoading:BraceletLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1.5" />
-        <Setter Property="Duration" Value="0:0:2" />
     </Style>
 
     <Style x:Key="PlaneLoadingStyle" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
         <Setter Property="FontSize" Value="15" />
         <Setter Property="PlaneText" Value="Loading..." />
-        <Setter Property="Duration" Value="0:0:2" />
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1.5" />
         <Setter Property="Width" Value="200" />

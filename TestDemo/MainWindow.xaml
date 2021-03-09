@@ -9,7 +9,7 @@
         Title="MainWindow"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Width="800"
+        Width="1000"
         Height="800"
         Foreground="DodgerBlue"
         Background="#FFFFFF">
