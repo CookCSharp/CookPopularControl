@@ -25,7 +25,7 @@ namespace CookPopularControl.Controls.Animation
     /// <summary>
     /// 提供<see cref="Geometry"/>的Gif动画控件
     /// </summary>
-    public class GifBox : Shape
+    public class AnimationPath : Shape
     {
         /// <summary>
         /// 动画面板
@@ -37,13 +37,13 @@ namespace CookPopularControl.Controls.Animation
         /// </summary>
         private double _pathLength;
 
-        static GifBox()
+        static AnimationPath()
         {
             //StretchProperty.AddOwner(typeof(GifBox), new FrameworkPropertyMetadata(Stretch.Uniform, OnValuePropertyChanged));
             //StrokeThicknessProperty.AddOwner(typeof(GifBox), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnValuePropertyChanged));
         }
 
-        public GifBox() => Loaded += (s, e) => UpdatePath();
+        public AnimationPath() => Loaded += (s, e) => UpdatePath();
 
         public Geometry Data
         {
@@ -51,7 +51,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(DataProperty, value); }
         }
         public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(Geometry), typeof(GifBox),
+            DependencyProperty.Register("Data", typeof(Geometry), typeof(AnimationPath),
                 new FrameworkPropertyMetadata(default(Geometry), OnValuePropertyChanged));
 
         protected override Geometry DefiningGeometry => Data ?? Geometry.Empty;
@@ -65,7 +65,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(PathLengthProperty, value); }
         }
         public static readonly DependencyProperty PathLengthProperty =
-            DependencyProperty.Register("PathLength", typeof(double), typeof(GifBox), 
+            DependencyProperty.Register("PathLength", typeof(double), typeof(AnimationPath), 
                 new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnValuePropertyChanged));
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(DurationProperty, value); }
         }
         public static readonly DependencyProperty DurationProperty =
-            DependencyProperty.Register("Duration", typeof(Duration), typeof(GifBox), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2))));
+            DependencyProperty.Register("Duration", typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2))));
 
         /// <summary>
         /// 指定动画的重复行为
@@ -88,7 +88,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(RepeatBehaviorProperty, value); }
         }
         public static readonly DependencyProperty RepeatBehaviorProperty =
-            DependencyProperty.Register("RepeatBehavior", typeof(RepeatBehavior), typeof(GifBox), 
+            DependencyProperty.Register("RepeatBehavior", typeof(RepeatBehavior), typeof(AnimationPath), 
                 new FrameworkPropertyMetadata(RepeatBehavior.Forever, OnValuePropertyChanged));
 
         /// <summary>
@@ -100,11 +100,11 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(IsPlayProperty, value.BooleanBox()); }
         }
         public static readonly DependencyProperty IsPlayProperty =
-            DependencyProperty.Register("IsPlay", typeof(bool), typeof(GifBox),
+            DependencyProperty.Register("IsPlay", typeof(bool), typeof(AnimationPath),
                 new FrameworkPropertyMetadata(ValueBoxes.TrueBox, OnIsPlayValueChanged));
         private static void OnIsPlayValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var gif = d as GifBox;
+            var gif = d as AnimationPath;
             if ((bool)e.NewValue)
                 gif?.UpdatePath();
             else
@@ -119,7 +119,7 @@ namespace CookPopularControl.Controls.Animation
             remove { this.RemoveHandler(CompletedEvent, value); }
         }
         public static readonly RoutedEvent CompletedEvent =
-            EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(GifBox));
+            EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(AnimationPath));
 
         protected virtual void OnCompleted(string oldString, string newString)
         {
@@ -129,7 +129,7 @@ namespace CookPopularControl.Controls.Animation
 
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is GifBox gif)
+            if (d is AnimationPath gif)
             {
                 gif.UpdatePath();
             }
