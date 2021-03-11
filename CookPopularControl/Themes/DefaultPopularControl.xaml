@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:animation="clr-namespace:CookPopularControl.Controls.Animation"
                     xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
-                    xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings">
+                    xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings"
+                    xmlns:win="clr-namespace:CookPopularControl.Controls.Windows">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -11,6 +12,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CheckBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ProgressBarStyle.xaml" />
 
         <!--Extension Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
@@ -25,9 +27,15 @@
     </ResourceDictionary.MergedDictionaries>
 
 
+    <Style x:Key="{x:Type win:ChromeWindow}" TargetType="{x:Type win:ChromeWindow}" BasedOn="{StaticResource DefaultChromeWindowStyle}"/>
+    <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
+    
+    
     <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}"/>
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
+    <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}"/>
 
+    
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
     <Style x:Key="{x:Type loading:DotCircleLoading}" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}"/>
     <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}"/>

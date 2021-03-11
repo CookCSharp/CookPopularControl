@@ -8,7 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
+    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
@@ -20,13 +20,13 @@
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
-    
-    
-    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
+
+
+    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{StaticResource Double26Value}" />
     </Style>
-    <Style x:Key="IconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
+    <Style x:Key="IconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{StaticResource Double26Value}" />
@@ -37,8 +37,8 @@
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
 
-    
-    <Style x:Key="ContentWithGifButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
+
+    <Style x:Key="ContentWithGifButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
         <Setter Property="buttonassist:ButtonAssist.ImageWidth" Value="{StaticResource Double30Value}"/>
         <Setter Property="buttonassist:ButtonAssist.ImageHeight" Value="{StaticResource Double30Value}"/>

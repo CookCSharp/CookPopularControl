@@ -18,6 +18,9 @@ using System.Windows.Media;
  */
 namespace CookPopularControl.Controls.Button
 {
+    /// <summary>
+    /// 提供<see cref="System.Windows.Controls.Button"/>的附加属性
+    /// </summary>
     public class ButtonAssist
     {
         public static Uri GetGifSource(DependencyObject obj) => (Uri)obj.GetValue(GifSourceProperty);

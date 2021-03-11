@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple">
 
-    <Style TargetType="{x:Type ripple:Ripple}">
+    <Style x:Key="{x:Type ripple:Ripple}" TargetType="{x:Type ripple:Ripple}">
         <Setter Property="RecognizesAccessKey" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
