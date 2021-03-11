@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Communal.Attached;
+using CookPopularControl.Controls;
 using CookPopularControl.Controls.Animation;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
@@ -147,17 +149,15 @@ namespace CookPopularControl.Communal.Behaviors
         private void StartPathAnimation()
         {
             Rect rec = new Rect(0, 0, AssociatedObject.Width, AssociatedObject.Height);
-            double cornerRadius = FrameworkElementBaseAttached.GetCornerRadius(this).TopLeft;
+            double cornerRadius = FrameworkElementBaseAttached.GetCornerRadius(AssociatedObject).TopLeft;
             RectangleGeometry rectangleGeometry = new RectangleGeometry(rec, cornerRadius, cornerRadius);
 
             BorderAnimationPath animationPath = new BorderAnimationPath()
             {
                 Data = rectangleGeometry,
                 Flag = 1,
-                Stroke = BorderBrush,
-                StrokeThickness = BorderThickness,
                 Duration = Duration,
-                Fill = Brushes.BlueViolet,
+                Fill = Brushes.DodgerBlue,
             };
             animationPath.Completed += AnimationPath_Completed;
 
@@ -165,21 +165,20 @@ namespace CookPopularControl.Communal.Behaviors
             {
                 Data = rectangleGeometry,
                 Flag = -1,
-                Stroke = BorderBrush,
-                StrokeThickness = BorderThickness,
                 Duration = Duration,
-                Fill = Brushes.BlueViolet,
+                Fill = Brushes.DodgerBlue,
             };
             animationPath2.Completed += AnimationPath_Completed;
 
-            Grid grid = new Grid();
-            grid.Children.Add(animationPath);
-            grid.Children.Add(animationPath2);
+            OverlayPanel panel = new OverlayPanel();
+            panel.Children.Add(animationPath);
+            panel.Children.Add(animationPath2);
+
 
             Rectangle rectangle = new Rectangle();
             VisualBrush visualBrush = new VisualBrush();
             AssociatedObject.OpacityMask = visualBrush;
-            visualBrush.Visual = grid;
+            visualBrush.Visual = panel;
         }
 
         private void AnimationPath_Completed(object sender, EventArgs e)
@@ -240,8 +239,7 @@ namespace CookPopularControl.Communal.Behaviors
 
             private static void OnPropertiesValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
             {
-                var path = d as BorderAnimationPath;
-                path?.UpdateAnimationPath();
+                (d as BorderAnimationPath)?.UpdateAnimationPath();
             }
 
 
@@ -258,6 +256,7 @@ namespace CookPopularControl.Communal.Behaviors
 
             static BorderAnimationPath()
             {
+                StretchProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(Stretch.Uniform, OnPropertiesValueChanged));
                 StrokeProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(Brushes.Red, OnPropertiesValueChanged));
                 StrokeThicknessProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double5Box, OnPropertiesValueChanged));
             }
@@ -267,14 +266,14 @@ namespace CookPopularControl.Communal.Behaviors
                 this.Loaded += (s, e) => UpdateAnimationPath();
             }
 
-            public void UpdateAnimationPath(Size size = default(Size))
+            private void UpdateAnimationPath()
             {
                 if (!Duration.HasTimeSpan) return;
 
                 RotateTransform rt = new RotateTransform() { Angle = 180 };
                 this.RenderTransformOrigin = new Point(0.5, 0.5);
                 this.RenderTransform = rt;
-                var pathLength = Data.GetTotalLength(size == default(Size) ? new Size(ActualWidth, ActualHeight) : size, StrokeThickness);
+                var pathLength = Data.GetTotalLength(new Size(ActualWidth, ActualHeight), StrokeThickness);
 
                 if (MathHelper.IsVerySmall(pathLength)) return;
 
@@ -291,8 +290,8 @@ namespace CookPopularControl.Communal.Behaviors
                     RepeatBehavior = new RepeatBehavior(1),
                     FillBehavior = FillBehavior.HoldEnd,
                 };
-                storyboard.Completed += Storyboard_Completed;
 
+                storyboard.Completed += Storyboard_Completed;
                 var frames = new DoubleAnimationUsingKeyFrames();
                 var frame1 = new LinearDoubleKeyFrame()
                 {
@@ -313,6 +312,7 @@ namespace CookPopularControl.Communal.Behaviors
                 storyboard.Children.Add(frames);
 
                 storyboard.Begin();
+                storyboard.Freeze();
             }
 
             private void Storyboard_Completed(object sender, EventArgs e) => RaiseEvent(new RoutedEventArgs(CompletedEvent));

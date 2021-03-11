@@ -38,3 +38,7 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Communal.Attached")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Communal.Behaviors")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Communal.Converters")]
+
+
+[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Tools.Windows.Converters")]
+[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Tools.Windows.Drawing")]
