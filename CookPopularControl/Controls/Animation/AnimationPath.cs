@@ -23,7 +23,7 @@ using System.Windows.Shapes;
 namespace CookPopularControl.Controls.Animation
 {
     /// <summary>
-    /// 提供<see cref="Geometry"/>的Gif动画控件
+    /// 提供<see cref="Geometry"/>的路径动画控件
     /// </summary>
     public class AnimationPath : Shape
     {
@@ -39,8 +39,8 @@ namespace CookPopularControl.Controls.Animation
 
         static AnimationPath()
         {
-            //StretchProperty.AddOwner(typeof(GifBox), new FrameworkPropertyMetadata(Stretch.Uniform, OnValuePropertyChanged));
-            //StrokeThicknessProperty.AddOwner(typeof(GifBox), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnValuePropertyChanged));
+            StretchProperty.AddOwner(typeof(AnimationPath), new FrameworkPropertyMetadata(Stretch.Uniform, OnValuePropertyChanged));
+            StrokeThicknessProperty.AddOwner(typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnValuePropertyChanged));
         }
 
         public AnimationPath() => Loaded += (s, e) => UpdatePath();
@@ -65,7 +65,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(PathLengthProperty, value); }
         }
         public static readonly DependencyProperty PathLengthProperty =
-            DependencyProperty.Register("PathLength", typeof(double), typeof(AnimationPath), 
+            DependencyProperty.Register("PathLength", typeof(double), typeof(AnimationPath),
                 new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnValuePropertyChanged));
 
         /// <summary>
@@ -77,7 +77,8 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(DurationProperty, value); }
         }
         public static readonly DependencyProperty DurationProperty =
-            DependencyProperty.Register("Duration", typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2))));
+            DependencyProperty.Register("Duration", typeof(Duration), typeof(AnimationPath), 
+                new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)), OnValuePropertyChanged));
 
         /// <summary>
         /// 指定动画的重复行为
@@ -88,7 +89,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(RepeatBehaviorProperty, value); }
         }
         public static readonly DependencyProperty RepeatBehaviorProperty =
-            DependencyProperty.Register("RepeatBehavior", typeof(RepeatBehavior), typeof(AnimationPath), 
+            DependencyProperty.Register("RepeatBehavior", typeof(RepeatBehavior), typeof(AnimationPath),
                 new FrameworkPropertyMetadata(RepeatBehavior.Forever, OnValuePropertyChanged));
 
         /// <summary>
@@ -154,7 +155,7 @@ namespace CookPopularControl.Controls.Animation
             }
             _storyboard = new Storyboard
             {
-                RepeatBehavior = RepeatBehavior
+                RepeatBehavior = RepeatBehavior,
             };
             _storyboard.Completed += Storyboard_Completed;
 

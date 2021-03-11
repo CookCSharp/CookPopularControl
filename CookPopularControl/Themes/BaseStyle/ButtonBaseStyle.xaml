@@ -17,7 +17,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="BaseButtonBaseStyle" TargetType="{x:Type ButtonBase}">
+    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
@@ -88,6 +88,6 @@
         </Setter>
     </Style>
 
-    <Style x:Key="{x:Type ButtonBase}" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource BaseButtonBaseStyle}"/>
+    <Style x:Key="{x:Type ButtonBase}" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource ButtonBaseStyle}"/>
 
 </ResourceDictionary>

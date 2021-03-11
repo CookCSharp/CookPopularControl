@@ -20,6 +20,11 @@
             </summary>
             <remarks>Icon与Content的间距</remarks>
         </member>
+        <member name="T:CookPopularControl.Communal.Behaviors.ControlBorderBehavior">
+            <summary>
+            提供控件边框的行为动画
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.DotLoadingTrack">
             <summary>
             加载缓动画类型
@@ -40,37 +45,37 @@
             钟摆
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.GifBox">
+        <member name="T:CookPopularControl.Controls.Animation.AnimationPath">
             <summary>
-            提供<see cref="T:System.Windows.Media.Geometry"/>的Gif动画控件
+            提供<see cref="T:System.Windows.Media.Geometry"/>的路径动画控件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.GifBox._storyboard">
+        <member name="F:CookPopularControl.Controls.Animation.AnimationPath._storyboard">
             <summary>
             动画面板
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.GifBox._pathLength">
+        <member name="F:CookPopularControl.Controls.Animation.AnimationPath._pathLength">
             <summary>
             动画路径长度
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.GifBox.PathLength">
+        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.PathLength">
             <summary>
             Geometry路径长度
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.GifBox.Duration">
+        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.Duration">
             <summary>
             动画持续时间
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.GifBox.RepeatBehavior">
+        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.RepeatBehavior">
             <summary>
             指定动画的重复行为
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.GifBox.IsPlay">
+        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.IsPlay">
             <summary>
             动画是否播放
             </summary>
@@ -1009,34 +1014,9 @@
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
         </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+        <member name="T:CookPopularControl.Tools.Windows.Drawing.DrawingVisualElement">
             <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
+            手绘一个带有命中测试的控件
             </summary>
         </member>
     </members>
