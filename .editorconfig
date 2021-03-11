@@ -17,3 +17,18 @@ dotnet_diagnostic.CS8602.severity = silent
 
 # CS8603: 可能的 null 引用返回。
 dotnet_diagnostic.CS8603.severity = silent
+
+# CS8601: 可能的 null 引用赋值。
+dotnet_diagnostic.CS8601.severity = none
+
+# CS8524: switch 表达式不会处理其输入类型的某些值(它不是穷举)，这包括未命名的枚举值。
+dotnet_diagnostic.CS8524.severity = silent
+
+# IDE0072: 添加缺失的事例
+dotnet_diagnostic.IDE0072.severity = suggestion
+
+# IDE0022: 使用方法的程序块主体
+dotnet_diagnostic.IDE0022.severity = none
+
+# IDE0059: 不需要赋值
+csharp_style_unused_value_assignment_preference = unused_local_variable

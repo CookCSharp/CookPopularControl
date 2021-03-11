@@ -5,8 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+             xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <UserControl.Resources>
         <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ContentWithIconButtonStyle}">
@@ -20,7 +23,7 @@
     </UserControl.Resources>
 
     <ScrollViewer>
-        <StackPanel VerticalAlignment="Center">
+        <StackPanel Width="800" VerticalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center">
                 <Button Style="{StaticResource ButtonStyles}"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
@@ -36,21 +39,33 @@
                 <Button Style="{StaticResource ButtonStyles}" Margin="10,10,0,0"
                         pc:FrameworkElementBaseAttached.IconDirection="Bottom"
                         pc:FrameworkElementBaseAttached.IconMargin="0,0,0,10"/>
-            </WrapPanel>
-
-            <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
-                <Button Width="200" Height="60" Content="DefaultButton" FontSize="20" 
-                        Style="{StaticResource DefaultButtonStyle}"/>
-                <Button Width="50" Height="60" Margin="20,0"
+                <Button Width="50" Height="60" Margin="10,10,0,0"
                         pc:FrameworkElementBaseAttached.IconWidth="30"
                         pc:FrameworkElementBaseAttached.IconHeight="30"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
                         Style="{StaticResource IconButtonStyle}"/>
-                <Button Height="32"
+                <Button Height="32" Margin="10,10,0,0"
                         pc:FrameworkElementBaseAttached.IconWidth="30"
                         pc:FrameworkElementBaseAttached.IconHeight="30"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
                         Style="{StaticResource IconTransparentButtonStyle}"/>
+            </WrapPanel>
+
+            <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Width="200" Height="60" Content="DefaultButton" FontSize="20" 
+                        Style="{StaticResource DefaultButtonStyle}"
+                        pc:FrameworkElementBaseAttached.CornerRadius="20">
+                    <behavior:Interaction.Behaviors>
+                        <pc:ControlBorderBehavior AnimationType="Thickness" BorderThickness="2"/>
+                    </behavior:Interaction.Behaviors>
+                </Button>
+                <Button Width="200" Height="60" Content="DefaultButton" FontSize="20" 
+                        Style="{StaticResource OutlineButtonStyle}" Margin="10,0"
+                        pc:FrameworkElementBaseAttached.CornerRadius="20">
+                    <behavior:Interaction.Behaviors>
+                        <pc:ControlBorderBehavior AnimationType="Path" BorderThickness="20"/>
+                    </behavior:Interaction.Behaviors>
+                </Button>
             </WrapPanel>
 
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
@@ -65,15 +80,39 @@
                         pc:ButtonAssist.ImageWidth="100"
                         pc:ButtonAssist.ImageHeight="100"
                         gif:AnimationBehavior.AutoStart="True"
-                        gif:AnimationBehavior.RepeatBehavior="10x"
+                        gif:AnimationBehavior.RepeatBehavior="0x"
                         Style="{StaticResource GifButtonStyle}"/>
-                <Button Width="200" Height="200"
-                        pc:ButtonAssist.ImageSource="/Resources/Gif/tomcat.jpg"
+                <Button Width="200" Height="100"
+                        pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
                         pc:ButtonAssist.ImageWidth="200"
                         pc:ButtonAssist.ImageHeight="200"
-                        Style="{StaticResource GifTransparentButtonStyle}"/>
+                        pc:FrameworkElementBaseAttached.CornerRadius="0"
+                        Style="{StaticResource GifTransparentButtonStyle}">
+                    <behavior:Interaction.Behaviors>
+                        <pc:ControlBorderBehavior AnimationType="Path"/>
+                    </behavior:Interaction.Behaviors>
+                </Button>
             </WrapPanel>
-            
+            <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Width="300" Height="34" Style="{StaticResource ProgressButtonStyle}" ClickMode="Press"
+                        pc:ButtonAssist.ProgressValue="{Binding Value,Mode=OneWay}" Click="Button_Click"/>
+            </WrapPanel>
+            <!--<Button Width="300" Height="30">
+                <Button.Background>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Viewbox>
+                                <TextBlock Text="123"/>
+                            </Viewbox>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Button.Background>
+            </Button>-->
+            <!--<Grid Background="Orange" Width="500" Height="50">
+                <Line Stroke="Red" StrokeThickness="2" X1="0" X2="400"
+                      StrokeDashOffset="-10" StrokeDashArray="20,20" Fill="Purple"
+                      VerticalAlignment="Center"/>
+            </Grid>-->
         </StackPanel>
     </ScrollViewer>
 

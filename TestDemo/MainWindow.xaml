@@ -29,10 +29,10 @@
     </Window.Resources>
 
     <Grid>
-        <!--<local:ButtonDemo />-->
-        <!--<local:GifBoxDemo />-->
+        <local:ButtonDemo />
+        <!--<local:AnimationPathDemo />-->
         <!--<local:AnimationDemo />-->
-        <local:LoadingDemo />
+        <!--<local:LoadingDemo />-->
     </Grid>
 
 
