@@ -14,12 +14,13 @@
     </Style>
     <Style x:Key="OutlineButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
+    
     
     <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
@@ -51,4 +52,11 @@
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
 
+
+    <Style x:Key="ProgressButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="True" />
+        <Setter Property="buttonassist:ButtonAssist.ProgressValue" Value="50" />
+    </Style>
+    
+    
 </ResourceDictionary>

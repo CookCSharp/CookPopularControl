@@ -742,6 +742,19 @@
             <param name="savePath"></param>
             <returns></returns>
         </member>
+        <member name="T:CookPopularControl.Tools.Extensions.Markup.MarkupExtenisonBase">
+            <summary>
+            为可以由 .NET Framework XAML 服务及其他 XAML 读取器和 XAML 编写器支持的 XAML 标记扩展实现提供基类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Markup.MarkupExtensionBase`1.TryGetValue(System.IServiceProvider,`0@)">
+            <summary>
+            获取绑定目标的属性值
+            </summary>
+            <param name="serviceProvider"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="T:CookPopularControl.Tools.Extensions.WindowExtension">
             <summary>
             为提 <see cref="T:System.Windows.Window" /> 供静态扩展方法。
@@ -1013,6 +1026,36 @@
             <param name="bitmap">当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</param>
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityConverter">
+            <summary>
+            True to Visibility.Visible
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert bool or Nullable&lt;bool&gt; to Visibility
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert Visibility to boolean
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityReConverter">
+            <summary>
+            False to Visibility.Visible
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityReConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert bool or Nullable&lt;bool&gt; to Visibility
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityReConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert Visibility to boolean
+            </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.Drawing.DrawingVisualElement">
             <summary>

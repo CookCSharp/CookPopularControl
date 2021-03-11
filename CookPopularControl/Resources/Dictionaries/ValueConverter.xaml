@@ -1,8 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:CookPopularControl.Communal.Converters">
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
-    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-    <converters:BorderClipConverter x:Key="BorderClipConverter"/>
+    <commonConverters:BorderClipConverter x:Key="BorderClipConverter"/>
+    
+    <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
 
 </ResourceDictionary>

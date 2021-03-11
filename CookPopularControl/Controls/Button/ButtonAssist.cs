@@ -47,5 +47,15 @@ namespace CookPopularControl.Controls.Button
         public static void SetImageHeight(DependencyObject obj, double value) => obj.SetValue(ImageHeightProperty, value);
         public static readonly DependencyProperty ImageHeightProperty =
             DependencyProperty.RegisterAttached("ImageHeight", typeof(double), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.Double0Box));
+
+        public static double GetProgressValue(DependencyObject obj) => (double)obj.GetValue(ProgressValueProperty);
+        public static void SetProgressValue(DependencyObject obj, double value) => obj.SetValue(ProgressValueProperty, value);
+        public static readonly DependencyProperty ProgressValueProperty =
+            DependencyProperty.RegisterAttached("ProgressValue", typeof(double), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.Double0Box));
+
+        public static bool GetIsShowProgress(DependencyObject obj) => (bool)obj.GetValue(IsShowProgressProperty);
+        public static void SetIsShowProgress(DependencyObject obj, bool value) => obj.SetValue(IsShowProgressProperty, ValueBoxes.BooleanBox(value));
+        public static readonly DependencyProperty IsShowProgressProperty =
+            DependencyProperty.RegisterAttached("IsShowProgress", typeof(bool), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.FalseBox));
     }
 }

@@ -4,7 +4,8 @@
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                    xmlns:buttonassist="clr-namespace:CookPopularControl.Controls.Button">
+                    xmlns:buttonassist="clr-namespace:CookPopularControl.Controls.Button"
+                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
@@ -38,25 +39,29 @@
                                 <Border x:Name="border" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                         BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                         Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                        Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"/>
-                                <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                    <Path x:Name="PART_ICON" Stretch="Uniform" SnapsToDevicePixels="True" 
-                                          DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                          Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                          Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                          Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                          Fill="{TemplateBinding Foreground}"/>
-                                    <Image x:Name="PART_Gif" Stretch="Uniform"
-                                           Source="{TemplateBinding buttonassist:ButtonAssist.ImageSource}"
-                                           Width="{TemplateBinding buttonassist:ButtonAssist.ImageWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.ImageHeight}"
-                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                           gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
-                                           gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
-                                           gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"
-                                           gif:AnimationBehavior.SourceStream="{TemplateBinding buttonassist:ButtonAssist.GifStream}"/>
-                                    <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                        Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                                    <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        <Path x:Name="PART_ICON" Stretch="Uniform" SnapsToDevicePixels="True" 
+                                              DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                              Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                              Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                              Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
+                                              Fill="{TemplateBinding Foreground}"/>
+                                        <Image x:Name="PART_IMGAE_Gif" Stretch="Uniform"
+                                               Source="{TemplateBinding buttonassist:ButtonAssist.ImageSource}"
+                                               Width="{TemplateBinding buttonassist:ButtonAssist.ImageWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.ImageHeight}"
+                                               DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                               gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
+                                               gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
+                                               gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"
+                                               gif:AnimationBehavior.SourceStream="{TemplateBinding buttonassist:ButtonAssist.GifStream}"/>
+                                        <ProgressBar x:Name="PART_PROGRESS" Value="{TemplateBinding buttonassist:ButtonAssist.ProgressValue}"
+                                                     Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(buttonassist:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                        <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                       Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
-                                </DockPanel>
+                                    </DockPanel>
+                                </Border>
                             </Grid>
                         </AdornerDecorator>
                         <ripple:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
