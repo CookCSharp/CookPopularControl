@@ -571,6 +571,11 @@
             </summary>
             <returns>圆点</returns>
         </member>
+        <member name="T:CookPopularControl.Controls.Button.ButtonAssist">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Button"/>的附加属性
+            </summary>
+        </member>
         <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
             <summary>
             提供<see cref="T:System.IO.Stream"/>的Gif图像
@@ -581,6 +586,21 @@
             重叠面板
             </summary>
             <remarks>用于代替Grid</remarks>
+        </member>
+        <member name="T:CookPopularControl.Controls.Progress.ProgressBarAssistant">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.ProgressBar"/>的辅助类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.IsShowPercentProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.IsShowPercentProperty"/>提供是否显示百分比的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.TextColorProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.TextColorProperty"/>提供文本颜色的附加属性
+            </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKeyProperty">
             <summary>

@@ -158,6 +158,8 @@ namespace CookPopularControl.Communal.Behaviors
                 Flag = 1,
                 Duration = Duration,
                 Fill = Brushes.DodgerBlue,
+                //Stroke = BorderBrush,
+                //StrokeThickness = BorderThickness,
             };
             animationPath.Completed += AnimationPath_Completed;
 
@@ -167,6 +169,8 @@ namespace CookPopularControl.Communal.Behaviors
                 Flag = -1,
                 Duration = Duration,
                 Fill = Brushes.DodgerBlue,
+                //Stroke = BorderBrush,
+                //StrokeThickness = BorderThickness,
             };
             animationPath2.Completed += AnimationPath_Completed;
 
@@ -256,9 +260,9 @@ namespace CookPopularControl.Communal.Behaviors
 
             static BorderAnimationPath()
             {
-                StretchProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(Stretch.Uniform, OnPropertiesValueChanged));
-                StrokeProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(Brushes.Red, OnPropertiesValueChanged));
-                StrokeThicknessProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double5Box, OnPropertiesValueChanged));
+                StretchProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(Stretch.Uniform, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+                StrokeProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(Brushes.DodgerBlue, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
+                StrokeThicknessProperty.AddOwner(typeof(BorderAnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double5Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
             }
 
             public BorderAnimationPath()
