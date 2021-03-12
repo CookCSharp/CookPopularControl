@@ -25,6 +25,11 @@
             提供控件边框的行为动画
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Converters.DoubleToThickness">
+            <summary>
+            Double To Thickness
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.DotLoadingTrack">
             <summary>
             加载缓动画类型
@@ -587,6 +592,11 @@
             </summary>
             <remarks>用于代替Grid</remarks>
         </member>
+        <member name="T:CookPopularControl.Controls.Progress.CircularProgress">
+            <summary>
+            表示圆形进度条控件
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Progress.ProgressBarAssistant">
             <summary>
             表示<see cref="T:System.Windows.Controls.ProgressBar"/>的辅助类
@@ -773,6 +783,13 @@
             </summary>
             <param name="serviceProvider"></param>
             <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Values.DoubleExtension.AnyNan(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            判断集合中是否都为数字
+            </summary>
+            <param name="vals"></param>
             <returns></returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.WindowExtension">
@@ -1047,6 +1064,11 @@
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
         </member>
+        <member name="T:CookPopularControl.Tools.Windows.Converters.ValueTranslateConverter">
+            <summary>
+            值转换
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityConverter">
             <summary>
             True to Visibility.Visible
@@ -1080,6 +1102,36 @@
         <member name="T:CookPopularControl.Tools.Windows.Drawing.DrawingVisualElement">
             <summary>
             手绘一个带有命中测试的控件
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>
