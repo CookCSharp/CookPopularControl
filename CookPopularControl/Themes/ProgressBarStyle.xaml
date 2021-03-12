@@ -2,99 +2,23 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Progress"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:progress="clr-namespace:CookPopularControl.Controls.Progress">
 
-    <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}">
-        <Setter Property="IsIndeterminate" Value="False"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource AssistantColorTheme}"/>
-        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="Padding" Value="5,0"></Setter>
-        <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ProgressBar}">
-                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="True" Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Determinate"/>
-                                <VisualState x:Name="Indeterminate">
-                                    <Storyboard x:Name="HorizontalStoryboard" RepeatBehavior="Forever">
-                                        <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
-                                            <EasingPointKeyFrame KeyTime="0:0:0" Value="0.0,0.5"/>
-                                            <EasingPointKeyFrame KeyTime="0:0:2" Value="2.5,0.5"/>
-                                        </PointAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ProgressBarBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
-                        <Grid>
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="{TemplateBinding BorderThickness}" 
-                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"/>
-                            <Border x:Name="PART_Track"/>
-                            <Grid x:Name="PART_Indicator" ClipToBounds="True" HorizontalAlignment="Left">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition x:Name="width1"/>
-                                    <ColumnDefinition x:Name="width2" Width="0"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid x:Name="Animation" RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform ScaleX="1" ScaleY="-1"/>
-                                            <SkewTransform AngleX="0" AngleY="0"/>
-                                            <RotateTransform Angle="180"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Grid.RenderTransform>
-                                    <Border Background="{TemplateBinding Foreground}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
-                                        <Viewbox HorizontalAlignment="Left" StretchDirection="DownOnly" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                                            <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.TextColor)}" 
-                                                       SnapsToDevicePixels="True" FontSize="{TemplateBinding FontSize}" 
-                                                       VerticalAlignment="{TemplateBinding VerticalAlignment}" RenderTransformOrigin="0.5,0.5"
-                                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0}%}"
-                                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
-                                                <TextBlock.RenderTransform>
-                                                    <TransformGroup>
-                                                        <ScaleTransform ScaleX="-1" ScaleY="1"/>
-                                                        <SkewTransform AngleX="0" AngleY="0"/>
-                                                        <RotateTransform Angle="0"/>
-                                                        <TranslateTransform/>
-                                                    </TransformGroup>
-                                                </TextBlock.RenderTransform>
-                                            </TextBlock>
-                                        </Viewbox>
-                                    </Border>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="#C5C5C5" TargetName="border"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsIndeterminate" Value="true">
-                            <Setter Property="Width" Value="0.25*" TargetName="width1"></Setter>
-                            <Setter Property="Width" Value="0.75*" TargetName="width2"></Setter>
-                        </Trigger>
-                        <Trigger Property="Orientation" Value="Vertical">
-                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
-                                <Setter.Value>
-                                    <RotateTransform Angle="-90"></RotateTransform>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style x:Key="DefaultProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource LinearProgressBarBaseStyle}">
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="assistant:ProgressBarAssistant.IsShowPercent" Value="True" />
+        <Setter Property="assistant:ProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForeground}" />
     </Style>
 
-    <Style x:Key="DefaultProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource {x:Type ProgressBar}}">
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2"></Setter>
-        <Setter Property="assistant:ProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="assistant:ProgressBarAssistant.TextColor" Value="{StaticResource AssistantForeground}" />
+    <Style x:Key="CircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarBaseStyle}">
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource LinearTheme}" />
+        <Setter Property="assistant:ProgressBarAssistant.ArcThickness" Value="10" />
     </Style>
 
 </ResourceDictionary>

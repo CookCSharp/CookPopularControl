@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:animation="clr-namespace:CookPopularControl.Controls.Animation">
 
-    <Style x:Key="DefaultGifBoxStyle" TargetType="{x:Type animation:AnimationPath}">
+    <Style x:Key="DefaultAnimationPathStyle" TargetType="{x:Type animation:AnimationPath}">
         <Setter Property="Stroke" Value="{DynamicResource PrimaryColorTheme}" />
-        <Setter Property="StrokeThickness" Value="{StaticResource Double20Value}" />
+        <Setter Property="StrokeThickness" Value="{DynamicResource Double20Value}" />
     </Style>
 
 </ResourceDictionary>

@@ -4,7 +4,7 @@
 
     <Style x:Key="DefaultToolTipStyle" TargetType="{x:Type ToolTip}">
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Placement" Value="Mouse" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />

@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:win="clr-namespace:CookPopularControl.Controls.Windows"
                     xmlns:animation="clr-namespace:CookPopularControl.Controls.Animation"
                     xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
                     xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings"
-                    xmlns:win="clr-namespace:CookPopularControl.Controls.Windows">
+                    xmlns:progress="clr-namespace:CookPopularControl.Controls.Progress">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -35,8 +36,8 @@
     <!--<Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultButtonStyle}"/>-->
     <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}"/>
 
-    
-    <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultGifBoxStyle}"/>
+
+    <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>
     <Style x:Key="{x:Type loading:DotCircleLoading}" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}"/>
     <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}"/>
     <Style x:Key="{x:Type loading:DotPendulumLoading}" TargetType="{x:Type loading:DotPendulumLoading}" BasedOn="{StaticResource DefaultDotPendulumLoadingStyle}"/>
@@ -48,5 +49,6 @@
     <Style x:Key="{x:Type simpleLoading:CharacterLoading}" TargetType="{x:Type simpleLoading:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}"/>
     <Style x:Key="{x:Type simpleLoading:BraceletLoading}" TargetType="{x:Type simpleLoading:BraceletLoading}" BasedOn="{StaticResource BraceletLoadingStyle}"/>
     <Style x:Key="{x:Type simpleLoading:PlaneLoading}" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}"/>
-    
+    <!--<Style x:Key="{x:Type progress:CircularProgress}" TargetType="{x:Type progress:CircularProgress}" BasedOn="{StaticResource CircularProgressStyle}"/>-->
+
 </ResourceDictionary>

@@ -18,7 +18,7 @@
         <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}" />
     </Style>
 
-    <Style x:Key="BaseMessageDialog" TargetType="{x:Type ctl:MessageDialog}" BasedOn="{StaticResource BaseChromeWindowStyle}">
+    <Style x:Key="BaseMessageDialog" TargetType="{x:Type ctl:MessageDialog}" BasedOn="{StaticResource DefaultChromeWindowStyle}">
         <Setter Property="MinHeight" Value="172"/>
         <Setter Property="MinWidth" Value="335"/>
         <Setter Property="MaxWidth" Value="476"/>
