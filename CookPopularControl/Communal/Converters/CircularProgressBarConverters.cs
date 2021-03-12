@@ -2,6 +2,7 @@
 using System;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 
@@ -16,7 +17,6 @@ namespace CookPopularControl.Communal.Converters
 {
     public class ArcStartPointConverter : IValueConverter
     {
-        [Obsolete]
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is double && ((double)value > 0.0))
@@ -27,7 +27,6 @@ namespace CookPopularControl.Communal.Converters
             return new Point();
         }
 
-        [Obsolete]
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return Binding.DoNothing;

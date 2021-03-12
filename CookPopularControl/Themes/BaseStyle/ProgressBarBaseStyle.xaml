@@ -104,71 +104,58 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
                     <ControlTemplate.Resources>
-                        <Storyboard x:Key="storyboard">
-                            <!--<DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetName="rotate"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="0"></EasingDoubleKeyFrame>
-                                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="360"></EasingDoubleKeyFrame>
-                            </DoubleAnimationUsingKeyFrames>-->
-                            <DoubleAnimation Storyboard.TargetName="rotate" Storyboard.TargetProperty="Angle"
-                                             Duration="0:0:4" From="0" To="360" RepeatBehavior="Forever" AutoReverse="False"/>
+                        <Storyboard x:Key="IsIndeterminateStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="PathProgressRotateTransform" Storyboard.TargetProperty="Angle"
+                                             Duration="0:0:2" From="0" To="360" RepeatBehavior="Forever"/>
                         </Storyboard>
-                        <Storyboard x:Key="PointStoryboard">
-                            <!--<PointAnimation Storyboard.TargetName="figure" Storyboard.TargetProperty="StartPoint" 
-                                            Duration="0:0:4" From="150,0" To="150,300" RepeatBehavior="Forever"/>-->
-                            <!--<PointAnimation Storyboard.TargetName="arc" Storyboard.TargetProperty="Point" 
-                                            Duration="0:0:4" From="150,0" To="150,300" RepeatBehavior="Forever"/>
-                            <SizeAnimation Storyboard.TargetName="arc" Storyboard.TargetProperty="Size"
-                                           Duration="0:0:4" From="0,0" To="150,150" RepeatBehavior="Forever"/>-->
+                        <Storyboard x:Key="FullyCircularStoryboard">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FullyGridScaleTransform"
+                                                           Storyboard.TargetProperty="ScaleX"
+                                                           RepeatBehavior="Forever">
+                                <SplineDoubleKeyFrame KeyTime="0" Value="0.0" />
+                                <SplineDoubleKeyFrame KeyTime="0:0:1" Value="1.0" />
+                                <SplineDoubleKeyFrame KeyTime="0:0:1.2" Value="1.0" />
+                                <SplineDoubleKeyFrame KeyTime="0:0:4" Value="0.0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation Storyboard.TargetName="PathProgressRotateTransform"
+                                             Storyboard.TargetProperty="Angle" 
+                                             RepeatBehavior="Forever"
+                                             From="0" To="360" Duration="0:0:1.25" />
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Border x:Name="TemplateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid x:Name="PathGrid"
                               Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.ArcThickness),
                               Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">
-                            <!--<Canvas.Background>
-                                <DrawingBrush Stretch="Uniform" TileMode="Tile" ViewportUnits="RelativeToBoundingBox"
-                                              AlignmentX="Center" AlignmentY="Center">
-                                    <DrawingBrush.Drawing>
-                                        <GeometryDrawing Geometry="{DynamicResource LoopGeometry}" Brush="Red">
-                                            <GeometryDrawing.Pen>
-                                                <Pen Brush="Green" Thickness="0"/>
-                                            </GeometryDrawing.Pen>
-                                        </GeometryDrawing>
-                                    </DrawingBrush.Drawing>
-                                    <DrawingBrush.Transform>
-                                        <RotateTransform Angle="0" CenterX="150" CenterY="150" x:Name="rotate"/>
-                                    </DrawingBrush.Transform>
-                                </DrawingBrush>
-                            </Canvas.Background>-->
+                            <Grid>
+                                <Grid.RenderTransform>
+                                    <ScaleTransform x:Name="FullyGridScaleTransform" ScaleX="0" />
+                                </Grid.RenderTransform>
+                            </Grid>
                             <Canvas>
                                 <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:ProgressBarAssistant.ArcThickness}" 
                                       Fill="{TemplateBinding Background}" Stretch="None">
-                                    <Path.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform x:Name="rotate"/>
-                                        </TransformGroup>
-                                    </Path.RenderTransform>
                                     <Path.Data>
                                         <PathGeometry>
                                             <PathGeometry.Figures>
                                                 <PathFigureCollection>
-                                                    <PathFigure StartPoint="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcStartPointConverter}, Mode=OneWay}">
+                                                    <PathFigure StartPoint="{Binding ElementName=PathGrid,Path=ActualWidth, Converter={StaticResource ArcStartPointConverter}, Mode=OneWay}">
                                                         <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True"
-                                                                Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
+                                                                    Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
                                                             <ArcSegment.Point>
                                                                 <MultiBinding Converter="{StaticResource ArcEndPointConverter}"
-                                                                          ConverterParameter="{x:Static commonConverters:ArcEndPointConverter.IsParameterMidPoint}">
+                                                                              ConverterParameter="{x:Static commonConverters:ArcEndPointConverter.IsParameterMidPoint}">
                                                                     <Binding ElementName="PathGrid" Path="ActualWidth"/>
                                                                     <Binding ElementName="PathGrid" Path="ActualHeight"/>
                                                                     <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
                                                                     <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
                                                                     <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
+                                                                    <Binding ElementName="FullyGridScaleTransform" Path="ScaleX" />
                                                                 </MultiBinding>
                                                             </ArcSegment.Point>
                                                         </ArcSegment>
                                                         <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True"
-                                                                Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
+                                                                    Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
                                                             <ArcSegment.Point>
                                                                 <MultiBinding Converter="{StaticResource ArcEndPointConverter}">
                                                                     <Binding ElementName="PathGrid" Path="ActualWidth"/>
@@ -176,6 +163,7 @@
                                                                     <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
                                                                     <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
                                                                     <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
+                                                                    <Binding ElementName="FullyGridScaleTransform" Path="ScaleX" />
                                                                 </MultiBinding>
                                                             </ArcSegment.Point>
                                                         </ArcSegment>
@@ -184,15 +172,40 @@
                                             </PathGeometry.Figures>
                                         </PathGeometry>
                                     </Path.Data>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform x:Name="PathProgressRotateTransform"
+                                                         CenterX="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.5, Mode=OneWay}" 
+                                                         CenterY="{Binding ElementName=PathGrid, Path=ActualHeight, Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.5, Mode=OneWay}" />
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
                                 </Path>
                             </Canvas>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="Loaded">
-                            <!--<BeginStoryboard Storyboard="{StaticResource storyboard}"/>-->
-                            <!--<BeginStoryboard Storyboard="{StaticResource PointStoryboard}"/>-->
-                        </EventTrigger>
+                        <Trigger Property="IsIndeterminate" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="IsIndeterminateStoryboard" Storyboard="{StaticResource IsIndeterminateStoryboard}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="IsIndeterminateStoryboard"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsIndeterminate" Value="True" />
+                                <Condition Property="IsVisible" Value="True" />
+                                <Condition Property="Value" Value="0" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource FullyCircularStoryboard}"
+                                                 x:Name="FullyCircularStoryboard"/>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="FullyCircularStoryboard" />
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
