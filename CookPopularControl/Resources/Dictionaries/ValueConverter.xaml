@@ -4,8 +4,13 @@
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <commonConverters:BorderClipConverter x:Key="BorderClipConverter"/>
-    
+    <commonConverters:ArcStartPointConverter x:Key="ArcStartPointConverter"/>
+    <commonConverters:ArcSizeConverter x:Key="ArcSizeConverter"/>
+    <commonConverters:ArcEndPointConverter x:Key="ArcEndPointConverter"/>
+    <commonConverters:DoubleToThickness x:Key="DoubleToThickness"/>
+
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
+    <toolConverters:ValueTranslateConverter x:Key="ValueTranslateConverter"/>
 
 </ResourceDictionary>

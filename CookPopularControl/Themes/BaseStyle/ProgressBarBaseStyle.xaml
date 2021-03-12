@@ -1,0 +1,202 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Progress"
+                    xmlns:progress="clr-namespace:CookPopularControl.Controls.Progress"
+                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="LinearProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="IsIndeterminate" Value="False"/>
+        <Setter Property="Foreground" Value="{DynamicResource AssistantColorTheme}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="True" Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Determinate"/>
+                                <VisualState x:Name="Indeterminate">
+                                    <Storyboard x:Name="HorizontalStoryboard" RepeatBehavior="Forever">
+                                        <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
+                                            <EasingPointKeyFrame KeyTime="0:0:0" Value="0.0,0.5"/>
+                                            <EasingPointKeyFrame KeyTime="0:0:2" Value="2.5,0.5"/>
+                                        </PointAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid>
+                            <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"/>
+                            <Border x:Name="PART_Track"/>
+                            <Grid x:Name="PART_Indicator" ClipToBounds="True" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="width1"/>
+                                    <ColumnDefinition x:Name="width2" Width="0"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid x:Name="Animation" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Grid.RenderTransform>
+                                    <Border Background="{TemplateBinding Foreground}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
+                                        <Viewbox HorizontalAlignment="Left" StretchDirection="DownOnly" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                            <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.TextColor)}" 
+                                                       SnapsToDevicePixels="True" FontSize="{TemplateBinding FontSize}" 
+                                                       VerticalAlignment="{TemplateBinding VerticalAlignment}" RenderTransformOrigin="0.5,0.5"
+                                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0}%}"
+                                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                                <TextBlock.RenderTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="-1" ScaleY="1"/>
+                                                        <SkewTransform AngleX="0" AngleY="0"/>
+                                                        <RotateTransform Angle="0"/>
+                                                        <TranslateTransform/>
+                                                    </TransformGroup>
+                                                </TextBlock.RenderTransform>
+                                            </TextBlock>
+                                        </Viewbox>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="#C5C5C5" TargetName="border"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsIndeterminate" Value="true">
+                            <Setter Property="Width" Value="0.25*" TargetName="width1"></Setter>
+                            <Setter Property="Width" Value="0.75*" TargetName="width2"></Setter>
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90"></RotateTransform>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CircularProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Foreground" Value="{DynamicResource AssistantColorTheme}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="storyboard">
+                            <!--<DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetName="rotate"
+                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"></EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="360"></EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>-->
+                            <DoubleAnimation Storyboard.TargetName="rotate" Storyboard.TargetProperty="Angle"
+                                             Duration="0:0:4" From="0" To="360" RepeatBehavior="Forever" AutoReverse="False"/>
+                        </Storyboard>
+                        <Storyboard x:Key="PointStoryboard">
+                            <!--<PointAnimation Storyboard.TargetName="figure" Storyboard.TargetProperty="StartPoint" 
+                                            Duration="0:0:4" From="150,0" To="150,300" RepeatBehavior="Forever"/>-->
+                            <!--<PointAnimation Storyboard.TargetName="arc" Storyboard.TargetProperty="Point" 
+                                            Duration="0:0:4" From="150,0" To="150,300" RepeatBehavior="Forever"/>
+                            <SizeAnimation Storyboard.TargetName="arc" Storyboard.TargetProperty="Size"
+                                           Duration="0:0:4" From="0,0" To="150,150" RepeatBehavior="Forever"/>-->
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Border x:Name="TemplateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid x:Name="PathGrid"
+                              Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.ArcThickness),
+                              Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">
+                            <!--<Canvas.Background>
+                                <DrawingBrush Stretch="Uniform" TileMode="Tile" ViewportUnits="RelativeToBoundingBox"
+                                              AlignmentX="Center" AlignmentY="Center">
+                                    <DrawingBrush.Drawing>
+                                        <GeometryDrawing Geometry="{DynamicResource LoopGeometry}" Brush="Red">
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="Green" Thickness="0"/>
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingBrush.Drawing>
+                                    <DrawingBrush.Transform>
+                                        <RotateTransform Angle="0" CenterX="150" CenterY="150" x:Name="rotate"/>
+                                    </DrawingBrush.Transform>
+                                </DrawingBrush>
+                            </Canvas.Background>-->
+                            <Canvas>
+                                <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:ProgressBarAssistant.ArcThickness}" 
+                                      Fill="{TemplateBinding Background}" Stretch="None">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform x:Name="rotate"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathGeometry.Figures>
+                                                <PathFigureCollection>
+                                                    <PathFigure StartPoint="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcStartPointConverter}, Mode=OneWay}">
+                                                        <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True"
+                                                                Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
+                                                            <ArcSegment.Point>
+                                                                <MultiBinding Converter="{StaticResource ArcEndPointConverter}"
+                                                                          ConverterParameter="{x:Static commonConverters:ArcEndPointConverter.IsParameterMidPoint}">
+                                                                    <Binding ElementName="PathGrid" Path="ActualWidth"/>
+                                                                    <Binding ElementName="PathGrid" Path="ActualHeight"/>
+                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
+                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
+                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
+                                                                </MultiBinding>
+                                                            </ArcSegment.Point>
+                                                        </ArcSegment>
+                                                        <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True"
+                                                                Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
+                                                            <ArcSegment.Point>
+                                                                <MultiBinding Converter="{StaticResource ArcEndPointConverter}">
+                                                                    <Binding ElementName="PathGrid" Path="ActualWidth"/>
+                                                                    <Binding ElementName="PathGrid" Path="ActualHeight"/>
+                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
+                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
+                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
+                                                                </MultiBinding>
+                                                            </ArcSegment.Point>
+                                                        </ArcSegment>
+                                                    </PathFigure>
+                                                </PathFigureCollection>
+                                            </PathGeometry.Figures>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <!--<BeginStoryboard Storyboard="{StaticResource storyboard}"/>-->
+                            <!--<BeginStoryboard Storyboard="{StaticResource PointStoryboard}"/>-->
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
