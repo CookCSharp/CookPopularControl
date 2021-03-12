@@ -181,6 +181,10 @@
                                     </Path.RenderTransform>
                                 </Path>
                             </Canvas>
+                            <TextBlock x:Name="PART_CONTENT" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0}%}" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                       Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.TextColor)}"
+                                       Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

@@ -1,12 +1,8 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 
 
@@ -22,10 +18,13 @@ namespace CookPopularControl.Controls.Progress
     /// 表示<see cref="ProgressBar"/>的辅助类
     /// </summary>
     [TemplatePart(Name = PathGrid, Type = typeof(Grid))]
+    [TemplatePart(Name = PathProgress, Type = typeof(Path))]
+    [TemplatePart(Name = Content, Type = typeof(TextBlock))]
     public class ProgressBarAssistant
     {
-        private const string ProgressPath = "PART_PGOGRESS";
+        private const string PathProgress = "PART_PGOGRESS";
         private const string PathGrid = "PathGrid";
+        private const string Content = "PART_CONTENT";
 
         public static bool GetIsShowPercent(DependencyObject obj) => (bool)obj.GetValue(IsShowPercentProperty);
         public static void SetIsShowPercent(DependencyObject obj, bool value) => obj.SetValue(IsShowPercentProperty, ValueBoxes.BooleanBox(value));

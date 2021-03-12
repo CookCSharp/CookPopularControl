@@ -12,6 +12,8 @@
     <SolidColorBrush x:Key="BorderBrushColor" Color="#8B008B"/>
 
     <SolidColorBrush x:Key="BlockColor" Color="#664A4A4A"/>
+    <SolidColorBrush x:Key="DefaultBackground" Color="#FFFFFF"/>
+    
     <LinearGradientBrush x:Key="LinearTheme" StartPoint="0,0" EndPoint="1,1">
         <GradientStopCollection>
             <GradientStop Offset="0" Color="#FFFFFFFF"/>
