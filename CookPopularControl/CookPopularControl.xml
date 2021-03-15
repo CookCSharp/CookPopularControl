@@ -592,7 +592,7 @@
             </summary>
             <remarks>用于代替Grid</remarks>
         </member>
-        <member name="T:CookPopularControl.Controls.Progress.CircularProgress">
+        <member name="T:CookPopularControl.Controls.Progress.CircularProgressAssistant">
             <summary>
             表示圆形进度条控件
             </summary>
@@ -610,6 +610,26 @@
         <member name="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.TextColorProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.TextColorProperty"/>提供文本颜色的附加属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Progress.WaveProgressBarAssistant">
+            <summary>
+            提供WaveProgressBar的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeThicknessProperty">
+            <summary>
+            波纹厚度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeProperty">
+            <summary>
+            波纹绘制的颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveHeightProperty">
+            <summary>
+            表示波纹的高度
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKeyProperty">
@@ -772,7 +792,7 @@
             <param name="savePath"></param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Tools.Extensions.Markup.MarkupExtenisonBase">
+        <member name="T:CookPopularControl.Tools.Extensions.Markup.MarkupExtensionBase">
             <summary>
             为可以由 .NET Framework XAML 服务及其他 XAML 读取器和 XAML 编写器支持的 XAML 标记扩展实现提供基类
             </summary>
@@ -1097,6 +1117,21 @@
         <member name="M:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityReConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             Convert Visibility to boolean
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.Drawing.CoordinateCanvas">
+            <summary>
+            自定义Canvas坐标系
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.Windows.Drawing.CoordinateCanvas.OriginX">
+            <summary>
+            原点X坐标
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.Windows.Drawing.CoordinateCanvas.OriginY">
+            <summary>
+            原点Y坐标
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.Drawing.DrawingVisualElement">

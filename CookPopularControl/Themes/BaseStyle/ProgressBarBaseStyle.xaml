@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Progress"
-                    xmlns:progress="clr-namespace:CookPopularControl.Controls.Progress"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters">
 
@@ -59,7 +58,7 @@
                                             <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.TextColor)}" 
                                                        SnapsToDevicePixels="True" FontSize="{TemplateBinding FontSize}" 
                                                        VerticalAlignment="{TemplateBinding VerticalAlignment}" RenderTransformOrigin="0.5,0.5"
-                                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0}%}"
+                                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}"
                                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
                                                 <TextBlock.RenderTransform>
                                                     <TransformGroup>
@@ -181,7 +180,7 @@
                                     </Path.RenderTransform>
                                 </Path>
                             </Canvas>
-                            <TextBlock x:Name="PART_CONTENT" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0}%}" 
+                            <TextBlock x:Name="PART_CONTENT" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center" 
                                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.TextColor)}"
                                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
@@ -210,6 +209,75 @@
                                 <RemoveStoryboard BeginStoryboardName="FullyCircularStoryboard" />
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WaveProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Foreground" Value="{DynamicResource AssistantColorTheme}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="StoryboardOnLoaded">
+                            <DoubleAnimation Storyboard.TargetName="PART_Ellipse"
+                                             Storyboard.TargetProperty="(Shape.Fill).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
+                                             RepeatBehavior="Forever" From="0" To="1" Duration="0:0:1"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Canvas>
+                            <Ellipse x:Name="PART_Ellipse" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                                     Stroke="{TemplateBinding Foreground}" StrokeThickness="2">
+                                <Ellipse.Fill>
+                                    <VisualBrush TileMode="Tile" Viewport="0,-1,1,5" Stretch="None" AutoLayoutContent="True">
+                                        <VisualBrush.Visual>
+                                            <Grid Width="{TemplateBinding Width,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=3}" 
+                                                  Height="{TemplateBinding Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=3}">
+                                                <Border Background="{TemplateBinding Background}"/>
+                                                <Grid x:Name="PART_Wave" >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:WaveProgressBarAssistant.WaveHeight)}"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Path Grid.Row="0" Stretch="Fill" Fill="{TemplateBinding Foreground}" 
+                                                      Stroke="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStroke}"
+                                                      StrokeThickness="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStrokeThickness}"
+                                                      Data="{DynamicResource SinFuncGeometry}"/>
+                                                    <Rectangle x:Name="PART_Rectangle" Grid.Row="1" Fill="{TemplateBinding Foreground}"/>
+                                                </Grid>
+                                            </Grid>
+                                        </VisualBrush.Visual>
+                                        <VisualBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform />
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform Y="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,Converter={commonConverters:ProgressBarValueToTranslateTransformY}}"  />
+                                            </TransformGroup>
+                                        </VisualBrush.RelativeTransform>
+                                    </VisualBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Canvas>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.TextColor)}"
+                                   Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="PART_Ellipse">
+                            <BeginStoryboard x:Name="BeginStoryboardWave" Storyboard="{StaticResource StoryboardOnLoaded}"/>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="FrameworkElement.Unloaded" SourceName="PART_Ellipse">
+                            <StopStoryboard BeginStoryboardName="BeginStoryboardWave"/>
+                        </EventTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value}" Value="100">
+                            <Setter Property="assistant:WaveProgressBarAssistant.WaveHeight" Value="0" />
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
