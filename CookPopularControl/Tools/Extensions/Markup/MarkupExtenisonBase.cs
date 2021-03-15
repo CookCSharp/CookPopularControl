@@ -18,9 +18,9 @@ namespace CookPopularControl.Tools.Extensions.Markup
     /// <summary>
     /// 为可以由 .NET Framework XAML 服务及其他 XAML 读取器和 XAML 编写器支持的 XAML 标记扩展实现提供基类
     /// </summary>
-    public abstract class MarkupExtenisonBase : MarkupExtension
+    public abstract class MarkupExtensionBase : MarkupExtension
     {
-        protected MarkupExtenisonBase()
+        protected MarkupExtensionBase()
         {
         }
 

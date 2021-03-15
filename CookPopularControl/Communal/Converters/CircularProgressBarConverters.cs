@@ -1,9 +1,11 @@
 ﻿using CookPopularControl.Tools.Extensions.Values;
+using CookPopularControl.Tools.Extensions.Markup;
 using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Markup;
 
 
 
@@ -15,7 +17,8 @@ using System.Windows.Data;
  */
 namespace CookPopularControl.Communal.Converters
 {
-    public class ArcStartPointConverter : IValueConverter
+    [MarkupExtensionReturnType(typeof(Point))]
+    public class ArcStartPointConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -34,7 +37,8 @@ namespace CookPopularControl.Communal.Converters
 
     }
 
-    public class ArcSizeConverter : IValueConverter
+    [MarkupExtensionReturnType(typeof(Point))]
+    public class ArcSizeConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -52,7 +56,8 @@ namespace CookPopularControl.Communal.Converters
         }
     }
 
-    public class ArcEndPointConverter : IMultiValueConverter
+    [MarkupExtensionReturnType(typeof(Point))]
+    public class ArcEndPointConverter : MarkupExtensionBase, IMultiValueConverter
     {
         public const bool IsParameterMidPoint = true;
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)

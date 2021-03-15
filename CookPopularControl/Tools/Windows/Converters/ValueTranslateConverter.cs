@@ -20,7 +20,7 @@ namespace CookPopularControl.Tools.Windows.Converters
     /// <summary>
     /// 值转换
     /// </summary>
-    public class ValueTranslateConverter : MarkupExtenisonBase, IValueConverter
+    public class ValueTranslateConverter : MarkupExtensionBase, IValueConverter
     {
         public static object FixedValue = 1D;
 

@@ -17,11 +17,11 @@ using System.Windows.Markup;
  */
 namespace CookPopularControl.Tools.Extensions.Markup
 {
-    public abstract class MarkupExtensionBase<T> : MarkupExtenisonBase
+    public abstract class MarkupExtensionBase<T> : MarkupExtensionBase
     {
         private readonly object parameter;
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.RegisterAttached("Value", typeof(T), typeof(MarkupExtenisonBase), new PropertyMetadata(default(T)));
+            DependencyProperty.RegisterAttached("Value", typeof(T), typeof(MarkupExtensionBase), new PropertyMetadata(default(T)));
 
         protected MarkupExtensionBase(object _parameter)
         {

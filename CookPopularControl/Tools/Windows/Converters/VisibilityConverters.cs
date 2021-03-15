@@ -20,7 +20,7 @@ namespace CookPopularControl.Tools.Windows.Converters
     /// </summary>
     [MarkupExtensionReturnType(typeof(Visibility))]
     [Localizability(LocalizationCategory.NeverLocalize)]
-    public class BooleanToVisibilityConverter : MarkupExtenisonBase, IValueConverter
+    public class BooleanToVisibilityConverter : MarkupExtensionBase, IValueConverter
     {
         /// <summary>
         /// Convert bool or Nullable&lt;bool&gt; to Visibility
@@ -61,7 +61,7 @@ namespace CookPopularControl.Tools.Windows.Converters
     /// </summary>
     [MarkupExtensionReturnType(typeof(Visibility))]
     [Localizability(LocalizationCategory.NeverLocalize)]
-    public class BooleanToVisibilityReConverter : MarkupExtenisonBase, IValueConverter
+    public class BooleanToVisibilityReConverter : MarkupExtensionBase, IValueConverter
     {
         /// <summary>
         /// Convert bool or Nullable&lt;bool&gt; to Visibility

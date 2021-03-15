@@ -1,11 +1,6 @@
 ﻿using CookPopularControl.Tools.Extensions.Markup;
-using CookPopularControl.Tools.Windows.Converters;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -24,12 +19,13 @@ namespace CookPopularControl.Communal.Converters
     /// Double To Thickness
     /// </summary>
     [MarkupExtensionReturnType(typeof(Thickness))]
-    public class DoubleToThickness : MarkupExtenisonBase, IValueConverter
+    public class DoubleToThickness : MarkupExtensionBase, IValueConverter
     {
         public static Thickness FixedThickness = new Thickness(1);
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            parameter = parameter ?? 1;
             var isDouble = double.TryParse(parameter.ToString(), out double p);
             if (value is double v && isDouble)
             {
