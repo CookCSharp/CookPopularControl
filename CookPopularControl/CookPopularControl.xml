@@ -594,22 +594,22 @@
         </member>
         <member name="T:CookPopularControl.Controls.Progress.CircularProgressAssistant">
             <summary>
-            表示圆形进度条控件
+            表示圆形进度条的附加属性类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Progress.ProgressBarAssistant">
+        <member name="T:CookPopularControl.Controls.Progress.LinearProgressBarAssistant">
             <summary>
             表示<see cref="T:System.Windows.Controls.ProgressBar"/>的辅助类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.IsShowPercentProperty">
+        <member name="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IsShowPercentProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.IsShowPercentProperty"/>提供是否显示百分比的附加属性
+            <see cref="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IsShowPercentProperty"/>提供是否显示百分比的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.TextColorProperty">
+        <member name="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.TextColorProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.ProgressBarAssistant.TextColorProperty"/>提供文本颜色的附加属性
+            <see cref="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.TextColorProperty"/>提供文本颜色的附加属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Progress.WaveProgressBarAssistant">

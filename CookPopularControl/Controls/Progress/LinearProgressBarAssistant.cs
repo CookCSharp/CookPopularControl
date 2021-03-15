@@ -20,7 +20,7 @@ namespace CookPopularControl.Controls.Progress
     [TemplatePart(Name = PathGrid, Type = typeof(Grid))]
     [TemplatePart(Name = PathProgress, Type = typeof(Path))]
     [TemplatePart(Name = Content, Type = typeof(TextBlock))]
-    public class ProgressBarAssistant
+    public class LinearProgressBarAssistant
     {
         private const string PathProgress = "PART_PGOGRESS";
         private const string PathGrid = "PathGrid";
@@ -32,7 +32,7 @@ namespace CookPopularControl.Controls.Progress
         /// <see cref="IsShowPercentProperty"/>提供是否显示百分比的附加属性
         /// </summary>
         public static readonly DependencyProperty IsShowPercentProperty =
-            DependencyProperty.RegisterAttached("IsShowPercent", typeof(bool), typeof(ProgressBarAssistant),
+            DependencyProperty.RegisterAttached("IsShowPercent", typeof(bool), typeof(LinearProgressBarAssistant),
                     new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits, OnPropertiesValueChanged));
 
         public static Brush GetTextColor(DependencyObject obj) => (Brush)obj.GetValue(TextColorProperty);
@@ -41,14 +41,8 @@ namespace CookPopularControl.Controls.Progress
         /// <see cref="TextColorProperty"/>提供文本颜色的附加属性
         /// </summary>
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.RegisterAttached("TextColor", typeof(Brush), typeof(ProgressBarAssistant),
+            DependencyProperty.RegisterAttached("TextColor", typeof(Brush), typeof(LinearProgressBarAssistant),
                 new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits, OnPropertiesValueChanged));
-
-        public static double GetArcThickness(DependencyObject obj) => (double)obj.GetValue(ArcThicknessProperty);
-        public static void SetArcThickness(DependencyObject obj, double value) => obj.SetValue(ArcThicknessProperty, value);
-        public static readonly DependencyProperty ArcThicknessProperty =
-            DependencyProperty.RegisterAttached("ArcThickness", typeof(double), typeof(ProgressBarAssistant),
-                new FrameworkPropertyMetadata(ValueBoxes.Double5Box, FrameworkPropertyMetadataOptions.Inherits, OnPropertiesValueChanged));
 
 
         private static void OnPropertiesValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

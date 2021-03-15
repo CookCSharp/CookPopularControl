@@ -55,11 +55,11 @@
                                     </Grid.RenderTransform>
                                     <Border Background="{TemplateBinding Foreground}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
                                         <Viewbox HorizontalAlignment="Left" StretchDirection="DownOnly" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                                            <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.TextColor)}" 
+                                            <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:LinearProgressBarAssistant.TextColor)}" 
                                                        SnapsToDevicePixels="True" FontSize="{TemplateBinding FontSize}" 
                                                        VerticalAlignment="{TemplateBinding VerticalAlignment}" RenderTransformOrigin="0.5,0.5"
                                                        Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}"
-                                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:LinearProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
                                                 <TextBlock.RenderTransform>
                                                     <TransformGroup>
                                                         <ScaleTransform ScaleX="-1" ScaleY="1"/>
@@ -124,7 +124,7 @@
                     </ControlTemplate.Resources>
                     <Border x:Name="TemplateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid x:Name="PathGrid"
-                              Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.ArcThickness),
+                              Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:CircularProgressAssistant.ArcThickness),
                               Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">
                             <Grid>
                                 <Grid.RenderTransform>
@@ -132,7 +132,7 @@
                                 </Grid.RenderTransform>
                             </Grid>
                             <Canvas>
-                                <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:ProgressBarAssistant.ArcThickness}" 
+                                <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}" 
                                       Fill="{TemplateBinding Background}" Stretch="None">
                                     <Path.Data>
                                         <PathGeometry>
@@ -182,8 +182,8 @@
                             </Canvas>
                             <TextBlock x:Name="PART_CONTENT" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                       Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.TextColor)}"
-                                       Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                       Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:LinearProgressBarAssistant.TextColor)}"
+                                       Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:LinearProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -265,8 +265,8 @@
                         </Canvas>
                         <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.TextColor)}"
-                                   Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                                   Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:LinearProgressBarAssistant.TextColor)}"
+                                   Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:LinearProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="PART_Ellipse">
