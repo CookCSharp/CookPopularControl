@@ -12,6 +12,10 @@
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
         <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForeground}" />
     </Style>
+    <Style x:Key="AirFanLinearProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}">
+        <Setter Property="assistant:LinearProgressBarAssistant.IsShowIcon" Value="True" />
+        <Setter Property="assistant:LinearProgressBarAssistant.IconSize" Value="30" />
+    </Style>
 
     <Style x:Key="CircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarBaseStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}" />

@@ -18,6 +18,23 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="AirFanStoryboard">
+                            <DoubleAnimation Duration="0:0:1" From="0" To="360" RepeatBehavior="Forever"
+                                             Storyboard.TargetProperty="Angle" Storyboard.TargetName="ariFan"/>
+                            <DoubleAnimation Duration="0:0:2" From="0" To="-500" RepeatBehavior="Forever"
+                                             Storyboard.TargetProperty="X" Storyboard.TargetName="leafTranslate"/>
+                            <!--<MatrixAnimationUsingPath Storyboard.TargetName="leafMatrix"
+                                                      Storyboard.TargetProperty="Matrix"
+                                                      DoesRotateWithTangent="True"
+                                                      Duration="0:0:5"                                                      
+                                                      RepeatBehavior="Forever">
+                                <MatrixAnimationUsingPath.PathGeometry>
+                                    <PathGeometry Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100"/>
+                                </MatrixAnimationUsingPath.PathGeometry>
+                            </MatrixAnimationUsingPath>-->
+                        </Storyboard>
+                    </ControlTemplate.Resources>
                     <Grid x:Name="TemplateRoot" SnapsToDevicePixels="True" Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -26,7 +43,7 @@
                                     <Storyboard x:Name="HorizontalStoryboard" RepeatBehavior="Forever">
                                         <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
                                             <EasingPointKeyFrame KeyTime="0:0:0" Value="0.0,0.5"/>
-                                            <EasingPointKeyFrame KeyTime="0:0:2" Value="2.5,0.5"/>
+                                            <EasingPointKeyFrame KeyTime="0:0:2" Value="1,0.5"/>
                                         </PointAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -37,7 +54,33 @@
                             <Border x:Name="border" Background="{TemplateBinding Background}" 
                                     BorderBrush="{TemplateBinding BorderBrush}" 
                                     BorderThickness="{TemplateBinding BorderThickness}" 
-                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"/>
+                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
+                                <Grid x:Name="IconGrid" Visibility="{TemplateBinding assistant:LinearProgressBarAssistant.IsShowIcon,Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                    <Path Width="{TemplateBinding assistant:LinearProgressBarAssistant.IconSize}" 
+                                          Height="{TemplateBinding assistant:LinearProgressBarAssistant.IconSize}" 
+                                          Data="{DynamicResource AirFanGeometry}" 
+                                          HorizontalAlignment="Right" VerticalAlignment="Center"
+                                          Stroke="White" StrokeThickness="1" Fill="White" Stretch="Uniform"
+                                          RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <RotateTransform x:Name="ariFan"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Width="{TemplateBinding assistant:LinearProgressBarAssistant.IconSize}" 
+                                          Height="{TemplateBinding assistant:LinearProgressBarAssistant.IconSize}" 
+                                          x:Name="IconLeaf" Data="{DynamicResource LeafGeometry}" 
+                                          HorizontalAlignment="Right" VerticalAlignment="Center"
+                                          Stroke="White" StrokeThickness="1" Fill="White" Stretch="Uniform"
+                                          RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <MatrixTransform x:Name="leafMatrix"/>
+                                                <TranslateTransform x:Name="leafTranslate"/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Grid>
+                            </Border>
                             <Border x:Name="PART_Track"/>
                             <Grid x:Name="PART_Indicator" ClipToBounds="True" HorizontalAlignment="Left">
                                 <Grid.ColumnDefinitions>
@@ -55,20 +98,22 @@
                                     </Grid.RenderTransform>
                                     <Border Background="{TemplateBinding Foreground}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
                                         <Viewbox HorizontalAlignment="Left" StretchDirection="DownOnly" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                                            <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:LinearProgressBarAssistant.TextColor)}" 
-                                                       SnapsToDevicePixels="True" FontSize="{TemplateBinding FontSize}" 
-                                                       VerticalAlignment="{TemplateBinding VerticalAlignment}" RenderTransformOrigin="0.5,0.5"
-                                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}"
-                                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:LinearProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
-                                                <TextBlock.RenderTransform>
-                                                    <TransformGroup>
-                                                        <ScaleTransform ScaleX="-1" ScaleY="1"/>
-                                                        <SkewTransform AngleX="0" AngleY="0"/>
-                                                        <RotateTransform Angle="0"/>
-                                                        <TranslateTransform/>
-                                                    </TransformGroup>
-                                                </TextBlock.RenderTransform>
-                                            </TextBlock>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:LinearProgressBarAssistant.TextColor)}" 
+                                                           SnapsToDevicePixels="True" FontSize="{TemplateBinding FontSize}" 
+                                                           VerticalAlignment="{TemplateBinding VerticalAlignment}" RenderTransformOrigin="0.5,0.5"
+                                                           Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}"
+                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ProgressBar},Path=(assistant:LinearProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                                    <TextBlock.RenderTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="-1" ScaleY="1"/>
+                                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                                            <RotateTransform Angle="0"/>
+                                                            <TranslateTransform/>
+                                                        </TransformGroup>
+                                                    </TextBlock.RenderTransform>
+                                                </TextBlock>
+                                            </StackPanel>
                                         </Viewbox>
                                     </Border>
                                 </Grid>
@@ -76,8 +121,20 @@
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value,Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="IconLeaf"/>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard x:Name="AirFanStoryboard" Storyboard="{StaticResource AirFanStoryboard}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value}" Value="100">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="IconGrid"/>
+                            <DataTrigger.EnterActions>
+                                <StopStoryboard BeginStoryboardName="AirFanStoryboard"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="#C5C5C5" TargetName="border"></Setter>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledColor}" TargetName="border"></Setter>
                         </Trigger>
                         <Trigger Property="IsIndeterminate" Value="true">
                             <Setter Property="Width" Value="0.25*" TargetName="width1"></Setter>
@@ -86,7 +143,7 @@
                         <Trigger Property="Orientation" Value="Vertical">
                             <Setter Property="LayoutTransform" TargetName="TemplateRoot">
                                 <Setter.Value>
-                                    <RotateTransform Angle="-90"></RotateTransform>
+                                    <RotateTransform Angle="-90"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -113,7 +170,7 @@
                                                            RepeatBehavior="Forever">
                                 <SplineDoubleKeyFrame KeyTime="0" Value="0.0" />
                                 <SplineDoubleKeyFrame KeyTime="0:0:1" Value="1.0" />
-                                <SplineDoubleKeyFrame KeyTime="0:0:1.2" Value="1.0" />
+                                <SplineDoubleKeyFrame KeyTime="0:0:1.1" Value="1.0" />
                                 <SplineDoubleKeyFrame KeyTime="0:0:4" Value="0.0" />
                             </DoubleAnimationUsingKeyFrames>
                             <DoubleAnimation Storyboard.TargetName="PathProgressRotateTransform"
@@ -124,7 +181,7 @@
                     </ControlTemplate.Resources>
                     <Border x:Name="TemplateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
-                            <Ellipse x:Name="PART_Background" Stretch="Fill" Stroke="LightGray" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}"/>
+                            <Ellipse x:Name="PART_Background" Stretch="Fill" Stroke="{DynamicResource UnEnabledColor}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}"/>
                             <Grid x:Name="PathGrid"
                                   Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:CircularProgressAssistant.ArcThickness),
                                            Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">
