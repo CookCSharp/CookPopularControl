@@ -15,9 +15,9 @@
 
     <Style x:Key="CircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarBaseStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="assistant:CircularProgressAssistant.ArcThickness" Value="5" />
+        <Setter Property="assistant:CircularProgressAssistant.ArcThickness" Value="15" />
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
         <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="FontSize" Value="{DynamicResource Double20Value}" />

@@ -38,7 +38,7 @@ namespace CookPopularControl.Communal.Converters
     }
 
     [MarkupExtensionReturnType(typeof(Point))]
-    public class ArcSizeConverter : MarkupExtensionBase, IValueConverter
+    public class ArcCircularSizeConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -57,6 +57,27 @@ namespace CookPopularControl.Communal.Converters
     }
 
     [MarkupExtensionReturnType(typeof(Point))]
+    public class ArcEllipseSizeConverter : MarkupExtensionBase, IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (values.Length < 2) throw new ArgumentException("values 异常" + values.ToString());
+            if (values[0] is double && (double)values[0] > 0.0 && 
+                values[1] is double && (double)values[1] > 0.0)
+            {
+                return new Size((double)values[0] / 2, (double)values[1] / 2);
+            }
+
+            return new Point();
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    [MarkupExtensionReturnType(typeof(Point))]
     public class ArcEndPointConverter : MarkupExtensionBase, IMultiValueConverter
     {
         public const bool IsParameterMidPoint = true;
@@ -71,8 +92,13 @@ namespace CookPopularControl.Communal.Converters
             if (new[] { actualWidth, actualHeight, value, minimum, maximum }.AnyNan())
                 return Binding.DoNothing;
 
-            var circilarDiameter = Math.Min(actualWidth, actualHeight);
-            var circilarRadius = circilarDiameter / 2D;
+            ///圆
+            //var circilarDiameter = Math.Min(actualWidth, actualHeight);
+            //var circilarRadius = circilarDiameter / 2D;
+
+            ///椭圆
+            var circilarRadiusX = actualWidth / 2D;
+            var circilarRadiusY = actualHeight / 2D;
 
             if (values.Length == 6)
             {
@@ -90,9 +116,15 @@ namespace CookPopularControl.Communal.Converters
             var degrees = 360 * percent;
             var radians = degrees * (Math.PI / 180);
 
-            var centre = new Point(circilarRadius, circilarRadius);
-            var adjacent = Math.Cos(radians) * circilarRadius;
-            var opposite = Math.Sin(radians) * circilarRadius;
+            ///圆
+            //var centre = new Point(circilarRadius, circilarRadius);
+            //var adjacent = Math.Cos(radians) * circilarRadius;
+            //var opposite = Math.Sin(radians) * circilarRadius;
+
+            ///椭圆
+            var centre = new Point(circilarRadiusX, circilarRadiusY);
+            var adjacent = Math.Cos(radians) * circilarRadiusY;
+            var opposite = Math.Sin(radians) * circilarRadiusX;
 
             return new Point(centre.X + opposite, centre.Y - adjacent);
         }

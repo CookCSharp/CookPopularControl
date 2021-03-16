@@ -5,7 +5,8 @@
 
     <commonConverters:BorderClipConverter x:Key="BorderClipConverter"/>
     <commonConverters:ArcStartPointConverter x:Key="ArcStartPointConverter"/>
-    <commonConverters:ArcSizeConverter x:Key="ArcSizeConverter"/>
+    <commonConverters:ArcCircularSizeConverter x:Key="ArcCircularSizeConverter"/>
+    <commonConverters:ArcEllipseSizeConverter x:Key="ArcEllipseSizeConverter"/>
     <commonConverters:ArcEndPointConverter x:Key="ArcEndPointConverter"/>
     <commonConverters:DoubleToThickness x:Key="DoubleToThickness"/>
 

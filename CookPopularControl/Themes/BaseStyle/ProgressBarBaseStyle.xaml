@@ -123,71 +123,93 @@
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Border x:Name="TemplateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid x:Name="PathGrid"
-                              Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:CircularProgressAssistant.ArcThickness),
-                              Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">
-                            <Grid>
-                                <Grid.RenderTransform>
-                                    <ScaleTransform x:Name="FullyGridScaleTransform" ScaleX="0" />
-                                </Grid.RenderTransform>
-                            </Grid>
-                            <Canvas>
-                                <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}" 
-                                      Fill="{TemplateBinding Background}" Stretch="None">
-                                    <Path.Data>
-                                        <PathGeometry>
-                                            <PathGeometry.Figures>
-                                                <PathFigureCollection>
-                                                    <PathFigure StartPoint="{Binding ElementName=PathGrid,Path=ActualWidth, Converter={StaticResource ArcStartPointConverter}, Mode=OneWay}">
-                                                        <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True"
-                                                                    Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
-                                                            <ArcSegment.Point>
-                                                                <MultiBinding Converter="{StaticResource ArcEndPointConverter}"
+                        <Grid>
+                            <Ellipse x:Name="PART_Background" Stretch="Fill" Stroke="LightGray" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}"/>
+                            <Grid x:Name="PathGrid"
+                                  Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:CircularProgressAssistant.ArcThickness),
+                                           Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">
+                                <Grid>
+                                    <Grid.RenderTransform>
+                                        <ScaleTransform x:Name="FullyGridScaleTransform" ScaleX="0" />
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Canvas>
+                                    <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}" 
+                                          Fill="{TemplateBinding Background}" Stretch="None" StrokeStartLineCap="Square" StrokeEndLineCap="Round">
+                                        <Path.Data>
+                                            <GeometryGroup>
+                                                <PathGeometry>
+                                                    <PathGeometry.Figures>
+                                                        <PathFigureCollection>
+                                                            <PathFigure StartPoint="{Binding ElementName=PathGrid,Path=ActualWidth, Converter={StaticResource ArcStartPointConverter}, Mode=OneWay}">
+                                                                <!--Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcCircularSizeConverter}, Mode=OneWay}"-->
+                                                                <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True">
+                                                                    <ArcSegment.Size>
+                                                                        <MultiBinding Converter="{commonConverters:ArcEllipseSizeConverter}" Mode="OneWay">
+                                                                            <Binding ElementName="PathGrid" Path="ActualWidth"/>
+                                                                            <Binding ElementName="PathGrid" Path="ActualHeight"/>
+                                                                        </MultiBinding>
+                                                                    </ArcSegment.Size>
+                                                                    <ArcSegment.Point>
+                                                                        <MultiBinding Converter="{commonConverters:ArcEndPointConverter}"
                                                                               ConverterParameter="{x:Static commonConverters:ArcEndPointConverter.IsParameterMidPoint}">
-                                                                    <Binding ElementName="PathGrid" Path="ActualWidth"/>
-                                                                    <Binding ElementName="PathGrid" Path="ActualHeight"/>
-                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
-                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
-                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
-                                                                    <Binding ElementName="FullyGridScaleTransform" Path="ScaleX" />
-                                                                </MultiBinding>
-                                                            </ArcSegment.Point>
-                                                        </ArcSegment>
-                                                        <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True"
-                                                                    Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}">
-                                                            <ArcSegment.Point>
-                                                                <MultiBinding Converter="{StaticResource ArcEndPointConverter}">
-                                                                    <Binding ElementName="PathGrid" Path="ActualWidth"/>
-                                                                    <Binding ElementName="PathGrid" Path="ActualHeight"/>
-                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
-                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
-                                                                    <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
-                                                                    <Binding ElementName="FullyGridScaleTransform" Path="ScaleX" />
-                                                                </MultiBinding>
-                                                            </ArcSegment.Point>
-                                                        </ArcSegment>
-                                                    </PathFigure>
-                                                </PathFigureCollection>
-                                            </PathGeometry.Figures>
-                                        </PathGeometry>
-                                    </Path.Data>
-                                    <Path.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform x:Name="PathProgressRotateTransform"
+                                                                            <Binding ElementName="PathGrid" Path="ActualWidth"/>
+                                                                            <Binding ElementName="PathGrid" Path="ActualHeight"/>
+                                                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
+                                                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
+                                                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
+                                                                            <Binding ElementName="FullyGridScaleTransform" Path="ScaleX" />
+                                                                        </MultiBinding>
+                                                                    </ArcSegment.Point>
+                                                                </ArcSegment>
+                                                                <!--Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcCircularSizeConverter}, Mode=OneWay}"-->
+                                                                <ArcSegment SweepDirection="Clockwise" IsSmoothJoin="True">
+                                                                    <ArcSegment.Size>
+                                                                        <MultiBinding Converter="{commonConverters:ArcEllipseSizeConverter}" Mode="OneWay">
+                                                                            <Binding ElementName="PathGrid" Path="ActualWidth"/>
+                                                                            <Binding ElementName="PathGrid" Path="ActualHeight"/>
+                                                                        </MultiBinding>
+                                                                    </ArcSegment.Size>
+                                                                    <ArcSegment.Point>
+                                                                        <MultiBinding Converter="{commonConverters:ArcEndPointConverter}">
+                                                                            <Binding ElementName="PathGrid" Path="ActualWidth"/>
+                                                                            <Binding ElementName="PathGrid" Path="ActualHeight"/>
+                                                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"/>
+                                                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Minimum"/>
+                                                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum"/>
+                                                                            <Binding ElementName="FullyGridScaleTransform" Path="ScaleX" />
+                                                                        </MultiBinding>
+                                                                    </ArcSegment.Point>
+                                                                </ArcSegment>
+                                                            </PathFigure>
+                                                        </PathFigureCollection>
+                                                    </PathGeometry.Figures>
+                                                </PathGeometry>
+                                            </GeometryGroup>
+                                        </Path.Data>
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform x:Name="PathProgressRotateTransform"
                                                          CenterX="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.5, Mode=OneWay}" 
                                                          CenterY="{Binding ElementName=PathGrid, Path=ActualHeight, Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.5, Mode=OneWay}" />
-                                        </TransformGroup>
-                                    </Path.RenderTransform>
-                                </Path>
-                            </Canvas>
-                            <TextBlock x:Name="PART_CONTENT" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}" 
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Canvas>
+                                <TextBlock x:Name="PART_CONTENT" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Value,StringFormat={}{0:F0}%}" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center" 
                                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:LinearProgressBarAssistant.TextColor)}"
                                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:LinearProgressBarAssistant.IsShowPercent),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                            </Grid>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value}" Value="0">
+                            <Setter Property="StrokeStartLineCap" Value="Flat" TargetName="PART_PGOGRESS"/>
+                            <Setter Property="StrokeEndLineCap" Value="Flat" TargetName="PART_PGOGRESS"/>
+                        </DataTrigger>
                         <Trigger Property="IsIndeterminate" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Background"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="IsIndeterminateStoryboard" Storyboard="{StaticResource IsIndeterminateStoryboard}"/>
                             </Trigger.EnterActions>
@@ -201,6 +223,7 @@
                                 <Condition Property="IsVisible" Value="True" />
                                 <Condition Property="Value" Value="0" />
                             </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Background"/>
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource FullyCircularStoryboard}"
                                                  x:Name="FullyCircularStoryboard"/>
