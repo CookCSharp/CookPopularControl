@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:TestDemo.Demos"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="MainWindow"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -15,24 +16,14 @@
         Background="#FFFFFF">
     <!--Style="{StaticResource BaseChromeWindowStyle}"-->
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="D:\WPFSourceCode\CookPopularControl\CookPopularControl\Resources\Dictionaries\GeometryFigure.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-            <Style x:Key="ButtonStyle"
-                   BasedOn="{StaticResource {x:Type Button}}"
-                   TargetType="{x:Type Button}">
-                <Setter Property="Background" Value="Red" />
-            </Style>
-        </ResourceDictionary>
-    </Window.Resources>
-
     <Grid>
-        <local:ButtonDemo />
-        <!--<local:AnimationPathDemo />-->
+        <!--<hc:WaveProgressBar Value="50" hc:WindowAttach.ShowInTaskManager="True" ShowText="True" 
+                            WaveFill="Green" WaveStroke="Orange" WaveThickness="5"/>-->
         <!--<local:AnimationDemo />-->
+        <!--<local:ButtonDemo />-->
+        <!--<local:AnimationPathDemo />-->
         <!--<local:LoadingDemo />-->
+        <local:ProgressBarDemo />
     </Grid>
 
 

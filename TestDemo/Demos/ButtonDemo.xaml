@@ -63,7 +63,7 @@
                         Style="{StaticResource OutlineButtonStyle}" Margin="10,0"
                         pc:FrameworkElementBaseAttached.CornerRadius="20">
                     <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior AnimationType="Path" BorderThickness="20"/>
+                        <pc:ControlBorderBehavior AnimationType="Path" BorderBrush="Red" BorderThickness="5"/>
                     </behavior:Interaction.Behaviors>
                 </Button>
             </WrapPanel>
