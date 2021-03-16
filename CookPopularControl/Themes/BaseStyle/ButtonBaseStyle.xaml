@@ -55,11 +55,18 @@
                                                gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
                                                gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"
                                                gif:AnimationBehavior.SourceStream="{TemplateBinding buttonassist:ButtonAssist.GifStream}"/>
-                                        <ProgressBar x:Name="PART_PROGRESS" Value="{TemplateBinding buttonassist:ButtonAssist.ProgressValue}"
-                                                     Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(buttonassist:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
-                                        <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                      Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                              Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
+                                            <ProgressBar x:Name="PART_PROGRESS" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                                                         Value="{TemplateBinding buttonassist:ButtonAssist.ProgressValue}"
+                                                         Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
+                                                         attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                                         Foreground="#66C5C5C5" Background="Transparent"
+                                                         Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(buttonassist:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                        </Grid>
                                     </DockPanel>
                                 </Border>
                             </Grid>

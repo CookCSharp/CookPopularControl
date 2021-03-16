@@ -94,7 +94,9 @@
                 </Button>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
-                <Button Width="300" Height="34" Style="{StaticResource ProgressButtonStyle}" ClickMode="Press"
+                <Button Content="ProgressButton" Width="300" Height="60" 
+                        FontSize="20" Foreground="Red"
+                        Style="{StaticResource ProgressButtonStyle}"
                         pc:ButtonAssist.ProgressValue="{Binding Value,Mode=OneWay}" Click="Button_Click"/>
             </WrapPanel>
             <!--<Button Width="300" Height="30">

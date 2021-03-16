@@ -20,10 +20,10 @@
         <!--<hc:WaveProgressBar Value="50" hc:WindowAttach.ShowInTaskManager="True" ShowText="True" 
                             WaveFill="Green" WaveStroke="Orange" WaveThickness="5"/>-->
         <!--<local:AnimationDemo />-->
-        <!--<local:ButtonDemo />-->
+        <local:ButtonDemo />
         <!--<local:AnimationPathDemo />-->
         <!--<local:LoadingDemo />-->
-        <local:ProgressBarDemo />
+        <!--<local:ProgressBarDemo />-->
     </Grid>
 
 
