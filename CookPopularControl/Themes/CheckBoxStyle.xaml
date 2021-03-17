@@ -1,4 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.CheckBox">
     
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/CheckBoxBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="DefaultCheckBoxStyle"  TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBoxBaseStyle}">
+        <Setter Property="assistant:CheckBoxAssistant.FillBrush" Value="{DynamicResource DefaultBackground}" />
+        <Setter Property="assistant:CheckBoxAssistant.FillThickness" Value="1" />
+        <Setter Property="assistant:CheckBoxAssistant.FillType" Value="Check" />
+        <Setter Property="assistant:CheckBoxAssistant.FillSize" Value="30" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="1" />
+    </Style>
+
 </ResourceDictionary>

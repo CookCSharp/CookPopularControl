@@ -30,6 +30,26 @@
             Double To Thickness
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Data.Enum.FillType">
+            <summary>
+            CheckBox填充类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.FillType.Check">
+            <summary>
+            ✔
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.FillType.Rectangle">
+            <summary>
+            正方形
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.FillType.Line">
+            <summary>
+            短横线
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.DotLoadingTrack">
             <summary>
             加载缓动画类型
@@ -584,6 +604,31 @@
         <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
             <summary>
             提供<see cref="T:System.IO.Stream"/>的Gif图像
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.CheckBox.CheckBoxAssistant">
+            <summary>
+            <see cref="T:System.Windows.Controls.CheckBox"/>的附加基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillBrushProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillBrushProperty"/>提供填充颜色的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillThicknessProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillThicknessProperty"/>提供填充线条的厚度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty"/>提供填充类型(■，✔,➖)的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillSizeProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty"/>提供填充大小的附加属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
