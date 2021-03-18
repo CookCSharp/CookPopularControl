@@ -29,6 +29,8 @@
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{StaticResource ButtonBasePressBackground}" />
         <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
         <Setter Property="gif:AnimationBehavior.AutoStart" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -45,7 +47,9 @@
                                               Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                               Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                               Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                              Fill="{TemplateBinding Foreground}"/>
+                                              Fill="{TemplateBinding Foreground}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                         <Image x:Name="PART_IMGAE_Gif" Stretch="Uniform"
                                                Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
                                                Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
@@ -75,7 +79,8 @@
                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                        Padding="{TemplateBinding Padding}"
-                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}">
                             <ripple:Ripple.Clip>
                                 <MultiBinding Converter="{StaticResource BorderClipConverter}">
                                     <Binding ElementName="border" Path="ActualWidth" />
