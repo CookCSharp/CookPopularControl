@@ -1,4 +1,5 @@
-﻿using PropertyChanged;
+﻿using CookPopularControl.Tools.Extensions.Values;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,7 @@ namespace TestDemo.Demos
                 for (int i = 1; i <= 100; i++)
                 {
                     Value = i;
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(10);
                 }
             });
         }
@@ -49,9 +50,27 @@ namespace TestDemo.Demos
             {
                 if (_value == value) return;
                 _value = value;
+                if (_value.BetweenMinMax(0, 100))
+                    IsButtonEnabled = false;
+                else
+                    IsButtonEnabled = true;
                 OnPropertyChanged();
             }
         }
+
+
+        private bool _isEnabled = true;
+        public bool IsButtonEnabled
+        {
+            get => _isEnabled;
+            set 
+            {
+                if (_isEnabled == value) return;
+                _isEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
