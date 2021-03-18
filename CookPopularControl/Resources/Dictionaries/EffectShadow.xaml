@@ -19,6 +19,6 @@
                       Opacity=".42" RenderingBias="Performance" ShadowDepth="13"
                       Color="{StaticResource CustomShadow}" />
     <DropShadowEffect x:Key="ComboxBoxShadow" po:Freeze="True" BlurRadius="10" Direction="270"
-                      Opacity="0.05" RenderingBias="Performance" ShadowDepth="2"
+                      Opacity="0.15" RenderingBias="Performance" ShadowDepth="2"
                       Color="{StaticResource CustomShadow}" />
 </ResourceDictionary>

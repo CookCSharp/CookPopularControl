@@ -758,6 +758,25 @@
             Set to <c>True</c> to disable ripple effect
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.TooTip.ToolTipAssistant">
+            <summary>
+            <see cref="T:System.Windows.Controls.ToolTip"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.TooTip.ToolTipAssistant.CustomPopupPlacementCallbackImplement(System.Windows.Size,System.Windows.Size,System.Windows.Point)">
+            <summary>
+            自定义TooTip的位置
+            </summary>
+            <param name="popupSize"></param>
+            <param name="targetSize"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="F:CookPopularControl.Controls.TooTip.ToolTipAssistant.CookPopularToolTipBackgroundProperty">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.ToolTip"/>的背景色
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindow">
             <summary>
             标准窗口<see cref="T:CookPopularControl.Controls.Windows.ChromeWindow"/>
@@ -887,6 +906,17 @@
             </summary>
             <param name="vals"></param>
             <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Values.DoubleExtension.BetweenMinMax(System.Double,System.Double,System.Double,System.Boolean,System.Boolean)">
+            <summary>
+            判断一个数值是否在A(min)与B(max)之间
+            </summary>
+            <param name="targetValue">目标值</param>
+            <param name="min">小值</param>
+            <param name="max">大值</param>
+            <param name="isContainMin">包含最小值</param>
+            <param name="isContainMax">包含最大值</param>
+            <returns>true</returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.WindowExtension">
             <summary>
