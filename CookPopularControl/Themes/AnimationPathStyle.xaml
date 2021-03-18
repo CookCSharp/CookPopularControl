@@ -5,6 +5,12 @@
     <Style x:Key="DefaultAnimationPathStyle" TargetType="{x:Type animation:AnimationPath}">
         <Setter Property="Stroke" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="StrokeThickness" Value="{DynamicResource Double20Value}" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="IsPlay" Value="False" />
+                <Setter Property="Stroke" Value="{DynamicResource UnEnabledColor}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
