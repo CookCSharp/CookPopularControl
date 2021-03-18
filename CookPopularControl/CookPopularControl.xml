@@ -631,6 +631,26 @@
             <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty"/>提供填充大小的附加属性
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.CheckBox.SwitchControl">
+            <summary>
+            表示开关控件
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.CheckBox.SwitchControl.SwitchContent">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.CheckBox.SwitchControl.SwitchOpenBackground">
+            <summary>
+            打开的背景颜色
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.CheckBox.SwitchControl.SwicthCloseBackground">
+            <summary>
+            关闭的背景颜色
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
             <summary>
             重叠面板
