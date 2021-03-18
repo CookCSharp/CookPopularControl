@@ -26,7 +26,7 @@ namespace CookPopularControl.Tools.Windows.Converters
         {
             if (value is double v)
             {
-                return v > 0 && v <= 100 ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
+                return v > 0 && v < 100 ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
             }
 
             return ValueBoxes.FalseBox;

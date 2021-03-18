@@ -2,9 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                    xmlns:buttonassist="clr-namespace:CookPopularControl.Controls.Button"
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Button"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
@@ -48,24 +47,24 @@
                                               Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
                                               Fill="{TemplateBinding Foreground}"/>
                                         <Image x:Name="PART_IMGAE_Gif" Stretch="Uniform"
-                                               Source="{TemplateBinding buttonassist:ButtonAssist.ImageSource}"
-                                               Width="{TemplateBinding buttonassist:ButtonAssist.ImageWidth}" Height="{TemplateBinding buttonassist:ButtonAssist.ImageHeight}"
+                                               Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
+                                               Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
                                                DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                                gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
                                                gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
-                                               gif:AnimationBehavior.SourceUri="{TemplateBinding buttonassist:ButtonAssist.GifSource}"
-                                               gif:AnimationBehavior.SourceStream="{TemplateBinding buttonassist:ButtonAssist.GifStream}"/>
+                                               gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
+                                               gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
                                         <Grid>
-                                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                              Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
-                                            <ProgressBar x:Name="PART_PROGRESS" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                                                         Value="{TemplateBinding buttonassist:ButtonAssist.ProgressValue}"
+                                            <ProgressBar x:Name="PART_PROGRESS" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-2"
+                                                         Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
                                                          Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
                                                          attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                                         Foreground="#66C5C5C5" Background="Transparent"
-                                                         Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(buttonassist:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                                         Foreground="#00000000" Background="Transparent"
+                                                         Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
+                                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                              Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                                         </Grid>
                                     </DockPanel>
                                 </Border>
@@ -88,6 +87,21 @@
                         </ripple:Ripple>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=(assistant:ButtonAssist.IsShowProgress)}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=(assistant:ButtonAssist.ProgressValue),Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="Foreground" Value="#22000000" TargetName="PART_PROGRESS"/>
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledColor}" />
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="border"/>
                         </Trigger>
