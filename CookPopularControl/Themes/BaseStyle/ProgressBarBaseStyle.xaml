@@ -192,7 +192,7 @@
                                 </Grid>
                                 <Canvas>
                                     <Path x:Name="PART_PGOGRESS" Stroke="{TemplateBinding Foreground}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}" 
-                                          Fill="{TemplateBinding Background}" Stretch="None" StrokeStartLineCap="Square" StrokeEndLineCap="Round">
+                                          Fill="{TemplateBinding Background}" Stretch="None" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
                                         <Path.Data>
                                             <GeometryGroup>
                                                 <PathGeometry>
@@ -261,6 +261,11 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantColorTheme}" />
+                            <Setter Property="IsIndeterminate" Value="False" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Background"/>
+                        </Trigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value}" Value="0">
                             <Setter Property="StrokeStartLineCap" Value="Flat" TargetName="PART_PGOGRESS"/>
                             <Setter Property="StrokeEndLineCap" Value="Flat" TargetName="PART_PGOGRESS"/>
@@ -311,7 +316,7 @@
                     <Grid>
                         <Canvas>
                             <Ellipse x:Name="PART_Ellipse" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                                     Stroke="{TemplateBinding Foreground}" StrokeThickness="2">
+                                     Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left}">
                                 <Ellipse.Fill>
                                     <VisualBrush TileMode="Tile" Viewport="0,-1,1,5" Stretch="None" AutoLayoutContent="True">
                                         <VisualBrush.Visual>
@@ -324,9 +329,9 @@
                                                         <RowDefinition Height="*"/>
                                                     </Grid.RowDefinitions>
                                                     <Path Grid.Row="0" Stretch="Fill" Fill="{TemplateBinding Foreground}" 
-                                                      Stroke="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStroke}"
-                                                      StrokeThickness="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStrokeThickness}"
-                                                      Data="{DynamicResource SinFuncGeometry}"/>
+                                                          Stroke="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStroke}"
+                                                          StrokeThickness="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStrokeThickness}"
+                                                          Data="{DynamicResource ArchGeometry}"/>
                                                     <Rectangle x:Name="PART_Rectangle" Grid.Row="1" Fill="{TemplateBinding Foreground}"/>
                                                 </Grid>
                                             </Grid>

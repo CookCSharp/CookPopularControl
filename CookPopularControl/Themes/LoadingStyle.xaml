@@ -4,21 +4,21 @@
                     xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
-    <ResourceDictionary.MergedDictionaries>
+    <!--<ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries>-->
 
     
     <!--DotLoadingAnimation-->
     <Style x:Key="{x:Type loading:DotLoadingBase}" TargetType="{x:Type loading:DotLoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="IsDotRunning" Value="True" />
         <Setter Property="DotCount" Value="6" />
         <Setter Property="DotInterval" Value="8" />
@@ -28,8 +28,15 @@
         <Setter Property="IsDotRunAsConstant" Value="False" />
         <Setter Property="DotDuration" Value="0:0:4" />
         <Setter Property="DotDelayTime" Value="80" />
-        <Setter Property="DotStroke" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="DotStroke" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="DotStrokeThickness" Value="1" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="DotStroke" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="IsDotRunning" Value="False" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="DefaultDotCircleLoadingStyle" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource {x:Type loading:DotLoadingBase}}"/>
@@ -86,8 +93,8 @@
     <Style x:Key="{x:Type loading:RecLoadingBase}" TargetType="{x:Type loading:RecLoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="IsRecRunning" Value="True" />
         <Setter Property="RecWidth" Value="30" />
@@ -97,6 +104,13 @@
         <Setter Property="RecDelayTime" Value="200" />
         <Setter Property="RecDuration" Value="0:0:4" />
         <Setter Property="RecRunSpeed" Value="1" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="IsRecRunning" Value="False" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="DefaultRecCircleLoadingStyle" TargetType="{x:Type loading:RecCircleLoading}" BasedOn="{StaticResource {x:Type loading:RecLoadingBase}}">
@@ -145,14 +159,21 @@
     <Style x:Key="{x:Type simpleLoading:LoadingBase}" TargetType="{x:Type simpleLoading:LoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Foreground" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="IsRunning" Value="True" />
         <Setter Property="RunSpeed" Value="1" />
         <Setter Property="Duration" Value="0:0:2" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="IsRunning" Value="False" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="RaindropLoadingStyle" TargetType="{x:Type simpleLoading:RaindropLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
-        <Setter Property="RaindropStroke" Value="Orange" />
+        <Setter Property="RaindropStroke" Value="{DynamicResource AssistantColorTheme}" />
         <Setter Property="RaindropStrokeThickness" Value="3" />
     </Style>
 
@@ -167,14 +188,14 @@
     </Style>
 
     <Style x:Key="BraceletLoadingStyle" TargetType="{x:Type simpleLoading:BraceletLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1.5" />
     </Style>
 
     <Style x:Key="PlaneLoadingStyle" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource {x:Type simpleLoading:LoadingBase}}">
         <Setter Property="FontSize" Value="15" />
         <Setter Property="PlaneText" Value="Loading..." />
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1.5" />
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="200" />

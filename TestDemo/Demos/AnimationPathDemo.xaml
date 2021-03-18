@@ -10,8 +10,8 @@
     
     <Grid>
         <Viewbox Width="200" Height="200">
-            <pc:AnimationPath Width="200" Height="200" Duration="0:0:2" Stretch="Uniform"
-                       Stroke="DodgerBlue" StrokeThickness="10" Data="{StaticResource FatalGeometry}"/>
+            <pc:AnimationPath Width="200" Height="200" Duration="0:0:5" Stretch="Uniform" IsEnabled="True"
+                              Data="{StaticResource ArchGeometry}"/>
         </Viewbox>
     </Grid>
     
