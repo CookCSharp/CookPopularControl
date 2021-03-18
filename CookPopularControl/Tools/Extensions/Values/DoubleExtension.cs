@@ -31,5 +31,48 @@ namespace CookPopularControl.Tools.Extensions.Values
         {
             return vals.Any(double.IsNaN);
         }
+
+        /// <summary>
+        /// 判断一个数值是否在A(min)与B(max)之间
+        /// </summary>
+        /// <param name="targetValue">目标值</param>
+        /// <param name="min">小值</param>
+        /// <param name="max">大值</param>
+        /// <param name="isContainMin">包含最小值</param>
+        /// <param name="isContainMax">包含最大值</param>
+        /// <returns>true</returns>
+        public static bool BetweenMinMax(this double targetValue, double min, double max, bool isContainMin = false, bool isContainMax = false)
+        {
+            if(isContainMin && isContainMax)
+            {
+                if (targetValue >= min && targetValue <= max)
+                    return true;
+                else
+                    return false;
+            }
+            else if(!isContainMin && !isContainMax)
+            {
+                if (targetValue > min && targetValue < max)
+                    return true;
+                else
+                    return false;
+            }
+            else if (isContainMin && isContainMax)
+            {
+                if (targetValue >= min && targetValue < max)
+                    return true;
+                else
+                    return false;
+            }
+            else if (!isContainMin && isContainMax)
+            {
+                if (targetValue > min && targetValue <= max)
+                    return true;
+                else
+                    return false;
+            }
+
+            return false;
+        }
     }
 }
