@@ -9,6 +9,11 @@
             提供<see cref="T:System.Windows.Controls.Primitives.ButtonBase"/>的附加属性
             </summary>
         </member>
+        <member name="F:CookPopularControl.Communal.Attached.ButtonBaseAttached.IsShowRippleProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.ButtonBaseAttached.IsShowRippleProperty"/>是否显示按钮点击的波纹效果
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached">
             <summary>
             提供WPF控件附加属性的基类
@@ -20,10 +25,29 @@
             </summary>
             <remarks>Icon与Content的间距</remarks>
         </member>
+        <member name="T:CookPopularControl.Communal.Attached.TextElementAttached">
+            <summary>
+            <see cref="T:CookPopularControl.Communal.Attached.TextElementAttached"/>表示可输入文本控件的附加属性基类
+            </summary>
+            <remarks>包括TextBox、TextBlock、RichTextBox、PasswordBox、ComboBox等</remarks>
+        </member>
         <member name="T:CookPopularControl.Communal.Behaviors.ControlBorderBehavior">
             <summary>
             提供控件边框的行为动画
             </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Behaviors.PasswordBoxBehavior">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.PasswordBox"/>输入密码时的光标行为
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Behaviors.PasswordBoxBehavior.SetCursorPosition(System.Windows.Controls.PasswordBox,System.Int32,System.Int32)">
+            <summary>
+            设置光标焦点
+            </summary>
+            <param name="pwd">控件</param>
+            <param name="start">起始位置</param>
+            <param name="length">长度</param>
         </member>
         <member name="T:CookPopularControl.Communal.Converters.DoubleToThickness">
             <summary>
@@ -68,6 +92,11 @@
         <member name="F:CookPopularControl.Communal.Data.Enum.DotLoadingTrack.Pendulum">
             <summary>
             钟摆
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Helpers.PasswordBoxHelper">
+            <summary>
+            <see cref="T:System.Windows.Controls.PasswordBox"/>的帮助类
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Animation.AnimationPath">
@@ -656,6 +685,31 @@
             重叠面板
             </summary>
             <remarks>用于代替Grid</remarks>
+        </member>
+        <member name="T:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.PasswordBox"/>的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowIconProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowIconProperty"/>表示图标是否可见
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowPasswordProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowPasswordProperty"/>表示密码是否可见
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.PasswordProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.PasswordProperty"/>表示可绑定的Password
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsTriggerProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsTriggerProperty"/>表示是否触发PasswordChanged事件
+            </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Progress.CircularProgressAssistant">
             <summary>

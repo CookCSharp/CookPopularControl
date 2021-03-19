@@ -44,7 +44,7 @@
                         pc:FrameworkElementBaseAttached.IconDirection="Left" Foreground="Purple"
                         pc:FrameworkElementBaseAttached.IconMargin="5,0,0,0"
                         pc:FrameworkElementBaseAttached.CornerRadius="5"/>
-                <Button Width="50" Height="60" Margin="10,10,0,0" ToolTip="IconButton"
+                <Button Width="50" Height="50" Margin="10,10,0,0" ToolTip="IconButton"
                         pc:FrameworkElementBaseAttached.IconWidth="30"
                         pc:FrameworkElementBaseAttached.IconHeight="30"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
