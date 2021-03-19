@@ -36,12 +36,12 @@ namespace CookPopularControl.Communal.Attached
         public static double GetIconWidth(DependencyObject obj) => (double)obj.GetValue(IconWidthProperty);
         public static void SetIconWidth(DependencyObject obj, double value) => obj.SetValue(IconWidthProperty, value);
         public static readonly DependencyProperty IconWidthProperty =
-            DependencyProperty.RegisterAttached("IconWidth", typeof(double), typeof(FrameworkElementBaseAttached), new PropertyMetadata(Double.NaN));
+            DependencyProperty.RegisterAttached("IconWidth", typeof(double), typeof(FrameworkElementBaseAttached), new PropertyMetadata(double.NaN));
 
         public static double GetIconHeight(DependencyObject obj) => (double)obj.GetValue(IconHeightProperty);
         public static void SetIconHeight(DependencyObject obj, double value) => obj.SetValue(IconHeightProperty, value);
         public static readonly DependencyProperty IconHeightProperty =
-            DependencyProperty.RegisterAttached("IconHeight", typeof(double), typeof(FrameworkElementBaseAttached), new PropertyMetadata(Double.NaN));
+            DependencyProperty.RegisterAttached("IconHeight", typeof(double), typeof(FrameworkElementBaseAttached), new PropertyMetadata(double.NaN));
 
         public static Dock GetIconDirection(DependencyObject obj) => (Dock)obj.GetValue(IconDirectionProperty);
         public static void SetIconDirection(DependencyObject obj, Dock value) => obj.SetValue(IconDirectionProperty, value);
