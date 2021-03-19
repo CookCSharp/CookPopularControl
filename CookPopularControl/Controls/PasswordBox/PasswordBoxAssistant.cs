@@ -55,7 +55,7 @@ namespace CookPopularControl.Controls.PasswordBox
         {
             var pwdBox = d as System.Windows.Controls.PasswordBox;
             string password = (string)e.NewValue;
-            if (pwdBox != null && pwdBox.Password != password)
+            if (pwdBox != null && pwdBox.Password != password) //需判断后给password赋值，否则会造成PasswordBox输入时光标位置错误
             {
                 pwdBox.Password = password;
             }
