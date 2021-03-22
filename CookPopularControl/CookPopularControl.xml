@@ -1477,7 +1477,7 @@
         </member>
         <member name="T:CookPopularControl.Tools.Windows.ValidationRules.InputTextType">
             <summary>
-            输入文本格式
+            指定输入文本规则
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.ValidationRules.RegularPatternValidationRule">
