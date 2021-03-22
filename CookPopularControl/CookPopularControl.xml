@@ -1329,6 +1329,134 @@
             NullOrWhiteSpace Rule
             </summary>
         </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns">
+            <summary>
+            提供一些正则表达式列表
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalPattern">
+            <summary>
+            数字规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.PositiveIntPattern">
+            <summary>
+            正整数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.NegativeIntPattern">
+            <summary>
+            负整数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.IntPattern">
+            <summary>
+            整数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.NotNegativeIntPattern">
+            <summary>
+            非负整数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.NotPositveIntPattern">
+            <summary>
+            非正整数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.PositiveDoublePattern">
+            <summary>
+            正浮点数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.NegativeDoublePattern">
+            <summary>
+            负浮点数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DoublePattern">
+            <summary>
+            浮点数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.NotNegativeDoublePattern">
+            <summary>
+            非负浮点数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.NotPositiveDoublePattern">
+            <summary>
+            非正浮点数规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.LetterPattern">
+            <summary>
+            字母规则
+            </summary>
+            <remarks>由26个英文字母组成的字符串</remarks>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.UpperLetterPattern">
+            <summary>
+            大写英文字母规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.LowerLetterPattern">
+            <summary>
+            小写英文字母规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalAndLetterPattern">
+            <summary>
+            数字和英文字母组成的规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalOrLetterOrLinePattern">
+            <summary>
+            数字、英文字母或下划线组成的规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.ChinesePattern">
+            <summary>
+            汉字规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.PasswordPattern">
+            <summary>
+            密码规则
+            </summary>
+            <remarks>必须含有数字与字母，且不能包含中文与空格</remarks>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.PhoneNumberPattern">
+            <summary>
+            电话规则
+            </summary>
+            <remarks>中国人手机号码</remarks>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.EmailPattern">
+            <summary>
+            Email规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.UrlPattern">
+            <summary>
+            URL规则
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.InputTextType">
+            <summary>
+            输入文本格式
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.RegularPatternValidationRule">
+            <summary>
+            正则表达式规则校验
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.Windows.ValidationRules.RegularPatternValidationRule.RegularPattern">
+            <summary>
+            匹配规则
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Tools.Windows.ValidationRules.ValidationRuleBase">
             <summary>
             提供数据验证基类
