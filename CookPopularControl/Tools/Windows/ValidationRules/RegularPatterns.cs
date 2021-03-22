@@ -182,7 +182,7 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
     }
 
     /// <summary>
-    /// 输入文本格式
+    /// 指定输入文本规则
     /// </summary>
     public enum InputTextType
     {

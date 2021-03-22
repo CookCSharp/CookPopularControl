@@ -27,12 +27,14 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
         /// <summary>
         /// 匹配规则
         /// </summary>
-        public InputTextType RegularPattern { get; set; }
+        public InputTextType? RegularPattern { get; set; }
 
         public override ValidationResult ValidateBase(object value, CultureInfo cultureInfo)
         {
+            if (RegularPattern is null) return ValidationResult.ValidResult;
+
             ErrorMessage = "Please input " + Enum.GetName(typeof(InputTextType), RegularPattern);
-            return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), RegularPattern)
+            return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), RegularPattern.Value)
                    ? ValidationResult.ValidResult
                    : new ValidationResult(false, ErrorMessage);
         }
