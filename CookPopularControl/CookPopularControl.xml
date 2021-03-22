@@ -1407,7 +1407,17 @@
         </member>
         <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalAndLetterPattern">
             <summary>
-            数字和英文字母组成的规则
+            只包含字母和数字规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalAndUpperLowerLetterPattern">
+            <summary>
+            只包含大小写字母和数字规则
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalOrLetterPattern">
+            <summary>
+            数字或英文字母组成的规则
             </summary>
         </member>
         <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.DigitalOrLetterOrLinePattern">
@@ -1420,17 +1430,40 @@
             汉字规则
             </summary>
         </member>
-        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.PasswordPattern">
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.Password1Pattern">
             <summary>
-            密码规则
+            密码1规则
             </summary>
             <remarks>必须含有数字与字母，且不能包含中文与空格</remarks>
         </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.Password2Pattern">
+            <summary>
+            密码2规则
+            </summary>
+            <remarks>必须含有字母与数字,其它任意字符亦可</remarks>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.Password3Pattern">
+            <summary>
+            密码3规则
+            </summary>
+            <remarks>必须含有大小字母与数字,其它任意字符亦可</remarks>
+        </member>
         <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.PhoneNumberPattern">
             <summary>
-            电话规则
+            手机号码规则
             </summary>
-            <remarks>中国人手机号码</remarks>
+            <remarks>国内手机号码</remarks>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.LandLineNumberPattern">
+            <summary>
+            座机号码
+            </summary>
+            <remarks>国内</remarks>
+        </member>
+        <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.IDCardPattern">
+            <summary>
+            身份证号(15位、18位数字)规则
+            </summary>
         </member>
         <member name="F:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns.EmailPattern">
             <summary>

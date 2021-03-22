@@ -16,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PropertyChanged;
+using System.Text.RegularExpressions;
+using CookPopularControl.Tools.Windows.ValidationRules;
 
 namespace TestDemo.Demos
 {
@@ -30,7 +32,8 @@ namespace TestDemo.Demos
             InitializeComponent();
         }
 
-        public string PasswordContent { get; set; }
+        public string PasswordContent1 { get; set; }
+        public string PasswordContent2 { get; set; }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +63,7 @@ namespace TestDemo.Demos
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            var s = PasswordContent;
+            //InputScopeNameValue
         }
     }
 }

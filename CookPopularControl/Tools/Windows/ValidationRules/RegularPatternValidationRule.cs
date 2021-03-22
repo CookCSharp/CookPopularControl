@@ -31,6 +31,7 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
 
         public override ValidationResult ValidateBase(object value, CultureInfo cultureInfo)
         {
+            ErrorMessage = "Please input " + Enum.GetName(typeof(InputTextType), RegularPattern);
             return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), RegularPattern)
                    ? ValidationResult.ValidResult
                    : new ValidationResult(false, ErrorMessage);

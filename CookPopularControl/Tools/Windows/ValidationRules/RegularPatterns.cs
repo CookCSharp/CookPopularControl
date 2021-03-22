@@ -95,9 +95,19 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
         public const string LowerLetterPattern = "^[a-z]+$";
 
         /// <summary>
-        /// 数字和英文字母组成的规则
+        /// 只包含字母和数字规则
         /// </summary>
-        public const string DigitalAndLetterPattern = "^[A-Za-z0-9]+$";
+        public const string DigitalAndLetterPattern = @"^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+$";
+
+        /// <summary>
+        /// 只包含大小写字母和数字规则
+        /// </summary>
+        public const string DigitalAndUpperLowerLetterPattern = @"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[a-zA-Z\d]+$";
+
+        /// <summary>
+        /// 数字或英文字母组成的规则
+        /// </summary>
+        public const string DigitalOrLetterPattern = "^[A-Za-z0-9]+$";
 
         /// <summary>
         /// 数字、英文字母或下划线组成的规则
@@ -107,21 +117,44 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
         /// <summary>
         /// 汉字规则
         /// </summary>
-        public const string ChinesePattern = @"^[\u4e00-\u9fa5]$";
+        public const string ChinesePattern = @"^[\u4e00-\u9fa5]+$";
 
 
 
         /// <summary>
-        /// 密码规则
+        /// 密码1规则
         /// </summary>
         /// <remarks>必须含有数字与字母，且不能包含中文与空格</remarks>
-        public const string PasswordPattern = @"^(?![^\d]+$)(?![^a-zA-Z]+$)[^\u4e00-\u9fa5\s]+$";
+        public const string Password1Pattern = @"^(?![^\d]+$)(?![^a-zA-Z]+$)[^\u4e00-\u9fa5\s]+$";
 
         /// <summary>
-        /// 电话规则
+        /// 密码2规则
         /// </summary>
-        /// <remarks>中国人手机号码</remarks>
-        public const string PhoneNumberPattern = @"^((13[0-9])|(15[^4,\d])|(18[0,5-9]))\d{8}$";
+        /// <remarks>必须含有字母与数字,其它任意字符亦可</remarks>
+        public const string Password2Pattern = "^(?=.*\\d)(?=.*[a-zA-Z]).{0,}$";
+
+        /// <summary>
+        /// 密码3规则
+        /// </summary>
+        /// <remarks>必须含有大小字母与数字,其它任意字符亦可</remarks>
+        public const string Password3Pattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{0,}$";
+
+        /// <summary>
+        /// 手机号码规则
+        /// </summary>
+        /// <remarks>国内手机号码</remarks>
+        public const string PhoneNumberPattern = @"^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$";
+
+        /// <summary>
+        /// 座机号码
+        /// </summary>
+        /// <remarks>国内</remarks>
+        public const string LandLineNumberPattern = @"\d{3}-\d{8}|\d{4}-\d{7}";
+
+        /// <summary>
+        /// 身份证号(15位、18位数字)规则
+        /// </summary>
+        public const string IDCardPattern = @"^\d{15}|\d{18}$";
 
         /// <summary>
         /// Email规则
@@ -168,10 +201,16 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
         UpperLetter,
         LowerLetter,
         DigitalAndLetter,
+        DigitalAndUpperLowerLetter,
+        DigitalOrLetter,
         DigitalOrLetterOrLine,
         Chinese,
-        Password,
+        Password1,
+        Password2,
+        Password3,
         PhoneNumber,
+        LandLineNumber,
+        IDCard,
         Email,
         Url,
     }
