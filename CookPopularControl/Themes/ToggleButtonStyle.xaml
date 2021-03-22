@@ -20,8 +20,6 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
-        <Setter Property="attached:ButtonBaseAttached.IsShowRipple" Value="False" />
-        <Setter Property="Effect" Value="{x:Null}" />
     </Style>
 
 </ResourceDictionary>

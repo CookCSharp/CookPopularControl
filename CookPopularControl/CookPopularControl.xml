@@ -31,6 +31,21 @@
             </summary>
             <remarks>包括TextBox、TextBlock、RichTextBox、PasswordBox、ComboBox等</remarks>
         </member>
+        <member name="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderProperty"/>提供占位符内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderBrushProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderBrushProperty"/>占位符内容文本颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.TextElementAttached.IsAddClearButtonProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.IsAddClearButtonProperty"/>表示是否增加清除文本内容按钮
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Behaviors.ControlBorderBehavior">
             <summary>
             提供控件边框的行为动画
@@ -52,6 +67,11 @@
         <member name="T:CookPopularControl.Communal.Converters.DoubleToThickness">
             <summary>
             Double To Thickness
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Converters.TextFieldClearButtonVisibilityConverter">
+            <summary>
+            文本清除按钮
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.FillType">
@@ -1298,6 +1318,34 @@
             <summary>
             手绘一个带有命中测试的控件
             </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.NotNullAndEmptyValidationRule">
+            <summary>
+            NullOrEmpty Rule
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.NotNullAndWhiteSpaceValidationRule">
+            <summary>
+            NullOrWhiteSpace Rule
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.ValidationRuleBase">
+            <summary>
+            提供数据验证基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.Windows.ValidationRules.ValidationRuleBase.ErrorMessage">
+            <summary>
+            错误提示信息
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Windows.ValidationRules.ValidationRuleBase.ValidateBase(System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            自定义验证<see cref="T:System.Windows.Controls.ValidationResult"/>方法基类
+            </summary>
+            <param name="value"></param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
