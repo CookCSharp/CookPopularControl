@@ -63,7 +63,7 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ValidationErrorBaseTemplate">
-        <AdornedElementPlaceholder x:Name="Placeholder">
+        <AdornedElementPlaceholder x:Name="Placeholder" Visibility="Collapsed">
             <Border>
                 <ToolTipService.ToolTip>
                     <ToolTip x:Name="ValidationTooltip"
@@ -79,6 +79,9 @@
             </Border>
         </AdornedElementPlaceholder>
         <ControlTemplate.Triggers>
+            <DataTrigger Binding="{Binding ElementName=Placeholder,Path=AdornedElement.IsFocused}" Value="True">
+                <Setter Property="Visibility" Value="Visible" TargetName="Placeholder"/>
+            </DataTrigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type AdornedElementPlaceholder}}, Path= AdornedElement.IsKeyboardFocusWithin, Mode=OneWay}" Value="True" />
