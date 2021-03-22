@@ -18,6 +18,9 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ProgressBarStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PasswordBoxStyle.xaml" />
 
+        <!--Template-->
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
+
         <!--Extension Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
@@ -41,6 +44,7 @@
     <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}"/>
     <Style x:Key="{x:Type PasswordBox}" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource DefaultPasswordBoxStyle}"/>
 
+    
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>
     <Style x:Key="{x:Type loading:DotCircleLoading}" TargetType="{x:Type loading:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}"/>
     <Style x:Key="{x:Type loading:DotLineLoading}" TargetType="{x:Type loading:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}"/>

@@ -45,3 +45,4 @@ using System.Windows.Markup;
 
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Tools.Windows.Converters")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Tools.Windows.Drawing")]
+[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Tools.Windows.ValidationRules")]
