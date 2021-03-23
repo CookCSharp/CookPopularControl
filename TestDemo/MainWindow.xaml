@@ -11,9 +11,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Width="1000"
-        Height="800"
-        Foreground="DodgerBlue"
-        Background="#FFFFFF">
+        Height="800">
     <!--Style="{StaticResource BaseChromeWindowStyle}"-->
 
     <Grid>
@@ -27,7 +25,8 @@
         <!--<local:ProgressBarDemo />-->
         <!--<local:CheckBoxDemo />-->
         <!--<local:PasswordBoxDemo />-->
-        <local:TextBoxDemo />
+        <!--<local:TextBoxDemo />-->
+        <local:GroupBoxDemo />
     </Grid>
 
 
