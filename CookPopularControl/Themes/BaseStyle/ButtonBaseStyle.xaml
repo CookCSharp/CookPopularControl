@@ -23,7 +23,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Effect" Value="{StaticResource CustomShadowDepth1}" />
+        <Setter Property="Effect" Value="{x:Null}" />
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{StaticResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{StaticResource ButtonBasePressBackground}" />
