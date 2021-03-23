@@ -700,6 +700,46 @@
             关闭的背景颜色
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Fields.TextPath">
+            <summary>
+            自定义绘制文本
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.TextPath.Data">
+            <summary>
+            获取或设置用于指定所要绘制的形状的<see cref="T:System.Windows.Media.Geometry"/>
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.TextPath.DataProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.TextPath.Data"/>依赖属性。
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.TextPath.Text">
+            <summary>
+            获取或设置用于指定所要绘制的文本
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.TextPath.TextProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.TextPath.Text"/>依赖属性。
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.TextPath.FillImageSourceProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Fields.TextPath.FillImageSourceProperty"/>标识填充的图片资源附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.TextPath.DrawingRecProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingRecProperty"/>标识获取或设置在其中绘制图像的区域
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty"/>标识填充IconGeometry的画刷
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
             <summary>
             重叠面板
@@ -911,6 +951,11 @@
             装箱后的值类型（用于提高效率）
             </summary>
         </member>
+        <member name="T:CookPopularControl.Tools.Extensions.GeometryExtension">
+            <summary>
+            提供<see cref="T:System.Windows.Media.Geometry"/>的扩展方法
+            </summary>
+        </member>
         <member name="M:CookPopularControl.Tools.Extensions.GeometryExtension.GetTotalLength(System.Windows.Media.Geometry)">
             <summary>
             获取<see cref="T:System.Windows.Media.Geometry"/>路径总长度
@@ -926,6 +971,17 @@
             <param name="size"></param>
             <param name="strokeThickness"></param>
             <returns><see cref="T:System.Windows.Media.Geometry"/>路径总长度</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GeometryExtension.GetGeometryFromText(System.String,System.Windows.Media.FontFamily,System.Nullable{System.Windows.FontStyle},System.Nullable{System.Windows.FontWeight},System.Nullable{System.Windows.FontStretch})">
+            <summary>
+            由文本得到绘制的几何图形路径
+            </summary>
+            <param name="textToFormat"></param>
+            <param name="fontFamily"></param>
+            <param name="fontStyle"></param>
+            <param name="fontWeight"></param>
+            <param name="fontStretch"></param>
+            <returns></returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.GifExtension">
             <summary>

@@ -2,6 +2,7 @@
 using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ using System.Windows.Media;
  */
 namespace CookPopularControl.Tools.Extensions
 {
+    /// <summary>
+    /// 提供<see cref="Geometry"/>的扩展方法
+    /// </summary>
     public static class GeometryExtension
     {
         /// <summary>
@@ -56,6 +60,39 @@ namespace CookPopularControl.Tools.Extensions
 
             length /= min;
             return length / strokeThickness;
+        }
+
+        /// <summary>
+        /// 由文本得到绘制的几何图形路径
+        /// </summary>
+        /// <param name="textToFormat"></param>
+        /// <param name="fontFamily"></param>
+        /// <param name="fontStyle"></param>
+        /// <param name="fontWeight"></param>
+        /// <param name="fontStretch"></param>
+        /// <returns></returns>
+        public static Geometry GetGeometryFromText(this string textToFormat, FontFamily? fontFamily = null, FontStyle? fontStyle = null, FontWeight? fontWeight = null, FontStretch? fontStretch = null)
+        {
+            //var pixelsPerDip = VisualTreeHelper.GetDpi(visual);
+            var NumberSubstitution = new NumberSubstitution(NumberCultureSource.Text, CultureInfo.GetCultureInfo("en-us"), NumberSubstitutionMethod.Context);
+            fontFamily = fontFamily ?? new FontFamily("Times New Roma");
+            fontStyle = fontStyle ?? FontStyles.Normal;
+            fontWeight = fontWeight ?? FontWeights.Medium;
+            fontStretch = fontStretch ?? FontStretches.Normal;
+
+            var typeFace = new Typeface(fontFamily, fontStyle.Value, fontWeight.Value, fontStretch.Value);
+            var formattedText = new FormattedText(
+                textToFormat,
+                CultureInfo.GetCultureInfo("en-us"),
+                FlowDirection.LeftToRight,
+                typeFace,
+                14,
+                Brushes.Black,
+                NumberSubstitution,
+                TextFormattingMode.Ideal);
+            var fontGeometry = formattedText.BuildGeometry(new Point(0, 0));
+
+            return fontGeometry;
         }
     }
 }
