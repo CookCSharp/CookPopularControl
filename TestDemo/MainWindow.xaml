@@ -25,9 +25,8 @@
         <!--<local:ProgressBarDemo />-->
         <!--<local:CheckBoxDemo />-->
         <!--<local:PasswordBoxDemo />-->
-        <local:FieldsDemo />
+        <!--<local:FieldsDemo />-->
         <!--<local:GroupBoxDemo />-->
-        <!--<local:TextBlockDemo />-->
     </Grid>
 
 
