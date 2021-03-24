@@ -13,7 +13,7 @@
     <Style x:Key="CheckBoxBaseStyle" TargetType="{x:Type CheckBox}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Padding" Value="5,0,0,0" />

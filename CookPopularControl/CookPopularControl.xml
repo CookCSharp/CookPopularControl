@@ -25,6 +25,47 @@
             </summary>
             <remarks>Icon与Content的间距</remarks>
         </member>
+        <member name="T:CookPopularControl.Communal.Attached.SelectorAttached">
+            <summary>
+            提供具有Items子项控件的附加属性基类
+            </summary>
+            <remarks>适用于ListBox, ListView，ComboBox</remarks>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemsListBackgroundProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemsListBackgroundProperty"/>提供下拉列表的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemMouseOverBackgroundProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.SelectorItemTypeProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.SelectorItemTypeProperty"/>子项类型的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty"/>标识Selector子项的宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty"/>标识Selector子项的高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlWidthProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlWidthProperty"/>标识Selector子项控件的宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlHeightProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlHeightProperty"/>标识Selector子项控件的高度
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.TextElementAttached">
             <summary>
             <see cref="T:CookPopularControl.Communal.Attached.TextElementAttached"/>表示可输入文本控件的附加属性基类
@@ -112,6 +153,27 @@
         <member name="F:CookPopularControl.Communal.Data.Enum.DotLoadingTrack.Pendulum">
             <summary>
             钟摆
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.Enum.SelectorItemType">
+            <summary>
+            Selector子项类型
+            </summary>
+            <remarks>都是基于文本</remarks>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.SelectorItemType.Default">
+            <summary>
+            只有文本
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.SelectorItemType.CheckBox">
+            <summary>
+            包含CheckBox
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.SelectorItemType.Icon">
+            <summary>
+            包含IconGeometry
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Helpers.PasswordBoxHelper">
@@ -705,16 +767,6 @@
             表示<see cref="T:System.Windows.Controls.ComboBox"/>的附加属性帮助类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxListBackgroundProperty">
-            <summary>
-            标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxListBackgroundProperty"/>提供下拉列表的背景色附加属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboxBoxItemMouseOverBackgroundProperty">
-            <summary>
-            标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboxBoxItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
-            </summary>
-        </member>
         <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.DropDownButtonFillProperty">
             <summary>
             标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.DropDownButtonFillProperty"/>提供下拉按钮的背景色附加属性
@@ -723,6 +775,11 @@
         <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ComboBox.MultiComboBoxAssistant">
+            <summary>
+            提供<seealso cref="!:MultiComboBox"/>的附加属性基类
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">
@@ -1378,6 +1435,11 @@
         <member name="M:CookPopularControl.Tools.Windows.Converters.BooleanToVisibilityReConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             Convert Visibility to boolean
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.Converters.VisibilityToVisibilityReConverter">
+            <summary>
+            Visibility to Re Visibility
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.Drawing.CoordinateCanvas">

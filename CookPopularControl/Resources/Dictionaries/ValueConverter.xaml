@@ -11,11 +11,13 @@
     <commonConverters:DoubleToThickness x:Key="DoubleToThickness"/>
     <commonConverters:CheckBoxFillTypeToVisibilityConverter x:Key="CheckBoxFillTypeToVisibilityConverter"/>
     <commonConverters:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter"/>
+    <commonConverters:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter"/>
 
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
     <toolConverters:ValueTranslateConverter x:Key="ValueTranslateConverter"/>
     <toolConverters:ValueBetweenZeroAnd100 x:Key="ValueBetweenZeroAnd100"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
+    <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
 
 </ResourceDictionary>

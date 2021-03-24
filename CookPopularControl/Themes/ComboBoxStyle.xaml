@@ -7,10 +7,12 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ComboBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <!--SimpleComboBox-->
     <Style x:Key="DefaultComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.ComboBoxListBackground" Value="{DynamicResource DefaultBackground}"/>
-        <Setter Property="assistant:ComboBoxAssistant.ComboxBoxItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
+        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackground}"/>
+        <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
@@ -22,6 +24,59 @@
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
+    </Style>
+
+    
+    <!--MultiComboBox-->
+    <Style x:Key="DefaultMultiComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MultiComboBoxBaseStyle}">
+        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
+        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackground}"/>
+        <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
+        <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
+        <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
+        <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="24" />
+        <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="24" />
+    </Style>
+    <Style x:Key="AddClearButtonMultiComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
+        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
+    </Style>
+
+    <Style x:Key="MultiComboBoxCheckBoxItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="CheckBox" />
+    </Style>
+    <Style x:Key="AddClearButtonMultiComboBoxCheckBoxItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="CheckBox" />
+    </Style>
+
+    <Style x:Key="MultiComboBoxButtonItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Button" />
+        <Setter Property="attached:SelectorAttached.ButtonContent" Value="删除" />
+    </Style>
+    <Style x:Key="AddClearButtonMultiComboBoxButtonItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Button" />
+        <Setter Property="attached:SelectorAttached.ButtonContent" Value="删除" />
+    </Style>
+
+    <Style x:Key="MultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Icon" />
+        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryColorTheme}" />
+    </Style>
+    <Style x:Key="AddClearButtonMultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Icon" />
+        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryColorTheme}" />
+    </Style>
+
+    <Style x:Key="MultiComboBoxImageItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Image" />
+    </Style>
+    <Style x:Key="AddClearButtonMultiComboBoxImageItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
+        <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Image" />
     </Style>
 
 </ResourceDictionary>

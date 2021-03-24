@@ -1,4 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
+﻿using CookPopularControl.Communal.Data.Enum;
+using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,22 +27,6 @@ namespace CookPopularControl.Controls.ComboBox
     public class ComboBoxAssistant
     {
         private const string ComboBoxBorder = "PART_Border";
-
-        public static Brush GetComboBoxListBackground(DependencyObject obj) => (Brush)obj.GetValue(ComboBoxListBackgroundProperty);
-        public static void SetComboBoxListBackground(DependencyObject obj, Brush value) => obj.SetValue(ComboBoxListBackgroundProperty, value);
-        /// <summary>
-        /// 标识<see cref="ComboBoxListBackgroundProperty"/>提供下拉列表的背景色附加属性
-        /// </summary>
-        public static readonly DependencyProperty ComboBoxListBackgroundProperty =
-            DependencyProperty.RegisterAttached("ComboBoxListBackground", typeof(Brush), typeof(ComboBoxAssistant), new PropertyMetadata(default(Brush)));
-
-        public static Brush GetComboxBoxItemMouseOverBackground(DependencyObject obj) => (Brush)obj.GetValue(ComboxBoxItemMouseOverBackgroundProperty);
-        public static void SetComboxBoxItemMouseOverBackground(DependencyObject obj, Brush value) => obj.SetValue(ComboxBoxItemMouseOverBackgroundProperty, value);
-        /// <summary>
-        /// 标识<see cref="ComboxBoxItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
-        /// </summary>
-        public static readonly DependencyProperty ComboxBoxItemMouseOverBackgroundProperty =
-            DependencyProperty.RegisterAttached("ComboxBoxItemMouseOverBackground", typeof(Brush), typeof(ComboBoxAssistant), new PropertyMetadata(default(Brush)));
 
         public static Brush GetDropDownButtonFill(DependencyObject obj) => (Brush)obj.GetValue(DropDownButtonFillProperty);
         public static void SetDropDownButtonFill(DependencyObject obj, Brush value) => obj.SetValue(DropDownButtonFillProperty, value);

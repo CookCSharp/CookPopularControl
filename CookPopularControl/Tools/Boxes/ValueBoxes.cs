@@ -37,7 +37,7 @@ namespace CookPopularControl.Tools.Boxes
                     v = CollapsedBox;
                     break;
                 default:
-                    v = default;
+                    v = default(Visibility);
                     break;
             }
 
@@ -54,6 +54,7 @@ namespace CookPopularControl.Tools.Boxes
         internal static readonly object Double1Box = 1.0;
         internal static readonly object Double5Box = 5.0;
         internal static readonly object Double10Box = 10.0;
+        internal static readonly object Double20Box = 20.0;
         internal static readonly object Double30Box = 30.0;
         internal static readonly object Double200Box = 200.0;
 
