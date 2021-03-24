@@ -700,6 +700,31 @@
             关闭的背景颜色
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.ComboBox.ComboBoxAssistant">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.ComboBox"/>的附加属性帮助类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxListBackgroundProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxListBackgroundProperty"/>提供下拉列表的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboxBoxItemMouseOverBackgroundProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboxBoxItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.DropDownButtonFillProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.DropDownButtonFillProperty"/>提供下拉按钮的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">
             <summary>
             自定义绘制文本

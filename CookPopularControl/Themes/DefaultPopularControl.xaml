@@ -19,6 +19,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PasswordBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ComboBoxStyle.xaml" />
 
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
@@ -48,6 +49,7 @@
     <Style x:Key="{x:Type PasswordBox}" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource DefaultPasswordBoxStyle}"/>
     <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}"/>
     <Style x:Key="{x:Type GroupBox}" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource DefaultGroupBoxStyle}"/>
+    <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}"/>
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>

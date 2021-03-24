@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"                 
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ComboBoxBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
+        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
+        <Setter Property="assistant:ComboBoxAssistant.ComboBoxListBackground" Value="{DynamicResource DefaultBackground}"/>
+        <Setter Property="assistant:ComboBoxAssistant.ComboxBoxItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
+        <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
+        <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
+    </Style>
+
+</ResourceDictionary>
