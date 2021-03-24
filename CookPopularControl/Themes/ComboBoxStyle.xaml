@@ -17,4 +17,11 @@
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
     </Style>
 
+    <Style x:Key="AddClearButtonComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
+        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
+    </Style>
+
 </ResourceDictionary>

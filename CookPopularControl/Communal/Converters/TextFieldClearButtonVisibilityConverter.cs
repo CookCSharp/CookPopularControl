@@ -29,7 +29,7 @@ namespace CookPopularControl.Communal.Converters
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values.Count() < 2) return Visibility.Collapsed;
-            if ((bool)values[0] && !string.IsNullOrEmpty(values[1].ToString()))
+            if ((bool)values[0] && !string.IsNullOrEmpty(values[1] == null ? string.Empty : values[1].ToString()))
                 return ValueBoxes.VisibleBox;
             else
                 return ValueBoxes.CollapsedBox;

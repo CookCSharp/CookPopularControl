@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"                 
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
@@ -10,8 +11,6 @@
 
     <!--下拉按钮-->
     <Style x:Key="DropDownToggleButtonStyle" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.7}" />
-        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.7}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="ToolTip" Value="点击展开" />
         <Setter Property="Template">
@@ -31,7 +30,9 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Border x:Name="border" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                    <Border x:Name="border" Background="Transparent" RenderTransformOrigin="0.5,0.5"
+                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.7}"
+                            Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.7}">
                         <Border.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1"/>
@@ -120,7 +121,7 @@
                         <Grid x:Name="RootGrid" SnapsToDevicePixels="True" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="7*"/>
-                                <ColumnDefinition Width="3*" MaxWidth="50"/>
+                                <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock x:Name="PART_PlaceHolder" Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}" 
                                        Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
@@ -132,9 +133,25 @@
                                      IsReadOnly="{TemplateBinding IsReadOnly}" Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <ToggleButton Grid.Column="1" Style="{StaticResource DropDownToggleButtonStyle}"
-                                          Focusable="False" HorizontalAlignment="Right" Margin="0,0,8,0"
-                                          IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <DockPanel Grid.Column="1" >
+                                <Button x:Name="PART_ClearButton" Effect="{x:Null}" ToolTip="Clear"
+                                        Style="{DynamicResource IconTransparentButtonStyle}"
+                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                        Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
+                                        Foreground="{DynamicResource PrimaryColorTheme}" Background="Transparent" BorderThickness="0">
+                                    <Button.Visibility>
+                                        <MultiBinding Converter="{commonConverters:TextFieldClearButtonVisibilityConverter}">
+                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="(attached:TextElementAttached.IsAddClearButton)"/>
+                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Text"/>
+                                        </MultiBinding>
+                                    </Button.Visibility>
+                                </Button>
+                                <ToggleButton Style="{StaticResource DropDownToggleButtonStyle}"
+                                              Focusable="False" HorizontalAlignment="Right" Margin="0,0,8,0"
+                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </DockPanel>
                             <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" PopupAnimation="Slide" Placement="Bottom"
                                    HorizontalOffset="-1" VerticalOffset="0">
                                 <Border x:Name="PopupBorder" CornerRadius="0"
