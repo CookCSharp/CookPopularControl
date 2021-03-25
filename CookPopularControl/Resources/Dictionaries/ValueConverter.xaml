@@ -19,5 +19,6 @@
     <toolConverters:ValueBetweenZeroAnd100 x:Key="ValueBetweenZeroAnd100"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
     <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
+    <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>
 
 </ResourceDictionary>

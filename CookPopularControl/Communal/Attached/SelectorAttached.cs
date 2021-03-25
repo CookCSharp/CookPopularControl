@@ -3,11 +3,13 @@ using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
 
@@ -27,6 +29,8 @@ namespace CookPopularControl.Communal.Attached
     public class SelectorAttached
     {
         private const string ComboBoxItems_ListBox = "PART_ListBox";
+        private const string ItemCheckBox = "ItemCheckBox";
+        private const string ItemButton = "ItemButton";
 
         public static Brush GetItemsListBackground(DependencyObject obj) => (Brush)obj.GetValue(ItemsListBackgroundProperty);
         public static void SetItemsListBackground(DependencyObject obj, Brush value) => obj.SetValue(ItemsListBackgroundProperty, value);
@@ -56,22 +60,58 @@ namespace CookPopularControl.Communal.Attached
 
         private static void OnSelectorItemTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var comboBox = d as ComboBox;
-            if (comboBox != null && (SelectorItemType)e.NewValue != SelectorItemType.Default)
+            if (d is Selector selector)
             {
-                if (comboBox.IsLoaded)
-                    SetMultiComboBoxItems(comboBox);
+                if (selector.IsLoaded)
+                    SetSelectorItems(selector);
                 else
-                    comboBox.Loaded += (s, e) => SetMultiComboBoxItems(comboBox);
+                    selector.Loaded += (s, e) => SetSelectorItems(selector);
             }
         }
 
-        private static void SetMultiComboBoxItems(ComboBox comboBox)
+        private static void SetSelectorItems(Selector selector)
         {
-            var listBox = comboBox.Template.FindName(ComboBoxItems_ListBox, comboBox) as ListBox;
-            if (listBox != null)
-                listBox.ItemsSource = comboBox.ItemsSource ?? comboBox.Items;
+            if(selector is ComboBox comboBox)
+            {
+                var listBox = comboBox.Template.FindName(ComboBoxItems_ListBox, comboBox) as ListBox;
+                if (listBox != null)
+                {
+                    //也可以在xaml中绑定Items
+                    listBox.ItemsSource = comboBox.ItemsSource ?? comboBox.Items;
+
+                    listBox.SelectionChanged += (s, e) =>
+                    {
+                        var comboBoxText = string.Empty;
+                        foreach (var item in listBox.SelectedItems)
+                        {
+                            if (item is string)
+                                comboBoxText += item.ToString() + ",";
+                        }
+                        if (!listBox.SelectedItems.Count.Equals(0))
+                            comboBox.Text = comboBoxText.Remove(comboBoxText.Length - 1);
+                        else
+                            comboBox.Text = comboBoxText;
+                    };
+                }
+            }
         }
+        //switch (GetSelectorItemType(comboBox))
+        //{
+        //    case SelectorItemType.Default:
+        //        break;
+        //    case SelectorItemType.CheckBox:
+
+        //        break;
+        //    case SelectorItemType.Button:
+        //        break;
+        //    case SelectorItemType.Icon:
+        //        break;
+        //    case SelectorItemType.Image:
+        //        break;
+        //    default:
+        //        break;
+        //}
+
 
 
         public static double GetItemWidth(DependencyObject obj) => (double)obj.GetValue(ItemWidthProperty);
@@ -112,10 +152,45 @@ namespace CookPopularControl.Communal.Attached
         public static bool GetIsCheckBoxChecked(DependencyObject obj) => (bool)obj.GetValue(IsCheckBoxCheckedProperty);
         public static void SetIsCheckBoxChecked(DependencyObject obj, bool value) => obj.SetValue(IsCheckBoxCheckedProperty, ValueBoxes.BooleanBox(value));
         public static readonly DependencyProperty IsCheckBoxCheckedProperty =
-            DependencyProperty.RegisterAttached("IsCheckBoxChecked", typeof(bool), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.FalseBox));
+            DependencyProperty.RegisterAttached("IsCheckBoxChecked", typeof(bool), typeof(SelectorAttached),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits, OnIsCheckBoxCheckedChanged));
 
+        private static void OnIsCheckBoxCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+        {
+            var checkBox = d as CheckBox;
+            if (checkBox != null)
+            {
+                var listBoxItem = checkBox.TemplatedParent as ListBoxItem;
+                checkBox.Checked += (s, e) => OnIsItemChecked(listBoxItem!, false, true);
+                checkBox.Unchecked += (s, e) => OnIsItemChecked(listBoxItem!, true, false);
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IsItemCheckedEvent"/>标识子项ItemCheck是否选中
+        /// </summary>
+        public static readonly RoutedEvent IsItemCheckedEvent =
+            EventManager.RegisterRoutedEvent("IsItemChecked", RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<object>), typeof(SelectorAttached));
+        public static void AddIsItemCheckedHandler(DependencyObject d, RoutedPropertyChangedEventHandler<object> handler)
+        {
+            (d as UIElement)?.AddHandler(IsItemCheckedEvent, handler);
+        }
+        public static void RemoveIsItemCheckedHandler(DependencyObject d, RoutedPropertyChangedEventHandler<object> handler)
+        {
+            (d as UIElement)?.RemoveHandler(IsItemCheckedEvent, handler);
+        }
+        private static void OnIsItemChecked(object sender, object oldValue, object newValue)
+        {
+            var element = sender as UIElement;
+            RoutedPropertyChangedEventArgs<object> arg = new RoutedPropertyChangedEventArgs<object>(oldValue, newValue, IsItemCheckedEvent);
+            element?.RaiseEvent(arg);
+        }
+
+        [Obsolete("备用", false)]
         public static string GetCheckBoxContent(DependencyObject obj) => (string)obj.GetValue(CheckBoxContentProperty);
+        [Obsolete("备用", false)]
         public static void SetCheckBoxContent(DependencyObject obj, string value) => obj.SetValue(CheckBoxContentProperty, value);
+        [Obsolete("备用",false)]
         public static readonly DependencyProperty CheckBoxContentProperty =
             DependencyProperty.RegisterAttached("CheckBoxContent", typeof(string), typeof(SelectorAttached), new PropertyMetadata(default(string)));
 
@@ -123,10 +198,61 @@ namespace CookPopularControl.Communal.Attached
 
         #region SelectotItemType=Button
 
-        public static string GetButtonContent(DependencyObject obj) => (string)obj.GetValue(ButtonContentProperty);
-        public static void SetButtonContent(DependencyObject obj, string value) => obj.SetValue(ButtonContentProperty, value);
+        public static object GetButtonContent(DependencyObject obj) => (object)obj.GetValue(ButtonContentProperty);
+        public static void SetButtonContent(DependencyObject obj, object value) => obj.SetValue(ButtonContentProperty, value);
         public static readonly DependencyProperty ButtonContentProperty =
-            DependencyProperty.RegisterAttached("ButtonContent", typeof(string), typeof(SelectorAttached), new PropertyMetadata(default(string)));
+            DependencyProperty.RegisterAttached("ButtonContent", typeof(object), typeof(SelectorAttached), new PropertyMetadata(default(object)));
+
+        public static bool GetIsButtonDeleteItem(DependencyObject obj) => (bool)obj.GetValue(IsButtonDeleteItemProperty);
+        public static void SetIsButtonDeleteItem(DependencyObject obj, bool value) => obj.SetValue(IsButtonDeleteItemProperty, ValueBoxes.BooleanBox(value));
+        public static readonly DependencyProperty IsButtonDeleteItemProperty =
+            DependencyProperty.RegisterAttached("IsButtonDeleteItem", typeof(bool), typeof(SelectorAttached),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox, OnIsButtonDeleteItemChanged));
+
+        private static void OnIsButtonDeleteItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var button = d as Button;
+            if (button != null)
+            {
+                var listBoxItem = button.TemplatedParent as ListBoxItem;
+                if (listBoxItem != null)
+                {
+                    //var panel = VisualTreeHelper.GetParent(listBoxItem) as VirtualizingStackPanel;
+                    //var l = VisualTreeHelper.GetParent(panel);
+                    //var p = VisualTreeHelper.GetParent(l);
+                    //var p1 = VisualTreeHelper.GetParent(p);
+                    //var p2 = VisualTreeHelper.GetParent(p1);
+                    //var p3 = VisualTreeHelper.GetParent(p2);
+                    //var p4 = VisualTreeHelper.GetParent(p3) as ListBox;
+                    //var logi = LogicalTreeHelper.GetChildren(listBoxItem);
+                    button.Click += (s, e) =>
+                    {
+                        OnIsDeleteItem(listBoxItem, false, true);
+                    };
+                }
+            }
+        }
+
+        /// <summary>
+        /// 标识是否删除该项的事件
+        /// </summary>
+        public static readonly RoutedEvent IsDeleteItemEvent =
+            EventManager.RegisterRoutedEvent("IsDeleteItem", RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<object>), typeof(SelectorAttached));
+
+        public static void AddIsDeleteItemHandler(DependencyObject d, RoutedPropertyChangedEventHandler<object> handler)
+        {
+            (d as UIElement)?.AddHandler(IsDeleteItemEvent, handler);
+        }
+        public static void RemoveIsDeleteItemHandler(DependencyObject d, RoutedPropertyChangedEventHandler<object> handler)
+        {
+            (d as UIElement)?.RemoveHandler(IsDeleteItemEvent, handler);
+        }
+        private static void OnIsDeleteItem(object sender, bool oldValue, bool newValue)
+        {
+            var element = sender as ListBoxItem;
+            RoutedPropertyChangedEventArgs<object> arg = new RoutedPropertyChangedEventArgs<object>(oldValue, newValue, IsDeleteItemEvent);
+            element?.RaiseEvent(arg);
+        }
 
         #endregion
 
@@ -152,5 +278,21 @@ namespace CookPopularControl.Communal.Attached
             DependencyProperty.RegisterAttached("GifSource", typeof(Uri), typeof(SelectorAttached), new PropertyMetadata(default(Uri)));
 
         #endregion
+    }
+
+    /// <summary>
+    /// 表示<see cref="Selector"/>每个子项的基类
+    /// </summary>
+    public class SelectorItem
+    {
+        /// <summary>
+        /// 控件对象
+        /// </summary>
+        public object Item { get; set; }
+
+        /// <summary>
+        /// 是否作用
+        /// </summary>
+        public bool IsAction { get; set; }
     }
 }

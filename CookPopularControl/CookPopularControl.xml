@@ -66,6 +66,31 @@
             <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlHeightProperty"/>标识Selector子项控件的高度
             </summary>
         </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent"/>标识子项ItemCheck是否选中
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsDeleteItemEvent">
+            <summary>
+            标识是否删除该项的事件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Attached.SelectorItem">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.Primitives.Selector"/>每个子项的基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Attached.SelectorItem.Item">
+            <summary>
+            控件对象
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Attached.SelectorItem.IsAction">
+            <summary>
+            是否作用
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.TextElementAttached">
             <summary>
             <see cref="T:CookPopularControl.Communal.Attached.TextElementAttached"/>表示可输入文本控件的附加属性基类
@@ -1401,6 +1426,11 @@
             <param name="bitmap">当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象。</param>
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.Converters.BooleanToReBooleanConverter">
+            <summary>
+            Bool to Re bool
+            </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.Converters.ValueTranslateConverter">
             <summary>

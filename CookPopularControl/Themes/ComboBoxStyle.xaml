@@ -37,6 +37,7 @@
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
+
         <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="24" />
         <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="24" />
     </Style>
@@ -45,6 +46,9 @@
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="20" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="20" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
+
+        <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="24" />
+        <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="24" />
     </Style>
 
     <Style x:Key="MultiComboBoxCheckBoxItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
@@ -56,11 +60,13 @@
 
     <Style x:Key="MultiComboBoxButtonItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Button" />
-        <Setter Property="attached:SelectorAttached.ButtonContent" Value="删除" />
+        <Setter Property="attached:SelectorAttached.ButtonContent" Value="❌" />
+        <Setter Property="attached:SelectorAttached.IsButtonDeleteItem" Value="True" />
     </Style>
     <Style x:Key="AddClearButtonMultiComboBoxButtonItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Button" />
-        <Setter Property="attached:SelectorAttached.ButtonContent" Value="删除" />
+        <Setter Property="attached:SelectorAttached.ButtonContent" Value="❌" />
+        <Setter Property="attached:SelectorAttached.IsButtonDeleteItem" Value="True" />
     </Style>
 
     <Style x:Key="MultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">

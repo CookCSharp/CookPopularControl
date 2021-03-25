@@ -71,9 +71,14 @@ namespace CookPopularControl.Communal.Attached
             {
                 RoutedEventHandler handler = (s, e) =>
                 {
-                     (box as TextBox)?.SetCurrentValue(TextBox.TextProperty, null);
-                     (box as ComboBox)?.SetCurrentValue(ComboBox.TextProperty, null);
-                     if (box is PasswordBox pb) pb.Password = null;
+                    if (box is ComboBox comboBox && SelectorAttached.GetSelectorItemType(comboBox) != Data.Enum.SelectorItemType.Default)
+                    {
+                        var listBox = comboBox.Template.FindName("PART_ListBox", comboBox) as ListBox;
+                        listBox?.UnselectAll();
+                    }
+                    (box as TextBox)?.SetCurrentValue(TextBox.TextProperty, null);
+                    (box as ComboBox)?.SetCurrentValue(ComboBox.TextProperty, null);
+                    if (box is PasswordBox pb) pb.Password = null;
                 };
 
                 if (value)
