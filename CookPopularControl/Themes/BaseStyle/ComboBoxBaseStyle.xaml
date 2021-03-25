@@ -243,9 +243,13 @@
                                 <Image x:Name="ItemImageGif" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
                                        Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.ImageSource}"
                                        gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.GifSource}"
+                                       attached:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IsPreviewImage)}"
                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
                                                     Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Image}"/>
                             </Grid>
+                            <Popup x:Name="Popup_PreviewImage" Placement="Right" PopupAnimation="Slide" AllowsTransparency="True">
+                                <Image Source="{Binding ElementName=ItemImageGif,Path=Source}" Width="300" Height="300"/>
+                            </Popup>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -255,6 +259,22 @@
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Image">
                             <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
                         </DataTrigger>
+                        <!--鼠标仅在Image之上时触发-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" SourceName="ItemImageGif"/>
+                                <Condition Property="attached:SelectorAttached.IsPreviewImage" Value="True" SourceName="ItemImageGif"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
+                        </MultiTrigger>
+                        <!--鼠标在整个ListBoxItem之上时触发-->
+                        <!--<MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IsPreviewImage)}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
+                        </MultiDataTrigger>-->
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="BorderBrush" Value="{DynamicResource AssistantForeground}" TargetName="ItemCheckBox"/>
                             <Setter Property="Background" Value="{DynamicResource AssistantForeground}" TargetName="ItemButton"/>

@@ -73,7 +73,7 @@ namespace CookPopularControl.Communal.Attached
 
         private static void SetSelectorItems(Selector selector)
         {
-            if (selector is ComboBox comboBox)
+            if (selector is ComboBox comboBox && GetSelectorItemType(selector) != SelectorItemType.Default)
             {
                 var listBox = comboBox.Template.FindName(ComboBoxItems_ListBox, comboBox) as ListBox;
                 if (listBox != null)
@@ -264,6 +264,14 @@ namespace CookPopularControl.Communal.Attached
         public static readonly DependencyProperty GifSourceProperty =
             DependencyProperty.RegisterAttached("GifSource", typeof(Uri), typeof(SelectorAttached), new PropertyMetadata(default(Uri)));
 
+        public static bool GetIsPreviewImage(DependencyObject obj) => (bool)obj.GetValue(IsPreviewImageProperty);
+        public static void SetIsPreviewImage(DependencyObject obj, bool value) => obj.SetValue(IsPreviewImageProperty, ValueBoxes.BooleanBox(value));
+        /// <summary>
+        /// <see cref="IsPreviewImageProperty"/>表示是否可以预览图片
+        /// </summary>
+        public static readonly DependencyProperty IsPreviewImageProperty =
+            DependencyProperty.RegisterAttached("IsPreviewImage", typeof(bool), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.FalseBox));
+        
         #endregion
     }
 

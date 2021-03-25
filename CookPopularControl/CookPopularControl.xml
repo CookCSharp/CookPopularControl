@@ -86,6 +86,11 @@
             因为ComboBoxItem.Template中Path的绑定方式为Content.GeometryData
             *
         </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsPreviewImageProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsPreviewImageProperty"/>表示是否可以预览图片
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.SelectorItem">
             <summary>
             当ListBoxItem的子项显示Icon或Image或Gif时必须使用该类，方可加入ItemsSource
