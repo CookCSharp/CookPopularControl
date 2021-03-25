@@ -68,27 +68,27 @@
         </member>
         <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent"/>标识子项ItemCheck是否选中
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent"/>标识子项ItemCheck是否选中的事件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsDeleteItemEvent">
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsButtonDeleteItemProperty">
             <summary>
-            标识是否删除该项的事件
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsButtonDeleteItemProperty"/>用于触发Button的Click事件
             </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemDeleteEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemDeleteEvent"/>标识是否删除该项的事件
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Attached.SelectorAttached.GetIconFill(System.Windows.DependencyObject)">
+            当使用Icon时，在设置的ItemsSource每个子项中必须含有属性GeometryData,属于<see cref="T:System.Windows.Media.Geometry"/>
+            因为ComboBoxItem.Template中Path的绑定方式为Content.GeometryData
+            *
         </member>
         <member name="T:CookPopularControl.Communal.Attached.SelectorItem">
             <summary>
-            表示<see cref="T:System.Windows.Controls.Primitives.Selector"/>每个子项的基类
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Attached.SelectorItem.Item">
-            <summary>
-            控件对象
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Attached.SelectorItem.IsAction">
-            <summary>
-            是否作用
+            当ListBoxItem的子项显示Icon或Image或Gif时必须使用该类，方可加入ItemsSource
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Attached.TextElementAttached">
@@ -800,11 +800,6 @@
         <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.ComboBox.MultiComboBoxAssistant">
-            <summary>
-            提供<seealso cref="!:MultiComboBox"/>的附加属性基类
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">

@@ -196,7 +196,7 @@
         </Setter>
     </Style>
 
-
+    
     <Style x:Key="MultiComboBoxItemStyle" TargetType="{x:Type ListBoxItem}">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Foreground}"/>
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=ActualWidth}"/>
@@ -211,7 +211,7 @@
                                 <ColumnDefinition Width="7*" />
                                 <ColumnDefinition Width="3*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content}"   
+                            <TextBlock Grid.Column="0" x:Name="ItemContent" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content}"   
                                        Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Padding}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -226,27 +226,35 @@
                                                       Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=CheckBox}"/>
                                 <Button x:Name="ItemButton" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
                                         Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ButtonContent)}" 
-                                        attached:FrameworkElementBaseAttached.CornerRadius="2" Focusable="True"
+                                        attached:FrameworkElementBaseAttached.CornerRadius="2" Focusable="True" ToolTip="Delete"
                                         attached:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IsButtonDeleteItem)}"
                                         attached:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource AssistantForeground}"
                                         attached:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource AssistantForeground}"
                                         Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
                                                             Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Button}"/>
+                                <!--Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:FrameworkElementBaseAttached.IconGeometry)}"-->
                                 <Path x:Name="ItemIcon" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}" Stretch="Uniform"
-                                      Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:FrameworkElementBaseAttached.IconGeometry)}" 
+                                      Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.GeometryData}" 
                                       Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IconFill)}" 
                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
                                                   Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Icon}"/>
+                                <!--Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ImageSource)}"-->
+                                <!--gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.GifSource)}"-->
                                 <Image x:Name="ItemImageGif" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
-                                       gif:AnimationBehavior.AutoStart="True"
-                                       gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.GifSource)}"
-                                       Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ImageSource)}" 
+                                       Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.ImageSource}"
+                                       gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.GifSource}"
                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
                                                     Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Image}"/>
                             </Grid>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Icon">
+                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Image">
+                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
+                        </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="BorderBrush" Value="{DynamicResource AssistantForeground}" TargetName="ItemCheckBox"/>
                             <Setter Property="Background" Value="{DynamicResource AssistantForeground}" TargetName="ItemButton"/>
