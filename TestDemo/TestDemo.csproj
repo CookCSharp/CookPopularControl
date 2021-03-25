@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Resources\Gif\programmer.gif" />
+    <None Remove="Resources\Gif\timg.jpg" />
     <None Remove="Resources\Gif\tomcat.jpg" />
   </ItemGroup>
 
@@ -30,10 +31,12 @@
     <Reference Include="MaterialDesignThemes.Wpf">
       <HintPath>..\..\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\bin\Debug\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\Gif\programmer.gif" />
+    <Resource Include="Resources\Gif\timg.jpg" />
     <Resource Include="Resources\Gif\tomcat.jpg" />
   </ItemGroup>
 
