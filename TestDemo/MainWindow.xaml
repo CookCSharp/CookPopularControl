@@ -27,7 +27,8 @@
         <!--<local:PasswordBoxDemo />-->
         <!--<local:FieldsDemo />-->
         <!--<local:GroupBoxDemo />-->
-        <local:ComboBoxDemo />
+        <!--<local:ComboBoxDemo />-->
+        <local:ScrollViewerDemo />
     </Grid>
 
 

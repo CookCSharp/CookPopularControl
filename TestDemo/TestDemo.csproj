@@ -15,9 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HandyControl" Version="3.0.0" />
+    <PackageReference Include="HandyControl" Version="3.1.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.2" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.2.21154.6" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0-preview.2.21154.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +33,6 @@
     <Reference Include="MaterialDesignThemes.Wpf">
       <HintPath>..\..\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\bin\Debug\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="TestDemo.Demos.ScrollViewerDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestDemo.Demos"
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ScrollBar Width="50" Height="100" Value="0" Minimum="0" Maximum="100"    
+                       Background="#F0F0F0" Orientation="Vertical" Foreground="Red"
+                       BorderBrush="{StaticResource AssistantColorTheme}" BorderThickness="1"
+                       Style="{StaticResource DefaultScrollBarStyle}" />
+            <ScrollBar Width="50" Height="100" Value="0" Minimum="0" Maximum="100" Margin="30,0"
+                       Background="#F0F0F0" Orientation="Vertical" Foreground="Red"
+                       BorderBrush="{StaticResource AssistantColorTheme}" BorderThickness="1"
+                       Style="{StaticResource ThumbMarginScrollBarStyle}"
+                       pc:ScrollBarAssistant.IsScrollBarRepeatButton="False"
+                       pc:ScrollBarAssistant.ThumbInsideMargin="0,5"/>
+            <ScrollBar Width="300" Height="50" Value="0" Minimum="0" Maximum="100"   
+                       Background="#F0F0F0" Orientation="Horizontal"
+                       BorderBrush="{StaticResource AssistantColorTheme}" BorderThickness="1"
+                       Style="{StaticResource NoRepeatButtonScrollBarStyle}"/>
+            <ScrollBar Width="300" Height="50" Value="0" Minimum="0" Maximum="100"   
+                       Background="#F0F0F0" Orientation="Horizontal" Margin="20,0"
+                       BorderBrush="{StaticResource AssistantColorTheme}" BorderThickness="1"
+                       Style="{StaticResource NoRepeatButtonScrollBarStyle}"
+                       pc:ScrollBarAssistant.ThumbInsideMargin="5"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20">
+            <ScrollViewer Width="200" Height="200"
+                          CanContentScroll="True" Style="{StaticResource DefaultScrollViewerStyle}"
+                          VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                          pc:ScrollViewerAssistant.IsCornerShow="True"
+                          pc:ScrollViewerAssistant.IsAutoHideScrollBar="False">
+                <StackPanel>
+                    <TextBlock Text="1111111111111111111112312312312312312331123131111231231231232312312312311000"/>
+                    <TextBlock Text="111"/>
+                    <TextBlock Text="222"/>
+                    <TextBlock Text="333"/>
+                    <TextBlock Text="444"/>
+                    <TextBlock Text="555"/>
+                    <TextBlock Text="666"/>
+                    <TextBlock Text="777"/>
+                    <TextBlock Text="888"/>
+                    <TextBlock Text="999"/>
+                    <TextBlock Text="000"/>
+                    <TextBlock Text="111"/>
+                    <TextBlock Text="222"/>
+                    <TextBlock Text="333"/>
+                    <TextBlock Text="444"/>
+                    <TextBlock Text="555"/>
+                    <TextBlock Text="666"/>
+                    <TextBlock Text="777"/>
+                    <TextBlock Text="888"/>
+                    <TextBlock Text="999"/>
+                    <TextBlock Text="000"/>
+                    <TextBlock Text="111"/>
+                    <TextBlock Text="222"/>
+                    <TextBlock Text="333"/>
+                    <TextBlock Text="444"/>
+                    <TextBlock Text="555"/>
+                    <TextBlock Text="666"/>
+                    <TextBlock Text="777"/>
+                    <TextBlock Text="888"/>
+                    <TextBlock Text="999"/>
+                    <TextBlock Text="000"/>
+                    <TextBlock Text="111"/>
+                    <TextBlock Text="222"/>
+                    <TextBlock Text="333"/>
+                    <TextBlock Text="444"/>
+                    <TextBlock Text="555"/>
+                    <TextBlock Text="666"/>
+                    <TextBlock Text="777"/>
+                    <TextBlock Text="888"/>
+                    <TextBlock Text="999"/>
+                    <TextBlock Text="000"/>
+                    <TextBlock Text="111"/>
+                    <TextBlock Text="222"/>
+                    <TextBlock Text="333"/>
+                    <TextBlock Text="444"/>
+                    <TextBlock Text="555"/>
+                    <TextBlock Text="666"/>
+                    <TextBlock Text="777"/>
+                    <TextBlock Text="888"/>
+                    <TextBlock Text="999"/>
+                    <TextBlock Text="000"/>
+                    <TextBlock Text="111"/>
+                    <TextBlock Text="222"/>
+                    <TextBlock Text="333"/>
+                    <TextBlock Text="444"/>
+                    <TextBlock Text="555"/>
+                    <TextBlock Text="666"/>
+                    <TextBlock Text="777"/>
+                    <TextBlock Text="888"/>
+                    <TextBlock Text="999"/>
+                </StackPanel>
+            </ScrollViewer>
+        </WrapPanel>
+    </StackPanel>
+    
+</UserControl>
