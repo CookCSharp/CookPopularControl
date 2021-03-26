@@ -979,6 +979,36 @@
             Set to <c>True</c> to disable ripple effect
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.RepeatButton"/>是否显示，默认True
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.Thumb"/>在<see cref="T:System.Windows.Controls.Primitives.Track"/>中移动时距离边界的位置
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.ScrollViewer"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsCornerShowProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsCornerShowProperty"/>标识右下角的矩形块是否显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.TooTip.ToolTipAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.ToolTip"/>的附加属性基类
