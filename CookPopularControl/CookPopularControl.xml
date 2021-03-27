@@ -878,6 +878,42 @@
             <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsTriggerProperty"/>表示是否触发PasswordChanged事件
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Popup.ExtendPopup">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Primitives.Popup"/>的扩展控件
+            </summary>
+            <remarks>可跟随父元素移动</remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMost">
+            <summary>
+            是否置前
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMostProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMostProperty"/>提供<see cref="P:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMost"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdate">
+            <summary>
+            是否跟随父元素移动
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdateProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdateProperty"/>提供<see cref="P:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdate"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosed">
+            <summary>
+            鼠标左键按下是否关闭<see cref="T:CookPopularControl.Controls.Popup.ExtendPopup"/>
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosedProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosedProperty"/>提供<see cref="P:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosed"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Progress.CircularProgressAssistant">
             <summary>
             表示圆形进度条的附加属性类

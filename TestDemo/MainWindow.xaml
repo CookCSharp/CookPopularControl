@@ -28,7 +28,8 @@
         <!--<local:FieldsDemo />-->
         <!--<local:GroupBoxDemo />-->
         <!--<local:ComboBoxDemo />-->
-        <local:ScrollViewerDemo />
+        <!--<local:ScrollViewerDemo />-->
+        <local:PopupDemo />
     </Grid>
 
 

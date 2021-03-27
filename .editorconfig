@@ -32,3 +32,6 @@ dotnet_diagnostic.IDE0022.severity = none
 
 # IDE0059: 不需要赋值
 csharp_style_unused_value_assignment_preference = unused_local_variable
+
+# CS8625: 无法将 null 文本转换为不可为 null 的引用类型。
+dotnet_diagnostic.CS8625.severity = none
