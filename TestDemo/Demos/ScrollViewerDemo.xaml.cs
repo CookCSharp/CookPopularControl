@@ -23,6 +23,14 @@ namespace TestDemo.Demos
         public ScrollViewerDemo()
         {
             InitializeComponent();
+
+            new Button().Click += ScrollViewerDemo_Click;
+        }
+
+        private void ScrollViewerDemo_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //(sender as Button).Command.Execute()
         }
     }
 }

@@ -37,7 +37,7 @@
                           pc:ScrollViewerAssistant.IsCornerShow="True"
                           pc:ScrollViewerAssistant.IsAutoHideScrollBar="False">
                 <StackPanel>
-                    <TextBlock Text="1111111111111111111112312312312312312331123131111231231231232312312312311000"/>
+                    <TextBlock Text="111111111111111111111231231231231231233112"/>
                     <TextBlock Text="111"/>
                     <TextBlock Text="222"/>
                     <TextBlock Text="333"/>

@@ -979,6 +979,11 @@
             Set to <c>True</c> to disable ripple effect
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.ScrollControls.ExtendedScrollViewer">
+            <summary>
+            解决滚动条劫持(scroll-wheel-hijack)的问题
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>的附加属性基类
