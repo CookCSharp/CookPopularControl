@@ -28,7 +28,7 @@
                             <Setter TargetName="RepeatButtonBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ScrollBar},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="assistant:ScrollBarAssistant.IsExecuteCommand" Value="True" />
+                            <!--<Setter Property="assistant:ScrollBarAssistant.IsExecuteCommand" Value="True" />-->
                             <Setter TargetName="RepeatButtonBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ScrollBar},Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

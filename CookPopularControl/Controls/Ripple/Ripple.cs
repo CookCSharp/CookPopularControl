@@ -7,6 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using OriginPopup = System.Windows.Controls.Primitives.Popup;
 
 namespace CookPopularControl.Controls.Ripple
 {
@@ -27,8 +28,8 @@ namespace CookPopularControl.Controls.Ripple
 
             EventManager.RegisterClassHandler(typeof(ContentControl), Mouse.PreviewMouseUpEvent, new MouseButtonEventHandler(MouseButtonEventHandler), true);
             EventManager.RegisterClassHandler(typeof(ContentControl), Mouse.MouseMoveEvent, new MouseEventHandler(MouseMoveEventHandler), true);
-            EventManager.RegisterClassHandler(typeof(Popup), Mouse.PreviewMouseUpEvent, new MouseButtonEventHandler(MouseButtonEventHandler), true);
-            EventManager.RegisterClassHandler(typeof(Popup), Mouse.MouseMoveEvent, new MouseEventHandler(MouseMoveEventHandler), true);
+            EventManager.RegisterClassHandler(typeof(OriginPopup), Mouse.PreviewMouseUpEvent, new MouseButtonEventHandler(MouseButtonEventHandler), true);
+            EventManager.RegisterClassHandler(typeof(OriginPopup), Mouse.MouseMoveEvent, new MouseEventHandler(MouseMoveEventHandler), true);
         }
 
         public Ripple()

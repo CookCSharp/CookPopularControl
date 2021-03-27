@@ -26,6 +26,7 @@ namespace CookPopularControl.Tools.Interop
             NOSENDCHANGING = 0x0400,
             DEFERERASE = 0x2000,
             ASYNCWINDOWPOS = 0x4000,
+            TOPMOST = SWP.NOACTIVATE | SWP.NOOWNERZORDER | SWP.NOSIZE | SWP.NOMOVE | SWP.NOREDRAW | SWP.NOSENDCHANGING,
         }
 
         [DebuggerDisplay("X:{Left}, Y:{Top}, Width:{Width}, Height:{Height}")]
@@ -68,6 +69,7 @@ namespace CookPopularControl.Tools.Interop
         internal static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, SWP uFlags);
 
         [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
         [DllImport("user32.dll", SetLastError = true)]
@@ -84,5 +86,8 @@ namespace CookPopularControl.Tools.Interop
 
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32", EntryPoint = "SetWindowPos")]
+        internal static extern int SetWindowPos(IntPtr hwnd, int hwndInsertAfter, int x, int y, int cx, int cy, int wFlags);
     }
 }
