@@ -53,12 +53,12 @@
         </member>
         <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty"/>标识Selector子项的宽度
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty"/>标识子项的宽度
             </summary>
         </member>
         <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty"/>标识Selector子项的高度
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty"/>标识子项的高度
             </summary>
         </member>
         <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlWidthProperty">
@@ -820,6 +820,11 @@
         <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxPopupListShadowProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">

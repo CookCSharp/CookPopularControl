@@ -98,20 +98,26 @@ namespace CookPopularControl.Communal.Attached
                     };
                 }
             }
+            else if(selector is ListBox listBox && GetSelectorItemType(selector) != SelectorItemType.Default)
+            {
+                //if (listBox.ItemsSource == null)
+                //    listBox.ItemsSource = listBox.Items;
+                //listBox.ItemsSource = listBox.ItemsSource ?? listBox.Items;
+            }
         }
 
         public static double GetItemWidth(DependencyObject obj) => (double)obj.GetValue(ItemWidthProperty);
         public static void SetItemWidth(DependencyObject obj, double value) => obj.SetValue(ItemWidthProperty, value);
         /// <summary>
-        /// <see cref="ItemWidthProperty"/>标识Selector子项的宽度
+        /// <see cref="ItemWidthProperty"/>标识子项的宽度
         /// </summary>
         public static readonly DependencyProperty ItemWidthProperty =
-            DependencyProperty.RegisterAttached("ItemWidth", typeof(double), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.Double20Box));
+            DependencyProperty.RegisterAttached("ItemWidth", typeof(double), typeof(SelectorAttached), new PropertyMetadata(double.NaN));
 
         public static double GetItemHeight(DependencyObject obj) => (double)obj.GetValue(ItemHeightProperty);
         public static void SetItemHeight(DependencyObject obj, double value) => obj.SetValue(ItemHeightProperty, value);
         /// <summary>
-        /// <see cref="ItemHeightProperty"/>标识Selector子项的高度
+        /// <see cref="ItemHeightProperty"/>标识子项的高度
         /// </summary>
         public static readonly DependencyProperty ItemHeightProperty =
             DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.Double20Box));

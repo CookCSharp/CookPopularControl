@@ -23,6 +23,8 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollBarStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollViewerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SliderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListBoxStyle.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListViewStyle.xaml" />-->
 
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
@@ -56,6 +58,8 @@
     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBarStyle}"/>
     <Style x:Key="{x:Type ScrollViewer}" TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewerStyle}"/>
     <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}" BasedOn="{StaticResource DefaultSliderStyle}"/>
+    <Style x:Key="{x:Type ListBox}" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}"/>
+    <!--<Style x:Key="{x:Type ListView}" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListViewStyle}"/>-->
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>
