@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 
 
@@ -71,5 +72,13 @@ namespace CookPopularControl.Controls.ComboBox
                 };
             }
         }
+
+        public static Effect GetComboBoxPopupListShadow(DependencyObject obj) => (Effect)obj.GetValue(ComboBoxPopupListShadowProperty);
+        public static void SetComboBoxPopupListShadow(DependencyObject obj, Effect value) => obj.SetValue(ComboBoxPopupListShadowProperty, value);
+        /// <summary>
+        /// <see cref="ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
+        /// </summary>
+        public static readonly DependencyProperty ComboBoxPopupListShadowProperty =
+            DependencyProperty.RegisterAttached("ComboBoxPopupListShadow", typeof(Effect), typeof(ComboBoxAssistant), new PropertyMetadata(default(Effect)));
     }
 }

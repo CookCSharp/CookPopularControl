@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    
     <Color x:Key="CustomShadow">#AA000000</Color>
     <SolidColorBrush x:Key="CustomShadowBrush" po:Freeze="True" Color="{StaticResource CustomShadow}" />
     <DropShadowEffect x:Key="CustomShadowDepth1" po:Freeze="True" BlurRadius="5" Direction="270"
@@ -21,4 +22,10 @@
     <DropShadowEffect x:Key="ComboxBoxShadow" po:Freeze="True" BlurRadius="10" Direction="270"
                       Opacity="0.15" RenderingBias="Performance" ShadowDepth="2"
                       Color="{StaticResource CustomShadow}" />
+    <DropShadowEffect x:Key="FieldShadowEffect" po:Freeze="True" BlurRadius="10" Direction="270" 
+                      Opacity="0.4" RenderingBias="Performance" ShadowDepth="-10"
+                      Color="{StaticResource CustomShadow}" />
+
+    <BitmapCache x:Key="DefaultBitmapCache" EnableClearType="True" SnapsToDevicePixels="True" RenderAtScale="1"/>
+
 </ResourceDictionary>

@@ -32,7 +32,8 @@
         </WrapPanel>
         <WrapPanel Margin="0,20" >
             <ComboBox Width="200" Height="34" IsEditable="False" Foreground="Red"
-                      Style="{StaticResource AddClearButtonComboBoxStyle}">
+                      Style="{StaticResource AddClearButtonComboBoxStyle}"
+                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource FieldShadowEffect}">
                 <ComboBoxItem Content="Chance"/>
                 <ComboBoxItem Content="Lori"/>
                 <ComboBoxItem Content="写代码的厨子"/>
@@ -51,6 +52,7 @@
                       Style="{StaticResource MultiComboBoxCheckBoxItemsStyle}"
                       pc:SelectorAttached.ItemControlWidth="36"
                       pc:SelectorAttached.ItemControlHeight="36"
+                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource FieldShadowEffect}"
                       pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked"/>
             <ComboBox Width="400" Height="34" Margin="30,0" IsEditable="True" ItemsSource="{Binding Lists}"
                       Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}"

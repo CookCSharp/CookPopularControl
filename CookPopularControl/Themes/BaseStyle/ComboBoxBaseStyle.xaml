@@ -65,14 +65,44 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="AllowDrop" Value="True" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <ScrollViewer x:Name="PART_ContentHost"
+                                  Focusable="False"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Hidden"
+                                  Background="Transparent"
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                  UseLayoutRounding="{TemplateBinding UseLayoutRounding}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--SimpleComboBox-->
     <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="Background" Value="{DynamicResource DefaultBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Padding" Value="8,0,0,0"/>
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
 
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
@@ -83,7 +113,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                                <Border x:Name="ItemBorder" Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemsListBackground)}">
+                                <Border x:Name="ItemBorder" Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemsListBackground)}" Margin="0,0,1,0">
                                     <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -106,7 +136,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <ControlTemplate.Resources>
-                        <Storyboard x:Key="popupLoaded">
+                        <Storyboard x:Key="PopupLoaded">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PopupBorder">
                                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
@@ -117,21 +147,20 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Border x:Name="PART_Border" SnapsToDevicePixels="True" Cursor="{TemplateBinding Cursor}"
+                    <Border x:Name="PART_Border"
                             BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
-                        <Grid x:Name="RootGrid" SnapsToDevicePixels="True" >
+                        <Grid x:Name="RootGrid">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock x:Name="PART_PlaceHolder" Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}" 
-                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
+                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}" Background="Transparent"
                                        TextAlignment="Left" FontSize="{TemplateBinding FontSize}" Padding="{TemplateBinding Padding}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <TextBox x:Name="PART_EditableTextBox" Style="{x:Null}"
+                            <TextBox x:Name="PART_EditableTextBox" Style="{StaticResource ComboBoxEditableTextBox}" Background="Purple"
                                      Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Text,Mode=TwoWay}"
-                                     BorderThickness="0" Foreground="{TemplateBinding Foreground}" Background="Transparent" 
                                      IsHitTestVisible="{TemplateBinding IsEditable}" IsReadOnly="{TemplateBinding IsReadOnly}" Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -154,20 +183,20 @@
                                               Focusable="False" HorizontalAlignment="Right" Margin="8,0"
                                               IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
                             </WrapPanel>
-                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" PopupAnimation="Slide" Placement="Bottom"
-                                   HorizontalOffset="-1" VerticalOffset="0">
-                                <Border x:Name="PopupBorder" CornerRadius="0"
-                                        BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"                                            
-                                        Width="{Binding ElementName=PART_Border,Path=ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Slide" Placement="Bottom"
+                                   HorizontalOffset="-1" VerticalOffset="0" AllowsTransparency="True" >
+                                <Border x:Name="PopupBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"                                          
+                                        Width="{Binding ElementName=PART_Border,Path=ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        Margin="1" Effect="{TemplateBinding assistant:ComboBoxAssistant.ComboBoxPopupListShadow}" >
                                     <Border.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform ScaleX="0" ScaleY="0"/>
                                         </TransformGroup>
                                     </Border.RenderTransform>
-                                    <ScrollViewer x:Name="DropDownScorllViewer" CanContentScroll="True" SnapsToDevicePixels="True" 
-                                                  MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                                  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    <ScrollViewer x:Name="DropDownScorllViewer" CanContentScroll="True" SnapsToDevicePixels="True"
+                                                  MaxHeight="{TemplateBinding MaxDropDownHeight}" CacheMode="{DynamicResource DefaultBitmapCache}" 
+                                                  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                         <!--<ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>-->
                                     </ScrollViewer>
                                 </Border>
@@ -181,10 +210,10 @@
                         <Trigger Property="IsDropDownOpen" Value="true">
                             <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2,2,0,0"/>
                             <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="popupLoadedStoryBoard" Storyboard="{StaticResource popupLoaded}"/>
+                                <BeginStoryboard x:Name="PopupLoadedStoryBoard" Storyboard="{StaticResource PopupLoaded}"/>
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="popupLoadedStoryBoard"/>
+                                <RemoveStoryboard BeginStoryboardName="PopupLoadedStoryBoard"/>
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
@@ -299,7 +328,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <ControlTemplate.Resources>
-                        <Storyboard x:Key="popupLoaded">
+                        <Storyboard x:Key="PopupLoaded">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PopupBorder">
                                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
@@ -322,9 +351,8 @@
                                        Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
                                        TextAlignment="Left" FontSize="{TemplateBinding FontSize}" Padding="{TemplateBinding Padding}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <TextBox x:Name="PART_EditableTextBox" Style="{x:Null}"
+                            <TextBox x:Name="PART_EditableTextBox" Style="{StaticResource ComboBoxEditableTextBox}"
                                      Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Text,Mode=TwoWay}"
-                                     BorderThickness="0" Foreground="{TemplateBinding Foreground}" Background="Transparent" 
                                      IsHitTestVisible="{TemplateBinding IsEditable}" IsReadOnly="{TemplateBinding IsReadOnly}" Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -348,11 +376,11 @@
                                               Focusable="False" HorizontalAlignment="Right" Margin="8,0"
                                               IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
                             </WrapPanel>
-                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" PopupAnimation="Slide" Placement="Bottom"
-                                   HorizontalOffset="-1" VerticalOffset="0">
-                                <Border x:Name="PopupBorder" CornerRadius="0"
-                                        BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"                                            
-                                        Width="{Binding ElementName=PART_Border,Path=ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Slide" Placement="Bottom"
+                                   HorizontalOffset="-1" VerticalOffset="0" AllowsTransparency="True">
+                                <Border x:Name="PopupBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"                                            
+                                        Width="{Binding ElementName=PART_Border,Path=ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        Margin="1" Effect="{TemplateBinding assistant:ComboBoxAssistant.ComboBoxPopupListShadow}">
                                     <Border.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform ScaleX="0" ScaleY="0"/>
@@ -375,10 +403,10 @@
                         <Trigger Property="IsDropDownOpen" Value="true">
                             <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2,2,0,0"/>
                             <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="popupLoadedStoryBoard" Storyboard="{StaticResource popupLoaded}"/>
+                                <BeginStoryboard x:Name="PopupLoadedStoryBoard" Storyboard="{StaticResource PopupLoaded}"/>
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="popupLoadedStoryBoard"/>
+                                <RemoveStoryboard BeginStoryboardName="PopupLoadedStoryBoard"/>
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
