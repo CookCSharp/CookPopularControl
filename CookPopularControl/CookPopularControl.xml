@@ -25,6 +25,11 @@
             </summary>
             <remarks>Icon与Content的间距</remarks>
         </member>
+        <member name="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.StayDecimalPlaceProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.StayDecimalPlaceProperty"/>标识保留几位小数
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.SelectorAttached">
             <summary>
             提供具有Items子项控件的附加属性基类
@@ -117,6 +122,11 @@
             <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.IsAddClearButtonProperty"/>表示是否增加清除文本内容按钮
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Attached.ThumbAttached">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Primitives.Thumb"/>的附加属性基类
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Behaviors.ControlBorderBehavior">
             <summary>
             提供控件边框的行为动画
@@ -134,6 +144,11 @@
             <param name="pwd">控件</param>
             <param name="start">起始位置</param>
             <param name="length">长度</param>
+        </member>
+        <member name="T:CookPopularControl.Communal.Converters.DoubleToCornerRadius">
+            <summary>
+            Double To CornerRadius
+            </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Converters.DoubleToThickness">
             <summary>
@@ -1048,6 +1063,21 @@
         <member name="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Slider.SliderAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Slider"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Slider.SliderAssistant.IsShowValueProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.IsShowValueProperty"/>标识显示进度值的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty"/>标识选定范围的填充背景色
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.TooTip.ToolTipAssistant">

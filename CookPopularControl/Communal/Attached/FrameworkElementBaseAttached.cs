@@ -61,5 +61,13 @@ namespace CookPopularControl.Communal.Attached
         public static void SetShadowEffect(DependencyObject obj, DropShadowEffect value) => obj.SetValue(ShadowEffectProperty, value);
         public static readonly DependencyProperty ShadowEffectProperty =
             DependencyProperty.RegisterAttached("ShadowEffect", typeof(DropShadowEffect), typeof(FrameworkElementBaseAttached), new PropertyMetadata());
+
+        public static int GetStayDecimalPlace(DependencyObject obj) => (int)obj.GetValue(StayDecimalPlaceProperty);
+        public static void SetStayDecimalPlace(DependencyObject obj, int value) => obj.SetValue(StayDecimalPlaceProperty, value);
+        /// <summary>
+        /// <see cref="StayDecimalPlaceProperty"/>标识保留几位小数
+        /// </summary>
+        public static readonly DependencyProperty StayDecimalPlaceProperty =
+            DependencyProperty.RegisterAttached("StayDecimalPlace", typeof(int), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.Inter0Box));
     }
 }

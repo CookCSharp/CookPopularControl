@@ -5,40 +5,46 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
+using System.Windows.Markup;
 
 
 
 /*
  * Copyright (c) 2021 All Rights Reserved.
- * Description：ValueTranslateConverter
+ * Description：DoubleToCornerRadius
  * Author： Chance_写代码的厨子
- * Create Time：2021-03-12 15:06:18
+ * Create Time：2021-03-27 22:02:29
  */
-namespace CookPopularControl.Tools.Windows.Converters
+namespace CookPopularControl.Communal.Converters
 {
     /// <summary>
-    /// 值转换
+    /// Double To CornerRadius
     /// </summary>
-    public class ValueTranslateConverter : MarkupExtensionBase, IValueConverter
+    [MarkupExtensionReturnType(typeof(CornerRadius))]
+    public class DoubleToCornerRadius : MarkupExtensionBase, IValueConverter
     {
-        public static object FixedValue = 1D;
+        public static CornerRadius FixedCornerRadius = new CornerRadius(1);
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (parameter is null) parameter = 1;
+            parameter = parameter ?? 1;
             var isDouble = double.TryParse(parameter.ToString(), out double p);
             if (value is double v && isDouble)
             {
-                return v * p;
+                return new CornerRadius(v * p);
             }
 
-            return FixedValue;
+            return FixedCornerRadius;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is CornerRadius cornerRadius)
+                return cornerRadius.TopLeft;
+            else
+                return double.NaN;
         }
     }
 }

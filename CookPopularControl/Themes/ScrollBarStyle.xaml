@@ -73,7 +73,7 @@
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
+    <ControlTemplate x:Key="ScrollBarHorizontal" TargetType="{x:Type ScrollBar}">
         <Grid x:Name="TemplateRootGird" Opacity="0.6">
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
@@ -120,7 +120,7 @@
         </Grid>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
+    <ControlTemplate x:Key="ScrollBarVertical" TargetType="{x:Type ScrollBar}">
         <Grid x:Name="TemplateRootGird" Opacity="0.6">
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
@@ -184,13 +184,13 @@
                 <Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
                 <Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />
                 <Setter Property="Height" Value="Auto" />
-                <Setter Property="Template" Value="{StaticResource VerticalScrollBar}"/>
+                <Setter Property="Template" Value="{StaticResource ScrollBarVertical}"/>
             </Trigger>
             <Trigger Property="Orientation" Value="Horizontal">
                 <Setter Property="Width" Value="Auto" />
                 <Setter Property="Height" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}" />
                 <Setter Property="MinHeight" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}" />
-                <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}"/>
+                <Setter Property="Template" Value="{StaticResource ScrollBarHorizontal}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

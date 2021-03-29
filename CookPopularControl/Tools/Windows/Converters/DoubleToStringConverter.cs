@@ -5,35 +5,30 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
+using System.Windows.Markup;
 
 
 
 /*
  * Copyright (c) 2021 All Rights Reserved.
- * Description：ValueTranslateConverter
+ * Description：DoubleToStringConverter
  * Author： Chance_写代码的厨子
- * Create Time：2021-03-12 15:06:18
+ * Create Time：2021-03-28 21:08:41
  */
 namespace CookPopularControl.Tools.Windows.Converters
 {
-    /// <summary>
-    /// 值转换
-    /// </summary>
-    public class ValueTranslateConverter : MarkupExtensionBase, IValueConverter
+    [MarkupExtensionReturnType(typeof(object))]
+    [Localizability(LocalizationCategory.NeverLocalize)]
+    public class DoubleToStringConverter: MarkupExtensionBase, IValueConverter
     {
-        public static object FixedValue = 1D;
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (parameter is null) parameter = 1;
-            var isDouble = double.TryParse(parameter.ToString(), out double p);
-            if (value is double v && isDouble)
-            {
-                return v * p;
-            }
+            if (value is double v)
+                return v.ToString($"N{int.Parse(parameter.ToString())}");
 
-            return FixedValue;
+            return default;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

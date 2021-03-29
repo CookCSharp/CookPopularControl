@@ -9,14 +9,18 @@
     <commonConverters:ArcEllipseSizeConverter x:Key="ArcEllipseSizeConverter"/>
     <commonConverters:ArcEndPointConverter x:Key="ArcEndPointConverter"/>
     <commonConverters:DoubleToThickness x:Key="DoubleToThickness"/>
+    <commonConverters:DoubleToCornerRadius x:Key="DoubleToCornerRadius"/>
     <commonConverters:CheckBoxFillTypeToVisibilityConverter x:Key="CheckBoxFillTypeToVisibilityConverter"/>
     <commonConverters:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter"/>
     <commonConverters:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter"/>
+    <commonConverters:SliderValueLeftPositionXConverter x:Key="SliderValueLeftPositionXConverter"/>
+    <commonConverters:SliderValueLeftPositionYConverter x:Key="SliderValueLeftPositionYConverter"/>
 
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
     <toolConverters:ValueTranslateConverter x:Key="ValueTranslateConverter"/>
     <toolConverters:ValueBetweenZeroAnd100 x:Key="ValueBetweenZeroAnd100"/>
+    <toolConverters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
     <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
     <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>
