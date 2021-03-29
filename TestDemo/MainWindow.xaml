@@ -29,7 +29,8 @@
         <!--<local:GroupBoxDemo />-->
         <!--<local:ComboBoxDemo />-->
         <!--<local:ScrollViewerDemo />-->
-        <local:PopupDemo />
+        <!--<local:PopupDemo />-->
+        <local:SliderDemo />
     </Grid>
 
 

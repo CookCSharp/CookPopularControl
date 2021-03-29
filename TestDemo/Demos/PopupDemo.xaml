@@ -9,7 +9,7 @@
              mc:Ignorable="d" x:Name="Root" Background="Transparent"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <pc:ExtendPopup IsOpen="True" StaysOpen="True" 
+    <pc:ExtendPopup x:Name="ExtendPop" IsOpen="False" StaysOpen="False" 
                     IsTopMost="False" IsPositionUpdate="True" IsMouseLeftButtonDownClosed="False"
                     Placement="Left" PlacementTarget="{Binding ElementName=Root}"
                     AllowsTransparency="True" PopupAnimation="None">
