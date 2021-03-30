@@ -14,6 +14,26 @@
             <see cref="F:CookPopularControl.Communal.Attached.ButtonBaseAttached.IsShowRippleProperty"/>是否显示按钮点击的波纹效果
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Attached.DataGridViewAttached">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.DataGrid"/>与<see cref="T:System.Windows.Controls.GridView"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnMinWidthProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnMinWidthProperty"/>标识列项最小宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnHeaderHeightProperty">
+            <summary>
+            标识ColumnHeader的高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnHeaderPaddingProperty">
+            <summary>
+            标识ColumnHeader的内容的内边距
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached">
             <summary>
             提供WPF控件附加属性的基类
@@ -44,6 +64,11 @@
         <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemMouseOverBackgroundProperty">
             <summary>
             标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemSelectedBackgroundProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemSelectedBackgroundProperty"/>标识子项选中的后背景色附加属性
             </summary>
         </member>
         <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.SelectorItemTypeProperty">
@@ -867,6 +892,11 @@
             <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty"/>标识填充IconGeometry的画刷
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Lists.ListViewAssistant">
+            <summary>
+            <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.OverlayPanel">
             <summary>
             重叠面板
@@ -1052,7 +1082,7 @@
         </member>
         <member name="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.Thumb"/>在<see cref="T:System.Windows.Controls.Primitives.Track"/>中移动时距离边界的位置
+            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty"/>标识<see cref="N:CookPopularControl.Controls.Thumb"/>在<see cref="T:System.Windows.Controls.Primitives.Track"/>中移动时距离边界的位置
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant">
@@ -1083,6 +1113,11 @@
         <member name="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty"/>标识选定范围的填充背景色
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Thumb.GridViewColumThumb">
+            <summary>
+            GridViewColumThumb
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.TooTip.ToolTipAssistant">

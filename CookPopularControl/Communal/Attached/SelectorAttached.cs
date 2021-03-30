@@ -50,6 +50,14 @@ namespace CookPopularControl.Communal.Attached
         public static readonly DependencyProperty ItemMouseOverBackgroundProperty =
             DependencyProperty.RegisterAttached("ItemMouseOverBackground", typeof(Brush), typeof(SelectorAttached), new PropertyMetadata(default(Brush)));
 
+        public static Brush GetItemSelectedBackground(DependencyObject obj) => (Brush)obj.GetValue(ItemSelectedBackgroundProperty);
+        public static void SetItemSelectedBackground(DependencyObject obj, Brush value) => obj.SetValue(ItemSelectedBackgroundProperty, value);
+        /// <summary>
+        /// <see cref="ItemSelectedBackgroundProperty"/>标识子项选中的后背景色附加属性
+        /// </summary>
+        public static readonly DependencyProperty ItemSelectedBackgroundProperty =
+            DependencyProperty.RegisterAttached("ItemSelectedBackground", typeof(Brush), typeof(SelectorAttached), new PropertyMetadata(default(Brush)));
+
         [AttachedPropertyBrowsableForType(typeof(ItemsControl))]
         public static SelectorItemType GetSelectorItemType(DependencyObject obj) => (SelectorItemType)obj.GetValue(SelectorItemTypeProperty);
         public static void SetSelectorItemType(DependencyObject obj, SelectorItemType value) => obj.SetValue(SelectorItemTypeProperty, value);
@@ -100,9 +108,7 @@ namespace CookPopularControl.Communal.Attached
             }
             else if(selector is ListBox listBox && GetSelectorItemType(selector) != SelectorItemType.Default)
             {
-                //if (listBox.ItemsSource == null)
-                //    listBox.ItemsSource = listBox.Items;
-                //listBox.ItemsSource = listBox.ItemsSource ?? listBox.Items;
+
             }
         }
 

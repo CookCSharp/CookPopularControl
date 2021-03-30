@@ -38,5 +38,16 @@ namespace CookPopularControl.Controls.ScrollControls
         /// </summary>
         public static readonly DependencyProperty IsAutoHideScrollBarProperty =
             DependencyProperty.RegisterAttached("IsAutoHideScrollBar", typeof(bool), typeof(ScrollViewerAssistant), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public static double GetSyncHorizontalOffset(DependencyObject obj) => (double)obj.GetValue(SyncHorizontalOffsetProperty);
+        public static void SetSyncHorizontalOffset(DependencyObject obj, double value) => obj.SetValue(SyncHorizontalOffsetProperty, value);
+        public static readonly DependencyProperty SyncHorizontalOffsetProperty =
+            DependencyProperty.RegisterAttached("SyncHorizontalOffset", typeof(double), typeof(ScrollViewerAssistant), 
+                new PropertyMetadata(ValueBoxes.Double0Box, OnSyncHorizontalOffsetChanged));
+        private static void OnSyncHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var scrollViewer = d as ScrollViewer;
+            scrollViewer?.ScrollToHorizontalOffset((double)e.NewValue);
+        }
     }
 }

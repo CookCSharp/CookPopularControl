@@ -93,7 +93,6 @@
     <ItemGroup>
       <Folder Include="Communal\Internal\" />
       <Folder Include="Controls\Templates\" />
-      <Folder Include="Controls\Lists\" />
     </ItemGroup>
 
 </Project>

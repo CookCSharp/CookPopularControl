@@ -16,13 +16,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <Border x:Name="RepeatButtonBorder"
-                            Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                            CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ScrollBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
+                    <Grid>
+                        <Border x:Name="RepeatButtonBorder" Background="{TemplateBinding Foreground}" Opacity="0.45"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ScrollBar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"/>
                         <Path x:Name="Arrow" HorizontalAlignment="Center" VerticalAlignment="Center"
                               Data="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
                               Fill="{TemplateBinding Foreground}" Stretch="UniformToFill"/>
-                    </Border>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="RepeatButtonBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ScrollBar},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" />
@@ -80,7 +80,7 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard Storyboard.TargetName="TemplateRootGird" Storyboard.TargetProperty="Opacity">
-                            <DoubleAnimation Duration="0:0:0.5" To="0.8"/>
+                            <DoubleAnimation Duration="0:0:0.5" To="1.0"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
@@ -127,7 +127,7 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard Storyboard.TargetName="TemplateRootGird" Storyboard.TargetProperty="Opacity">
-                            <DoubleAnimation Duration="0:0:0.5" To="0.8"/>
+                            <DoubleAnimation Duration="0:0:0.5" To="1.0"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
