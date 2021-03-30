@@ -31,7 +31,7 @@
         <!--<local:ScrollViewerDemo />-->
         <!--<local:PopupDemo />-->
         <!--<local:SliderDemo />-->
-        <local:ListsDemo />
+        <!--<local:ListsDemo />-->
     </Grid>
 
 

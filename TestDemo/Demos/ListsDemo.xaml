@@ -8,34 +8,78 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <WrapPanel HorizontalAlignment="Center">
-            <ListBox Width="300" Height="150" SelectionMode="Single"
-                     Style="{StaticResource DefaultListBoxStyle}">
-                <ListBoxItem Content="Chance"/>
-                <ListBoxItem Content="Lori"/>
-                <ListBoxItem Content="写代码的厨子"/>
-            </ListBox>
-            <ListBox Width="300" Height="150" SelectionMode="Extended"
-                     Style="{StaticResource ListBoxCheckBoxStyle}" Margin="30,0">
-                <ListBoxItem Content="Chance"/>
-                <ListBoxItem Content="Lori"/>
-                <ListBoxItem Content="写代码的厨子"/>
-            </ListBox>
-        </WrapPanel>
-        <WrapPanel Margin="0,30">
-            <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding Lists}"
-                     Style="{StaticResource ListBoxButtonStyle}"
-                     pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete"/>
-            <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding IconLists}"
-                     Style="{StaticResource ListBoxIconStyle}" Margin="30,0"/>
-        </WrapPanel>
-        <WrapPanel>
-            <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding ImageLists}"
-                     Style="{StaticResource ListBoxImageStyle}"
-                     pc:SelectorAttached.IsPreviewImage="True"/>
-        </WrapPanel>
-    </StackPanel>
-    
+
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel HorizontalAlignment="Center">
+                <ListBox Width="300" Height="150" SelectionMode="Single"
+                         Style="{StaticResource DefaultListBoxStyle}">
+                    <ListBoxItem Content="Chance"/>
+                    <ListBoxItem Content="Lori"/>
+                    <ListBoxItem Content="写代码的厨子"/>
+                </ListBox>
+                <ListBox Width="300" Height="150" SelectionMode="Extended"
+                         Style="{StaticResource ListBoxCheckBoxStyle}" Margin="30,0">
+                    <ListBoxItem Content="Chance"/>
+                    <ListBoxItem Content="Lori"/>
+                    <ListBoxItem Content="写代码的厨子"/>
+                </ListBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,30">
+                <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding Lists}"
+                         Style="{StaticResource ListBoxButtonStyle}"
+                         pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete"/>
+                <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding IconLists}"
+                         Style="{StaticResource ListBoxIconStyle}" Margin="30,0"/>
+            </WrapPanel>
+            <WrapPanel>
+                <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding ImageLists}"
+                         Style="{StaticResource ListBoxImageStyle}"
+                         pc:SelectorAttached.IsPreviewImage="True"/>
+                <ListView Width="300" Height="150" Padding="16,0,0,0"
+                          Style="{StaticResource DefaultListViewStyle}" Margin="30,0">
+                    <ListViewItem Content="Lori"/>
+                    <ListViewItem Content="Chance"/>
+                    <ListViewItem Content="写代码的厨子"/>
+                </ListView>
+            </WrapPanel>
+            <WrapPanel Margin="0,30">
+                <ListView Width="500" Height="180" ItemsSource="{Binding PersonInfos}"
+                          Style="{StaticResource ListViewGirdViewStyle}"
+                          pc:SelectorAttached.ItemHeight="50"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
+                          Foreground="#FF9C8844" Background="Orange" BorderBrush="DarkSlateBlue" BorderThickness="2">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="AgeABCDEF" DisplayMemberBinding="{Binding Age}" Width="100"/>
+                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
+                            <GridViewColumn Header="Options">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox Width="100" Height="35">
+                                            <ComboBoxItem Content="Test1" />
+                                            <ComboBoxItem Content="Test2" />
+                                            <ComboBoxItem Content="Test3" />
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn>
+                                <GridViewColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="123"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.HeaderTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="点击" Width="100" Height="50" Margin="30,0"/>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+ 
 </UserControl>

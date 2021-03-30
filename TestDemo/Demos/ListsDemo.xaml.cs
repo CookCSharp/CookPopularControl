@@ -30,6 +30,8 @@ namespace TestDemo.Demos
 
         public ObservableCollection<SelectorItem> ImageLists { get; set; }
 
+        public ObservableCollection<PersonInfo> PersonInfos { get; set; }
+
         public ListsDemo()
         {
             InitializeComponent();
@@ -54,6 +56,11 @@ namespace TestDemo.Demos
             ImageLists.Add(new SelectorItem { ImageSource = source1, Content = "第一张图片" });
             ImageLists.Add(new SelectorItem { ImageSource = source2, Content = "第二张图片" });
             ImageLists.Add(new SelectorItem { ImageSource = source3, Content = "第三张图片" });
+
+            PersonInfos = new ObservableCollection<PersonInfo>();
+            PersonInfos.Add(new PersonInfo { Name = "Lori", Age = 18, Description = "Teacher" });
+            PersonInfos.Add(new PersonInfo { Name = "Chance", Age = 28, Description = "Cook" });
+            PersonInfos.Add(new PersonInfo { Name = "写代码的厨子", Age = 38, Description = "Cook With Programmer" });
         }
 
         private void ListBox_IsItemDelete(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -61,5 +68,15 @@ namespace TestDemo.Demos
             var o = e.OriginalSource as ListBoxItem;
             Lists.Remove(o.Content);
         }
+    }
+
+    public class PersonInfo
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public string Description { get; set; }
+
     }
 }
