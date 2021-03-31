@@ -22,7 +22,7 @@
         <!--<local:ButtonDemo />-->
         <!--<local:AnimationPathDemo />-->
         <!--<local:LoadingDemo />-->
-        <!--<local:ProgressBarDemo />-->
+        <local:ProgressBarDemo />
         <!--<local:CheckBoxDemo />-->
         <!--<local:PasswordBoxDemo />-->
         <!--<local:FieldsDemo />-->
@@ -32,7 +32,8 @@
         <!--<local:PopupDemo />-->
         <!--<local:SliderDemo />-->
         <!--<local:ListsDemo />-->
-        <local:QRCodeControlDemo />
+        <!--<local:QRCodeControlDemo />-->
+        <!--<local:GridDemo />-->
     </Grid>
 
 
