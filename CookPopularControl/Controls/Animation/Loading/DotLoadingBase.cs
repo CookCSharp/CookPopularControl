@@ -209,7 +209,7 @@ namespace CookPopularControl.Controls.Animation.Loading
         protected double duration; //动画持续时长
         protected double halfOfAllDotsLength; //所有点长度的一半，为了使点排列在中间位置
         protected double averageUnitAngle; //一个长度单位所对应的角度
-        protected Grid dotLoadingGrid = new Grid() { ClipToBounds = true }; //装载Loading动画的容器
+        protected SimpleGrid dotLoadingGrid = new SimpleGrid() { ClipToBounds = true }; //装载Loading动画的容器
 
 
         static DotLoadingBase()
@@ -230,7 +230,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             Content = dotLoadingGrid;
             dotLoadingGrid.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
             dotLoadingGrid.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });
-            dotLoadingGrid.SetBinding(Grid.BackgroundProperty, new Binding(BackgroundProperty.Name) { Source = this });
+            dotLoadingGrid.SetBinding(SimpleGrid.BackgroundProperty, new Binding(BackgroundProperty.Name) { Source = this });
         }
 
         protected override void OnRender(DrawingContext drawingContext)

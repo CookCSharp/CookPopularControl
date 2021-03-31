@@ -24,7 +24,7 @@ using System.Windows.Media.Imaging;
 namespace CookPopularControl.Tools.Extensions.Images
 {
     /// <summary>
-    /// 提供<see cref="System.Windows.Controls.Image"/>与<see cref="Bitmap"/>的相互转换
+    /// 提供<see cref="System.Drawing.Image"/>与<see cref="Bitmap"/>一些扩展方法
     /// </summary>
     public static class ImageBitmapExtension
     {
@@ -69,6 +69,32 @@ namespace CookPopularControl.Tools.Extensions.Images
 
                 return bitmap;
             }
+        }
+
+        public static byte[] ToBytesStreamFromBitmap(int width, int height, int channel, Bitmap img)
+        {
+            byte[] bytes = new byte[width * height * channel];
+
+            BitmapData im = img.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, img.PixelFormat);
+            int stride = im.Stride;
+            int offset = stride - width * channel;
+            int length = stride * height;
+            byte[] temp = new byte[stride * height];
+            Marshal.Copy(im.Scan0, temp, 0, temp.Length);
+            img.UnlockBits(im);
+
+            int posreal = 0;
+            int posscan = 0;
+            for (int c = 0; c < height; c++)
+            {
+                for (int d = 0; d < width * channel; d++)
+                {
+                    bytes[posreal++] = temp[posscan++];
+                }
+                posscan += offset;
+            }
+
+            return bytes;
         }
     }
 }

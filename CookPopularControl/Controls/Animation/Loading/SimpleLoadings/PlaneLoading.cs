@@ -84,7 +84,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
             border.Height = 0.8 * length;
             border.CornerRadius = new CornerRadius(length);
 
-            Grid grid = new Grid();
+            SimpleGrid grid = new SimpleGrid();
 
             var plane1 = CreatePlane(length);
             plane1.HorizontalAlignment = HorizontalAlignment.Center;

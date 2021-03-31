@@ -18,7 +18,7 @@ namespace CookPopularControl.Controls.Progress
     /// 表示所有<see cref="ProgressBar"/>的附加属性基类
     /// </summary>
     /// <remarks>即以LinearProgressBar为基准</remarks>
-    [TemplatePart(Name = PathGrid, Type = typeof(Grid))]
+    [TemplatePart(Name = PathGrid, Type = typeof(System.Windows.Controls.Grid))]
     [TemplatePart(Name = PathProgress, Type = typeof(Path))]
     [TemplatePart(Name = Content, Type = typeof(TextBlock))]
     [TemplatePart(Name = ElementBackground, Type = typeof(Ellipse))]

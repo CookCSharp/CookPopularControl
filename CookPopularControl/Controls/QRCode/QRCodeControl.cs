@@ -250,7 +250,7 @@ namespace CookPopularControl.Controls.QRCode
                             ImageBitmapExtension.ToBitmap(qrCodeControl.QrCodeIcon),
                             qrCodeControl.QrCodeIconSizePercent,
                             qrCodeControl.QrCodeIconBorderWidth);
-
+                        
                         codeImage.Save(AppDomain.CurrentDomain.BaseDirectory + "QRCode.png", ImageFormat.Png);
                         return ImageBitmapExtension.ToImageSource(codeImage);
                     }

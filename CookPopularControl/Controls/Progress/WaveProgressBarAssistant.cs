@@ -45,7 +45,7 @@ namespace CookPopularControl.Controls.Progress
         {
             if (wave != null && wave.IsLoaded)
             {
-                var waveGrid = wave.Template.FindName(WaveGrid, wave) as Grid;
+                var waveGrid = wave.Template.FindName(WaveGrid, wave) as System.Windows.Controls.Grid;
                 waveGrid.Width = wave.Width + 2 * GetWaveStrokeThickness(wave);
                 waveGrid.Height = wave.Width;
 

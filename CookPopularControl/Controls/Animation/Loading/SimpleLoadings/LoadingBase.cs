@@ -77,7 +77,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
         }
 
         protected Storyboard storyboard;
-        protected Grid RootGrid = new Grid { ClipToBounds = true };
+        protected SimpleGrid RootGrid = new SimpleGrid { ClipToBounds = true };
         protected double totalDuration;
         protected double length;
 

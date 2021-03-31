@@ -892,6 +892,16 @@
             <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty"/>标识填充IconGeometry的画刷
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Grid.GridLinesAssistant">
+            <summary>
+            提供<see cref="P:System.Windows.Controls.Grid.ShowGridLines"/>的辅助类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty"/>标识是否显示外边框
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Lists.ListViewAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
@@ -1360,7 +1370,7 @@
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.Images.ImageBitmapExtension">
             <summary>
-            提供<see cref="T:System.Windows.Controls.Image"/>与<see cref="T:System.Drawing.Bitmap"/>的相互转换
+            提供<see cref="T:System.Drawing.Image"/>与<see cref="T:System.Drawing.Bitmap"/>一些扩展方法
             </summary>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.Images.ImageBitmapExtension.ToImageSource(System.Drawing.Bitmap)">
