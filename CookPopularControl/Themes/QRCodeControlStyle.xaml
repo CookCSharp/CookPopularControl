@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode"
+                    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:simpleGrid="clr-namespace:CookPopularControl.Controls"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultQRCodeControlStyle" TargetType="{x:Type qrCode:QRCodeControl}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="RefreshButtonFill" Value="{DynamicResource AssistantColorTheme}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="20"/>
+        <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource RefreshGeometry}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="50" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="50" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type qrCode:QRCodeControl}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="CollapsedStoryboard">
+                            <DoubleAnimation Duration="0:0:0.2" From="1" To="0"
+                                             Storyboard.TargetProperty="Opacity" Storyboard.TargetName="RefreshGrid"/>
+                        </Storyboard>
+                        <Storyboard x:Key="VisibleStoryboard">
+                            <DoubleAnimation Duration="0:0:0.2" From="0" To="1"
+                                             Storyboard.TargetProperty="Opacity" Storyboard.TargetName="RefreshGrid"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                        <Grid>
+                            <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                                <Border.Background>
+                                    <VisualBrush>
+                                        <VisualBrush.Visual>
+                                            <Image x:Name="PART_QRCodeImage"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Border.Background>
+                            </Border>
+                            <simpleGrid:SimpleGrid x:Name="RefreshGrid" Opacity="0">
+                                <Border Background="{DynamicResource UnEnabledColor}" Opacity="0.85"
+                                        CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"/>
+                                <Button x:Name="RefreshButton" Foreground="{TemplateBinding RefreshButtonFill}"
+                                        attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                        attached:FrameworkElementBaseAttached.IconGeometry="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
+                                        Style="{StaticResource IconTransparentButtonStyle}" Command="{x:Static qrCode:QRCodeControl.RefreshQrCodeCommand}"/>
+                            </simpleGrid:SimpleGrid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsShowRefreshIcon" Value="False">
+                            <Setter Property="IsEnabled" Value="False" TargetName="RefreshGrid"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="CollapsedStoryboard" Storyboard="{StaticResource CollapsedStoryboard}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="CollapsedStoryboard"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsShowRefreshIcon" Value="True">
+                            <Setter Property="IsEnabled" Value="True" TargetName="RefreshGrid"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="VisibleStoryboard" Storyboard="{StaticResource VisibleStoryboard}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="VisibleStoryboard"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

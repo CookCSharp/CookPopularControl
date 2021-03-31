@@ -50,6 +50,8 @@ namespace CookPopularControl.Tools.Boxes
 
         internal static readonly object Inter0Box = 0;
         internal static readonly object Inter5Box = 5;
+        internal static readonly object Inter15Box = 15;
+        internal static readonly object Inter30Box = 30;
 
         internal static readonly object Double0Box = 0.0;
         internal static readonly object Double1Box = 1.0;

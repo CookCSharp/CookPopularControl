@@ -897,12 +897,6 @@
             <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.OverlayPanel">
-            <summary>
-            重叠面板
-            </summary>
-            <remarks>用于代替Grid</remarks>
-        </member>
         <member name="T:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.PasswordBox"/>的附加属性类
@@ -1015,6 +1009,99 @@
             表示波纹的高度
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.QRCode.QRCodeControl">
+            <summary>
+            二维码控件
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.IsRefreshChangedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.IsRefreshChangedEvent"/>标识刷新的路由事件
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.IsShowRefreshIcon">
+            <summary>
+            是否显示刷新按钮        
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFill">
+            <summary>
+            刷新按钮颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFillProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFillProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFill"/>的附加属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.Duration">
+            <summary>
+            二维码持续时长
+            </summary>
+            <remarks>可设置无线等待<see cref="F:System.Threading.Timeout.InfiniteTimeSpan"/>,单位：s</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.DurationProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.DurationProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.Duration"/>的附加属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContent">
+            <summary>
+            二维码内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContentProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContentProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContent"/>的附加属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIcon">
+            <summary>
+            二维码图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIcon"/>的附加属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercent">
+            <summary>
+            图标百分比大小
+            </summary>
+            <remarks>0~30</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercentProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercentProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercent"/>的附加属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidth">
+            <summary>
+            图标外边框Border宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidthProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidthProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidth"/>的附加属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModule">
+            <summary>
+            二维码像素
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModuleProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModuleProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModule"/>的附加属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.QRCode.QRCodeControl.SetQRCodeImage(CookPopularControl.Controls.QRCode.QRCodeControl)">
+            <summary>
+            设置QRCodeImage
+            </summary>
+            <param name="qr"></param>
+        </member>
         <member name="F:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKeyProperty">
             <summary>
               The DependencyProperty for the RecognizesAccessKey property. 
@@ -1099,6 +1186,12 @@
             <summary>
             <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
             </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.SimpleGrid">
+            <summary>
+            重叠面板
+            </summary>
+            <remarks>用于代替Grid</remarks>
         </member>
         <member name="T:CookPopularControl.Controls.Slider.SliderAssistant">
             <summary>
@@ -1263,6 +1356,25 @@
             </summary>
             <param name="image"></param>
             <param name="savePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Extensions.Images.ImageBitmapExtension">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Image"/>与<see cref="T:System.Drawing.Bitmap"/>的相互转换
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Images.ImageBitmapExtension.ToImageSource(System.Drawing.Bitmap)">
+            <summary>
+            Bitmap to ImageSource
+            </summary>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Images.ImageBitmapExtension.ToBitmap(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> To <see cref="T:System.Drawing.Bitmap"/>
+            </summary>
+            <param name="bitmapSource"></param>
             <returns></returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.Markup.MarkupExtensionBase">

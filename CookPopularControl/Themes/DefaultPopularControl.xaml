@@ -5,7 +5,8 @@
                     xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
                     xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings"
                     xmlns:switch="clr-namespace:CookPopularControl.Controls.CheckBox"
-                    xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields">
+                    xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields"
+                    xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -33,7 +34,8 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
-
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
+        
         <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
@@ -76,5 +78,7 @@
     <Style x:Key="{x:Type simpleLoading:PlaneLoading}" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}"/>
     <Style x:Key="{x:Type switch:SwitchControl}" TargetType="{x:Type switch:SwitchControl}" BasedOn="{StaticResource DefaultSwitchControlStyle}"/>
     <Style x:Key="{x:Type fields:TextPath}" TargetType="{x:Type fields:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}"/>
+    <Style x:Key="{x:Type qrCode:QRCodeControl}" TargetType="{x:Type qrCode:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}"/>
+
 
 </ResourceDictionary>

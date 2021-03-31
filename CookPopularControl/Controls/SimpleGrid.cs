@@ -19,7 +19,7 @@ namespace CookPopularControl.Controls
     /// 重叠面板
     /// </summary>
     /// <remarks>用于代替Grid</remarks>
-    public class OverlayPanel : Panel
+    public class SimpleGrid : Panel
     {
         protected override Size MeasureOverride(Size availableSize)
         {

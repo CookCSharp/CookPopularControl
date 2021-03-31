@@ -174,7 +174,7 @@ namespace CookPopularControl.Communal.Behaviors
             };
             animationPath2.Completed += AnimationPath_Completed;
 
-            OverlayPanel panel = new OverlayPanel();
+            SimpleGrid panel = new SimpleGrid();
             panel.Children.Add(animationPath);
             panel.Children.Add(animationPath2);
 
