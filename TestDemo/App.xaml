@@ -17,6 +17,17 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
+
+            <!--<Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                <Setter Property="Foreground" Value="Orange" />
+                <Setter Property="TextElement.Foreground" Value="Red" />
+            </Style>
+            <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="Foreground" Value="Red" />
+            </Style>
+            <Style x:Key="{x:Type TextElement}" TargetType="{x:Type TextElement}">
+                <Setter Property="Foreground" Value="Red" />
+            </Style>-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>

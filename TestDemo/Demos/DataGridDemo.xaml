@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="TestDemo.Demos.DataGridDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestDemo.Demos"
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <UserControl.Resources>
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TestDemo;component/DataGridDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <StackPanel>
+            <DataGrid Width="500" Height="400" ItemsSource="{Binding Workers}" 
+                      Foreground="Purple" Background="WhiteSmoke" BorderBrush="Red" BorderThickness="1"
+                      RowBackground="SandyBrown" AlternatingRowBackground="BlueViolet"
+                      AutoGenerateColumns="False" AreRowDetailsFrozen="False" FontSize="16"
+                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True" 
+                      IsReadOnly="False" Style="{StaticResource DefaultDataGridStyle}"
+                      RowHeight="50" RowHeaderWidth="80" ColumnHeaderHeight="50" IsEnabled="True">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="Chan" Binding="{Binding Name}"/>
+                    <!--<DataGridTextColumn Header="姓名" Binding="{Binding Name}"/>-->
+                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}"/>
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}"/>
+                    <DataGridTextColumn Header="部门" Binding="{Binding Department}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Width="500" Height="400" ItemsSource="{Binding Workers}"  Margin="0,20" 
+                      AutoGenerateColumns="False" AreRowDetailsFrozen="False" FontSize="16"
+                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True" 
+                      IsReadOnly="False" Style="{StaticResource DefaultDataGridStyle}"
+                      RowHeight="50" RowHeaderWidth="80" ColumnHeaderHeight="50" IsEnabled="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}"/>
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}"/>
+                    <DataGridTextColumn Header="部门" Binding="{Binding Department}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Width="500" Height="400" ItemsSource="{Binding Workers}" 
+                      Foreground="Purple" Background="WhiteSmoke" BorderBrush="Green" BorderThickness="1"
+                      HorizontalGridLinesBrush="Red" VerticalGridLinesBrush="Yellow"
+                      RowBackground="SandyBrown" AlternatingRowBackground="BlueViolet"
+                      AutoGenerateColumns="False" AreRowDetailsFrozen="False"
+                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True" 
+                      IsReadOnly="False" Style="{x:Null}" 
+                      RowHeight="50" RowHeaderWidth="80" ColumnHeaderHeight="40" IsEnabled="True">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="Chan" Binding="{Binding Name}"/>
+                    <!--<DataGridTextColumn Header="姓名" Binding="{Binding Name}"/>-->
+                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}"/>
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}"/>
+                    <DataGridTextColumn Header="部门" Binding="{Binding Department}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>
