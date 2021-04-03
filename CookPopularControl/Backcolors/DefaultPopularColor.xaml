@@ -15,6 +15,11 @@
     <SolidColorBrush x:Key="FieldPlaceHolderBrush" Color="#D3D3D3"/>
     <SolidColorBrush x:Key="FieldValidationErrorBrush" Color="#FF1F1F"/>
 
+    <Color x:Key="DataGirdCellFocusedColor">#FF5722</Color>
+    <Color x:Key="DataGridRowSelectedColor">#1E90FF</Color>
+    <Color x:Key="DataGridRowMouseOverColor">#55AAFF</Color>
+    <Color x:Key="DataGridRowMouseOverSelected">#4169E1</Color>
+
     <SolidColorBrush x:Key="BlockColor" Color="#664A4A4A"/>
     <SolidColorBrush x:Key="UnEnabledColor" Color="#D3D3D3"/>
     <SolidColorBrush x:Key="DefaultBackground" Color="#FFFFFF"/>

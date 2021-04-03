@@ -892,6 +892,21 @@
             <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty"/>标识填充IconGeometry的画刷
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Grid.DataGridAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.DataGrid"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsSelectedAllProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsSelectedAllProperty"/>标识是否全选
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowSerialNumberProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowSerialNumberProperty"/>是否显示排序
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Grid.GridLinesAssistant">
             <summary>
             提供<see cref="P:System.Windows.Controls.Grid.ShowGridLines"/>的辅助类
