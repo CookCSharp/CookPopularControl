@@ -12,6 +12,10 @@
         <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
+    <Style x:Key="TransparentButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
+        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
+    </Style>
     <Style x:Key="OutlineButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="2" />

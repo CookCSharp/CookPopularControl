@@ -852,6 +852,11 @@
             <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Dates.CalendarAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Calendar"/>的附加属性基类
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">
             <summary>
             自定义绘制文本
@@ -1768,6 +1773,11 @@
         <member name="T:CookPopularControl.Tools.Windows.Drawing.DrawingVisualElement">
             <summary>
             手绘一个带有命中测试的控件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.FutureDateValidationRule">
+            <summary>
+            针对<see cref="T:System.Windows.Controls.Calendar"/>与<see cref="T:System.Windows.Controls.DatePicker"/>只允许选中大于等于当前日期的时间规则
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.ValidationRules.NotNullAndEmptyValidationRule">

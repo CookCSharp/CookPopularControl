@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
 
     <ControlTemplate x:Key="ValidationToolTipTemplate" TargetType="{x:Type ToolTip}">
@@ -53,7 +54,7 @@
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Border Background="{DynamicResource FieldValidationErrorBrush}"
+            <Border Background="{DynamicResource FieldValidationErrorBrush}" CornerRadius="10"
                     BorderThickness="0" BorderBrush="{DynamicResource FieldValidationErrorBrush}">
                 <TextBlock Text="{Binding [0].ErrorContent}" MaxWidth="250"
                            Foreground="{DynamicResource AssistantForeground}"

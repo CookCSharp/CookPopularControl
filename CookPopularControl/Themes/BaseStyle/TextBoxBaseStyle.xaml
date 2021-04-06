@@ -26,7 +26,7 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False"
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" Background="Transparent"
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
                                           UseLayoutRounding="{TemplateBinding UseLayoutRounding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             <TextBlock x:Name="PART_PlaceHolder"

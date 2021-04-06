@@ -27,7 +27,8 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListViewStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DataGridStyle.xaml" />
-        
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DateTimePickerStyle.xaml" />
+
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
 
@@ -64,6 +65,8 @@
     <Style x:Key="{x:Type ListBox}" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}"/>
     <Style x:Key="{x:Type ListView}" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListViewStyle}"/>
     <Style x:Key="{x:Type DataGrid}" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DefaultDataGridStyle}"/>
+    <Style x:Key="{x:Type Calendar}" TargetType="{x:Type Calendar}" BasedOn="{StaticResource DefaultCalendarStyle}"/>
+    <Style x:Key="{x:Type DatePicker}" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DefaultDatePickerStyle}"/>
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>

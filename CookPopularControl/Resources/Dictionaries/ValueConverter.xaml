@@ -9,6 +9,7 @@
     <commonConverters:ArcEllipseSizeConverter x:Key="ArcEllipseSizeConverter"/>
     <commonConverters:ArcEndPointConverter x:Key="ArcEndPointConverter"/>
     <commonConverters:DoubleToThickness x:Key="DoubleToThickness"/>
+    <commonConverters:ThicknessToThickness x:Key="ThicknessToThickness"/>
     <commonConverters:DoubleToCornerRadius x:Key="DoubleToCornerRadius"/>
     <commonConverters:CheckBoxFillTypeToVisibilityConverter x:Key="CheckBoxFillTypeToVisibilityConverter"/>
     <commonConverters:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter"/>
