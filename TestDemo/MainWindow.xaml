@@ -34,7 +34,8 @@
         <!--<local:ListsDemo />-->
         <!--<local:QRCodeControlDemo />-->
         <!--<local:GridDemo />-->
-        <local:DataGridDemo />
+        <!--<local:DataGridDemo />-->
+        <local:DateDemo />
     </Grid>
 
 
