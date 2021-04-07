@@ -19,11 +19,12 @@
 
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
+    <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
+    <toolConverters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"></toolConverters:StringToVisibilityConverter>
     <toolConverters:ValueTranslateConverter x:Key="ValueTranslateConverter"/>
     <toolConverters:ValueBetweenZeroAnd100 x:Key="ValueBetweenZeroAnd100"/>
     <toolConverters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
-    <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
     <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>
 
 </ResourceDictionary>

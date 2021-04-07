@@ -1420,6 +1420,24 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="T:CookPopularControl.Tools.Extensions.Strings.StringsExtension">
+            <summary>
+            提供<see cref="T:System.String"/>的扩展方法
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ToOpenLink(System.String)">
+            <summary>
+            打开链接
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ToBrush(System.String)">
+            <summary>
+            十六进制转<see cref="T:System.Windows.Media.Brush"/>
+            </summary>
+            <param name="hexadecimal"></param>
+            <returns></returns>
+        </member>
         <member name="M:CookPopularControl.Tools.Extensions.Values.DoubleExtension.AnyNan(System.Collections.Generic.IEnumerable{System.Double})">
             <summary>
             判断集合中是否都为数字
