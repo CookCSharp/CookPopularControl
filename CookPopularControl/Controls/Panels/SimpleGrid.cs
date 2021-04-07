@@ -13,7 +13,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-20 10:14:22
  */
-namespace CookPopularControl.Controls
+namespace CookPopularControl.Controls.Panels
 {
     /// <summary>
     /// 重叠面板

@@ -927,6 +927,12 @@
             <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Panels.SimpleGrid">
+            <summary>
+            重叠面板
+            </summary>
+            <remarks>用于代替Grid</remarks>
+        </member>
         <member name="T:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.PasswordBox"/>的附加属性类
@@ -1216,12 +1222,6 @@
             <summary>
             <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
             </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.SimpleGrid">
-            <summary>
-            重叠面板
-            </summary>
-            <remarks>用于代替Grid</remarks>
         </member>
         <member name="T:CookPopularControl.Controls.Slider.SliderAssistant">
             <summary>

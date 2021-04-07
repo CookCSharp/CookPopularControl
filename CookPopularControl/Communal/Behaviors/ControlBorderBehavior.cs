@@ -1,5 +1,5 @@
 ﻿using CookPopularControl.Communal.Attached;
-using CookPopularControl.Controls;
+using CookPopularControl.Controls.Panels;
 using CookPopularControl.Controls.Animation;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;

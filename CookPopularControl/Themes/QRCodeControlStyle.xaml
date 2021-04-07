@@ -1,10 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode"
-                    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
-                    xmlns:simpleGrid="clr-namespace:CookPopularControl.Controls"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:simpleGrid="clr-namespace:CookPopularControl.Controls.Panels"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />

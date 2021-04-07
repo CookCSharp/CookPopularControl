@@ -1,4 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
+﻿using CookPopularControl.Controls.Panels;
+using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
