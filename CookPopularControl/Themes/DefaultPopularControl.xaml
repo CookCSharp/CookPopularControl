@@ -6,7 +6,8 @@
                     xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings"
                     xmlns:switch="clr-namespace:CookPopularControl.Controls.CheckBox"
                     xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields"
-                    xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode">
+                    xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode"
+                    xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -29,6 +30,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DataGridStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DateTimePickerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MenuStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TabControlStyle.xaml" />
 
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
@@ -70,6 +72,7 @@
     <Style x:Key="{x:Type DatePicker}" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DefaultDatePickerStyle}"/>
     <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource DefaultContextMenuStyle}"/>
     <Style x:Key="{x:Type Menu}" TargetType="{x:Type Menu}" BasedOn="{StaticResource DefaultMenuStyle}"/>
+    <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource DefaultTabControlStyle}"/>
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>
@@ -87,6 +90,6 @@
     <Style x:Key="{x:Type switch:SwitchControl}" TargetType="{x:Type switch:SwitchControl}" BasedOn="{StaticResource DefaultSwitchControlStyle}"/>
     <Style x:Key="{x:Type fields:TextPath}" TargetType="{x:Type fields:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}"/>
     <Style x:Key="{x:Type qrCode:QRCodeControl}" TargetType="{x:Type qrCode:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}"/>
-
+    <Style x:Key="{x:Type menu:CircleMenu}" TargetType="{x:Type menu:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}"/>
 
 </ResourceDictionary>
