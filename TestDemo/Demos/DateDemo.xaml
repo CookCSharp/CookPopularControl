@@ -32,27 +32,10 @@
             </DatePicker>
             <DatePicker Width="300" Height="50" Style="{StaticResource DefaultDatePickerStyle}" 
                         BorderThickness="0,0,0,1" Padding="0,0,0,0" pc:FrameworkElementBaseAttached.CornerRadius="0"
-                        VerticalContentAlignment="Bottom">
-                <DatePicker.SelectedDate>
-                    <Binding Path="FutureValidatingDate" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <pc:FutureDateValidationRule ValidatesOnTargetUpdated="True"/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </DatePicker.SelectedDate>
-            </DatePicker>
+                        VerticalContentAlignment="Bottom"/>
 
-            <!--<Calendar Width="300" Height="300" Style="{StaticResource DefaultCalendarStyle}" IsEnabled="True"
+            <Calendar Width="300" Height="300" Style="{StaticResource DefaultCalendarStyle}" IsEnabled="True"
                       Background="Red" Foreground="Green" BorderBrush="Purple" BorderThickness="2"  Margin="0,30" />
-            <Calendar Width="300" Height="300" Style="{StaticResource DefaultCalendarStyle}" IsEnabled="True">
-                <Calendar.SelectedDate>
-                    <Binding Path="FutureValidatingDate" UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <pc:FutureDateValidationRule ValidatesOnTargetUpdated="True"/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </Calendar.SelectedDate>
-            </Calendar>-->
         </StackPanel>
     </ScrollViewer>
 
