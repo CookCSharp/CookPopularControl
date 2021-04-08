@@ -927,6 +927,67 @@
             <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Menus.CircleMenu">
+            <summary>
+            弧形、圆形菜单
+            子项布局采用<see cref="T:CookPopularControl.Controls.Panels.ArcPanel"/>
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate">
+            <summary>
+            子项是否围绕自身旋转
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotateProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Panels.ArcPanel">
+            <summary>
+            弧形、圆形布局
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.ArcAngle">
+            <summary>
+            弧形的角度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.ArcAngleProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.ArcAngle"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.Radius">
+            <summary>
+            半径大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.RadiusProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.Radius"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.IntervalAngle">
+            <summary>
+            间隔角度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.IntervalAngleProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.IntervalAngle"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.IsItemRotate">
+            <summary>
+            子项是否围绕自身旋转
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.IsItemRotateProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.IsItemRotate"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Panels.SimpleGrid">
             <summary>
             重叠面板

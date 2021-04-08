@@ -26,7 +26,7 @@ namespace CookPopularControl.Communal.Attached
         public static CornerRadius GetCornerRadius(DependencyObject obj) => (CornerRadius)obj.GetValue(CornerRadiusProperty);
         public static void SetCornerRadius(DependencyObject obj, CornerRadius value) => obj.SetValue(CornerRadiusProperty, value);
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.RegisterAttached("CornerRadius", typeof(CornerRadius), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.CornerRadius10Box));
+            DependencyProperty.RegisterAttached("CornerRadius", typeof(CornerRadius), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.CornerRadius0Box));
 
         public static Geometry GetIconGeometry(DependencyObject obj) => (Geometry)obj.GetValue(IconGeometryProperty);
         public static void SetIconGeometry(DependencyObject obj, Geometry value) => obj.SetValue(IconGeometryProperty, value);

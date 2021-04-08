@@ -8,6 +8,8 @@
         <Setter Property="Background" Value="{DynamicResource DefaultBackground}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="assistant:ScrollViewerAssistant.IsCornerShow" Value="False" />
         <Setter Property="assistant:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
         <Setter Property="Template">
