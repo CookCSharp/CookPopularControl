@@ -10,14 +10,6 @@
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <UserControl.Resources>
-        <!--<ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/TestDemo;component/DataGridDictionary.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>-->
-    </UserControl.Resources>
-
     <ScrollViewer>
         <StackPanel>
             <DataGrid Width="500" Height="400" ItemsSource="{Binding Workers}" 
