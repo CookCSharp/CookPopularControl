@@ -42,7 +42,7 @@
                                         Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                         Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
                                     <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                        <Path x:Name="PART_ICON" Stretch="Uniform" SnapsToDevicePixels="True" 
+                                        <Path x:Name="PART_Icon" Stretch="Uniform" SnapsToDevicePixels="True" 
                                               DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                               Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                               Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
@@ -50,7 +50,7 @@
                                               Fill="{TemplateBinding Foreground}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                        <Image x:Name="PART_IMGAE_Gif" Stretch="Uniform"
+                                        <Image x:Name="PART_Image_Gif" Stretch="Uniform"
                                                Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
                                                Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
                                                DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
@@ -58,8 +58,8 @@
                                                gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
                                                gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
                                                gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
-                                        <Grid>
-                                            <ProgressBar x:Name="PART_PROGRESS" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-2"
+                                        <Grid x:Name="ContentGrid">
+                                            <ProgressBar x:Name="PART_Progress" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-2"
                                                          Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
                                                          Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
                                                          attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
@@ -99,9 +99,37 @@
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.Setters>
                                 <Setter Property="IsEnabled" Value="False"/>
-                                <Setter Property="Foreground" Value="#22000000" TargetName="PART_PROGRESS"/>
+                                <Setter Property="Foreground" Value="#22000000" TargetName="PART_Progress"/>
                             </MultiDataTrigger.Setters>
                         </MultiDataTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Left"/>
+                                <Condition Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="HorizontalAlignment" Value="Right" TargetName="ContentGrid"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Right"/>
+                                <Condition Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="HorizontalAlignment" Value="Left" TargetName="ContentGrid"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Top"/>
+                                <Condition Property="VerticalContentAlignment" Value="Stretch"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="VerticalAlignment" Value="Bottom" TargetName="ContentGrid"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Bottom"/>
+                                <Condition Property="VerticalContentAlignment" Value="Stretch"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="VerticalAlignment" Value="Top" TargetName="ContentGrid"/>
+                        </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
