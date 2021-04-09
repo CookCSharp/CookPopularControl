@@ -787,6 +787,21 @@
             提供<see cref="T:System.IO.Stream"/>的Gif图像
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Button.RadioButtonAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.RadioButton"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CircleDiameterProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CircleDiameterProperty"/>标识点的半径大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CheckedBrushProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CheckedBrushProperty"/>标识选中的填充背景色
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.CheckBox.CheckBoxAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.CheckBox"/>的附加基类
@@ -2047,36 +2062,6 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>
