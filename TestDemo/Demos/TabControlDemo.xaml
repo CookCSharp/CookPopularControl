@@ -28,7 +28,7 @@
             </TabControl>
 
             <TabControl Width="300" Height="300" Style="{StaticResource DefaultTabControlStyle}"
-                    TabStripPlacement="Right" HorizontalAlignment="Left" Margin="30,0,0,0"
+                    TabStripPlacement="Right" HorizontalAlignment="Left" Margin="0,0,30,0"
                     Foreground="#FFFFFF" Background="{StaticResource BlockColor}">
                 <TabItem Header="First">第一个页面</TabItem>
                 <TabItem Header="Second">第二个页面</TabItem>

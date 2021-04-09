@@ -37,7 +37,8 @@
         <!--<local:DataGridDemo />-->
         <!--<local:DateDemo />-->
         <!--<local:MenuDemo />-->
-        <local:TabControlDemo />
+        <!--<local:TabControlDemo />-->
+        <local:ExpanderDemo />
     </Grid>
 
 
