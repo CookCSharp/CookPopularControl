@@ -31,6 +31,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DateTimePickerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MenuStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TabControlStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
 
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
@@ -73,6 +74,7 @@
     <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource DefaultContextMenuStyle}"/>
     <Style x:Key="{x:Type Menu}" TargetType="{x:Type Menu}" BasedOn="{StaticResource DefaultMenuStyle}"/>
     <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource DefaultTabControlStyle}"/>
+    <Style x:Key="{x:Type Expander}" TargetType="{x:Type Expander}" BasedOn="{StaticResource DefaultExpanderStyle}"/>
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>
