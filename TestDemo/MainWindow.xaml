@@ -38,7 +38,8 @@
         <!--<local:DateDemo />-->
         <!--<local:MenuDemo />-->
         <!--<local:TabControlDemo />-->
-        <local:ExpanderDemo />
+        <!--<local:ExpanderDemo />-->
+        <local:RadioButtonDemo />
     </Grid>
 
 
