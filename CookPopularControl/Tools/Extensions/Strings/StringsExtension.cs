@@ -38,8 +38,15 @@ namespace CookPopularControl.Tools.Extensions.Strings
         /// <summary>
         /// 十六进制转<see cref="Brush"/>
         /// </summary>
-        /// <param name="hexadecimal"></param>
+        /// <param name="hexadecimalString"></param>
         /// <returns></returns>
-        public static Brush ToBrush(this string hexadecimal) => (Brush)new BrushConverter().ConvertFromString(hexadecimal);
+        public static Brush ToBrush(this string hexadecimalString) => (Brush)new BrushConverter().ConvertFromString(hexadecimalString);
+
+        /// <summary>
+        /// 十六进制转<see cref="Color"/>
+        /// </summary>
+        /// <param name="hexadecimalString"></param>
+        /// <returns></returns>
+        public static Color ToColor(this string hexadecimalString) => (Color)(ColorConverter.ConvertFromString(hexadecimalString));
     }
 }
