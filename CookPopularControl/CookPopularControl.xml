@@ -251,6 +251,11 @@
             <see cref="T:System.Windows.Controls.PasswordBox"/>的帮助类
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Adorner.AdornerBase">
+            <summary>
+            将装饰器绑定到元素的基类
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.AnimationPath">
             <summary>
             提供<see cref="T:System.Windows.Media.Geometry"/>的路径动画控件
@@ -870,6 +875,21 @@
         <member name="T:CookPopularControl.Controls.Dates.CalendarAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Calendar"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.DialogBox.DialogBox">
+            <summary>
+            对话窗口
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.DialogBox.DialogBox.MarkProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.DialogBox.DialogBox.MarkProperty"/>表示<see cref="T:CookPopularControl.Controls.DialogBox.DialogBox"/>的标识附加属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.DialogBox.DialogBoxContainer">
+            <summary>
+            承载对话框内容的对话容器
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">
@@ -1532,6 +1552,173 @@
             <param name="isContainMax">包含最大值</param>
             <returns>true</returns>
         </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualAncestors(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree ancestors of an element.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>The visual tree ancestors of the element.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualAncestorsAndSelf(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree ancestors of an element and the element itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree ancestors of an element and the element itself.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualAncestorsAndSelfIterator(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree ancestors of an element and the element itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree ancestors of an element and the element itself.
+            </returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualChildren(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree children of an element.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>The visual tree children of an element.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualChildrenAndSelf(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree children of an element and the element itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree children of an element and the element itself.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualChildrenAndSelfIterator(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree children of an element and the element itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree children of an element and the element itself.
+            </returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualDescendants(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree descendants of an element.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>The visual tree descendants of an element.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualDescendantsAndSelf(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree descendants of an element and the element
+            itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree descendants of an element and the element itself.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualDescendantsAndSelfIterator(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree descendants of an element and the element
+            itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree descendants of an element and the element itself.
+            </returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualSiblings(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree siblings of an element.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>The visual tree siblings of an element.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetVisualSiblingsAndSelf(System.Windows.DependencyObject)">
+            <summary>
+            Get the visual tree siblings of an element and the element itself.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            The visual tree siblings of an element and the element itself.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetBoundsRelativeTo(System.Windows.FrameworkElement,System.Windows.UIElement)">
+            <summary>
+            Get the bounds of an element relative to another element.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="otherElement">
+            The element relative to the other element.
+            </param>
+            <returns>
+            The bounds of the element relative to another element, or null if
+            the elements are not related.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="otherElement"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.InvokeOnLayoutUpdated(System.Windows.FrameworkElement,System.Action)">
+            <summary>
+            Perform an action when the element's LayoutUpdated event fires.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="action">The action to perform.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="element"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="action"/> is null.
+            </exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetLogicalChildren(System.Windows.FrameworkElement)">
+            <summary>
+            Retrieves all the logical children of a framework element using a
+            breadth-first search. For performance reasons this method manually
+            manages the stack instead of using recursion.
+            </summary>
+            <param name="parent">The parent framework element.</param>
+            <returns>The logical children of the framework element.</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.VisualTreeHelperExtension.GetLogicalDescendents(System.Windows.FrameworkElement)">
+            <summary>
+            Retrieves all the logical descendents of a framework element using a
+            breadth-first search. For performance reasons this method manually
+            manages the stack instead of using recursion.
+            </summary>
+            <param name="parent">The parent framework element.</param>
+            <returns>The logical children of the framework element.</returns>
+        </member>
         <member name="T:CookPopularControl.Tools.Extensions.WindowExtension">
             <summary>
             为提 <see cref="T:System.Windows.Window" /> 供静态扩展方法。
@@ -1667,6 +1854,25 @@
             <param name="fontFamily"></param>
             <param name="fontSize"></param>
             <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Helpers.FunctionalProgramming">
+            <summary>
+            Collection of functions for functional programming tasks.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.FunctionalProgramming.TraverseBreadthFirst``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Func{``0,System.Boolean})">
+            <summary>
+            Traverses a tree by accepting an initial value and a function that
+            retrieves the child nodes of a node.
+            </summary>
+            <typeparam name="T">The type of the stream.</typeparam>
+            <param name="initialNode">The initial node.</param>
+            <param name="getChildNodes">A function that retrieves the child
+            nodes of a node.</param>
+            <param name="traversePredicate">A predicate that evaluates a node
+            and returns a value indicating whether that node and it's children
+            should be traversed.</param>
+            <returns>A stream of nodes.</returns>
         </member>
         <member name="F:CookPopularControl.Tools.Interop.InteropValues.WindowPositionFlags.SWP_ASYNCWINDOWPOS">
             <summary>

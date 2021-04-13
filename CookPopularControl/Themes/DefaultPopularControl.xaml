@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:win="clr-namespace:CookPopularControl.Controls.Windows"
+                    xmlns:dialogBox="clr-namespace:CookPopularControl.Controls.DialogBox"
                     xmlns:animation="clr-namespace:CookPopularControl.Controls.Animation"
                     xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
                     xmlns:simpleLoading="clr-namespace:CookPopularControl.Controls.Animation.Loading.SimpleLoadings"
@@ -13,6 +14,7 @@
         <!--Original Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ChromeWindowStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
@@ -34,6 +36,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TabControlStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
 
+
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
 
@@ -53,6 +56,7 @@
 
 
     <Style x:Key="{x:Type win:ChromeWindow}" TargetType="{x:Type win:ChromeWindow}" BasedOn="{StaticResource DefaultChromeWindowStyle}"/>
+    <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}"/>
     <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
 
 
