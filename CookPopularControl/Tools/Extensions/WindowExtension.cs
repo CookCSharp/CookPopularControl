@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
@@ -153,6 +154,8 @@ namespace CookPopularControl.Tools.Extensions
 
             return window;
         }
+
+        public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
 
         /// <summary>
         /// 设置当前窗口的置顶状态。
