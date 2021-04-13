@@ -1,12 +1,7 @@
 ﻿using CookPopularControl.Controls.DialogBox;
-using CookPopularControl.Controls.Windows;
 using HandyControl.Tools.Extension;
-using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,25 +14,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestDemo.Demos;
 
-namespace TestDemo
+namespace TestDemo.Demos
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// DialogBoxDemo.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DialogBoxDemo : UserControl
     {
-        public MainWindow()
+        public DialogBoxDemo()
         {
             InitializeComponent();
-
-            this.Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private DialogBox dialogBox;
+        private void ButtonDefault_Click(object sender, RoutedEventArgs e)
         {
-            //Microsoft.Expression.Drawing.dll 
+            dialogBox = DialogBox.Show<AdornerDemo>();
+        }
+
+        private void ButtonInherit_Click(object sender, RoutedEventArgs e)
+        {
+            dialogBox = DialogBox.Show<AdornerDemo>("DialogBoxContainer");
         }
     }
 }

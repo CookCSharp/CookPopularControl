@@ -7,12 +7,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        Title="MainWindow"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" Background="White"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Width="1000"
         Height="800">
     <!--Style="{StaticResource BaseChromeWindowStyle}"-->
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Grid>
         <!--<hc:WaveProgressBar Value="50" hc:WindowAttach.ShowInTaskManager="True" ShowText="True" 
@@ -39,7 +49,11 @@
         <!--<local:MenuDemo />-->
         <!--<local:TabControlDemo />-->
         <!--<local:ExpanderDemo />-->
-        <local:RadioButtonDemo />
+        <!--<local:RadioButtonDemo />-->
+        <!--<pc:SimpleGrid>
+            <local:DialogBoxDemo />
+            <TextBox Text="12312323" Width="100" Height="35" HorizontalAlignment="Right"/>
+        </pc:SimpleGrid>-->
     </Grid>
 
 
