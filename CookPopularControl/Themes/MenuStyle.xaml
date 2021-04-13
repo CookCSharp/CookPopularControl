@@ -160,7 +160,7 @@
                         </MultiTrigger>
 
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource BlockColor}" />
+                            <Setter Property="Background" Value="{DynamicResource BlockBrush}" />
                         </Trigger>
                         <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="True">
                             <Setter TargetName="SubMenuBorder" Property="Margin" Value="5"/>
