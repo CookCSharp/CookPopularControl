@@ -38,7 +38,7 @@
                                     Style="{DynamicResource IconTransparentButtonStyle}"
                                     attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                     attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
                                     Foreground="{DynamicResource PrimaryColorTheme}" Background="Transparent" BorderThickness="0">
                                 <Button.Visibility>
