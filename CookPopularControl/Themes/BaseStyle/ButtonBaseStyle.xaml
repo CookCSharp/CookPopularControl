@@ -132,8 +132,8 @@
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledColor}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="border"/>

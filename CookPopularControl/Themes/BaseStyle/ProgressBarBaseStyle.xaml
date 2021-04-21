@@ -134,7 +134,7 @@
                             </DataTrigger.EnterActions>
                         </DataTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledColor}" TargetName="border"></Setter>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border"></Setter>
                         </Trigger>
                         <Trigger Property="IsIndeterminate" Value="true">
                             <Setter Property="Width" Value="0.25*" TargetName="width1"></Setter>
@@ -181,7 +181,7 @@
                     </ControlTemplate.Resources>
                     <Border x:Name="TemplateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
-                            <Ellipse x:Name="PART_Background" Stretch="Fill" Stroke="{DynamicResource UnEnabledColor}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}"/>
+                            <Ellipse x:Name="PART_Background" Stretch="Fill" Stroke="{DynamicResource UnEnabledBrush}" StrokeThickness="{TemplateBinding assistant:CircularProgressAssistant.ArcThickness}"/>
                             <Grid x:Name="PathGrid"
                                   Margin="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:CircularProgressAssistant.ArcThickness),
                                            Converter={commonConverters:DoubleToThickness},ConverterParameter=0.5,Mode=OneWay}">

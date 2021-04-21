@@ -64,7 +64,7 @@
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" TargetName="RootBorder" Value="{StaticResource {x:Static SystemColors.ControlBrushKey}}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

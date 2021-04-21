@@ -23,8 +23,8 @@
         <Setter Property="DotStrokeThickness" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
-                <Setter Property="DotStroke" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                <Setter Property="DotStroke" Value="{DynamicResource UnEnabledBrush}" />
                 <Setter Property="IsDotRunning" Value="False" />
             </Trigger>
         </Style.Triggers>
@@ -97,8 +97,8 @@
         <Setter Property="RecRunSpeed" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
                 <Setter Property="IsRecRunning" Value="False" />
             </Trigger>
         </Style.Triggers>
@@ -156,8 +156,8 @@
         <Setter Property="Duration" Value="0:0:2" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
                 <Setter Property="IsRunning" Value="False" />
             </Trigger>
         </Style.Triggers>

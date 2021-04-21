@@ -98,7 +98,7 @@
                             <Setter Property="Visibility" Value="Collapsed" TargetName="FillGrid"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledColor}" TargetName="PART_Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_Border"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -153,7 +153,7 @@
                             <Setter Property="Padding" Value="4,0,0,0"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledColor}"/>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="ForegroundPanel" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=SwitchOpenBackground}"/>

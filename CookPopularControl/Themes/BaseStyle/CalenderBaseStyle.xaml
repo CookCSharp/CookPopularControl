@@ -406,7 +406,7 @@
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}" />
         <Setter Property="CalendarItemStyle" Value="{StaticResource CalendarItemStyle}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackground}" />
+        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="DodgerBlue" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Template">

@@ -5,7 +5,7 @@
 
     <Style x:Key="DefaultScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackground}" />
+        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />

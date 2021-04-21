@@ -8,7 +8,7 @@
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="IsPlay" Value="False" />
-                <Setter Property="Stroke" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="Stroke" Value="{DynamicResource UnEnabledBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

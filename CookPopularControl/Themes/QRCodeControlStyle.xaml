@@ -45,7 +45,7 @@
                                 </Border.Background>
                             </Border>
                             <simpleGrid:SimpleGrid x:Name="RefreshGrid" Opacity="0">
-                                <Border Background="{DynamicResource UnEnabledColor}" Opacity="0.85"
+                                <Border Background="{DynamicResource UnEnabledBrush}" Opacity="0.85"
                                         CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"/>
                                 <Button x:Name="RefreshButton" Foreground="{TemplateBinding RefreshButtonFill}"
                                         attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"

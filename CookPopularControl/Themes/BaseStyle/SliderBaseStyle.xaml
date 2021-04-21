@@ -292,8 +292,8 @@
                 <Setter Property="Template" Value="{StaticResource SliderVertical}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource UnEnabledColor}" />
-                <Setter Property="attached:ThumbAttached.ThumbBackground" Value="{DynamicResource UnEnabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                <Setter Property="attached:ThumbAttached.ThumbBackground" Value="{DynamicResource UnEnabledBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
