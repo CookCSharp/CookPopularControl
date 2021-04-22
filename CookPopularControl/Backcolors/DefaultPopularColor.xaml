@@ -10,6 +10,19 @@
     <SolidColorBrush x:Key="PrimaryForeground" Color="{StaticResource PrimaryForegroundColor}"/>
     <SolidColorBrush x:Key="AssistantForeground" Color="{StaticResource AssistantForegroundColor}"/>
 
+    <Color x:Key="MessageDialogSuccessColor">#32AA32</Color>
+    <Color x:Key="MessageDialogInfoColor">#1E90FF</Color>
+    <Color x:Key="MessageDialogWarningColor">#EE5511</Color>
+    <Color x:Key="MessageDialogErrorColor">#DD0000</Color>
+    <Color x:Key="MessageDialogFatalColor">#990000</Color>
+    <Color x:Key="MessageDialogQuestionColor">#EEDD33</Color>
+    <SolidColorBrush x:Key="MessageDialogSuccessBrush" Color="{StaticResource MessageDialogSuccessColor}"/>
+    <SolidColorBrush x:Key="MessageDialogInfoBrush" Color="{StaticResource MessageDialogInfoColor}"/>
+    <SolidColorBrush x:Key="MessageDialogWarningBrush" Color="{StaticResource MessageDialogWarningColor}"/>
+    <SolidColorBrush x:Key="MessageDialogErrorBrush" Color="{StaticResource MessageDialogErrorColor}"/>
+    <SolidColorBrush x:Key="MessageDialogFatalBrush" Color="{StaticResource MessageDialogFatalColor}"/>
+    <SolidColorBrush x:Key="MessageDialogQuestionBrush" Color="{StaticResource MessageDialogQuestionColor}"/>
+
     <!--#FF9C8844-->
     <Color x:Key="ButtonBaseMouseOverColor">#55AAFF</Color>
     <Color x:Key="ButtonBasePressColor">#4169E1</Color>
@@ -27,11 +40,11 @@
     <Color x:Key="DataGridRowMouseOverSelected">#4169E1</Color>
 
     <Color x:Key="BlockColor">#554A4A4A</Color>
-    <!--<Color x:Key="UnEnabledColor">#D3D3D3</Color>-->
-    <!--<Color x:Key="DefaultBackgroundColor">#FFFFFF</Color>-->
+    <Color x:Key="UnEnabledColor">#D3D3D3</Color>
+    <Color x:Key="DefaultBackgroundColor">#FFFFFF</Color>
     <SolidColorBrush x:Key="BlockBrush" Color="{StaticResource BlockColor}"/>
-    <SolidColorBrush x:Key="UnEnabledColor" Color="#D3D3D3"/>
-    <SolidColorBrush x:Key="DefaultBackground" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="UnEnabledBrush" Color="{StaticResource UnEnabledColor}"/>
+    <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="{StaticResource DefaultBackgroundColor}"/>
     
     <LinearGradientBrush x:Key="LinearTheme" StartPoint="0,0" EndPoint="1,1">
         <GradientStopCollection>

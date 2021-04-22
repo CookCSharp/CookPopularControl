@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 
 /*
@@ -57,7 +58,7 @@ namespace CookPopularControl.Controls.Windows
                 }
                 else if (e.Command == SidebarPopupCommand)
                 {
-                    window.IsShowBlock = true;
+                    window.IsShowSideBar = true;
                 }
                 else if (e.Command == SystemCommands.CloseWindowCommand)
                 {
@@ -116,18 +117,18 @@ namespace CookPopularControl.Controls.Windows
 
 
         /// <summary>
-        /// 是否显示菜单栏
+        /// 是否显示侧边栏
         /// </summary>
-        public bool IsShowBlock
+        public bool IsShowSideBar
         {
-            get { return (bool)GetValue(IsShowBlockProperty); }
-            set { SetValue(IsShowBlockProperty, value); }
+            get { return (bool)GetValue(IsShowSideBarProperty); }
+            set { SetValue(IsShowSideBarProperty, value); }
         }
         /// <summary>
-        /// 提供<see cref="IsShowBlock"/>的依赖属性
+        /// 提供<see cref="IsShowSideBar"/>的依赖属性
         /// </summary>
-        public static readonly DependencyProperty IsShowBlockProperty =
-            DependencyProperty.Register("IsShowBlock", typeof(bool), typeof(ChromeWindow), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsShowSideBarProperty =
+            DependencyProperty.Register("IsShowSideBar", typeof(bool), typeof(ChromeWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
 
         /// <summary>
@@ -158,5 +159,29 @@ namespace CookPopularControl.Controls.Windows
         /// </summary>
         public static readonly DependencyProperty IconHeightProperty =
             DependencyProperty.Register("IconHeight", typeof(double), typeof(ChromeWindow), new PropertyMetadata(ValueBoxes.Double30Box));
+
+
+        /// <summary>
+        /// 窗体标题栏背景色
+        /// </summary>
+        public Brush ClientAeroCaptionBarBackground
+        {
+            get { return (Brush)GetValue(ClientAeroCaptionBarBackgroundProperty); }
+            set { SetValue(ClientAeroCaptionBarBackgroundProperty, value); }
+        }
+        public static readonly DependencyProperty ClientAeroCaptionBarBackgroundProperty =
+            DependencyProperty.Register("ClientAeroCaptionBarBackground", typeof(Brush), typeof(ChromeWindow), new PropertyMetadata(default(Brush)));
+
+
+        /// <summary>
+        /// 窗体标题栏文字颜色
+        /// </summary>
+        public Brush ClientAeroCaptionForeground
+        {
+            get { return (Brush)GetValue(ClientAeroCaptionForegroundProperty); }
+            set { SetValue(ClientAeroCaptionForegroundProperty, value); }
+        }   
+        public static readonly DependencyProperty ClientAeroCaptionForegroundProperty =
+            DependencyProperty.Register("ClientAeroCaptionForeground", typeof(Brush), typeof(ChromeWindow), new PropertyMetadata(default(Brush)));
     }
 }

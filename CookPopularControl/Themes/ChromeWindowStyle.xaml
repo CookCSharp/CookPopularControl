@@ -1,19 +1,51 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:win="clr-namespace:CookPopularControl.Controls.Windows"
+                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
+        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>-->
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="DefaultResizeGripStyle" TargetType="ResizeGrip">
+        <Setter Property="MinWidth" Value="10"/>
+        <Setter Property="MinHeight" Value="10"/>
+        <Setter Property="Width" Value="10"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ResizeGrip">
+                    <panel:SimpleGrid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Path Width="10" Height="10" Data="M 9,0 L 11,0 L 11,11 L 0,11 L 0,9 L 3,9 L 3,6 L 6,6 L 6,3 L 9,3 z" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                            <Path.Fill>
+                                <DrawingBrush TileMode="Tile" Viewbox="0,0,3,3" Viewport="0,0,3,3" ViewportUnits="Absolute" ViewboxUnits="Absolute">
+                                    <DrawingBrush.Drawing>
+                                        <DrawingGroup>
+                                            <GeometryDrawing Brush="{StaticResource ResizeGripperForeground}">
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry Rect="0,0,2,2"/>
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingBrush.Drawing>
+                                </DrawingBrush>
+                            </Path.Fill>
+                        </Path>
+                    </panel:SimpleGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <!--Icon<—☐✕>-->
     <Style x:Key="WindowIconStyle" TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow,Mode=FindAncestor},Path=IconWidth}" />
-        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow,Mode=FindAncestor},Path=IconHeight}" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow},Path=IconWidth}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow},Path=IconHeight}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow,Mode=FindAncestor},Path=Foreground}" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Cursor" Value="Hand" />
@@ -25,33 +57,38 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource BlockBrush}" TargetName="border"/>
+                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="border"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="{x:Type win:ChromeWindow}" TargetType="{x:Type win:ChromeWindow}">
+    
+    <Style x:Key="DefaultChromeWindowStyle" TargetType="{x:Type win:ChromeWindow}">
         <Setter Property="WindowState" Value="Normal" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="Effect" Value="{DynamicResource CustomShadowDepth2}" />
+        <Setter Property="ClientAeroCaptionBarBackground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="ClientAeroCaptionForeground" Value="{DynamicResource AssistantForeground}" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Effect" Value="{DynamicResource ComboxBoxShadow}" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
-                <WindowChrome CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow, Mode=FindAncestor},Path=IconHeight}" GlassFrameThickness="-1" CornerRadius="10"/>
+                <WindowChrome CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow, Mode=FindAncestor},Path=IconHeight}" 
+                              UseAeroCaptionButtons="False" GlassFrameThickness="-1" CornerRadius="10"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:ChromeWindow}">
-                    <AdornerDecorator>
+                    <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                         <win:ChromeWindowClient>
                             <Border Background="{TemplateBinding Background}" Effect="{TemplateBinding Effect}"
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource AncestorType=win:ChromeWindow,Mode=FindAncestor},Path=IconHeight}"/>
+                                        <RowDefinition Height="Auto"/>
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid>
@@ -63,37 +100,55 @@
                                         </StackPanel>
                                         <TextBlock Text="{TemplateBinding Title}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                            <Button Content="&#xe603;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                            <Button x:Name="MinimizedButton" Content="&#xe603;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
                                                     Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="最小化"/>
-                                            <Button x:Name="maximized" Content="&#xe8a5;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                            <Button x:Name="MaximizedButton" Content="&#xe8a5;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
                                                     Command="{x:Static SystemCommands.MaximizeWindowCommand}" ToolTip="最大化"/>
-                                            <Button x:Name="normal" Content="&#xe712;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" 
+                                            <Button x:Name="NormalButton" Content="&#xe712;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}" 
                                                     Command="{x:Static SystemCommands.RestoreWindowCommand}" ToolTip="向下还原" Visibility="Collapsed"/>
-                                            <Button Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                            <Button x:Name="CloseButton" Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
                                                     Command="{x:Static SystemCommands.CloseWindowCommand}" ToolTip="关闭"/>
                                         </StackPanel>
                                     </Grid>
-                                    <Grid Grid.Row="1">
-                                        <ContentPresenter x:Name="win_content" ClipToBounds="True"/>
-                                    </Grid>
+                                    <AdornerDecorator Grid.Row="1">
+                                        <ContentPresenter ClipToBounds="True"/>
+                                    </AdornerDecorator>
+                                    <ResizeGrip Grid.Row="1" x:Name="ResizeGrip" Width="10" Height="10" WindowChrome.ResizeGripDirection="BottomRight"
+                                                HorizontalAlignment="Right" VerticalAlignment="Bottom" IsTabStop="False" Visibility="Collapsed"
+                                                Style="{StaticResource DefaultResizeGripStyle}"/>
                                 </Grid>
                             </Border>
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter Property="Visibility" Value="Visible" TargetName="normal"/>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="maximized"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="NormalButton"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
-                            <Setter Property="Visibility" Value="Visible" TargetName="maximized"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="MaximizedButton"/>
                         </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="MinimizedButton"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ResizeMode" Value="CanResizeWithGrip"/>
+                                <Condition Property="WindowState" Value="Normal" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="ResizeGrip" />
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style x:Key="DefaultChromeWindowStyle" TargetType="{x:Type win:ChromeWindow}" BasedOn="{StaticResource {x:Type win:ChromeWindow}}"/>
-
+    
 </ResourceDictionary>

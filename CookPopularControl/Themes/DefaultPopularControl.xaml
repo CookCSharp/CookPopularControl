@@ -36,7 +36,6 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TabControlStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
 
-
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
 
@@ -56,6 +55,7 @@
 
 
     <Style x:Key="{x:Type win:ChromeWindow}" TargetType="{x:Type win:ChromeWindow}" BasedOn="{StaticResource DefaultChromeWindowStyle}"/>
+    <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource DefaultMessageDialogStyle}"/>
     <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}"/>
     <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
 
