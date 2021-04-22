@@ -54,6 +54,7 @@
             <local:DialogBoxDemo />
             <TextBox Text="12312323" Width="100" Height="35" HorizontalAlignment="Right"/>
         </pc:SimpleGrid>-->
+        <local:MessageDialogDemo />
     </Grid>
 
 
