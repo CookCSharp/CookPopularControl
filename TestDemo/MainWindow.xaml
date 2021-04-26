@@ -18,8 +18,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -29,7 +28,7 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding ControlNamesList}" SelectionChanged="ListView_SelectionChanged" pc:FrameworkElementBaseAttached.CornerRadius="0"/>
+        <ListView Grid.Column="0" ItemsSource="{Binding ControlNamesList}" SelectionChanged="ListView_SelectionChanged" pc:FrameworkElementBaseAttached.CornerRadius="0"/>
         <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
     </Grid>
 

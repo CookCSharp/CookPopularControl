@@ -84,7 +84,7 @@ namespace TestDemo
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var listView = sender as ListBox;
+            var listView = sender as ListView;
             var className = listView.SelectedItem.ToString().Insert(listView.SelectedItem.ToString().Length, "Demo");
             ControlContent = ClassFactory.GetSpecificClass(listView.SelectedIndex);
             //ControlContent = Assembly.GetExecutingAssembly().CreateInstance($"TestDemo.Demos.{className}") as UserControl;
