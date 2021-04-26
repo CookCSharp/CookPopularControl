@@ -27,7 +27,7 @@
                         VerticalContentAlignment="Bottom"/>
 
             <Calendar Width="300" Height="300" Style="{StaticResource DefaultCalendarStyle}" IsEnabled="True"
-                      Background="Red" Foreground="Green" BorderBrush="Purple" BorderThickness="2"  Margin="0,30" />
+                      Background="White" Foreground="DodgerBlue" BorderBrush="DodgerBlue" BorderThickness="2"  Margin="0,30" />
         </StackPanel>
     </ScrollViewer>
 

@@ -96,6 +96,7 @@ namespace CookPopularControl.Controls.Swiper
                         nextButton.IsEnabled = false;
                 }
 
+                dotsPanel.Children.Clear();
                 for (int i = 0; i < Items.Count; i++)
                 {
                     dotsPanel.Children.Add(CreateDot());
