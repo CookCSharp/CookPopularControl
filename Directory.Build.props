@@ -12,14 +12,14 @@
         <!--指示编译器是否应为相同的输入产生相同的程序集-->
         <Deterministic>true</Deterministic>
         <WarningLevel>4</WarningLevel>
-        <ApplicationIcon>C:\Users\Chance\Desktop\笔记\CookCSharp.ico</ApplicationIcon>
+        <ApplicationIcon>C:\Users\Chance\Desktop\笔记\CookCSharp.png</ApplicationIcon>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 
         <!--CookPopularControl Nuget包说明配置 $(MSBuildToolsPath)-->
         <PackageId>$(MSBuildProjectName)</PackageId>
-        <Version>1.0.0.1</Version>
+        <Version>1.0.0.1-alpha01</Version>
         <Authors>写代码的厨子</Authors>
         <Company>写代码的厨子</Company>
         <Product>$(MSBuildProjectName)</Product>

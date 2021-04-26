@@ -5,7 +5,12 @@
         <UseWindowsForms>true</UseWindowsForms>
         <OutputType>Library</OutputType>
         <Nullable>enable</Nullable>
-        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <Version>1.0.0.1-alpha01</Version>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>CookCSharp.png</PackageIcon>
+        <ApplicationIcon></ApplicationIcon>
+        <PackageProjectUrl>https://gitee.com/cook-csharp/CookPopularControl</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
@@ -48,6 +53,10 @@
         <None Remove="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <None Remove="Resources\Images\CookCSharp.ico" />
         <None Remove="Resources\Images\CookCSharp.png" />
+        <None Include="C:\Users\Chance\Desktop\笔记\CookCSharp.png">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -89,7 +98,7 @@
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.ttf" />
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff" />
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff2" />
-        <Resource Include="Resources\Images\CookCSharp.ico" />
+        <Resource Include="C:\Users\Chance\Desktop\笔记\CookCSharp.png" />
         <Resource Include="Resources\Images\CookCSharp.png" />
     </ItemGroup>
 
