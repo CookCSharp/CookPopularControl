@@ -10,7 +10,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>CookCSharp.png</PackageIcon>
         <ApplicationIcon></ApplicationIcon>
-        <PackageProjectUrl>https://gitee.com/cook-csharp/CookPopularControl</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
