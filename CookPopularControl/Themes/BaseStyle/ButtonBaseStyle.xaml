@@ -134,6 +134,7 @@
                             <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="border"/>

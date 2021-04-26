@@ -38,5 +38,13 @@ namespace CookPopularControl.Controls.Button
         /// </summary>
         public static readonly DependencyProperty CheckedBrushProperty =
             DependencyProperty.RegisterAttached("CheckedBrush", typeof(Brush), typeof(RadioButtonAssistant), new PropertyMetadata(default(Brush)));
+
+        public static bool GetIsFillFully(DependencyObject obj) => (bool)obj.GetValue(IsFillFullyProperty);
+        public static void SetIsFillFully(DependencyObject obj, bool value) => obj.SetValue(IsFillFullyProperty, value);
+        /// <summary>
+        /// <see cref="IsFillFullyProperty"/>标识是否全部填充
+        /// </summary>
+        public static readonly DependencyProperty IsFillFullyProperty =
+            DependencyProperty.RegisterAttached("IsFillFully", typeof(bool), typeof(RadioButtonAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
     }
 }

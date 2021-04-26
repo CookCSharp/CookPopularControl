@@ -36,16 +36,39 @@
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="assistant:RadioButtonAssistant.IsFillFully" Value="False"/>
+                            </MultiTrigger.Conditions>
                             <Setter Property="Visibility" Value="Visible" TargetName="FillCircle"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="assistant:RadioButtonAssistant.IsFillFully" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="assistant:RadioButtonAssistant.IsFillFully" Value="False"/>
+                            </MultiTrigger.Conditions>
                             <Setter Property="Fill" Value="Transparent" TargetName="BackgroundCircle"/>
-                        </Trigger>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="FillFullyRadioButtonStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}">
+        <Setter Property="assistant:RadioButtonAssistant.IsFillFully" Value="True" />
     </Style>
     
 </ResourceDictionary>
