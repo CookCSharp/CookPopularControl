@@ -2,17 +2,17 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         xmlns:local="clr-namespace:TestDemo.Demos"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-        xmlns:hc="https://handyorg.github.io/handycontrol"
-        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" Background="White"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Width="1000"
-        Height="800">
+        Height="800"
+        d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <!--Style="{StaticResource BaseChromeWindowStyle}"-->
 
     <Window.Resources>
@@ -25,38 +25,41 @@
     </Window.Resources>
 
     <Grid>
-        <!--<hc:WaveProgressBar Value="50" hc:WindowAttach.ShowInTaskManager="True" ShowText="True" 
-                            WaveFill="Green" WaveStroke="Orange" WaveThickness="5"/>-->
-        <!--<local:AnimationDemo />-->
-        
-        <!--<local:ButtonDemo />-->
-        <!--<local:AnimationPathDemo />-->
-        <!--<local:LoadingDemo />-->
-        <!--<local:ProgressBarDemo />-->
-        <!--<local:CheckBoxDemo />-->
-        <!--<local:PasswordBoxDemo />-->
-        <!--<local:FieldsDemo />-->
-        <!--<local:GroupBoxDemo />-->
-        <!--<local:ComboBoxDemo />-->
-        <!--<local:ScrollViewerDemo />-->
-        <!--<local:PopupDemo />-->
-        <!--<local:SliderDemo />-->
-        <!--<local:ListsDemo />-->
-        <!--<local:QRCodeControlDemo />-->
-        <!--<local:GridDemo />-->
-        <!--<local:DataGridDemo />-->
-        <!--<local:DateDemo />-->
-        <!--<local:MenuDemo />-->
-        <!--<local:TabControlDemo />-->
-        <!--<local:ExpanderDemo />-->
-        <!--<local:RadioButtonDemo />-->
-        <!--<pc:SimpleGrid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" ItemsSource="{Binding ControlNamesList}" SelectionChanged="ListView_SelectionChanged" pc:FrameworkElementBaseAttached.CornerRadius="0"/>
+        <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
+    </Grid>
+
+    <!--<local:AnimationDemo />-->
+    <!--<local:AnimationPathDemo />-->
+    <!--<local:ButtonDemo />-->
+    <!--<local:LoadingDemo />-->
+    <!--<local:ProgressBarDemo />-->
+    <!--<local:CheckBoxDemo />-->
+    <!--<local:PasswordBoxDemo />-->
+    <!--<local:FieldsDemo />-->
+    <!--<local:GroupBoxDemo />-->
+    <!--<local:ComboBoxDemo />-->
+    <!--<local:ScrollViewerDemo />-->
+    <!--<local:PopupDemo />-->
+    <!--<local:SliderDemo />-->
+    <!--<local:ListsDemo />-->
+    <!--<local:QRCodeControlDemo />-->
+    <!--<local:GridDemo />-->
+    <!--<local:DataGridDemo />-->
+    <!--<local:DateDemo />-->
+    <!--<local:MenuDemo />-->
+    <!--<local:TabControlDemo />-->
+    <!--<local:ExpanderDemo />-->
+    <!--<local:RadioButtonDemo />-->
+    <!--<pc:SimpleGrid>
             <local:DialogBoxDemo />
             <TextBox Text="12312323" Width="100" Height="35" HorizontalAlignment="Right"/>
         </pc:SimpleGrid>-->
-        <!--<local:MessageDialogDemo />-->
-        <local:SwiperDemo />
-    </Grid>
-
+    <!--<local:MessageDialogDemo />-->
+    <!--<local:SwiperDemo />-->
 
 </Window>

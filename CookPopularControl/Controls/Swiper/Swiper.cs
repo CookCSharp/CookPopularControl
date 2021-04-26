@@ -71,14 +71,6 @@ namespace CookPopularControl.Controls.Swiper
                     swiper.CurrentIndex -= 1;
                 else if (e.Command == NextViewCommand)
                     swiper.CurrentIndex += 1;
-
-                //swiper.lastButton.IsEnabled = true;
-                //swiper.nextButton.IsEnabled = true;
-
-                //if (swiper.CurrentIndex <= 0)
-                //    swiper.lastButton.IsEnabled = false;
-                //else if (swiper.CurrentIndex >= swiper.Items.Count - 1)
-                //    swiper.nextButton.IsEnabled = false;
             }
         }
 
@@ -160,7 +152,7 @@ namespace CookPopularControl.Controls.Swiper
         private static void OnCurrentIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var swiper = d as Swiper;
-            if (swiper is not null)
+            if (swiper is not null && swiper.IsLoaded)
             {
                 if (swiper.CurrentIndex.Equals(-1))
                     swiper.CurrentIndex = swiper.Items.Count - 1;
@@ -272,7 +264,7 @@ namespace CookPopularControl.Controls.Swiper
         private static void OnIsAutoPlayChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var swiper = d as Swiper;
-            if (swiper != null)
+            if (swiper != null && swiper.IsLoaded)
             {
                 swiper.AutoPlayTimer = null;
                 swiper.AutoPlayTimer = new DispatcherTimer(DispatcherPriority.Normal);

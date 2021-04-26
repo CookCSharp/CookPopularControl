@@ -85,6 +85,7 @@ namespace CookPopularControl.Controls.Grid
         {
             var rowHeader = dgr.Template.FindName(RowHeader, dgr) as DataGridRowHeader;
             var checkBox = rowHeader.Template.FindName(RowHeaderCheckBox, rowHeader) as System.Windows.Controls.CheckBox;
+            if (checkBox == null) return;
             if (GetIsShowSerialNumber(dg))
                 checkBox.Content = (dgr.GetIndex() + 1).ToString();
             else

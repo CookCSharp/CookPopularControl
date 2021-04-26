@@ -1,5 +1,4 @@
 ﻿using CookPopularControl.Controls.DialogBox;
-using HandyControl.Tools.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;

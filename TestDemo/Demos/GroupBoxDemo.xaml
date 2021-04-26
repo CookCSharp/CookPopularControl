@@ -7,26 +7,28 @@
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <GroupBox Width="300" Height="400" Header="写代码的厨子"
+
+    <ScrollViewer>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <GroupBox Width="300" Height="400" Header="写代码的厨子"
                   FontSize="20" Foreground="{StaticResource AssistantColorTheme}">
-            <Button Width="200" Height="40" Content="DefaultGroupBox"/>
-        </GroupBox>
-        <GroupBox Width="300" Height="400" Header="写代码的厨子" Margin="30,0"
+                <Button Width="200" Height="40" Content="DefaultGroupBox"/>
+            </GroupBox>
+            <GroupBox Width="300" Height="400" Header="写代码的厨子" Margin="30,0"
                   Style="{DynamicResource CustomHeaderGroupBoxStyle}">
-            <Button Width="250" Height="40" Content="CustomHeaderGroupBox"/>
-        </GroupBox>
-        <GroupBox Width="300" Height="400" Header="写代码的厨子" Margin="0,0"
+                <Button Width="250" Height="40" Content="CustomHeaderGroupBox"/>
+            </GroupBox>
+            <GroupBox Width="300" Height="400" Header="写代码的厨子" Margin="0,0"
                   Style="{DynamicResource CustomHeaderGroupBoxStyle}"
                   Foreground="#FFFFFF"
                   pc:FrameworkElementBaseAttached.CornerRadius="0"
                   pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
                   pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource CustomShadowDepth3}">
-            <Grid Width="300" Height="350" >
-                <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform"/>
-            </Grid>
-        </GroupBox>
-    </WrapPanel>
-    
+                <Grid Width="300" Height="350" >
+                    <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform"/>
+                </Grid>
+            </GroupBox>
+        </WrapPanel>
+    </ScrollViewer>
+
 </UserControl>

@@ -60,7 +60,7 @@ namespace TestDemo.Demos
             BarcodeWriter writer = new BarcodeWriter();
             writer.Options = encodeOption;
             writer.Format = BarcodeFormat.CODE_93;  // 这里可以设定条码的标准
-            using (Bitmap bitmap = writer.Write("Chance123厨子")) // 生成图片
+            using (Bitmap bitmap = writer.Write("Chance123")) // 生成图片
             {
                 MemoryStream ms = new MemoryStream();
                 {

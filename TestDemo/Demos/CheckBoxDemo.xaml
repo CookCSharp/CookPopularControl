@@ -11,7 +11,7 @@
         <StackPanel VerticalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center">
                 <CheckBox Width="220" Height="60" Content="LineCheckBox" ToolTip="LineCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackground}" 
+                          pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}" 
                           pc:CheckBoxAssistant.FillType="Line"
                           pc:CheckBoxAssistant.FillSize="50"
                           pc:CheckBoxAssistant.FillThickness="5"
@@ -23,13 +23,13 @@
                           pc:CheckBoxAssistant.FillThickness="4"
                           FontSize="20" Padding="10,0,0,0"/>
                 <CheckBox Width="200" Height="30" Content="CheckCheckBox" ToolTip="CheckCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackground}" 
+                          pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}" 
                           pc:CheckBoxAssistant.FillType="Check"
                           pc:CheckBoxAssistant.FillSize="25"
                           pc:CheckBoxAssistant.FillThickness="1"
                           FontSize="20" Padding="10,0,0,0"/>
                 <CheckBox Width="220" Height="60" Content="LineCheckBox" IsEnabled="False" ToolTip="LineCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackground}" 
+                          pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}" 
                           pc:CheckBoxAssistant.FillType="Line"
                           pc:CheckBoxAssistant.FillSize="50"
                           pc:CheckBoxAssistant.FillThickness="5"
