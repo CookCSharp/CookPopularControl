@@ -36,7 +36,7 @@
                 </pc:SwiperItem>
             </pc:Swiper>
 
-            <pc:Swiper Width="300" Height="300" Style="{StaticResource AutoPlaySwiperStyle}">
+            <pc:Swiper Width="300" Height="300" Margin="30" Style="{StaticResource NoIndicatorDotsSwiperStyle}">
                 <pc:SwiperItem>
                     <Image Source="../Resources/Gif/timg.jpg"   Stretch="Uniform"/>
                 </pc:SwiperItem>
@@ -48,7 +48,7 @@
                 </pc:SwiperItem>
             </pc:Swiper>
 
-            <pc:Swiper Width="300" Height="300" Margin="30" Style="{StaticResource NoIndicatorDotsSwiperStyle}">
+            <pc:Swiper Width="300" Height="300" Style="{StaticResource AutoPlaySwiperStyle}">
                 <pc:SwiperItem>
                     <Image Source="../Resources/Gif/timg.jpg"   Stretch="Uniform"/>
                 </pc:SwiperItem>

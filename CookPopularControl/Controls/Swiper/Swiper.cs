@@ -96,12 +96,16 @@ namespace CookPopularControl.Controls.Swiper
                         nextButton.IsEnabled = false;
                 }
 
-                dotsPanel.Children.Clear();
                 for (int i = 0; i < Items.Count; i++)
                 {
                     dotsPanel.Children.Add(CreateDot());
                 }
                 (dotsPanel.Children[0] as RadioButton).IsChecked = true; //与CurrentIndex对应
+            };
+
+            this.Unloaded += (s, e) =>
+            {
+                dotsPanel.Children.Clear();
             };
         }
 
@@ -153,7 +157,7 @@ namespace CookPopularControl.Controls.Swiper
         private static void OnCurrentIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var swiper = d as Swiper;
-            if (swiper is not null && swiper.IsLoaded)
+            if (swiper != null && swiper.IsLoaded)
             {
                 if (swiper.CurrentIndex.Equals(-1))
                     swiper.CurrentIndex = swiper.Items.Count - 1;
@@ -265,7 +269,7 @@ namespace CookPopularControl.Controls.Swiper
         private static void OnIsAutoPlayChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var swiper = d as Swiper;
-            if (swiper != null && swiper.IsLoaded)
+            if (swiper != null)
             {
                 swiper.AutoPlayTimer = null;
                 swiper.AutoPlayTimer = new DispatcherTimer(DispatcherPriority.Normal);
@@ -273,7 +277,7 @@ namespace CookPopularControl.Controls.Swiper
                 swiper.AutoPlayTimer.Tick += (s, e) =>
                 {
                     swiper.CurrentIndex += 1;
-                    swiper.translateTransform.BeginAnimation(TranslateTransform.XProperty, swiper.CreateAnimation(300D, new Duration(TimeSpan.FromSeconds(swiper.Interval))));
+                    swiper.translateTransform?.BeginAnimation(TranslateTransform.XProperty, swiper.CreateAnimation(300D, new Duration(TimeSpan.FromSeconds(swiper.Interval))));
                 };
                 swiper.AutoPlayTimer.IsEnabled = (bool)e.NewValue;
             }

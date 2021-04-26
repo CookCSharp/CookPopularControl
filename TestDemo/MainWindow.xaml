@@ -28,7 +28,8 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0" ItemsSource="{Binding ControlNamesList}" SelectionChanged="ListView_SelectionChanged" pc:FrameworkElementBaseAttached.CornerRadius="0"/>
+        <ListView Grid.Column="0" ItemsSource="{Binding ControlNamesList}" BorderThickness="0,0,2,0"
+                  SelectionChanged="ListView_SelectionChanged" pc:FrameworkElementBaseAttached.CornerRadius="0"/>
         <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
     </Grid>
 

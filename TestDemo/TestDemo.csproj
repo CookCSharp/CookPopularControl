@@ -34,4 +34,8 @@
         <Resource Include="Resources\Gif\tomcat.jpg" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Resources\DemoImages\" />
+    </ItemGroup>
+
 </Project>
