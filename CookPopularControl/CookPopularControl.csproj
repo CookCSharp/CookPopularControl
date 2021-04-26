@@ -5,6 +5,7 @@
         <UseWindowsForms>true</UseWindowsForms>
         <OutputType>Library</OutputType>
         <Nullable>enable</Nullable>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">

@@ -807,6 +807,11 @@
             <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CheckedBrushProperty"/>标识选中的填充背景色
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty"/>标识是否全部填充
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.CheckBox.CheckBoxAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.CheckBox"/>的附加基类
@@ -1332,6 +1337,101 @@
         <member name="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty"/>标识选定范围的填充背景色
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Swiper.Swiper">
+            <summary>
+            滑块视图容器
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.CurrentIndex">
+            <summary>
+            当前显示视图的索引
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.CurrentIndexProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.CurrentIndex"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.CurrentItem">
+            <summary>
+            当前显示的视图
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.CurrentItemProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.CurrentItem"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IsCyclePlay">
+            <summary>
+            是否循环播放
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IsCyclePlayProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IsCyclePlay"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IsShowIndicatorDots">
+            <summary>
+            是否显示面板指示点
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IsShowIndicatorDotsProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IsShowIndicatorDots"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorDotBrush">
+            <summary>
+            指示点颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IndicatorDotBrushProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorDotBrush"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorActiveDotBrush">
+            <summary>
+            选中点的颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IndicatorActiveDotBrushProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorActiveDotBrush"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IsAutoPlay">
+            <summary>
+            是否自动切换
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IsAutoPlayProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IsAutoPlay"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.Interval">
+            <summary>
+            自动切换间隔时长(s)
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IntervalProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.Interval"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Swiper.Swiper.Duration">
+            <summary>
+            滑动动画时长
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Swiper.Swiper.DurationProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.Duration"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Thumb.GridViewColumThumb">

@@ -8,7 +8,8 @@
                     xmlns:switch="clr-namespace:CookPopularControl.Controls.CheckBox"
                     xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields"
                     xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode"
-                    xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus">
+                    xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
+                    xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -44,6 +45,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/Swiper.xaml" />
         
         <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
@@ -99,5 +101,6 @@
     <Style x:Key="{x:Type fields:TextPath}" TargetType="{x:Type fields:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}"/>
     <Style x:Key="{x:Type qrCode:QRCodeControl}" TargetType="{x:Type qrCode:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}"/>
     <Style x:Key="{x:Type menu:CircleMenu}" TargetType="{x:Type menu:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}"/>
+    <Style x:Key="{x:Type swiper:Swiper}" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}"/>
 
 </ResourceDictionary>

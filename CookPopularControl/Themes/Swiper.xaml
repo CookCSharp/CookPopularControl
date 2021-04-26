@@ -1,0 +1,68 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper"
+                    xmlns:simpleGird="clr-namespace:CookPopularControl.Controls.Panels"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+
+    <Style x:Key="DefaultSwiperStyle" TargetType="{x:Type swiper:Swiper}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="IsCyclePlay" Value="False" />
+        <Setter Property="Duration" Value="0:0:0.5" />
+        <Setter Property="IsShowIndicatorDots" Value="True" />
+        <Setter Property="IndicatorDotBrush" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="IndicatorActiveDotBrush" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type swiper:Swiper}">
+                    <simpleGird:SimpleGrid ClipToBounds="True">
+                        <ContentPresenter x:Name="PART_Content" Content="{TemplateBinding CurrentItem}" 
+                                          ContentTemplate="{TemplateBinding ItemTemplate}"
+                                          ContentStringFormat="{TemplateBinding ItemStringFormat}"                                         
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ContentPresenter.RenderTransform>
+                                <TranslateTransform X="0" x:Name="PART_Translate"/>
+                            </ContentPresenter.RenderTransform>
+                        </ContentPresenter>
+                        <Button x:Name="PART_LastView" Command="{x:Static swiper:Swiper.LastViewCommand}"
+                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource IconTransparentButtonStyle}"
+                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}" 
+                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Button x:Name="PART_NextView" Command="{x:Static swiper:Swiper.NextViewCommand}"
+                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource IconTransparentButtonStyle}"
+                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}" 
+                                HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <StackPanel x:Name="PART_Panel" Orientation="Horizontal"
+                                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                    Visibility="{TemplateBinding IsShowIndicatorDots,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                    </simpleGird:SimpleGrid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False" SourceName="PART_LastView">
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_LastView"/>
+                            <Setter Property="Background" Value="Transparent" TargetName="PART_LastView"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False" SourceName="PART_NextView">
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_NextView"/>
+                            <Setter Property="Background" Value="Transparent" TargetName="PART_NextView"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CyclePlaySwiperStyle" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}">
+        <Setter Property="IsCyclePlay" Value="True" />
+    </Style>
+
+    <Style x:Key="AutoPlaySwiperStyle" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}">
+        <Setter Property="IsAutoPlay" Value="True" />
+        <Setter Property="Interval" Value="1" />
+    </Style>
+
+    <Style x:Key="NoIndicatorDotsSwiperStyle" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}">
+        <Setter Property="IsShowIndicatorDots" Value="False" />
+    </Style>
+
+</ResourceDictionary>
