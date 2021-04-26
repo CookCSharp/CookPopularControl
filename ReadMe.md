@@ -1,4 +1,4 @@
-![Logo](CookPopularControl\Resources\Images\CookCSharp.png)
+[![Fork me on Gitee](CookPopularControl/Resources/Images/CookCSharp.png)](https://gitee.com/cook-csharp/CookPopularControl)
 
 # Welcome to CookPopularControl
 
@@ -21,42 +21,61 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
     </Application.Resources>
     ```
 - Button
-    ![效果](\TestDemo\Resources\DemoImages\buttons.png)
+    ![效果](TestDemo/Resources/DemoImages/buttons.png)
+
 - CheckBox
-    ![效果](\TestDemo\Resources\DemoImages\checkboxes.png)
+    ![效果](TestDemo/Resources/DemoImages/checkboxes.png)
+
 - ComboBox
-    ![效果](\TestDemo\Resources\DemoImages\comboboxes.png)
+    ![效果](TestDemo/Resources/DemoImages/comboboxes.png)
+
 - DataGrid
-    ![效果](\TestDemo\Resources\DemoImages\datagrid.png)
+    ![效果](TestDemo/Resources/DemoImages/datagrid.png)
+
 - DatePickerTimer
-    ![效果](\TestDemo\Resources\DemoImages\date.png)
+    ![效果](TestDemo/Resources/DemoImages/date.png)
+
 - ComboBox
-    ![效果](\TestDemo\Resources\DemoImages\comboboxes.png)
+    ![效果](TestDemo/Resources/DemoImages/comboboxes.png)
+
 - Expander
-    ![效果](\TestDemo\Resources\DemoImages\expander.png)
+    ![效果](TestDemo/Resources/DemoImages/expander.png)
+
 - Fields
-    ![效果](\TestDemo\Resources\DemoImages\fields.png)
+    ![效果](TestDemo/Resources/DemoImages/fields.png)
+
 - Grid
-    ![效果](\TestDemo\Resources\DemoImages\grid.png)
+    ![效果](TestDemo/Resources/DemoImages/grid.png)
+
 - GroupBox
-    ![效果](\TestDemo\Resources\DemoImages\groupbox.png)
+    ![效果](TestDemo/Resources/DemoImages/groupbox.png)
+    
 - Lists
-    ![效果](\TestDemo\Resources\DemoImages\lists.png)
+    ![效果](TestDemo/Resources/DemoImages/lists.png)
+
 - Loading
-    ![效果](\TestDemo\Resources\DemoImages\loading.png)
+    ![效果](TestDemo/Resources/DemoImages/loading.png)
+    
 - Menu
-    ![效果](\TestDemo\Resources\DemoImages\menu.png)
+    ![效果](TestDemo/Resources/DemoImages/menu.png)
+
 - MessageDialog
-    ![效果](\TestDemo\Resources\DemoImages\messagedialog.png)
+    ![效果](TestDemo/Resources/DemoImages/messagedialog.png)
+
 - PasswordBox
-    ![效果](\TestDemo\Resources\DemoImages\passwordbox.png)
+    ![效果](TestDemo/Resources/DemoImages/passwordbox.png)
+
 - ProgressBar
-    ![效果](\TestDemo\Resources\DemoImages\progressbar.png)
+    ![效果](TestDemo/Resources/DemoImages/progressbar.png)
+
 - QRCode
-    ![效果](\TestDemo\Resources\DemoImages\qrcode.png)
+    ![效果](TestDemo/Resources/DemoImages/qrcode.png)
+
 - Slider
-    ![效果](\TestDemo\Resources\DemoImages\slider.png)
+    ![效果](TestDemo/Resources/DemoImages/slider.png)
+
 - Swiper
-    ![效果](\TestDemo\Resources\DemoImages\swiper.png)
+    ![效果](TestDemo/Resources/DemoImages/swiper.png)
+
 - TabControl
-    ![效果](\TestDemo\Resources\DemoImages\tabcontrol.png)
+    ![效果](TestDemo/Resources/DemoImages/tabcontrol.png)
