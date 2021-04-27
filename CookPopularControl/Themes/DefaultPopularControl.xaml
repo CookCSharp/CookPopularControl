@@ -9,7 +9,8 @@
                     xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields"
                     xmlns:qrCode="clr-namespace:CookPopularControl.Controls.QRCode"
                     xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
-                    xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper">
+                    xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper"
+                    xmlns:carousel="clr-namespace:CookPopularControl.Controls.CarouselView">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -45,8 +46,9 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/Swiper.xaml" />
-        
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CarouselViewStyle.xaml" />
+
         <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
@@ -102,5 +104,6 @@
     <Style x:Key="{x:Type qrCode:QRCodeControl}" TargetType="{x:Type qrCode:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}"/>
     <Style x:Key="{x:Type menu:CircleMenu}" TargetType="{x:Type menu:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}"/>
     <Style x:Key="{x:Type swiper:Swiper}" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}"/>
+    <Style x:Key="{x:Type carousel:CarouselView}" TargetType="{x:Type carousel:CarouselView}" BasedOn="{StaticResource DefaultCarouselViewStyle}"/>
 
 </ResourceDictionary>

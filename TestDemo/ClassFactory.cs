@@ -25,6 +25,7 @@ namespace TestDemo
         {
             AllControlsDemo.Add(new AnimationPathDemo());
             AllControlsDemo.Add(new ButtonDemo());
+            AllControlsDemo.Add(new CarouselViewDemo());
             AllControlsDemo.Add(new CheckBoxDemo());
             AllControlsDemo.Add(new ComboBoxDemo());
             AllControlsDemo.Add(new DataGridDemo());

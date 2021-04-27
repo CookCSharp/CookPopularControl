@@ -812,6 +812,34 @@
             <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty"/>标识是否全部填充
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.CarouselView.CarouselView">
+            <summary>
+            旋转视图容器
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.CarouselView.CarouselView.ImageItemWidth">
+            <summary>
+            ImageItem的宽度
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.CarouselView.CarouselView.ImageItemHeight">
+            <summary>
+            ImageItem的长度
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.CarouselView.ImageAnimation">
+            <summary>
+            ImageAnimation.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ImageAnimation
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.CarouselView.ImageAnimation.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.CheckBox.CheckBoxAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.CheckBox"/>的附加基类

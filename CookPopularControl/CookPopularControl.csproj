@@ -6,7 +6,7 @@
         <OutputType>Library</OutputType>
         <Nullable>enable</Nullable>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.0.0.1-alpha02</Version>
+        <Version>1.0.0.2-alpha02</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageIcon>CookCSharp.png</PackageIcon>
         <ApplicationIcon></ApplicationIcon>

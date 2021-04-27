@@ -7,9 +7,19 @@
         <UseWindowsForms>true</UseWindowsForms>
         <LangVersion>9.0</LangVersion>
         <ApplicationIcon>CookCSharp.ico</ApplicationIcon>
+        <UserSecretsId>95f624a1-62e9-4f3e-9fd6-a95f38aeea9a</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Remove="Resources\CarouselViewImages\1.jpg" />
+        <None Remove="Resources\CarouselViewImages\2.jpg" />
+        <None Remove="Resources\CarouselViewImages\3.jpg" />
+        <None Remove="Resources\CarouselViewImages\4.jpg" />
+        <None Remove="Resources\CarouselViewImages\5.jpg" />
+        <None Remove="Resources\CarouselViewImages\6.jpg" />
+        <None Remove="Resources\CarouselViewImages\7.jpg" />
+        <None Remove="Resources\CarouselViewImages\8.jpg" />
+        <None Remove="Resources\CarouselViewImages\9.jpg" />
         <None Remove="Resources\Gif\C.png" />
         <None Remove="Resources\Gif\programmer.gif" />
         <None Remove="Resources\Gif\timg.jpg" />
@@ -28,6 +38,15 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Resource Include="Resources\CarouselViewImages\1.jpg" />
+        <Resource Include="Resources\CarouselViewImages\2.jpg" />
+        <Resource Include="Resources\CarouselViewImages\3.jpg" />
+        <Resource Include="Resources\CarouselViewImages\4.jpg" />
+        <Resource Include="Resources\CarouselViewImages\5.jpg" />
+        <Resource Include="Resources\CarouselViewImages\6.jpg" />
+        <Resource Include="Resources\CarouselViewImages\7.jpg" />
+        <Resource Include="Resources\CarouselViewImages\8.jpg" />
+        <Resource Include="Resources\CarouselViewImages\9.jpg" />
         <Resource Include="Resources\Gif\C.png" />
         <Resource Include="Resources\Gif\programmer.gif" />
         <Resource Include="Resources\Gif\timg.jpg" />

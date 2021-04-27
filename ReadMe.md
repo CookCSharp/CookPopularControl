@@ -26,6 +26,9 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 - **Button**
     ![效果](TestDemo/Resources/Effect/Button.gif)
 
+- **CarouselView**
+    ![效果](TestDemo/Resources/Effect/CarouselView.gif)
+
 - **CheckBox**
     ![效果](TestDemo/Resources/Effect/CheckBox.gif)
 
