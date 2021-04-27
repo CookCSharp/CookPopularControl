@@ -22,7 +22,9 @@ namespace TestDemo.Demos
     [AddINotifyPropertyChangedInterface]
     public partial class FieldsDemo : UserControl
     {
-        public string TextContent { get; set; }
+        public string TextContent1 { get; set; }
+
+        public string TextContent2 { get; set; }
 
         public FieldsDemo()
         {

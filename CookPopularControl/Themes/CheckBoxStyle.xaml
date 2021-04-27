@@ -17,7 +17,7 @@
     </Style>
 
     <Style x:Key="DefaultSwitchControlStyle" TargetType="{x:Type assistant:SwitchControl}" BasedOn="{StaticResource SwitchControlBaseStyle}">
-        <Setter Property="SwicthCloseBackground" Value="{DynamicResource UnEnabledBrush}" />
+        <Setter Property="SwicthCloseBackground" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="SwitchOpenBackground" Value="{DynamicResource PrimaryColorTheme}" />
     </Style>
 

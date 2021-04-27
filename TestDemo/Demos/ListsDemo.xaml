@@ -12,7 +12,7 @@
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center">
-                <ListBox Width="300" Height="150" SelectionMode="Single"
+                <ListBox Width="300" Height="150" SelectionMode="Single" SelectedIndex="0"
                          Style="{StaticResource DefaultListBoxStyle}">
                     <ListBoxItem Content="Chance"/>
                     <ListBoxItem Content="Lori"/>
@@ -36,7 +36,7 @@
                 <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding ImageLists}"
                          Style="{StaticResource ListBoxImageStyle}"
                          pc:SelectorAttached.IsPreviewImage="True"/>
-                <ListView Width="300" Height="150" Padding="16,0,0,0"
+                <ListView Width="300" Height="150" Padding="16,0,0,0" SelectedIndex="0"
                           Style="{StaticResource DefaultListViewStyle}" Margin="30,0">
                     <ListViewItem Content="Lori"/>
                     <ListViewItem Content="Chance"/>
@@ -44,11 +44,10 @@
                 </ListView>
             </WrapPanel>
             <WrapPanel Margin="0,30">
-                <ListView Width="500" Height="180" ItemsSource="{Binding PersonInfos}"
+                <ListView Width="700" Height="200" ItemsSource="{Binding PersonInfos}"
                           Style="{StaticResource ListViewGirdViewStyle}"
                           pc:SelectorAttached.ItemHeight="50"
-                          HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
-                          Foreground="#FF9C8844" Background="Orange" BorderBrush="DarkSlateBlue" BorderThickness="2">
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>

@@ -11,8 +11,7 @@
         WindowStartupLocation="CenterScreen"
         Width="1000"
         Height="800"
-        d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+        Loaded="MainWindow_Loaded">
     <!--Style="{StaticResource BaseChromeWindowStyle}"-->
 
     <Window.Resources>
@@ -25,12 +24,19 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0" ItemsSource="{Binding ControlNamesList}" BorderThickness="0,0,2,0"
-                  SelectionChanged="ListView_SelectionChanged" pc:FrameworkElementBaseAttached.CornerRadius="0"/>
-        <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
+        <ListBox Grid.Column="0" x:Name="listBox" ItemsSource="{Binding ControlNamesList}" SelectedIndex="0"
+                 SelectionChanged="listBox_SelectionChanged"
+                 pc:FrameworkElementBaseAttached.CornerRadius="0"/>
+        <pc:SimpleGrid Grid.Column="1">
+            <ContentControl Content="{Binding ControlContent}"/>
+            <ToggleButton Width="30" Height="30" Style="{StaticResource TransparentIconToggleButtonStyle}"
+                          Foreground="{StaticResource PrimaryColorTheme}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource RightTriangleGeometry}"
+                          Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" IsChecked="False"/>
+        </pc:SimpleGrid>
     </Grid>
 
     <!--<local:AnimationDemo />-->

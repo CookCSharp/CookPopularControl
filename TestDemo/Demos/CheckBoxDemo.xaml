@@ -33,7 +33,7 @@
                           pc:CheckBoxAssistant.FillType="Line"
                           pc:CheckBoxAssistant.FillSize="50"
                           pc:CheckBoxAssistant.FillThickness="5"
-                          FontSize="20" Padding="10,0,0,0" />
+                          FontSize="20" Padding="10,0,0,0" Margin="0,20"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Margin="0,50">
                 <pc:SwitchControl Width="100" Height="30" Content="LineCheckBox" FontSize="10" ToolTip="UnEnabled"

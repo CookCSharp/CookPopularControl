@@ -35,7 +35,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Resources\DemoImages\" />
+      <Folder Include="Resources\Effect\" />
     </ItemGroup>
 
 </Project>

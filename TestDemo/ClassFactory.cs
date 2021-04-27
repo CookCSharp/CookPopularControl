@@ -19,40 +19,10 @@ namespace TestDemo
     public class ClassFactory
     {
         public static ClassFactory Intance => new ClassFactory();
-        //private Dictionary<string, UserControl> AllControlsDemo = new();
         private static HashSet<UserControl> AllControlsDemo = new();
 
         static ClassFactory()
         {
-            //AllControlsDemo.Add(typeof(AdornerDemo).Name, new AdornerDemo());
-            //AllControlsDemo.Add(typeof(AnimationDemo).Name, new AnimationDemo());
-            //AllControlsDemo.Add(typeof(AnimationPathDemo).Name, new AnimationPathDemo());
-            //AllControlsDemo.Add(typeof(ButtonDemo).Name, new ButtonDemo());
-            //AllControlsDemo.Add(typeof(CheckBoxDemo).Name, new CheckBoxDemo());
-            //AllControlsDemo.Add(typeof(ComboBoxDemo).Name, new ComboBoxDemo());
-            //AllControlsDemo.Add(typeof(DataGridDemo).Name, new DataGridDemo());
-            //AllControlsDemo.Add(typeof(DateDemo).Name, new DateDemo());
-            //AllControlsDemo.Add(typeof(DialogBoxDemo).Name, new DialogBoxDemo());
-            //AllControlsDemo.Add(typeof(ExpanderDemo).Name, new ExpanderDemo());
-            //AllControlsDemo.Add(typeof(FieldsDemo).Name, new FieldsDemo());
-            //AllControlsDemo.Add(typeof(GridDemo).Name, new GridDemo());
-            //AllControlsDemo.Add(typeof(GroupBoxDemo).Name, new GroupBoxDemo());
-            //AllControlsDemo.Add(typeof(ListsDemo).Name, new ListsDemo());
-            //AllControlsDemo.Add(typeof(LoadingDemo).Name, new LoadingDemo());
-            //AllControlsDemo.Add(typeof(MenuDemo).Name, new MenuDemo());
-            //AllControlsDemo.Add(typeof(MessageDialogDemo).Name, new MessageDialogDemo());
-            //AllControlsDemo.Add(typeof(PasswordBoxDemo).Name, new PasswordBoxDemo());
-            //AllControlsDemo.Add(typeof(PopupDemo).Name, new PopupDemo());
-            //AllControlsDemo.Add(typeof(ProgressBarDemo).Name, new ProgressBarDemo());
-            //AllControlsDemo.Add(typeof(QRCodeControlDemo).Name, new QRCodeControlDemo());
-            //AllControlsDemo.Add(typeof(RadioButtonDemo).Name, new RadioButtonDemo());
-            //AllControlsDemo.Add(typeof(ScrollViewerDemo).Name, new ScrollViewerDemo());
-            //AllControlsDemo.Add(typeof(SliderDemo).Name, new SliderDemo());
-            //AllControlsDemo.Add(typeof(SwiperDemo).Name, new SwiperDemo());
-            //AllControlsDemo.Add(typeof(TabControlDemo).Name, new TabControlDemo());
-
-            AllControlsDemo.Add(new AdornerDemo());
-            AllControlsDemo.Add(new AnimationDemo());
             AllControlsDemo.Add(new AnimationPathDemo());
             AllControlsDemo.Add(new ButtonDemo());
             AllControlsDemo.Add(new CheckBoxDemo());

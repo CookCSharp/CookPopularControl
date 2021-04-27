@@ -23,6 +23,9 @@ using System.IO;
 using System.Xml;
 using System.Windows.Markup;
 using System.Reflection;
+using CookPopularControl.Communal.Attached;
+using CookPopularControl.Tools.Helpers;
+using System.Windows.Media.Animation;
 
 namespace TestDemo
 {
@@ -41,8 +44,11 @@ namespace TestDemo
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
 
-            this.Loaded += MainWindow_Loaded;
+            DemoFiles = new HashSet<string>();
+
+            ControlNamesList = new List<string>();
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -53,19 +59,20 @@ namespace TestDemo
             var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.Parent.FullName;
             var demoFiles = Directory.GetFiles(demoPath + "\\TestDemo\\Demos", "*.xaml").ToList();
 
-            DemoFiles = new HashSet<string>();
             foreach (var file in demoFiles)
             {
                 DemoFiles.Add(file);
             }
 
-            ControlNamesList = new List<string>();
             foreach (var file in DemoFiles)
             {
                 var fileName = System.IO.Path.GetFileName(file);
                 ControlNamesList.Add(fileName.Replace("Demo.xaml", ""));
             }
 
+            ControlNamesList.RemoveRange(0, 2);
+            listBox.Width = 0;
+            ControlContent = ClassFactory.GetSpecificClass(0);
             //CollectionViewSource.GetDefaultView()
 
             //using (FileStream fs = new FileStream(@"D:\WPFSourceCode\CookPopularControl\Output\bin\AnyCPU\Debug\net461\1.xaml", FileMode.Open, FileAccess.Read))
@@ -82,14 +89,35 @@ namespace TestDemo
             //ControlContent = XamlReader.Load(xr) as UserControl;
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var listView = sender as ListView;
-            var className = listView.SelectedItem.ToString().Insert(listView.SelectedItem.ToString().Length, "Demo");
-            ControlContent = ClassFactory.GetSpecificClass(listView.SelectedIndex);
+            ControlContent = ClassFactory.GetSpecificClass(listBox.SelectedIndex);
+            //var className = listBox.SelectedItem.ToString().Insert(listBox.SelectedItem.ToString().Length, "Demo");
             //ControlContent = Assembly.GetExecutingAssembly().CreateInstance($"TestDemo.Demos.{className}") as UserControl;
             //XmlReader xr = new XmlTextReader(DemoFiles.FirstOrDefault(f => f.Contains(className)));
             //Content = XamlReader.Load(xr) as DependencyObject;
+        }
+
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            FrameworkElementBaseAttached.SetIconGeometry(sender as FrameworkElement, ResourceHelper.GetResource<Geometry>("LeftTriangleGeometry"));
+            listBox.BeginAnimation(ListBox.WidthProperty, CreateAnimation(0, 150));
+        }
+
+        private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            FrameworkElementBaseAttached.SetIconGeometry(sender as FrameworkElement, ResourceHelper.GetResource<Geometry>("RightTriangleGeometry"));
+            listBox.BeginAnimation(ListBox.WidthProperty, CreateAnimation(150, 0));
+        }
+
+        private DoubleAnimation CreateAnimation(double from, double to)
+        {
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = from;
+            animation.To = to;
+            animation.Duration = new Duration(TimeSpan.FromSeconds(0.7));
+
+            return animation;
         }
     }
 }

@@ -20,62 +20,71 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
         </ResourceDictionary>
     </Application.Resources>
     ```
-- Button
-    ![效果](TestDemo/Resources/DemoImages/buttons.png)
+- **AnimationPath**
+    ![效果](TestDemo/Resources/Effect/AnimationPath.gif)
 
-- CheckBox
-    ![效果](TestDemo/Resources/DemoImages/checkboxes.png)
+- **Button**
+    ![效果](TestDemo/Resources/Effect/Button.gif)
 
-- ComboBox
-    ![效果](TestDemo/Resources/DemoImages/comboboxes.png)
+- **CheckBox**
+    ![效果](TestDemo/Resources/Effect/CheckBox.gif)
 
-- DataGrid
-    ![效果](TestDemo/Resources/DemoImages/datagrid.png)
+- **ComboBox**
+    ![效果](TestDemo/Resources/Effect/ComboBox.gif)
 
-- DatePickerTimer
-    ![效果](TestDemo/Resources/DemoImages/date.png)
+- **DataGrid**
+    ![效果](TestDemo/Resources/Effect/datagrid.png)
 
-- ComboBox
-    ![效果](TestDemo/Resources/DemoImages/comboboxes.png)
+- **DatePickerTimer**
+    ![效果](TestDemo/Resources/Effect/date.png)
 
-- Expander
-    ![效果](TestDemo/Resources/DemoImages/expander.png)
+- **DialogBox**
+    ![效果](TestDemo/Resources/Effect/DialogBox.gif)
 
-- Fields
-    ![效果](TestDemo/Resources/DemoImages/fields.png)
+- **Expander**
+    ![效果](TestDemo/Resources/Effect/Expander.gif)
 
-- Grid
-    ![效果](TestDemo/Resources/DemoImages/grid.png)
+- **Fields**
+    ![效果](TestDemo/Resources/Effect/Fields.gif)
 
-- GroupBox
-    ![效果](TestDemo/Resources/DemoImages/groupbox.png)
+- **Grid**
+    ![效果](TestDemo/Resources/Effect/Grid.png)
+
+- **GroupBox**
+    ![效果](TestDemo/Resources/Effect/Groupbox.png)
     
-- Lists
-    ![效果](TestDemo/Resources/DemoImages/lists.png)
+- **Lists**
+    ![效果](TestDemo/Resources/Effect/Lists.gif)
 
-- Loading
-    ![效果](TestDemo/Resources/DemoImages/loading.png)
+- **Loading**
+    ![效果](TestDemo/Resources/Effect/Loading.gif)
     
-- Menu
-    ![效果](TestDemo/Resources/DemoImages/menu.png)
+- **Menu**
+    ![效果](TestDemo/Resources/Effect/Menu.gif)
 
-- MessageDialog
-    ![效果](TestDemo/Resources/DemoImages/messagedialog.png)
+- **MessageDialog**
+    ![效果](TestDemo/Resources/Effect/MessageDialog.png)
 
-- PasswordBox
-    ![效果](TestDemo/Resources/DemoImages/passwordbox.png)
+- **PasswordBox**
+    ![效果](TestDemo/Resources/Effect/PasswordBox.gif)
 
-- ProgressBar
-    ![效果](TestDemo/Resources/DemoImages/progressbar.png)
+- **ProgressBar**
+    ![效果](TestDemo/Resources/Effect/ProgressBar.gif)
 
-- QRCode
-    ![效果](TestDemo/Resources/DemoImages/qrcode.png)
+- **QRCode**
+    ![效果](TestDemo/Resources/Effect/QRCode.gif)
 
-- Slider
-    ![效果](TestDemo/Resources/DemoImages/slider.png)
+- **RadioButton**
+    ![效果](TestDemo/Resources/Effect/RadioButton.png)
 
-- Swiper
-    ![效果](TestDemo/Resources/DemoImages/swiper.png)
+- **ScrollViewer**
+    ![效果](TestDemo/Resources/Effect/ScrollViewer.png)
 
-- TabControl
-    ![效果](TestDemo/Resources/DemoImages/tabcontrol.png)
+- **Slider**
+    ![效果](TestDemo/Resources/Effect/Slider.gif)
+
+- **Swiper**
+    ![效果](TestDemo/Resources/Effect/Swiper.gif)
+
+- **TabControl**
+    ![效果](TestDemo/Resources/Effect/Tabcontrol.png)

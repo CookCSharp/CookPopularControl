@@ -15,6 +15,9 @@
                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         <RadioButton Width="150" Height="60" Content="写代码的厨子"
                      pc:RadioButtonAssistant.CircleDiameter="30"/>
+
+        <RadioButton Width="150" Height="60" Content="写代码的厨子" GroupName="Chance"
+                     pc:RadioButtonAssistant.CircleDiameter="30" Style="{StaticResource FillFullyRadioButtonStyle}"/>
     </StackPanel>
     
 </UserControl>
