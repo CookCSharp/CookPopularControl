@@ -51,10 +51,10 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
     ![效果](TestDemo/Resources/Effect/Grid.png)
 
 - **GroupBox**
-    ![效果](TestDemo/Resources/Effect/Groupbox.png)
+    ![效果](TestDemo/Resources/Effect/GroupBox.png)
     
 - **Lists**
-    ![效果](TestDemo/Resources/Effect/Lists.gif)
+    ![效果](TestDemo/Resources/Effect/Lists.png)
 
 - **Loading**
     ![效果](TestDemo/Resources/Effect/Loading.gif)
@@ -87,4 +87,4 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
     ![效果](TestDemo/Resources/Effect/Swiper.gif)
 
 - **TabControl**
-    ![效果](TestDemo/Resources/Effect/Tabcontrol.png)
+    ![效果](TestDemo/Resources/Effect/TabControl.png)
