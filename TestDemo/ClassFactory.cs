@@ -37,6 +37,7 @@ namespace TestDemo
             AllControlsDemo.Add(new GroupBoxDemo());
             AllControlsDemo.Add(new ListsDemo());
             AllControlsDemo.Add(new LoadingDemo());
+            AllControlsDemo.Add(new MediaPlayerDemo());
             AllControlsDemo.Add(new MenuDemo());
             AllControlsDemo.Add(new MessageDialogDemo());
             AllControlsDemo.Add(new PasswordBoxDemo());
@@ -48,6 +49,7 @@ namespace TestDemo
             AllControlsDemo.Add(new SliderDemo());
             AllControlsDemo.Add(new SwiperDemo());
             AllControlsDemo.Add(new TabControlDemo());
+            AllControlsDemo.Add(new ToggleButtonDemo());
         }
 
         public static UserControl GetSpecificClass(int index)

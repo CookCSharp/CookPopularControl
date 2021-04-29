@@ -251,6 +251,26 @@
             <see cref="T:System.Windows.Controls.PasswordBox"/>的帮助类
             </summary>
         </member>
+        <member name="P:CookPopularControl.Communal.ViewModel.MediaViewModel.IsVolumeOpen">
+            <summary>                                            
+            VolumePopup是否打开                                  
+            </summary>                                           
+        </member>
+        <member name="P:CookPopularControl.Communal.ViewModel.MediaViewModel.IsSpeedOpen">
+            <summary>
+            SpeedPopup是否打开
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.ViewModel.MediaViewModel.IsControlOpen">
+            <summary>
+            ControlPopup是否打开
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.ViewModel.MediaViewModel.PlaySpeeds">
+            <summary>
+            播放速度列表
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Adorner.AdornerBase">
             <summary>
             将装饰器绑定到元素的基类
@@ -812,6 +832,21 @@
             <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty"/>标识是否全部填充
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty"/>表示选中时的图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.UnCheckedGeometryProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示未选中时的图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示翻转的Content
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.CarouselView.CarouselView">
             <summary>
             旋转视图容器
@@ -993,6 +1028,57 @@
         <member name="T:CookPopularControl.Controls.Lists.ListViewAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.MediaPlayer.MediaPlayer">
+            <summary>
+            媒体播放器
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.CurrentUri">
+            <summary>
+            当前媒体资源路径
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.ItemSource">
+            <summary>
+            媒体资源集合
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.MediaPlayer.MediaPlayer.ItemSourceProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.ItemSource"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.IsCyclePlay">
+            <summary>
+            是否循环播放
+            </summary>
+            <remarks>指Next时资源内循环，单个资源循环播放</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.MediaPlayer.MediaPlayer.IsCyclePlayProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.IsCyclePlay"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.MediaPlayer.MediaView">
+            <summary>
+            UserMediaView.xaml 的交互逻辑
+            </summary>
+            <summary>
+            MediaView
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.MediaPlayer.MediaView.CollapsedControl(System.Boolean,System.Double)">
+            <summary>
+            ControlGrid显示与隐藏
+            </summary>
+            <param name="isControlPop">是否打开</param>
+            <param name="times">动画时间</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.MediaPlayer.MediaView.InitializeComponent">
+            <summary>
+            InitializeComponent
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Menus.CircleMenu">

@@ -53,6 +53,7 @@
         <None Remove="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <None Remove="Resources\Images\CookCSharp.ico" />
         <None Remove="Resources\Images\CookCSharp.png" />
+        <None Remove="Resources\Images\MediaPlayerBackground.png" />
         <None Include="C:\Users\Chance\Desktop\笔记\CookCSharp.png">
           <Pack>True</Pack>
           <PackagePath></PackagePath>
@@ -100,10 +101,10 @@
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <Resource Include="C:\Users\Chance\Desktop\笔记\CookCSharp.png" />
         <Resource Include="Resources\Images\CookCSharp.png" />
+        <Resource Include="Resources\Images\MediaPlayerBackground.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Communal\Internal\" />
       <Folder Include="Controls\Templates\" />
     </ItemGroup>
 

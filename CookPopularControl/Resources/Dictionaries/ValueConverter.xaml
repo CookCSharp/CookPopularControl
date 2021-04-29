@@ -16,6 +16,9 @@
     <commonConverters:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter"/>
     <commonConverters:SliderValueLeftPositionXConverter x:Key="SliderValueLeftPositionXConverter"/>
     <commonConverters:SliderValueLeftPositionYConverter x:Key="SliderValueLeftPositionYConverter"/>
+    <commonConverters:DoubleToTimeSpan x:Key="DoubleToTimeSpan"/>
+    <commonConverters:StringToPlaySpeedConverter x:Key="StringToPlaySpeedConverter"/>
+    <commonConverters:ClipCircularConverter x:Key="ClipCircularConverter"/>
 
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>

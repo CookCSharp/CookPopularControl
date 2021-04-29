@@ -41,6 +41,7 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Fields")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Grid")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Lists")]
+[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.MediaPlayer")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Menus")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Panels")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.PasswordBox")]
