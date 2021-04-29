@@ -283,7 +283,7 @@
                                 <Border Grid.Row="0" Grid.ColumnSpan="3" Margin="2"
                                         CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Calendar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"
                                         Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Calendar},Path=(assistant:CalendarAssistant.TitleBackgroundBrush)}"/>
-                                <Button Grid.Row="0" Grid.Column="0" x:Name="PART_HeaderButton" Style="{StaticResource TransparentButtonStyle}"
+                                <Button Grid.Row="0" Grid.Column="0" x:Name="PART_HeaderButton" Style="{StaticResource ButtonTransparentStyle}"
                                         HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
                                         FontSize="16" FontWeight="DemiBold" attached:FrameworkElementBaseAttached.CornerRadius="0">
                                     <Button.RenderTransform>

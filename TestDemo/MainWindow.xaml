@@ -32,7 +32,7 @@
                  pc:FrameworkElementBaseAttached.CornerRadius="0"/>
         <pc:SimpleGrid Grid.Column="1">
             <ContentControl Content="{Binding ControlContent}"/>
-            <ToggleButton Width="30" Height="30" Style="{StaticResource TransparentIconToggleButtonStyle}"
+            <ToggleButton Width="30" Height="30" Style="{StaticResource ToggleButtonTransparentIconStyle}"
                           Foreground="{StaticResource PrimaryColorTheme}" HorizontalAlignment="Left" VerticalAlignment="Top"
                           pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource RightTriangleGeometry}"
                           Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" IsChecked="False"/>

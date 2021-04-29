@@ -52,7 +52,7 @@
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                        Style="{StaticResource IconTransparentButtonStyle}" Command="{x:Static qrCode:QRCodeControl.RefreshQrCodeCommand}"/>
+                                        Style="{StaticResource ButtonTransparentIconStyle}" Command="{x:Static qrCode:QRCodeControl.RefreshQrCodeCommand}"/>
                             </simpleGrid:SimpleGrid>
                         </Grid>
                     </Border>

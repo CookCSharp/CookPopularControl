@@ -177,7 +177,7 @@
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <Button x:Name="PART_ClearButton" Effect="{x:Null}" ToolTip="Clear"
-                                        Style="{DynamicResource IconTransparentButtonStyle}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
@@ -378,7 +378,7 @@
                             <WrapPanel Grid.Column="1" Orientation="Horizontal"
                                        HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <Button x:Name="PART_ClearButton" Effect="{x:Null}" ToolTip="Clear"
-                                        Style="{DynamicResource IconTransparentButtonStyle}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"

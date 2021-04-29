@@ -48,12 +48,13 @@
                         pc:FrameworkElementBaseAttached.IconWidth="30"
                         pc:FrameworkElementBaseAttached.IconHeight="30"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
-                        Style="{StaticResource IconButtonStyle}"/>
+                        Style="{StaticResource ButtonIconStyle}"/>
                 <Button Height="32" Margin="10,10,0,0" ToolTip="IconTransparentButton"
+                        Foreground="Red"
                         pc:FrameworkElementBaseAttached.IconWidth="30"
                         pc:FrameworkElementBaseAttached.IconHeight="30"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
-                        Style="{StaticResource IconTransparentButtonStyle}"/>
+                        Style="{StaticResource ButtonTransparentIconStyle}"/>
             </WrapPanel>
 
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
@@ -65,7 +66,7 @@
                     </behavior:Interaction.Behaviors>
                 </Button>
                 <Button Width="200" Height="60" Content="DefaultButton" FontSize="20" ToolTip="OutlineButton"
-                        Style="{StaticResource OutlineButtonStyle}" Margin="10,0"
+                        Style="{StaticResource ButtonOutlineStyle}" Margin="10,0"
                         pc:FrameworkElementBaseAttached.CornerRadius="20">
                     <behavior:Interaction.Behaviors>
                         <pc:ControlBorderBehavior AnimationType="Path"/>
@@ -86,13 +87,13 @@
                         pc:ButtonAssist.ImageHeight="100"
                         gif:AnimationBehavior.AutoStart="True"
                         gif:AnimationBehavior.RepeatBehavior="0x"
-                        Style="{StaticResource GifButtonStyle}"/>
+                        Style="{StaticResource ButtonGifStyle}"/>
                 <Button Width="200" Height="100" ToolTip="GifTransparentButton"
                         pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
                         pc:ButtonAssist.ImageWidth="200"
                         pc:ButtonAssist.ImageHeight="200"
                         pc:FrameworkElementBaseAttached.CornerRadius="0"
-                        Style="{StaticResource GifTransparentButtonStyle}">
+                        Style="{StaticResource ButtonTransparentGifStyle}">
                     <behavior:Interaction.Behaviors>
                         <pc:ControlBorderBehavior AnimationType="Path"/>
                     </behavior:Interaction.Behaviors>
@@ -101,7 +102,7 @@
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,0">
                 <Button Content="ProgressButton" Width="300" Height="60" ToolTip="ProgressButton"
                         FontSize="20" Foreground="Purple" IsEnabled="{Binding IsButtonEnabled}"
-                        Style="{StaticResource ProgressButtonStyle}"
+                        Style="{StaticResource ButtonProgressStyle}"
                         pc:ButtonAssist.ProgressValue="{Binding Value,Mode=TwoWay}" Click="Button_Click"/>
             </WrapPanel>
         </StackPanel>

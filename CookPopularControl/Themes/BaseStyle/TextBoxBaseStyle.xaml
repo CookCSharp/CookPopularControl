@@ -35,7 +35,7 @@
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Padding="{TemplateBinding Padding}"/>
                             <Button x:Name="PART_ClearButton" Grid.Column="1" Effect="{x:Null}" ToolTip="Clear"
-                                    Style="{DynamicResource IconTransparentButtonStyle}"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
                                     attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                     attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"

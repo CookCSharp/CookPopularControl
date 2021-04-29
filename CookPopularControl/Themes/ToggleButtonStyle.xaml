@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Button"
-                    xmlns:simplerGrid="clr-namespace:CookPopularControl.Controls.Panels"
+                    xmlns:simpleGrid="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
@@ -16,12 +16,14 @@
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
 
-    <Style x:Key="ToggleButtonIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}">
+    <Style x:Key="ToggleButtonIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
+        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{StaticResource Double26Value}" />
     </Style>
 
     <Style x:Key="ToggleButtonTransparentIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonIconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
@@ -31,21 +33,21 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <simplerGrid:SimpleGrid>
+                    <simpleGrid:SimpleGrid>
                         <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                             <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
                                 <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Path x:Name="PART_Icon" Stretch="Uniform" SnapsToDevicePixels="True" 
-                                      DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                      Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                      Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                      Data="{TemplateBinding assistant:ToggleButtonAssistant.UnCheckedGeometry}"
-                                      Fill="{TemplateBinding Foreground}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                          DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                          Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                          Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                          Data="{TemplateBinding assistant:ToggleButtonAssistant.UnCheckedGeometry}"
+                                          Fill="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                     <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
                                                   RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -69,7 +71,7 @@
                                 </MultiBinding>
                             </ripple:Ripple.Clip>
                         </ripple:Ripple>
-                    </simplerGrid:SimpleGrid>
+                    </simpleGrid:SimpleGrid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ToggleButtonAssistant.OnCheckedGeometry)}" TargetName="PART_Icon"/>
@@ -78,6 +80,13 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="ToggleButtonDoubbleTransparentIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
+        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
 
     <Style x:Key="ToggleButtonFlipStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}">
@@ -153,7 +162,7 @@
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Viewbox>
-                        <simplerGrid:SimpleGrid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <simpleGrid:SimpleGrid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
                             <Border Name="UnCheckedElement" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" 
                                     BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                                 <Border.Clip>
@@ -193,7 +202,7 @@
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             </Border>
-                        </simplerGrid:SimpleGrid>
+                        </simpleGrid:SimpleGrid>
                     </Viewbox>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

@@ -26,11 +26,11 @@
                             </ContentPresenter.RenderTransform>
                         </ContentPresenter>
                         <Button x:Name="PART_LastView" Command="{x:Static swiper:Swiper.LastViewCommand}"
-                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource IconTransparentButtonStyle}"
+                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource ButtonTransparentIconStyle}"
                                 attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}" 
                                 HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <Button x:Name="PART_NextView" Command="{x:Static swiper:Swiper.NextViewCommand}"
-                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource IconTransparentButtonStyle}"
+                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource ButtonTransparentIconStyle}"
                                 attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}" 
                                 HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <StackPanel x:Name="PART_Panel" Orientation="Horizontal"
