@@ -94,3 +94,6 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 
 - **TabControl**
     ![效果](TestDemo/Resources/Effect/TabControl.png)
+
+- **ToggleButton**
+    ![效果](TestDemo/Resources/Effect/ToggleButton.gif)
