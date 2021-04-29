@@ -131,7 +131,7 @@
                                           ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsExpanded,Mode=TwoWay}"
-                                          Style="{DynamicResource TransparentIconToggleButtonStyle}"
+                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}"
                                           attached:ButtonBaseAttached.IsShowRipple="True">
                                 <ToggleButton.Content>
                                     <ContentPresenter Content="{TemplateBinding Header}"

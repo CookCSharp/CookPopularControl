@@ -270,7 +270,7 @@
                                       attached:FrameworkElementBaseAttached.IconHeight="50"
                                       attached:FrameworkElementBaseAttached.CornerRadius="50"
                                       attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource PlusGeometry}"
-                                      Style="{DynamicResource TransparentIconToggleButtonStyle}"/>
+                                      Style="{DynamicResource ToggleButtonTransparentIconStyle}"/>
                         <panel:ArcPanel x:Name="MenuItems" IsItemsHost="True" SnapsToDevicePixels="True"
                                         Radius="{TemplateBinding Radius}" ArcAngle="{TemplateBinding ArcAngle}" 
                                         IsItemRotate="{TemplateBinding IsItemRotate}" RenderTransformOrigin="0.5,0.5">
