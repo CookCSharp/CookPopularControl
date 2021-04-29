@@ -14,49 +14,61 @@
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <pc:Swiper Width="300" Height="300" Style="{StaticResource DefaultSwiperStyle}">
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/timg.jpg"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/2.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/C.png"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/3.jpg" Stretch="Uniform"/>
+                </pc:SwiperItem>
+                <pc:SwiperItem>
+                    <Image Source="../Resources/CarouselViewImages/4.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
             </pc:Swiper>
 
             <pc:Swiper Width="300" Height="300" Margin="50" Style="{StaticResource CyclePlaySwiperStyle}">
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/timg.jpg"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/2.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/C.png"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/3.jpg" Stretch="Uniform"/>
+                </pc:SwiperItem>
+                <pc:SwiperItem>
+                    <Image Source="../Resources/CarouselViewImages/4.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
             </pc:Swiper>
 
             <pc:Swiper Width="300" Height="300" Margin="30" Style="{StaticResource NoIndicatorDotsSwiperStyle}">
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/timg.jpg"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/2.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/C.png"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/3.jpg" Stretch="Uniform"/>
+                </pc:SwiperItem>
+                <pc:SwiperItem>
+                    <Image Source="../Resources/CarouselViewImages/4.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
             </pc:Swiper>
 
             <pc:Swiper Width="300" Height="300" Style="{StaticResource AutoPlaySwiperStyle}">
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/timg.jpg"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/2.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
                 <pc:SwiperItem>
-                    <Image Source="../Resources/Gif/C.png"   Stretch="Uniform"/>
+                    <Image Source="../Resources/CarouselViewImages/3.jpg" Stretch="Uniform"/>
+                </pc:SwiperItem>
+                <pc:SwiperItem>
+                    <Image Source="../Resources/CarouselViewImages/4.jpg" Stretch="Uniform"/>
                 </pc:SwiperItem>
             </pc:Swiper>
         </WrapPanel>
