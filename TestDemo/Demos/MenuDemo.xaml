@@ -22,7 +22,7 @@
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
 
             <TextBox Width="200" Height="34" Text="Chance" Foreground="Red"
-                 ContextMenu="{StaticResource DefaultContentMenu}"/>
+                 ContextMenu="{StaticResource DefaultContextMenu}"/>
 
             <Menu IsMainMenu="True" Margin="0,50">
                 <MenuItem Header="_Example">

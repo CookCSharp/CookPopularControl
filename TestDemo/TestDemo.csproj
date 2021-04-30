@@ -21,12 +21,14 @@
         <None Remove="Resources\CarouselViewImages\8.jpg" />
         <None Remove="Resources\CarouselViewImages\9.jpg" />
         <None Remove="Resources\Gif\C.png" />
+        <None Remove="Resources\Gif\CookCSharp.ico" />
         <None Remove="Resources\Gif\programmer.gif" />
         <None Remove="Resources\Gif\timg.jpg" />
         <None Remove="Resources\Gif\tomcat.jpg" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.2.21154.6" />
         <PackageReference Include="System.Drawing.Common" Version="6.0.0-preview.2.21154.6" />
@@ -48,6 +50,7 @@
         <Resource Include="Resources\CarouselViewImages\8.jpg" />
         <Resource Include="Resources\CarouselViewImages\9.jpg" />
         <Resource Include="Resources\Gif\C.png" />
+        <Resource Include="Resources\Gif\CookCSharp.ico" />
         <Resource Include="Resources\Gif\programmer.gif" />
         <Resource Include="Resources\Gif\timg.jpg" />
         <Resource Include="Resources\Gif\tomcat.jpg" />

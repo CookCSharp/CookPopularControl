@@ -6,7 +6,7 @@
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
-    <ContextMenu x:Key="DefaultContentMenu">
+    <ContextMenu x:Key="DefaultContextMenu">
         <MenuItem Command="Cut">
             <MenuItem.Icon>
                 <Path Data="{DynamicResource CutGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>

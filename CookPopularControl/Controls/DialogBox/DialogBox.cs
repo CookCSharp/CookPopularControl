@@ -30,7 +30,7 @@ namespace CookPopularControl.Controls.DialogBox
     {
         private AdornerContainer Container;
         private static readonly HashSet<FrameworkElement> DialogInstances = new HashSet<FrameworkElement>();
-        public static readonly ICommand OpenDialogCommand = new RoutedCommand("OpenDialog", typeof(FrameworkElement));
+        public static readonly ICommand OpenDialogCommand = new RoutedCommand("OpenDialog", typeof(DialogBox));
         public static readonly ICommand CloseDialogCommand = new RoutedCommand("CloseDialog", typeof(DialogBox));
 
 

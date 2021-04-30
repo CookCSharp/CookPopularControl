@@ -40,6 +40,7 @@ namespace TestDemo
             AllControlsDemo.Add(new MediaPlayerDemo());
             AllControlsDemo.Add(new MenuDemo());
             AllControlsDemo.Add(new MessageDialogDemo());
+            AllControlsDemo.Add(new NotifyIconDemo());
             AllControlsDemo.Add(new PasswordBoxDemo());
             AllControlsDemo.Add(new PopupDemo());
             AllControlsDemo.Add(new ProgressBarDemo());

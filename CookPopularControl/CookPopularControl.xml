@@ -170,6 +170,29 @@
             <param name="start">起始位置</param>
             <param name="length">长度</param>
         </member>
+        <member name="P:CookPopularControl.Communal.Behaviors.IValidationExceptionHandle.HasValidationError">
+            <summary>
+            是否有错误
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Behaviors.ValidationExceptionBehavior">
+            <summary>
+            验证行为类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Behaviors.ValidationExceptionBehavior.GetValidationHandle">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Communal.Behaviors.ValidationExceptionBehavior.OnOccuredValidationError(System.Object,System.Windows.Controls.ValidationErrorEventArgs)">
+            <summary>
+            验证ValidationError事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="T:CookPopularControl.Communal.Converters.DoubleToCornerRadius">
             <summary>
             Double To CornerRadius
@@ -1095,6 +1118,11 @@
         <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotateProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Notify.TaskbarIcon">
+            <summary>
+            任务栏图标
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Panels.ArcPanel">

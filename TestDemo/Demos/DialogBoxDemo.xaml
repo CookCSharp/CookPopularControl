@@ -14,7 +14,7 @@
                 Command="{x:Static pc:DialogBox.OpenDialogCommand}"
                 Margin="0,50">
             <Button.CommandParameter>
-                    <Button Content="CloseDialogBox" Width="100" Height="35" Command="{x:Static pc:DialogBox.CloseDialogCommand}"/>
+                <Button Content="CloseDialogBox" Width="100" Height="35" Command="{x:Static pc:DialogBox.CloseDialogCommand}"/>
             </Button.CommandParameter>
         </Button>
 
