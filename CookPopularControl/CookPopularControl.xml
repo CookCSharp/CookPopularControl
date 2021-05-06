@@ -1125,6 +1125,26 @@
             任务栏图标
             </summary>
         </member>
+        <member name="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarFlash">
+            <summary>
+            程序启动后是否开启任务栏闪烁
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarFlashProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarFlash"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlash">
+            <summary>
+            是否启用任务栏图标闪烁
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlashProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlash"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Panels.ArcPanel">
             <summary>
             弧形、圆形布局
@@ -2165,11 +2185,12 @@
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.FlashWindow(System.Windows.Window)">
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.FlashWindow(System.Windows.Window,System.Boolean)">
             <summary>
             闪烁窗口的任务栏图标。
             </summary>
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
+            <param name="IsStopFlash">是否停止闪烁</param>
             <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.HwndCreatedButNotShown(System.Windows.Window)">

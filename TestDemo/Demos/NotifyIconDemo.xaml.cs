@@ -1,4 +1,6 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
+﻿using CookPopularControl.Controls.CheckBox;
+using CookPopularControl.Tools.Extensions;
+using Hardcodet.Wpf.TaskbarNotification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,25 @@ namespace TestDemo.Demos
             InitializeComponent();
 
             this.DataContext = this;
+        }
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var switchCtl = sender as SwitchControl;
+            if (switchCtl.IsChecked.Value)
+                DefaultNotifyIcon.IsStartTaskbarFlash = true;
+            else
+                DefaultNotifyIcon.IsStartTaskbarFlash = false;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var switchCtl = sender as SwitchControl;
+            if (switchCtl.IsChecked.Value)
+                DefaultNotifyIcon.IsStartTaskbarIconFlash = true;
+            else
+                DefaultNotifyIcon.IsStartTaskbarIconFlash = false;
         }
     }
 }

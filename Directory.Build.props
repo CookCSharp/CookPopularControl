@@ -12,7 +12,7 @@
         <!--指示编译器是否应为相同的输入产生相同的程序集-->
         <Deterministic>true</Deterministic>
         <WarningLevel>4</WarningLevel>
-        <ApplicationIcon>C:\Users\Chance\Desktop\笔记\CookCSharp.png</ApplicationIcon>
+        <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -25,7 +25,7 @@
         <Product>$(MSBuildProjectName)</Product>
         <Description>基于.NetFramework4.6.1和.Net5.0 WPF控件库</Description>
         <Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>
-        <PackageIcon>CookCSharp.ico</PackageIcon>
+        <PackageIcon>CookCSharp.png</PackageIcon>
         <PackageTags>xaml,wpf,ui,controls,windows</PackageTags>
         <RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
         <PackageReleaseNotes>预发行版</PackageReleaseNotes>

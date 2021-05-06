@@ -1,7 +1,9 @@
-﻿using CookPopularControl.Tools.Extensions;
+﻿using CookPopularControl.Tools.Boxes;
+using CookPopularControl.Tools.Extensions;
 using Hardcodet.Wpf.TaskbarNotification;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,6 +11,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 
 
@@ -25,13 +31,31 @@ namespace CookPopularControl.Controls.Notify
     /// </summary>
     public class TaskbarIcon : Hardcodet.Wpf.TaskbarNotification.TaskbarIcon
     {
-        private static List<Window> PrepareWindows = new List<Window>();
+        private List<Window> PrepareWindows = new List<Window>();
+        private DispatcherTimer timer;
+        private ImageSource originalIcon;
+
         public static ICommand OpenApplicationCommand = new RoutedCommand(nameof(OpenApplicationCommand), typeof(TaskbarIcon));
         public static ICommand HideApplicationCommand = new RoutedCommand(nameof(HideApplicationCommand), typeof(TaskbarIcon));
         public static ICommand ExitApplicationCommand = new RoutedCommand(nameof(ExitApplicationCommand), typeof(TaskbarIcon));
 
         public TaskbarIcon()
         {
+            this.Loaded += (s, e) =>
+            {
+                BitmapImage tranparentIcon = new BitmapImage(new Uri("pack://application:,,,/CookPopularControl;component/Resources/Images/CookCSharpTransparent.ico", UriKind.Absolute));
+                originalIcon = IconSource;
+                timer = new DispatcherTimer(DispatcherPriority.Normal);
+                timer.Interval = TimeSpan.FromMilliseconds(500);
+                timer.Tick += (s, e) =>
+                {
+                    if (IconSource.Equals(originalIcon))
+                        IconSource = tranparentIcon;
+                    else
+                        IconSource = originalIcon;
+                };
+            };
+
             foreach (Window win in Application.Current.Windows)
             {
                 win.Loaded += (s, e) => PrepareWindows.Remove(win);
@@ -48,11 +72,13 @@ namespace CookPopularControl.Controls.Notify
 
         private static void Excuted(object sender, ExecutedRoutedEventArgs e)
         {
+            var taskbarIcon = sender as TaskbarIcon;
+            if (taskbarIcon == null) return;
             if (e.Command == OpenApplicationCommand)
             {
-                if (PrepareWindows.Count < 1) return;
+                if (taskbarIcon.PrepareWindows.Count < 1) return;
                 //设置主窗口为应用程序关闭的最后一个窗口
-                Application.Current.MainWindow = PrepareWindows[PrepareWindows.Count - 1];
+                Application.Current.MainWindow = taskbarIcon.PrepareWindows[taskbarIcon.PrepareWindows.Count - 1];
                 Application.Current.MainWindow?.Show();
                 Application.Current.MainWindow?.Activate();
             }
@@ -65,6 +91,79 @@ namespace CookPopularControl.Controls.Notify
             }
             else if (e.Command == ExitApplicationCommand)
                 Application.Current.Shutdown();
+        }
+
+
+        /// <summary>
+        /// 程序启动后是否开启任务栏闪烁
+        /// </summary>
+        public bool IsStartTaskbarFlash
+        {
+            get { return (bool)GetValue(IsStartTaskbarFlashProperty); }
+            set { SetValue(IsStartTaskbarFlashProperty, ValueBoxes.BooleanBox(value)); }
+        }
+        /// <summary>
+        /// 提供<see cref="IsStartTaskbarFlash"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsStartTaskbarFlashProperty =
+            DependencyProperty.Register("IsStartTaskbarFlash", typeof(bool), typeof(TaskbarIcon), 
+                new PropertyMetadata(ValueBoxes.FalseBox,OnTaskbarFlashChanged));
+
+        private static void OnTaskbarFlashChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var taskbarIcon = d as TaskbarIcon;
+            if (taskbarIcon != null)
+            {
+                if ((bool)e.NewValue)
+                {
+                    if (taskbarIcon.IsLoaded)
+                    {
+                        var win = Window.GetWindow(taskbarIcon);
+                        win.SafeActivate();
+                        win.FlashWindow(false);
+                    }
+                    else
+                    {
+                        taskbarIcon.Loaded += (s, e) =>
+                        {
+                            var win = Window.GetWindow(taskbarIcon);
+                            win.SafeActivate();
+                            win.FlashWindow(false);
+                        };
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 是否启用任务栏图标闪烁
+        /// </summary>
+        public bool IsStartTaskbarIconFlash
+        {
+            get { return (bool)GetValue(IsStartTaskbarIconFlashProperty); }
+            set { SetValue(IsStartTaskbarIconFlashProperty, ValueBoxes.BooleanBox(value)); }
+        }
+        /// <summary>
+        /// 提供<see cref="IsStartTaskbarIconFlash"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsStartTaskbarIconFlashProperty =
+            DependencyProperty.Register("IsStartTaskbarIconFlash", typeof(bool), typeof(TaskbarIcon), 
+                new PropertyMetadata(ValueBoxes.FalseBox, OnTaskbarIconFlashPropertyChanged));
+
+        private static void OnTaskbarIconFlashPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var taskbarIcon = d as TaskbarIcon;
+            if (taskbarIcon != null)
+            {
+                if((bool)e.NewValue)
+                    taskbarIcon.timer.Start();
+                else
+                {
+                    taskbarIcon.IconSource = taskbarIcon.originalIcon;
+                    taskbarIcon.timer.Stop();
+                }
+            }
         }
     }
 }

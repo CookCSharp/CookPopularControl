@@ -8,9 +8,9 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Version>1.0.0.2-alpha02</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageIcon>CookCSharp.png</PackageIcon>
-        <ApplicationIcon></ApplicationIcon>
         <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
+        <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
+        <PackageIcon>CookCSharp.png</PackageIcon>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
@@ -53,8 +53,9 @@
         <None Remove="Resources\Fonts\WindowIcons\iconfont.woff2" />
         <None Remove="Resources\Images\CookCSharp.ico" />
         <None Remove="Resources\Images\CookCSharp.png" />
+        <None Remove="Resources\Images\CookCSharpTransparent.ico" />
         <None Remove="Resources\Images\MediaPlayerBackground.png" />
-        <None Include="C:\Users\Chance\Desktop\笔记\CookCSharp.png">
+        <None Include="Resources\Images\CookCSharp.png">
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>
@@ -100,8 +101,9 @@
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.ttf" />
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff" />
         <Resource Include="Resources\Fonts\WindowIcons\iconfont.woff2" />
-        <Resource Include="C:\Users\Chance\Desktop\笔记\CookCSharp.png" />
+        <Resource Include="Resources\Images\CookCSharp.ico" />
         <Resource Include="Resources\Images\CookCSharp.png" />
+        <Resource Include="Resources\Images\CookCSharpTransparent.ico" />
         <Resource Include="Resources\Images\MediaPlayerBackground.png" />
     </ItemGroup>
 

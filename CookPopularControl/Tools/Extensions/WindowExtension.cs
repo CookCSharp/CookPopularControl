@@ -18,7 +18,7 @@ namespace CookPopularControl.Tools.Extensions
     [SuppressMessage("Security", "CA2153:不要捕获损坏状态异常", Justification = "<挂起>")]
     public static class WindowExtension
     {
-        private static class NativeMethods
+        internal static class NativeMethods
         {
             [Flags]
             [SuppressMessage("Design", "CA1069:不应复制枚举值", Justification = "<挂起>")]
@@ -196,9 +196,10 @@ namespace CookPopularControl.Tools.Extensions
         /// 闪烁窗口的任务栏图标。
         /// </summary>
         /// <param name="window">一个 <see cref="Window" /> 对象。</param>
+        /// <param name="IsStopFlash">是否停止闪烁</param>
         /// <returns>操作成功，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         [HandleProcessCorruptedStateExceptions]
-        public static bool FlashWindow(this Window window)
+        public static bool FlashWindow(this Window window, bool IsStopFlash = false)
         {
             try
             {
@@ -206,8 +207,11 @@ namespace CookPopularControl.Tools.Extensions
 
                 fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
                 fInfo.hwnd = new WindowInteropHelper(window).EnsureHandle();
-                fInfo.dwFlags = (uint)NativeMethods.FlashType.FLASHW_TIMER;
-                fInfo.uCount = 2;
+                if (!IsStopFlash)
+                    fInfo.dwFlags = (uint)(NativeMethods.FlashType.FLASHW_ALL | NativeMethods.FlashType.FLASHW_TIMER);
+                else
+                    fInfo.dwFlags = (uint)NativeMethods.FlashType.FLASHW_STOP;
+                fInfo.uCount = 3;
                 fInfo.dwTimeout = 0;
 
                 return NativeMethods.FlashWindowEx(ref fInfo);
