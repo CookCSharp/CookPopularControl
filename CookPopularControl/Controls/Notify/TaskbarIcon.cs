@@ -31,7 +31,7 @@ namespace CookPopularControl.Controls.Notify
     /// </summary>
     public class TaskbarIcon : Hardcodet.Wpf.TaskbarNotification.TaskbarIcon
     {
-        private List<Window> PrepareWindows = new List<Window>();
+        private static List<Window> PrepareWindows = new List<Window>();
         private DispatcherTimer timer;
         private ImageSource originalIcon;
 
@@ -59,7 +59,13 @@ namespace CookPopularControl.Controls.Notify
             foreach (Window win in Application.Current.Windows)
             {
                 win.Loaded += (s, e) => PrepareWindows.Remove(win);
-                win.Closing += (s, e) => { e.Cancel = true; win.Hide(); PrepareWindows.Add(win); };
+                win.Closing += (s, e) =>
+                {
+                    e.Cancel = true;
+                    win.Hide();
+                    if (!PrepareWindows.Contains(win))
+                        PrepareWindows.Add(win);
+                };
             }
         }
 
@@ -73,12 +79,11 @@ namespace CookPopularControl.Controls.Notify
         private static void Excuted(object sender, ExecutedRoutedEventArgs e)
         {
             var taskbarIcon = sender as TaskbarIcon;
-            if (taskbarIcon == null) return;
             if (e.Command == OpenApplicationCommand)
             {
-                if (taskbarIcon.PrepareWindows.Count < 1) return;
+                if (PrepareWindows.Count < 1) return;
                 //设置主窗口为应用程序关闭的最后一个窗口
-                Application.Current.MainWindow = taskbarIcon.PrepareWindows[taskbarIcon.PrepareWindows.Count - 1];
+                Application.Current.MainWindow = PrepareWindows[PrepareWindows.Count - 1];
                 Application.Current.MainWindow?.Show();
                 Application.Current.MainWindow?.Activate();
             }
@@ -86,11 +91,11 @@ namespace CookPopularControl.Controls.Notify
             {
                 foreach (Window win in Application.Current.Windows)
                 {
-                    win?.Hide();
+                    win?.Close();
                 }
             }
             else if (e.Command == ExitApplicationCommand)
-                Application.Current.Shutdown();
+                Environment.Exit(0);
         }
 
 

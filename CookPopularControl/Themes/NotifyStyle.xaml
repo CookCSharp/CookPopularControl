@@ -9,7 +9,7 @@
                 <Path Data="{DynamicResource OpenGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="隐藏" Command="{x:Static notify:TaskbarIcon.HideApplicationCommand}">
+        <MenuItem Header="隐藏到托盘" Command="{x:Static notify:TaskbarIcon.HideApplicationCommand}">
             <MenuItem.Icon>
                 <Path Data="{DynamicResource HideGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
             </MenuItem.Icon>

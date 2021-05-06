@@ -54,8 +54,8 @@ namespace TestDemo
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //Microsoft.Expression.Drawing.dll
-            //new Window() { Content = "123213",Name="test1" }.Show();
-            //new Window() { Content = "456456",Name="test2" }.Show();
+            //new Window() { Content = "123213", Name = "test1" }.Show();
+            //new Window() { Content = "456456", Name = "test2" }.Show();
 
             var basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.Parent.FullName;
