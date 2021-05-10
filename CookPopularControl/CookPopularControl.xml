@@ -1501,6 +1501,90 @@
             <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty"/>标识选定范围的填充背景色
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Starred.Star">
+            <summary>
+            表示点赞类控件
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.StarCount">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.StarCountProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarCount"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.StarValue">
+            <summary>
+            当前评分
+            </summary>
+            <remarks>当<see cref="P:CookPopularControl.Controls.Starred.Star.IsAllowHalf"/>为False时，会强制转换为Int型</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.StarValueProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarValue"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.StarSize">
+            <summary>
+            图标大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.StarSizeProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarSize"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.IsAllowHalf">
+            <summary>
+            是否允许点赞一半
+            </summary>    
+            可通过Button的大小与Icon的大小来设置，例如btn.Width = 15; icon.Width = 30;
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.IsAllowHalfProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.IsAllowHalf"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.IsShowScore">
+            <summary>
+            是否显示分数
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.IsShowScoreProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.IsShowScore"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.StarIcon">
+            <summary>
+            点赞图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.StarIconProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarIcon"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Starred.Star.Orientation">
+            <summary>
+            布局方向
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Starred.Star.OrientationProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Starred.Star.Orientation"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Starred.Star.CreateGeometry(System.Int32)">
+            <summary>
+            创建图形
+            </summary>
+            <param name="index">标识第几个图形</param>
+            <returns></returns>
+        </member>
         <member name="T:CookPopularControl.Controls.Swiper.Swiper">
             <summary>
             滑块视图容器
@@ -1763,6 +1847,14 @@
             <param name="size"></param>
             <param name="strokeThickness"></param>
             <returns><see cref="T:System.Windows.Media.Geometry"/>路径总长度</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.GeometryExtension.GetTotalLength(System.Windows.Media.Geometry,System.Double)">
+            <summary>
+            获取<see cref="T:System.Windows.Media.Geometry"/>路径较为精确的总长度
+            </summary>
+            <param name="geometry"></param>
+            <param name="steps">步数</param>
+            <returns></returns>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.GeometryExtension.GetGeometryFromText(System.String,System.Windows.Media.FontFamily,System.Nullable{System.Windows.FontStyle},System.Nullable{System.Windows.FontWeight},System.Nullable{System.Windows.FontStretch})">
             <summary>

@@ -63,6 +63,41 @@ namespace CookPopularControl.Tools.Extensions
         }
 
         /// <summary>
+        /// 获取<see cref="Geometry"/>路径较为精确的总长度
+        /// </summary>
+        /// <param name="geometry"></param>
+        /// <param name="steps">步数</param>
+        /// <returns></returns>
+        public static double GetTotalLength(this Geometry geometry, double steps)
+        {
+            Point pointOnPath;
+            Point previousPointOnPath;
+            Point tangent;
+
+            double length = 0;
+
+            var pathGeometry = PathGeometry.CreateFromGeometry(geometry);
+            pathGeometry.GetPointAtFractionLength(0, out previousPointOnPath, out tangent);
+
+            for (double progress = (1 / steps); progress < 1; progress += (1 / steps))
+            {
+                pathGeometry.GetPointAtFractionLength(progress, out pointOnPath, out tangent);
+                length += Distance(previousPointOnPath, pointOnPath);
+                previousPointOnPath = pointOnPath;
+            }
+            pathGeometry.GetPointAtFractionLength(1, out pointOnPath, out tangent);
+            length += Distance(previousPointOnPath, pointOnPath);
+
+
+            double Distance(Point p0, Point p1)
+            {
+                return Math.Sqrt((Math.Pow((p1.X - p0.X), 2) + Math.Pow((p1.Y - p0.Y), 2)));
+            }
+
+            return length;
+        }
+
+        /// <summary>
         /// 由文本得到绘制的几何图形路径
         /// </summary>
         /// <param name="textToFormat"></param>

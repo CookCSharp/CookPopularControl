@@ -48,6 +48,7 @@ namespace TestDemo
             AllControlsDemo.Add(new RadioButtonDemo());
             AllControlsDemo.Add(new ScrollViewerDemo());
             AllControlsDemo.Add(new SliderDemo());
+            AllControlsDemo.Add(new StarredDemo());
             AllControlsDemo.Add(new SwiperDemo());
             AllControlsDemo.Add(new TabControlDemo());
             AllControlsDemo.Add(new ToggleButtonDemo());

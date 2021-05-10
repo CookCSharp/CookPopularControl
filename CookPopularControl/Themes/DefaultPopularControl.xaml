@@ -11,7 +11,8 @@
                     xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
                     xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper"
                     xmlns:carousel="clr-namespace:CookPopularControl.Controls.CarouselView"
-                    xmlns:player="clr-namespace:CookPopularControl.Controls.MediaPlayer">
+                    xmlns:player="clr-namespace:CookPopularControl.Controls.MediaPlayer"
+                    xmlns:star="clr-namespace:CookPopularControl.Controls.Starred">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
@@ -51,6 +52,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CarouselViewStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MediaPlayerStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
 
         <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
@@ -109,5 +111,6 @@
     <Style x:Key="{x:Type swiper:Swiper}" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}"/>
     <Style x:Key="{x:Type carousel:CarouselView}" TargetType="{x:Type carousel:CarouselView}" BasedOn="{StaticResource DefaultCarouselViewStyle}"/>
     <Style x:Key="{x:Type player:MediaPlayer}" TargetType="{x:Type player:MediaPlayer}" BasedOn="{StaticResource DefaultMediaPlayerStyle}"/>
+    <Style x:Key="{x:Type star:Star}" TargetType="{x:Type star:Star}" BasedOn="{StaticResource DefaultStarStyle}"/>
 
 </ResourceDictionary>
