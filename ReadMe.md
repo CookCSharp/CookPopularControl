@@ -91,6 +91,9 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 
 - **Slider**
     ![效果](TestDemo/Resources/Effect/Slider.gif)
+    
+- **Star**
+    ![效果](TestDemo/Resources/Effect/Star.png)
 
 - **Swiper**
     ![效果](TestDemo/Resources/Effect/Swiper.gif)
