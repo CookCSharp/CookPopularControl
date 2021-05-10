@@ -30,14 +30,21 @@ namespace TestDemo.Demos
             this.DataContext = this;
         }
 
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            //var switchCtl = sender as SwitchControl;
+            //if (switchCtl.IsChecked.Value)
+            //    DefaultNotifyIcon.IsStartTaskbarFlash = true;
+            //else
+            //    DefaultNotifyIcon.IsStartTaskbarFlash = false;
+
             var switchCtl = sender as SwitchControl;
             if (switchCtl.IsChecked.Value)
-                DefaultNotifyIcon.IsStartTaskbarFlash = true;
+                DefaultNotifyIcon.Visibility = Visibility.Visible;
             else
-                DefaultNotifyIcon.IsStartTaskbarFlash = false;
+                DefaultNotifyIcon.Visibility = Visibility.Collapsed;
+
+            (Window.GetWindow(this) as MainWindow).IsOpenNotifyIconSwitch = switchCtl.IsChecked.Value;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

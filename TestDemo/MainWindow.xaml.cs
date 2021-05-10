@@ -37,6 +37,7 @@ namespace TestDemo
     {
         public List<string> ControlNamesList { get; set; }
         public object ControlContent { get; set; }
+        public bool IsOpenNotifyIconSwitch { get; set; }
 
         private HashSet<string> DemoFiles;
 
@@ -46,8 +47,13 @@ namespace TestDemo
             InitializeComponent();
             this.DataContext = this;
 
-            DemoFiles = new HashSet<string>();
+            this.Closing += (s, e) =>
+            {
+                if (!IsOpenNotifyIconSwitch)
+                    Environment.Exit(0);
+            };
 
+            DemoFiles = new HashSet<string>();
             ControlNamesList = new List<string>();
         }
 
