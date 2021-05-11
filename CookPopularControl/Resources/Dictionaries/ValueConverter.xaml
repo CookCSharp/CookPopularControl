@@ -29,5 +29,8 @@
     <toolConverters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
     <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>
+    <toolConverters:BorderCircularConverter x:Key="BorderCircularConverter"/>
+    <toolConverters:BorderClipToolConverter x:Key="BorderClipToolConverter"/>
+    <toolConverters:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>
 
 </ResourceDictionary>

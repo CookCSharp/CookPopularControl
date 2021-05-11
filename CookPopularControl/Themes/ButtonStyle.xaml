@@ -13,6 +13,8 @@
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
     <Style x:Key="ButtonTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>

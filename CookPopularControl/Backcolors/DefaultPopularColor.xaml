@@ -48,9 +48,9 @@
     
     <LinearGradientBrush x:Key="LinearTheme" StartPoint="0,0" EndPoint="1,1">
         <GradientStopCollection>
-            <GradientStop Offset="0" Color="#FFFFFFFF"/>
-            <GradientStop Offset="0.5" Color="#88FFFFFF"/>
-            <GradientStop Offset="1.0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="0" Color="#F2F4F6"/>
+            <GradientStop Offset="0.5" Color="#E2E4E6"/>
+            <GradientStop Offset="1.0" Color="#C2C2C2"/>
         </GradientStopCollection>
     </LinearGradientBrush>
 
