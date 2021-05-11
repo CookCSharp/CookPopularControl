@@ -35,6 +35,7 @@ namespace TestDemo
             AllControlsDemo.Add(new FieldsDemo());
             AllControlsDemo.Add(new GridDemo());
             AllControlsDemo.Add(new GroupBoxDemo());
+            AllControlsDemo.Add(new LabelsDemo());
             AllControlsDemo.Add(new ListsDemo());
             AllControlsDemo.Add(new LoadingDemo());
             AllControlsDemo.Add(new MediaPlayerDemo());

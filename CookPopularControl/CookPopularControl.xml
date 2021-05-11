@@ -208,6 +208,12 @@
             文本清除按钮
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Data.Args.RoutedPropertySingleEventArgs`1">
+            <summary>
+            表示单个项变化的路由信息和事件数据
+            </summary>
+            <typeparam name="TSingle"></typeparam>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.FillType">
             <summary>
             CheckBox填充类型
@@ -825,6 +831,16 @@
             </summary>
             <returns>圆点</returns>
         </member>
+        <member name="T:CookPopularControl.Controls.Borders.BorderAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Border"/>附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Borders.BorderAssistant.IsCircularProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Borders.BorderAssistant.IsCircularProperty"/>标识是否满圆角
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Button.ButtonAssist">
             <summary>
             提供<see cref="T:System.Windows.Controls.Button"/>的附加属性
@@ -1046,6 +1062,57 @@
         <member name="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty"/>标识是否显示外边框
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.GroupControls.CookTag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Labels.GroupLabel">
+            <summary>
+            标签组
+            </summary>
+            <remarks>子项必须使用<see cref="T:CookPopularControl.Controls.Labels.GroupLableItem"/></remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Labels.GroupLabel.HasCloseButton">
+            <summary>
+            是否有关闭功能
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Labels.GroupLabel.ItemClosedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Labels.GroupLabel.ItemClosedEvent"/>标识子项删除事件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Labels.GroupLableItem">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.Labels.GroupLabel"/>的子项数据
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Labels.LabelAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.Label"/>的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderProperty"/>标识标签头的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateProperty"/>标识标签标头的数据模板
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateSelectorProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateSelectorProperty"/>标识标签标头的数据模板选择器
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderStringFormatProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderStringFormatProperty"/>标识标签标头的数据模板选择器
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Lists.ListViewAssistant">
