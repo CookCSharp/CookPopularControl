@@ -1064,9 +1064,24 @@
             <see cref="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty"/>标识是否显示外边框
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.GroupControls.CookTag">
+        <member name="T:CookPopularControl.Controls.GroupControls.SearchControl">
             <summary>
-            标签
+            搜索框
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.GroupControls.SearchControl.Content">
+            <summary>
+            搜索内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GroupControls.SearchControl.ContentProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.GroupControls.SearchControl.Content"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GroupControls.SearchControl.StartSearchEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.GroupControls.SearchControl.StartSearchEvent"/>标识搜索事件 
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Labels.GroupLabel">
