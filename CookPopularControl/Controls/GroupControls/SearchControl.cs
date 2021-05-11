@@ -72,7 +72,7 @@ namespace CookPopularControl.Controls.GroupControls
         }
 
 
-        [Description("属性更改时发生")]
+        [Description("搜索内容更改时发生")]
         public event TextChangedEventHandler ContentChanged
         {
             add { this.AddHandler(ContentChangedEvent, value); }
