@@ -261,8 +261,6 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}"/>
-
     <Style x:Key="ListViewGirdViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}">
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewGridViewItem}" />
         <Setter Property="attached:DataGridViewAttached.ColumnHeaderHeight" Value="30" />
@@ -274,7 +272,9 @@
                 <ControlTemplate TargetType="{x:Type ListView}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
-                        <ScrollViewer Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
+                        <ScrollViewer Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}"
+                                      HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <ItemsPresenter />
                         </ScrollViewer>
                     </Border>
@@ -287,5 +287,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}"/>
 
 </ResourceDictionary>

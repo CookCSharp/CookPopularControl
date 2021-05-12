@@ -33,7 +33,7 @@
         <WrapPanel Margin="0,20" >
             <ComboBox Width="200" Height="34" IsEditable="False" Foreground="Red"
                       Style="{StaticResource AddClearButtonComboBoxStyle}"
-                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource FieldShadowEffect}">
+                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}">
                 <ComboBoxItem Content="Chance"/>
                 <ComboBoxItem Content="Lori"/>
                 <ComboBoxItem Content="写代码的厨子"/>
@@ -52,7 +52,7 @@
                       Style="{StaticResource MultiComboBoxCheckBoxItemsStyle}"
                       pc:SelectorAttached.ItemControlWidth="36"
                       pc:SelectorAttached.ItemControlHeight="36"
-                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource FieldShadowEffect}"
+                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
                       pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked"/>
             <ComboBox Width="400" Height="34" Margin="30,0" IsEditable="True" ItemsSource="{Binding Lists}"
                       Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}"
@@ -60,10 +60,10 @@
             <CheckBox Content="ItemsCheckBox" Width="200" Height="30" FontSize="20"/>
         </WrapPanel>
         <WrapPanel Margin="0,20">
-            <ComboBox Width="200" Height="34" IsEditable="False" ItemsSource="{Binding Lists}"
+            <ComboBox IsEditable="False" ItemsSource="{Binding Lists}"
                       Style="{StaticResource MultiComboBoxButtonItemsStyle}"
-                      pc:SelectorAttached.ItemControlWidth="30"
-                      pc:SelectorAttached.ItemControlHeight="24"
+                      pc:SelectorAttached.ItemControlWidth="20"
+                      pc:SelectorAttached.ItemControlHeight="20"
                       pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete"/>
             <ComboBox Width="400" Height="34" Margin="30,0" IsEditable="True" ItemsSource="{Binding Lists}"
                       Style="{StaticResource AddClearButtonMultiComboBoxButtonItemsStyle}"
@@ -90,8 +90,8 @@
         <WrapPanel Margin="0,20">
             <ComboBox Width="200" Height="34" IsEditable="False" ItemsSource="{Binding ImageLists}"
                       Style="{StaticResource MultiComboBoxImageItemsStyle}"                                    
-                      pc:SelectorAttached.ItemControlWidth="40"
-                      pc:SelectorAttached.ItemControlHeight="40"
+                      pc:SelectorAttached.ItemControlWidth="20"
+                      pc:SelectorAttached.ItemControlHeight="20"
                       pc:SelectorAttached.IsPreviewImage="True"/>
             <ComboBox Width="400" Height="34" Margin="30,0" IsEditable="True" ItemsSource="{Binding ImageLists}"
                       Style="{StaticResource AddClearButtonMultiComboBoxImageItemsStyle}"
