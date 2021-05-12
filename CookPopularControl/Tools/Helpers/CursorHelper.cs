@@ -20,6 +20,9 @@ using System.Windows.Media.Imaging;
  */
 namespace CookPopularControl.Tools.Helpers
 {
+    /// <summary>
+    /// 光标辅助类
+    /// </summary>
     public class CursorHelper
     {
         public static Cursor ConvertToCursor(FrameworkElement visual, System.Windows.Point hotSpot)
