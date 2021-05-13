@@ -23,6 +23,8 @@
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="输入数字" />
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="False" />
+        <Setter Property="fields:NumericUpDownAssistant.UpDownButtonMargin" Value="5,1" />
+        <Setter Property="fields:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type fields:NumericUpDown}">
@@ -46,18 +48,19 @@
                                      attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                      InputMethod.IsInputMethodEnabled="False" Background="Transparent"
                                      Validation.ErrorTemplate="{x:Null}"/>
-                            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="5,1"
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                        Margin="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonMargin}"
                                         Visibility="{TemplateBinding IsShowUpDownButton,Converter={toolConverters:BooleanToVisibilityConverter}}">
                                 <Button x:Name="PART_PlusButton" Command="{x:Static fields:NumericUpDown.PlusCommand}" Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
-                                        Foreground="{TemplateBinding Foreground}" Style="{DynamicResource ButtonTransparentIconStyle}"/>
+                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}" 
+                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}" Style="{DynamicResource ButtonTransparentIconStyle}"/>
                                 <Button x:Name="PART_SubtractButton" Command="{x:Static fields:NumericUpDown.SubtractCommand}" Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
-                                        Foreground="{TemplateBinding Foreground}" Style="{DynamicResource ButtonTransparentIconStyle}"/>
+                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}" Style="{DynamicResource ButtonTransparentIconStyle}"/>
                             </StackPanel>
                         </Grid>
                     </Border>

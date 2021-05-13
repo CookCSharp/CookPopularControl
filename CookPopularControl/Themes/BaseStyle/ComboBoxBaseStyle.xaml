@@ -15,7 +15,7 @@
     <!--下拉按钮-->
     <Style x:Key="DropDownToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="ToolTip" Value="点击展开" />
+        <!--<Setter Property="ToolTip" Value="点击展开" />-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">

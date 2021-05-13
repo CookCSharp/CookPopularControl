@@ -325,11 +325,11 @@ namespace CookPopularControl.Controls.Fields
             if (numeric.Value.Equals(numeric.Maximum))
                 numeric.plusButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
             else
-                numeric.plusButton.Foreground = ResourceHelper.GetResource<Brush>("PrimaryForeground");
+                numeric.plusButton.Foreground = NumericUpDownAssistant.GetUpDownButtonBrush(numeric);
             if (numeric.Value.Equals(numeric.Minimum))
                 numeric.subtractButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
             else
-                numeric.subtractButton.Foreground = ResourceHelper.GetResource<Brush>("PrimaryForeground");
+                numeric.subtractButton.Foreground = NumericUpDownAssistant.GetUpDownButtonBrush(numeric);
         }
 
         private void UpdateValue()
