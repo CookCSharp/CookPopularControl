@@ -9,5 +9,7 @@
     <sys:Double x:Key="Double20Value">20</sys:Double>
     <sys:Double x:Key="Double26Value">26</sys:Double>
     <sys:Double x:Key="Double30Value">30</sys:Double>
+
+    <sys:Double x:Key="DefaultControlHeight">34</sys:Double>
     
 </ResourceDictionary>

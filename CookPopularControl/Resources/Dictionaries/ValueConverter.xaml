@@ -23,9 +23,12 @@
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
     <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
-    <toolConverters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"></toolConverters:StringToVisibilityConverter>
+    <toolConverters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
     <toolConverters:ValueTranslateConverter x:Key="ValueTranslateConverter"/>
     <toolConverters:ValueBetweenZeroAnd100 x:Key="ValueBetweenZeroAnd100"/>
+    <toolConverters:ValueEqualTargetValue x:Key="ValueEqualTargetValue"/>
+    <toolConverters:ValueLessThanTargetValue x:Key="ValueLessThanTargetValue"/>
+    <toolConverters:ValueMoreThanTargetValue x:Key="ValueMoreThanTargetValue"/>
     <toolConverters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
     <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>

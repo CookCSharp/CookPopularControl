@@ -999,6 +999,81 @@
             承载对话框内容的对话容器
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Fields.NumericUpDown">
+            <summary>
+            表示显示数值的 Windows 数字显示框（也称作 up-down 控件）。
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.ValueProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Value"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Maximum">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.MaximumProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Maximum"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Minimum">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.MinimumProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Minimum"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Increment">
+            <summary>
+            获取或设置单击向上或向下按钮时，数字显示框（也称作 up-down 控件）递增或递减的值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.IncrementProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Increment"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.IsReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.IsReadOnlyProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.IsReadOnly"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.ValueFormat">
+            <summary>
+            表示要显示数字的格式
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.ValueFormatProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.ValueFormat"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButton">
+            <summary>
+            是否显示UpDownButton
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButtonProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButton"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">
             <summary>
             自定义绘制文本
@@ -1899,6 +1974,19 @@
             自定义显示信息
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow">
+            <summary>
+            PrintWindow.xaml 的交互逻辑
+            </summary>
+            <summary>
+            PrintPreviewWindow
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
             <summary>
             装箱后的值类型（用于提高效率）
@@ -2395,6 +2483,69 @@
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
+        <member name="T:CookPopularControl.Tools.Helpers.CreateObjectHelper">
+            <summary>
+            创建对象的帮助类
+            </summary>
+            <remarks>
+            创建对象效率高低排序
+            直接New>IL>Activator>泛型
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInIL``1">
+            <summary>
+            IL创建对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInActivator``1(System.Type)">
+            <summary>
+            <see cref="T:System.Activator"/>创建对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInGenerate``1">
+            <summary>
+            泛型方式创建对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInAssembly(System.String,System.String)">
+            <summary>
+            <see cref="T:System.Reflection.Assembly"/>创建对象
+            </summary>
+            <param name="assemblyFilePath">程序集路径，不能是相对路径(exe/dll)</param>
+            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+            <remarks>没用引用该程序集时</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInDifferentAssembly(System.String,System.String)">
+            <summary>
+            <see cref="T:System.Reflection.Assembly"/>创建对象
+            </summary>
+            <param name="assemblyName">程序集名称，不含后缀名</param>
+            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+            <remarks>不同程序集,装载调用</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInAssembly(System.String)">
+            <summary>
+            <see cref="T:System.Reflection.Assembly"/>创建对象
+            </summary>
+            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+            <remarks>当前程序集</remarks>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Helpers.CursorHelper">
+            <summary>
+            光标辅助类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.DispatcherHelper.DoEvents">
+            <summary>
+            循环执行<see cref="T:System.Windows.Threading.Dispatcher"/>
+            </summary>
+        </member>
         <member name="M:CookPopularControl.Tools.Helpers.FontHelper.GetFontWidthHeight(System.Windows.Media.Visual,System.String,System.String,System.Double)">
             <summary>
             获取字体的宽度与高度
@@ -2658,6 +2809,11 @@
         <member name="T:CookPopularControl.Tools.Windows.ValidationRules.NotNullAndWhiteSpaceValidationRule">
             <summary>
             NullOrWhiteSpace Rule
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Windows.ValidationRules.RangeValueValidationRule">
+            <summary>
+            表示值范围的规则
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Windows.ValidationRules.RegularPatterns">

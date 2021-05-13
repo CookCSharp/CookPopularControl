@@ -37,4 +37,61 @@ namespace CookPopularControl.Tools.Windows.Converters
             throw new NotImplementedException();
         }
     }
+
+    [MarkupExtensionReturnType(typeof(bool))]
+    public class ValueEqualTargetValue : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is double v && parameter is double p)
+            {
+                return v.Equals(p) ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
+            }
+
+            return ValueBoxes.FalseBox;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    [MarkupExtensionReturnType(typeof(bool))]
+    public class ValueLessThanTargetValue : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is double v && parameter is double p)
+            {
+                return v < p ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
+            }
+
+            return ValueBoxes.FalseBox;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    [MarkupExtensionReturnType(typeof(bool))]
+    public class ValueMoreThanTargetValue : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is double v && parameter is double p)
+            {
+                return v > p ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
+            }
+
+            return ValueBoxes.FalseBox;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

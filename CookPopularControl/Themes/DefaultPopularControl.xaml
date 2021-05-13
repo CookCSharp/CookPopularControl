@@ -52,6 +52,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NumericUpDownStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CarouselViewStyle.xaml" />
@@ -112,6 +113,7 @@
     <Style x:Key="{x:Type simpleLoading:PlaneLoading}" TargetType="{x:Type simpleLoading:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}"/>
     <Style x:Key="{x:Type switch:SwitchControl}" TargetType="{x:Type switch:SwitchControl}" BasedOn="{StaticResource DefaultSwitchControlStyle}"/>
     <Style x:Key="{x:Type fields:TextPath}" TargetType="{x:Type fields:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}"/>
+    <Style x:Key="{x:Type fields:NumericUpDown}" TargetType="{x:Type fields:NumericUpDown}" BasedOn="{StaticResource DefaultNumericUpDownStyle}"/>
     <Style x:Key="{x:Type qrCode:QRCodeControl}" TargetType="{x:Type qrCode:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}"/>
     <Style x:Key="{x:Type menu:CircleMenu}" TargetType="{x:Type menu:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}"/>
     <Style x:Key="{x:Type swiper:Swiper}" TargetType="{x:Type swiper:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}"/>
