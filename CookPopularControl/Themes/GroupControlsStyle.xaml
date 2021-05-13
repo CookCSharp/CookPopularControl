@@ -2,31 +2,37 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.GroupControls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters">
 
     <Style x:Key="DefaultSearchControlStyle" TargetType="{x:Type groupCtl:SearchControl}">
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="15" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="15" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+        <Setter Property="attached:TextElementAttached.PlaceHolder" Value="搜索" />
+        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type groupCtl:SearchControl}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+                    <Border x:Name="RootBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Margin="0,-1"
                             CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" BorderThickness="0"
+                            <TextBox Grid.Column="0" BorderThickness="0" 
                                      Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                     
-                                     attached:TextElementAttached.PlaceHolder="搜索"
-                                     attached:TextElementAttached.IsAddClearButton="True"
-                                     attached:FrameworkElementBaseAttached.IconWidth="15"
-                                     attached:FrameworkElementBaseAttached.IconHeight="15"
+                                     attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                     attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
+                                     attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                     attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                      attached:FrameworkElementBaseAttached.IconMargin="0"/>
-                            <Button Grid.Column="1" Margin="5,0" Command="{x:Static groupCtl:SearchControl.SearchCommand}"
+                            <Button Grid.Column="1" Margin="5,0" ToolTip="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                    Command="{x:Static groupCtl:SearchControl.SearchCommand}"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SearchGeometry}"
                                     attached:FrameworkElementBaseAttached.IconWidth="15"
                                     attached:FrameworkElementBaseAttached.IconHeight="15"                                   
@@ -34,11 +40,26 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left,Converter={commonConverters:DoubleToThickness},ConverterParameter=1.5}" TargetName="RootBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder"/>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+    <Style x:Key="SearchControlAddClearButtonStyle" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}">
+        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
+    </Style>
+
 </ResourceDictionary>

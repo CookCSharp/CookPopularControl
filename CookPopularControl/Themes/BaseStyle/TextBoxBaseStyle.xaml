@@ -4,18 +4,14 @@
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
     <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Padding" Value="8,0,0,0" />
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ValidationErrorBaseTemplate}" />
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
@@ -34,7 +30,7 @@
                                        Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}" 
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Padding="{TemplateBinding Padding}"/>
-                            <Button x:Name="PART_ClearButton" Grid.Column="1" Effect="{x:Null}" ToolTip="Clear"
+                            <Button x:Name="PART_ClearButton" Grid.Column="1" Effect="{x:Null}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}"
                                     attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                     attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
@@ -54,17 +50,18 @@
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Text,Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder"/>
                         </DataTrigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="Validation.HasError" Value="True"/>
-                                <Condition Property="IsFocused" Value="True"/>
-                            </MultiTrigger.Conditions>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
-                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left,Converter={commonConverters:DoubleToThickness},ConverterParameter=1.2}" TargetName="RootBorder"/>
-                        </MultiTrigger>
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left,Converter={commonConverters:DoubleToThickness},ConverterParameter=1.5}" TargetName="RootBorder"/>
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" TargetName="RootBorder" Value="{StaticResource {x:Static SystemColors.ControlBrushKey}}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}"/>
+                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder"/>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}"/>
+                            <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource AssistantForeground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

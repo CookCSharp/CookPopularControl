@@ -63,7 +63,7 @@
         </Border>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ValidationErrorBaseTemplate">
+    <ControlTemplate x:Key="ValidationErrorBaseTemplate" TargetType="{x:Type Control}">
         <AdornedElementPlaceholder x:Name="Placeholder" Visibility="Collapsed">
             <Border>
                 <ToolTipService.ToolTip>
@@ -72,15 +72,18 @@
                              PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                              Template="{StaticResource ValidationToolTipTemplate}" />
                 </ToolTipService.ToolTip>
-                <Grid Width="18" Height="18" Background="Transparent"
-                      HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-1,-1,0,0">
+                <Grid Width="14" Height="14" Background="Transparent"
+                      HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-1,0,0">
                     <Path Stretch="Uniform" Data="M 0,0 L6,0 A 2,2 90 0 1 8,2 L8,7 z" Fill="{DynamicResource FieldValidationErrorBrush}"/>
                     <Path Data="M 0,0 L2,0 L 8,6 L8,8" Fill="Transparent"/>
                 </Grid>
             </Border>
         </AdornedElementPlaceholder>
         <ControlTemplate.Triggers>
-            <DataTrigger Binding="{Binding ElementName=Placeholder,Path=AdornedElement.IsFocused}" Value="True">
+            <!--<DataTrigger Binding="{Binding ElementName=Placeholder,Path=AdornedElement.IsFocused}" Value="True">
+                <Setter Property="Visibility" Value="Visible" TargetName="Placeholder"/>
+            </DataTrigger>-->
+            <DataTrigger Binding="{Binding ElementName=Placeholder,Path=AdornedElement.(Validation.HasError)}" Value="True">
                 <Setter Property="Visibility" Value="Visible" TargetName="Placeholder"/>
             </DataTrigger>
             <MultiDataTrigger>

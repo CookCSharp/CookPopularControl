@@ -15,17 +15,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Resources;
 using System.Windows.Shapes;
+using PropertyChanged;
 
 namespace TestDemo.Demos
 {
     /// <summary>
     /// GroupControls.xaml 的交互逻辑
     /// </summary>
+    [AddINotifyPropertyChangedInterface]
     public partial class GroupControlsDemo : UserControl
     {
+        public string SearchContent { get; set; }
+
         public GroupControlsDemo()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
         private void SearchControl_StartSearch(object sender, RoutedEventArgs e)

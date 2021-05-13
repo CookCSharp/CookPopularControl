@@ -8,47 +8,72 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <WrapPanel Width="800">
-            <TextBox Width="300" Height="40" BorderThickness="1"
-                     Style="{StaticResource DefaultTextBoxStyle}"/>
-            <TextBox Width="300" Height="40" BorderThickness="1" Margin="30,0" IsEnabled="False"
-                     Style="{StaticResource AddClearButtonTextBoxStyle}"/>
-            <TextBox Width="300" Height="40" BorderThickness="1" Margin="0,20"
-                     Style="{StaticResource ValidationTextBoxStyle}">
-                <TextBox.Text>
-                    <Binding Path="TextContent1" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <pc:RegularPatternValidationRule RegularPattern="Digital" ValidatesOnTargetUpdated="True"/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
-            <TextBox Width="300" Height="40" BorderThickness="1" Margin="30,0"
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <TextBlock Text="TextBox:" FontSize="20" FontWeight="DemiBold" Margin="0,0,0,10"/>
+            <WrapPanel>
+                <TextBox Width="300" Height="34" BorderThickness="1"
+                         Style="{StaticResource DefaultTextBoxStyle}"/>
+                <TextBox Width="300" Height="34" BorderThickness="1" Margin="20,0" IsEnabled="False"
+                         Style="{StaticResource AddClearButtonTextBoxStyle}"/>
+                <TextBox Width="300" Height="34" BorderThickness="1" Margin="0,20"
+                         Style="{StaticResource ValidationTextBoxStyle}">
+                    <TextBox.Text>
+                        <Binding Path="TextContent1" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <pc:RangeValueValidationRule MinValue="1" MaxValue="10" ValidatesOnTargetUpdated="True"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Width="300" Height="34" BorderThickness="1" Margin="20,0"
                      Style="{StaticResource ValidationAddClearButtonTextBoxStyle}">
-                <TextBox.Text>
-                    <Binding Path="TextContent2" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <pc:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True"/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
-        </WrapPanel>
-        <WrapPanel>
-            <TextBlock Text="CookPopularControl" FontSize="50" FontWeight="DemiBold" Foreground="DodgerBlue"/>
-            <pc:TextPath Width="500" Height="100" Text="写代码的厨子"/>
-            <pc:TextPath Width="500" Height="100" Text="写代码的厨子" Fill="Transparent"/>
-            <pc:TextPath Width="500" Height="100" Text="Chance" 
-                     pc:TextPath.FillImageSource="../Resources/Gif/tomcat.jpg"
-                     pc:TextPath.DrawingRec="0,0,20,20"
-                     Style="{StaticResource FillImageTextPathStyle}"/>
-            <pc:TextPath Width="500" Height="100" Text="Chance" Stroke="Purple" StrokeThickness="2"
-                     pc:TextPath.DrawingRec="0,0,5,5"
-                     pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
-                     Style="{StaticResource FillIconTextPathStyle}"/>
-        </WrapPanel>
-    </StackPanel>
-    
+                    <TextBox.Text>
+                        <Binding Path="TextContent2" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <pc:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </WrapPanel>
+
+            <TextBlock Text="NumericUpDown:" FontSize="20" FontWeight="DemiBold" Margin="0,30,0,10"/>
+            <WrapPanel>
+                <pc:NumericUpDown Width="200" Height="34" Maximum="10"/>
+                <pc:NumericUpDown Width="200" Height="34" Maximum="20" Increment="0.5" Margin="20,0" ValueChanged="NumericUpDown_ValueChanged" IsShowUpDownButton="False"/>
+                <pc:NumericUpDown Width="200" Height="34" Maximum="10" Increment="0.5" ValueFormat="F4"/>
+                <pc:NumericUpDown Width="200" Height="34" Margin="0,20"
+                                  Style="{StaticResource NumericUpDownAddClearButtonStyle}"/>
+                <pc:NumericUpDown Width="200" Height="34" Margin="20" Maximum="20" Minimum="0"
+                                  Style="{StaticResource NumericUpDownAddClearButtonStyle}">
+                    <pc:NumericUpDown.Value>
+                        <Binding Path="NumericValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <pc:RangeValueValidationRule MinValue="5" MaxValue="10" ErrorMessage="{x:Null}" ValidatesOnTargetUpdated="True"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </pc:NumericUpDown.Value>
+                </pc:NumericUpDown>
+                <pc:NumericUpDown Width="200" Height="34" Maximum="10" Value="5" IsEnabled="False" IsReadOnly="True" ToolTip="ReadOnly"/>
+            </WrapPanel>
+
+            <TextBlock Text="TextPath:" FontSize="20" FontWeight="DemiBold" Margin="0,30,0,10"/>
+            <WrapPanel>
+                <TextBlock Text="CookPopularControl" FontSize="50" FontWeight="DemiBold" Foreground="DodgerBlue"/>
+                <pc:TextPath Width="500" Height="100" Text="写代码的厨子"/>
+                <pc:TextPath Width="500" Height="100" Text="写代码的厨子" Fill="Transparent"/>
+                <pc:TextPath Width="500" Height="100" Text="Chance" 
+                             pc:TextPath.FillImageSource="../Resources/Gif/tomcat.jpg"
+                             pc:TextPath.DrawingRec="0,0,20,20"
+                             Style="{StaticResource FillImageTextPathStyle}"/>
+                <pc:TextPath Width="500" Height="100" Text="Chance" Stroke="Purple" StrokeThickness="2"
+                             pc:TextPath.DrawingRec="0,0,5,5"
+                             pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
+                             Style="{StaticResource FillIconTextPathStyle}"/>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+
 </UserControl>

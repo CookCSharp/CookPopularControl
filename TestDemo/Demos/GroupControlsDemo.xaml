@@ -6,12 +6,36 @@
              xmlns:local="clr-namespace:TestDemo.Demos"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <pc:SearchControl Width="200" Height="35" 
-                          StartSearch="SearchControl_StartSearch"
-                          ContentChanged="SearchControl_ContentChanged"/>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+        <TextBlock Text="SearchControl:" FontSize="20" FontWeight="DemiBold"/>
+        <WrapPanel>
+            <pc:SearchControl Width="200" Height="35" 
+                              StartSearch="SearchControl_StartSearch"
+                              ContentChanged="SearchControl_ContentChanged"/>
+            <pc:SearchControl Width="200" Height="35"  Margin="20,0"
+                              Style="{StaticResource SearchControlAddClearButtonStyle}"
+                              StartSearch="SearchControl_StartSearch"
+                              ContentChanged="SearchControl_ContentChanged"/>
+            <pc:SearchControl Width="200" Height="35"
+                              Style="{StaticResource SearchControlAddClearButtonStyle}"
+                              StartSearch="SearchControl_StartSearch"
+                              ContentChanged="SearchControl_ContentChanged">
+                <pc:SearchControl.Content>
+                    <Binding Path="SearchContent" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <pc:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </pc:SearchControl.Content>
+            </pc:SearchControl>
+            <pc:SearchControl Width="200" Height="35" IsEnabled="False" Margin="0,20"
+                              StartSearch="SearchControl_StartSearch"
+                              ContentChanged="SearchControl_ContentChanged"/>
+        </WrapPanel>
+
         <Grid x:Name="customCursor" Width="32" Height="32"/>
     </StackPanel>
     

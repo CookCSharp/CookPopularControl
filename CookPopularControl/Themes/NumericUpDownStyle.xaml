@@ -43,10 +43,10 @@
                                      attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                      attached:FrameworkElementBaseAttached.IconMargin="0"
-                                     attached:FrameworkElementBaseAttached.CornerRadius="0"
+                                     attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                      InputMethod.IsInputMethodEnabled="False" Background="Transparent"
                                      Validation.ErrorTemplate="{x:Null}"/>
-                            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="5,0"
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="5,1"
                                         Visibility="{TemplateBinding IsShowUpDownButton,Converter={toolConverters:BooleanToVisibilityConverter}}">
                                 <Button x:Name="PART_PlusButton" Command="{x:Static fields:NumericUpDown.PlusCommand}" Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
@@ -67,7 +67,14 @@
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
-                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left,Converter={commonConverters:DoubleToThickness},ConverterParameter=1.2}" TargetName="RootBorder"/>
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left,Converter={commonConverters:DoubleToThickness},ConverterParameter=1.5}" TargetName="RootBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_PlusButton"/>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_SubtractButton"/>
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

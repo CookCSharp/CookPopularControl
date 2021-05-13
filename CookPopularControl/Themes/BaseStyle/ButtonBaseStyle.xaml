@@ -36,13 +36,12 @@
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
                         <AdornerDecorator CacheMode="{StaticResource DefaultBitmapCache}">
-                            <Grid>
-                                <Border x:Name="border" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            <Border x:Name="RootBorder" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                         BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                         Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                         Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
-                                    <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                        <Path x:Name="PART_Icon" Stretch="Uniform" SnapsToDevicePixels="True" 
+                                <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <Path x:Name="PART_Icon" Stretch="Uniform" SnapsToDevicePixels="True" 
                                               DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                               Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                               Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
@@ -50,7 +49,7 @@
                                               Fill="{TemplateBinding Foreground}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                        <Image x:Name="PART_Image_Gif" Stretch="Uniform"
+                                    <Image x:Name="PART_Image_Gif" Stretch="Uniform"
                                                Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
                                                Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
                                                DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
@@ -58,21 +57,20 @@
                                                gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
                                                gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
                                                gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
-                                        <Grid x:Name="ContentGrid">
-                                            <ProgressBar x:Name="PART_Progress" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-2"
-                                                         Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
-                                                         Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
-                                                         attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                                         Foreground="#00000000" Background="Transparent"
-                                                         Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
-                                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
-                                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                              Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
-                                        </Grid>
-                                    </DockPanel>
-                                </Border>
-                            </Grid>
+                                    <Grid x:Name="ContentGrid">
+                                        <ProgressBar x:Name="PART_Progress" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-2"
+                                                     Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
+                                                     Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
+                                                     attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                                     Foreground="#00000000" Background="Transparent"
+                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                        <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
+                                                          RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
+                                    </Grid>
+                                </DockPanel>
+                            </Border>
                         </AdornerDecorator>
                         <ripple:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
@@ -83,10 +81,10 @@
                                        Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}">
                             <ripple:Ripple.Clip>
                                 <MultiBinding Converter="{StaticResource BorderClipConverter}">
-                                    <Binding ElementName="border" Path="ActualWidth" />
-                                    <Binding ElementName="border" Path="ActualHeight" />
-                                    <Binding ElementName="border" Path="CornerRadius" />
-                                    <Binding ElementName="border" Path="BorderThickness" />
+                                    <Binding ElementName="RootBorder" Path="ActualWidth" />
+                                    <Binding ElementName="RootBorder" Path="ActualHeight" />
+                                    <Binding ElementName="RootBorder" Path="CornerRadius" />
+                                    <Binding ElementName="RootBorder" Path="BorderThickness" />
                                 </MultiBinding>
                             </ripple:Ripple.Clip>
                         </ripple:Ripple>
@@ -130,17 +128,17 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="VerticalAlignment" Value="Top" TargetName="ContentGrid"/>
                         </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="RootBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="RootBorder"/>
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="BorderThickness" Value="0"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="border"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="border"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

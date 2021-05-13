@@ -26,9 +26,16 @@ namespace TestDemo.Demos
 
         public string TextContent2 { get; set; }
 
+        public double NumericValue { get; set; }
+
         public FieldsDemo()
         {
             InitializeComponent();
+        }
+
+        private void NumericUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
         }
     }
 }
