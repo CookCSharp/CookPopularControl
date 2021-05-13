@@ -26,9 +26,10 @@
     <!--#FF9C8844-->
     <Color x:Key="ButtonBaseMouseOverColor">#55AAFF</Color>
     <Color x:Key="ButtonBasePressColor">#4169E1</Color>
+    <Color x:Key="BorderBrushColor">#4285F4</Color>
     <SolidColorBrush x:Key="ButtonBaseMouseOverBackground" Color="{StaticResource ButtonBaseMouseOverColor}"/>
     <SolidColorBrush x:Key="ButtonBasePressBackground" Color="{StaticResource ButtonBasePressColor}"/>
-    <SolidColorBrush x:Key="BorderBrushColor" Color="#8B008B"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderBrushColor}"/>
 
     <SolidColorBrush x:Key="FieldBorderBrush" Color="{x:Static SystemColors.ActiveBorderColor}"/>
     <SolidColorBrush x:Key="FieldPlaceHolderBrush" Color="#D3D3D3"/>

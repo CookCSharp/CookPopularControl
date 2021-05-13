@@ -118,7 +118,7 @@
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}"/>
         <Setter Property="Background" Value="{DynamicResource AssistantColorTheme}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
