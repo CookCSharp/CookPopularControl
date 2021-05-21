@@ -254,6 +254,12 @@
             钟摆
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Data.Enum.NotifyPopupPosition">
+            <summary>
+            通知消息的弹出位置
+            由两部分组成，水平+垂直
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.SelectorItemType">
             <summary>
             Selector子项类型
@@ -274,6 +280,42 @@
             <summary>
             包含IconGeometry
             </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo">
+            <summary>
+            通知消息附带的信息类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.PopupPosition">
+            <summary>
+            消息通知的弹出位置
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.PopupAnimation">
+            <summary>
+            消息在打开时如何显示动画
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.IsShowCloseButton">
+            <summary>
+            是否显示关闭按钮
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.IsAutoClose">
+            <summary>
+            消息是否自动关闭
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.Duration">
+            <summary>
+            消息持续时间
+            </summary>
+            <remarks>单位:s</remarks>
         </member>
         <member name="T:CookPopularControl.Communal.Helpers.PasswordBoxHelper">
             <summary>
@@ -1074,6 +1116,21 @@
             标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButton"/>的依赖属性
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Fields.NumericUpDownAssistant">
+            <summary>
+            表示<see cref="T:CookPopularControl.Controls.Fields.NumericUpDown"/>的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonMarginProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonMarginProperty"/>表示UpDownButton的边距
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonBrushProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonBrushProperty"/>表示UpDownButton的填充颜色
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Fields.TextPath">
             <summary>
             自定义绘制文本
@@ -1275,6 +1332,35 @@
         <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotateProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Notify.BubbleMessage">
+            <summary>
+            气泡消息
+            </summary>
+            <remarks>
+            <see cref="T:CookPopularControl.Communal.Data.Enum.NotifyPopupPosition"/>提供9个位置方向;
+            <see cref="T:System.Windows.Controls.Primitives.PopupAnimation"/>提供4中动画效果
+            </remarks> 
+        </member>
+        <member name="T:CookPopularControl.Controls.Notify.NotifyMessageBase">
+            <summary>
+            消息通知的基类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Notify.NotifyMessageBase.SetNotifyMessageContainer(System.Windows.UIElement)">
+            <summary>
+            设置消息容器
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Notify.NotifyMessageBase.RemoveMessage">
+            <summary>
+            移除消息
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Notify.PopupMessage">
+            <summary>
+            弹出消息
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Notify.TaskbarIcon">
@@ -1982,6 +2068,11 @@
             PrintPreviewWindow
             </summary>
         </member>
+        <member name="M:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow.LoadPreviewXPS(System.String,System.Windows.Documents.IDocumentPaginatorSource)">
+            <summary>
+            制作XPS文档和加载文档预览
+            </summary>
+        </member>
         <member name="M:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow.InitializeComponent">
             <summary>
             InitializeComponent
@@ -2107,6 +2198,44 @@
             <summary>
             提供<see cref="T:System.String"/>的扩展方法
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ToFileMemorySize(System.String,System.Int32)">
+            <summary>
+            读取文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="decimalPlaces">保留几位小数</param>
+            <returns>返回文件的实际大小及单位</returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ReadFileInSafe(System.String)">
+            <summary>
+            安全读取文件(一次性读取)
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>返回文件流的字节大小</returns>
+            <remarks>适用于确定文件流的长度时，可以保障文件已经完全读完</remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ReadFileInBufferMemory(System.String)">
+            <summary>
+            使用内存缓存循环读取文件(高效)
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>返回文件流的字节大小</returns>
+            <remarks>
+            适用于不确定流的实际长度时，例如网络流，
+            可以先初始化一段缓存，再将流读出来的流信息写到内存流里面
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ReadFileInBufferLength(System.String,System.Int32)">
+            <summary>
+            使用指定缓存长度的方式读取文件(高效)
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="bufferLen">缓存长度</param>
+            <returns>返回文件流的字节大小</returns>
+            <remarks>
+            虽然在很多情况下可以直接使用Stream.Length得到流的长度，但不是所有的流都可以得到
+            </remarks>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.Strings.StringsExtension.ToOpenLink(System.String)">
             <summary>

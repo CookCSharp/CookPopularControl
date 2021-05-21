@@ -14,6 +14,7 @@
                     xmlns:player="clr-namespace:CookPopularControl.Controls.MediaPlayer"
                     xmlns:star="clr-namespace:CookPopularControl.Controls.Starred"
                     xmlns:label="clr-namespace:CookPopularControl.Controls.Labels"
+                    xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.GroupControls">
 
     <ResourceDictionary.MergedDictionaries>
@@ -45,7 +46,6 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BorderStyle.xaml" />
         
         <!--Template-->
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NotifyStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
 
         <!--Extension Control-->
@@ -58,6 +58,8 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CarouselViewStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MediaPlayerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NotifyStyle.xaml" />
+
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupControlsStyle.xaml" />
 
         <!--Other Resource Dictionaries-->
@@ -121,6 +123,7 @@
     <Style x:Key="{x:Type player:MediaPlayer}" TargetType="{x:Type player:MediaPlayer}" BasedOn="{StaticResource DefaultMediaPlayerStyle}"/>
     <Style x:Key="{x:Type star:Star}" TargetType="{x:Type star:Star}" BasedOn="{StaticResource DefaultStarStyle}"/>
     <Style x:Key="{x:Type label:GroupLabel}" TargetType="{x:Type label:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}"/>
+    <Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>
 
 
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}"/>
