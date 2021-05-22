@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 
 
@@ -27,6 +28,16 @@ namespace CookPopularControl.Communal.Data.Infos
         public object Content { get; set; }
 
         /// <summary>
+        /// 消息图标
+        /// </summary>
+        public Geometry MessageIcon { get; set; }
+
+        /// <summary>
+        /// 消息图标颜色
+        /// </summary>
+        public Brush MessageIconBrush { get; set; }
+
+        /// <summary>
         /// 消息通知的弹出位置
         /// </summary>
         public NotifyPopupPosition PopupPosition { get; set; }
@@ -34,22 +45,27 @@ namespace CookPopularControl.Communal.Data.Infos
         /// <summary>
         /// 消息在打开时如何显示动画
         /// </summary>
-        public PopupAnimation PopupAnimation { get; set; }
+        public PopupAnimation PopupAnimation { get; set; } = PopupAnimation.Slide;
 
         /// <summary>
         /// 是否显示关闭按钮
         /// </summary>
-        public bool IsShowCloseButton { get; set; }
+        public bool IsShowCloseButton { get; set; } = true;
 
         /// <summary>
         /// 消息是否自动关闭
         /// </summary>
-        public bool IsAutoClose { get; set; }
+        public bool IsAutoClose { get; set; } = true;
 
         /// <summary>
         /// 消息持续时间
         /// </summary>
         /// <remarks>单位:s</remarks>
-        public double Duration { get; set; }
+        public double Duration { get; set; } = 3;
+
+        /// <summary>
+        /// 消息关闭前触发的方法
+        /// </summary>
+        public Func<bool, bool> ActionBeforeClose { get; set; }
     }
 }

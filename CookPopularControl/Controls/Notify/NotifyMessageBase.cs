@@ -1,16 +1,9 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
-using Microsoft.Xaml.Behaviors.Layout;
+﻿using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Threading;
 
@@ -29,54 +22,82 @@ namespace CookPopularControl.Controls.Notify
     /// </summary>
     public abstract class NotifyMessageBase
     {
+        public static bool GetIsParentElement(DependencyObject obj) => (bool)obj.GetValue(IsParentElementProperty);
+        public static void SetIsParentElement(DependencyObject obj, bool value) => obj.SetValue(IsParentElementProperty, ValueBoxes.BooleanBox(value));
+        public static readonly DependencyProperty IsParentElementProperty =
+            DependencyProperty.RegisterAttached("IsParentElement", typeof(bool), typeof(NotifyMessageBase), new PropertyMetadata(ValueBoxes.FalseBox, (s, e) =>
+            {
+                if ((bool)e.NewValue && s is Panel panel)
+                {
+                    DefaultRootMessagePanel = panel;
+                    DefaultRootMessagePanel.Unloaded += (s, e) => Unregister(DefaultRootMessagePanel);
+                    Register(panel);
+                }
+            }));
+
+
+        public static string GetParentElementToken(DependencyObject obj) => (string)obj.GetValue(ParentElementTokenProperty);
+        public static void SetParentElementToken(DependencyObject obj, string value) => obj.SetValue(ParentElementTokenProperty, value);
+        public static readonly DependencyProperty ParentElementTokenProperty =
+            DependencyProperty.RegisterAttached("ParentElementToken", typeof(string), typeof(NotifyMessageBase),
+                new PropertyMetadata(default(string), OnTokenChanged));
+
+        private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Panel panel)
+            {
+                if (e.NewValue == null)
+                {
+                    Unregister(panel);
+                }
+                else
+                {
+                    panel.Unloaded += (s, e) => Unregister(panel);
+                    Register(panel, e.NewValue.ToString());
+                }
+            }
+        }
+
+        private static void Unregister(Panel panel)
+        {
+            if (panel == null) return;
+            var first = PanelDictionary.FirstOrDefault(item => ReferenceEquals(panel, item.Value));
+            if (!string.IsNullOrEmpty(first.Key))
+            {
+                PanelDictionary.Remove(first.Key);
+                panel.ContextMenu = null;
+                //如果默认容器删除了，从字典表中拿出一个，如果都没有，说明一个消息容器也不存在了
+                DefaultRootMessagePanel = DefaultRootMessagePanel ?? PanelDictionary.FirstOrDefault().Value;
+            }
+        }
+
+        private static void Register(Panel panel, string token = default)
+        {
+            var menuItem = new MenuItem();
+            menuItem.Header = "清空";
+            menuItem.Click += (s, e) => panel.Children.Clear();
+            panel.ContextMenu = new ContextMenu
+            {
+                Items = { menuItem },
+            };
+
+            if (string.IsNullOrEmpty(token) || panel == null) return;
+            PanelDictionary[token] = panel;
+        }
+
+
         internal static bool GetIsShowCloseButton(DependencyObject obj) => (bool)obj.GetValue(IsShowCloseButtonProperty);
         internal static void SetIsShowCloseButton(DependencyObject obj, bool value) => obj.SetValue(IsShowCloseButtonProperty, value);
         internal static readonly DependencyProperty IsShowCloseButtonProperty =
             DependencyProperty.RegisterAttached("IsShowCloseButton", typeof(bool), typeof(NotifyMessageBase), new PropertyMetadata(ValueBoxes.TrueBox));
 
 
-        protected virtual double AnimationTime => 0.3; //动画时间
-
-        protected DispatcherTimer CloseMessageTimer; //关闭消息时钟
-
-        protected ContentControl NotifyMessageBaseControl; //承载单个消息(指BubbleMessage或着PopupMessage)
-
+        protected const double AnimationTime = 0.5; //动画时间
+        protected static Panel DefaultRootMessagePanel; //消息容器
+        protected static readonly Dictionary<string, Panel> PanelDictionary = new Dictionary<string, Panel>();
         public static readonly ICommand CloseNotifyMessageCommand = new RoutedCommand(nameof(CloseNotifyMessageCommand), typeof(NotifyMessageBase));
 
-        /// <summary>
-        /// 设置消息容器
-        /// </summary>
-        protected static void SetNotifyMessageContainer(UIElement element)
-        {
-            var win = WindowExtension.GetActiveWindow();
-            var adorner = VisualTreeHelperExtension.GetVisualDescendants(win).OfType<AdornerDecorator>().FirstOrDefault();
-            if (adorner != null)
-            {
-                var layer = adorner.AdornerLayer;
-                if (layer is not null)
-                {
-                    //将AdornerLayer作为元素生成一个新的容器
-                    var container = new AdornerContainer(adorner.AdornerLayer) { Child = element };
-                    layer.Add(container);
-                }
-            }
-        }
-
-        public NotifyMessageBase()
-        {
-            NotifyMessageBaseControl = new ContentControl();
-            NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CloseNotifyMessageCommand, (s, e) =>
-            {
-                RemoveMessage();
-            }));
-        }
-
-        /// <summary>
-        /// 移除消息
-        /// </summary>
-        protected abstract void RemoveMessage();
-
-        public DispatcherTimer IntervalMultiSeconds(DispatcherTimer timer, double second, Action action)
+        protected static DispatcherTimer IntervalMultiSeconds(ref DispatcherTimer timer, double second, Action action)
         {
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(second);

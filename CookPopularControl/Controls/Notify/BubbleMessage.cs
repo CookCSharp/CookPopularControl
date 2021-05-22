@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows;
-using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Helpers;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
-using System.Windows.Documents;
-using Microsoft.Xaml.Behaviors.Layout;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Communal.Data.Infos;
+using CookPopularControl.Tools.Helpers;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 
 
@@ -31,105 +24,173 @@ namespace CookPopularControl.Controls.Notify
     /// 气泡消息
     /// </summary>
     /// <remarks>
-    /// <see cref="NotifyPopupPosition"/>提供9个位置方向;
-    /// <see cref="PopupAnimation"/>提供4中动画效果
+    /// 注意:
+    /// 当<see cref="PopupAnimation"/>的值为<see cref="PopupAnimation.Slide"/>时,
+    /// 消息容器的水平和垂直方向如果都是Center或Stretch,
+    /// 将直接决定动画为<see cref="PopupAnimation.Scroll"/>，
+    /// 另外<see cref="PopupAnimation"/>提供4中动画效果
     /// </remarks> 
-    public class BubbleMessage : NotifyMessageBase
+    public sealed class BubbleMessage : NotifyMessageBase
     {
-        private DoubleAnimation showPopupAnimation;
-        private DoubleAnimation closePopupAnimation;
-        private static ScrollViewer RootScrollViewer;
-        private static Panel RootBubbleMessagePanel; //承载所有BubbleMessage消息容器
-        private NotifyMessageInfo _info;
+        private const string ButtonsClose = "PART_ButtonsClose";
+        private static DoubleAnimation showPopupAnimation;
+        private static DoubleAnimation closePopupAnimation;
+        private static NotifyMessageInfo _info;
+
+        public static readonly ICommand CancelNotifyMessageCommand = new RoutedCommand(nameof(CancelNotifyMessageCommand), typeof(BubbleMessage));
+        public static readonly ICommand ConfirmNotifyMessageCommand = new RoutedCommand(nameof(ConfirmNotifyMessageCommand), typeof(BubbleMessage));
+
+        public static Geometry GetBubbleMessageIcon(DependencyObject obj) => (Geometry)obj.GetValue(BubbleMessageIconProperty);
+        public static void SetBubbleMessageIcon(DependencyObject obj, Geometry value) => obj.SetValue(BubbleMessageIconProperty, value);
+        public static readonly DependencyProperty BubbleMessageIconProperty =
+            DependencyProperty.RegisterAttached("BubbleMessageIcon", typeof(Geometry), typeof(BubbleMessage), new PropertyMetadata(default(Geometry)));
+
+        public static Brush GetBubbleMessageIconBrush(DependencyObject obj) => (Brush)obj.GetValue(BubbleMessageIconBrushProperty);
+        public static void SetBubbleMessageIconBrush(DependencyObject obj, Brush value) => obj.SetValue(BubbleMessageIconBrushProperty, value);
+        public static readonly DependencyProperty BubbleMessageIconBrushProperty =
+            DependencyProperty.RegisterAttached("BubbleMessageIconBrush", typeof(Brush), typeof(BubbleMessage), new PropertyMetadata(default(Brush)));
 
 
-        static BubbleMessage()
-        {
-            RootScrollViewer = new ScrollViewer();
-            RootBubbleMessagePanel = new StackPanel();
-            RootScrollViewer.Content = RootBubbleMessagePanel;
-            RootScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+        ///// <summary>
+        ///// 设置消息容器
+        ///// </summary>
+        //private static void SetNotifyMessageContainer(UIElement element)
+        //{
+        //    var win = WindowExtension.GetActiveWindow();
+        //    var adorner = VisualTreeHelperExtension.GetVisualDescendants(win).OfType<AdornerDecorator>().FirstOrDefault();
+        //    if (adorner != null)
+        //    {
+        //        var layer = adorner.AdornerLayer;
+        //        if (layer is not null)
+        //        {
+        //            //将AdornerLayer作为元素生成一个新的容器
+        //            var container = new AdornerContainer(adorner.AdornerLayer) { Child = element };
+        //            layer.Add(container);
+        //        }
+        //    }
+        //}
 
-            SetNotifyMessageContainer(RootScrollViewer);
-        }
-
-        protected override void RemoveMessage() => ClosePopupMode(_info.PopupAnimation);
-
-        public void Show(object message)
+        public static void ShowInfo(object message, string tokenParentPanel = default)
         {
             var info = new NotifyMessageInfo
             {
                 Content = message,
-                PopupPosition = NotifyPopupPosition.CenterTop,
-                PopupAnimation = PopupAnimation.Slide,
-                IsShowCloseButton = true,
-                IsAutoClose = true,
-                Duration = 3,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("InfoGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogInfoBrush"),
             };
 
-            Show(info);
+            Show(info, tokenParentPanel);
         }
 
-        public void Show(NotifyMessageInfo info)
+        public static void ShowWarning(object message, string tokenParentPanel = default)
         {
-            _info = info;
-            NotifyMessageBaseControl.Margin = new Thickness(5);
-            NotifyMessageBaseControl.Content = info.Content;
-            SetIsShowCloseButton(NotifyMessageBaseControl, info.IsShowCloseButton);
-            NotifyMessageBaseControl.Style = ResourceHelper.GetResource<Style>("BubbleMessageStyle");
-
-            RootBubbleMessagePanel.Children.Add(NotifyMessageBaseControl);
-            SetPopupPosition(info.PopupPosition);
-            SetPopupMode(info.PopupAnimation);
-            RootScrollViewer.ScrollToEnd();
-        }
-
-        private void SetPopupPosition(NotifyPopupPosition position)
-        {
-            switch (position)
+            var info = new NotifyMessageInfo
             {
-                case NotifyPopupPosition.LeftTop:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Left;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Top;
-                    break;
-                case NotifyPopupPosition.CenterTop:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Center;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Top;
-                    break;
-                case NotifyPopupPosition.RightTop:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Right;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Top;
-                    break;
-                case NotifyPopupPosition.LeftCenter:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Left;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Center;
-                    break;
-                case NotifyPopupPosition.AllCenter:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Center;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Center;
-                    break;
-                case NotifyPopupPosition.RightCenter:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Right;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Center;
-                    break;
-                case NotifyPopupPosition.LeftBottom:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Left;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Bottom;
-                    break;
-                case NotifyPopupPosition.CenterBottom:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Center;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Bottom;
-                    break;
-                case NotifyPopupPosition.RightBottom:
-                    RootScrollViewer.HorizontalAlignment = HorizontalAlignment.Right;
-                    RootScrollViewer.VerticalAlignment = VerticalAlignment.Bottom;
-                    break;
-                default:
-                    break;
-            }
+                Content = message,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("WarningGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogWarningBrush"),
+            };
+
+            Show(info, tokenParentPanel);
         }
 
-        private void SetPopupMode(PopupAnimation mode)
+        public static void ShowError(object message, string tokenParentPanel = default)
+        {
+            var info = new NotifyMessageInfo
+            {
+                Content = message,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("ErrorGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogErrorBrush"),
+            };
+
+            Show(info, tokenParentPanel);
+        }
+
+        public static void ShowFatal(object message, string tokenParentPanel = default)
+        {
+            var info = new NotifyMessageInfo
+            {
+                Content = message,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("FatalGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogFatalBrush"),
+            };
+
+            Show(info, tokenParentPanel);
+        }
+
+        public static void ShowQuestion(object message, Func<bool, bool> actionBeforeClose = null, string tokenParentPanel = default)
+        {
+            var info = new NotifyMessageInfo
+            {
+                Content = message,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("QuestionGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogQuestionBrush"),
+                IsShowCloseButton = false,
+                IsAutoClose = false,
+                ActionBeforeClose = actionBeforeClose,
+            };
+
+            Show(info, tokenParentPanel, true);
+        }
+
+        public static void ShowSuccess(object message, string tokenParentPanel = default)
+        {
+            var info = new NotifyMessageInfo
+            {
+                Content = message,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("SuccessGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogSuccessBrush"),
+            };
+
+            Show(info, tokenParentPanel);
+        }
+
+        public static void Show(NotifyMessageInfo info, string tokenParentPanel = default, bool isShowQuestion = false)
+        {
+            Application.Current.Dispatcher?.Invoke(() =>
+            {
+                var rootMessagePanel = string.IsNullOrEmpty(tokenParentPanel) ? DefaultRootMessagePanel : PanelDictionary[tokenParentPanel];
+                if (rootMessagePanel == null)
+                    throw new ArgumentException($"应设置{IsParentElementProperty}属性的值或设置{ParentElementTokenProperty}属性的值");
+
+                _info = info;
+                var NotifyMessageBaseControl = new ContentControl();
+                NotifyMessageBaseControl.Margin = new Thickness(5);
+                NotifyMessageBaseControl.Content = info.Content;
+                NotifyMessageBaseControl.Style = ResourceHelper.GetResource<Style>("BubbleMessageStyle");
+                SetBubbleMessageIcon(NotifyMessageBaseControl, info.MessageIcon);
+                SetBubbleMessageIconBrush(NotifyMessageBaseControl, info.MessageIconBrush);
+                SetIsShowCloseButton(NotifyMessageBaseControl, info.IsShowCloseButton);
+
+                NotifyMessageBaseControl.Loaded += (s, e) =>
+                {
+                    var buttonGroup = NotifyMessageBaseControl.Template.FindName(ButtonsClose, NotifyMessageBaseControl) as Panel;
+                    if (buttonGroup != null && isShowQuestion)
+                        buttonGroup.Visibility = Visibility.Visible;
+                };
+
+                NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CloseNotifyMessageCommand, (s, e) =>
+                {
+                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                }));
+                NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CancelNotifyMessageCommand, (s, e) =>
+                {
+                    info.ActionBeforeClose?.Invoke(false);
+                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                }));
+                NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(ConfirmNotifyMessageCommand, (s, e) =>
+                {
+                    info.ActionBeforeClose?.Invoke(true);
+                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                }));
+
+                rootMessagePanel.Children.Insert(0, NotifyMessageBaseControl);
+                SetPopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+            });
+        }
+
+
+        private static void SetPopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl NotifyMessageBaseControl)
         {
             switch (mode)
             {
@@ -137,34 +198,34 @@ namespace CookPopularControl.Controls.Notify
                     break;
                 case PopupAnimation.Fade:
                     showPopupAnimation = AnimationHelper.CreateDoubleAnimation(0, 1, AnimationTime);
-                    NotifyMessageBaseControl.BeginBeforeAnimation(() => ShowMessageBeforeAction(), UIElement.OpacityProperty, showPopupAnimation);
+                    NotifyMessageBaseControl.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), UIElement.OpacityProperty, showPopupAnimation);
                     break;
                 case PopupAnimation.Slide:
                     TranslateTransform translate = new TranslateTransform();
                     NotifyMessageBaseControl.RenderTransform = translate;
-                    if (RootScrollViewer.HorizontalAlignment == HorizontalAlignment.Left)
+                    if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Left)
                     {
                         NotifyMessageBaseControl.Loaded += (s, e) =>
                         {
                             showPopupAnimation = AnimationHelper.CreateDoubleAnimation(-NotifyMessageBaseControl.ActualWidth, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(), TranslateTransform.XProperty, showPopupAnimation);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, showPopupAnimation);
                         };
                     }
-                    else if (RootScrollViewer.HorizontalAlignment == HorizontalAlignment.Center || RootScrollViewer.HorizontalAlignment == HorizontalAlignment.Stretch)
+                    else if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Center || rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Stretch)
                     {
-                        if (RootScrollViewer.VerticalAlignment == VerticalAlignment.Top)
+                        if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Top)
                         {
                             showPopupAnimation = AnimationHelper.CreateDoubleAnimation(-NotifyMessageBaseControl.ActualHeight, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(), TranslateTransform.YProperty, showPopupAnimation);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, showPopupAnimation);
                         }
-                        else if (RootScrollViewer.VerticalAlignment == VerticalAlignment.Bottom)
+                        else if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Bottom)
                         {
                             showPopupAnimation = AnimationHelper.CreateDoubleAnimation(NotifyMessageBaseControl.ActualHeight, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(), TranslateTransform.YProperty, showPopupAnimation);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, showPopupAnimation);
                         }
                         else
                         {
-                            SetScaleTransform();
+                            SetScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
                         }
                     }
                     else
@@ -172,29 +233,29 @@ namespace CookPopularControl.Controls.Notify
                         NotifyMessageBaseControl.Loaded += (s, e) =>
                         {
                             showPopupAnimation = AnimationHelper.CreateDoubleAnimation(NotifyMessageBaseControl.ActualWidth, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(), TranslateTransform.XProperty, showPopupAnimation);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, showPopupAnimation);
                         };
                     }
                     break;
                 case PopupAnimation.Scroll:
-                    SetScaleTransform();
+                    SetScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
                     break;
                 default:
                     break;
             }
         }
 
-        private void SetScaleTransform()
+        private static void SetScaleTransform(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
         {
             ScaleTransform scale = new ScaleTransform();
             NotifyMessageBaseControl.RenderTransform = scale;
             NotifyMessageBaseControl.RenderTransformOrigin = new Point(0.5, 0.5);
             showPopupAnimation = AnimationHelper.CreateDoubleAnimation(0, 1, AnimationTime);
-            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(), ScaleTransform.ScaleXProperty, showPopupAnimation);
-            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(), ScaleTransform.ScaleYProperty, showPopupAnimation);
+            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleXProperty, showPopupAnimation);
+            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleYProperty, showPopupAnimation);
         }
 
-        private void ClosePopupMode(PopupAnimation mode)
+        private static void ClosePopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl NotifyMessageBaseControl)
         {
             switch (mode)
             {
@@ -202,78 +263,80 @@ namespace CookPopularControl.Controls.Notify
                     break;
                 case PopupAnimation.Fade:
                     closePopupAnimation = AnimationHelper.CreateDoubleAnimation(1, 0, AnimationTime);
-                    NotifyMessageBaseControl.BeginBeforeAnimation(() => CloseMessageBeforeAction(), UIElement.OpacityProperty, closePopupAnimation);
+                    NotifyMessageBaseControl.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), UIElement.OpacityProperty, closePopupAnimation);
                     break;
                 case PopupAnimation.Slide:
                     TranslateTransform translate = new TranslateTransform();
                     NotifyMessageBaseControl.RenderTransform = translate;
-                    if (RootScrollViewer.HorizontalAlignment == HorizontalAlignment.Left)
+                    if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Left)
                     {
                         closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, -NotifyMessageBaseControl.ActualWidth, AnimationTime);
-                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(), TranslateTransform.XProperty, closePopupAnimation);
+                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, closePopupAnimation);
                     }
-                    else if (RootScrollViewer.HorizontalAlignment == HorizontalAlignment.Center || RootScrollViewer.HorizontalAlignment == HorizontalAlignment.Stretch)
+                    else if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Center || rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Stretch)
                     {
-                        if (RootScrollViewer.VerticalAlignment == VerticalAlignment.Top)
+                        if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Top)
                         {
                             closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, -NotifyMessageBaseControl.ActualHeight, AnimationTime);
-                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(), TranslateTransform.YProperty, closePopupAnimation);
+                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, closePopupAnimation);
                         }
-                        else if (RootScrollViewer.VerticalAlignment == VerticalAlignment.Bottom)
+                        else if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Bottom)
                         {
                             closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, NotifyMessageBaseControl.ActualHeight, AnimationTime);
-                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(), TranslateTransform.YProperty, closePopupAnimation);
+                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, closePopupAnimation);
                         }
                         else
                         {
-                            CloseScaleTransform();
+                            CloseScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
                         }
                     }
                     else
                     {
                         closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, NotifyMessageBaseControl.ActualWidth, AnimationTime);
-                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(), TranslateTransform.XProperty, closePopupAnimation);
+                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, closePopupAnimation);
                     }
                     break;
                 case PopupAnimation.Scroll:
-                    CloseScaleTransform();
+                    CloseScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
                     break;
                 default:
                     break;
             }
         }
 
-        private void CloseScaleTransform()
+        private static void CloseScaleTransform(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
         {
             ScaleTransform scale = new ScaleTransform();
             NotifyMessageBaseControl.RenderTransform = scale;
             NotifyMessageBaseControl.RenderTransformOrigin = new Point(0.5, 0.5);
             closePopupAnimation = AnimationHelper.CreateDoubleAnimation(1, 0, AnimationTime);
-            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(), ScaleTransform.ScaleXProperty, closePopupAnimation);
-            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(), ScaleTransform.ScaleYProperty, closePopupAnimation);
+            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleXProperty, closePopupAnimation);
+            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleYProperty, closePopupAnimation);
         }
 
-        private void ShowMessageBeforeAction()
+        private static void ShowMessageBeforeAction(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
         {
             showPopupAnimation!.Completed += (s, e) =>
             {
                 if (_info.IsAutoClose)
                 {
-                    CloseMessageTimer = IntervalMultiSeconds(CloseMessageTimer, _info.Duration, () => 
+                    DispatcherTimer? CloseMessageTimer = null;
+                    CloseMessageTimer = IntervalMultiSeconds(ref CloseMessageTimer, _info.Duration, () =>
                     {
-                        ClosePopupMode(_info.PopupAnimation); 
+                        ClosePopupMode(rootMessagePanel, _info.PopupAnimation, NotifyMessageBaseControl);
                         CloseMessageTimer.Stop();
+                        CloseMessageTimer = null;
                     });
                     CloseMessageTimer.Start();
                 }
             };
         }
 
-        private void CloseMessageBeforeAction()
-        {          
+        private static void CloseMessageBeforeAction(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
+        {
             closePopupAnimation.Completed += (s, e) =>
             {
-                RootBubbleMessagePanel.Children.Remove(NotifyMessageBaseControl);
+                rootMessagePanel.Children.Remove(NotifyMessageBaseControl);
             };
         }
     }

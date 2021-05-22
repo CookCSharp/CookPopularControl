@@ -9,8 +9,7 @@
              mc:Ignorable="d" x:Name="NotifyIcon"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <pc:SimpleGrid>
-
+    <pc:SimpleGrid Width="800">
         <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center">
             <pc:TaskbarIcon x:Name="DefaultNotifyIcon" Visibility="Collapsed"
                         IsStartTaskbarFlash="True"
@@ -50,9 +49,19 @@
             </StackPanel>
 
             <WrapPanel>
-                <Button Content="OpenBubbleMessage" Width="150" Height="35" Click="OpenBubbleMessage_Click"/>
+                <Button x:Name="ShowInfoBubbleMessage" Content="ShowInfoBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click"/>
+                <Button x:Name="ShowWarningBubbleMessage"  Content="ShowWarningBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click" Margin="10,0"/>
+                <Button x:Name="ShowErrorBubbleMessage"  Content="ShowErrorBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click"/>
+                <Button x:Name="ShowFatalBubbleMessage"  Content="ShowFatalBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click" Margin="0,10"/>
+                <Button x:Name="ShowQuestionBubbleMessage"  Content="ShowQuestionBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click" Margin="10,0"/>
+                <Button x:Name="ShowSuccessBubbleMessage"  Content="ShowSuccessBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click"/>
             </WrapPanel>
+            <Button Content="OpenNewWindow" Width="200" Height="35" Click="OpenNewWindow_Click"/>
         </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,10">
+            <StackPanel pc:NotifyMessageBase.IsParentElement="True"/>
+        </ScrollViewer>
 
         <!--<pc:BubbleMessage x:Name="bubbleMessage" Content="写代码的厨子" Duration="3" IsShowClose="True"
                           PopupMode="Scroll" PopupPosition="CenterBottom" Visibility="Visible"/>-->

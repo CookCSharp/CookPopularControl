@@ -291,6 +291,16 @@
             消息内容
             </summary>
         </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.MessageIcon">
+            <summary>
+            消息图标
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.MessageIconBrush">
+            <summary>
+            消息图标颜色
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.PopupPosition">
             <summary>
             消息通知的弹出位置
@@ -316,6 +326,11 @@
             消息持续时间
             </summary>
             <remarks>单位:s</remarks>
+        </member>
+        <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.ActionBeforeClose">
+            <summary>
+            消息关闭前触发的方法
+            </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Helpers.PasswordBoxHelper">
             <summary>
@@ -1339,23 +1354,16 @@
             气泡消息
             </summary>
             <remarks>
-            <see cref="T:CookPopularControl.Communal.Data.Enum.NotifyPopupPosition"/>提供9个位置方向;
-            <see cref="T:System.Windows.Controls.Primitives.PopupAnimation"/>提供4中动画效果
+            注意:
+            当<see cref="T:System.Windows.Controls.Primitives.PopupAnimation"/>的值为<see cref="F:System.Windows.Controls.Primitives.PopupAnimation.Slide"/>时,
+            消息容器的水平和垂直方向如果都是Center或Stretch,
+            将直接决定动画为<see cref="F:System.Windows.Controls.Primitives.PopupAnimation.Scroll"/>，
+            另外<see cref="T:System.Windows.Controls.Primitives.PopupAnimation"/>提供4中动画效果
             </remarks> 
         </member>
         <member name="T:CookPopularControl.Controls.Notify.NotifyMessageBase">
             <summary>
             消息通知的基类
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Controls.Notify.NotifyMessageBase.SetNotifyMessageContainer(System.Windows.UIElement)">
-            <summary>
-            设置消息容器
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Controls.Notify.NotifyMessageBase.RemoveMessage">
-            <summary>
-            移除消息
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Notify.PopupMessage">

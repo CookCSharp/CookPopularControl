@@ -24,42 +24,56 @@
     </ContextMenu>
 
     <Style x:Key="BubbleMessageStyle" TargetType="{x:Type ContentControl}">
-        <Setter Property="MinWidth" Value="200" />
-        <Setter Property="Height" Value="35" />
+        <Setter Property="Width" Value="300" />
+        <Setter Property="MinHeight" Value="60" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="5" />
+        <Setter Property="Effect" Value="{DynamicResource NotifyMessageShadowEffect}" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContentControl}">
                     <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}" SnapsToDevicePixels="True">
-                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}" Effect="{TemplateBinding Effect}"
-                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
-                            <Grid Margin="{TemplateBinding Padding}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="30" x:Name="closeWidth"/>
-                                </Grid.ColumnDefinitions>
-                                <ContentPresenter Grid.Column="0" ContentSource="Content"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                <Button x:Name="CloseButton" Grid.Column="1"
-                                        Foreground="{TemplateBinding Foreground}"
-                                        Command="{x:Static notify:NotifyMessageBase.CloseNotifyMessageCommand}"
-                                        attached:FrameworkElementBaseAttached.IconWidth="14"
-                                        attached:FrameworkElementBaseAttached.IconHeight="14"
-                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"/>
-                            </Grid>
-                        </Border>
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="50" x:Name="closeWidth"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{TemplateBinding Effect}" Background="{TemplateBinding Background}" 
+                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"/>
+                            <Path Grid.Column="0" Grid.RowSpan="2" Width="24" Height="24" 
+                                  Data="{TemplateBinding notify:BubbleMessage.BubbleMessageIcon}" Stretch="Uniform" 
+                                  Fill="{TemplateBinding notify:BubbleMessage.BubbleMessageIconBrush}"/>
+                            <ContentPresenter Grid.Column="1" ContentSource="Content"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Button x:Name="CloseButton" Grid.Column="2"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
+                                    Command="{x:Static notify:NotifyMessageBase.CloseNotifyMessageCommand}"
+                                    attached:FrameworkElementBaseAttached.IconWidth="14"
+                                    attached:FrameworkElementBaseAttached.IconHeight="14"
+                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"/>
+                            <UniformGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Columns="2" x:Name="PART_ButtonsClose" Height="20" Visibility="Collapsed">
+                                <Button Content="取消" Foreground="Red" Command="{x:Static notify:BubbleMessage.CancelNotifyMessageCommand}"
+                                        Style="{DynamicResource ButtonTransparentStyle}" HorizontalAlignment="Stretch" />
+                                <Button Content="确定" Foreground="Red" Command="{x:Static notify:BubbleMessage.ConfirmNotifyMessageCommand}" 
+                                        Style="{DynamicResource ButtonTransparentStyle}" HorizontalAlignment="Stretch" />
+                            </UniformGrid>
+                        </Grid>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=(notify:NotifyMessageBase.IsShowCloseButton)}" Value="False">

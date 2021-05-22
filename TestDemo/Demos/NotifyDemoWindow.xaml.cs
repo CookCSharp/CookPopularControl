@@ -1,9 +1,4 @@
-﻿using CookPopularControl.Controls.CheckBox;
-using CookPopularControl.Controls.Notify;
-using CookPopularControl.Controls.Windows;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Helpers;
-using Hardcodet.Wpf.TaskbarNotification;
+﻿using CookPopularControl.Controls.Notify;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,51 +11,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TestDemo.Demos
 {
     /// <summary>
-    /// NotifyIconDemo.xaml 的交互逻辑
+    /// NotifyDemoWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class NotifyDemo : UserControl
+    public partial class NotifyDemoWindow : Window
     {
-        public NotifyDemo()
+        public NotifyDemoWindow()
         {
             InitializeComponent();
-
-            this.DataContext = this;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //var switchCtl = sender as SwitchControl;
-            //if (switchCtl.IsChecked.Value)
-            //    DefaultNotifyIcon.IsStartTaskbarFlash = true;
-            //else
-            //    DefaultNotifyIcon.IsStartTaskbarFlash = false;
-
-            var switchCtl = sender as SwitchControl;
-            if (switchCtl.IsChecked.Value)
-                DefaultNotifyIcon.Visibility = Visibility.Visible;
-            else
-                DefaultNotifyIcon.Visibility = Visibility.Collapsed;
-
-            (Window.GetWindow(this) as MainWindow).IsOpenNotifyIconSwitch = switchCtl.IsChecked.Value;
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            var switchCtl = sender as SwitchControl;
-            if (switchCtl.IsChecked.Value)
-                DefaultNotifyIcon.IsStartTaskbarIconFlash = true;
-            else
-                DefaultNotifyIcon.IsStartTaskbarIconFlash = false;
         }
 
         private int bubbleMessageIndex = 1;
-        private const string token = null;
+        private const string token = "NewPanel";
         private void OpenBubbleMessage_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
@@ -79,7 +45,7 @@ namespace TestDemo.Demos
                     BubbleMessage.ShowFatal($"写代码的厨子_{bubbleMessageIndex++}", token);
                     break;
                 case "ShowQuestionBubbleMessage":
-                    BubbleMessage.ShowQuestion($"写代码的厨子_{bubbleMessageIndex++}", isSure =>
+                    BubbleMessage.ShowQuestion($"写代码的厨子_{bubbleMessageIndex++}",isSure =>
                     {
                         //MessageDialog.ShowInfo($"Clicked the {isSure.ToString()}");
                         BubbleMessage.ShowInfo($"Clicked the {isSure}");
@@ -92,11 +58,6 @@ namespace TestDemo.Demos
                 default:
                     break;
             }
-        }
-
-        private void OpenNewWindow_Click(object sender, RoutedEventArgs e)
-        {
-            new NotifyDemoWindow().Show();
         }
     }
 }
