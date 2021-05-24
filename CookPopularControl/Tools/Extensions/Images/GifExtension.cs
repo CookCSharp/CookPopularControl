@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-26 17:35:04
  */
-namespace CookPopularControl.Tools.Extensions
+namespace CookPopularControl.Tools.Extensions.Images
 {
     /// <summary>
     /// 提供Gif创建的扩展方法

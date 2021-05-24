@@ -29,7 +29,7 @@ namespace CookPopularControl.Controls.Windows
     /// </summary>
     /// <remarks>模态的</remarks>
     [TemplatePart(Name = ButtonsPanel, Type = typeof(Panel))]
-    public class MessageDialog : ChromeWindow
+    public class MessageDialog : NormalWindow
     {
         private const string ButtonsPanel = "PART_Panel";
 
@@ -295,7 +295,7 @@ namespace CookPopularControl.Controls.Windows
                 Owner = ownerWindow,
                 Message = messageBoxText,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                Title = caption,
+                Title = caption ?? string.Empty,
                 currentMessageBoxResult = result,
                 Topmost = hasWindow,
             };
@@ -331,7 +331,7 @@ namespace CookPopularControl.Controls.Windows
                         Content = "取消(_C)",
                         Command = CancelCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogUnSelectedButtonStyle"),
-                    };                 
+                    };
                     listButton.Add(btn_OK_2);
                     listButton.Add(btn_Cancel_1);
                     //CurrentMessageDialog.InputBindings.Add(new KeyBinding(ConfirmCommand, Key.Y, ModifierKeys.Control));
@@ -351,7 +351,7 @@ namespace CookPopularControl.Controls.Windows
                         Content = "否(_N)",
                         Command = NoCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogUnSelectedButtonStyle"),
-                    };                  
+                    };
                     listButton.Add(btn_Yes_1);
                     listButton.Add(btn_No_1);
                     //CurrentMessageDialog.InputBindings.Add(new KeyBinding(YesCommand, Key.Y, ModifierKeys.Control));

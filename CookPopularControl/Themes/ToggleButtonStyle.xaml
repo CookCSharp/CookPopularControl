@@ -33,6 +33,19 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <ControlTemplate.Resources>
+                        <SineEase x:Key="EasingFunction" EasingMode="EaseInOut"/>
+                        <Storyboard x:Key="CheckedStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="RotateAngle" Storyboard.TargetProperty="Angle"
+                                             EasingFunction="{StaticResource EasingFunction}"
+                                             From="180" To="0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                        <Storyboard x:Key="UnCheckedStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="RotateAngle" Storyboard.TargetProperty="Angle"
+                                             EasingFunction="{StaticResource EasingFunction}"
+                                             From="0" To="180" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
                     <simpleGrid:SimpleGrid>
                         <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                             <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
@@ -47,11 +60,16 @@
                                           Data="{TemplateBinding assistant:ToggleButtonAssistant.UnCheckedGeometry}"
                                           Fill="{TemplateBinding Foreground}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <RotateTransform Angle="0" x:Name="RotateAngle"/>
+                                        </Path.RenderTransform>
+                                    </Path>
                                     <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
-                                                  RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                  Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
+                                                      RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                      Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                                 </DockPanel>
                             </Border>
                         </AdornerDecorator>
@@ -76,6 +94,18 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ToggleButtonAssistant.OnCheckedGeometry)}" TargetName="PART_Icon"/>
                         </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="assistant:ToggleButtonAssistant.IsAddCheckedAnimation" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource CheckedStoryboard}"/>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource UnCheckedStoryboard}"/>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

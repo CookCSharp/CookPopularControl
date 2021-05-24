@@ -928,19 +928,24 @@
             <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty"/>标识是否全部填充
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty"/>表示选中时的图标
-            </summary>
-        </member>
         <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.UnCheckedGeometryProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示未选中时的图标
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty"/>表示选中时的图标
+            </summary>
+        </member>
         <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示翻转的Content
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.IsAddCheckedAnimationProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示点击时是否增加动画
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.CarouselView.CarouselView">
@@ -1955,64 +1960,9 @@
             提供<see cref="T:System.Windows.Controls.ToolTip"/>的背景色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.ChromeWindow">
-            <summary>
-            标准窗口<see cref="T:CookPopularControl.Controls.Windows.ChromeWindow"/>
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IsFullScreen">
-            <summary>
-            是否全屏
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IsFullScreenProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IsFullScreen"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IsShowSideBar">
-            <summary>
-            是否显示侧边栏
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IsShowSideBarProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IsShowSideBar"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IconWidth">
-            <summary>
-            最小化、最大化、关闭操作按钮的宽度
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IconWidthProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IconWidth"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.IconHeight">
-            <summary>
-            最小化、最大化、关闭操作按钮的高度
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Windows.ChromeWindow.IconHeightProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.Windows.ChromeWindow.IconHeight"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.ClientAeroCaptionBarBackground">
-            <summary>
-            窗体标题栏背景色
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.Windows.ChromeWindow.ClientAeroCaptionForeground">
-            <summary>
-            窗体标题栏文字颜色
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindowClient">
             <summary>
-            为 <see cref="T:CookPopularControl.Controls.Windows.ChromeWindow" /> 提供客户端区域。无法继承此类。
+            为 <see cref="!:ChromeWindow" /> 提供客户端区域。无法继承此类。
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.Windows.ChromeWindowClient.#ctor">
@@ -2068,6 +2018,82 @@
             自定义显示信息
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Windows.NormalWindow">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.Windows.NormalWindow"/>表示标准的窗体
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarForeground">
+            <summary>
+            表示标题栏前置颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarForegroundProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarForeground"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarBackground">
+            <summary>
+            表示标题栏背景颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarBackgroundProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarBackground"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarAdditionalContent">
+            <summary>
+            标题栏附加内容
+            </summary>
+            <remarks>除了Window图标和Title以外的其它内容</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarAdditionalContentProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarAdditionalContent"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarHeight">
+            <summary>
+            标题栏高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarHeightProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarHeight"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowTitle">
+            <summary>
+            是否显示窗口标题
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsShowTitleProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowTitle"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowClientTitleBar">
+            <summary>
+            是否显示标题栏
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsShowClientTitleBarProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowClientTitleBar"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreen">
+            <summary>
+            窗口是否全屏
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreenProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreen"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow">
             <summary>
             PrintWindow.xaml 的交互逻辑
@@ -2084,6 +2110,21 @@
         <member name="M:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow.InitializeComponent">
             <summary>
             InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Windows.SideBarWindow">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.Windows.SideBarWindow"/>表示具有侧边栏的窗体
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBar">
+            <summary>
+            是否显示侧边栏
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBar"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
@@ -2136,33 +2177,33 @@
             <param name="fontStretch"></param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Tools.Extensions.GifExtension">
+        <member name="T:CookPopularControl.Tools.Extensions.Images.GifExtension">
             <summary>
             提供Gif创建的扩展方法
             </summary>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromImageFile(System.String,System.String)">
+        <member name="M:CookPopularControl.Tools.Extensions.Images.GifExtension.CreateGifFromImageFile(System.String,System.String)">
             <summary>
             从指定的文件名创建Gif图像
             </summary>
             <param name="fileName">文件名</param>
             <param name="savePath">保存路径</param>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromStream(System.IO.Stream,System.String)">
+        <member name="M:CookPopularControl.Tools.Extensions.Images.GifExtension.CreateGifFromStream(System.IO.Stream,System.String)">
             <summary>
             使用文件流创建gif图像
             </summary>
             <param name="stream">文件流</param>
             <param name="savePath">保存路径</param>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromImageFile(System.IntPtr,System.String)">
+        <member name="M:CookPopularControl.Tools.Extensions.Images.GifExtension.CreateGifFromImageFile(System.IntPtr,System.String)">
             <summary>
             使用句柄创建gif图像
             </summary>
             <param name="hbitmap">句柄</param>
             <param name="savePath">保存路径</param>
         </member>
-        <member name="M:CookPopularControl.Tools.Extensions.GifExtension.CreateGifFromImage(System.Drawing.Image,System.String)">
+        <member name="M:CookPopularControl.Tools.Extensions.Images.GifExtension.CreateGifFromImage(System.Drawing.Image,System.String)">
             <summary>
             创建gif文件
             </summary>
@@ -2264,6 +2305,24 @@
             </summary>
             <param name="hexadecimalString"></param>
             <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.UIElementExtension.Show(System.Windows.UIElement)">
+            <summary>
+            显示元素
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.UIElementExtension.Hide(System.Windows.UIElement)">
+            <summary>
+            不显示元素，但保留空间
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.UIElementExtension.Collapse(System.Windows.UIElement)">
+            <summary>
+            不显示元素，且不保留空间
+            </summary>
+            <param name="element"></param>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.Values.DoubleExtension.AnyNan(System.Collections.Generic.IEnumerable{System.Double})">
             <summary>

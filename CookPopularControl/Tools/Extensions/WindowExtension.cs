@@ -1,13 +1,19 @@
+using CookPopularControl.Tools.Extensions.Values;
+using CookPopularControl.Tools.Helpers;
+using CookPopularControl.Tools.Interop;
 using System;
+using System.Collections;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Threading;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace CookPopularControl.Tools.Extensions
 {
@@ -139,12 +145,58 @@ namespace CookPopularControl.Tools.Extensions
             internal static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
         }
 
+        private static readonly BitArray _cacheValid = new BitArray((int)InteropValues.CacheSlot.NumSlots);
+
+        private static Thickness _windowResizeBorderThickness;
+        public static Thickness WindowResizeBorderThickness
+        {
+            [SecurityCritical]
+            get
+            {
+                lock (_cacheValid)
+                {
+                    while (!_cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness])
+                    {
+                        _cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness] = true;
+
+                        var frameSize = new Size(InteropMethods.GetSystemMetrics(InteropValues.SM.CXSIZEFRAME), InteropMethods.GetSystemMetrics(InteropValues.SM.CYSIZEFRAME));
+                        var frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, Screenshot.GetDpiX() / 96.0, Screenshot.GetDpiY() / 96.0);
+
+                        _windowResizeBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height, frameSizeInDips.Width, frameSizeInDips.Height);
+                    }
+                }
+
+                return _windowResizeBorderThickness;
+            }
+        }
+
+        public static Thickness WindowMaximizedPadding
+        {
+            get
+            {
+                InteropValues.APPBARDATA appBarData = default;
+                var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
+#if NET40
+                return WindowResizeBorderThickness.Add(new Thickness(autoHide ? -8 : 0));
+#elif NETCOREAPP
+                var hdc = InteropMethods.GetDC(IntPtr.Zero);
+                var scale = InteropMethods.GetDeviceCaps(hdc, InteropValues.DESKTOPVERTRES) / (float) InteropMethods.GetDeviceCaps(hdc, InteropValues.VERTRES);
+                InteropMethods.ReleaseDC(IntPtr.Zero, hdc);
+                return WindowResizeBorderThickness.Add(new Thickness((autoHide ? -4 : 4) * scale));
+#else
+                return WindowResizeBorderThickness.Add(new Thickness(autoHide ? -4 : 4));
+#endif
+            }
+        }
+
         private static readonly Func<Window, bool> getDisposedValue = CreateGetFieldValueDelegate<Window, bool>("_disposed");
         private static readonly Func<Window, bool> getIsClosingValue = CreateGetFieldValueDelegate<Window, bool>("_isClosing");
         private static readonly Func<Window, bool> getShowingAsDialogValue = CreateGetFieldValueDelegate<Window, bool>("_showingAsDialog");
         private static readonly Func<Window, bool> getHwndCreatedButNotShownValue = CreateGetFieldValueDelegate<Window, bool>("_hwndCreatedButNotShown");
 
         public static IntPtr EnsureHandle(this Window window) => new WindowInteropHelper(window).EnsureHandle();
+
+        public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.EnsureHandle());
 
         public static void SwitchToThisWindow(this Window window) => NativeMethods.SwitchToThisWindow(window.EnsureHandle(), true);
 

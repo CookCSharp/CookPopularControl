@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookPopularControl.Tools.Boxes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +19,6 @@ namespace CookPopularControl.Controls.Button
 {
     public class ToggleButtonAssistant
     {
-        public static Geometry GetOnCheckedGeometry(DependencyObject obj) => (Geometry)obj.GetValue(OnCheckedGeometryProperty);
-        public static void SetOnCheckedGeometry(DependencyObject obj, Geometry value) => obj.SetValue(OnCheckedGeometryProperty, value);
-        /// <summary>
-        /// <see cref="OnCheckedGeometryProperty"/>表示选中时的图标
-        /// </summary>
-        public static readonly DependencyProperty OnCheckedGeometryProperty =
-            DependencyProperty.RegisterAttached("OnCheckedGeometry", typeof(Geometry), typeof(ToggleButtonAssistant), new PropertyMetadata());
-
-
-
         public static Geometry GetUnCheckedGeometry(DependencyObject obj) => (Geometry)obj.GetValue(UnCheckedGeometryProperty);
         public static void SetUnCheckedGeometry(DependencyObject obj, Geometry value) => obj.SetValue(UnCheckedGeometryProperty, value);
         /// <summary>
@@ -37,6 +28,15 @@ namespace CookPopularControl.Controls.Button
             DependencyProperty.RegisterAttached("UnCheckedGeometry", typeof(Geometry), typeof(ToggleButtonAssistant), new PropertyMetadata());
 
 
+        public static Geometry GetOnCheckedGeometry(DependencyObject obj) => (Geometry)obj.GetValue(OnCheckedGeometryProperty);
+        public static void SetOnCheckedGeometry(DependencyObject obj, Geometry value) => obj.SetValue(OnCheckedGeometryProperty, value);
+        /// <summary>
+        /// <see cref="OnCheckedGeometryProperty"/>表示选中时的图标
+        /// </summary>
+        public static readonly DependencyProperty OnCheckedGeometryProperty =
+            DependencyProperty.RegisterAttached("OnCheckedGeometry", typeof(Geometry), typeof(ToggleButtonAssistant), new PropertyMetadata());
+
+
         public static object GetOnCheckedElement(DependencyObject obj) => (object)obj.GetValue(OnCheckedElementProperty);
         public static void SetOnCheckedElement(DependencyObject obj, object value) => obj.SetValue(OnCheckedElementProperty, value);
         /// <summary>
@@ -44,5 +44,14 @@ namespace CookPopularControl.Controls.Button
         /// </summary>
         public static readonly DependencyProperty OnCheckedElementProperty =
             DependencyProperty.RegisterAttached("OnCheckedElement", typeof(object), typeof(ToggleButtonAssistant), new PropertyMetadata());
+
+
+        public static bool GetIsAddCheckedAnimation(DependencyObject obj) => (bool)obj.GetValue(IsAddCheckedAnimationProperty);
+        public static void SetIsAddCheckedAnimation(DependencyObject obj, bool value) => obj.SetValue(IsAddCheckedAnimationProperty, value);
+        /// <summary>
+        /// <see cref="OnCheckedElementProperty"/>表示点击时是否增加动画
+        /// </summary>
+        public static readonly DependencyProperty IsAddCheckedAnimationProperty =
+            DependencyProperty.RegisterAttached("IsAddCheckedAnimation", typeof(bool), typeof(ToggleButtonAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
     }
 }

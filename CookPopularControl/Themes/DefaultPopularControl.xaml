@@ -19,7 +19,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ChromeWindowStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
@@ -71,12 +71,14 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style x:Key="{x:Type win:ChromeWindow}" TargetType="{x:Type win:ChromeWindow}" BasedOn="{StaticResource DefaultChromeWindowStyle}"/>
+    <Style x:Key="{x:Type win:NormalWindow}" TargetType="{x:Type win:NormalWindow}" BasedOn="{StaticResource DefaultNormalWindowStyle}"/>
+    <Style x:Key="{x:Type win:SideBarWindow}" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource SideBarWindowStyle}"/>
     <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource DefaultMessageDialogStyle}"/>
     <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}"/>
     <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
 
 
+    <Style x:Key="{x:Type ResizeGrip}" TargetType="{x:Type ResizeGrip}" BasedOn="{StaticResource DefaultResizeGripStyle}"/>
     <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}"/>
     <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}"/>
     <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}"/>

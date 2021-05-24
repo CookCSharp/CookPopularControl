@@ -6,13 +6,8 @@
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
     <ResourceDictionary.MergedDictionaries>
-        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>-->
-
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ChromeWindowStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="MessageDialogTextBlockStyle" TargetType="{x:Type TextBlock}">
@@ -35,7 +30,7 @@
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
     </Style>
 
-    <Style x:Key="DefaultMessageDialogStyle" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource DefaultChromeWindowStyle}">
+    <Style x:Key="DefaultMessageDialogStyle" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource DefaultNormalWindowStyle}">
         <Setter Property="MinHeight" Value="172"/>
         <Setter Property="MinWidth" Value="335"/>
         <Setter Property="MaxWidth" Value="476"/>
@@ -54,8 +49,8 @@
                                 <RowDefinition Height="Auto" MinHeight="26"/>
                                 <RowDefinition Height="10"/>
                             </Grid.RowDefinitions>
-                            <panel:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientAeroCaptionBarBackground}" TextElement.Foreground="{TemplateBinding ClientAeroCaptionForeground}">
-                                <TextBlock Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientAeroCaptionForeground}" Style="{StaticResource MessageDialogTextBlockStyle}" 
+                            <panel:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}">
+                                <TextBlock Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientTitleBarForeground}" Style="{StaticResource MessageDialogTextBlockStyle}" 
                                            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0"/>
                                 <Button x:Name="CloseButton" Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
                                         Command="{x:Static SystemCommands.CloseWindowCommand}" ToolTip="关闭" HorizontalAlignment="Right" Cursor="Arrow"/>
