@@ -52,7 +52,7 @@
                             <panel:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}">
                                 <TextBlock Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientTitleBarForeground}" Style="{StaticResource MessageDialogTextBlockStyle}" 
                                            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0"/>
-                                <Button x:Name="CloseButton" Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconStyle}"
+                                <Button x:Name="CloseButton" Content="&#xe600;" FontFamily="{DynamicResource WindowIcons}" Style="{StaticResource WindowIconButtonStyle}"
                                         Command="{x:Static SystemCommands.CloseWindowCommand}" ToolTip="关闭" HorizontalAlignment="Right" Cursor="Arrow"/>
                             </panel:SimpleGrid>
                             <Grid Grid.Row="1" HorizontalAlignment="Center">

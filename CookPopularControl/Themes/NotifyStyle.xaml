@@ -2,7 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:tb="http://www.hardcodet.net/taskbar">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
     <ContextMenu x:Key="NotifyIconContextMenu">
         <MenuItem Header="打开" Command="{x:Static notify:TaskbarIcon.OpenApplicationCommand}">
@@ -85,4 +90,36 @@
         </Setter>
     </Style>
 
+    <Style x:Key="PopupMessageStyle" TargetType="{x:Type notify:PopupMessage}">
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="ShowActivated" Value="False" />
+        <Setter Property="ShowInTaskbar" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Effect" Value="{DynamicResource NotifyMessageShadowEffect}" />
+        <Setter Property="attached:WindowAttach.ShowInTaskManager" Value="False" />
+        <Setter Property="attached:WindowAttach.IgnoreAltF4" Value="True" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type notify:PopupMessage}">
+                    <Border SnapsToDevicePixels="True" Margin="5" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                        <panel:SimpleGrid>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                    Width="30" Height="30" Style="{DynamicResource ButtonNoMouseOverTransparentIconStyle}"
+                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                    attached:FrameworkElementBaseAttached.IconWidth="16"
+                                    attached:FrameworkElementBaseAttached.IconHeight="16"
+                                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5"/>
+                        </panel:SimpleGrid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>

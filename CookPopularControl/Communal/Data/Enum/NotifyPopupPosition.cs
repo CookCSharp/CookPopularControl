@@ -18,7 +18,7 @@ namespace CookPopularControl.Communal.Data.Enum
     /// 通知消息的弹出位置
     /// 由两部分组成，水平+垂直
     /// </summary>
-    public enum NotifyPopupPosition
+    public enum PopupPosition
     {
         LeftTop,
         CenterTop,
@@ -29,5 +29,18 @@ namespace CookPopularControl.Communal.Data.Enum
         LeftBottom,
         CenterBottom,
         RightBottom
+    }
+
+    /// <summary>
+    /// 通知消息的弹出动画
+    /// </summary>
+    public enum PopupAnimationX
+    {
+        None,
+        Fade,
+        HorizontalSlide,
+        VerticalSlide,
+        HorizontalVerticalSlide,
+        Scroll,
     }
 }

@@ -41,6 +41,18 @@ namespace CookPopularControl.Controls.Notify
 
         public TaskbarIcon()
         {
+            foreach (Window win in Application.Current.Windows)
+            {
+                win.Loaded += (s, e) => PrepareWindows.Remove(win);
+                win.Closing += (s, e) =>
+                {
+                    e.Cancel = true;
+                    win.Hide();
+                    if (!PrepareWindows.Contains(win))
+                        PrepareWindows.Add(win);
+                };
+            }
+
             this.Loaded += (s, e) =>
             {
                 BitmapImage tranparentIcon = new BitmapImage(new Uri("pack://application:,,,/CookPopularControl;component/Resources/Images/CookCSharpTransparent.ico", UriKind.Absolute));
@@ -54,19 +66,11 @@ namespace CookPopularControl.Controls.Notify
                     else
                         IconSource = originalIcon;
                 };
-            };
 
-            foreach (Window win in Application.Current.Windows)
-            {
-                win.Loaded += (s, e) => PrepareWindows.Remove(win);
-                win.Closing += (s, e) =>
-                {
-                    e.Cancel = true;
-                    win.Hide();
-                    if (!PrepareWindows.Contains(win))
-                        PrepareWindows.Add(win);
-                };
-            }
+                var firstWin = Window.GetWindow(this);
+                if(firstWin != null)
+                    PrepareWindows.Add(firstWin);
+            };
         }
 
         static TaskbarIcon()
@@ -84,8 +88,9 @@ namespace CookPopularControl.Controls.Notify
                 if (PrepareWindows.Count < 1) return;
                 //设置主窗口为应用程序关闭的最后一个窗口
                 Application.Current.MainWindow = PrepareWindows[PrepareWindows.Count - 1];
-                Application.Current.MainWindow?.Show();
                 Application.Current.MainWindow?.Activate();
+                Application.Current.MainWindow?.Show();
+                Application.Current.MainWindow?.SwitchToThisWindow();
             }
             else if (e.Command == HideApplicationCommand)
             {

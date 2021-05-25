@@ -126,6 +126,7 @@
     <Style x:Key="{x:Type star:Star}" TargetType="{x:Type star:Star}" BasedOn="{StaticResource DefaultStarStyle}"/>
     <Style x:Key="{x:Type label:GroupLabel}" TargetType="{x:Type label:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}"/>
     <Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>
+    <Style x:Key="{x:Type notify:PopupMessage}" TargetType="{x:Type notify:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}"/>
 
 
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}"/>

@@ -43,10 +43,12 @@
     <Color x:Key="BlockColor">#554A4A4A</Color>
     <Color x:Key="UnEnabledColor">#D3D3D3</Color>
     <Color x:Key="DefaultBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="AssistantBackgroundColoc">#E8E9EA</Color>
     <SolidColorBrush x:Key="BlockBrush" Color="{StaticResource BlockColor}"/>
     <SolidColorBrush x:Key="UnEnabledBrush" Color="{StaticResource UnEnabledColor}"/>
     <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="{StaticResource DefaultBackgroundColor}"/>
-    
+    <SolidColorBrush x:Key="AssistantBackgroundBrush" Color="{StaticResource AssistantBackgroundColoc}"/>
+
     <LinearGradientBrush x:Key="LinearTheme" StartPoint="0,0" EndPoint="1,1">
         <GradientStopCollection>
             <GradientStop Offset="0" Color="#F2F4F6"/>

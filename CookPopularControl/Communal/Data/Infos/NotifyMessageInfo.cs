@@ -40,7 +40,7 @@ namespace CookPopularControl.Communal.Data.Infos
         /// <summary>
         /// 消息通知的弹出位置
         /// </summary>
-        public NotifyPopupPosition PopupPosition { get; set; }
+        public PopupPosition PopupPosition { get; set; }
 
         /// <summary>
         /// 消息在打开时如何显示动画

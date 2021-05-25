@@ -13,59 +13,44 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultResizeGripStyle" TargetType="ResizeGrip">
-        <Setter Property="MinWidth" Value="10"/>
-        <Setter Property="MinHeight" Value="10"/>
-        <Setter Property="Width" Value="10"/>
-        <Setter Property="Height" Value="10"/>
+        <Setter Property="Width" Value="8"/>
+        <Setter Property="Height" Value="8"/>
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window},Path=Foreground}" />
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ResizeGrip">
                     <panel:SimpleGrid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                        <Path Width="10" Height="10" Data="M 9,0 L 11,0 L 11,11 L 0,11 L 0,9 L 3,9 L 3,6 L 6,6 L 6,3 L 9,3 z" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                            <Path.Fill>
-                                <DrawingBrush TileMode="Tile" Viewbox="0,0,3,3" Viewport="0,0,3,3" ViewportUnits="Absolute" ViewboxUnits="Absolute">
-                                    <DrawingBrush.Drawing>
-                                        <DrawingGroup>
-                                            <GeometryDrawing Brush="Red">
-                                                <GeometryDrawing.Geometry>
-                                                    <RectangleGeometry Rect="0,0,2,2"/>
-                                                </GeometryDrawing.Geometry>
-                                            </GeometryDrawing>
-                                        </DrawingGroup>
-                                    </DrawingBrush.Drawing>
-                                </DrawingBrush>
-                            </Path.Fill>
-                        </Path>
+                        <Path Width="10" Height="10" Data="{DynamicResource ResizeGripGeometry}" 
+                              Fill="{TemplateBinding Foreground}" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </panel:SimpleGrid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!--Icon<—☐✕>-->
-    <Style x:Key="WindowIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonIconStyle}">
+    <Style x:Key="WindowIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentIconStyle}">
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarHeight,Converter={toolConverters:ValueTranslateConverter},ConverterParameter=1.5}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarHeight}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="10" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="10" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarForeground}" />
-        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Style x:Key="WindowIconToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarHeight,Converter={toolConverters:ValueTranslateConverter},ConverterParameter=1.5}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarHeight}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="14" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="14" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarForeground}" />
+        <Setter Property="Background" Value="Transparent" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
             </Trigger>
         </Style.Triggers>
-    </Style>
-
-    <Style x:Key="WindowIconToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleTransparentIconStyle}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarHeight,Converter={toolConverters:ValueTranslateConverter},ConverterParameter=1.5}" />
-        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarHeight}" />
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow},Path=ClientTitleBarForeground}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="14" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="14" />
     </Style>
 
     <Style x:Key="DefaultNormalWindowStyle" TargetType="{x:Type win:NormalWindow}">
@@ -189,13 +174,13 @@
                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=ClientTitleBarHeight}"/>
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <Grid WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <Grid Background="{DynamicResource AssistantBackgroundBrush}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition />
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                        <StackPanel Grid.Column="0" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
                                             <ToggleButton Command="{x:Static win:SideBarWindow.SidebarPopupCommand}" ToolTip="功能" 
                                                           IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsShowSideBar,Mode=TwoWay}"
                                                           btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
@@ -204,10 +189,12 @@
                                                           Style="{StaticResource WindowIconToggleButtonStyle}"/>
                                             <Button Command="{x:Static win:SideBarWindow.SettingCommand}" ToolTip="设置" 
                                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SettingGeometry}"
+                                                    attached:FrameworkElementBaseAttached.IconWidth="14"
+                                                    attached:FrameworkElementBaseAttached.IconHeight="14"
                                                     Style="{StaticResource WindowIconButtonStyle}"/>
                                         </StackPanel>
                                         <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientTitleBarForeground}" FontSize="14" IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True" >
                                             <Button x:Name="MinimizedButton" Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="最小化"
                                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
                                                     Style="{StaticResource WindowIconButtonStyle}"/>
@@ -262,5 +249,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

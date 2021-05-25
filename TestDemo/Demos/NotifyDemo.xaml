@@ -12,35 +12,35 @@
     <pc:SimpleGrid Width="800">
         <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center">
             <pc:TaskbarIcon x:Name="DefaultNotifyIcon" Visibility="Collapsed"
-                        IsStartTaskbarFlash="True"
-                        ToolTipText="CookPopularControl" 
-                        IconSource="../Resources/Gif/CookCSharp.ico"
-                        ContextMenu="{StaticResource NotifyIconContextMenu}"
-                        MenuActivation="RightClick"
-                        LeftClickCommand="{x:Static pc:TaskbarIcon.OpenApplicationCommand}"
-                        PopupActivation="DoubleClick">
+                            IsStartTaskbarFlash="True"
+                            ToolTipText="CookPopularControl" 
+                            IconSource="../Resources/Gif/CookCSharp.ico"
+                            ContextMenu="{StaticResource NotifyIconContextMenu}"
+                            MenuActivation="RightClick"                          
+                            LeftClickCommand="{x:Static pc:TaskbarIcon.OpenApplicationCommand}"
+                            PopupActivation="DoubleClick">
                 <pc:TaskbarIcon.TrayPopup>
                     <Border Width="300" Height="100" Background="DodgerBlue">
                         <TextBlock Text="Welcome To CookPopularControl" FontSize="18" FontWeight="DemiBold" Foreground="White"
-                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </pc:TaskbarIcon.TrayPopup>
                 <pc:TaskbarIcon.TrayToolTip>
                     <Border Background="Red">
                         <TextBlock Text="CookPopularControl" FontSize="18" FontWeight="DemiBold" Foreground="White"
-                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </pc:TaskbarIcon.TrayToolTip>
             </pc:TaskbarIcon>
 
-            <StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="开启系统托盘菜单" VerticalAlignment="Center" Foreground="Red" FontSize="16" FontWeight="DemiBold"/>
                     <pc:SwitchControl Width="100" Height="35" Margin="10,0"
                                   Background="Red" SwicthCloseBackground="LightBlue"
                                   Click="Button_Click_1" Style="{StaticResource DefaultSwitchControlStyle}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,20">
+                <StackPanel Orientation="Horizontal" Margin="20">
                     <TextBlock Text="开启系统托盘菜单闪烁" VerticalAlignment="Center" Foreground="Red" FontSize="16" FontWeight="DemiBold"/>
                     <pc:SwitchControl Width="100" Height="35" Margin="10,0"
                                   Background="Red" SwicthCloseBackground="LightBlue"
@@ -56,15 +56,22 @@
                 <Button x:Name="ShowQuestionBubbleMessage"  Content="ShowQuestionBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click" Margin="10,0"/>
                 <Button x:Name="ShowSuccessBubbleMessage"  Content="ShowSuccessBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click"/>
             </WrapPanel>
-            <Button Content="OpenNewWindow" Width="200" Height="35" Click="OpenNewWindow_Click"/>
+            <Button Content="OpenBubbleMessageNewWindow" Width="220" Height="35" Click="OpenNewWindow_Click"/>
+
+            <WrapPanel HorizontalAlignment="Center" Margin="0,30">
+                <Button x:Name="OpenPopupMessageNone" Content="OpenPopupMessageNone" Width="220" Height="35" Click="OpenPopupMessage_Click"/>
+                <Button x:Name="OpenPopupMessageFade" Content="OpenPopupMessageFade" Width="220" Height="35" Click="OpenPopupMessage_Click" Margin="10,0"/>
+                <Button x:Name="OpenPopupMessageHorizontalSlide" Content="OpenPopupMessageHorizontalSlide" Width="220" Height="35" Click="OpenPopupMessage_Click"/>
+                <Button x:Name="OpenPopupMessageVerticalSlide" Content="OpenPopupMessageVerticalSlide" Width="220" Height="35" Click="OpenPopupMessage_Click" Margin="0,10"/>
+                <Button x:Name="OpenPopupMessageHVSlide" Content="OpenPopupMessageHVSlide" Width="220" Height="35" Click="OpenPopupMessage_Click" Margin="10,0"/>
+                <Button x:Name="OpenPopupMessageScroll" Content="OpenPopupMessageScroll" Width="220" Height="35" Click="OpenPopupMessage_Click"/>
+            </WrapPanel>
         </StackPanel>
 
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,10">
             <StackPanel pc:NotifyMessageBase.IsParentElement="True"/>
         </ScrollViewer>
 
-        <!--<pc:BubbleMessage x:Name="bubbleMessage" Content="写代码的厨子" Duration="3" IsShowClose="True"
-                          PopupMode="Scroll" PopupPosition="CenterBottom" Visibility="Visible"/>-->
     </pc:SimpleGrid>
 
 </UserControl>

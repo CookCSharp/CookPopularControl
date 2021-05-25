@@ -29,6 +29,16 @@
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
 
+    <Style x:Key="ToggleButtonNoMouseOverTransparentIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonIconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="ToggleButtonDoubbleIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonIconStyle}">
         <Setter Property="Template">
             <Setter.Value>
@@ -48,7 +58,7 @@
                     </ControlTemplate.Resources>
                     <simpleGrid:SimpleGrid>
                         <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
-                            <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            <Border x:Name="RootBorder" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                     Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                     Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
@@ -106,6 +116,18 @@
                                 <BeginStoryboard Storyboard="{StaticResource UnCheckedStoryboard}"/>
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="RootBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="RootBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

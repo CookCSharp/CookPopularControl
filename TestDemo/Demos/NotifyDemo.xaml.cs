@@ -1,4 +1,5 @@
-﻿using CookPopularControl.Controls.CheckBox;
+﻿using CookPopularControl.Communal.Data.Enum;
+using CookPopularControl.Controls.CheckBox;
 using CookPopularControl.Controls.Notify;
 using CookPopularControl.Controls.Windows;
 using CookPopularControl.Tools.Extensions;
@@ -97,6 +98,34 @@ namespace TestDemo.Demos
         private void OpenNewWindow_Click(object sender, RoutedEventArgs e)
         {
             new NotifyDemoWindow().Show();
+        }
+
+        private void OpenPopupMessage_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            switch (btn.Name)
+            {
+                case "OpenPopupMessageNone":
+                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.None);
+                    break;
+                case "OpenPopupMessageFade":
+                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.Fade);
+                    break;
+                case "OpenPopupMessageHorizontalSlide":
+                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.HorizontalSlide);
+                    break;
+                case "OpenPopupMessageVerticalSlide":
+                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.VerticalSlide);
+                    break;
+                case "OpenPopupMessageHVSlide":
+                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.HorizontalVerticalSlide);
+                    break;
+                case "OpenPopupMessageScroll":
+                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.Scroll);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
