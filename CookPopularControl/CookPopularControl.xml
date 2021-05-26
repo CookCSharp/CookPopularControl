@@ -1349,6 +1349,16 @@
             </summary>
             <remarks>子项布局采用<see cref="T:CookPopularControl.Controls.Panels.ArcPanel"/></remarks>
         </member>
+        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.IsShowMenu">
+            <summary>
+            是否显示菜单
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsShowMenuProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsShowMenu"/>的依赖属性
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Controls.Menus.CircleMenu.Radius">
             <summary>
             弧形半径
@@ -1383,12 +1393,26 @@
             <summary>
             弹出菜单
             </summary>
-            <remarks>子项布局采用<see cref="T:System.Windows.Controls.StackPanel"/></remarks>
+            <remarks>
+            子项布局采用<see cref="T:System.Windows.Controls.StackPanel"/>;
+            建议菜单子项属性设置Width=50，Height=50，可以保证对齐
+            </remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Menus.PopupMenu.IsShowMenu">
+            <summary>
+            是否显示菜单
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.PopupMenu.IsShowMenuProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Menus.PopupMenu.IsShowMenu"/>的依赖属性
+            </summary>
         </member>
         <member name="P:CookPopularControl.Controls.Menus.PopupMenu.PopupPosition">
             <summary>
             弹出方向
             </summary>
+            <remarks>共9个方向，详细看<see cref="T:CookPopularControl.Communal.Data.Enum.PopupPosition"/></remarks>
         </member>
         <member name="F:CookPopularControl.Controls.Menus.PopupMenu.PopupPositionProperty">
             <summary>
@@ -1399,6 +1423,7 @@
             <summary>
             弹出动画
             </summary>
+            <remarks>共4中动画</remarks>
         </member>
         <member name="F:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimationProperty">
             <summary>
@@ -3251,36 +3276,6 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

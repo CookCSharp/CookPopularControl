@@ -23,7 +23,7 @@ namespace CookPopularControl.Controls.Panels
     /// </summary>
     public class ArcPanel : Panel
     {
-        private static readonly object FullCircleAngle = 360.0;
+        public static readonly object FullCircleAngle = 360.0;
 
         /// <summary>
         /// 弧形的角度
@@ -78,7 +78,7 @@ namespace CookPopularControl.Controls.Panels
         /// <summary>
         /// 提供<see cref="IsItemRotate"/>的依赖属性
         /// </summary>
-        public static readonly DependencyProperty IsItemRotateProperty = 
+        public static readonly DependencyProperty IsItemRotateProperty =
             DependencyProperty.Register("IsItemRotate", typeof(bool), typeof(ArcPanel), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
 

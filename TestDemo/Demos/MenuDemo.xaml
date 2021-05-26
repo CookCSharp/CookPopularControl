@@ -76,7 +76,7 @@
                 </MenuItem>
             </Menu>
 
-            <!--<pc:ArcPanel Radius="200" ArcAngle="360" IntervalAngle="0" IsItemRotate="False" Margin="0,50">
+            <!--<pc:ArcPanel Radius="200" ArcAngle="360" IntervalAngle="0" IsItemRotate="False" Margin="0,20" Background="Red">
                 <Button Width="50" Height="50" Content="First" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
                 <Button Width="50" Height="50" Content="Second" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
                 <Button Width="50" Height="50" Content="Third" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
@@ -89,8 +89,10 @@
                 <Button Width="50" Height="50" Content="55555" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
             </pc:ArcPanel>-->
 
-            <pc:CircleMenu Style="{StaticResource CircleMenuStyle}" Radius="100" ArcAngle="360" IsItemRotate="False">
-                <Button Style="{StaticResource DemoButtonStyle}"/>
+            <pc:CircleMenu x:Name="circleMenu" Width="100" Height="100"
+                           Style="{StaticResource CircleMenuStyle}" 
+                           Radius="100" ArcAngle="360" IsItemRotate="False" Padding="20">
+                <Button Style="{StaticResource DemoButtonStyle}" Click="Button_Click"/>
                 <Button Style="{StaticResource DemoButtonStyle}"                        
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource AirFanGeometry}"/>
                 <Button Style="{StaticResource DemoButtonStyle}"
@@ -111,28 +113,18 @@
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
             </pc:CircleMenu>
 
-            <pc:PopupMenu Style="{StaticResource PopupMenuStyle}" PopupPosition="RightBottom">
-                <Button Style="{StaticResource DemoButtonStyle}"
-                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CutGeometry}"/>
-                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,0"
+            <pc:PopupMenu x:Name="popupMenu" Style="{StaticResource PopupMenuStyle}" PopupPosition="LeftCenter" VerticalContentAlignment="Center" Padding="0">
+                <Button Style="{StaticResource DemoButtonStyle}"  Click="Button_Click"/>
+                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,10"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}"/>
                 <Button Style="{StaticResource DemoButtonStyle}"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"/>
-                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,0"
+                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,10"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
             </pc:PopupMenu>
-            <Grid Width="100" Height="100" Background="DodgerBlue"/>
-            <TextBlock Text="的解决纠纷将文件发文件" FontSize="20" HorizontalAlignment="Center"/>
+            
+            <Separator Style="{StaticResource DefaultSeparatorStyle}" Width="300"/>
 
-            <!--<ToggleButton x:Name="PART_PopupButton" Width="50" Height="50" 
-                          Foreground="Red" 
-                          pc:FrameworkElementBaseAttached.IconMargin="50"
-                          pc:FrameworkElementBaseAttached.IconWidth="50"
-                          pc:FrameworkElementBaseAttached.IconHeight="50"
-                          pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
-                          pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
-                          pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
-                          Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}"/>-->
         </StackPanel>
     </ScrollViewer>
  

@@ -25,5 +25,11 @@ namespace TestDemo.Demos
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var b1 = circleMenu.IsShowMenu;
+            var b2 = popupMenu.IsShowMenu;
+        }
     }
 }
