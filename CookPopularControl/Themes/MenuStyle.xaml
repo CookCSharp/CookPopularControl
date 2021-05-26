@@ -40,7 +40,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
-                    <Rectangle Height="1" Fill="{TemplateBinding Background}"
+                    <Rectangle Height="1.5" Fill="{TemplateBinding Background}"
                                HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -256,10 +256,14 @@
     </Style>
 
     <Style x:Key="CircleMenuStyle" TargetType="{x:Type menu:CircleMenu}">
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type menu:CircleMenu}">
                     <ControlTemplate.Resources>
+                        <SineEase x:Key="EasingFuctionKey" EasingMode="EaseInOut" />
                         <Storyboard x:Key="VisibleStoryboard">
                             <ObjectAnimationUsingKeyFrames Duration="0:0:0.5" Storyboard.TargetName="MenuItems" Storyboard.TargetProperty="Visibility">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
@@ -271,34 +275,42 @@
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="TransformToStoryboard" Duration="0:0:0.5">
-                            <DoubleAnimation To="0" Storyboard.TargetName="Rotate" Storyboard.TargetProperty="Angle"/>
-                            <DoubleAnimation To="1.6" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"/>
-                            <DoubleAnimation To="1.6" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY"/>
+                            <DoubleAnimation To="0" Storyboard.TargetName="Rotate" Storyboard.TargetProperty="Angle" EasingFunction="{StaticResource EasingFuctionKey}"/>
+                            <DoubleAnimation To="2" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX" EasingFunction="{StaticResource EasingFuctionKey}"/>
+                            <DoubleAnimation To="2" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY" EasingFunction="{StaticResource EasingFuctionKey}"/>
                         </Storyboard>
                         <Storyboard x:Key="TransformFromStoryboard" Duration="0:0:0.5">
-                            <DoubleAnimation To="-100" Storyboard.TargetName="Rotate" Storyboard.TargetProperty="Angle"/>
-                            <DoubleAnimation To="0" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"/>
-                            <DoubleAnimation To="0" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY"/>
+                            <DoubleAnimation To="-180" Storyboard.TargetName="Rotate" Storyboard.TargetProperty="Angle" EasingFunction="{StaticResource EasingFuctionKey}"/>
+                            <DoubleAnimation To="0" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX" EasingFunction="{StaticResource EasingFuctionKey}"/>
+                            <DoubleAnimation To="0" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY" EasingFunction="{StaticResource EasingFuctionKey}"/>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <panel:SimpleGrid ClipToBounds="False" Background="{TemplateBinding Background}">
+                    <panel:SimpleGrid Background="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <ToggleButton x:Name="PART_PopupButton"
-                                      attached:FrameworkElementBaseAttached.IconWidth="50"
-                                      attached:FrameworkElementBaseAttached.IconHeight="50"
+                                      IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
+                                      attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding Width}"
+                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding Height}"
                                       btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
                                       btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
                                       Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}"/>
-                        <panel:ArcPanel x:Name="MenuItems" IsItemsHost="True" SnapsToDevicePixels="True"
-                                        Radius="{TemplateBinding Radius}" ArcAngle="{TemplateBinding ArcAngle}" 
-                                        IsItemRotate="{TemplateBinding IsItemRotate}" RenderTransformOrigin="0.5,0.5">
-                            <panel:ArcPanel.RenderTransform>
-                                <TransformGroup>
-                                    <RotateTransform Angle="100" x:Name="Rotate"/>
-                                    <ScaleTransform ScaleX="0" ScaleY="0" x:Name="Scale"/>
-                                </TransformGroup>
-                            </panel:ArcPanel.RenderTransform>
-                        </panel:ArcPanel>
+                        <pop:ExtendPopup x:Name="PART_MenuItems" 
+                                         IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}" StaysOpen="False" 
+                                         Placement="Center" PlacementTarget="{Binding ElementName=PART_PopupButton}" IsPositionUpdate="True"
+                                         PopupAnimation="Fade" AllowsTransparency="True">
+                            <Border Margin="5" Effect="{DynamicResource NotifyMessageShadowEffect}" >
+                                <panel:ArcPanel x:Name="MenuItems" IsItemsHost="True" SnapsToDevicePixels="True" 
+                                                Radius="{TemplateBinding Radius}" ArcAngle="{TemplateBinding ArcAngle}" IsItemRotate="{TemplateBinding IsItemRotate}" 
+                                                Margin="{TemplateBinding Padding}" RenderTransformOrigin="0.5,0.5">
+                                    <panel:ArcPanel.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="180" x:Name="Rotate"/>
+                                            <ScaleTransform ScaleX="0" ScaleY="0" x:Name="Scale"/>
+                                        </TransformGroup>
+                                    </panel:ArcPanel.RenderTransform>
+                                </panel:ArcPanel>
+                            </Border>
+                        </pop:ExtendPopup>
                     </panel:SimpleGrid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True" SourceName="PART_PopupButton">
@@ -328,45 +340,29 @@
     </Style>
 
     <Style x:Key="PopupMenuStyle" TargetType="{x:Type menu:PopupMenu}">
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="PopupPosition" Value="LeftCenter" />
         <Setter Property="PopupAnimation" Value="Slide" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type menu:PopupMenu}">
-                    <ControlTemplate.Resources>
-                        <Duration x:Key="DurationKey">0:0:0.2</Duration>
-                        <Storyboard x:Key="VisibleStoryboard">
-                            <BooleanAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="PART_MenuItems" Storyboard.TargetProperty="IsOpen">
-                                <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
-                            </BooleanAnimationUsingKeyFrames>
-                        </Storyboard>
-                        <Storyboard x:Key="CollapsedStoryboard">
-                            <BooleanAnimationUsingKeyFrames Duration="{StaticResource DurationKey}" Storyboard.TargetName="PART_MenuItems" Storyboard.TargetProperty="IsOpen">
-                                <DiscreteBooleanKeyFrame KeyTime="0:0:0.2" Value="False"/>
-                            </BooleanAnimationUsingKeyFrames>
-                        </Storyboard>
-                        <Storyboard x:Key="TransformToStoryboard" Duration="0:0:0.2">
-                            <DoubleAnimation From="0" To="1" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"/>
-                        </Storyboard>
-                        <Storyboard x:Key="TransformFromStoryboard" Duration="0:0:0.2">
-                            <DoubleAnimation From="1" To="0" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"/>
-                        </Storyboard>
-                    </ControlTemplate.Resources>
-                    <panel:SimpleGrid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"> 
+                    <panel:SimpleGrid ClipToBounds="False" Background="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center"> 
                         <ToggleButton x:Name="PART_PopupButton"
+                                      IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                       attached:FrameworkElementBaseAttached.IconWidth="50"
                                       attached:FrameworkElementBaseAttached.IconHeight="50"
                                       btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
                                       btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
                                       Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}"/>
-                        <pop:ExtendPopup x:Name="PART_MenuItems" IsOpen="{Binding ElementName=PART_PopupButton,Path=IsChecked,Mode=TwoWay}" StaysOpen="False" 
+                        <pop:ExtendPopup x:Name="PART_MenuItems" 
+                                         IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}" StaysOpen="False" 
                                          Placement="Left" PlacementTarget="{Binding ElementName=PART_PopupButton}"
                                          PopupAnimation="{TemplateBinding PopupAnimation}" AllowsTransparency="True">
-                            <Border Margin="5" Effect="{DynamicResource NotifyMessageShadowEffect}" SnapsToDevicePixels="True">
-                                <StackPanel IsItemsHost="True" ClipToBounds="True"/>
+                            <Border Margin="5" Effect="{DynamicResource NotifyMessageShadowEffect}">
+                                <StackPanel IsItemsHost="True" SnapsToDevicePixels="True" Margin="{TemplateBinding Padding}" Focusable="True"/>
                             </Border>
                         </pop:ExtendPopup>
                     </panel:SimpleGrid>

@@ -101,6 +101,7 @@
     <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource DefaultTabControlStyle}"/>
     <Style x:Key="{x:Type Expander}" TargetType="{x:Type Expander}" BasedOn="{StaticResource DefaultExpanderStyle}"/>
     <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}"/>
+    <Style x:Key="{x:Type Separator}" TargetType="{x:Type Separator}" BasedOn="{StaticResource DefaultSeparatorStyle}"/>
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>
