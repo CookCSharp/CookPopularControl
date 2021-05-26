@@ -4,6 +4,8 @@
                     xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:btn="clr-namespace:CookPopularControl.Controls.Button"
+                    xmlns:pop="clr-namespace:CookPopularControl.Controls.Popup"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ContextMenu x:Key="DefaultContextMenu">
@@ -28,6 +30,22 @@
             </MenuItem.Icon>
         </MenuItem>
     </ContextMenu>
+
+    <Style x:Key="DefaultSeparatorStyle" TargetType="{x:Type Separator}">
+        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="MinHeight" Value="1"/>
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Separator}">
+                    <Rectangle Height="1" Fill="{TemplateBinding Background}"
+                               HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="{x:Type MenuItem}" TargetType="{x:Type MenuItem}"> 
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=MenuBase},Path=Foreground}" />
@@ -264,13 +282,13 @@
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <panel:SimpleGrid ClipToBounds="False" Background="{TemplateBinding Background}">
-                        <ToggleButton x:Name="PART_LaunchButton" Width="52" Height="52" 
-                                      Foreground="{TemplateBinding Foreground}" Background="Transparent"
+                        <ToggleButton x:Name="PART_PopupButton"
                                       attached:FrameworkElementBaseAttached.IconWidth="50"
                                       attached:FrameworkElementBaseAttached.IconHeight="50"
-                                      attached:FrameworkElementBaseAttached.CornerRadius="50"
-                                      attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource PlusGeometry}"
-                                      Style="{DynamicResource ToggleButtonTransparentIconStyle}"/>
+                                      btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                                      btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                                      btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
+                                      Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}"/>
                         <panel:ArcPanel x:Name="MenuItems" IsItemsHost="True" SnapsToDevicePixels="True"
                                         Radius="{TemplateBinding Radius}" ArcAngle="{TemplateBinding ArcAngle}" 
                                         IsItemRotate="{TemplateBinding IsItemRotate}" RenderTransformOrigin="0.5,0.5">
@@ -283,8 +301,7 @@
                         </panel:ArcPanel>
                     </panel:SimpleGrid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True" SourceName="PART_LaunchButton">
-                            <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource MinusGeometry}" TargetName="PART_LaunchButton"/>
+                        <Trigger Property="IsChecked" Value="True" SourceName="PART_PopupButton">
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="VisibleStoryboard" Storyboard="{StaticResource VisibleStoryboard}"/>
                                 <BeginStoryboard x:Name="TransformToStoryboard" Storyboard="{StaticResource TransformToStoryboard}"/>
@@ -294,7 +311,7 @@
                                 <RemoveStoryboard BeginStoryboardName="TransformToStoryboard"/>
                             </Trigger.ExitActions>
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="False" SourceName="PART_LaunchButton">
+                        <Trigger Property="IsChecked" Value="False" SourceName="PART_PopupButton">
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="CollapsedStoryboard" Storyboard="{StaticResource CollapsedStoryboard}"/>
                                 <BeginStoryboard x:Name="TransformFromStoryboard" Storyboard="{StaticResource TransformFromStoryboard}"/>
@@ -304,6 +321,128 @@
                                 <RemoveStoryboard BeginStoryboardName="TransformFromStoryboard"/>
                             </Trigger.ExitActions>
                         </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PopupMenuStyle" TargetType="{x:Type menu:PopupMenu}">
+        <Setter Property="PopupPosition" Value="LeftCenter" />
+        <Setter Property="PopupAnimation" Value="Slide" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type menu:PopupMenu}">
+                    <ControlTemplate.Resources>
+                        <Duration x:Key="DurationKey">0:0:0.2</Duration>
+                        <Storyboard x:Key="VisibleStoryboard">
+                            <BooleanAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="PART_MenuItems" Storyboard.TargetProperty="IsOpen">
+                                <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                            </BooleanAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="CollapsedStoryboard">
+                            <BooleanAnimationUsingKeyFrames Duration="{StaticResource DurationKey}" Storyboard.TargetName="PART_MenuItems" Storyboard.TargetProperty="IsOpen">
+                                <DiscreteBooleanKeyFrame KeyTime="0:0:0.2" Value="False"/>
+                            </BooleanAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="TransformToStoryboard" Duration="0:0:0.2">
+                            <DoubleAnimation From="0" To="1" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"/>
+                        </Storyboard>
+                        <Storyboard x:Key="TransformFromStoryboard" Duration="0:0:0.2">
+                            <DoubleAnimation From="1" To="0" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <panel:SimpleGrid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"> 
+                        <ToggleButton x:Name="PART_PopupButton"
+                                      attached:FrameworkElementBaseAttached.IconWidth="50"
+                                      attached:FrameworkElementBaseAttached.IconHeight="50"
+                                      btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                                      btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                                      btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
+                                      Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}"/>
+                        <pop:ExtendPopup x:Name="PART_MenuItems" IsOpen="{Binding ElementName=PART_PopupButton,Path=IsChecked,Mode=TwoWay}" StaysOpen="False" 
+                                         Placement="Left" PlacementTarget="{Binding ElementName=PART_PopupButton}"
+                                         PopupAnimation="{TemplateBinding PopupAnimation}" AllowsTransparency="True">
+                            <Border Margin="5" Effect="{DynamicResource NotifyMessageShadowEffect}" SnapsToDevicePixels="True">
+                                <StackPanel IsItemsHost="True" ClipToBounds="True"/>
+                            </Border>
+                        </pop:ExtendPopup>
+                    </panel:SimpleGrid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="LeftBottom">
+                            <Setter Property="HorizontalOffset" Value="18" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="68" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="45"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="LeftCenter">
+                            <Setter Property="HorizontalOffset" Value="-10" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="50" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="LeftTop">
+                            <Setter Property="HorizontalOffset" Value="-18" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="18" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="135"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="CenterTop">
+                            <Setter Property="HorizontalOffset" Value="0" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="-10" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="RightTop">
+                            <Setter Property="HorizontalOffset" Value="30" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="-18" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="225"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="RightCenter">
+                            <Setter Property="HorizontalOffset" Value="60" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="0" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="270"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="RightBottom">
+                            <Setter Property="HorizontalOffset" Value="68" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="28" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="315"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=PopupPosition}" Value="CenterBottom">
+                            <Setter Property="HorizontalOffset" Value="50" TargetName="PART_MenuItems"/>
+                            <Setter Property="VerticalOffset" Value="60" TargetName="PART_MenuItems"/>
+                            <Setter Property="RenderTransform" TargetName="PART_MenuItems">
+                                <Setter.Value>
+                                    <RotateTransform Angle="360"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

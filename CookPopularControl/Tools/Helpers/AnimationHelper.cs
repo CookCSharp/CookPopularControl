@@ -18,7 +18,15 @@ namespace CookPopularControl.Tools.Helpers
 {
     public class AnimationHelper
     {
-        public static DoubleAnimation CreateDoubleAnimation(double from = 0, double to = 0, double seconds = 3)
+        public static DoubleAnimation CreateDoubleAnimation(double toValue, double milliseconds = 200)
+        {
+            return new DoubleAnimation(toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
+            {
+                EasingFunction = new PowerEase { EasingMode = EasingMode.EaseInOut }
+            };
+        }
+
+        public static DoubleAnimation CreateDoubleAnimation(double from, double to, double seconds = 3)
         {
             DoubleAnimation animation = new DoubleAnimation();
             animation.From = from;

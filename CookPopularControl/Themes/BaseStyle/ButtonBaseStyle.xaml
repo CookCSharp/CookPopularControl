@@ -22,43 +22,44 @@
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Effect" Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{StaticResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{StaticResource ButtonBasePressBackground}" />
         <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
         <Setter Property="gif:AnimationBehavior.AutoStart" Value="True" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
                         <AdornerDecorator CacheMode="{StaticResource DefaultBitmapCache}">
                             <Border x:Name="RootBorder" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                        BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                        Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                        Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
                                 <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Path x:Name="PART_Icon" Stretch="Uniform" SnapsToDevicePixels="True" 
-                                              DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                              Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                              Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                              Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                              Fill="{TemplateBinding Foreground}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                          DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                          Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                          Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                          Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
+                                          Fill="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                     <Image x:Name="PART_Image_Gif" Stretch="Uniform"
-                                               Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
-                                               Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
-                                               DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                               gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
-                                               gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
-                                               gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
-                                               gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
+                                           Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
+                                           Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
+                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                           gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
+                                           gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
+                                           gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
+                                           gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
                                     <Grid x:Name="ContentGrid">
-                                        <ProgressBar x:Name="PART_Progress" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-2"
+                                        <ProgressBar x:Name="PART_Progress" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
                                                      Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
                                                      Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
                                                      attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"

@@ -254,10 +254,15 @@
             钟摆
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Data.Enum.NotifyPopupPosition">
+        <member name="T:CookPopularControl.Communal.Data.Enum.PopupAnimationX">
             <summary>
-            通知消息的弹出位置
-            由两部分组成，水平+垂直
+            通知消息的弹出动画
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.Enum.PopupPosition">
+            <summary>
+            表示弹出控件的弹出位置；
+            由两部分组成，水平+垂直，总共9个弹出方向
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.SelectorItemType">
@@ -1341,7 +1346,27 @@
         <member name="T:CookPopularControl.Controls.Menus.CircleMenu">
             <summary>
             弧形、圆形菜单
-            子项布局采用<see cref="T:CookPopularControl.Controls.Panels.ArcPanel"/>
+            </summary>
+            <remarks>子项布局采用<see cref="T:CookPopularControl.Controls.Panels.ArcPanel"/></remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.Radius">
+            <summary>
+            弧形半径
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.RadiusProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.Radius"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.ArcAngle">
+            <summary>
+            弧形角度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.ArcAngleProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.ArcAngle"/>的依赖属性
             </summary>
         </member>
         <member name="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate">
@@ -1352,6 +1377,32 @@
         <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotateProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Menus.PopupMenu">
+            <summary>
+            弹出菜单
+            </summary>
+            <remarks>子项布局采用<see cref="T:System.Windows.Controls.StackPanel"/></remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Menus.PopupMenu.PopupPosition">
+            <summary>
+            弹出方向
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.PopupMenu.PopupPositionProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Menus.PopupMenu.PopupPosition"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimation">
+            <summary>
+            弹出动画
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimationProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimation"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Notify.BubbleMessage">
@@ -1375,6 +1426,16 @@
             <summary>
             弹出消息
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Notify.PopupMessage.Show(System.Object,CookPopularControl.Communal.Data.Enum.PopupAnimationX,System.Boolean,System.Double)">
+            <summary>
+            打开通知消息
+            </summary>
+            <param name="content">内容</param>
+            <param name="animation">动画类型</param>
+            <param name="isStayOpen">是否一直打开消息</param>
+            <param name="waitTime">自动关闭消息时保持打开的时间</param>
+            <returns></returns>
         </member>
         <member name="T:CookPopularControl.Controls.Notify.TaskbarIcon">
             <summary>
@@ -1962,7 +2023,7 @@
         </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindowClient">
             <summary>
-            为 <see cref="!:ChromeWindow" /> 提供客户端区域。无法继承此类。
+            为 <see cref="T:CookPopularControl.Controls.Windows.NormalWindow"/> 提供客户端区域。无法继承此类。
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.Windows.ChromeWindowClient.#ctor">
@@ -3190,6 +3251,36 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

@@ -11,10 +11,8 @@
         <Style x:Key="DemoButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonIconStyle}">
             <Setter Property="Width" Value="50" />
             <Setter Property="Height" Value="50" />
-            <Setter Property="pc:FrameworkElementBaseAttached.CornerRadius" Value="40" />
+            <Setter Property="pc:FrameworkElementBaseAttached.CornerRadius" Value="50" />
             <Setter Property="pc:FrameworkElementBaseAttached.IconGeometry" Value="{StaticResource CloseGeometry}" />
-            <Setter Property="pc:FrameworkElementBaseAttached.IconWidth" Value="25" />
-            <Setter Property="pc:FrameworkElementBaseAttached.IconHeight" Value="25" />
         </Style>
     </UserControl.Resources>
 
@@ -22,7 +20,7 @@
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
 
             <TextBox Width="200" Height="34" Text="Chance" Foreground="Red"
-                 ContextMenu="{StaticResource DefaultContextMenu}"/>
+                     ContextMenu="{StaticResource DefaultContextMenu}"/>
 
             <Menu IsMainMenu="True" Margin="0,50">
                 <MenuItem Header="_Example">
@@ -91,8 +89,7 @@
                 <Button Width="50" Height="50" Content="55555" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
             </pc:ArcPanel>-->
 
-            <pc:CircleMenu Style="{StaticResource CircleMenuStyle}"
-                           Radius="100" ArcAngle="360" IsItemRotate="False">
+            <pc:CircleMenu Style="{StaticResource CircleMenuStyle}" Radius="100" ArcAngle="360" IsItemRotate="False">
                 <Button Style="{StaticResource DemoButtonStyle}"/>
                 <Button Style="{StaticResource DemoButtonStyle}"                        
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource AirFanGeometry}"/>
@@ -112,18 +109,30 @@
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"/>
                 <Button Style="{StaticResource DemoButtonStyle}"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
-
-                <!--<MenuItem Header="First"/>
-                <MenuItem Header="Second"/>
-                <MenuItem Header="Third"/>
-                <MenuItem Header="Fourth"/>
-                <MenuItem Header="Fifth"/>
-                <MenuItem Header="11111"/>
-                <MenuItem Header="22222"/>
-                <MenuItem Header="33333"/>
-                <MenuItem Header="44444"/>
-                <MenuItem Header="55555"/>-->
             </pc:CircleMenu>
+
+            <pc:PopupMenu Style="{StaticResource PopupMenuStyle}" PopupPosition="RightBottom">
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CutGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,0"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,0"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
+            </pc:PopupMenu>
+            <Grid Width="100" Height="100" Background="DodgerBlue"/>
+            <TextBlock Text="的解决纠纷将文件发文件" FontSize="20" HorizontalAlignment="Center"/>
+
+            <!--<ToggleButton x:Name="PART_PopupButton" Width="50" Height="50" 
+                          Foreground="Red" 
+                          pc:FrameworkElementBaseAttached.IconMargin="50"
+                          pc:FrameworkElementBaseAttached.IconWidth="50"
+                          pc:FrameworkElementBaseAttached.IconHeight="50"
+                          pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                          pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                          pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
+                          Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}"/>-->
         </StackPanel>
     </ScrollViewer>
  
