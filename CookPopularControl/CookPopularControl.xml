@@ -214,6 +214,15 @@
             </summary>
             <typeparam name="TSingle"></typeparam>
         </member>
+        <member name="M:CookPopularControl.Communal.Data.Args.RoutedPropertySingleEventArgs`1.InvokeEventHandler(System.Delegate,System.Object)">
+            <summary>
+            This method is used to perform the proper type casting in order to
+            call the type-safe RoutedPropertySingleEventHandler delegate for the IsCheckedChangedEvent event.
+            </summary>
+            <param name="genericHandler">The handler to invoke.</param>
+            <param name="genericTarget">The current object along the event's route.</param>
+            <returns>Nothing.</returns>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.FillType">
             <summary>
             CheckBox填充类型
@@ -335,11 +344,6 @@
         <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.ActionBeforeClose">
             <summary>
             消息关闭前触发的方法
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Helpers.PasswordBoxHelper">
-            <summary>
-            <see cref="T:System.Windows.Controls.PasswordBox"/>的帮助类
             </summary>
         </member>
         <member name="P:CookPopularControl.Communal.ViewModel.MediaViewModel.IsVolumeOpen">
@@ -2180,22 +2184,14 @@
             标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreen"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow">
+        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsNonClientActive">
             <summary>
-            PrintWindow.xaml 的交互逻辑
-            </summary>
-            <summary>
-            PrintPreviewWindow
+            窗体是否激活
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow.LoadPreviewXPS(System.String,System.Windows.Documents.IDocumentPaginatorSource)">
+        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsNonClientActiveProperty">
             <summary>
-            制作XPS文档和加载文档预览
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Controls.Windows.Printers.PrintPreviewWindow.InitializeComponent">
-            <summary>
-            InitializeComponent
+            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsNonClientActive"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Windows.SideBarWindow">
@@ -2211,6 +2207,16 @@
         <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBar"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarChangedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarChangedEvent"/>标识侧边栏是否打开事件
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.SettingClickEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
@@ -2765,59 +2771,6 @@
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
-        <member name="T:CookPopularControl.Tools.Helpers.CreateObjectHelper">
-            <summary>
-            创建对象的帮助类
-            </summary>
-            <remarks>
-            创建对象效率高低排序
-            直接New>IL>Activator>泛型
-            </remarks>
-        </member>
-        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInIL``1">
-            <summary>
-            IL创建对象
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInActivator``1(System.Type)">
-            <summary>
-            <see cref="T:System.Activator"/>创建对象
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInGenerate``1">
-            <summary>
-            泛型方式创建对象
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInAssembly(System.String,System.String)">
-            <summary>
-            <see cref="T:System.Reflection.Assembly"/>创建对象
-            </summary>
-            <param name="assemblyFilePath">程序集路径，不能是相对路径(exe/dll)</param>
-            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
-            <remarks>没用引用该程序集时</remarks>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInDifferentAssembly(System.String,System.String)">
-            <summary>
-            <see cref="T:System.Reflection.Assembly"/>创建对象
-            </summary>
-            <param name="assemblyName">程序集名称，不含后缀名</param>
-            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
-            <remarks>不同程序集,装载调用</remarks>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Tools.Helpers.CreateObjectHelper.CreateInstanceInAssembly(System.String)">
-            <summary>
-            <see cref="T:System.Reflection.Assembly"/>创建对象
-            </summary>
-            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
-            <remarks>当前程序集</remarks>
-            <returns></returns>
-        </member>
         <member name="T:CookPopularControl.Tools.Helpers.CursorHelper">
             <summary>
             光标辅助类
@@ -2856,6 +2809,69 @@
             and returns a value indicating whether that node and it's children
             should be traversed.</param>
             <returns>A stream of nodes.</returns>
+        </member>
+        <member name="T:CookPopularControl.Tools.Helpers.ObjectCreateHelper">
+            <summary>
+            创建对象的帮助类
+            </summary>
+            <remarks>
+            创建对象效率高低排序,
+            直接New>IL>Activator>泛型
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInIL``1">
+            <summary>
+            IL创建对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInActivator``1(System.Type)">
+            <summary>
+            <see cref="T:System.Activator"/>创建对象
+            </summary>
+            <param name="type">类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInClassName(System.String,System.String)">
+            <summary>
+            <see cref="T:System.Activator"/>创建对象
+            </summary>
+            <param name="nameSpaceStr">完整命名空间名称</param>
+            <param name="className">类名称</param>
+            <remarks>不同程序集,装载调用</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInGenerate``1">
+            <summary>
+            泛型方式创建对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInAssemblyFile(System.String,System.String)">
+            <summary>
+            <see cref="T:System.Reflection.Assembly"/>创建对象
+            </summary>
+            <param name="assemblyFilePath">程序集路径，不能是相对路径(exe/dll)</param>
+            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+            <remarks>没用引用该程序集时</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInDifferentAssembly(System.String,System.String)">
+            <summary>
+            <see cref="T:System.Reflection.Assembly"/>创建对象
+            </summary>
+            <param name="assemblyName">程序集名称，不含后缀名</param>
+            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+            <remarks>不同程序集,装载调用</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ObjectCreateHelper.CreateInstanceInCurrentAssembly(System.String)">
+            <summary>
+            <see cref="T:System.Reflection.Assembly"/>创建对象
+            </summary>
+            <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+            <remarks>当前程序集</remarks>
+            <returns></returns>
         </member>
         <member name="M:CookPopularControl.Tools.Helpers.ResourceHelper.GetResource``1(System.String)">
             <summary>

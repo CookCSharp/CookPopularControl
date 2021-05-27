@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shell;
 using OriginButton = System.Windows.Controls.Button;
 
 
@@ -89,7 +90,9 @@ namespace CookPopularControl.Controls.Windows
 
         static MessageDialog()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(MessageDialog), new FrameworkPropertyMetadata(typeof(MessageDialog)));
+            //DefaultStyleKeyProperty.OverrideMetadata(typeof(MessageDialog), new FrameworkPropertyMetadata(typeof(MessageDialog)));
+            //StyleProperty.AddOwner(typeof(MessageDialog), new FrameworkPropertyMetadata(default, (s, e) => ResourceHelper.GetResource<Style>("DefaultMessageDialogStyle")));
+            //CommandManager.RegisterClassCommandBinding(typeof(MessageDialog), new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => (s as Window).Close(), (s, e) => e.CanExecute = true));
         }
 
         public MessageDialog()
@@ -115,6 +118,39 @@ namespace CookPopularControl.Controls.Windows
             CurrentMessageDialog.Close();
         }
 
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
+        {
+            if (e.Key == Key.System && e.SystemKey == Key.F4)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.C)
+            {
+                var builder = new StringBuilder();
+                var line = new string('-', 27);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                builder.Append(Title);
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                builder.Append(Message);
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                try
+                {
+                    Clipboard.SetDataObject(builder.ToString());
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -128,7 +164,6 @@ namespace CookPopularControl.Controls.Windows
                 }
             }
         }
-
 
         public static MessageBoxResult ShowSuccess(string messageBoxText, string caption = default)
         {

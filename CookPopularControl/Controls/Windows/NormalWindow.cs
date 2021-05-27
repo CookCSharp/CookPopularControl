@@ -13,6 +13,7 @@ using System.Windows.Media;
 using CookPopularControl.Tools.Extensions.Images;
 using CookPopularControl.Tools.Helpers;
 using CookPopularControl.Tools.Interop;
+using System.Windows.Shell;
 
 
 
@@ -169,6 +170,40 @@ namespace CookPopularControl.Controls.Windows
             }
         }
 
+
+        /// <summary>
+        /// 窗体是否激活
+        /// </summary>
+        internal bool IsNonClientActive
+        {
+            get { return (bool)GetValue(IsNonClientActiveProperty); }
+            set { SetValue(IsNonClientActiveProperty, ValueBoxes.BooleanBox(value)); }
+        }
+        /// <summary>
+        /// 标识<see cref="IsNonClientActive"/>的依赖属性
+        /// </summary>
+        internal static readonly DependencyProperty IsNonClientActiveProperty =
+            DependencyProperty.Register("IsNonClientActive", typeof(bool), typeof(NormalWindow), new PropertyMetadata(ValueBoxes.FalseBox,OnIsNoneClientActiveChanged));
+
+        private static void OnIsNoneClientActiveChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if(d is NormalWindow window)
+            {
+                IntPtr handle = window.EnsureHandle();
+                window.GetHwndSource()?.AddHook(new HwndSourceHook(window.WndProc));
+            }
+        }
+
+        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (msg == InteropValues.WM_NCACTIVATE)
+                SetValue(IsNonClientActiveProperty, wParam != IntPtr.Zero);
+
+            return IntPtr.Zero;
+        }
+
+
+
         static NormalWindow()
         {
             StyleProperty.OverrideMetadata(typeof(NormalWindow), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>("DefaultNormalWindowStyle")));
@@ -194,6 +229,17 @@ namespace CookPopularControl.Controls.Windows
         {
             this.GetHwndSource()?.AddHook(HwndSourceHook);
             base.OnSourceInitialized(e);
+
+            /*****
+             * 设置了SizeToContent="WidthAndHeight"时Window需要计算ClientArea的尺寸然后再确定Window的尺寸，
+             * 但使用WindowChrome自定义Window时程序以为整个ControlTempalte的内容都是ClientArea，
+             * 把它当作了ClientArea的尺寸，再加上non-client的尺寸就得出了错误的Window尺寸。
+             * ControleTemplate的内容没办法遮住整个WindowChrome的内容，于是就出现了这些黑色的区域
+             * 所以我们需要重新计算一次
+             */
+            //https://www.cnblogs.com/dino623/p/problems_of_WindowChrome.html
+            if (SizeToContent == SizeToContent.WidthAndHeight && WindowChrome.GetWindowChrome(this) != null)
+                InvalidateMeasure();
         }
 
         private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
@@ -238,11 +284,16 @@ namespace CookPopularControl.Controls.Windows
             Marshal.StructureToPtr(mmi, lParam, true);
         }
 
-        protected override void OnContentRendered(EventArgs e)
+        protected override void OnActivated(EventArgs e)
         {
-            base.OnContentRendered(e);
-            if (SizeToContent == SizeToContent.WidthAndHeight)
-                InvalidateMeasure();
+            base.OnActivated(e);
+            SetValue(IsNonClientActiveProperty, true);
+        }
+
+        protected override void OnDeactivated(EventArgs e)
+        {
+            base.OnDeactivated(e);
+            SetValue(IsNonClientActiveProperty, false);
         }
 
         private void SetDefaultWindowIcon()

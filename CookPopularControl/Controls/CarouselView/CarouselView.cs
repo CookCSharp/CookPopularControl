@@ -27,14 +27,13 @@ namespace CookPopularControl.Controls.CarouselView
     public class CarouselView : Selector
     {
         private const string ImageCanvas = "PART_ImageCanvas";
+        private Canvas CanvasContainer;
+        private ImageAnimation ImageNavigate;
 
         static CarouselView()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CarouselView), new FrameworkPropertyMetadata(typeof(CarouselView)));
         }
-
-        private Canvas Canvas;
-        private ImageAnimation ImageNavigate;
 
         public CarouselView()
         {
@@ -42,20 +41,21 @@ namespace CookPopularControl.Controls.CarouselView
             this.Unloaded += CarouselControl_Unloaded;
         }
 
-        private void CarouselControl_Unloaded(object sender, RoutedEventArgs e)
-        {
-            CompositionTarget.Rendering -= CompositionTarget_Rendering;
-        }
-
         private void CarouselControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Canvas = GetTemplateChild(ImageCanvas) as Canvas;
+            CanvasContainer = GetTemplateChild(ImageCanvas) as Canvas;         
             GetElements();
             GetTopMost();
 
             this.MouseMove += CarouselControl_MouseMove;
             this.MouseDown += CarouselControl_MouseDown;
             this.MouseUp += CarouselControl_MouseUp;
+        }
+
+        private void CarouselControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            CanvasContainer.Children.Clear();
+            CompositionTarget.Rendering -= CompositionTarget_Rendering;
         }
 
         //获取最上层的图片索引
@@ -209,9 +209,9 @@ namespace CookPopularControl.Controls.CarouselView
         {
             if (item == null)
                 return;
-            if (!Canvas.Children.Contains(item))
+            if (!CanvasContainer.Children.Contains(item))
             {
-                Canvas.Children.Add(item);
+                CanvasContainer.Children.Add(item);
             }
 
             double rad = item.Angle / 180D * Math.PI;
@@ -227,8 +227,8 @@ namespace CookPopularControl.Controls.CarouselView
 
         private void SetElementInvisiable(ImageAnimation item)
         {
-            if (item != null && Canvas.Children.Contains(item))
-                Canvas.Children.Remove(item);
+            if (item != null && CanvasContainer.Children.Contains(item))
+                CanvasContainer.Children.Remove(item);
         }
 
         #endregion
