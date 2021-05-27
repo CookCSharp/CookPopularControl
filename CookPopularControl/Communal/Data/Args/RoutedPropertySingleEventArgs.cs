@@ -15,22 +15,37 @@ using System.Windows;
  */
 namespace CookPopularControl.Communal.Data.Args
 {
+    public delegate void RoutedPropertySingleEventHandler<TSingle>(object sender, RoutedPropertySingleEventArgs<TSingle> e);
+
     /// <summary>
     /// 表示单个项变化的路由信息和事件数据
     /// </summary>
     /// <typeparam name="TSingle"></typeparam>
     public class RoutedPropertySingleEventArgs<TSingle> : RoutedEventArgs
     {
-        public TSingle Single { get; private set; }
+        public TSingle Value { get; private set; }
 
-        public RoutedPropertySingleEventArgs(TSingle value)
+        public RoutedPropertySingleEventArgs(TSingle value) : base()
         {
-            Single = value;
+            Value = value;
         }
 
-        public RoutedPropertySingleEventArgs(object source, RoutedEvent routedEvent) : base(routedEvent, source)
+        public RoutedPropertySingleEventArgs(TSingle value, RoutedEvent routedEvent) : this(value)
         {
+            RoutedEvent = routedEvent;
+        }
 
+        /// <summary>
+        /// This method is used to perform the proper type casting in order to
+        /// call the type-safe RoutedPropertySingleEventHandler delegate for the IsCheckedChangedEvent event.
+        /// </summary>
+        /// <param name="genericHandler">The handler to invoke.</param>
+        /// <param name="genericTarget">The current object along the event's route.</param>
+        /// <returns>Nothing.</returns>
+        protected override void InvokeEventHandler(Delegate genericHandler, object genericTarget)
+        {
+            RoutedPropertySingleEventHandler<TSingle> handler = (RoutedPropertySingleEventHandler<TSingle>)genericHandler;
+            handler(genericTarget, this);
         }
     }
 }

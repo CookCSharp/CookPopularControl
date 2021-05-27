@@ -1,6 +1,8 @@
-﻿using CookPopularControl.Tools.Boxes;
+﻿using CookPopularControl.Communal.Data.Args;
+using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -43,10 +45,11 @@ namespace CookPopularControl.Controls.Windows
                 else if (e.Command == SidebarPopupCommand)
                 {
                     var s = window.IsShowSideBar;
+                    window.OnIsShowSideBarChanged(window.IsShowSideBar);
                 }
                 else if (e.Command == SettingCommand)
                 {
-
+                    window.OnSettingClick(e.OriginalSource);
                 }
             }
         }
@@ -65,5 +68,43 @@ namespace CookPopularControl.Controls.Windows
         /// </summary>
         public static readonly DependencyProperty IsShowSideBarProperty =
             DependencyProperty.Register("IsShowSideBar", typeof(bool), typeof(SideBarWindow), new PropertyMetadata(ValueBoxes.FalseBox));
+
+
+
+        public event RoutedPropertySingleEventHandler<bool> IsShowSideBarChanged
+        {
+            add { this.AddHandler(IsShowSideBarChangedEvent, value); }
+            remove { this.RemoveHandler(IsShowSideBarChangedEvent, value); }
+        }
+        /// <summary>
+        /// <see cref="IsShowSideBarChangedEvent"/>标识侧边栏是否打开事件
+        /// </summary>
+        public static readonly RoutedEvent IsShowSideBarChangedEvent =
+            EventManager.RegisterRoutedEvent("IsShowSideBarChanged", RoutingStrategy.Bubble, typeof(RoutedPropertySingleEventHandler<bool>), typeof(SideBarWindow));
+
+        protected virtual void OnIsShowSideBarChanged(bool value)
+        {
+            RoutedPropertySingleEventArgs<bool> arg = new RoutedPropertySingleEventArgs<bool>(value, IsShowSideBarChangedEvent);
+            this.RaiseEvent(arg);
+        }
+        
+
+        [Description("设置按钮点击时发生")]
+        public event RoutedEventHandler SettingClick
+        {
+            add { this.AddHandler(SettingClickEvent, value); }
+            remove { this.RemoveHandler(SettingClickEvent, value); }
+        }
+        /// <summary>
+        /// <see cref="SettingClickEvent"/>标识设置按钮点击时事件
+        /// </summary>
+        public static readonly RoutedEvent SettingClickEvent =
+            EventManager.RegisterRoutedEvent("SettingClick", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(SideBarWindow));
+
+        protected virtual void OnSettingClick(object source)
+        {
+            RoutedEventArgs arg = new RoutedEventArgs(SettingClickEvent, source);
+            this.RaiseEvent(arg);
+        }
     }
 }
