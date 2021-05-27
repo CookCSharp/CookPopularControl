@@ -1,0 +1,238 @@
+﻿<UserControl x:Class="MvvmTestDemo.DemosView.AnimationDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:local="clr-namespace:MvvmTestDemo.DemosView"
+             mc:Ignorable="d" Background="White" Width="400" Height="600"
+             d:DesignHeight="800" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Geometry x:Key="SinData">M12.5,27.077196 C12.5,27.077196 12.500094,27.077196 12.5,1.6925709    31.25,1.6925709 31.25,18.615654 50,18.615654   68.75,18.615654 68.75,1.6925709 87.5,1.6925709   87.499909,27.077196 87.5,27.077107 87.5,27.077107</Geometry>
+        <PathGeometry x:Key="SinWave" Figures="M12.5,1.6925709 C31.25,1.6925709 31.25,18.615654 50,18.615654 68.75,18.615654 68.75,1.6925709 87.5,1.6925709 87.499909,27.077196 87.5,27.077107 87.5,27.077107 63.28125,27.077136 12.5,27.077196 12.5,27.077196 12.5,27.077196 12.500094,27.077196 12.5,1.6925709 z"/>
+        <local:ConverterY x:Key="ConverterY"/>
+        <Storyboard x:Key="Wave">
+            <DoubleAnimation Storyboard.TargetProperty="(Shape.Fill).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
+                             Storyboard.TargetName="ellipse1" RepeatBehavior="Forever" From="0" To="1" Duration="0:0:1" />
+            <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.OpacityMask).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
+                             Storyboard.TargetName="ellipse1" RepeatBehavior="Forever" From="0" To="1" Duration="0:0:1" />-->
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Wave}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <ScrollViewer>
+        <StackPanel>
+            <Canvas>
+                <Canvas.Resources>
+                    <!--绘制几何图形-->
+                    <PathGeometry x:Key="path">
+                        <PathFigure StartPoint="40,40" IsClosed="True">
+                            <LineSegment Point="40,130"></LineSegment>
+                            <ArcSegment Point="60,150" Size="20,20" ></ArcSegment>
+                            <LineSegment Point="200,150"></LineSegment>
+                            <ArcSegment Point="220,130" Size="20,20"></ArcSegment>
+                            <LineSegment Point="220,40"></LineSegment>
+                            <ArcSegment Point="200,20" Size="20,20"></ArcSegment>
+                            <LineSegment Point="60,20"></LineSegment>
+                            <ArcSegment Point="40,40" Size="20,20"></ArcSegment>
+                        </PathFigure>
+                    </PathGeometry>
+                    <Storyboard x:Key="pathStoryboard" >
+                        <MatrixAnimationUsingPath PathGeometry="{StaticResource path}" Storyboard.TargetName="ButtonMatrixTransform"
+                                          Storyboard.TargetProperty="Matrix"
+                                          DoesRotateWithTangent="True"
+                                          Duration="0:0:5" RepeatBehavior="Forever" AutoReverse="True">
+                        </MatrixAnimationUsingPath>
+                    </Storyboard>
+                </Canvas.Resources>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Control.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
+                    </EventTrigger>
+                </Canvas.Triggers>
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+                <Ellipse Fill="#f00" Width="20" Height="20" >
+                    <Ellipse.RenderTransform>
+                        <MatrixTransform x:Name="ButtonMatrixTransform"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Canvas>
+
+            <Canvas>
+                <Canvas.Resources>
+                    <PathGeometry x:Key="path">
+                        <PathFigure StartPoint="40,40" IsClosed="True">
+                            <LineSegment Point="40,130"></LineSegment>
+                            <ArcSegment Point="60,150" Size="20,20" ></ArcSegment>
+                            <LineSegment Point="200,150"></LineSegment>
+                            <ArcSegment Point="220,130" Size="20,20"></ArcSegment>
+                            <LineSegment Point="220,40"></LineSegment>
+                            <ArcSegment Point="200,20" Size="20,20"></ArcSegment>
+                            <LineSegment Point="60,20"></LineSegment>
+                            <ArcSegment Point="40,40" Size="20,20"></ArcSegment>
+                        </PathFigure>
+                    </PathGeometry>
+                    <Storyboard x:Key="pathStoryboard" >
+                        <DoubleAnimationUsingPath PathGeometry="{StaticResource path}"
+                                          Storyboard.TargetName="translateTransform"
+                                          Storyboard.TargetProperty="X"
+                                          Source="X"
+                                          Duration="0:0:5" RepeatBehavior="Forever" >
+                        </DoubleAnimationUsingPath>
+                        <DoubleAnimationUsingPath PathGeometry="{StaticResource path}"
+                                          Storyboard.TargetName="translateTransform"
+                                          Storyboard.TargetProperty="Y"
+                                          Source="Y"
+                                          Duration="0:0:5" RepeatBehavior="Forever" >
+                        </DoubleAnimationUsingPath>
+                    </Storyboard>
+                </Canvas.Resources>
+
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Control.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
+                    </EventTrigger>
+                </Canvas.Triggers>
+
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+
+                <Path Fill="#eee">
+                    <Path.Data>
+                        <EllipseGeometry x:Name="ellipses" Center="5,5" RadiusX="12" RadiusY="12"/>
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="translateTransform"/>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+
+            <Canvas Grid.Row="1" >
+                <Canvas.Resources>
+                    <PathGeometry x:Key="path" Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100" />
+                    <Storyboard x:Key="pathStoryboard" >
+                        <PointAnimationUsingPath PathGeometry="{StaticResource path}"
+                                          Storyboard.TargetName="ellipse"
+                                          Storyboard.TargetProperty="Center"
+                                          Duration="0:0:5" RepeatBehavior="0:0:8" >
+                        </PointAnimationUsingPath>
+                    </Storyboard>
+                </Canvas.Resources>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Control.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
+                    </EventTrigger>
+                </Canvas.Triggers>
+
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+                <Path Fill="#eee">
+                    <Path.Data>
+                        <EllipseGeometry x:Name="ellipse" Center="5,5" RadiusX="12" RadiusY="12"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+
+            <Canvas Width="400" Height="400">
+                <!-- The Button that is animated across the screen by animating the MatrixTransform applied to the button. -->
+                <Button MinWidth="100" Content="A Button">
+                    <Button.RenderTransform>
+                        <MatrixTransform x:Name="ButtonMatrixTransform1">
+                            <MatrixTransform.Matrix >
+                                <Matrix/>
+                            </MatrixTransform.Matrix>
+                        </MatrixTransform>
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <MatrixAnimationUsingPath
+                                      Storyboard.TargetName="ButtonMatrixTransform1"
+                                      Storyboard.TargetProperty="Matrix"
+                                      DoesRotateWithTangent="True"
+                                      Duration="0:0:5" 
+                                      RepeatBehavior="Forever" >
+                                        <MatrixAnimationUsingPath.PathGeometry>
+                                            <PathGeometry Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100" 
+                                                          PresentationOptions:Freeze="True" />
+                                        </MatrixAnimationUsingPath.PathGeometry>
+                                    </MatrixAnimationUsingPath>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Canvas>
+
+            <Canvas>
+                <Ellipse x:Name="ellipse1"
+                         Height="160" Width="160" StrokeThickness="5" Stroke="Green"
+                         Canvas.Left="320" Canvas.Top="80" >
+                    <!--<Ellipse.Fill>
+                        <DrawingBrush TileMode="FlipXY" Viewport="0,-1,1,2" Stretch="Fill">
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Geometry="{StaticResource SinWave}" Brush="Red">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Orange" Thickness="1"/>
+                                    </GeometryDrawing.Pen>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                            <DrawingBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform Y="{Binding Value,ElementName=y,Converter={StaticResource ConverterY}}"  />
+                                </TransformGroup>
+                            </DrawingBrush.RelativeTransform>
+                        </DrawingBrush>
+                    </Ellipse.Fill>-->
+                    <Ellipse.Fill>
+                        <VisualBrush AutoLayoutContent="True"
+                                     TileMode="Tile" Viewport="0,-1,1,5" Stretch="None" 
+                                     ViewportUnits="RelativeToBoundingBox" >
+                            <VisualBrush.Visual>
+                                <Grid x:Name="wave" Height="160" Width="160" Background="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Path Grid.Row="0" Stretch="Fill" Fill="Purple" Stroke="Red" StrokeThickness="2" Data="{StaticResource SinFuncGeometry}"/>
+                                    <Rectangle Fill="Purple" Grid.Row="1" Margin="0,-2,0,0"/>
+                                </Grid>
+                            </VisualBrush.Visual>
+                            <VisualBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform Y="{Binding Value,ElementName=y,Converter={StaticResource ConverterY}}"  />
+                                </TransformGroup>
+                            </VisualBrush.RelativeTransform>
+                        </VisualBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!--<Grid x:Name="wave" Height="160" Width="160" Canvas.Left="80" Canvas.Top="23" Background="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Path Grid.Row="0" Stretch="Fill" Fill="Purple" Stroke="Red" StrokeThickness="2" Data="{StaticResource SinData}"/>
+                    <Rectangle Fill="Purple" Grid.Row="1" Margin="0,-2,0,0"/>
+                </Grid>-->
+                <Slider x:Name="y" Width="200" Minimum="0" Maximum="100" Value="0"/>
+                <TextBlock Text="{Binding ElementName=y,Path=Value}" FontSize="20" Canvas.Top="23"/>
+                <Slider x:Name="amplitude" Width="200" Minimum="1" Maximum="160" Value="20" Canvas.Top="43"/>
+                <TextBlock Text="{Binding ElementName=amplitude,Path=Value}" FontSize="20" Canvas.Top="63"/>
+            </Canvas>
+            <Path Grid.Row="1" Stretch="Fill" Fill="Green" Stroke="Red" StrokeThickness="2" Width="300" Height="50"
+                          Data="M12.5,27.077196 C12.5,27.077196 12.500094,27.077196 12.5,1.6925709    31.25,1.6925709 31.25,18.615654 50,18.615654   68.75,18.615654 68.75,1.6925709 87.5,1.6925709   87.499909,27.077196 87.5,27.077107 87.5,27.077107"/>
+        </StackPanel>
+    </ScrollViewer>
+    
+</UserControl>

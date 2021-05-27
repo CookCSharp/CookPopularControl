@@ -1,0 +1,39 @@
+﻿<pc:SideBarWindow x:Class="MvvmTestDemo.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+                  xmlns:local="clr-namespace:MvvmTestDemo.DemosView"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+                  x:Name="DemoMainWindow"
+                  Title="MvvmMvvmTestDemo"
+                  mc:Ignorable="d" 
+                  Loaded="MainWindow_Loaded"
+                  WindowStartupLocation="CenterScreen" 
+                  Width="1000" ResizeMode="CanResizeWithGrip"
+                  Height="800"
+                  IsShowSideBarChanged="DemoMainWindow_IsShowSideBarChanged"
+                  SettingClick="DemoMainWindow_SettingClick">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries />
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="0" x:Name="listBox" Width="0"
+                     ItemsSource="{Binding ControlNamesList}" SelectionMode="Single"
+                     SelectedIndex="{Binding DemosViewelectedIndex,Mode=TwoWay}" SelectionChanged="listBox_SelectionChanged" />
+            <UserControl Grid.Column="1" Content="{Binding ControlContent}"/>
+        </Grid>
+        <!--<local:MenuDemo/>-->
+    </Grid>
+    
+</pc:SideBarWindow>
