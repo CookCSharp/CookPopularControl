@@ -39,11 +39,24 @@ namespace MvvmTestDemo.DemosView
                     Value = i;
                     System.Threading.Thread.Sleep(10);
                 }
+
+                ButtonContent = "成功!";
+                //System.Threading.Thread.Sleep(500);
+                //Value = 0;
+                //ButtonContent = "开始!";
             });
         }
 
+        private string _buttonContent = "开始";
+        public string ButtonContent
+        {
+            get { return _buttonContent; }
+            set { _buttonContent = value; OnPropertyChanged(); }
+        }
+
+
         private double _value;
-        public double Value 
+        public double Value
         {
             get => _value;
             set
@@ -63,7 +76,7 @@ namespace MvvmTestDemo.DemosView
         public bool IsButtonEnabled
         {
             get => _isEnabled;
-            set 
+            set
             {
                 if (_isEnabled == value) return;
                 _isEnabled = value;

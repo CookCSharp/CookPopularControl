@@ -44,7 +44,7 @@
                     <ProgressBar Width="200" Height="200" pc:LinearProgressBarAssistant.IsShowPercent="False" 
                              Style="{StaticResource LoadingCircularProgressBarStyle}" />
                     <ProgressBar Width="200" Height="200" Value="{Binding Value}" Margin="0,20"
-                             Style="{StaticResource WaveProgressBarStyle}"/>
+                             Style="{StaticResource WaveProgressBarShowPercentStyle}"/>
                 </WrapPanel>
 
             </StackPanel>

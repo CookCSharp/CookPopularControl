@@ -323,7 +323,7 @@
                                             <Grid Width="{TemplateBinding Width,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=3}" 
                                                   Height="{TemplateBinding Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=3}">
                                                 <Border Background="{TemplateBinding Background}"/>
-                                                <Grid x:Name="PART_Wave" >
+                                                <Grid x:Name="PART_Wave">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:WaveProgressBarAssistant.WaveHeight)}"/>
                                                         <RowDefinition Height="*"/>
@@ -332,7 +332,7 @@
                                                           Stroke="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStroke}"
                                                           StrokeThickness="{TemplateBinding assistant:WaveProgressBarAssistant.WaveStrokeThickness}"
                                                           Data="{DynamicResource ArchGeometry}"/>
-                                                    <Rectangle x:Name="PART_Rectangle" Grid.Row="1" Fill="{TemplateBinding Foreground}"/>
+                                                    <Rectangle Grid.Row="1" x:Name="PART_Rectangle" Fill="{TemplateBinding Foreground}"/>
                                                 </Grid>
                                             </Grid>
                                         </VisualBrush.Visual>

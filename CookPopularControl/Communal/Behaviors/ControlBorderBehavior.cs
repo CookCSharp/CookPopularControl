@@ -40,7 +40,7 @@ namespace CookPopularControl.Communal.Behaviors
         private Thickness originThickness;
 
         public double BorderThickness { get; set; } = 2D;
-        public Brush BorderBrush { get; set; } = Application.Current.Resources["BorderBrush"] as SolidColorBrush;
+        public Brush BorderBrush { get; set; } = ResourceHelper.GetResource<SolidColorBrush>("BorderBrush");
         public Duration Duration { get; set; } = new Duration(TimeSpan.FromSeconds(1));
         public bool IsRetainBehavior { get; set; } = true;
         public AnimationType AnimationType { get; set; }

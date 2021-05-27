@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ContentWithIconButtonStyle}">
+        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithIconStyle}">
             <Setter Property="Width" Value="600" />
             <Setter Property="Height" Value="60" />
             <Setter Property="FontSize" Value="20" />

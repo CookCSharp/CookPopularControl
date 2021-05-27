@@ -917,6 +917,16 @@
             提供<see cref="T:System.IO.Stream"/>的Gif图像
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.Button.ButtonAssist.ProgressBarStyleProperty">
+            <summary>
+            <see cref="T:System.Windows.Controls.ProgressBar"/>的样式
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Button.ButtonAssist.ProgressBarBrushProperty">
+            <summary>
+            <see cref="T:System.Windows.Controls.ProgressBar"/>的Value位置的前置背景色
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Button.RadioButtonAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.RadioButton"/>的附加属性基类
@@ -1639,19 +1649,25 @@
             提供WaveProgressBar的附加属性类
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.IsStartWaveProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.IsStartWaveProperty"/>开启波纹
+            </summary>
+            <remarks>必须设置True，默认为False</remarks>
+        </member>
         <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeThicknessProperty">
             <summary>
-            波纹厚度
+            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeThicknessProperty"/>波纹厚度
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeProperty">
             <summary>
-            波纹绘制的颜色
+            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeProperty"/>波纹绘制的颜色
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveHeightProperty">
             <summary>
-            表示波纹的高度
+            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveHeightProperty"/>表示波纹的高度
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.QRCode.QRCodeControl">
@@ -3292,6 +3308,36 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

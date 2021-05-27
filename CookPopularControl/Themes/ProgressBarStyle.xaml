@@ -34,15 +34,19 @@
         <Setter Property="IsIndeterminate" Value="True" />
     </Style>
 
-    <Style x:Key="WaveProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarBaseStyle}">
+    <Style x:Key="WaveProgressBarShowPercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarBaseStyle}">
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
         <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForeground}" />
+        <Setter Property="assistant:WaveProgressBarAssistant.IsStartWave" Value="True" />
         <Setter Property="assistant:WaveProgressBarAssistant.WaveHeight" Value="30" />
         <Setter Property="assistant:WaveProgressBarAssistant.WaveStroke" Value="{DynamicResource BorderBrush}" />
         <Setter Property="assistant:WaveProgressBarAssistant.WaveStrokeThickness" Value="2" />
         <Setter Property="FontSize" Value="20" />
+    </Style>
+    <Style x:Key="WaveProgressBarHidePercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarShowPercentStyle}">
+        <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="False" />
     </Style>
 
 </ResourceDictionary>

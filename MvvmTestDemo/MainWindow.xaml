@@ -11,8 +11,9 @@
                   mc:Ignorable="d" 
                   Loaded="MainWindow_Loaded"
                   WindowStartupLocation="CenterScreen" 
-                  Width="1000" ResizeMode="CanResizeWithGrip"
+                  Width="1000" 
                   Height="800"
+                  ResizeMode="CanResizeWithGrip"
                   IsShowSideBarChanged="DemoMainWindow_IsShowSideBarChanged"
                   SettingClick="DemoMainWindow_SettingClick">
 
@@ -31,9 +32,8 @@
             <ListBox Grid.Column="0" x:Name="listBox" Width="0"
                      ItemsSource="{Binding ControlNamesList}" SelectionMode="Single"
                      SelectedIndex="{Binding DemosViewelectedIndex,Mode=TwoWay}" SelectionChanged="listBox_SelectionChanged" />
-            <UserControl Grid.Column="1" Content="{Binding ControlContent}"/>
+            <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
         </Grid>
-        <!--<local:MenuDemo/>-->
     </Grid>
     
 </pc:SideBarWindow>

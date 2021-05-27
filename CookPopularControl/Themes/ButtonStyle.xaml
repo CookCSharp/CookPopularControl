@@ -18,6 +18,15 @@
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent"/>
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent"/>
     </Style>
+    <Style x:Key="ButtonNoMouseOverTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <Style x:Key="ButtonOutlineStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="2" />
@@ -28,7 +37,7 @@
     </Style>
 
 
-    <Style x:Key="ContentWithIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
+    <Style x:Key="ButtonContentWithIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{StaticResource Double26Value}" />
     </Style>
@@ -54,12 +63,12 @@
     </Style>
 
 
-    <Style x:Key="ContentWithGifButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
+    <Style x:Key="ButtonContentWithGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
         <Setter Property="buttonassist:ButtonAssist.ImageWidth" Value="{DynamicResource Double30Value}"/>
         <Setter Property="buttonassist:ButtonAssist.ImageHeight" Value="{DynamicResource Double30Value}"/>
     </Style>
-    <Style x:Key="ButtonGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ContentWithGifButtonStyle}">
+    <Style x:Key="ButtonGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithGifStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
     <Style x:Key="ButtonTransparentGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonGifStyle}">
@@ -69,10 +78,17 @@
     </Style>
 
 
-    <Style x:Key="ButtonProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+    <Style x:Key="ButtonLinearProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="True" />
         <Setter Property="buttonassist:ButtonAssist.ProgressValue" Value="50" />
+        <Setter Property="buttonassist:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantColorTheme}" />
+        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource LinearProgressBarBaseStyle}" />
     </Style>
-    
-    
+    <Style x:Key="ButtonCircularProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonLinearProgressStyle}">
+        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource CircularProgressBarBaseStyle}" />
+    </Style>
+    <Style x:Key="ButtonWaveProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonLinearProgressStyle}">
+        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource WaveProgressBarHidePercentStyle}" />
+    </Style>
+
 </ResourceDictionary>

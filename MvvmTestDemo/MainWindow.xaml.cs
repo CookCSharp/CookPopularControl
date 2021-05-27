@@ -76,7 +76,7 @@ namespace MvvmTestDemo
                 ObjectFactory.Register(className, instance);
             }
 
-            //DemosViewelectedIndex = 0;
+            DemosViewelectedIndex = 0;
             //CollectionViewSource.GetDefaultView(viewmodel);// 返回给定源的默认视图。
         }
 

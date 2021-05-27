@@ -59,14 +59,16 @@
                                            gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
                                            gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
                                     <Grid x:Name="ContentGrid">
-                                        <ProgressBar x:Name="PART_Progress" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                                        <ProgressBar x:Name="PART_Progress" 
+                                                     Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
                                                      Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
-                                                     Style="{DynamicResource LinearProgressBarBaseStyle}" BorderThickness="0" Effect="{x:Null}"
+                                                     Style="{TemplateBinding assistant:ButtonAssist.ProgressBarStyle}" 
+                                                     Foreground="{TemplateBinding assistant:ButtonAssist.ProgressBarBrush}" Background="Transparent" BorderThickness="0"
+                                                     HorizontalAlignment="Center" VerticalAlignment="Center"
                                                      attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                                     Foreground="#00000000" Background="Transparent"
                                                      Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
-                                        <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                              
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                                           RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                                     </Grid>
@@ -98,7 +100,7 @@
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.Setters>
                                 <Setter Property="IsEnabled" Value="False"/>
-                                <Setter Property="Foreground" Value="#22000000" TargetName="PART_Progress"/>
+                                <!--<Setter Property="Foreground" Value="#22000000" TargetName="PART_Progress"/>-->
                             </MultiDataTrigger.Setters>
                         </MultiDataTrigger>
                         <MultiTrigger>
