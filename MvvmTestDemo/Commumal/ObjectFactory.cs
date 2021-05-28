@@ -16,7 +16,7 @@ using MvvmTestDemo.DemosView;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-26 15:28:17
  */
-namespace MvvmTestDemo
+namespace MvvmTestDemo.Commumal
 {
     public class ObjectFactory
     {

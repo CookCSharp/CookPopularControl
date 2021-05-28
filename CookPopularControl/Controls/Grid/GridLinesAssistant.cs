@@ -20,7 +20,7 @@ using OriginGrid = System.Windows.Controls.Grid;
 namespace CookPopularControl.Controls.Grid
 {
     /// <summary>
-    /// 提供<see cref="OriginGrid.ShowGridLines"/>的辅助类
+    /// 提供<see cref="System.Windows.Controls.Grid.ShowGridLines"/>的辅助类
     /// </summary>
     public class GridLinesAssistant
     {

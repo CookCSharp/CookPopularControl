@@ -1215,14 +1215,50 @@
             提供<see cref="T:System.Windows.Controls.DataGrid"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsSelectedAllProperty">
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsApplyDefaultStyleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsSelectedAllProperty"/>标识是否全选
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsApplyDefaultStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>是否引用CookPopularControl的默认样式
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsRegisterSelectAllProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsRegisterSelectAllProperty"/>标识注册全选与取消全选事件
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowSerialNumberProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowSerialNumberProperty"/>是否显示排序
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowThicknessProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowThicknessProperty"/>标识是否显示线框
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsEnableEditWithoutFocusedProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsEnableEditWithoutFocusedProperty"/>标识允许使用单击后在<see cref="T:System.Windows.Controls.DataGrid"/>的<see cref="T:System.Windows.Controls.DataGridCell"/>内部编辑组件。
+            </summary>
+            <remarks>不需要先获取单元格焦点</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnStyleProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>默认文本样式
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnEditingStyleProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>编辑时文本样式
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Grid.DataGridCellSingleClickBase">
+            <summary>
+            单击进行编辑<see cref="T:System.Windows.Controls.DataGridCell"/>的基类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Grid.DataGridCellSingleClickBase.PrepareCellForEdit(System.Windows.FrameworkElement,System.Windows.RoutedEventArgs)">
+            <summary>
+            单击直接进行编辑，不需要先获取DataGridCell的焦点
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Grid.GridLinesAssistant">
@@ -2233,6 +2269,11 @@
         <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.SettingClickEvent">
             <summary>
             <see cref="F:CookPopularControl.Controls.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Bindings.BindingProxy">
+            <summary>
+            绑定代理
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
@@ -3308,36 +3349,6 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

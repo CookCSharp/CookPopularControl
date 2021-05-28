@@ -354,8 +354,7 @@ namespace CookPopularControl.Tools.Extensions
             }
 
             string parentName = parent.Name;
-            Queue<FrameworkElement> queue =
-                new Queue<FrameworkElement>(parent.GetVisualChildren().OfType<FrameworkElement>());
+            Queue<FrameworkElement> queue = new Queue<FrameworkElement>(parent.GetVisualChildren().OfType<FrameworkElement>());
 
             while (queue.Count > 0)
             {

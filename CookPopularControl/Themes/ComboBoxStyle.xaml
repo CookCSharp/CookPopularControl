@@ -12,11 +12,12 @@
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
         <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackgroundBrush}"/>
         <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
+        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
+        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
     </Style>
 
     <Style x:Key="AddClearButtonComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
@@ -32,11 +33,12 @@
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
         <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackgroundBrush}"/>
         <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
+        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
+        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
 
         <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="24" />
         <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="24" />

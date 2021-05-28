@@ -11,13 +11,15 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="CheckBoxBaseStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="Height" Value="24" />
+        <Setter Property="MinHeight" Value="24" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="Padding" Value="5,0,0,0" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
@@ -38,54 +40,50 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                            Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Border x:Name="PART_Border"  
-                                    Width="{TemplateBinding Height}" Height="{TemplateBinding Height}"
-                                    BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
-                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                    Background="Transparent">
-                                <Grid x:Name="FillGrid" Background="{TemplateBinding Background}" Margin="-1">
-                                    <Line X1="0" X2="1" Stretch="Uniform"
-                                          Stroke="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}" 
-                                          StrokeThickness="{TemplateBinding assistant:CheckBoxAssistant.FillThickness}"
-                                          Visibility="{TemplateBinding assistant:CheckBoxAssistant.FillType,Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter},ConverterParameter=Line}"/>
-                                    <Rectangle Fill="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}"
-                                               Width="{TemplateBinding assistant:CheckBoxAssistant.FillSize}"
-                                               Height="{TemplateBinding assistant:CheckBoxAssistant.FillSize}"
-                                               Visibility="{TemplateBinding assistant:CheckBoxAssistant.FillType,Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter},ConverterParameter=Rectangle}"/>
-                                    <Path Data="{DynamicResource CheckGeometry}" Stretch="Uniform" 
-                                          Fill="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}"
-                                          Stroke="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}" 
-                                          StrokeThickness="{TemplateBinding assistant:CheckBoxAssistant.FillThickness}"
-                                          Visibility="{TemplateBinding assistant:CheckBoxAssistant.FillType,Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter},ConverterParameter=Check}"/>
-                                </Grid>
-                            </Border>
-                            <Canvas>
-                                <Ellipse x:Name="InteractionEllipse" Fill="#66000000" Opacity="0" IsHitTestVisible="False"
-                                         RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                         Width="{Binding ElementName=PART_Border,Path=ActualWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=1.8}"
-                                         Height="{Binding ElementName=PART_Border,Path=ActualHeight,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=1.8}">
-                                    <Ellipse.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform/>
-                                            <TranslateTransform X="{Binding ElementName=PART_Border,Path=ActualWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=-0.4}"
-                                                                Y="{Binding ElementName=PART_Border,Path=ActualHeight,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=-0.4}"/>
-                                        </TransformGroup>
-                                    </Ellipse.RenderTransform>
-                                </Ellipse>
-                            </Canvas>
-                            <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="{TemplateBinding Padding}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
-                        </Grid>
-                    </Border>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="PART_Border"
+                                Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" Background="Transparent"
+                                BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                            <Grid x:Name="FillGrid" Background="{TemplateBinding Background}">
+                                <Rectangle Width="{TemplateBinding assistant:CheckBoxAssistant.FillSize}"
+                                           Height="{TemplateBinding assistant:CheckBoxAssistant.FillThickness}"
+                                           Fill="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}" 
+                                           Visibility="{TemplateBinding assistant:CheckBoxAssistant.FillType,Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter},ConverterParameter=Line}"/>
+                                <Rectangle Fill="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}"
+                                           Width="{TemplateBinding assistant:CheckBoxAssistant.FillSize}"
+                                           Height="{TemplateBinding assistant:CheckBoxAssistant.FillSize}"
+                                           Visibility="{TemplateBinding assistant:CheckBoxAssistant.FillType,Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter},ConverterParameter=Rectangle}"/>
+                                <Path Data="{DynamicResource CheckGeometry}" Stretch="Uniform" 
+                                      Fill="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}"
+                                      Stroke="{TemplateBinding assistant:CheckBoxAssistant.FillBrush}" 
+                                      StrokeThickness="{TemplateBinding assistant:CheckBoxAssistant.FillThickness}"
+                                      Visibility="{TemplateBinding assistant:CheckBoxAssistant.FillType,Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter},ConverterParameter=Check}"/>
+                            </Grid>
+                        </Border>
+                        <Canvas>
+                            <Ellipse x:Name="InteractionEllipse" Fill="#66000000" Opacity="0" IsHitTestVisible="False"
+                                     RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                     Width="{Binding ElementName=PART_Border,Path=ActualWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=1.8}"
+                                     Height="{Binding ElementName=PART_Border,Path=ActualHeight,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=1.8}">
+                                <Ellipse.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="{Binding ElementName=PART_Border,Path=ActualWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=-0.4}"
+                                                            Y="{Binding ElementName=PART_Border,Path=ActualHeight,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=-0.4}"/>
+                                    </TransformGroup>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                        </Canvas>
+                        <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="ButtonBase.Click">
                             <BeginStoryboard Storyboard="{StaticResource ClickStoryboard}"/>

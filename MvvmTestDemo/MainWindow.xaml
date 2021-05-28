@@ -7,7 +7,7 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
                   x:Name="DemoMainWindow"
-                  Title="MvvmMvvmTestDemo"
+                  Title="MvvmTestDemo"
                   mc:Ignorable="d" 
                   Loaded="MainWindow_Loaded"
                   WindowStartupLocation="CenterScreen" 
@@ -24,7 +24,7 @@
     </Window.Resources>
 
     <Grid>
-        <Grid>
+        <Grid Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -34,6 +34,7 @@
                      SelectedIndex="{Binding DemosViewelectedIndex,Mode=TwoWay}" SelectionChanged="listBox_SelectionChanged" />
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
         </Grid>
+        <!--<local:DataGridDemo/>-->
     </Grid>
     
 </pc:SideBarWindow>
