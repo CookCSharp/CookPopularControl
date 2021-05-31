@@ -9,8 +9,9 @@
              mc:Ignorable="d" x:Name="NotifyIcon"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <pc:SimpleGrid Width="800">
+    <pc:SimpleGrid Width="{StaticResource DemosViewViewDefaultWidth}">
         <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center">
+            <TextBlock Width="200" Height="34" Text="NotifyIcon:" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left"/>
             <pc:TaskbarIcon x:Name="DefaultNotifyIcon" Visibility="Collapsed"
                             IsStartTaskbarFlash="True"
                             ToolTipText="CookPopularControl" 
@@ -48,6 +49,7 @@
                 </StackPanel>
             </StackPanel>
 
+            <TextBlock Width="200" Height="34" Text="BubbleMessage:" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left"/>
             <WrapPanel>
                 <Button x:Name="ShowInfoBubbleMessage" Content="ShowInfoBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click"/>
                 <Button x:Name="ShowWarningBubbleMessage"  Content="ShowWarningBubbleMessage" Width="200" Height="35" Click="OpenBubbleMessage_Click" Margin="10,0"/>
@@ -58,7 +60,8 @@
             </WrapPanel>
             <Button Content="OpenBubbleMessageNewWindow" Width="220" Height="35" Click="OpenNewWindow_Click"/>
 
-            <WrapPanel HorizontalAlignment="Center" Margin="0,30">
+            <TextBlock Width="200" Height="34" Text="PopupMessage:" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="0,30,0,0"/>
+            <WrapPanel HorizontalAlignment="Center">
                 <Button x:Name="OpenPopupMessageNone" Content="OpenPopupMessageNone" Width="220" Height="35" Click="OpenPopupMessage_Click"/>
                 <Button x:Name="OpenPopupMessageFade" Content="OpenPopupMessageFade" Width="220" Height="35" Click="OpenPopupMessage_Click" Margin="10,0"/>
                 <Button x:Name="OpenPopupMessageHorizontalSlide" Content="OpenPopupMessageHorizontalSlide" Width="220" Height="35" Click="OpenPopupMessage_Click"/>

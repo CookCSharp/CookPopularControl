@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MvvmTestDemo.DemosView
+namespace MvvmTestDemo.UserControls
 {
     /// <summary>
     /// AdornerDemo.xaml 的交互逻辑

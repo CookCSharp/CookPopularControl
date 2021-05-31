@@ -42,14 +42,13 @@
                                 <VisualState x:Name="Indeterminate">
                                     <Storyboard x:Name="HorizontalStoryboard" RepeatBehavior="Forever">
                                         <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
-                                            <EasingPointKeyFrame KeyTime="0:0:0" Value="0.0,0.5"/>
-                                            <EasingPointKeyFrame KeyTime="0:0:2" Value="1,0.5"/>
+                                            <EasingPointKeyFrame KeyTime="0:0:0" Value="0,0.5"/>
+                                            <EasingPointKeyFrame KeyTime="0:0:2" Value="3,0.5"/>
                                         </PointAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-
                         <Grid>
                             <Border x:Name="border" Background="{TemplateBinding Background}" 
                                     BorderBrush="{TemplateBinding BorderBrush}" 
@@ -121,20 +120,28 @@
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value,Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True">
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(assistant:LinearProgressBarAssistant.IsShowIcon)}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=Value,Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Visible" TargetName="IconLeaf"/>
-                            <DataTrigger.EnterActions>
+                            <MultiDataTrigger.EnterActions>
                                 <BeginStoryboard x:Name="AirFanStoryboard" Storyboard="{StaticResource AirFanStoryboard}"/>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Value}" Value="100">
+                            </MultiDataTrigger.EnterActions>
+                            <MultiDataTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="AirFanStoryboard"/>
+                            </MultiDataTrigger.ExitActions>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(assistant:LinearProgressBarAssistant.IsShowIcon)}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=Value}" Value="100"/>
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="IconGrid"/>
-                            <DataTrigger.EnterActions>
-                                <StopStoryboard BeginStoryboardName="AirFanStoryboard"/>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
+                        </MultiDataTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border"></Setter>
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border"/>
                         </Trigger>
                         <Trigger Property="IsIndeterminate" Value="true">
                             <Setter Property="Width" Value="0.25*" TargetName="width1"></Setter>

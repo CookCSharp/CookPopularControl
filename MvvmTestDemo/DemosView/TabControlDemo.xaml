@@ -10,9 +10,9 @@
     <ScrollViewer>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TabControl Width="300" Height="300" Style="{StaticResource DefaultTabControlStyle}"
-                    TabStripPlacement="Left" HorizontalAlignment="Left"
-                    Foreground="#FFFFFF" Background="{StaticResource BlockBrush}">
-                <TabItem Header="First">第一个页面</TabItem>
+                        TabStripPlacement="Left" HorizontalAlignment="Left"
+                        Foreground="#FFFFFF" Background="{StaticResource BlockBrush}">
+                <TabItem Header="First11111111111">第一个页面</TabItem>
                 <TabItem Header="Second">第二个页面</TabItem>
                 <TabItem Header="Third">第三个页面</TabItem>
                 <TabItem Header="Fourth">第四个页面</TabItem>

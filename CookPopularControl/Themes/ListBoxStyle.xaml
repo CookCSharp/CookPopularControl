@@ -10,7 +10,9 @@
     <Style x:Key="DefaultListBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource ListBoxBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
-        <Setter Property="attached:SelectorAttached.ItemHeight" Value="30" />
+        <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="20" />
+        <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="20" />
+        <Setter Property="attached:SelectorAttached.ItemHeight" Value="32" />
         <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ButtonBasePressBackground}" />

@@ -42,6 +42,7 @@ namespace CookPopularControl.Communal.Attached
         public static readonly DependencyProperty ItemsListBackgroundProperty =
             DependencyProperty.RegisterAttached("ItemsListBackground", typeof(Brush), typeof(SelectorAttached), new PropertyMetadata(default(Brush)));
 
+
         public static Brush GetItemMouseOverBackground(DependencyObject obj) => (Brush)obj.GetValue(ItemMouseOverBackgroundProperty);
         public static void SetItemMouseOverBackground(DependencyObject obj, Brush value) => obj.SetValue(ItemMouseOverBackgroundProperty, value);
         /// <summary>
@@ -50,6 +51,7 @@ namespace CookPopularControl.Communal.Attached
         public static readonly DependencyProperty ItemMouseOverBackgroundProperty =
             DependencyProperty.RegisterAttached("ItemMouseOverBackground", typeof(Brush), typeof(SelectorAttached), new PropertyMetadata(default(Brush)));
 
+
         public static Brush GetItemSelectedBackground(DependencyObject obj) => (Brush)obj.GetValue(ItemSelectedBackgroundProperty);
         public static void SetItemSelectedBackground(DependencyObject obj, Brush value) => obj.SetValue(ItemSelectedBackgroundProperty, value);
         /// <summary>
@@ -57,6 +59,7 @@ namespace CookPopularControl.Communal.Attached
         /// </summary>
         public static readonly DependencyProperty ItemSelectedBackgroundProperty =
             DependencyProperty.RegisterAttached("ItemSelectedBackground", typeof(Brush), typeof(SelectorAttached), new PropertyMetadata(default(Brush)));
+
 
         [AttachedPropertyBrowsableForType(typeof(ItemsControl))]
         public static SelectorItemType GetSelectorItemType(DependencyObject obj) => (SelectorItemType)obj.GetValue(SelectorItemTypeProperty);
@@ -112,6 +115,7 @@ namespace CookPopularControl.Communal.Attached
             }
         }
 
+
         public static double GetItemWidth(DependencyObject obj) => (double)obj.GetValue(ItemWidthProperty);
         public static void SetItemWidth(DependencyObject obj, double value) => obj.SetValue(ItemWidthProperty, value);
         /// <summary>
@@ -119,6 +123,7 @@ namespace CookPopularControl.Communal.Attached
         /// </summary>
         public static readonly DependencyProperty ItemWidthProperty =
             DependencyProperty.RegisterAttached("ItemWidth", typeof(double), typeof(SelectorAttached), new PropertyMetadata(double.NaN));
+
 
         public static double GetItemHeight(DependencyObject obj) => (double)obj.GetValue(ItemHeightProperty);
         public static void SetItemHeight(DependencyObject obj, double value) => obj.SetValue(ItemHeightProperty, value);
@@ -128,6 +133,7 @@ namespace CookPopularControl.Communal.Attached
         public static readonly DependencyProperty ItemHeightProperty =
             DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.Double20Box));
 
+
         public static double GetItemControlWidth(DependencyObject obj) => (double)obj.GetValue(ItemControlWidthProperty);
         public static void SetItemControlWidth(DependencyObject obj, double value) => obj.SetValue(ItemControlWidthProperty, value);
         /// <summary>
@@ -135,6 +141,7 @@ namespace CookPopularControl.Communal.Attached
         /// </summary>
         public static readonly DependencyProperty ItemControlWidthProperty =
             DependencyProperty.RegisterAttached("ItemControlWidth", typeof(double), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.Double20Box));
+
 
         public static double GetItemControlHeight(DependencyObject obj) => (double)obj.GetValue(ItemControlHeightProperty);
         public static void SetItemControlHeight(DependencyObject obj, double value) => obj.SetValue(ItemControlHeightProperty, value);

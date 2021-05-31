@@ -2078,6 +2078,16 @@
             标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.Duration"/>的依赖属性
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.TabControl.TabControlAssistant">
+            <summary>
+            提供<see cref="N:CookPopularControl.Controls.TabControl"/>中<see cref="T:System.Windows.Controls.TabItem"/>的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TabControl.TabControlAssistant.IsAddClearButtonProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TabControl.TabControlAssistant.IsAddClearButtonProperty"/>标识是否增加删除按钮
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Thumb.GridViewColumThumb">
             <summary>
             GridViewColumThumb

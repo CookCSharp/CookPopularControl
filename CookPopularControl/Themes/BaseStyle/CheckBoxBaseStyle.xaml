@@ -12,7 +12,7 @@
 
     <Style x:Key="CheckBoxBaseStyle" TargetType="{x:Type CheckBox}">
         <Setter Property="Height" Value="24" />
-        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="MinHeight" Value="10" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="BorderThickness" Value="2" />

@@ -20,89 +20,97 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
         </ResourceDictionary>
     </Application.Resources>
     ```
+
 - **AnimationPath**
-    ![效果](TestDemo/Resources/Effect/AnimationPath.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Overview.png)
+
+- **AnimationPath**
+    ![效果](MvvmTestDemo/Resources/Effect/AnimationPath.gif)
 
 - **Button**
-    ![效果](TestDemo/Resources/Effect/Button.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Button.gif)
 
 - **CarouselView**
-    ![效果](TestDemo/Resources/Effect/CarouselView.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/CarouselView.gif)
 
 - **CheckBox**
-    ![效果](TestDemo/Resources/Effect/CheckBox.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/CheckBox.gif)
 
 - **ComboBox**
-    ![效果](TestDemo/Resources/Effect/ComboBox.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/ComboBox.gif)
 
 - **DataGrid**
-    ![效果](TestDemo/Resources/Effect/datagrid.png)
+    ![效果](MvvmTestDemo/Resources/Effect/DataGrid.png)
 
 - **DatePickerTimer**
-    ![效果](TestDemo/Resources/Effect/date.png)
+    ![效果](MvvmTestDemo/Resources/Effect/Date.png)
 
 - **DialogBox**
-    ![效果](TestDemo/Resources/Effect/DialogBox.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/DialogBox.gif)
 
 - **Expander**
-    ![效果](TestDemo/Resources/Effect/Expander.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Expander.gif)
 
 - **Fields**
-    ![效果](TestDemo/Resources/Effect/Fields.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Fields.png)
 
 - **Grid**
-    ![效果](TestDemo/Resources/Effect/Grid.png)
+    ![效果](MvvmTestDemo/Resources/Effect/Grid.png)
 
 - **GroupBox**
-    ![效果](TestDemo/Resources/Effect/GroupBox.png)
+    ![效果](MvvmTestDemo/Resources/Effect/GroupBox.png)
+
+- **GroupControls**
+    ![效果](MvvmTestDemo/Resources/Effect/GroupControls.png)
         
 - **Labels**
-    ![效果](TestDemo/Resources/Effect/Labels.png)
+    ![效果](MvvmTestDemo/Resources/Effect/Labels.png)
     
 - **Lists**
-    ![效果](TestDemo/Resources/Effect/Lists.png)
+    ![效果](MvvmTestDemo/Resources/Effect/Lists.png)
 
 - **Loading**
-    ![效果](TestDemo/Resources/Effect/Loading.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Loading.gif)
 
 - **MediaPlayer**
-    ![效果](TestDemo/Resources/Effect/MediaPlayer.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/MediaPlayer.gif)
 
 - **Menu**
-    ![效果](TestDemo/Resources/Effect/Menu.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Menu.gif)
 
 - **MessageDialog**
-    ![效果](TestDemo/Resources/Effect/MessageDialog.png)
+    ![效果](MvvmTestDemo/Resources/Effect/MessageDialog.png)
 
-- **NotifyIcon**
-    ![效果](TestDemo/Resources/Effect/NotifyIcon.png)
+- **Notify**
+    ![效果](MvvmTestDemo/Resources/Effect/Notify.png)
+    ![效果](MvvmTestDemo/Resources/Effect/NotifyIcon.png)
 
 - **PasswordBox**
-    ![效果](TestDemo/Resources/Effect/PasswordBox.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/PasswordBox.gif)
 
 - **ProgressBar**
-    ![效果](TestDemo/Resources/Effect/ProgressBar.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/ProgressBar.gif)
 
 - **QRCode**
-    ![效果](TestDemo/Resources/Effect/QRCode.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/QRCode.gif)
 
 - **RadioButton**
-    ![效果](TestDemo/Resources/Effect/RadioButton.png)
+    ![效果](MvvmTestDemo/Resources/Effect/RadioButton.png)
 
 - **ScrollViewer**
-    ![效果](TestDemo/Resources/Effect/ScrollViewer.png)
+    ![效果](MvvmTestDemo/Resources/Effect/ScrollViewer.png)
 
 - **Slider**
-    ![效果](TestDemo/Resources/Effect/Slider.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Slider.gif)
     
 - **Star**
-    ![效果](TestDemo/Resources/Effect/Star.png)
+    ![效果](MvvmTestDemo/Resources/Effect/Star.png)
 
 - **Swiper**
-    ![效果](TestDemo/Resources/Effect/Swiper.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Swiper.gif)
 
 - **TabControl**
-    ![效果](TestDemo/Resources/Effect/TabControl.png)
+    ![效果](MvvmTestDemo/Resources/Effect/TabControl.png)
 
 - **ToggleButton**
-    ![效果](TestDemo/Resources/Effect/ToggleButton.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/ToggleButton.gif)

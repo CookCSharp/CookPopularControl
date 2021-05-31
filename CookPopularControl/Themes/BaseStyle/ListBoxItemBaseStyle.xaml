@@ -30,11 +30,11 @@
                                        Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=Padding}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Grid Grid.Column="0" x:Name="ItemGrid" HorizontalAlignment="Right" Margin="0,0,8,0"
+                            <Grid Grid.Column="0" x:Name="ItemGrid" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"
                                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemControlWidth)}"
                                   Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemControlHeight)}">
                                 <CheckBox x:Name="ItemCheckBox" Focusable="True" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
-                                          IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsSelected,Mode=TwoWay}"
+                                          IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsSelected,Mode=TwoWay}" Padding="5"
                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.SelectorItemType),
                                                       Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=CheckBox}"/>
                                 <Button x:Name="ItemButton" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
@@ -95,6 +95,8 @@
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemBorder"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource AssistantForeground}" TargetName="ItemCheckBox"/>
+                            
                             <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemsListBackground)}" TargetName="ItemBorder"/>
                         </Trigger>
@@ -108,7 +110,7 @@
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemBorder"/>
                         </MultiTrigger>
                         <Trigger Property="IsChecked" Value="True" SourceName="ItemCheckBox">
-                            <Setter Property="BorderThickness" Value="3" TargetName="ItemCheckBox"/>
+                            <Setter Property="BorderThickness" Value="2" TargetName="ItemCheckBox"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

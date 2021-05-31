@@ -8,7 +8,7 @@
              d:DesignHeight="800" d:DesignWidth="1000">
 
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
                 <pc:DotCircleLoading Style="{StaticResource DefaultDotCircleLoadingStyle}" Margin="20,0" />
                 <pc:DotCircleLoading Style="{StaticResource DotFullCircleLoadingStyle}" Margin="20,0" />

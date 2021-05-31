@@ -10,7 +10,7 @@
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="{StaticResource DemosViewViewDefaultWidth}">
             <WrapPanel HorizontalAlignment="Center">
                 <ListBox Width="300" Height="150" SelectionMode="Single" SelectedIndex="0"
                          Style="{StaticResource DefaultListBoxStyle}">
@@ -25,14 +25,14 @@
                     <ListBoxItem Content="写代码的厨子"/>
                 </ListBox>
             </WrapPanel>
-            <WrapPanel Margin="0,30">
+            <WrapPanel HorizontalAlignment="Center" Margin="0,30" >
                 <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding Lists}"
                          Style="{StaticResource ListBoxButtonStyle}"
                          pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete"/>
                 <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding IconLists}"
                          Style="{StaticResource ListBoxIconStyle}" Margin="30,0"/>
             </WrapPanel>
-            <WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
                 <ListBox Width="300" Height="150" SelectionMode="Single" ItemsSource="{Binding ImageLists}"
                          Style="{StaticResource ListBoxImageStyle}"
                          pc:SelectorAttached.IsPreviewImage="True"/>
@@ -43,7 +43,7 @@
                     <ListViewItem Content="写代码的厨子"/>
                 </ListView>
             </WrapPanel>
-            <WrapPanel Margin="0,30">
+            <WrapPanel HorizontalAlignment="Center" Margin="0,30,0,0">
                 <ListView Width="700" Height="200" ItemsSource="{Binding PersonInfos}"
                           Style="{StaticResource ListViewGirdViewStyle}"
                           pc:SelectorAttached.ItemHeight="50"
@@ -51,7 +51,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                            <GridViewColumn Header="AgeABCDEF" DisplayMemberBinding="{Binding Age}" Width="100"/>
+                            <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}" Width="100"/>
                             <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
                             <GridViewColumn Header="Options">
                                 <GridViewColumn.CellTemplate>
@@ -76,7 +76,6 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Content="点击" Width="100" Height="50" Margin="30,0"/>
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

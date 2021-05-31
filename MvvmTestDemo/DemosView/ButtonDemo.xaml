@@ -128,7 +128,7 @@
                         pc:ButtonAssist.ProgressValue="{Binding Value,Mode=TwoWay}" Click="Button_Click"
                         pc:FrameworkElementBaseAttached.CornerRadius="100"
                         pc:ButtonAssist.ProgressBarBrush="Yellow"/>
-                <Button Content="{Binding ButtonContent}" Width="200" Height="200" FontSize="20" ToolTip="WaveProgressButton"
+                <Button Content="{Binding ButtonContent}" Width="150" Height="150" FontSize="20" ToolTip="WaveProgressButton"
                         Style="{StaticResource ButtonWaveProgressStyle}" 
                         pc:ButtonAssist.ProgressValue="{Binding Value,Mode=TwoWay}" Click="Button_Click"
                         pc:FrameworkElementBaseAttached.CornerRadius="100"

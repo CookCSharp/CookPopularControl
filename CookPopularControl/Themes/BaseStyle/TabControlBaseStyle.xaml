@@ -1,22 +1,27 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.TabControl"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
-        <Setter Property="Width" Value="72" />
-        <Setter Property="Height" Value="36" />
+        <Setter Property="MinHeight" Value="30" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="assistant:TabControlAssistant.IsAddClearButton" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl},Path=(assistant:TabControlAssistant.IsAddClearButton)}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
-                    <panel:SimpleGrid x:Name="PART_Root" KeyboardNavigation.TabNavigation="Local">
-                        <Border x:Name="Border"
+                    <Grid x:Name="PART_Root" KeyboardNavigation.TabNavigation="Local">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Padding="5"
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}" >
@@ -25,7 +30,12 @@
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
-                    </panel:SimpleGrid>
+                        <Button x:Name="PART_CloseButton" Grid.Column="1" Background="{TemplateBinding Background}"
+                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                attached:FrameworkElementBaseAttached.IconWidth="10"
+                                attached:FrameworkElementBaseAttached.IconHeight="10"
+                                Visibility="{TemplateBinding assistant:TabControlAssistant.IsAddClearButton,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
@@ -60,7 +70,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <TabPanel x:Name="HeaderPanel"                                  
+                        <TabPanel x:Name="HeaderPanel"                         
                                   DockPanel.Dock="{TemplateBinding TabStripPlacement}"
                                   IsItemsHost="True" Panel.ZIndex="1"
                                   KeyboardNavigation.TabIndex="1"/>

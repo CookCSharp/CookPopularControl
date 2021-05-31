@@ -10,7 +10,7 @@
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="{StaticResource DemosViewViewDefaultWidth}">
             <TextBlock Text="TextBox:" FontSize="20" FontWeight="DemiBold" Margin="0,0,0,10"/>
             <WrapPanel>
                 <TextBox Width="300" Height="34" BorderThickness="1"
@@ -61,14 +61,14 @@
 
             <TextBlock Text="TextPath:" FontSize="20" FontWeight="DemiBold" Margin="0,30,0,10"/>
             <WrapPanel>
-                <TextBlock Text="CookPopularControl" FontSize="50" FontWeight="DemiBold" Foreground="DodgerBlue"/>
-                <pc:TextPath Width="500" Height="100" Text="写代码的厨子"/>
-                <pc:TextPath Width="500" Height="100" Text="写代码的厨子" Fill="Transparent"/>
-                <pc:TextPath Width="500" Height="100" Text="Chance" 
+                <TextBlock Text="CookPopularControl" FontSize="60" FontWeight="DemiBold" Foreground="DodgerBlue"/>
+                <pc:TextPath Width="380" Height="120" Text="写代码的厨子"/>
+                <pc:TextPath Width="380" Height="120" Text="写代码的厨子" Fill="Transparent" Margin="10,0"/>
+                <pc:TextPath Width="380" Height="120" Text="Chance" 
                              pc:TextPath.FillImageSource="../Resources/Gif/tomcat.jpg"
                              pc:TextPath.DrawingRec="0,0,20,20"
                              Style="{StaticResource FillImageTextPathStyle}"/>
-                <pc:TextPath Width="500" Height="100" Text="Chance" Stroke="Purple" StrokeThickness="2"
+                <pc:TextPath Width="380" Height="120" Text="Chance" Stroke="Purple" StrokeThickness="2" Margin="10,0"
                              pc:TextPath.DrawingRec="0,0,5,5"
                              pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
                              Style="{StaticResource FillIconTextPathStyle}"/>
