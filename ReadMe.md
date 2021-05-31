@@ -3,7 +3,7 @@
 # Welcome to CookPopularControl
 
 ## 介绍
-CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
+CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前提供了多达60款左右的控件，还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
 ***
 
 # Useage
