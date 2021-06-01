@@ -6,12 +6,13 @@
         <OutputType>Library</OutputType>
         <Nullable>enable</Nullable>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.0.0.1-alpha03</Version>
+        <Version>1.0.0.1</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
         <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
         <PackageIcon>CookCSharp.png</PackageIcon>
         <PackageTags>xaml,wpf,ui,controls,windows,desktop</PackageTags>
+        <PackageReleaseNotes></PackageReleaseNotes>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">

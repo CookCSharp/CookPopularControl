@@ -41,7 +41,7 @@ name: NuGet Push
 on:
   push:
     branches:
-      - master
+      - chance_dev
 
 jobs:
   build:
