@@ -2,6 +2,13 @@
 
 # Welcome to CookPopularControl
 
+[![Nuget Publish](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml/badge.svg)](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml)
+
+[![](https://img.shields.io/badge/Author-写代码的厨子-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl) [![](https://img.shields.io/badge/version-v1.0.1-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl) [![Build Status](https://dev.azure.com/407042815/vue-mapvgl/_apis/build/status/vue-mapvgl-Node.js%20With%20Grunt-CI?branchName=master)]()
+[![license](https://img.shields.io/badge/license-Apache2.0-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl/blob/chance_dev/LICENSE)
+
+[![star](https://gitee.com/cook-csharp/CookPopularControl/badge/star.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl) [![fork](https://gitee.com/cook-csharp/CookPopularControl/badge/fork.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl)
+
 ## 介绍
 CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前提供了多达60款左右的控件，还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
 ***
@@ -114,3 +121,8 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 
 - **ToggleButton**
     ![效果](MvvmTestDemo/Resources/Effect/ToggleButton.gif)
+
+# ↳ Stargazers
+[![Stargazers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/stars/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/stargazers)
+# ↳ Forkers
+[![Forkers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/forks/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/members)
