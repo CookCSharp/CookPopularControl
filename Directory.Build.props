@@ -1,10 +1,10 @@
 <Project>
     <PropertyGroup>
         <!--统一所有项目输出目录-->
-        <OutputPath>$(SolutionDir)Output\bin\$(Platform)\$(Configuration)</OutputPath>
+        <OutputPath>$(SolutionDir)Output\bin\$(Configuration)</OutputPath> <!--$(Platform)-->
         <PackageOutputPath>$(OutputPath)</PackageOutputPath>
         <!--<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Platform)</BaseIntermediateOutputPath>-->
-        <IntermediateOutputPath>$(SolutionDir)Output\obj\$(Platform)\$(Configuration)\$(ProjectName)</IntermediateOutputPath>
+        <IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(ProjectName)</IntermediateOutputPath>
         <UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
         <TargetFrameworks>net461;net5.0-windows</TargetFrameworks>
         <Platforms>AnyCPU;x64;x86</Platforms>
@@ -32,11 +32,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <OutputPath>$(SolutionDir)Output\bin\$(Platform)\Debug</OutputPath>
+        <OutputPath>$(SolutionDir)Output\bin\Debug</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <OutputPath>$(SolutionDir)Output\bin\$(Platform)\Release</OutputPath>
+        <OutputPath>$(SolutionDir)Output\bin\Release</OutputPath>
     </PropertyGroup>
     
 </Project>
