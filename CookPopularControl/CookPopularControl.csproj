@@ -17,6 +17,12 @@
         <FileVersion>1.0.1</FileVersion>
     </PropertyGroup>
 
+    <!--创建 snupkg 文件-->
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
       <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
       <DefineConstants>DEBUG;TRACE</DefineConstants>
