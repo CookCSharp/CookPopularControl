@@ -77,7 +77,7 @@ namespace CookPopularControl.Tools.Helpers
         }
 
         /// <summary>
-        /// <see cref="Activator"/>创建对象
+        /// <see cref="Assembly"/>创建对象
         /// </summary>
         /// <param name="nameSpaceStr">完整命名空间名称</param>
         /// <param name="className">类名称</param>
@@ -90,7 +90,8 @@ namespace CookPopularControl.Tools.Helpers
                 var assemblyName = nameSpaceStr.Split('.')[0];
                 var assembly = Assembly.Load(assemblyName);
                 var instance = assembly.CreateInstance($"{nameSpaceStr}.{className}");
-                //var type = assembly?.GetType($"{nameSpaceStr}.{className}");
+
+                //var type = assembly.GetType($"{nameSpaceStr}.{className}");
                 //var instance = type == null ? null : Activator.CreateInstance(type);
 
                 return instance;

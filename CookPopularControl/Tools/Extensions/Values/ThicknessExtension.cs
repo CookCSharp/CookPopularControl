@@ -1,4 +1,5 @@
-﻿using CookPopularControl.Tools.Helpers;
+﻿using CookPopularControl.Expression.Drawing.Core;
+using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
