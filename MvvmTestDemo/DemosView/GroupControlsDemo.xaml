@@ -9,8 +9,8 @@
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
-        <TextBlock Text="SearchControl:" FontSize="20" FontWeight="DemiBold"/>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="{StaticResource DemosViewViewDefaultWidth}">
+        <TextBlock Text="SearchControl:" FontSize="20" FontWeight="DemiBold" Margin="0,8"/>
         <WrapPanel>
             <pc:SearchControl Width="200" Height="35" 
                               StartSearch="SearchControl_StartSearch"
@@ -36,6 +36,16 @@
                               ContentChanged="SearchControl_ContentChanged"/>
         </WrapPanel>
 
+        <TextBlock Text="TagEditing:" FontSize="20" FontWeight="DemiBold" Margin="0,8"/>
+        <WrapPanel>
+            <pc:TagEditing Header="Chance:" Content="写代码的厨子" Style="{StaticResource DefaultTagEditingStyle}"/>
+            <pc:TagEditing Header="Chance:" Content="写代码的厨子" Style="{StaticResource TagEditingAddClearButtonStyle}"
+                           pc:FrameworkElementBaseAttached.IconWidth="15"
+                           pc:FrameworkElementBaseAttached.IconHeight="15"
+                           pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"/>
+        </WrapPanel>
+        
+        
         <Grid x:Name="customCursor" Width="32" Height="32"/>
     </StackPanel>
     

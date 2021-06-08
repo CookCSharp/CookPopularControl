@@ -5,6 +5,7 @@
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters">
 
     <Style x:Key="DefaultSearchControlStyle" TargetType="{x:Type groupCtl:SearchControl}">
+        <Setter Property="Height" Value="28" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
@@ -30,7 +31,7 @@
                                      attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
                                      attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                     attached:FrameworkElementBaseAttached.IconMargin="0"/>
+                                     attached:FrameworkElementBaseAttached.IconMargin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
                             <Button Grid.Column="1" Margin="5,0" ToolTip="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
                                     Command="{x:Static groupCtl:SearchControl.SearchCommand}"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SearchGeometry}"
@@ -59,6 +60,43 @@
     </Style>
 
     <Style x:Key="SearchControlAddClearButtonStyle" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}">
+        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
+    </Style>
+
+    <Style x:Key="DefaultTagEditingStyle" TargetType="{x:Type groupCtl:TagEditing}">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type groupCtl:TagEditing}">
+                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                        <DockPanel>
+                            <ContentPresenter Content="{TemplateBinding Header}" Margin="0,0,8,0"
+                                              DockPanel.Dock="{TemplateBinding Position}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <TextBox Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"         
+                                     Height="{TemplateBinding Height}" Padding="6,0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                     attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                     attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
+                                     attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                     attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                     attached:FrameworkElementBaseAttached.IconMargin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
+                                     attached:FrameworkElementBaseAttached.CornerRadius="2"/>
+                        </DockPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TagEditingAddClearButtonStyle" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultTagEditingStyle}">
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
     </Style>
 
