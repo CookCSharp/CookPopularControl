@@ -29,12 +29,12 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0" x:Name="listBox" Width="0"
+            <ListBox Grid.Column="0" x:Name="listBox" Width="0" FontSize="14" FontWeight="Normal"
                      ItemsSource="{Binding ControlNamesList}" SelectionMode="Single"
                      SelectedIndex="{Binding DemosViewelectedIndex,Mode=TwoWay}" SelectionChanged="listBox_SelectionChanged" />
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
         </Grid>
-        <!--<local:DataGridDemo/>-->
+        <!--<local:ColorPickerDemo/>-->
     </Grid>
     
 </pc:SideBarWindow>

@@ -35,7 +35,7 @@ namespace CookPopularControl.Expression.Media
 
 		public static GeometryEffect GetGeometryEffect(this IGeometrySourceParameters parameters)
 		{
-			DependencyObject dependencyObject = parameters as DependencyObject;
+			DependencyObject? dependencyObject = parameters as DependencyObject;
 			if (dependencyObject == null)
 			{
 				return null;

@@ -15,6 +15,7 @@
                     xmlns:star="clr-namespace:CookPopularControl.Controls.Starred"
                     xmlns:label="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
+                    xmlns:colorPicker="clr-namespace:CookPopularControl.Controls.ColorPicker"
                     xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.GroupControls">
 
     <ResourceDictionary.MergedDictionaries>
@@ -47,6 +48,7 @@
         
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/OtherControlTemplate.xaml" />
 
         <!--Extension Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
@@ -59,6 +61,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MediaPlayerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NotifyStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ColorPickerStyle.xaml" />
 
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupControlsStyle.xaml" />
 
@@ -129,8 +132,10 @@
     <Style x:Key="{x:Type label:GroupLabel}" TargetType="{x:Type label:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}"/>
     <Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>
     <Style x:Key="{x:Type notify:PopupMessage}" TargetType="{x:Type notify:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}"/>
+    <Style x:Key="{x:Type colorPicker:ColorPicker}" TargetType="{x:Type colorPicker:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}"/>
 
-
+    
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}"/>
+    <Style x:Key="{x:Type groupCtl:TagEditing}" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultTagEditingStyle}"/>
 
 </ResourceDictionary>

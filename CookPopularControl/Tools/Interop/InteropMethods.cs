@@ -101,8 +101,7 @@ namespace CookPopularControl.Tools.Interop
 
         [SecurityCritical]
         [SuppressUnmanagedCodeSecurity]
-        [DllImport(InteropValues.ExternDll.User32, SetLastError = true, ExactSpelling = true, EntryPoint = nameof(GetDC),
-            CharSet = CharSet.Auto)]
+        [DllImport(InteropValues.ExternDll.User32, SetLastError = true, ExactSpelling = true, EntryPoint = nameof(GetDC), CharSet = CharSet.Auto)]
         internal static extern IntPtr IntGetDC(HandleRef hWnd);
 
         [SecurityCritical]

@@ -64,5 +64,20 @@ namespace CookPopularControl.Controls.GroupControls
         /// </summary>
         public static readonly DependencyProperty PositionProperty =
             DependencyProperty.Register("Position", typeof(Dock), typeof(TagEditing), new PropertyMetadata(default(Dock)));
+
+
+        /// <summary>
+        /// 标签头与内容间距
+        /// </summary>
+        public Thickness HeaderMargin
+        {
+            get { return (Thickness)GetValue(HeaderMarginProperty); }
+            set { SetValue(HeaderMarginProperty, value); }
+        }
+        /// <summary>
+        /// 表示<see cref="Header"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty HeaderMarginProperty =
+            DependencyProperty.Register("HeaderMargin", typeof(Thickness), typeof(TagEditing), new PropertyMetadata(default(Thickness)));
     }
 }

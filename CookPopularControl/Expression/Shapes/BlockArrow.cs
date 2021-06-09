@@ -20,7 +20,6 @@ namespace CookPopularControl.Expression.Shapes
 	/// <summary>
 	/// Renders a block arrow shape that supports resizable arrow head and body.
 	/// </summary>
-	// Token: 0x02000047 RID: 71
 	public sealed class BlockArrow : PrimitiveShape, IBlockArrowGeometrySourceParameters, IGeometrySourceParameters
 	{
 		/// <summary>
@@ -81,6 +80,7 @@ namespace CookPopularControl.Expression.Shapes
 		Brush IGeometrySourceParameters.Stroke => Stroke;
 
 		double IGeometrySourceParameters.StrokeThickness => StrokeThickness;
+
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register("Orientation", typeof(ArrowOrientation), typeof(BlockArrow), new DrawingPropertyMetadata(ArrowOrientation.Right, DrawingPropertyMetadataOptions.AffectsRender));
 

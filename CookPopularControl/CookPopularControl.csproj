@@ -30,7 +30,7 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
       <DefineConstants>DEBUG;TRACE</DefineConstants>
-      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
+      <DocumentationFile></DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">

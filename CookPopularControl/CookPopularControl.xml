@@ -152,9 +152,45 @@
             提供<see cref="T:System.Windows.Controls.Primitives.Thumb"/>的附加属性基类
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1">
+            <summary>
+            使用正则表达式对输入控件的字符串进行的过滤行为
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1.RegularExpressionPropertyProperty">
+            <summary>
+            正则表达式
+            </summary>
+            <remarks>用来对字符串进行过滤</remarks>
+        </member>
+        <member name="M:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1.OnPaste(System.Object,System.Windows.DataObjectPastingEventArgs)">
+            <summary>
+            检查粘贴的字符串是否符合正则表达式，不符合则取消输入
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1.IsValid(System.String,System.Boolean,System.String)">
+            <summary>
+            确定字符串是否符合正则表达式。
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Behaviors.ControlBorderBehavior">
             <summary>
             提供控件边框的行为动画
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Behaviors.MouseDragElementBehavior">
+            <summary>
+            鼠标拖动行为，该类是反编译微软的System.Windows.Interactivity程序集得到的
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Behaviors.MouseDragElementBehavior.LockY">
+            <summary>
+                是否固定住Y轴
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.Behaviors.MouseDragElementBehavior.LockX">
+            <summary>
+                是否固定住X轴
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Behaviors.PasswordBoxBehavior">
@@ -1044,6 +1080,172 @@
             <summary>
             颜色选择器
             </summary>
+            <remarks>参考<see cref="T:System.Windows.Forms.ColorDialog"/></remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelWidth">
+            <summary>
+                颜色选取面板宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelHeight">
+            <summary>
+                颜色选取面板高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker._isOnDragging">
+            <summary>
+            是否在拖动小球
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker._isNeedUpdatePicker">
+            <summary>
+            是否需要更新小球位置
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker._pickerCurrentPosition">
+            <summary>
+            颜色选择面板<see cref="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ElementColorPanel"/>中颜色选择器<see cref="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ElementBorderPicker"/>的坐标位置
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrush">
+            <summary>
+            选中的颜色(包含透明度)
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrush"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushWithoutOpacity">
+            <summary>
+            选中色(不包含透明度)
+            </summary>
+            <remarks>透明度100%</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushWithoutOpacityProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushWithoutOpacity"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelBackground">
+            <summary>
+            颜色选择器面板的主背景色
+            </summary>
+            <remarks><see cref="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ElementColorPanel"/></remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelBackgroundProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelBackground"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.HexColor">
+            <summary>
+            十六进制颜色表示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.HexColorProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.HexColor"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelA">
+            <summary>
+            透明度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelAProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelA"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelR">
+            <summary>
+            红色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelRProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelR"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelG">
+            <summary>
+            绿色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelGProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelG"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelB">
+            <summary>
+            蓝色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelBProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelB"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.ColorPicker.ColorPicker.UpdateColorWhenDrag(System.Windows.Point)">
+            <summary>
+            拖动时更新颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushChangedEvent">
+            <summary>
+            <see cref="!:SelectedColorChangedEvent"/>标识颜色选择事件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ColorPicker.HslColor">
+            <summary>
+            使用HSL(Hue, Saturation, Lightness )来描绘颜色而不是RGB (Red, Green, Blue)
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.HslColor.Hue">
+            <summary>
+            色度[0°,360°)
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.HslColor.Saturation">
+            <summary>
+            饱和度[0,1]
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ColorPicker.HslColor.Lightness">
+            <summary>
+            亮度[0,1]
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Class constructor.
+            </summary>
+            <param name="hue"></param>
+            <param name="saturation"></param>
+            <param name="lightness"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.RGBToHSL(System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            将RGB转为HSL
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.HSLToRGB(CookPopularControl.Controls.ColorPicker.HslColor)">
+            <summary>
+            将HSL转为RGB
+            </summary>
+            <param name="hslColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.GetPixelColor">
+            <summary>
+            获取鼠标点所在位置的颜色
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:CookPopularControl.Controls.ComboBox.ComboBoxAssistant">
             <summary>
@@ -1294,6 +1496,52 @@
         <member name="F:CookPopularControl.Controls.GroupControls.SearchControl.StartSearchEvent">
             <summary>
             <see cref="F:CookPopularControl.Controls.GroupControls.SearchControl.StartSearchEvent"/>标识搜索事件 
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.GroupControls.TagEditing">
+            <summary>
+            可编辑标签
+            </summary>
+            <remarks>由<see cref="T:System.Windows.Controls.ContentPresenter"/>与<see cref="T:System.Windows.Controls.TextBox"/>组合而成</remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.GroupControls.TagEditing.Header">
+            <summary>
+            标签头
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GroupControls.TagEditing.HeaderProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.GroupControls.TagEditing.Header"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.GroupControls.TagEditing.Content">
+            <summary>
+            标签内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GroupControls.TagEditing.ContentProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.GroupControls.TagEditing.Content"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.GroupControls.TagEditing.Position">
+            <summary>
+            标签头相对于内容的位置
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GroupControls.TagEditing.PositionProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.GroupControls.TagEditing.Header"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.GroupControls.TagEditing.HeaderMargin">
+            <summary>
+            标签头与内容间距
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GroupControls.TagEditing.HeaderMarginProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.GroupControls.TagEditing.Header"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Labels.GroupLabel">
@@ -4605,6 +4853,48 @@
             <param name="window">一个 <see cref="T:System.Windows.Window" /> 对象。</param>
             <returns>若是，返回<c>true</c>；否则，返回<c>false</c>。</returns>
         </member>
+        <member name="T:CookPopularControl.Tools.Helpers.ArithmeticHelper">
+            <summary>
+            算法辅助类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ArithmeticHelper.DivideInt2Arr(System.Int32,System.Int32)">
+            <summary>
+                平分一个整数到一个数组中
+            </summary>
+            <param name="num"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ArithmeticHelper.CalSafePoint(System.Windows.FrameworkElement,System.Windows.FrameworkElement,System.Windows.Thickness)">
+            <summary>
+            计算控件在窗口中的可见坐标
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ArithmeticHelper.GetLayoutRect(System.Windows.FrameworkElement)">
+            <summary>
+            获取布局范围框
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ArithmeticHelper.CalAngle(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            计算两点的连线和x轴的夹角
+            </summary>
+            <param name="center"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Helpers.ArithmeticHelper.CalNormal(System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D)">
+            <summary>
+            计算法线
+            </summary>
+            <param name="p0"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <returns></returns>
+        </member>
         <member name="T:CookPopularControl.Tools.Helpers.CursorHelper">
             <summary>
             光标辅助类
@@ -5126,6 +5416,36 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

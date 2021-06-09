@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Expression.Drawing.Core;
 using CookPopularControl.Expression.Media;
+using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,7 +128,7 @@ namespace CookPopularControl.Expression.Shapes
 		static PrimitiveShape()
 		{
 			Shape.StretchProperty.OverrideMetadata(typeof(PrimitiveShape), new DrawingPropertyMetadata(Stretch.Fill, DrawingPropertyMetadataOptions.AffectsRender));
-			Shape.StrokeThicknessProperty.OverrideMetadata(typeof(PrimitiveShape), new DrawingPropertyMetadata(1.0, DrawingPropertyMetadataOptions.AffectsRender));
+			Shape.StrokeThicknessProperty.OverrideMetadata(typeof(PrimitiveShape), new DrawingPropertyMetadata(ValueBoxes.Double1Box, DrawingPropertyMetadataOptions.AffectsRender));
 		}
 
 		Stretch IGeometrySourceParameters.Stretch => Stretch;

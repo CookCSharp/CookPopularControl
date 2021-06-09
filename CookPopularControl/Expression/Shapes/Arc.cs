@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Expression.Media;
+using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,11 +100,11 @@ namespace CookPopularControl.Expression.Shapes
 		double IGeometrySourceParameters.StrokeThickness => StrokeThickness;
 
 
-		public static readonly DependencyProperty StartAngleProperty = DependencyProperty.Register("StartAngle", typeof(double), typeof(Arc), new DrawingPropertyMetadata(0.0, DrawingPropertyMetadataOptions.AffectsRender));
+		public static readonly DependencyProperty StartAngleProperty = DependencyProperty.Register("StartAngle", typeof(double), typeof(Arc), new DrawingPropertyMetadata(ValueBoxes.Double0Box, DrawingPropertyMetadataOptions.AffectsRender));
 
 		public static readonly DependencyProperty EndAngleProperty = DependencyProperty.Register("EndAngle", typeof(double), typeof(Arc), new DrawingPropertyMetadata(90.0, DrawingPropertyMetadataOptions.AffectsRender));
 
-		public static readonly DependencyProperty ArcThicknessProperty = DependencyProperty.Register("ArcThickness", typeof(double), typeof(Arc), new DrawingPropertyMetadata(0.0, DrawingPropertyMetadataOptions.AffectsRender));
+		public static readonly DependencyProperty ArcThicknessProperty = DependencyProperty.Register("ArcThickness", typeof(double), typeof(Arc), new DrawingPropertyMetadata(ValueBoxes.Double0Box, DrawingPropertyMetadataOptions.AffectsRender));
 
 		public static readonly DependencyProperty ArcThicknessUnitProperty = DependencyProperty.Register("ArcThicknessUnit", typeof(UnitType), typeof(Arc), new DrawingPropertyMetadata(UnitType.Pixel, DrawingPropertyMetadataOptions.AffectsRender));
 	}

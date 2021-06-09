@@ -45,7 +45,7 @@ namespace MvvmTestDemo
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //Microsoft.Expression.Drawing.dll
-
+            //System.Windows.Threading.Dispatcher.PushFrame
             SetControlsList();
         }
 
@@ -55,7 +55,7 @@ namespace MvvmTestDemo
             //new Window() { Content = "456456", Name = "test2" }.Show();
 
             var basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.Parent.FullName;
+            var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.FullName;
             var demoFiles = Directory.GetFiles(demoPath + "\\MvvmTestDemo\\DemosView", "*.xaml").ToList();
 
             foreach (var file in demoFiles)

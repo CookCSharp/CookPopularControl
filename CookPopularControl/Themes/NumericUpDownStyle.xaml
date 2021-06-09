@@ -15,8 +15,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
-        <Setter Property="Minimum" Value="0" />
-        <Setter Property="Maximum" Value="100" />
         <Setter Property="Value" Value="0" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="15" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="15" />
