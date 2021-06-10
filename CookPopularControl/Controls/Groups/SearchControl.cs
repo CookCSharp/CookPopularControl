@@ -17,7 +17,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-11 08:57:14
  */
-namespace CookPopularControl.Controls.GroupControls
+namespace CookPopularControl.Controls.Groups
 {
     /// <summary>
     /// 搜索框

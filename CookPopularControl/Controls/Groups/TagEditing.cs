@@ -13,7 +13,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-06-08 09:04:09
  */
-namespace CookPopularControl.Controls.GroupControls
+namespace CookPopularControl.Controls.Groups
 {
     /// <summary>
     /// 可编辑标签

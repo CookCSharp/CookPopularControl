@@ -16,7 +16,7 @@
                     xmlns:label="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:colorPicker="clr-namespace:CookPopularControl.Controls.ColorPicker"
-                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.GroupControls">
+                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups">
 
     <ResourceDictionary.MergedDictionaries>
         <!--Original Control-->

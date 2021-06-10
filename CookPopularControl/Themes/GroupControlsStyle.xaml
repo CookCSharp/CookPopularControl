@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.GroupControls"
+                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters">
 
