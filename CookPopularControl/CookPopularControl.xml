@@ -259,6 +259,11 @@
             <param name="genericTarget">The current object along the event's route.</param>
             <returns>Nothing.</returns>
         </member>
+        <member name="T:CookPopularControl.Communal.Data.Enum.AlertorState">
+            <summary>
+            警报器状态
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.FillType">
             <summary>
             CheckBox填充类型
@@ -1788,6 +1793,57 @@
         <member name="F:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlashProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlash"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Others.Alertor">
+            <summary>
+            警报器
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Others.Alertor.IsAutoAlarm">
+            <summary>
+            是否自动警报
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Others.Alertor.IsAutoAlarmProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.IsAutoAlarm"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Others.Alertor.Duration">
+            <summary>
+            自动警报的时长
+            </summary>
+            <remarks>单位：s</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.Others.Alertor.DurationProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.Duration"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Others.Alertor.IsCancelAlarm">
+            <summary>
+            解除警报
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Others.Alertor.IsCancelAlarmProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.IsCancelAlarm"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Others.Alertor.CurrentState">
+            <summary>
+            警报器当前状态
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Others.Alertor.CurrentStateProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.CurrentState"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Others.Alertor.StateChangedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Others.Alertor.StateChangedEvent"/>标识警报器状态变化时的事件
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Panels.ArcPanel">
@@ -5416,6 +5472,36 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

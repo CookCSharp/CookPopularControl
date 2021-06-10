@@ -16,10 +16,11 @@
                     xmlns:label="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:colorPicker="clr-namespace:CookPopularControl.Controls.ColorPicker"
+                    xmlns:others="clr-namespace:CookPopularControl.Controls.Others"
                     xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups">
 
     <ResourceDictionary.MergedDictionaries>
-        <!--Original Control-->
+        <!--WPF Original Control-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
@@ -63,6 +64,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NotifyStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ColorPickerStyle.xaml" />
 
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/OtherControlsStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupControlsStyle.xaml" />
 
         <!--Other Resource Dictionaries-->
@@ -134,7 +136,8 @@
     <Style x:Key="{x:Type notify:PopupMessage}" TargetType="{x:Type notify:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}"/>
     <Style x:Key="{x:Type colorPicker:ColorPicker}" TargetType="{x:Type colorPicker:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}"/>
 
-    
+
+    <Style x:Key="{x:Type others:Alertor}" TargetType="{x:Type others:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}"/>
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}"/>
     <Style x:Key="{x:Type groupCtl:TagEditing}" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultTagEditingStyle}"/>
 
