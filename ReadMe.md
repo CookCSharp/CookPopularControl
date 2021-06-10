@@ -2,10 +2,11 @@
 
 # Welcome to CookPopularControl
 
-[![Nuget Publish](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml/badge.svg)](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml)
+[![Nuget Publish](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml/badge.svg)](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml) [![qq群](https://img.shields.io/badge/qq-658794308-red.svg)](https://jq.qq.com/?_wv=1027&k=hVVHKJ1V)
 
-[![](https://img.shields.io/badge/Author-写代码的厨子-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl) [![](https://img.shields.io/badge/version-v1.0.1-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl) [![Build Status](https://dev.azure.com/407042815/vue-mapvgl/_apis/build/status/vue-mapvgl-Node.js%20With%20Grunt-CI?branchName=master)]()
-[![license](https://img.shields.io/badge/license-Apache2.0-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl/blob/chance_dev/LICENSE)
+
+[![](https://img.shields.io/badge/Author-写代码的厨子-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl) [![license](https://img.shields.io/badge/license-Apache2.0-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl/blob/chance_dev/LICENSE) [![nuget](https://img.shields.io/nuget/v/CookPopularControl.svg)](https://www.nuget.org/packages/CookPopularControl) [![nuget](https://img.shields.io/nuget/dt/CookPopularControl.svg)](https://www.nuget.org/packages/CookPopularControl) [![Build Status](https://dev.azure.com/407042815/vue-mapvgl/_apis/build/status/vue-mapvgl-Node.js%20With%20Grunt-CI?branchName=master)]()
+
 
 [![star](https://gitee.com/cook-csharp/CookPopularControl/badge/star.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl) [![fork](https://gitee.com/cook-csharp/CookPopularControl/badge/fork.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl)
 
@@ -14,7 +15,7 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 ***
 
 # Useage
-- Install-Package CookPopularControl -Version 1.0.0.1-alpha01
+- Install-Package CookPopularControl -Version 1.0.1
 
 - 添加如下代码即可全部引用
     ```
@@ -49,7 +50,7 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 - **DataGrid**
     ![效果](MvvmTestDemo/Resources/Effect/DataGrid.png)
 
-- **DatePickerTimer**
+- **DateTimerPicker**
     ![效果](MvvmTestDemo/Resources/Effect/Date.png)
 
 - **DialogBox**
@@ -122,7 +123,8 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 - **ToggleButton**
     ![效果](MvvmTestDemo/Resources/Effect/ToggleButton.gif)
 
-# ↳ Stargazers
+### &#8627; Stargazers
 [![Stargazers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/stars/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/stargazers)
-# ↳ Forkers
+
+### &#8627; Forkers
 [![Forkers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/forks/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/members)
