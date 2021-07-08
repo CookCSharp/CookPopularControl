@@ -12,9 +12,9 @@
 
     <Color x:Key="MessageDialogSuccessColor">#32AA32</Color>
     <Color x:Key="MessageDialogInfoColor">#1E90FF</Color>
-    <Color x:Key="MessageDialogWarningColor">#EE5511</Color>
-    <Color x:Key="MessageDialogErrorColor">#DD0000</Color>
-    <Color x:Key="MessageDialogFatalColor">#990000</Color>
+    <Color x:Key="MessageDialogWarningColor">#FFA500</Color>
+    <Color x:Key="MessageDialogErrorColor">#EE1A2B</Color>
+    <Color x:Key="MessageDialogFatalColor">#8B0000</Color>
     <Color x:Key="MessageDialogQuestionColor">#EEDD33</Color>
     <SolidColorBrush x:Key="MessageDialogSuccessBrush" Color="{StaticResource MessageDialogSuccessColor}"/>
     <SolidColorBrush x:Key="MessageDialogInfoBrush" Color="{StaticResource MessageDialogInfoColor}"/>

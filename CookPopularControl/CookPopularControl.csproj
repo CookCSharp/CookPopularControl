@@ -85,7 +85,7 @@
       <PackageReference Include="QRCoder" Version="1.4.1" />
       <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
       <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-      <PackageReference Include="XamlAnimatedGif" Version="2.0.0-alpha.1" />
+      <PackageReference Include="XamlAnimatedGif" Version="2.0.0" />
     </ItemGroup>
 
     <ItemGroup>

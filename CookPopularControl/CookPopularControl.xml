@@ -1800,19 +1800,9 @@
             警报器
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Others.Alertor.IsAutoAlarm">
-            <summary>
-            是否自动警报
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Others.Alertor.IsAutoAlarmProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.IsAutoAlarm"/>的依赖属性
-            </summary>
-        </member>
         <member name="P:CookPopularControl.Controls.Others.Alertor.Duration">
             <summary>
-            自动警报的时长
+            单次警报的时长
             </summary>
             <remarks>单位：s</remarks>
         </member>
@@ -5197,6 +5187,82 @@
             <param name="disposing">若操作成功，则立即释放当前 <see cref="T:System.Drawing.Bitmap" /> GDI+ 位图对象（默认为 <c>false</c>）。</param>
             <returns>返回一个托管且冻结的 <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> 对象。</returns>
         </member>
+        <member name="T:CookPopularControl.Tools.Transitions.ClothTransition">
+            <summary>
+            使用简单的Cloth Physics来模拟窗帘打开过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.DoorTransition">
+            <summary>
+            基于开门的动作过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.ExplosionTransition">
+            <summary>
+            爆炸过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.FadeTransition">
+            <summary>
+            对内容淡入淡出的简单过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.FlipTransition">
+            <summary>
+            翻转过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.PageTransition">
+            <summary>
+            模拟翻页过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.StoryboardTransition">
+            <summary>
+            使用<see cref="T:System.Windows.Media.Animation.Storyboard"/>对新旧内容呈现器进行过渡
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.Transition3DBase">
+            <summary>
+            3D转换的基类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Transitions.TransitionBase.BeginTransition(CookPopularControl.Tools.Transitions.TransitionPresenter,System.Windows.Controls.ContentPresenter,System.Windows.Controls.ContentPresenter)">
+            <summary>
+            当从TransitionPresenter的Visual树中删除元素时调用
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Transitions.TransitionBase.EndTransition(CookPopularControl.Tools.Transitions.TransitionPresenter,System.Windows.Controls.ContentPresenter,System.Windows.Controls.ContentPresenter)">
+            <summary>
+            转换完成时调用此方法
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Transitions.TransitionBase.OnTransitionEnded(CookPopularControl.Tools.Transitions.TransitionPresenter,System.Windows.Controls.ContentPresenter,System.Windows.Controls.ContentPresenter)">
+            <summary>
+            在过渡结束时执行清理
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Transitions.TransitionBase.CreateBrush(System.Windows.Controls.ContentPresenter)">
+            <summary>
+            返回元素的克隆并将其隐藏在主树中
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.TransitionSelector">
+            <summary>
+            允许基于旧内容运行不同的转换,覆盖SelectTransition方法以返回到应用的转换
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.TranslateTransition">
+            <summary>
+            您可以指定新的起点,使用相对坐标的旧内容的内容或结束点。
+            将启动点设置为（-1,0），使内容幻灯片从左侧滑动
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Transitions.TwoWayTransitionSelector">
+            <summary>
+            根据方向属性选择前向和后向转换
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Tools.Windows.Converters.BooleanToReBooleanConverter">
             <summary>
             Bool to Re bool
@@ -5472,36 +5538,6 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

@@ -1,9 +1,11 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Tools.Boxes;
+using CookPopularControl.Tools.Extensions.Colors;
 using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,33 +32,13 @@ namespace CookPopularControl.Controls.Others
     public class Alertor : Control
     {
         private const string ElementAlarm = "PART_Alarm";
-        private static readonly List<string> colors = new List<string>() { ResourceHelper.GetResource<Color>("PrimaryThemeColor").ToString(), "#32AA32", "#EE5511", "#DD0000", "#990000" };
+        private static readonly List<string> colors = new List<string>() { ResourceHelper.GetResource<Color>("PrimaryThemeColor").ToString(), "#32AA32", "#FFA500", "#FF0000", "#800000" };
 
         private Storyboard _storyboard;
         private Shape _alarm;
 
         /// <summary>
-        /// 是否自动警报
-        /// </summary>
-        public bool IsAutoAlarm
-        {
-            get { return (bool)GetValue(IsAutoAlarmProperty); }
-            set { SetValue(IsAutoAlarmProperty, ValueBoxes.BooleanBox(value)); }
-        }
-        /// <summary>
-        /// 提供<see cref="IsAutoAlarm"/>的依赖属性
-        /// </summary>
-        public static readonly DependencyProperty IsAutoAlarmProperty =
-            DependencyProperty.Register("IsAutoAlarm", typeof(bool), typeof(Alertor), new PropertyMetadata(ValueBoxes.FalseBox, OnAutoAlarmValueChanged));
-
-        private static void OnAutoAlarmValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-
-        }
-
-
-        /// <summary>
-        /// 自动警报的时长
+        /// 单次警报的时长
         /// </summary>
         /// <remarks>单位：s</remarks>
         public double Duration
@@ -83,7 +65,22 @@ namespace CookPopularControl.Controls.Others
         /// 提供<see cref="IsCancelAlarm"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IsCancelAlarmProperty =
-            DependencyProperty.Register("IsCancelAlarm", typeof(bool), typeof(Alertor), new PropertyMetadata(ValueBoxes.FalseBox));
+            DependencyProperty.Register("IsCancelAlarm", typeof(bool), typeof(Alertor), new PropertyMetadata(ValueBoxes.FalseBox, OnIsCancelAlarmChanged));
+
+        private static void OnIsCancelAlarmChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if(d is Alertor alertor)
+            {
+                if((bool)e.NewValue)
+                {
+                    alertor._storyboard.Pause();
+                }
+                else
+                {
+                    alertor._storyboard.Resume();
+                }
+            }
+        }
 
 
         /// <summary>
@@ -102,9 +99,12 @@ namespace CookPopularControl.Controls.Others
 
         private static void OnCurrentStatePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is Alertor alertor)
+            if (d is Alertor alertor && !alertor.IsCancelAlarm)
             {
-                alertor.StartAlarmAnimation(alertor, (int)e.NewValue);
+                if ((AlertorState)e.NewValue == AlertorState.Normal || (AlertorState)e.NewValue == AlertorState.Success)
+                    alertor._alarm.Fill = ((Color)ColorConverter.ConvertFromString(colors[(int)e.NewValue])).ToBrushFromColor();
+                else
+                    alertor.StartAlarmAnimation(alertor, (int)e.NewValue);
                 alertor.OnStateChanged((AlertorState)e.OldValue, (AlertorState)e.NewValue);
             }
         }
@@ -120,6 +120,7 @@ namespace CookPopularControl.Controls.Others
             };
             Storyboard.SetTarget(colorAnimation, alertor._alarm);
             Storyboard.SetTargetProperty(colorAnimation, new PropertyPath("(Shape.Fill).(SolidColorBrush.Color)"));
+            alertor._storyboard.Children.Clear();
             alertor._storyboard.Children.Add(colorAnimation);
             alertor._storyboard.Begin();
         }
