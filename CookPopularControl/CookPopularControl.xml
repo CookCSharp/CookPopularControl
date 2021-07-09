@@ -2387,6 +2387,39 @@
             <see cref="F:CookPopularControl.Controls.TabControl.TabControlAssistant.IsAddClearButtonProperty"/>标识是否增加删除按钮
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.ThreeDimensional.Alertor3D">
+            <summary>
+            3D警报器
+            </summary>
+            <summary>
+            Alertor3D
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ThreeDimensional.Alertor3D.Color">
+            <summary>
+            警报器的颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ThreeDimensional.Alertor3D.ColorProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.Alertor3D.Color"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ThreeDimensional.Alertor3D.State">
+            <summary>
+            当前警报器的状态
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ThreeDimensional.Alertor3D.StateProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.Alertor3D.State"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.ThreeDimensional.Alertor3D.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Thumb.GridViewColumThumb">
             <summary>
             GridViewColumThumb
@@ -5538,6 +5571,36 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>
