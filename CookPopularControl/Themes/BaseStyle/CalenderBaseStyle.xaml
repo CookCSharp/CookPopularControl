@@ -30,9 +30,9 @@
                                         <DoubleAnimation Duration="0:0:0.2" To="1"
                                                          Storyboard.TargetName="TodayBackground"
                                                          Storyboard.TargetProperty="Opacity"/>
-                                        <ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
+                                        <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
                                                         Storyboard.TargetName="NormalText"
-                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
                                         <ColorAnimation  Duration="0:0:0.2" To="{DynamicResource ButtonBaseMouseOverColor}"
                                                          Storyboard.TargetName="TodayBackground"
                                                          Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"/>
@@ -141,9 +141,9 @@
                                         <DoubleAnimation Duration="0:0:0.2" To="0.5"
                                                          Storyboard.TargetName="SelectedBackground"
                                                          Storyboard.TargetProperty="Opacity"/>
-                                        <ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
+                                        <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
                                                         Storyboard.TargetName="NormalText"
-                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -151,7 +151,7 @@
                                 <VisualStateGroup.Transitions>
                                     <VisualTransition GeneratedDuration="0" />
                                 </VisualStateGroup.Transitions>
-                                <VisualState Name="Active" />
+                                <VisualState Name="Active"/>
                                 <VisualState Name="Inactive"/>
                             </VisualStateGroup>
                             <VisualStateGroup Name="CalendarButtonFocusStates">
@@ -177,17 +177,17 @@
                             </VisualStateGroup>
                             <VisualStateGroup Name="DayStates">
                                 <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="0:0:0.2" />
+                                    <VisualTransition GeneratedDuration="0" />
                                 </VisualStateGroup.Transitions>
-                                <VisualState Name="RegularDay" />
+                                <VisualState Name="RegularDay"/>
                                 <VisualState Name="Today">
                                     <Storyboard>
                                         <DoubleAnimation Duration="0:0:0.2" To="1" 
                                                          Storyboard.TargetName="TodayBackground"
                                                          Storyboard.TargetProperty="Opacity"/>
-                                        <ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
+                                        <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
                                                         Storyboard.TargetName="NormalText"
-                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -208,7 +208,8 @@
                         <Rectangle x:Name="TodayBackground" Fill="{DynamicResource PrimaryColorTheme}" RadiusX="1" RadiusY="1" Opacity="0"/>
                         <Rectangle x:Name="SelectedBackground" Fill="{DynamicResource PrimaryColorTheme}" RadiusX="1" RadiusY="1" Opacity="0"/>
                         <Rectangle x:Name="HighlightBackground" Fill="{DynamicResource ButtonBaseMouseOverBackground}" RadiusX="1" RadiusY="1" Opacity="0"/>
-                        <ContentPresenter x:Name="NormalText" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        <ContentPresenter x:Name="NormalText" TextElement.Foreground="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         <Rectangle x:Name="DayButtonFocusVisual" RadiusX="1" RadiusY="1"
                                    Stroke="{DynamicResource PrimaryColorTheme}" IsHitTestVisible="false" Visibility="Collapsed"/>
@@ -284,14 +285,14 @@
                                         CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Calendar},Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"
                                         Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Calendar},Path=(assistant:CalendarAssistant.TitleBackgroundBrush)}"/>
                                 <Button Grid.Row="0" Grid.Column="0" x:Name="PART_HeaderButton" Style="{StaticResource ButtonTransparentStyle}"
-                                        HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent" Foreground="{DynamicResource AssistantForeground}"
                                         FontSize="16" FontWeight="DemiBold" attached:FrameworkElementBaseAttached.CornerRadius="0">
                                     <Button.RenderTransform>
                                         <TranslateTransform X="0" />
                                     </Button.RenderTransform>
                                 </Button>
                                 <Button Grid.Row="0" Grid.Column="1" x:Name="PART_PreviousButton"
-                                        Template="{StaticResource PreviousButtonTemplate}"
+                                        Template="{StaticResource PreviousButtonTemplate}" 
                                         HorizontalAlignment="Right" Focusable="False" Margin="30,0,0,0"/>
                                 <Button Grid.Row="0" Grid.Column="2" x:Name="PART_NextButton"
                                         Template="{StaticResource NextButtonTemplate}"
@@ -415,8 +416,8 @@
                     <AdornerDecorator ClipToBounds="True" CacheMode="{DynamicResource DefaultBitmapCache}" Effect="{DynamicResource ComboxBoxShadow}">
                         <StackPanel x:Name="PART_Root" Width="234">
                             <CalendarItem x:Name="PART_CalendarItem"
-                                      BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                      Background="{TemplateBinding Background}" Style="{TemplateBinding CalendarItemStyle}" />
+                                          BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                          Background="{TemplateBinding Background}" Style="{TemplateBinding CalendarItemStyle}" />
                         </StackPanel>
                     </AdornerDecorator>
                 </ControlTemplate>
