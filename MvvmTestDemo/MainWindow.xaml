@@ -34,7 +34,7 @@
                      SelectedIndex="{Binding DemosViewelectedIndex,Mode=TwoWay}" SelectionChanged="listBox_SelectionChanged" />
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
         </Grid>
-        <!--<local:ThreeDimensionalControlsDemo/>-->
+        <!--<local:DateDemo/>-->
     </Grid>
     
 </pc:SideBarWindow>

@@ -16,6 +16,7 @@
                     xmlns:label="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:colorPicker="clr-namespace:CookPopularControl.Controls.ColorPicker"
+                    xmlns:date="clr-namespace:CookPopularControl.Controls.Dates"
                     xmlns:others="clr-namespace:CookPopularControl.Controls.Others"
                     xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups">
 
@@ -135,7 +136,9 @@
     <Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>
     <Style x:Key="{x:Type notify:PopupMessage}" TargetType="{x:Type notify:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}"/>
     <Style x:Key="{x:Type colorPicker:ColorPicker}" TargetType="{x:Type colorPicker:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}"/>
-
+    <Style x:Key="{x:Type date:Clock}" TargetType="{x:Type date:Clock}" BasedOn="{StaticResource DefaultClockStyle}"/>
+    <Style x:Key="{x:Type date:TimePicker}" TargetType="{x:Type date:TimePicker}" BasedOn="{StaticResource DefaultTimePickerStyle}"/>
+    
 
     <Style x:Key="{x:Type others:Alertor}" TargetType="{x:Type others:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}"/>
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}"/>

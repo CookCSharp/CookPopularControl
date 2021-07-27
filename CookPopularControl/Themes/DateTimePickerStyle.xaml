@@ -1,11 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Dates">
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Dates"
+                    xmlns:date="clr-namespace:CookPopularControl.Controls.Dates">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/CalenderBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/DatePickerBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/TimePickerBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultCalendarStyle" TargetType="{x:Type Calendar}" BasedOn="{StaticResource CalenderBaseStyle}">
@@ -16,6 +18,14 @@
 
     <Style x:Key="DefaultDatePickerStyle" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DatePickerBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+    </Style>
+
+    <Style x:Key="DefaultClockStyle" TargetType="{x:Type date:Clock}" BasedOn="{StaticResource ClockBaseStyle}">
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+    </Style>
+
+    <Style x:Key="DefaultTimePickerStyle" TargetType="{x:Type date:TimePicker}" BasedOn="{StaticResource TimePickerBaseStyle}">
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
     </Style>
 
 </ResourceDictionary>

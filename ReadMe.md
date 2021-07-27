@@ -50,8 +50,8 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 - **DataGrid**
     ![效果](MvvmTestDemo/Resources/Effect/DataGrid.png)
 
-- **DateTimerPicker**
-    ![效果](MvvmTestDemo/Resources/Effect/Date.png) 
+- **DateTimePicker**
+    ![效果](MvvmTestDemo/Resources/Effect/DateTimePicker.png) 
 
 - **DialogBox**
     ![效果](MvvmTestDemo/Resources/Effect/DialogBox.gif)

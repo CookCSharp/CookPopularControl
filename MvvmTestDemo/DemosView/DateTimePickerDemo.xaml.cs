@@ -20,16 +20,16 @@ namespace MvvmTestDemo.DemosView
     /// DateDemo.xaml 的交互逻辑
     /// </summary>
     [AddINotifyPropertyChangedInterface]
-    public partial class DateDemo : UserControl
+    public partial class DateTimePickerDemo : UserControl
     {
         public DateTime FutureValidatingDate { get; set; } = DateTime.Now.Date;
 
-        public DateDemo()
+        public DateTimePickerDemo()
         {
             InitializeComponent();
 
             this.DataContext = this;
-            FutureDatePicker.BlackoutDates.AddDatesInPast();
+            //FutureDatePicker.BlackoutDates.AddDatesInPast();
         }
     }
 }

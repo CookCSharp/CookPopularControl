@@ -1277,6 +1277,58 @@
             提供<see cref="T:System.Windows.Controls.Calendar"/>的附加属性基类
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Dates.Clock">
+            <summary>
+            时钟
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dates.Clock.CurrentTime">
+            <summary>
+            当前时间
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dates.Clock.CurrentTimeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Dates.Clock.CurrentTime"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dates.Clock.InitClockDial">
+            <summary>
+            初始化钟盘数据
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dates.Clock.GetRadian(System.Windows.Point)">
+            <summary>
+            由鼠标点得出指针转到哪个象限(以中心为原点，按照数学中ⅠⅡⅢⅣ)来确定位置，从而得到旋转弧度
+            </summary>
+            <param name="point"></param>
+            <returns>旋转弧度</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dates.Clock.CalculateCurrentTime">
+            <summary>
+            计算调整后的时间
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dates.ClockAssistant">
+            <summary>
+            时钟辅助类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dates.ClockAssistant.IsAddConfirmButtonProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Dates.ClockAssistant.IsAddConfirmButtonProperty"/>标识是否增加确定按钮
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dates.TimePicker">
+            <summary>
+            时间选择器
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dates.TimePicker.CurrentTimeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Dates.TimePicker.CurrentTime"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.DialogBox.DialogBox">
             <summary>
             对话窗口
@@ -4383,6 +4435,11 @@
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
             <summary>
             装箱后的值类型（用于提高效率）
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.DestructorHandle">
+            <summary>
+            析构器
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.Colors.ColorBrushExtension">
