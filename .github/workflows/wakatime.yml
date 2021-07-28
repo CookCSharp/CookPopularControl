@@ -1,4 +1,4 @@
-name: WakaTime Readme
+name: WakaTime
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   update-readme:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: athul/waka-readme@master
         with:
