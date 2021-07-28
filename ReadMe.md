@@ -128,8 +128,20 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 - **ToggleButton**
     ![效果](MvvmTestDemo/Resources/Effect/ToggleButton.gif)
 
-### &#8627; Stargazers
+<!-- ### &#8627; Stargazers
 [![Stargazers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/stars/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/stargazers)
 
 ### &#8627; Forkers
-[![Forkers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/forks/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/members)
+[![Forkers repo roster for @cook-csharp/CookPopularControl](https://reporoster.com/forks/cook-csharp/CookPopularControl)](https://gitee.com/cook-csharp/CookPopularControl/members) -->
+
+<!-- ## ‎‍💻 Code Contributors
+
+<img src="https://opencollective.com/CookPopularControl/contributors.svg?width=890&button=false" alt="Code Contributors" style="max-width:100%;"> -->
+
+## ⭐️ Stargazers
+
+<img src="https://starchart.cc/chancezheng/CookPopularControl.svg" alt="Stargazers over time" style="max-width: 100%">
+
+## 🏆 Forkers
+
+<img src="https://forkchart.cc/chancezheng/CookPopularControl.svg" alt="Fork over time" style="max-width: 100%">
