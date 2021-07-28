@@ -5,12 +5,15 @@ on:
     branches:
       - chance_dev
   schedule:
-    - cron: '0 19 * * *'
+    - cron: '0 1 * * *'
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: athul/waka-readme@master
+      - uses: chancezheng/waka-readme-stats@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          WATATIME_TOKEN: ${{ secrets.WATATIME_TOKEN }}
+          SHOW_EDITORS: true
+          SHOW_OS: true
