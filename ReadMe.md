@@ -1,14 +1,17 @@
+![ChanceZheng's GitHub stats](https://github-readme-stats.vercel.app/api?username=chancezheng&show_icons=true&theme=radical)
+<!-- ![ChanceZheng's github stats")](https://github.com/chancezheng/github-readme-stats) -->
+
+
 [![Fork me on Gitee](CookPopularControl/Resources/Images/CookCSharp.png)](https://gitee.com/cook-csharp/CookPopularControl)
 
-# Welcome to CookPopularControl
+# Welcome to CookPopularControl 
 
-[![Nuget Publish](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml/badge.svg)](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml) [![qq群](https://img.shields.io/badge/qq-658794308-red.svg)](https://jq.qq.com/?_wv=1027&k=hVVHKJ1V)
-
+[![Nuget Publish](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml/badge.svg)](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml) [![qq群](https://img.shields.io/badge/qq-658794308-red.svg)](https://jq.qq.com/?_wv=1027&k=hVVHKJ1V) 
 
 [![](https://img.shields.io/badge/Author-写代码的厨子-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl) [![license](https://img.shields.io/badge/license-Apache2.0-brightgreen.svg)](https://gitee.com/cook-csharp/CookPopularControl/blob/chance_dev/LICENSE) [![nuget](https://img.shields.io/nuget/v/CookPopularControl.svg)](https://www.nuget.org/packages/CookPopularControl) [![nuget](https://img.shields.io/nuget/dt/CookPopularControl.svg)](https://www.nuget.org/packages/CookPopularControl) [![Build Status](https://dev.azure.com/407042815/vue-mapvgl/_apis/build/status/vue-mapvgl-Node.js%20With%20Grunt-CI?branchName=master)]()
 
-
-[![star](https://gitee.com/cook-csharp/CookPopularControl/badge/star.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl) [![fork](https://gitee.com/cook-csharp/CookPopularControl/badge/fork.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl)
+[![Gitee stars](https://gitee.com/cook-csharp/CookPopularControl/badge/star.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl) [![Gitee forks](https://gitee.com/cook-csharp/CookPopularControl/badge/fork.svg?theme=dark)](https://gitee.com/cook-csharp/CookPopularControl) 
+[![Github stars](https://img.shields.io/github/stars/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl) [![Github forks](https://img.shields.io/github/forks/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl)
 
 ## 介绍
 CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前提供了多达60款左右的控件，还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
