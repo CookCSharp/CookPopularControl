@@ -1,7 +1,3 @@
-![ChanceZheng's GitHub stats](https://github-readme-stats.vercel.app/api?username=chancezheng&show_icons=true&theme=radical)
-<!-- ![ChanceZheng's github stats")](https://github.com/chancezheng/github-readme-stats) -->
-
-
 [![Fork me on Gitee](CookPopularControl/Resources/Images/CookCSharp.png)](https://gitee.com/cook-csharp/CookPopularControl)
 
 # Welcome to CookPopularControl 
