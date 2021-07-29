@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
-using MvvmTestDemo.DemosView;
 
 
 
@@ -27,7 +23,7 @@ namespace MvvmTestDemo.Commumal
 
         public static object ResolveIntance(string key)
         {
-            if(DemoCacheDic.TryGetValue(key,out object instance))
+            if (DemoCacheDic.TryGetValue(key, out object instance))
             {
                 return instance;
             }
@@ -45,7 +41,7 @@ namespace MvvmTestDemo.Commumal
             var assembly = Assembly.GetExecutingAssembly(); //获取当前程序集
             var namespaceStr = assembly.GetName().Name;
 
-            var type = Type.GetType($"{namespaceStr}.DemosView.{className}");
+            var type = Type.GetType($"{namespaceStr}.DemoViews.{className}");
             var instance = type == null ? null : Activator.CreateInstance(type);
 
             return instance;

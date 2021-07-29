@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="MvvmTestDemo.DemoViews.ExpanderDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithIconStyle}">
+            <Setter Property="Width" Value="600" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="{StaticResource RobotoFonts}" />
+            <Setter Property="Content" Value="ContentWithIconButton" />
+            <Setter Property="pc:FrameworkElementBaseAttached.IconGeometry" Value="{StaticResource SuccessGeometry}" />
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="600" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Expander Header="First" ExpandDirection="Down">
+                    <StackPanel Margin="8">
+                        <TextBlock Text="First"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Second" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Third"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fifth"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Sixth"  Foreground="White" Background="Transparent"/>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Second" ExpandDirection="Up" Margin="0,30">
+                    <StackPanel Margin="8">
+                        <TextBlock Text="First"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Second" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Third"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fifth"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Sixth"  Foreground="White" Background="Transparent"/>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="30,0">
+                <Expander Header="Third" ExpandDirection="Left">
+                    <StackPanel Margin="8">
+                        <TextBlock Text="First"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Second" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Third"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fifth"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Sixth"  Foreground="White" Background="Transparent"/>
+                    </StackPanel>
+                </Expander>
+
+                <Expander Header="Fourth" ExpandDirection="Right" Margin="30,0"
+                          Foreground="Red" Background="Green" BorderBrush="Yellow" BorderThickness="2">
+                    <StackPanel Margin="8">
+                        <TextBlock Text="First"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Second" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Third"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Fifth"  Foreground="White" Background="Transparent"/>
+                        <TextBlock Text="Sixth"  Foreground="White" Background="Transparent"/>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

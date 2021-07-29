@@ -1,19 +1,8 @@
 ﻿using CookPopularControl.Controls.Notify;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace MvvmTestDemo.DemosView
+namespace MvvmTestDemo.UserControls
 {
     /// <summary>
     /// NotifyDemoWindow.xaml 的交互逻辑
@@ -45,12 +34,12 @@ namespace MvvmTestDemo.DemosView
                     BubbleMessage.ShowFatal($"写代码的厨子_{bubbleMessageIndex++}", token);
                     break;
                 case "ShowQuestionBubbleMessage":
-                    BubbleMessage.ShowQuestion($"写代码的厨子_{bubbleMessageIndex++}",isSure =>
-                    {
+                    BubbleMessage.ShowQuestion($"写代码的厨子_{bubbleMessageIndex++}", isSure =>
+                     {
                         //MessageDialog.ShowInfo($"Clicked the {isSure.ToString()}");
                         BubbleMessage.ShowInfo($"Clicked the {isSure}");
-                        return true;
-                    }, token);
+                         return true;
+                     }, token);
                     break;
                 case "ShowSuccessBubbleMessage":
                     BubbleMessage.ShowSuccess($"写代码的厨子_{bubbleMessageIndex++}", token);

@@ -1,22 +1,12 @@
-﻿using CookPopularControl.Tools.Extensions.Strings;
-using CookPopularControl.Tools.Helpers;
+﻿using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
-using System.IO.Packaging;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 
 namespace CookPopularControl.Controls.Windows.Printers
@@ -73,7 +63,7 @@ namespace CookPopularControl.Controls.Windows.Printers
             //LoadPreviewXPS(@"C:\Users\Chance\Desktop\761033.pdf");
             //LoadPreviewXPS(@"C:\Users\Chance\Desktop\新建文本文档 (2).txt");
 
-            LoadFile();           
+            LoadFile();
         }
 
         private void LoadFile()

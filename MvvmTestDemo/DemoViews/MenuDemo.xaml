@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="MvvmTestDemo.DemoViews.MenuDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="DemoButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonIconStyle}">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="pc:FrameworkElementBaseAttached.CornerRadius" Value="50" />
+            <Setter Property="pc:FrameworkElementBaseAttached.IconGeometry" Value="{StaticResource CloseGeometry}" />
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
+
+            <TextBox Width="200" Height="34" Text="Chance" Foreground="Red"
+                     ContextMenu="{StaticResource DefaultContextMenu}"/>
+
+            <Menu IsMainMenu="True" Margin="0,50">
+                <MenuItem Header="_Example">
+                    <MenuItem Header="Close">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource CloseGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Fatal">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource FatalGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Leaf">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource LeafGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Plane">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource PlaneGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="篮球" IsCheckable="True" IsChecked="True" />
+                    <MenuItem Header="足球" IsCheckable="True" />
+                    <MenuItem Header="排名" >
+                        <MenuItem Header="First" IsCheckable="True"/>
+                        <MenuItem Header="Second"/>
+                        <MenuItem Header="Third"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Operation">
+                    <MenuItem Command="Cut">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource CutGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="Copy">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource CopyGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="Paste">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource PasteGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="SelectAll">
+                        <MenuItem.Icon>
+                            <Path Data="{DynamicResource SelectAllGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <!--<pc:ArcPanel Radius="200" ArcAngle="360" IntervalAngle="0" IsItemRotate="False" Margin="0,20" Background="Red">
+                <Button Width="50" Height="50" Content="First" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="Second" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="Third" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="Fourth" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="Fifth" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="11111" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="22222" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="33333" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="44444" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+                <Button Width="50" Height="50" Content="55555" pc:FrameworkElementBaseAttached.CornerRadius="40"/>
+            </pc:ArcPanel>-->
+
+            <pc:CircleMenu x:Name="circleMenu" Width="100" Height="100"
+                           Style="{StaticResource CircleMenuStyle}" 
+                           Radius="100" ArcAngle="360" IsItemRotate="False" Padding="20">
+                <Button Style="{StaticResource DemoButtonStyle}" Click="Button_Click"/>
+                <Button Style="{StaticResource DemoButtonStyle}"                        
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource AirFanGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ArchGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CheckGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CopyGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CutGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
+            </pc:CircleMenu>
+
+            <pc:PopupMenu x:Name="popupMenu" Style="{StaticResource PopupMenuStyle}" PopupPosition="LeftCenter" VerticalContentAlignment="Center" Padding="0" Margin="0,20">
+                <Button Style="{StaticResource DemoButtonStyle}"  Click="Button_Click"/>
+                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,10"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"/>
+                <Button Style="{StaticResource DemoButtonStyle}" Margin="0,10"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
+            </pc:PopupMenu>
+            
+            <Separator Style="{StaticResource DefaultSeparatorStyle}" Width="300"/>
+
+        </StackPanel>
+    </ScrollViewer>
+ 
+</UserControl>
