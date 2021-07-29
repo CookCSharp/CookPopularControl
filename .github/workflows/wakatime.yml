@@ -17,5 +17,3 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           REPOSITORY: <chancezheng/chancezheng>
           SHOW_TITLE: true
-          SHOW_EDITORS: true
-          SHOW_OS: true

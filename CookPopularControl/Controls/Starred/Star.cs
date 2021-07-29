@@ -253,15 +253,17 @@ namespace CookPopularControl.Controls.Starred
             if (IsShowScore)
             {
                 TextBlock tb = new TextBlock();
+                tb.Width = 30;
                 tb.Text = StarValue.ToString();
-                tb.Width = 20D;
+                tb.FontSize = 16;
                 tb.FontWeight = FontWeights.Bold;
-                tb.HorizontalAlignment = HorizontalContentAlignment;
-                tb.VerticalAlignment = VerticalContentAlignment;
+                tb.HorizontalAlignment = HorizontalAlignment.Center;
+                tb.VerticalAlignment = VerticalAlignment.Center;
+                tb.TextAlignment = TextAlignment.Center;
                 if (panel.Orientation == Orientation.Horizontal)
                     tb.Margin = new Thickness(5, 0, 5, 0);
                 else
-                    tb.Margin = new Thickness(0, 5, 0, 5);
+                    tb.Margin = new Thickness(0, 8, 0, 8);
                 panel.Children.Add(tb);
             }
         }
