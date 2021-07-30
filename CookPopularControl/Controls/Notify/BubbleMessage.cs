@@ -149,9 +149,12 @@ namespace CookPopularControl.Controls.Notify
         {
             Application.Current.Dispatcher?.Invoke(() =>
             {
-                var rootMessagePanel = string.IsNullOrEmpty(tokenParentPanel) ? DefaultRootMessagePanel : PanelDictionary[tokenParentPanel];
+                if (!PanelDictionary.TryGetValue(tokenParentPanel, out Panel customPanel))
+                    throw new AggregateException($"无法找到Token为{tokenParentPanel}的BubbleMessage容器");
+
+                var rootMessagePanel = string.IsNullOrEmpty(tokenParentPanel) ? DefaultRootMessagePanel : customPanel;
                 if (rootMessagePanel == null)
-                    throw new ArgumentException($"应设置{IsParentElementProperty}属性的值或设置{ParentElementTokenProperty}属性的值");
+                    throw new ArgumentException($"需要一个Panel容器去接收消息并设置{IsParentElementProperty}属性的值或设置{ParentElementTokenProperty}属性的值");
 
                 _info = info;
                 var NotifyMessageBaseControl = new ContentControl();
