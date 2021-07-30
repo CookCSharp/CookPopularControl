@@ -1,0 +1,54 @@
+﻿using Prism.Ioc;
+using Prism.Mvvm;
+using Prism.Unity;
+using System;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Data;
+
+
+
+/*
+ * Copyright (c) 2021 All Rights Reserved.
+ * Description：Bootstrapper
+ * Author： Chance_写代码的厨子
+ * Create Time：2021-07-29 10:13:35
+ */
+namespace MvvmTestDemo
+{
+    /// <summary>
+    /// 启动器
+    /// </summary>
+    public class Bootstrapper : PrismBootstrapper
+    {
+        protected override DependencyObject CreateShell()
+        {
+            return Container.Resolve<MainWindow>();
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            var container = PrismIocExtensions.GetContainer(containerRegistry);          
+
+            //注册View与ViewModel
+            //ViewModelLocationProvider.Register<MainWindow, MainWindowViewModel>();
+        }
+
+        /// <summary>
+        /// 重写View与ViewModel的解析方式
+        /// </summary>
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+
+            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(viewType =>
+            {
+                var viewName = viewType.FullName.Replace(".DemoViews.", ".DemoViewModels.");
+                var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
+                var viewModelName = $"{viewName}ViewModel,{viewAssemblyName}";
+
+                return Type.GetType(viewModelName);
+            });
+        }
+    }
+}

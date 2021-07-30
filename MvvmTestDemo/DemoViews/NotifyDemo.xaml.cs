@@ -2,6 +2,7 @@
 using CookPopularControl.Controls.CheckBox;
 using CookPopularControl.Controls.Notify;
 using MvvmTestDemo.UserControls;
+using Prism.Unity;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -33,7 +34,7 @@ namespace MvvmTestDemo.DemoViews
             else
                 DefaultNotifyIcon.Visibility = Visibility.Collapsed;
 
-            (Window.GetWindow(this) as MainWindow).IsOpenNotifyIconSwitch = switchCtl.IsChecked.Value;
+            //(Window.GetWindow(this) as MainWindow).IsOpenNotifyIconSwitch = switchCtl.IsChecked.Value;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

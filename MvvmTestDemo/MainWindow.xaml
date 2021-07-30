@@ -1,27 +1,40 @@
 ﻿<pc:SideBarWindow x:Class="MvvmTestDemo.MainWindow"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                   xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                  xmlns:local="clr-namespace:MvvmTestDemo.DemosView"
+                  xmlns:local="clr-namespace:MvvmTestDemo"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+                  xmlns:prism="http://prismlibrary.com/"
                   x:Name="DemoMainWindow"
-                  Title="MvvmTestDemo"
-                  mc:Ignorable="d" 
-                  Loaded="MainWindow_Loaded"
-                  WindowStartupLocation="CenterScreen" 
-                  Width="1000" 
-                  Height="800"
+                  Title="CookPopularControl"
+                  mc:Ignorable="d"
+                  d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
+                  prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
-                  IsShowSideBarChanged="DemoMainWindow_IsShowSideBarChanged"
-                  SettingClick="DemoMainWindow_SettingClick">
+                  WindowStartupLocation="CenterScreen"
+                  Width="1000" Height="800" FontSize="18" FontWeight="DemiBold">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries />
-        </ResourceDictionary>
-    </Window.Resources>
+    <!--<pc:SideBarWindow.DataContext>
+        <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
+    </pc:SideBarWindow.DataContext>-->
+
+    <behavior:Interaction.Triggers>
+        <behavior:EventTrigger EventName="Loaded">
+            <behavior:InvokeCommandAction Command="{Binding ViewLoadedCommand}" />
+        </behavior:EventTrigger>
+        <behavior:EventTrigger EventName="Closing">
+            <behavior:InvokeCommandAction Command="{Binding WindowClosingCommand}" />
+        </behavior:EventTrigger>
+        <behavior:EventTrigger EventName="IsShowSideBarChanged">
+            <behavior:InvokeCommandAction Command="{Binding ShowSideBarCommand}" />
+        </behavior:EventTrigger>
+        <behavior:EventTrigger EventName="SettingClick">
+            <behavior:InvokeCommandAction Command="{Binding SettingClickCommand}" />
+        </behavior:EventTrigger>
+    </behavior:Interaction.Triggers>
 
     <Grid>
         <Grid Visibility="Visible">
@@ -29,12 +42,45 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0" x:Name="listBox" Width="0" FontSize="14" FontWeight="Normal"
-                     ItemsSource="{Binding ControlNamesList}" SelectionMode="Single"
-                     SelectedIndex="{Binding DemosViewelectedIndex,Mode=TwoWay}" SelectionChanged="listBox_SelectionChanged" />
-            <ContentControl Grid.Column="1" Content="{Binding ControlContent}"/>
+            <ListBox x:Name="listBox"
+                     ItemsSource="{Binding ControlNamesList}"
+                     SelectedIndex="{Binding DemoViewsSelectedIndex,Mode=TwoWay,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}"
+                     SelectionMode="Single" Grid.Column="0" Width="0" FontSize="14"
+                     FontWeight="Normal">
+                <behavior:Interaction.Triggers>
+                    <behavior:EventTrigger EventName="SelectionChanged">
+                        <behavior:InvokeCommandAction Command="{Binding DemoViewsSelectedCommand}" />
+                    </behavior:EventTrigger>
+                    <behavior:DataTrigger Binding="{Binding ElementName=DemoMainWindow, Path=IsShowSideBar}" Value="True">
+                        <behavior:ControlStoryboardAction ControlStoryboardOption="Play">
+                            <behavior:ControlStoryboardAction.Storyboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width" From="0" To="150"
+                                                     Duration="0:0:0.5" />
+                                </Storyboard>
+                            </behavior:ControlStoryboardAction.Storyboard>
+                        </behavior:ControlStoryboardAction>
+                    </behavior:DataTrigger>
+                    <behavior:DataTrigger Binding="{Binding ElementName=DemoMainWindow, Path=IsShowSideBar}" Value="False">
+                        <behavior:ControlStoryboardAction ControlStoryboardOption="Play">
+                            <behavior:ControlStoryboardAction.Storyboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width" From="150" To="0"
+                                                     Duration="0:0:0.5" />
+                                </Storyboard>
+                            </behavior:ControlStoryboardAction.Storyboard>
+                        </behavior:ControlStoryboardAction>
+                    </behavior:DataTrigger>
+                </behavior:Interaction.Triggers>
+            </ListBox>
+            <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
         <!--<local:DateDemo/>-->
+
+        <!--接收BubbleMessage的容器-->
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel HorizontalAlignment="Right" pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken"/>
+        </ScrollViewer>
     </Grid>
-    
+
 </pc:SideBarWindow>

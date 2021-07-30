@@ -37,6 +37,7 @@
     <ItemGroup>
         <PackageReference Include="DocumentFormat.OpenXml" Version="2.13.0" />
         <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+        <PackageReference Include="Prism.Unity" Version="8.1.97" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
         <PackageReference Include="System.Drawing.Common" Version="6.0.0-preview.4.21253.7" />
@@ -65,9 +66,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DemosModel\" />
+      <Folder Include="DemoModels\" />
       <Folder Include="Resources\Effect\" />
-      <Folder Include="DemosViewModel\" />
+      <Folder Include="DemoViewModels\" />
     </ItemGroup>
 
     <ItemGroup>

@@ -51,25 +51,6 @@ namespace CookPopularControl.Controls.Notify
             DependencyProperty.RegisterAttached("BubbleMessageIconBrush", typeof(Brush), typeof(BubbleMessage), new PropertyMetadata(default(Brush)));
 
 
-        ///// <summary>
-        ///// 设置消息容器
-        ///// </summary>
-        //private static void SetNotifyMessageContainer(UIElement element)
-        //{
-        //    var win = WindowExtension.GetActiveWindow();
-        //    var adorner = VisualTreeHelperExtension.GetVisualDescendants(win).OfType<AdornerDecorator>().FirstOrDefault();
-        //    if (adorner != null)
-        //    {
-        //        var layer = adorner.AdornerLayer;
-        //        if (layer is not null)
-        //        {
-        //            //将AdornerLayer作为元素生成一个新的容器
-        //            var container = new AdornerContainer(adorner.AdornerLayer) { Child = element };
-        //            layer.Add(container);
-        //        }
-        //    }
-        //}
-
         public static void ShowInfo(object message, string tokenParentPanel = default)
         {
             var info = new NotifyMessageInfo
@@ -149,10 +130,19 @@ namespace CookPopularControl.Controls.Notify
         {
             Application.Current.Dispatcher?.Invoke(() =>
             {
-                if (!PanelDictionary.TryGetValue(tokenParentPanel, out Panel customPanel))
-                    throw new AggregateException($"无法找到Token为{tokenParentPanel}的BubbleMessage容器");
+                Panel? rootMessagePanel;
+                if (string.IsNullOrEmpty(tokenParentPanel))
+                {
+                    rootMessagePanel = DefaultRootMessagePanel;
+                }
+                else
+                {
+                    if (PanelDictionary.TryGetValue(tokenParentPanel, out Panel customPanel))
+                        rootMessagePanel = customPanel;
+                    else
+                        throw new AggregateException($"无法找到Token为{tokenParentPanel}的BubbleMessage容器");
+                }
 
-                var rootMessagePanel = string.IsNullOrEmpty(tokenParentPanel) ? DefaultRootMessagePanel : customPanel;
                 if (rootMessagePanel == null)
                     throw new ArgumentException($"需要一个Panel容器去接收消息并设置{IsParentElementProperty}属性的值或设置{ParentElementTokenProperty}属性的值");
 
