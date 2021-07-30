@@ -284,6 +284,26 @@
             短横线
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Data.Enum.ControlBorderAnimationType">
+            <summary>
+            表示<see cref="P:CookPopularControl.Communal.Behaviors.ControlBorderBehavior.AnimationType"/>枚举类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.ControlBorderAnimationType.Thickness">
+            <summary>
+            同时变化
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.ControlBorderAnimationType.OrderThickness">
+            <summary>
+            下,右,上,左有序变化
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.Enum.ControlBorderAnimationType.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.DotLoadingTrack">
             <summary>
             加载缓动画类型

@@ -198,6 +198,7 @@
                                                     attached:FrameworkElementBaseAttached.IconWidth="14"
                                                     attached:FrameworkElementBaseAttached.IconHeight="14"
                                                     Style="{StaticResource WindowIconButtonStyle}"/>
+                                            <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Content="{TemplateBinding ClientTitleBarAdditionalContent}" Margin="5,0"/>
                                         </StackPanel>
                                         <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientTitleBarForeground}" IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                    Visibility="{TemplateBinding IsShowTitle,Converter={toolConverters:BooleanToVisibilityConverter}}"/>

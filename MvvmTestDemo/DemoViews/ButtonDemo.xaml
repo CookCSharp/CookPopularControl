@@ -23,18 +23,18 @@
     </UserControl.Resources>
 
     <ScrollViewer>
-        <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" VerticalAlignment="Center">
+        <StackPanel Width="{StaticResource DemoViewsDefaultWidth}" VerticalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center">
                 <Button Width="180" Height="60" Content="DefaultButton" FontSize="20" ToolTip="DefaultButton"
                         Style="{StaticResource DefaultButtonStyle}"
-                        pc:FrameworkElementBaseAttached.CornerRadius="20">
+                        pc:FrameworkElementBaseAttached.CornerRadius="10">
                     <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior AnimationType="Thickness" BorderBrush="Purple" BorderThickness="3"/>
+                        <pc:ControlBorderBehavior AnimationType="OrderThickness" BorderBrush="Purple" BorderThickness="3"/>
                     </behavior:Interaction.Behaviors>
                 </Button>
                 <Button Width="180" Height="60" Content="DefaultButton" FontSize="20" ToolTip="OutlineButton"
                         Style="{StaticResource ButtonOutlineStyle}" Margin="10,0"
-                        pc:FrameworkElementBaseAttached.CornerRadius="20">
+                        pc:FrameworkElementBaseAttached.CornerRadius="10">
                     <behavior:Interaction.Behaviors>
                         <pc:ControlBorderBehavior AnimationType="Path"/>
                     </behavior:Interaction.Behaviors>

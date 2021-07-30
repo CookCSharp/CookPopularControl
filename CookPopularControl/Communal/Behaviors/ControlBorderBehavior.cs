@@ -21,6 +21,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using CookPopularControl.Expression.Drawing.Core;
+using System.Windows.Automation.Text;
+using CookPopularControl.Communal.Data.Enum;
 
 
 /*
@@ -44,7 +46,7 @@ namespace CookPopularControl.Communal.Behaviors
         public Brush BorderBrush { get; set; } = ResourceHelper.GetResource<SolidColorBrush>("BorderBrush");
         public Duration Duration { get; set; } = new Duration(TimeSpan.FromSeconds(1));
         public bool IsRetainBehavior { get; set; } = true;
-        public AnimationType AnimationType { get; set; }
+        public ControlBorderAnimationType AnimationType { get; set; }
 
 
         protected override void OnAttached()
@@ -62,16 +64,23 @@ namespace CookPopularControl.Communal.Behaviors
         protected override void OnDetaching()
         {
             base.OnDetaching();
+
+            AssociatedObject.PreviewMouseLeftButtonDown -= AssociatedObject_PreviewMouseLeftButtonDown;
+            AssociatedObject.PreviewMouseLeftButtonUp -= AssociatedObject_PreviewMouseLeftButtonUp;
+            AssociatedObject.LostFocus -= AssociatedObject_LostFocus;
         }
 
         private void AssociatedObject_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             switch (AnimationType)
             {
-                case AnimationType.Thickness:
-                    StartThicknessAnimation();
+                case ControlBorderAnimationType.Thickness:
+                    StarThicknessAnimation();
                     break;
-                case AnimationType.Path:
+                case ControlBorderAnimationType.OrderThickness:
+                    StarOrderThicknessAnimation();
+                    break;
+                case ControlBorderAnimationType.Path:
                     StartPathAnimation();
                     break;
                 default:
@@ -88,7 +97,7 @@ namespace CookPopularControl.Communal.Behaviors
             RestoreBorderStyle();
         }
 
-        private void StartThicknessAnimation()
+        private void StarOrderThicknessAnimation()
         {
             AssociatedObject.BorderBrush = BorderBrush;
 
@@ -96,6 +105,7 @@ namespace CookPopularControl.Communal.Behaviors
             {
                 RepeatBehavior = new RepeatBehavior(1),
                 FillBehavior = FillBehavior.Stop,
+                Duration = Duration,
             };
 
             var frame0 = new LinearThicknessKeyFrame
@@ -111,25 +121,48 @@ namespace CookPopularControl.Communal.Behaviors
             var frame2 = new LinearThicknessKeyFrame
             {
                 KeyTime = TimeSpan.FromMilliseconds(0.5 * totalAnimationTimes),
-                Value = new Thickness(BorderThickness, 0, BorderThickness, BorderThickness),
+                Value = new Thickness(0, 0, BorderThickness, BorderThickness),
             };
             var frame3 = new LinearThicknessKeyFrame
             {
-                KeyTime = TimeSpan.FromMilliseconds(totalAnimationTimes),
+                KeyTime = TimeSpan.FromMilliseconds(0.75 * totalAnimationTimes),
+                Value = new Thickness(0, BorderThickness, BorderThickness, BorderThickness),
+            };
+            var frame4 = new LinearThicknessKeyFrame
+            {
+                KeyTime = TimeSpan.FromMilliseconds(1.1 * totalAnimationTimes),
                 Value = new Thickness(BorderThickness),
             };
             frames.KeyFrames.Add(frame0);
             frames.KeyFrames.Add(frame1);
             frames.KeyFrames.Add(frame2);
             frames.KeyFrames.Add(frame3);
+            frames.KeyFrames.Add(frame4);
+
             var clock = frames.CreateClock();
+            clock.Completed += AnimationCompleted;
 
-            clock.Completed += Clock_Completed;
-
-            AssociatedObject.ApplyAnimationClock(ButtonBase.BorderThicknessProperty, clock);
+            AssociatedObject.ApplyAnimationClock(Control.BorderThicknessProperty, clock, HandoffBehavior.Compose);
         }
 
-        private void Clock_Completed(object sender, EventArgs e)
+        private void StarThicknessAnimation()
+        {
+            AssociatedObject.BorderBrush = BorderBrush;
+
+            ThicknessAnimation thicknessAnimation = new ThicknessAnimation()
+            {
+                RepeatBehavior = new RepeatBehavior(1),
+                FillBehavior = FillBehavior.Stop,
+            };
+            thicknessAnimation.From = originThickness;
+            thicknessAnimation.To = new Thickness(BorderThickness);
+            thicknessAnimation.Duration = Duration;
+            thicknessAnimation.Completed += AnimationCompleted;
+
+            AssociatedObject.BeginAnimation(Control.BorderThicknessProperty, thicknessAnimation);
+        }
+
+        private void AnimationCompleted(object sender, EventArgs e)
         {
             if (IsRetainBehavior)
             {
@@ -322,11 +355,5 @@ namespace CookPopularControl.Communal.Behaviors
 
             private void Storyboard_Completed(object sender, EventArgs e) => RaiseEvent(new RoutedEventArgs(CompletedEvent));
         }
-    }
-
-    public enum AnimationType
-    {
-        Thickness,
-        Path,
     }
 }
