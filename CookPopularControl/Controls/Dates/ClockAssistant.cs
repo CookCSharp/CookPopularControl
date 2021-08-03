@@ -36,16 +36,17 @@ namespace CookPopularControl.Controls.Dates
 
         private static void OnIsAddConfirmButtonChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if(d is TimePicker timePicker)
+            if (d is TimePicker timePicker)
             {
                 timePicker.Loaded += (s, e) =>
                 {
                     var clock = timePicker.Template.FindName(ElementClock, timePicker) as Clock;
-                    clock.Loaded += (s, e)=>
+                    clock.Loaded += (s, e) =>
                     {
                         var uniformGrid = clock.Template.FindName(ElementUniformGrid, clock) as UniformGrid;
-                        uniformGrid.Columns = 4;
-                    };     
+                        if (uniformGrid != null)
+                            uniformGrid.Columns = 4;
+                    };
                 };
             }
         }

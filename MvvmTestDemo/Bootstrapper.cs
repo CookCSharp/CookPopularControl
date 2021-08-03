@@ -41,9 +41,11 @@ namespace MvvmTestDemo
         {
             base.ConfigureViewModelLocator();
 
+            //配置好View与ViewModel的映射之后，prism:ViewModelLocator.AutoWireViewModel="True"才生效
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(viewType =>
             {
-                var viewName = viewType.FullName.Replace(".DemoViews.", ".DemoViewModels.");
+                var viewName = viewType.FullName.Replace(".UserControls.", ".DemoViewModels.");
+                viewName = viewName.Replace(".DemoViews.", ".DemoViewModels.");
                 var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
                 var viewModelName = $"{viewName}ViewModel,{viewAssemblyName}";
 

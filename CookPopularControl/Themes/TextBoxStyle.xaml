@@ -9,7 +9,7 @@
     <Style x:Key="DefaultTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxBaseStyle}">
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请输入文本..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="10"/>
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
     </Style>
 
     <Style x:Key="ValidationTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">

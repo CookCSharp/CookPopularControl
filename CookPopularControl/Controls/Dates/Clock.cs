@@ -1,6 +1,8 @@
 ﻿using CookPopularControl.Controls.Panels;
 using CookPopularControl.Tools.Helpers;
+using CookPopularControl.Tools.Windows.Tasks;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -216,14 +218,20 @@ namespace CookPopularControl.Controls.Dates
             {
                 _secondTimer = new DispatcherTimer();
                 _secondTimer.Interval = TimeSpan.FromSeconds(1);
-                _secondTimer.Tick += (s, e) =>
+                _secondTimer.Tick += async (s, e) =>
                 {
                     _secondValue += 1;
                     CalculateCurrentTime();
 
-                    _secondRotate.Angle = _secondValue * MinuteSecondDegree;
-                    _minuteRotate.Angle = (_minuteValue + _secondValue / 60D) * MinuteSecondDegree;
-                    _hourRotate.Angle = (_hourValue + _minuteValue / 60D + _secondValue / 3600D) * HourDegree;
+                    await Task.Run(() =>
+                    {
+                        SynchronizationWithAsync.AppInvoke(() =>
+                        {
+                            _secondRotate.Angle = _secondValue * MinuteSecondDegree;
+                            _minuteRotate.Angle = (_minuteValue + _secondValue / 60D) * MinuteSecondDegree;
+                            _hourRotate.Angle = (_hourValue + _minuteValue / 60D + _secondValue / 3600D) * HourDegree;
+                        });
+                    });
                 };
                 _secondTimer.IsEnabled = true;
             }

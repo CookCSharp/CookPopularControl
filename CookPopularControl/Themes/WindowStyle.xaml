@@ -58,7 +58,6 @@
         <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="#E82323" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="FontSize" Value="14" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="IsShowTitle" Value="True" />
         <Setter Property="IsShowClientTitleBar" Value="True" />
@@ -200,7 +199,8 @@
                                                     Style="{StaticResource WindowIconButtonStyle}"/>
                                             <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Content="{TemplateBinding ClientTitleBarAdditionalContent}" Margin="5,0"/>
                                         </StackPanel>
-                                        <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientTitleBarForeground}" IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Foreground="{TemplateBinding ClientTitleBarForeground}" FontSize="18"
+                                                   IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                    Visibility="{TemplateBinding IsShowTitle,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True" >
                                             <Button x:Name="MinimizedButton" Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="最小化"

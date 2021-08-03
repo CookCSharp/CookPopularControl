@@ -23,6 +23,7 @@
             </Style>-->
 
             <sys:Double x:Key="DemosViewViewDefaultWidth">800</sys:Double>
+            <sys:Double x:Key="DemoViewsDefaultWidth">800</sys:Double>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

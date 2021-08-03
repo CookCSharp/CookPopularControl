@@ -68,7 +68,6 @@
     <ItemGroup>
       <Folder Include="DemoModels\" />
       <Folder Include="Resources\Effect\" />
-      <Folder Include="DemoViewModels\" />
     </ItemGroup>
 
     <ItemGroup>

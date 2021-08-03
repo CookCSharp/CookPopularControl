@@ -2,6 +2,7 @@
 using CookPopularControl.Controls.Windows;
 using CookPopularControl.Tools.Helpers;
 using MvvmTestDemo.Commumal;
+using MvvmTestDemo.UserControls;
 using Prism.Commands;
 using Prism.Common;
 using Prism.Mvvm;
@@ -29,6 +30,7 @@ namespace MvvmTestDemo
     public class MainWindowViewModel : ViewModelBase
     {
         private const string MainWindowBubbleMessageToken = "MainWindowToken";
+        private OverViewDemo OverView = new OverViewDemo();
         private HashSet<string> DemoFiles;
 
         public ObservableCollection<string> ControlNamesList { get; set; }
@@ -36,9 +38,10 @@ namespace MvvmTestDemo
         public int DemoViewsSelectedIndex { get; set; }
         public bool IsOpenNotifyIconSwitch { get; set; }
 
-        public ICommand DemoViewsSelectedCommand { get; set; }
         public ICommand ShowSideBarCommand { get; set; }
         public ICommand SettingClickCommand { get; set; }
+        public ICommand HomePageCommand { get; set; }
+        public ICommand DemoViewsSelectedCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -53,14 +56,16 @@ namespace MvvmTestDemo
             ViewLoadedCommand = new DelegateCommand(OnLoaded);
             WindowClosingCommand = new DelegateCommand(OnWindowClosing);
 
-            DemoViewsSelectedCommand = new DelegateCommand(OnDemoViewsSelected);
             ShowSideBarCommand = new DelegateCommand(OnShowSideBar);
             SettingClickCommand = new DelegateCommand(OnSettingClick);
+            HomePageCommand = new DelegateCommand(OnHomePage);
+            DemoViewsSelectedCommand = new DelegateCommand(OnDemoViewsSelected);
         }
 
         private void OnLoaded()
         {
             SetControlsList();
+            OnHomePage();
         }
 
         private void OnWindowClosing()
@@ -97,18 +102,13 @@ namespace MvvmTestDemo
                 ObjectFactory.Register(className, instance);
             }
 
-            OnDemoViewsSelected();
             //CollectionViewSource.GetDefaultView(viewmodel);// 返回给定源的默认视图。
         }
 
         private void OnDemoViewsSelected()
         {
-            ControlContent = ObjectFactory.ResolveIntance(ControlNamesList[DemoViewsSelectedIndex]);
-        }
-
-        private void OnShowSideBar()
-        {
-
+            if (DemoViewsSelectedIndex >= 0)
+                ControlContent = ObjectFactory.ResolveIntance(ControlNamesList[DemoViewsSelectedIndex]);
         }
 
         private void OnSettingClick()
@@ -116,6 +116,17 @@ namespace MvvmTestDemo
             BubbleMessage.ShowInfo("打开了设置", MainWindowBubbleMessageToken);
 
             //MessageDialog.Show("打开了设置");
+        }
+
+        private void OnHomePage()
+        {
+            DemoViewsSelectedIndex = -1;
+            ControlContent = OverView;
+        }
+
+        private void OnShowSideBar()
+        {
+
         }
     }
 }

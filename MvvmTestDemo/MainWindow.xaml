@@ -11,12 +11,12 @@
                   x:Name="DemoMainWindow"
                   Title="CookPopularControl"
                   mc:Ignorable="d"
-                  d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"
+                  d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   ResizeMode="CanResizeWithGrip"
                   WindowStartupLocation="CenterScreen"
-                  Width="1000" Height="800" FontSize="18" FontWeight="DemiBold">
-
+                  Width="1000" Height="800">
+    
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
     </pc:SideBarWindow.DataContext>-->
@@ -35,6 +35,14 @@
             <behavior:InvokeCommandAction Command="{Binding SettingClickCommand}" />
         </behavior:EventTrigger>
     </behavior:Interaction.Triggers>
+
+    <pc:SideBarWindow.ClientTitleBarAdditionalContent>
+        <Button Command="{Binding HomePageCommand}" ToolTip="主页" 
+                pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource HomePageGeometry}"
+                pc:FrameworkElementBaseAttached.IconWidth="18"
+                pc:FrameworkElementBaseAttached.IconHeight="18"
+                Style="{StaticResource WindowIconButtonStyle}"/>
+    </pc:SideBarWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
         <Grid Visibility="Visible">
