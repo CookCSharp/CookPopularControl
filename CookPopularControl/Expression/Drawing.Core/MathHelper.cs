@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 
 
@@ -19,6 +21,31 @@ namespace CookPopularControl.Expression.Drawing.Core
 	/// </summary>
 	public static class MathHelper
 	{
+		[Pure]
+		public static bool IsValid(this double value)
+		{
+			return !double.IsInfinity(value) && !double.IsNaN(value);
+		}
+
+		[Pure]
+		public static bool IsValid(this Point value)
+		{
+			return value.X.IsValid() && value.Y.IsValid();
+		}
+
+		[Pure]
+		public static bool IsValid(this Size value)
+		{
+			return value.Width.IsValid() && value.Height.IsValid();
+		}
+
+		[Pure]
+		public static bool IsValid(this Vector value)
+		{
+			return value.X.IsValid() && value.Y.IsValid();
+		}
+
+
 		/// <summary>
 		/// Determines whether a <c>System.Double</c> value is small enough to be considered
 		/// equivalent to zero.
