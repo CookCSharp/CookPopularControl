@@ -38,7 +38,7 @@
                          pc:SelectorAttached.IsPreviewImage="True"/>
                 <ListView Width="300" Height="150" Padding="16,0,0,0" SelectedIndex="0"
                           Style="{StaticResource DefaultListViewStyle}" Margin="30,0">
-                    <ListViewItem Content="Lori"/>
+                    <ListViewItem Content="Lori" />
                     <ListViewItem Content="Chance"/>
                     <ListViewItem Content="写代码的厨子"/>
                 </ListView>
@@ -46,7 +46,7 @@
             <WrapPanel HorizontalAlignment="Center" Margin="0,30,0,0">
                 <ListView Width="700" Height="200" ItemsSource="{Binding PersonInfos}"
                           Style="{StaticResource ListViewGirdViewStyle}"
-                          pc:SelectorAttached.ItemHeight="50"
+                          pc:SelectorAttached.ItemHeight="40"
                           HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom">
                     <ListView.View>
                         <GridView>
