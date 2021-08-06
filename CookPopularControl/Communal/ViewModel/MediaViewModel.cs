@@ -14,7 +14,7 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Communal.ViewModel
 {
-    public class MediaViewModel : ViewModelBase
+    internal class MediaViewModel : ViewModelBase
     {
         private bool _isVolumeOpen = false;
         private bool _isSpeedOpen = false;

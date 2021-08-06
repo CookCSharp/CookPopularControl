@@ -7,7 +7,7 @@ namespace CookPopularControl.Controls.CarouselView
     /// <summary>
     /// ImageAnimation.xaml 的交互逻辑
     /// </summary>
-    public partial class ImageAnimation : UserControl
+    internal partial class ImageAnimation : UserControl
     {
         public double X
         {

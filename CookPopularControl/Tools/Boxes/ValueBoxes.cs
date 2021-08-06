@@ -61,6 +61,7 @@ namespace CookPopularControl.Tools.Boxes
         internal static readonly object Double10Box = 10.0;
         internal static readonly object Double20Box = 20.0;
         internal static readonly object Double30Box = 30.0;
+        internal static readonly object Double50Box = 50.0;
         internal static readonly object Double200Box = 200.0;
 
         internal static readonly object CornerRadius0Box = new CornerRadius(0);

@@ -467,6 +467,21 @@
             动画是否播放
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Animation.AnimationTilePanel">
+            <summary>
+            标识类似瓦片的动画面板
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemWidthProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemWidth"/>的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemHeightProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemHeight"/>的附加属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Animation.Loading.DotCircleLoading">
             <summary>
             表示点按照圆的运动轨迹形成的动画
@@ -1046,9 +1061,6 @@
         <member name="T:CookPopularControl.Controls.CarouselView.ImageAnimation">
             <summary>
             ImageAnimation.xaml 的交互逻辑
-            </summary>
-            <summary>
-            ImageAnimation
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.CarouselView.ImageAnimation.InitializeComponent">
@@ -1906,6 +1918,41 @@
         <member name="F:CookPopularControl.Controls.Others.Alertor.StateChangedEvent">
             <summary>
             <see cref="F:CookPopularControl.Controls.Others.Alertor.StateChangedEvent"/>标识警报器状态变化时的事件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Panels.AnimationPanel">
+            <summary>
+            标识动画面板布局的抽象基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.AnimationPanel.Dampening">
+            <summary>
+            表示阻尼大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.AnimationPanel.DampeningProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Panels.AnimationPanel.Dampening"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.AnimationPanel.Attraction">
+            <summary>
+            表示吸附力大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.AnimationPanel.AttractionProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Panels.AnimationPanel.Attraction"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Panels.AnimationPanel.Variation">
+            <summary>
+            表示变化大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Panels.AnimationPanel.VariationProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Panels.AnimationPanel.Variation"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Panels.ArcPanel">
@@ -4447,6 +4494,45 @@
             </summary>
             <value>The distance between the center and the innermost point.</value>
         </member>
+        <member name="T:CookPopularControl.Tools.ActionDispose">
+            <summary>
+            Provides a wrapper over <see cref="T:System.IDisposable"/> that
+            invokes the provided delegate when <see cref="M:System.IDisposable.Dispose"/>
+            is called.
+            </summary>
+            <example>
+            <code>
+            
+            SqlConnection conn = new SqlConnection(connectionString);
+            using(new ActionOnDispose(new Action(conn.Close))
+            {
+                // Do work here...
+                // For cases where you want the connection closed
+                // but not disposed
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:CookPopularControl.Tools.ActionDispose.#ctor(System.Action)">
+            <summary>
+            Creats a new <see cref="!:ActionOnDispose"/>using the provided <see cref="T:System.Action"/>.
+            </summary>
+            <param name="unlockAction">
+                The <see cref="T:System.Action"/> to invoke when <see cref="M:CookPopularControl.Tools.ActionDispose.Dispose"/> is called.
+            </param>
+            <exception cref="T:System.ArgumentNullException">if <paramref name="unlockAction"/> is null.</exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.ActionDispose.Dispose">
+            <summary>
+            Calls the provided Action if it has not been called;otherwise, throws an <see cref="T:System.Exception"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If <see cref="M:CookPopularControl.Tools.ActionDispose.Dispose"/> has already been called.</exception>
+        </member>
+        <member name="T:CookPopularControl.Tools.Attributes.ControlMetadataAttribute">
+            <summary>
+            指定为某个类型的导出提供元数据的自定义特性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Tools.Bindings.BindingProxy">
             <summary>
             绑定代理
@@ -4455,6 +4541,50 @@
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
             <summary>
             装箱后的值类型（用于提高效率）
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Collections.CastList`2">
+            <summary>
+            A wrapper around an <see cref="T:System.Collections.Generic.IList`1"/>
+            which projects the contents as a read-only <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <typeparam name="TFrom">The type of the source <see cref="T:System.Collections.Generic.IList`1"/>.</typeparam>
+            <typeparam name="TTo">
+            The type of the target <see cref="T:System.Collections.Generic.IList`1"/> Must be assignable from <paramref name="TFrom"/>.
+            </typeparam>
+            <remarks>
+            Like <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>, this class is a wrapper. 
+            Changes to the source collection will be reflected.
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Collections.CastList`2.#ctor(System.Collections.Generic.IList{`0})">
+            <summary>
+            Creats a new <see cref="T:CookPopularControl.Tools.Collections.CastList`2"/>.
+            </summary>
+            <param name="from">The source collection.</param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Collections.CastList`2.GetItem(System.Int32)">
+            <summary>
+            Gets the element at the specified index.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.Collections.CastList`2.Count">
+            <summary>
+            Gets the number of contained elements.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Collections.ListBase`1">
+            <summary>
+            Serves as a base implemetation of <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <typeparam name="T">The type of the item in the list.</typeparam>
+        </member>
+        <member name="M:CookPopularControl.Tools.Collections.ObservableCollectionPlus`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <remarks>It's recommended that you use this method within BeginMultiUpdate</remarks>
+        </member>
+        <member name="T:CookPopularControl.Tools.Collections.UIThreadCollection`1">
+            <summary>
+            仅通过一个线程来确保此类成员的线程安全,任何跨线程变化会导致不期望的行为
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.DestructorHandle">
@@ -4506,6 +4636,139 @@
             <param name="fontWeight"></param>
             <param name="fontStretch"></param>
             <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.CountForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
+            <summary>
+            Calls the provided action on each item, providing the item and its index into the source.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.AllUnique``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Returns true if all items in the list are unique using
+            <see cref="P:System.Collections.Generic.EqualityComparer`1.Default">EqualityComparer&lt;T&gt;.Default</see>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">if <param name="source"/> is null.</exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.TrueForAllPairs``1(System.Collections.Generic.IList{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Returns true if <paramref name="compare"/> returns
+            true for every pair of items in <paramref name="source"/>.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.TrueForAllAdjacentPairs``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Returns true if <paramref name="compare"/> returns true of every
+            adjacent pair of items in the <paramref name="source"/>.
+            </summary>
+            <remarks>
+            <para>
+            If there are n items in the collection, n-1 comparisons are done.
+            </para>
+            <para>
+            Every valid [i] and [i+1] pair are passed into <paramref name="compare"/>.
+            </para>
+            <para>
+            If <paramref name="source"/> has 0 or 1 items, true is returned.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.AllNotNullOrEmpty(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Returns true if all of the items in <paramref name="source"/> are not
+            null or empty.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">if <param name="source"/> is null.</exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.AllExistIn``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns true if all items in <paramref name="source"/> exist
+            in <paramref name="set"/>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">if <param name="source"/> or <param name="set"/> are null.</exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns true if <paramref name="source"/> has no items in it; otherwise, false.
+            </summary>
+            <remarks>
+            <para>
+            If an <see cref="T:System.Collections.Generic.ICollection`1"/> is provided,
+            <see cref="P:System.Collections.Generic.ICollection`1.Count"/> is used.
+            </para>
+            <para>
+            Yes, this does basically the same thing as the
+            <see cref="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0})"/>
+            extention. The differences: 'IsEmpty' is easier to remember and it leverages
+            <see cref="P:System.Collections.Generic.ICollection`1.Count">ICollection.Count</see> if it exists.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.IndexOf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+                Returns the index of the first item in <paramref name="source"/>
+                for which <paramref name="predicate"/> returns true. If none, -1.
+            </summary>
+            <param name="source">The source enumerable.</param>
+            <param name="predicate">The function to evaluate on each element.</param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.ToReadOnlyCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Returns a new <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/> using the
+                contents of <paramref name="source"/>.
+            </summary>
+            <remarks>
+                The contents of <paramref name="source"/> are copied to
+                an array to ensure the contents of the returned value
+                don't mutate.
+            </remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+                Performs the specified <paramref name="action"/>
+                on each element of the specified <paramref name="source"/>.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to which is applied the specified <paramref name="action"/>.</param>
+            <param name="action">The action applied to each element in <paramref name="source"/>.</param>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.RemoveLast``1(System.Collections.Generic.IList{``0})">
+            <summary>
+                Removes the last element from <paramref name="source"/>.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The list from which to remove the last element.</param>
+            <returns>The last element.</returns>
+            <remarks><paramref name="source"/> must have at least one element and allow changes.</remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.EmptyIfNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                If <paramref name="source"/> is null, return an empty <see cref="T:System.Collections.Generic.IEnumerable`1"/>;
+                otherwise, return <paramref name="source"/>.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.SelectRecursive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Recursively projects each nested element to an <see cref="T:System.Collections.Generic.IEnumerable`1"/>
+            and flattens the resulting sequences into one sequence.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">A sequence of values to project.</param>
+            <param name="recursiveSelector">A transform to apply to each element.</param>
+            <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements are the
+            result of recursively invoking the recursive transform function
+            on each element and nested element of the input sequence.
+            </returns>
+            <remarks>This is a depth-first traversal. Be careful if you're using this to find something
+            shallow in a deep tree.</remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.IEnumerableExtension.ToObservableCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Creates an <see cref="!:ObservableCollection"/> from the <see cref="!:IEnumerable"/>.
+            </summary>
+            <typeparam name="T">The type of the source elements.</typeparam>
+            <param name="source">The <see cref="!:IEnumerable"/> to create the <see cref="!:ObservableCollection"/> from.</param>
+            <returns>An <see cref="!:ObservableCollection"/> that contains elements from the input sequence.</returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.Images.GifExtension">
             <summary>

@@ -53,28 +53,6 @@ namespace CookPopularControl.Tools.Collections
             }
         }
 
-#if SILVERLIGHT
-        public void Move(int oldIndex, int newIndex)
-        {
-            Contract.Requires(oldIndex >= 0 && oldIndex < base.Count);
-            MoveItem(oldIndex, newIndex);
-        }
-
-        protected virtual void MoveItem(int oldIndex, int newIndex)
-        {
-            Contract.Requires(oldIndex >= 0 && oldIndex < base.Count);
-            if (oldIndex != newIndex)
-            {
-                T item = base[oldIndex];
-                using (BeginMultiUpdate())
-                {
-                    base.RemoveItem(oldIndex);
-                    base.InsertItem(newIndex, item);
-                }
-            }
-        }
-#endif
-
         /// <remarks>It's recommended that you use this method within BeginMultiUpdate</remarks>
         public void AddRange(IEnumerable<T> source)
         {

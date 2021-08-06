@@ -7,9 +7,9 @@ namespace MvvmTestDemo.DemoViews
     /// <summary>
     /// GifDemo.xaml 的交互逻辑
     /// </summary>
-    public partial class AnimationPathDemo : UserControl
+    public partial class AnimationDemo : UserControl
     {
-        public AnimationPathDemo()
+        public AnimationDemo()
         {
             InitializeComponent();
         }

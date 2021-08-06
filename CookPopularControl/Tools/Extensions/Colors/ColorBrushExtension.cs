@@ -20,7 +20,7 @@ namespace CookPopularControl.Tools.Extensions.Colors
     /// </summary>
     public static class ColorBrushExtension
     {
-        public static Brush ToBrushFromColor(this Color color) => new SolidColorBrush(color);
+        public static SolidColorBrush ToBrushFromColor(this Color color) => new SolidColorBrush(color);
 
         public static Color ToColorFromBrush(this Brush brush) => (Color)(ColorConverter.ConvertFromString(brush.ToString()));
     }

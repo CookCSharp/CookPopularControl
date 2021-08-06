@@ -34,6 +34,6 @@ namespace CookPopularControl.Tools.Attributes
         public string Name { get; private set; }
         public string Description { get; private set; }
 
-        public const string ControlContractName = "CookPopularControl";
+        public const string ControlContractName = "CookPopularControlLib";
     }
 }
