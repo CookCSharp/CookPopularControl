@@ -49,5 +49,10 @@ namespace CookPopularControl.Controls.ScrollControls
             var scrollViewer = d as ScrollViewer;
             scrollViewer?.ScrollToHorizontalOffset((double)e.NewValue);
         }
+
+        public static void SetVerticalOffset(FrameworkElement target, double value) => target.SetValue(VerticalOffsetProperty, value);
+        public static double GetVerticalOffset(FrameworkElement target) => (double)target.GetValue(VerticalOffsetProperty);
+        public static readonly DependencyProperty VerticalOffsetProperty = DependencyProperty.RegisterAttached("VerticalOffset", typeof(double), typeof(ScrollViewerAssistant), new UIPropertyMetadata(ValueBoxes.Double0Box, OnVerticalOffsetChanged));
+        private static void OnVerticalOffsetChanged(DependencyObject target, DependencyPropertyChangedEventArgs e) => (target as ScrollViewer)?.ScrollToVerticalOffset((double)e.NewValue);
     }
 }
