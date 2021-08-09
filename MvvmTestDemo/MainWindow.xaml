@@ -4,7 +4,7 @@
                   xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                   xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                  xmlns:local="clr-namespace:MvvmTestDemo"
+                  xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
                   xmlns:prism="http://prismlibrary.com/"
@@ -83,7 +83,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <!--<local:DateDemo/>-->
+        <!--<local:BlockBarDemo/>-->
 
         <!--接收BubbleMessage的容器-->
         <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">

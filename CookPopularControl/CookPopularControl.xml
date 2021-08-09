@@ -973,6 +973,61 @@
             </summary>
             <returns>圆点</returns>
         </member>
+        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarBase">
+            <summary>
+            表示块状的基类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockCount">
+            <summary>
+            块状数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockCountProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockCount"/>依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.BlockBar.BlockBarBase.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarBase.ValueProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarBase.Value"/>依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockMargin">
+            <summary>
+            相邻块状之间的间距
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockMarginProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockMargin"/>依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarCircle">
+            <summary>
+            表示圆形块
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarImage">
+            <summary>
+            图片块
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarImage.ImageSourceProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarImage.ImageSource"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarRect">
+            <summary>
+            表示矩形块状
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Borders.BorderAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Border"/>附加属性类
@@ -2300,6 +2355,11 @@
         <member name="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ScrollControls.SmoothScrollViewer">
+            <summary>
+            流畅的滚动轮
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Slider.SliderAssistant">
