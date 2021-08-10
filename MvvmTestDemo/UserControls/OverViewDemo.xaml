@@ -151,37 +151,6 @@
                     <pc:DotLineLoading Width="800" Style="{StaticResource DotLineLoadingRunAsContantStyle}" Margin="0,20" />
                 </WrapPanel>
             </GroupBox>
-            <TreeView Grid.Row="3" ItemsSource="{Binding TreeViewTests}" Height="100" MouseDoubleClick="TreeView_MouseDoubleClick">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                        <HierarchicalDataTemplate.ItemTemplate>
-                            <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                                <HierarchicalDataTemplate.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Header}"/>
-                                    </DataTemplate>
-                                </HierarchicalDataTemplate.ItemTemplate>
-                                <TextBlock Text="{Binding Header}"/>
-                            </HierarchicalDataTemplate>
-                        </HierarchicalDataTemplate.ItemTemplate>
-                        <TextBlock Text="{Binding Header}"/>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-                <behavior:Interaction.Triggers>
-                    <behavior:EventTrigger EventName="TreeView.TreeViewItem.Expanded">
-                        <behavior:InvokeCommandAction Command="{Binding TreeViewItemExpandedCommand}"/>
-                    </behavior:EventTrigger>
-                    <behavior:EventTrigger EventName="TreeView.TreeViewItem.Selected">
-                        <behavior:InvokeCommandAction PassEventArgsToCommand="True" Command="{Binding TreeViewItemSelectedItemCommand}"/>
-                    </behavior:EventTrigger>
-                    <behavior:EventTrigger EventName="SelectedItemChanged">
-                        <behavior:InvokeCommandAction PassEventArgsToCommand="True" Command="{Binding TreeViewSelectedItemCommand}"/>
-                    </behavior:EventTrigger>
-                    <behavior:EventTrigger EventName="MouseDoubleClick">
-                        <behavior:InvokeCommandAction Command="{Binding TreeViewDoubleClickCommand}"/>
-                    </behavior:EventTrigger>
-                </behavior:Interaction.Triggers>
-            </TreeView>
         </Grid>
     </ScrollViewer>
 

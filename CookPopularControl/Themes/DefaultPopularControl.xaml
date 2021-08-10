@@ -47,6 +47,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LabelStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BorderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TreeViewStyle.xaml" />
         
         <!--Template-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
@@ -108,6 +109,7 @@
     <Style x:Key="{x:Type Expander}" TargetType="{x:Type Expander}" BasedOn="{StaticResource DefaultExpanderStyle}"/>
     <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}"/>
     <Style x:Key="{x:Type Separator}" TargetType="{x:Type Separator}" BasedOn="{StaticResource DefaultSeparatorStyle}"/>
+    <Style x:Key="{x:Type TreeView}" TargetType="{x:Type TreeView}" BasedOn="{StaticResource DefaultTreeViewStyle}"/>
 
 
     <Style x:Key="{x:Type animation:AnimationPath}" TargetType="{x:Type animation:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}"/>

@@ -2623,6 +2623,41 @@
             提供<see cref="T:System.Windows.Controls.ToolTip"/>的背景色
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.TreeView.TreeViewAssistant">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.TreeView"/>的附加属性帮助类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonSizeProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonSizeProperty"/>标识展开按钮的大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonFillProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonFillProperty"/>标识展开按钮的填充颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconHasItemsProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconHasItemsProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>有子项的标题头图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconNoItemsProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconNoItemsProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>无子项的标题头图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconFillProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconFillProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>的标题头填充颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.IsShowHeaderIconProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.IsShowHeaderIconProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>是否显示标题头
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Windows.ChromeWindowClient">
             <summary>
             为 <see cref="T:CookPopularControl.Controls.Windows.NormalWindow"/> 提供客户端区域。无法继承此类。
