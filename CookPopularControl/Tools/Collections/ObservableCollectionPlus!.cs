@@ -143,12 +143,12 @@ namespace CookPopularControl.Tools.Collections
             AfterMultiUpdate();
             if (m_isChanged)
             {
-                raiseReset();
+                RaiseReset();
                 m_isChanged = false;
             }
         }
 
-        private void raiseReset()
+        private void RaiseReset()
         {
             OnPropertyChanged(new PropertyChangedEventArgs("Count"));
             OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));

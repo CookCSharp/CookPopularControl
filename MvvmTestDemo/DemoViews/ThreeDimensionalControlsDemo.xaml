@@ -9,7 +9,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     
     <Grid>
-        <pc:Alertor3D x:Name="alertor3D" Width="200" Height="200"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <pc:Alertor3D Grid.Row="0" Grid.Column="0" x:Name="alertor3D" Width="200" Height="200"/>
+        <pc:FlipTile3D Grid.Row="0" Grid.Column="1" x:Name="flipTile3D"
+                       XCount="7" YCount="7"/>
     </Grid>
     
 </UserControl>
