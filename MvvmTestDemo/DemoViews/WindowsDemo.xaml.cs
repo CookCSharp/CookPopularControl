@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Controls.Windows.Printers;
+using MvvmTestDemo.DemoDragables;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,7 @@ namespace MvvmTestDemo.DemoViews
             object p = btn.Name switch
             {
                 "PrintPreviewWindow" => Show<PrintPreviewWindow>(),
+                "DragableWindows" => Show<QuickStartWindow>(),
                 _ => throw new NotImplementedException(),
             };
         }

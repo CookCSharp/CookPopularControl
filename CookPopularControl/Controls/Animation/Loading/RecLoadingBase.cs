@@ -174,7 +174,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 rec.Content = rec.recLoadingCanvas;
         }
 
-        public RecLoadingBase()
+        protected RecLoadingBase()
         {
             Content = recLoadingCanvas;
             recLoadingCanvas.SetBinding(Canvas.BackgroundProperty, new Binding(BackgroundProperty.Name) { Source = this });

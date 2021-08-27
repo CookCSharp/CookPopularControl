@@ -216,6 +216,11 @@ namespace CookPopularControl.Tools.Extensions
             return -1;
         }
 
+        public static IEnumerable<TObject> Except<TObject>(this IEnumerable<TObject> first, params TObject[] second)
+        {
+            return first.Except((IEnumerable<TObject>)second);
+        }
+
         /// <summary>
         ///     Returns a new <see cref="ReadOnlyCollection{TSource}"/> using the
         ///     contents of <paramref name="source"/>.

@@ -1,0 +1,333 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
+                    xmlns:dragCore="clr-namespace:CookPopularControl.Controls.Dragables.Core"
+                    xmlns:styleSelector="clr-namespace:CookPopularControl.Communal.StyleSelectors"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+
+    <Style TargetType="{x:Type Button}" x:Key="HideDisabledButtonStyle">
+        <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type pc:Layout}}, Path=(pc:Layout.IsFloatingInLayout), Converter={toolConverters:BooleanToVisibilityConverter}}" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="InvisibleThumbStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FloatingDragableItemsControlStyle" TargetType="{x:Type drag:DragableItemsControl}" >
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="ItemsOrganiser">
+            <Setter.Value>
+                <dragCore:CanvasOrganiser />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <Canvas IsItemsHost="True" ClipToBounds="True" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type drag:DragableItemsControl}">
+                    <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" SnapsToDevicePixels="True">
+                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Width="{TemplateBinding ItemsPresenterWidth}"
+                                        Height="{TemplateBinding ItemsPresenterHeight}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FloatingDragableItemStyle" TargetType="{x:Type drag:DragableItem}" >
+        <Style.Setters>
+            <Setter Property="BorderBrush" Value="{StaticResource FieldBorderBrush}" />
+            <Setter Property="BorderThickness" Value="4" />
+            <Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type drag:DragableItem}">
+                        <Grid Margin="{TemplateBinding Margin}">
+                            <Border Background="White">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="5" Direction="315" Color="Black" Opacity=".5" />
+                                </Border.Effect>
+                            </Border>
+                            <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" SnapsToDevicePixels="True">
+                                <Grid Cursor="ScrollAll">
+                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                                      Margin="{TemplateBinding Control.Padding }"/>
+                                    <Thumb HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" x:Name="PART_Thumb"
+                                           Style="{StaticResource InvisibleThumbStyle}"/>
+                                </Grid>
+                            </Border>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}"
+                                   drag:DragableItem.SizeGrip="Left"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Stretch"
+                                   Cursor="SizeWE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Top}"
+                                   drag:DragableItem.SizeGrip="Top"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Top"
+                                   Cursor="SizeNS"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   drag:DragableItem.SizeGrip="Right"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Stretch"
+                                   Cursor="SizeWE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   drag:DragableItem.SizeGrip="Bottom"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Bottom"
+                                   Cursor="SizeNS"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   drag:DragableItem.SizeGrip="TopLeft"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Cursor="SizeNWSE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   drag:DragableItem.SizeGrip="TopRight"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Top"
+                                   Cursor="SizeNESW"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   drag:DragableItem.SizeGrip="BottomRight"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Bottom"
+                                   Cursor="SizeNWSE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   drag:DragableItem.SizeGrip="BottomLeft"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom"
+                                   Cursor="SizeNESW"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="ToolDragableItemStyle" TargetType="{x:Type drag:HeaderedDragableItem}" >
+        <Style.Setters>
+            <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
+            <Setter Property="BorderThickness" Value="4" />
+            <Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type drag:HeaderedDragableItem}">
+                        <Grid Margin="{TemplateBinding Margin}">
+                            <Border Background="White">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="5" Direction="315" Color="Black" Opacity=".5" />
+                                </Border.Effect>
+                            </Border>
+                            <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" SnapsToDevicePixels="True">
+                                <DockPanel>
+                                    <Grid DockPanel.Dock="Top" Background="{TemplateBinding Background}">
+                                        <Thumb HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" x:Name="PART_Thumb"
+                                               Style="{StaticResource InvisibleThumbStyle}"/>
+                                        <DockPanel Margin="{TemplateBinding Control.Padding }">
+                                            <Button DockPanel.Dock="Right"
+                                                    Command="{x:Static pc:Layout.CloseFloatingItem}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1 0 0 0"
+                                                    Style="{StaticResource HideDisabledButtonStyle}">
+                                                <!--<themes:SystemCommandIcon Height="10" Width="10" SystemCommandType="CloseWindow" />-->
+                                            </Button>
+                                            <Button DockPanel.Dock="Right"
+                                                    Command="{x:Static pc:Layout.UnfloatItemCommand}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1 0 0 0"
+                                                    Style="{StaticResource HideDisabledButtonStyle}">
+                                                <Path Width="12" Height="12" Stretch="UniformToFill" Fill="#000000" Data="M 19 19 H 5 V 5 h 7 V 3 H 5 C 3.89 3 3 3.9 3 5 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 z M 14 3 v 2 h 3.59 L 7.76 14.83 9.17 16.24 19 6.41 V 10 h 2 V 3 h -7 z" />
+                                            </Button>
+                                            <Button DockPanel.Dock="Right"
+                                                    Command="{x:Static pc:Layout.MaximiseFloatingItem}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1 0 0 0"
+                                                    Style="{StaticResource HideDisabledButtonStyle}">
+                                                <!--<themes:SystemCommandIcon Height="10" Width="10" SystemCommandType="MaximizeWindow" />-->
+                                            </Button>
+                                            <Button DockPanel.Dock="Right"
+                                                    Command="{x:Static pc:Layout.RestoreFloatingItem}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1 0 0 0"
+                                                    Style="{StaticResource HideDisabledButtonStyle}">
+                                                <!--<themes:SystemCommandIcon Height="10" Width="10" SystemCommandType="RestoreWindow" />-->
+                                            </Button>
+                                            <ContentPresenter Content="{TemplateBinding HeaderContent}"                                                               
+                                                              ContentTemplate="{TemplateBinding HeaderContentTemplate}" 
+                                                              ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" 
+                                                              ContentTemplateSelector="{TemplateBinding HeaderContentTemplateSelector}"                                                          
+                                                              SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"                                                              
+                                                              IsHitTestVisible="False"/>
+                                        </DockPanel>
+                                    </Grid>
+                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" 
+                                                      ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" 
+                                                      ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" 
+                                                      HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" 
+                                                      SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                                      Margin="{TemplateBinding Control.Padding }" />
+                                </DockPanel>
+                            </Border>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="Left"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Stretch"
+                                   Cursor="SizeWE"
+                                   />
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Top}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="Top"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Top"
+                                   Cursor="SizeNS"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="Right"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Stretch"
+                                   Cursor="SizeWE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="Bottom"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Bottom"
+                                   Cursor="SizeNS"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="TopLeft"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Cursor="SizeNWSE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="TopRight"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Top"
+                                   Cursor="SizeNESW"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="BottomRight"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Bottom"
+                                   Cursor="SizeNWSE"/>
+                            <Thumb Style="{StaticResource InvisibleThumbStyle}"
+                                   Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolConverters:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   drag:DragableItem.SizeGrip="BottomLeft"                                   
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom"
+                                   Cursor="SizeNESW"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="pc:Layout.FloatingItemState" Value="Maximized">
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Canvas.Left" Value="0" />
+                <Setter Property="Canvas.Top" Value="0" />
+                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type pc:Layout}}, Path=ActualWidth}" />
+                <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type pc:Layout}}, Path=ActualHeight}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DefaultLayoutStyle" TargetType="{x:Type pc:Layout}">
+        <Setter Property="FloatingItemsControlStyle" Value="{StaticResource FloatingDragableItemsControlStyle}" />
+        <!--Setter Property="FloatingItemContainerStyle" Value="{StaticResource FloatingDragablzItemStyle}" /-->
+        <Setter Property="FloatingItemContainerStyleSelector">
+            <Setter.Value>
+                <styleSelector:CouldBeHeaderedStyleSelector NonHeaderedStyle="{StaticResource FloatingDragableItemStyle}"
+                                                            HeaderedStyle="{StaticResource ToolDragableItemStyle}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type pc:Layout}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" />
+                            <ContentPresenter x:Name="PART_FloatContentPresenter" Margin="{TemplateBinding FloatingItemsContainerMargin}" />
+                            <drag:DropZone x:Name="PART_TopDropZone" Location="Top" 
+                                           VerticalAlignment="Top" HorizontalAlignment="Center"                                                                                                                                       
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                            <drag:DropZone x:Name="PART_RightDropZone" Location="Right"
+                                           VerticalAlignment="Center" HorizontalAlignment="Right"
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                            <drag:DropZone x:Name="PART_BottomDropZone" Location="Bottom" 
+                                           VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                            <drag:DropZone x:Name="PART_LeftDropZone"  Location="Left"
+                                           VerticalAlignment="Center" HorizontalAlignment="Left"
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                            <drag:DropZone x:Name="PART_FloatDropZone" Location="Floating"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <drag:DropZone.Visibility>
+                                    <MultiBinding Converter="{toolConverters:BooleanAllToVisibilityConverter}">
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsParticipatingInDrag" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsFloatDropZoneEnabled" />
+                                    </MultiBinding>
+                                </drag:DropZone.Visibility>
+                            </drag:DropZone>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

@@ -17,16 +17,16 @@ namespace CookPopularControl.Tools.Helpers
 {
     public class RandomHelper
     {
-        private static readonly WeakReference s_random = new WeakReference(null);
+        private static readonly WeakReference _random = new WeakReference(null);
         public static Random Rnd
         {
             get
             {
                 Contract.Ensures(Contract.Result<Random>() != null);
-                var r = (Random)s_random.Target;
+                var r = (Random)_random.Target;
                 if (r == null)
                 {
-                    s_random.Target = r = new Random();
+                    _random.Target = r = new Random();
                 }
                 return r;
             }

@@ -48,7 +48,7 @@ namespace CookPopularControl.Tools
         {
             Contract.Requires(unlockAction != null);
 
-            m_unlockDelegate = unlockAction;
+            m_unlockDelegate = unlockAction; 
         }
 
         /// <summary>

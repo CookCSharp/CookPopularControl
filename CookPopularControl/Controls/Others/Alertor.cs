@@ -23,7 +23,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-06-10 09:43:57
  */
-namespace CookPopularControl.Controls.Others
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 警报器

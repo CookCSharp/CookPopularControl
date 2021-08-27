@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/DragableTabControlBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultDragableTabControlStyle" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DragableTabControlBaseStyle}">
+        
+    </Style>
+    
+</ResourceDictionary>

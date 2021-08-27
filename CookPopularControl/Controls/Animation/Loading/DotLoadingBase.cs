@@ -226,7 +226,7 @@ namespace CookPopularControl.Controls.Animation.Loading
                 dot.Content = dot.dotLoadingGrid;
         }
 
-        public DotLoadingBase()
+        protected DotLoadingBase()
         {
             Content = dotLoadingGrid;
             dotLoadingGrid.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });

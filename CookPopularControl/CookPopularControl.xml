@@ -4,6 +4,11 @@
         <name>CookPopularControl</name>
     </assembly>
     <members>
+        <member name="M:CookPopularControl.Backcolors.ThemeProvider.#ctor">
+            <summary>
+            Creates a new swatch provider based on standard Material Design colors.
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Attached.ButtonBaseAttached">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.ButtonBase"/>的附加属性
@@ -239,6 +244,40 @@
             Double To Thickness
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Converters.ShowDefaultCloseButtonConverter">
+            <summary>
+            <see cref="T:System.Windows.Controls.TabControl"/>标题面板大小转换器
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Converters.ShowDefaultCloseButtonConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            [0] is owning tabcontrol ShowDefaultCloseButton value.
+            [1] is owning tabcontrol FixedHeaderCount value.
+            [2] is item LogicalIndex
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Communal.Converters.TabControlHeaderSizeConverter">
+            <summary>
+            <see cref="T:System.Windows.Controls.TabControl"/>标题面板大小转换器
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Converters.TabControlHeaderSizeConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            第一个值通常是父控件可用的大小 
+            第二个值来自于<see cref="F:CookPopularControl.Controls.Dragables.DragableItemsControl.ItemsPresenterWidthProperty"/>
+            额外的值应该是相邻子项大小(宽度或高度)，这将影响(减少)可用大小
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
         <member name="T:CookPopularControl.Communal.Converters.TextFieldClearButtonVisibilityConverter">
             <summary>
             文本清除按钮
@@ -258,6 +297,31 @@
             <param name="genericHandler">The handler to invoke.</param>
             <param name="genericTarget">The current object along the event's route.</param>
             <returns>Nothing.</returns>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.AddLocationHint">
+            <summary>
+            指定添加选项卡的位置,而顺序则与源项的顺序无关
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.First">
+            <summary>
+            第一个位置
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.Last">
+            <summary>
+            最后一个位置
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.Prior">
+            <summary>
+            选中项或指定项之前的位置
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.After">
+            <summary>
+            选中项或指定项之后的位置
+            </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.AlertorState">
             <summary>
@@ -356,6 +420,41 @@
             包含IconGeometry
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.Data.EmptyHeaderSizingHint">
+            <summary>
+            Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open).
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.EmptyHeaderSizingHint.Collapse">
+            <summary>
+            The header size collapses to zero along the correct axis.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.EmptyHeaderSizingHint.PreviousTab">
+            <summary>
+            The header size remains that of the last tab prior to the tab header becoming empty.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.SizeGrip">
+            <summary>
+            标识<see cref="!:DragableControls"/>的方位控制
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.TabEmptiedResponse.CloseWindowOrLayoutBranch">
+            <summary>
+            Allow the Window to be closed automatically.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.Data.TabEmptiedResponse.DoNothing">
+            <summary>
+            The window will not be closed by the <see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>, probably meaning the implementor will close the window manually
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.LocationReportException">
+            <summary>
+            提供<see cref="T:CookPopularControl.Controls.Dragables.Core.LocationReport"/>关于<see cref="T:System.Exception"/>
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo">
             <summary>
             通知消息附带的信息类
@@ -405,6 +504,46 @@
         <member name="P:CookPopularControl.Communal.Data.Infos.NotifyMessageInfo.ActionBeforeClose">
             <summary>
             消息关闭前触发的方法
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Interface.IInterLayoutClient">
+            <summary>
+            Implementors should provide a mechanism to provide a new host control which contains a new <see cref="!:TabablzControl"/>.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Interface.IInterLayoutClient.GetNewHost(System.Object,CookPopularControl.Controls.Dragables.DragableTabControl)">
+            <summary>
+            Provide a new host control and tab into which will be placed into a newly created layout branch.
+            </summary>
+            <param name="partition">Provides the partition where the drag operation was initiated.</param>
+            <param name="source">The source control where a dragging operation was initiated.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Communal.Interface.IInterTabClient">
+            <summary>
+            Implementors should provide mechanisms for providing new windows and closing old windows.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Communal.Interface.IInterTabClient.GetNewHost(CookPopularControl.Communal.Interface.IInterTabClient,System.Object,CookPopularControl.Controls.Dragables.DragableTabControl)">
+            <summary>
+            Provide a new host window so a tab can be teared from an existing window into a new window.
+            </summary>
+            <param name="interTabClient"></param>
+            <param name="partition">Provides the partition where the drag operation was initiated.</param>
+            <param name="source">The source control where a dragging operation was initiated.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Communal.Interface.IInterTabClient.TabEmptiedHandler(CookPopularControl.Controls.Dragables.DragableTabControl,System.Windows.Window)">
+            <summary>
+            Called when a tab has been emptied, and thus typically a window needs closing.
+            </summary>
+            <param name="tabControl"></param>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Communal.ViewModel.HeaderedItemViewModel">
+            <summary>
+            Helper class to create view models, particularly for tool/MDI windows.
             </summary>
         </member>
         <member name="P:CookPopularControl.Communal.ViewModel.MediaViewModel.IsVolumeOpen">
@@ -1431,6 +1570,465 @@
             承载对话框内容的对话容器
             </summary>
         </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Branch.GetFirstProportion">
+            <summary>
+            Gets the proportional size of the first item, between 0 and 1, where 1 would represent the entire size of the branch.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Core.AccessorExtension.Query(CookPopularControl.Controls.Layout)">
+            <summary>
+            Begin a query of layout content, returning an accessor for examining the children.
+            </summary>
+            <param name="layout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Core.AccessorExtension.Visit``1(CookPopularControl.Controls.Dragables.Core.LayoutAccessor,``0,System.Action{``0,CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{``0,CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{``0,System.Object})">
+            <summary>
+            Helper method for <see cref="M:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.Visit(System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})"/> which allows a context to be passed through.
+            </summary>
+            <typeparam name="TContext"></typeparam>
+            <param name="layoutAccessor"></param>
+            <param name="context"></param>
+            <param name="branchVisitor"></param>
+            <param name="tabablzControlVisitor"></param>
+            <param name="contentVisitor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Core.AccessorExtension.Visit``1(CookPopularControl.Controls.Dragables.Core.BranchAccessor,``0,CookPopularControl.Communal.Data.BranchItem,System.Action{``0,CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{``0,CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{``0,System.Object})">
+            <summary>
+            Helper method for <see cref="M:CookPopularControl.Controls.Dragables.Core.BranchAccessor.Visit(CookPopularControl.Communal.Data.BranchItem,System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})"/> which allows a context to be passed through.
+            </summary>
+            <typeparam name="TContext"></typeparam>
+            <param name="branchAccessor"></param>
+            <param name="context"></param>
+            <param name="childItem"></param>
+            <param name="branchVisitor"></param>
+            <param name="tabablzControlVisitor"></param>
+            <param name="contentVisitor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Core.BranchAccessor.Visit(CookPopularControl.Communal.Data.BranchItem,System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})">
+            <summary>
+            Visits the content of the first or second side of a branch, according to its content type.  No more than one of the provided <see cref="T:System.Action"/>
+            callbacks will be called.  
+            </summary>
+            <param name="childItem"></param>
+            <param name="childBranchVisitor"></param>
+            <param name="childTabablzControlVisitor"></param>
+            <param name="childContentVisitor"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.Core.BranchResult.Branch">
+            <summary>
+            The new branch.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.Core.BranchResult.TabablzControl">
+            <summary>
+            The new tab control.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.Core.DefaultInterLayoutClient">
+            <summary>
+            Provides a simple implementation of <see cref="T:CookPopularControl.Communal.Interface.IInterLayoutClient"/>, but only really useful if 
+            <see cref="T:System.Windows.Controls.TabItem"/> instances are specified in XAML.  If you are binding via ItemsSource then
+            you most likely want to create your own implementation of <see cref="T:CookPopularControl.Communal.Interface.IInterLayoutClient"/>.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.Core.LayoutAccessor">
+            <summary>
+            Provides information about the <see cref="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.Layout"/> instance.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.BranchAccessor">
+            <summary>
+            <see cref="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.BranchAccessor"/> and <see cref="!:TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.DragableTabControl">
+            <summary>
+            <see cref="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.BranchAccessor"/> and <see cref="!:TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.Visit(System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})">
+            <summary>
+            Visits the content of the layout, according to its content type.  No more than one of the provided <see cref="T:System.Action"/>
+            callbacks will be called.  
+            </summary>        
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.TabablzControls">
+            <summary>
+            Gets all the Tabablz controls in a Layout, regardless of location.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.Core.LocationReport">
+            <summary>
+            Provides information about where a tab control is withing a layout structure.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.Core.LocationReport.ParentBranch">
+            <summary>
+            Gets the parent branch if this is a leaf. If the <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.TabablzControl"/> is directly under the <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.RootLayout"/> will be <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.Core.LocationReport.IsLeaf">
+            <summary>
+            Idicates if this is a leaf in a branch. <c>True</c> if <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.ParentBranch"/> is not null.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.Core.StackPositionMonitor">
+            <summary>
+            对子项的线性监听器(水平或垂直)，参见<see cref="T:CookPopularControl.Controls.Dragables.Core.StackOrganiser"/>
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.DragableItem">
+            <summary>
+            可拖拽的子项
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.XProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.X"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.XChangedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Dragables.DragableItem.XChangedEvent"/>标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.X"/>的变化事件
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.YProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.Y"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.YChangedEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Dragables.DragableItem.YChangedEvent"/>标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.Y"/>的变化事件
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.LogicalIndexProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.LogicalIndex"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.ContentRotateTransformAngleProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.Dragables.DragableItem.ContentRotateTransformAngleProperty"/>允许项目内容旋转(在支持的模板中)，通常用于垂直/侧选项卡
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsSelectedProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.IsSelected"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsDraggingProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.IsDragging"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsSiblingDraggingProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.IsSiblingDragging"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsCustomThumbProperty">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.Dragables.DragableItem" /> 
+            templates contain a thumb, which is used to drag the item around.
+            For most scenarios this is fine, but by setting this flag to <value>true</value> you can define
+            a custom thumb in your content, without having to override the template.  This can be useful if you
+            have extra content; such as a custom button that you want the user to be able to interact with (as usually
+            the default thumb will handle mouse interaction).
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.DragableItemsControl">
+            <summary>
+            可拖拽的集合控件
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.AddToSource(System.Object,CookPopularControl.Communal.Data.AddLocationHint)">
+            <summary>
+            将项添加到基础源，显示在呈现控件的特定位置
+            </summary>
+            <param name="item"></param>
+            <param name="addLocationHint"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.AddToSource(System.Object,System.Object,CookPopularControl.Communal.Data.AddLocationHint)">
+            <summary>
+            将项添加到基础源，显示在呈现控件的特定位置
+            </summary>
+            <param name="item"></param>
+            <param name="nearItem"></param>
+            <param name="addLocationHint"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.MoveItem(CookPopularControl.Controls.Dragables.Core.MoveItemRequest)">
+            <summary>
+            Move an item in the rendered layout.
+            </summary>
+            <param name="moveItemRequest"></param>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.DragableTabControl">
+            <summary>
+            扩展选项卡控件支持选项卡重新定位、拖放
+            使用常用的WPF技术来跨选项卡持久化可视树
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.GetLoadedInstances">
+            <summary>
+            Helper method which returns all the currently loaded instances.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.CloseItem(System.Object)">
+            <summary>
+            Helper method to close all tabs where the item is the tab's content (helpful with MVVM scenarios)
+            </summary>
+            <remarks>
+            In MVVM scenarios where you don't want to bind the routed command to your ViewModel,
+            with this helper method and embedding the DragableTabControl in a UserControl, you can keep
+            the View-specific dependencies out of the ViewModel.
+            </remarks>
+            <param name="tabContentItem">An existing Tab item content (a ViewModel in MVVM scenarios) which is backing a tab control</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.AddItem(System.Object,System.Object,CookPopularControl.Communal.Data.AddLocationHint)">
+            <summary>
+            Helper method to add an item next to an existing item.
+            </summary>
+            <remarks>
+            Due to the organisable nature of the control, the order of items may not reflect the order in the source collection.  This method
+            will add items to the source collection, managing their initial appearance on screen at the same time. 
+            If you are using a <see cref="P:CookPopularControl.Controls.Dragables.InterTabController.InterTabClient"/> this will be used to add the item into the source collection.
+            </remarks>
+            <param name="item">New item to add.</param>
+            <param name="nearItem">Existing object/tab item content which defines which tab control should be used to add the object.</param>
+            <param name="addLocationHint">Location, relative to the <paramref name="nearItem"/> object</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.SelectItem(System.Object)">
+            <summary>
+            Finds and selects an item.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.ShowDefaultCloseButton">
+            <summary>
+            标识是否应显示默认关闭按钮  
+            如果手动关闭可执行<see cref="F:CookPopularControl.Controls.Dragables.DragableTabControl.CloseItemCommand"/>命令
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.ShowDefaultAddButton">
+            <summary>
+            标识是否应该显示默认的添加按钮
+            使用<see cref="F:CookPopularControl.Controls.Dragables.DragableTabControl.AddItemCommand"/>可以添加<see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.HeaderPrefixContent"/> or <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.HeaderSuffixContent"/>
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.IsHeaderPanelVisible">
+            <summary>
+            标识<see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>的标头是否可见,默认True
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.AddLocationHint">
+            <summary>
+            获取或设置在标题中添加子项位置
+            </summary>
+            <remarks>
+            标题项的逻辑顺序可能与源项的内容不匹配，
+            所以这个属性允许控制新项应该出现在哪里
+            </remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.FixedHeaderCount">
+            <summary>
+            Allows a the first adjacent tabs to be fixed (no dragging, and default close button will not show).
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.InterTabController">
+            <summary>
+            An <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.InterTabController"/> must be provided to enable tab tearing. Behaviour customisations can be applied
+            vie the controller.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.NewItemFactory">
+            <summary>
+            Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="F:CookPopularControl.Controls.Dragables.DragableTabControl.AddItemCommand"/>.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.NewItemFactoryProperty">
+            <summary>
+            Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="F:CookPopularControl.Controls.Dragables.DragableTabControl.AddItemCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.IsEmpty">
+            <summary>
+            Indicates if there are no current tab items.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.IsEmptyChangedEvent">
+            <summary>
+            Raised when <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.IsEmpty"/> changes.
+            </summary>
+        </member>
+        <member name="E:CookPopularControl.Controls.Dragables.DragableTabControl.IsEmptyChanged">
+            <summary>
+            Event handler to list to <see cref="F:CookPopularControl.Controls.Dragables.DragableTabControl.IsEmptyChangedEvent"/>.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.ClosingItemCallback">
+            <summary>
+            Optionally allows a close item hook to be bound in.  If this propety is provided, the func must return true for the close to continue.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.ClosingItemCallbackProperty">
+            <summary>
+            Optionally allows a close item hook to be bound in.  If this propety is provided, the func must return true for the close to continue.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidateOrphanedItems">
+            <summary>
+            Set to <c>true</c> to have tabs automatically be moved to another tab is a window is closed, so that they arent lost.
+            Can be useful for fixed/persistant tabs that may have been dragged into another Window.  You can further control
+            this behaviour on a per tab item basis by providing <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidatingOrphanedItemCallback" />.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidateOrphanedItemsProperty">
+            <summary>
+            Set to <c>true</c> to have tabs automatically be moved to another tab is a window is closed, so that they arent lost.
+            Can be useful for fixed/persistant tabs that may have been dragged into another Window.  You can further control
+            this behaviour on a per tab item basis by providing <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidatingOrphanedItemCallback" />.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidatingOrphanedItemCallback">
+            <summary>
+            Assuming <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidateOrphanedItems"/> is set to <c>true</c>, consolidation of individual
+            tab items can be cancelled by providing this call back and cancelling the <see cref="T:CookPopularControl.Communal.Data.ItemActionCallbackArgs`1"/>
+            instance.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidatingOrphanedItemCallbackProperty">
+            <summary>
+            Assuming <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.ConsolidateOrphanedItems"/> is set to <c>true</c>, consolidation of individual
+            tab items can be cancelled by providing this call back and cancelling the <see cref="T:CookPopularControl.Communal.Data.ItemActionCallbackArgs`1"/>
+            instance.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.IsDraggingWindow">
+            <summary>
+            Readonly dependency property which indicates whether the owning <see cref="T:System.Windows.Window"/> is currently dragged 
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.IsDraggingWindowChangedEvent">
+            <summary>
+            Event indicating <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.IsDraggingWindow"/> has changed.
+            </summary>
+        </member>
+        <member name="E:CookPopularControl.Controls.Dragables.DragableTabControl.IsDraggingWindowChanged">
+            <summary>
+            Event indicating <see cref="P:CookPopularControl.Controls.Dragables.DragableTabControl.IsDraggingWindow"/> has changed.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.GetIsClosingAsPartOfDragOperation(System.Windows.Window)">
+            <summary>
+            Helper method which can tell you if a <see cref="T:System.Windows.Window"/> is being automatically closed due
+            to a user instigated drag operation (typically when a single tab is dropped into another window.
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.IsClosingAsPartOfDragOperationProperty">
+            <summary>
+            Temporarily set by the framework if a users drag opration causes a Window to close (e.g if a tab is dragging into another tab).
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.DragableTabControl.EmptyHeaderSizingHint">
+            <summary>
+            Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open).
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Dragables.DragableTabControl.EmptyHeaderSizingHintProperty">
+            <summary>
+            Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open).
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.AddToSource(System.Object)">
+            <summary>
+            Adds an item to the source collection.  If the InterTabController.InterTabClient is set that instance will be deferred to.
+            Otherwise an attempt will be made to add to the <see cref="!:ItemsSource" /> property, and lastly <see cref="!:Items"/>.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.RemoveFromSource(System.Object)">
+            <summary>
+            Removes an item from the source collection.  If the InterTabController.InterTabClient is set that instance will be deferred to.
+            Otherwise an attempt will be made to remove from the <see cref="!:ItemsSource" /> property, and lastly <see cref="!:Items"/>.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.GetOrderedHeaders">
+            <summary>
+            Gets the header items, ordered according to their current visual position in the tab header.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.OnApplyTemplate">
+            <summary>
+            Called when <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/> is called.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.OnSelectionChanged(System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            update the visible child in the ItemsHolder
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.OnItemsChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            when the items change we remove any generated panel children and add any new ones as necessary
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Provides class handling for the <see cref="E:System.Windows.ContentElement.KeyDown"/> routed event that occurs when the user presses a key.
+            </summary>
+            <param name="e">Provides data for <see cref="T:System.Windows.Input.KeyEventArgs"/>.</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.OnCreateAutomationPeer">
+            <summary>
+            Provides an appropriate automation peer implementation for this control
+            as part of the WPF automation infrastructure.
+            </summary>
+            <returns>The type-specific System.Windows.Automation.Peers.AutomationPeer implementation.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.UpdateSelectedItem">
+            <summary>
+            generate a ContentPresenter for the selected item
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.CreateChildContentPresenter(System.Object)">
+            <summary>
+            create the child ContentPresenter for the given item (could be data or a TabItem)
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.FindChildContentPresenter(System.Object)">
+            <summary>
+            Find the CP for the given object.  data could be a TabItem or a piece of data
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CookPopularControl.Controls.Dragables.InterTabController.Partition">
+            <summary>
+            The partition allows on or more tab environments in a single application.  Only tabs which have a tab controller
+            with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Fields.NumericUpDown">
             <summary>
             表示显示数值的 Windows 数字显示框（也称作 up-down 控件）。
@@ -1934,46 +2532,142 @@
             提供<see cref="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlash"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Others.Alertor">
+        <member name="T:CookPopularControl.Controls.Alertor">
             <summary>
             警报器
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Others.Alertor.Duration">
+        <member name="P:CookPopularControl.Controls.Alertor.Duration">
             <summary>
             单次警报的时长
             </summary>
             <remarks>单位：s</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Others.Alertor.DurationProperty">
+        <member name="F:CookPopularControl.Controls.Alertor.DurationProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.Duration"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Alertor.Duration"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Others.Alertor.IsCancelAlarm">
+        <member name="P:CookPopularControl.Controls.Alertor.IsCancelAlarm">
             <summary>
             解除警报
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Others.Alertor.IsCancelAlarmProperty">
+        <member name="F:CookPopularControl.Controls.Alertor.IsCancelAlarmProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.IsCancelAlarm"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Alertor.IsCancelAlarm"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Others.Alertor.CurrentState">
+        <member name="P:CookPopularControl.Controls.Alertor.CurrentState">
             <summary>
             警报器当前状态
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Others.Alertor.CurrentStateProperty">
+        <member name="F:CookPopularControl.Controls.Alertor.CurrentStateProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Others.Alertor.CurrentState"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Alertor.CurrentState"/>的依赖属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Others.Alertor.StateChangedEvent">
+        <member name="F:CookPopularControl.Controls.Alertor.StateChangedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Others.Alertor.StateChangedEvent"/>标识警报器状态变化时的事件
+            <see cref="F:CookPopularControl.Controls.Alertor.StateChangedEvent"/>标识警报器状态变化时的事件
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.GetLoadedInstances">
+            <summary>
+            Helper method to get all the currently loaded layouts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.Find(CookPopularControl.Controls.Dragables.DragableTabControl)">
+            <summary>
+            Finds the location of a tab control withing a layout.
+            </summary>
+            <param name="tabablzControl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.Branch(CookPopularControl.Controls.Dragables.DragableTabControl,System.Windows.Controls.Orientation,System.Boolean)">
+            <summary>
+            Creates a split in a layout, at the location of a specified <see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>.
+            </summary>
+            <para></para>
+            <param name="tabablzControl">Tab control to be split.</param>
+            <param name="orientation">Direction of split.</param>
+            <param name="makeSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
+            <remarks>The tab control to be split must be hosted in a layout control.</remarks>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.Branch(CookPopularControl.Controls.Dragables.DragableTabControl,System.Windows.Controls.Orientation,System.Boolean,System.Double)">
+            <summary>
+            Creates a split in a layout, at the location of a specified <see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>.
+            </summary>
+            <para></para>
+            <param name="tabablzControl">Tab control to be split.</param>
+            <param name="orientation">Direction of split.</param>
+            <param name="makeSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
+            <param name="firstItemProportion">Sets the proportion of the first tab control, with 0.5 being 50% of available space.</param>
+            <remarks>The tab control to be split must be hosted in a layout control.  <see cref="P:CookPopularControl.Controls.Layout.BranchTemplate" /> should be set (typically via XAML).</remarks>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.Branch(CookPopularControl.Controls.Dragables.DragableTabControl,CookPopularControl.Controls.Dragables.DragableTabControl,System.Windows.Controls.Orientation,System.Boolean,System.Double)">
+            <summary>
+            Creates a split in a layout, at the location of a specified <see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>.
+            </summary>
+            <para></para>
+            <param name="tabablzControl">Tab control to be split.</param>
+            <param name="newSiblingTabablzControl">New sibling tab control (otherwise <see cref="P:CookPopularControl.Controls.Layout.BranchTemplate"/> will be used).</param>
+            <param name="orientation">Direction of split.</param>
+            <param name="makeCurrentSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
+            <param name="firstItemProportion">Sets the proportion of the first tab control, with 0.5 being 50% of available space.</param>
+            <remarks>The tab control to be split must be hosted in a layout control. </remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Layout.Partition">
+            <summary>
+            Use in conjuction with the <see cref="P:CookPopularControl.Controls.Dragables.InterTabController.Partition"/> on a <see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>
+            to isolate drag and drop spaces/control instances.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Layout.FloatingItemsContainerMarginProperty">
+            <summary>
+            Defines a margin for the container which hosts all floating items.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Layout.FloatingItemsContainerMargin">
+            <summary>
+            Defines a margin for the container which hosts all floating items.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Layout.FloatingItems">
+            <summary>
+            Floating items, such as tool/MDI windows, which will sit above the <see cref="!:Content"/>.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Layout.FloatingItemsSource">
+            <summary>
+            Floating items, such as tool/MDI windows, which will sit above the <see cref="!:Content"/>.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Layout.FloatingItemsControlStyle">
+            <summary>
+            The style to be applied to the <see cref="!:DragablzItemsControl"/> which is used to display floating items.
+            In most scenarios it should be OK to leave this to that applied by the default style.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Layout.IsTopLeftItemProperty">
+            <summary>
+            Indicates if an item/tab control within a layout is contained at the top most and left most branch item.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.SetIsTopLeftItem(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Indicates if an item/tab control within a layout is contained at the top most and left most branch item.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.GetIsTopLeftItem(System.Windows.DependencyObject)">
+            <summary>
+            Indicates if an item/tab control within a layout is contained at the top most and left most branch item.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Layout.OnApplyTemplate">
+            <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.</summary>
         </member>
         <member name="T:CookPopularControl.Controls.Panels.AnimationPanel">
             <summary>
@@ -2597,6 +3291,46 @@
         <member name="M:CookPopularControl.Controls.ThreeDimensional.Alertor3D.InitializeComponent">
             <summary>
             InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ThreeDimensional.FlipTile3D">
+            <summary>
+            3D方形跳动面板
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.XCount">
+            <summary>
+            X方向上的数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.XCountProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.XCount"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.YCount">
+            <summary>
+            X方向上的数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.YCountProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.YCount"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.MaxImageCount">
+            <summary>
+            块状的最大数量
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.MaxImageCountProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.MaxImageCount"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.ItemMaterialsProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.ItemMaterials"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Thumb.GridViewColumThumb">
@@ -4589,39 +5323,58 @@
             </summary>
             <value>The distance between the center and the innermost point.</value>
         </member>
-        <member name="T:CookPopularControl.Tools.ActionDispose">
+        <member name="T:CookPopularControl.References.AnonymousDisposable">
             <summary>
-            Provides a wrapper over <see cref="T:System.IDisposable"/> that
-            invokes the provided delegate when <see cref="M:System.IDisposable.Dispose"/>
-            is called.
+            匿名可释放对象
             </summary>
-            <example>
-            <code>
-            
-            SqlConnection conn = new SqlConnection(connectionString);
-            using(new ActionOnDispose(new Action(conn.Close))
-            {
-                // Do work here...
-                // For cases where you want the connection closed
-                // but not disposed
-            }
-            </code>
-            </example>
         </member>
-        <member name="M:CookPopularControl.Tools.ActionDispose.#ctor(System.Action)">
+        <member name="T:CookPopularControl.References.DefaultDisposable">
             <summary>
-            Creats a new <see cref="!:ActionOnDispose"/>using the provided <see cref="T:System.Action"/>.
+            默认可释放对象
             </summary>
-            <param name="unlockAction">
-                The <see cref="T:System.Action"/> to invoke when <see cref="M:CookPopularControl.Tools.ActionDispose.Dispose"/> is called.
-            </param>
-            <exception cref="T:System.ArgumentNullException">if <paramref name="unlockAction"/> is null.</exception>
         </member>
-        <member name="M:CookPopularControl.Tools.ActionDispose.Dispose">
+        <member name="T:CookPopularControl.References.Disposable">
             <summary>
-            Calls the provided Action if it has not been called;otherwise, throws an <see cref="T:System.Exception"/>.
+            标准可释放对象
             </summary>
-            <exception cref="T:System.InvalidOperationException">If <see cref="M:CookPopularControl.Tools.ActionDispose.Dispose"/> has already been called.</exception>
+        </member>
+        <member name="T:CookPopularControl.References.PositionMonitor">
+            <summary>
+            提供一个位置监视器来接收位置的更新   
+            </summary>
+            <remarks>
+            <see cref="T:CookPopularControl.References.PositionMonitor"/> 
+            可以用来监听位置变化而不是路由事件，更适合在MVVM中使用
+            </remarks>
+        </member>
+        <member name="E:CookPopularControl.References.PositionMonitor.LocationChanged">
+            <summary>
+            Raised when the X,Y coordinate of a <see cref="T:CookPopularControl.Controls.Dragables.DragableItem"/> changes.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.References.SerialDisposable">
+            <summary>
+            串行可释放对象 
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.References.SerialDisposable.IsDisposed">
+            <summary>
+            获取一个值，该值指示是否已释放该对象
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.References.SerialDisposable.Dispose">
+            <summary>
+            释放潜在的对象
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.References.SerialDisposable.Disposable">
+            <summary>
+            获取或设置可释放的对象
+            </summary>
+            <remarks>
+            如果SerialDisposable已经被释放，则对该属性的赋值将导致立即释放给定的可释放对象。
+            指定此属性将处理前一个可释放对象。
+            </remarks>
         </member>
         <member name="T:CookPopularControl.Tools.Attributes.ControlMetadataAttribute">
             <summary>
@@ -4682,9 +5435,48 @@
             仅通过一个线程来确保此类成员的线程安全,任何跨线程变化会导致不期望的行为
             </summary>
         </member>
+        <member name="T:CookPopularControl.Tools.ActionDispose">
+            <summary>
+            Provides a wrapper over <see cref="T:System.IDisposable"/> that
+            invokes the provided delegate when <see cref="M:System.IDisposable.Dispose"/>
+            is called.
+            </summary>
+            <example>
+            <code>
+            
+            SqlConnection conn = new SqlConnection(connectionString);
+            using(new ActionOnDispose(new Action(conn.Close))
+            {
+                // Do work here...
+                // For cases where you want the connection closed
+                // but not disposed
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:CookPopularControl.Tools.ActionDispose.#ctor(System.Action)">
+            <summary>
+            Creats a new <see cref="!:ActionOnDispose"/>using the provided <see cref="T:System.Action"/>.
+            </summary>
+            <param name="unlockAction">
+                The <see cref="T:System.Action"/> to invoke when <see cref="M:CookPopularControl.Tools.ActionDispose.Dispose"/> is called.
+            </param>
+            <exception cref="T:System.ArgumentNullException">if <paramref name="unlockAction"/> is null.</exception>
+        </member>
+        <member name="M:CookPopularControl.Tools.ActionDispose.Dispose">
+            <summary>
+            Calls the provided Action if it has not been called;otherwise, throws an <see cref="T:System.Exception"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If <see cref="M:CookPopularControl.Tools.ActionDispose.Dispose"/> has already been called.</exception>
+        </member>
         <member name="T:CookPopularControl.Tools.DestructorHandle">
             <summary>
             析构器
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.Disposes.Finalizer">
+            <summary>
+            终结器(以前称为析构函数)
             </summary>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.Colors.ColorBrushExtension">
@@ -4916,6 +5708,13 @@
             <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> To <see cref="T:System.Drawing.Bitmap"/>
             </summary>
             <param name="bitmapSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.LogicalTreeHelperExtension.LogicalTreeAncestory(System.Windows.DependencyObject)">
+            <summary>
+            Yields the logical ancestory (including the starting point).
+            </summary>
+            <param name="dependencyObject"></param>
             <returns></returns>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.Markup.MarkupExtensionBase">
@@ -5314,6 +6113,20 @@
             <summary>
             窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.GetActualLeft(System.Windows.Window)">
+            <summary>
+            Returns the actual Left of the Window independently from the WindowState
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.GetActualTop(System.Windows.Window)">
+            <summary>
+            Returns the actual Top of the Window independently from the WindowState
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.WindowExtension.SetTopmost(System.Windows.Window,System.Boolean,System.Int32)">
             <summary>

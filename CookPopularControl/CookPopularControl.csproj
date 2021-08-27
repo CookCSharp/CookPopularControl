@@ -122,4 +122,8 @@
         <Resource Include="Resources\Images\MediaPlayerBackground.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controls\Layout\" />
+    </ItemGroup>
+
 </Project>

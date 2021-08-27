@@ -17,8 +17,10 @@
                     xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:colorPicker="clr-namespace:CookPopularControl.Controls.ColorPicker"
                     xmlns:date="clr-namespace:CookPopularControl.Controls.Dates"
-                    xmlns:others="clr-namespace:CookPopularControl.Controls.Others"
-                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups">
+                    
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups"
+                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables">
 
     <ResourceDictionary.MergedDictionaries>
         <!--WPF Original Control-->
@@ -47,6 +49,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LabelStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BorderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ThumbStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TreeViewStyle.xaml" />
         
         <!--Template-->
@@ -68,6 +71,7 @@
 
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/OtherControlsStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupControlsStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DragableControlsStyle.xaml" />
 
         <!--Other Resource Dictionaries-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
@@ -135,15 +139,20 @@
     <Style x:Key="{x:Type player:MediaPlayer}" TargetType="{x:Type player:MediaPlayer}" BasedOn="{StaticResource DefaultMediaPlayerStyle}"/>
     <Style x:Key="{x:Type star:Star}" TargetType="{x:Type star:Star}" BasedOn="{StaticResource DefaultStarStyle}"/>
     <Style x:Key="{x:Type label:GroupLabel}" TargetType="{x:Type label:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}"/>
-    <Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>
+    <!--<Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>-->
     <Style x:Key="{x:Type notify:PopupMessage}" TargetType="{x:Type notify:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}"/>
     <Style x:Key="{x:Type colorPicker:ColorPicker}" TargetType="{x:Type colorPicker:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}"/>
     <Style x:Key="{x:Type date:Clock}" TargetType="{x:Type date:Clock}" BasedOn="{StaticResource DefaultClockStyle}"/>
     <Style x:Key="{x:Type date:TimePicker}" TargetType="{x:Type date:TimePicker}" BasedOn="{StaticResource DefaultTimePickerStyle}"/>
-    
 
-    <Style x:Key="{x:Type others:Alertor}" TargetType="{x:Type others:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}"/>
+
+    <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}"/>
+    <Style x:Key="{x:Type pc:Layout}" TargetType="{x:Type pc:Layout}" BasedOn="{StaticResource DefaultLayoutStyle}"/>
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}"/>
     <Style x:Key="{x:Type groupCtl:TagEditing}" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultTagEditingStyle}"/>
+
+    <Style x:Key="{x:Type drag:Branch}" TargetType="{x:Type drag:Branch}" BasedOn="{StaticResource DefaultBranchStyle}"/>
+    <Style x:Key="{x:Type drag:DropZone}" TargetType="{x:Type drag:DropZone}" BasedOn="{StaticResource DefaultDropZoneStyle}"/>
+    <Style x:Key="{x:Type drag:DragableTabControl}" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DefaultDragableTabControlStyle}"/>
 
 </ResourceDictionary>

@@ -12,6 +12,11 @@ namespace CookPopularControl.Tools.Transitions
     /// </summary>
     public abstract class Transition3DBase : TransitionBase
     {
+        protected Transition3DBase()
+        {
+
+        }
+
         static Transition3DBase()
         {
             Model3DGroup defaultLight = new Model3DGroup();

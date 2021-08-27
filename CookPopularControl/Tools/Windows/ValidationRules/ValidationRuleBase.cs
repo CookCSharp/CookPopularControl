@@ -26,6 +26,11 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
         /// </summary>
         public abstract string ErrorMessage { get; set; }
 
+        protected ValidationRuleBase()
+        {
+
+        }
+
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             return ValidateBase(value, cultureInfo);

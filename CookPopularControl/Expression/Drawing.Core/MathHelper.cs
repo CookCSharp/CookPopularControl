@@ -1,10 +1,13 @@
-﻿using System;
+﻿using CookPopularControl.Tools;
+using CookPopularControl.Tools.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Media3D;
 
 
 
@@ -45,6 +48,26 @@ namespace CookPopularControl.Expression.Drawing.Core
 			return value.X.IsValid() && value.Y.IsValid();
 		}
 
+		[Pure]
+		public static bool IsValid(this Point3D value)
+		{
+			return value.X.IsValid() && value.Y.IsValid() && value.Z.IsValid();
+		}
+
+		[Pure]
+		public static bool IsValid(this Vector3D value)
+		{
+			return value.X.IsValid() && value.Y.IsValid() && value.Z.IsValid();
+		}
+
+		public static Point ToWpfPoint(this Point pixelPoint)
+		{
+			var dpi = Screenshot.GetDpiX();
+			var physicalUnitSize = 96d / dpi;
+			var wpfPoint = new Point(physicalUnitSize * pixelPoint.X, physicalUnitSize * pixelPoint.Y);
+
+			return wpfPoint;
+		}
 
 		/// <summary>
 		/// Determines whether a <c>System.Double</c> value is small enough to be considered

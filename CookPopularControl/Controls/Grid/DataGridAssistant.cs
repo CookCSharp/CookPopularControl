@@ -120,13 +120,13 @@ namespace CookPopularControl.Controls.Grid
                 {
                     var scrollViewer = dataGrid.Template.FindName(ElementScrollViewer, dataGrid) as ScrollViewer;
                     var selectedAllButton = scrollViewer.Template.FindName(SelectAllButton, scrollViewer) as System.Windows.Controls.Button;
-                    
+
                     /**
                      * 如果注册事件，
                      * 则禁用PART_SelectAllButton控件模板中的Button的SelectAllCommand命令，
                      * 否则将达不到取消全选的效果
                      */
-                    var btnButton = selectedAllButton.Template.FindName("SelectAllButton",selectedAllButton) as System.Windows.Controls.Button;
+                    var btnButton = selectedAllButton.Template.FindName("SelectAllButton", selectedAllButton) as System.Windows.Controls.Button;
                     btnButton.Command = null;
                     if ((bool)e.NewValue)
                     {
@@ -167,7 +167,7 @@ namespace CookPopularControl.Controls.Grid
 
         private static void OnIsShowSerialNumberChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if(d is DataGrid dg)
+            if (d is DataGrid dg)
             {
                 if ((bool)e.NewValue)
                 {
@@ -186,7 +186,7 @@ namespace CookPopularControl.Controls.Grid
             var dgr = e.Row;
             if (dg != null && dgr != null)
             {
-                if(dgr.IsLoaded)
+                if (dgr.IsLoaded)
                     DataGridRowLoaded(dg, dgr);
                 else
                     dgr.Loaded += (s, e) => DataGridRowLoaded(dg, dgr);
@@ -246,7 +246,7 @@ namespace CookPopularControl.Controls.Grid
             }
         }
 
-        private static void Dg_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private static void Dg_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var originalSource = (DependencyObject)e.OriginalSource;
             var dataGridCell = originalSource.GetVisualAncestry().OfType<DataGridCell>().FirstOrDefault();

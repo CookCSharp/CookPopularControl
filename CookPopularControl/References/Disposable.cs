@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+/*
+ * Copyright (c) 2021 All Rights Reserved.
+ * Description：Disposable
+ * Author： Chance_写代码的厨子
+ * Create Time：2021-08-11 11:36:55
+ */
+namespace CookPopularControl.References
+{
+    /// <summary>
+    /// 标准可释放对象
+    /// </summary>
+    internal static class Disposable
+    {
+        public static IDisposable Empty
+        {
+            get
+            {
+                return DefaultDisposable.Instance;
+            }
+        }
+
+        public static IDisposable Create(Action dispose)
+        {
+            if (dispose == null)
+                throw new ArgumentNullException("dispose");
+            else
+                return new AnonymousDisposable(dispose);
+        }
+    }
+}

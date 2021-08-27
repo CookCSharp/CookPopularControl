@@ -97,6 +97,11 @@ namespace CookPopularControl.Controls.Notify
         protected static readonly Dictionary<string, Panel> PanelDictionary = new Dictionary<string, Panel>();
         public static readonly ICommand CloseNotifyMessageCommand = new RoutedCommand(nameof(CloseNotifyMessageCommand), typeof(NotifyMessageBase));
 
+        protected NotifyMessageBase()
+        {
+
+        }
+
         protected static DispatcherTimer IntervalMultiSeconds(ref DispatcherTimer timer, double second, Action action)
         {
             timer = new DispatcherTimer();

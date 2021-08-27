@@ -95,7 +95,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
                 loading.Content = loading.RootGrid;
         }
 
-        public LoadingBase()
+        protected LoadingBase()
         {
             this.AddChild(RootGrid);
             RootGrid.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });

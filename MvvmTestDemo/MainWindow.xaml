@@ -1,8 +1,8 @@
 ﻿<pc:SideBarWindow x:Class="MvvmTestDemo.MainWindow"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"                 
                   xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                   xmlns:local="clr-namespace:MvvmTestDemo"
                   xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
@@ -84,7 +84,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <!--<view:ThreeDimensionalControlsDemo Visibility="Collapsed"/>-->
+        <view:WindowsDemo Visibility="Collapsed"/>
 
         <!--接收BubbleMessage的容器-->
         <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">

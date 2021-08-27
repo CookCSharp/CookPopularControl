@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using Prism.Unity;
 using System;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Windows;
 using System.Windows.Data;
 
@@ -28,7 +29,10 @@ namespace MvvmTestDemo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            var container = PrismIocExtensions.GetContainer(containerRegistry);          
+            var container = PrismIocExtensions.GetContainer(containerRegistry);
+
+            //var assemblyName = new AssemblyName("Kitty");
+            //var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.RunAndSave);
 
             //注册View与ViewModel
             //ViewModelLocationProvider.Register<MainWindow, MainWindowViewModel>();

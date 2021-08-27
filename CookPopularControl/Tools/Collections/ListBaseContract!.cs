@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace CookPopularControl.Tools.Collections
 {
     [ContractClassFor(typeof(ListBase<>))]
-    abstract class ListBaseContract<T> : ListBase<T>
+    public abstract class ListBaseContract<T> : ListBase<T>
     {
         protected override T GetItem(int index)
         {

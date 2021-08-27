@@ -19,11 +19,18 @@
     <commonConverters:DoubleToTimeSpan x:Key="DoubleToTimeSpan"/>
     <commonConverters:StringToPlaySpeedConverter x:Key="StringToPlaySpeedConverter"/>
     <commonConverters:ClipCircularConverter x:Key="ClipCircularConverter"/>
+    <commonConverters:TabControlHeaderSizeConverter x:Key="TabControlHeaderSizeConverter"/>
+    <commonConverters:ShowDefaultCloseButtonConverter x:Key="ShowDefaultCloseButtonConverter"/>
+    
 
     <toolConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <toolConverters:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter"/>
     <toolConverters:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter"/>
+    <toolConverters:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter"/>
+    <toolConverters:BooleanAllToVisibilityConverter x:Key="BooleanAllToVisibilityConverter"/>
     <toolConverters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    <toolConverters:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter"/>
+    <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>
     <toolConverters:ValueTranslateConverter x:Key="ValueTranslateConverter"/>
     <toolConverters:ValueBetweenZeroAnd100 x:Key="ValueBetweenZeroAnd100"/>
     <toolConverters:ValueEqualTargetValue x:Key="ValueEqualTargetValue"/>
@@ -31,7 +38,6 @@
     <toolConverters:ValueMoreThanTargetValue x:Key="ValueMoreThanTargetValue"/>
     <toolConverters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
     <toolConverters:ValueIsEmptyOrNullConverter x:Key="ValueIsEmptyOrNullConverter"/>
-    <toolConverters:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter"/>
     <toolConverters:BorderCircularConverter x:Key="BorderCircularConverter"/>
     <toolConverters:BorderClipToolConverter x:Key="BorderClipToolConverter"/>
     <toolConverters:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>

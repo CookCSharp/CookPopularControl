@@ -2,7 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/AlertorStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AlertorStyle.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BranchStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DropZoneStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LayoutStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
 </ResourceDictionary>

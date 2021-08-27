@@ -51,6 +51,11 @@ namespace CookPopularControl.Expression.Shapes
 			}
 		}
 
+        protected PrimitiveShape()
+        {
+
+        }
+
 		/// <summary>
 		/// Invalidates the geometry for a <see cref="T:Microsoft.Expression.Media.IShape" />. After the invalidation, the <see cref="T:Microsoft.Expression.Media.IShape" /> will recompute the geometry, which will occur asynchronously.
 		/// </summary>

@@ -210,6 +210,38 @@ namespace CookPopularControl.Tools.Extensions
         public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
 
         /// <summary>
+        /// Returns the actual Left of the Window independently from the WindowState
+        /// </summary>
+        /// <param name="window"></param>
+        /// <returns></returns>
+        public static double GetActualLeft(this Window window)
+        {
+            if (window.WindowState == WindowState.Maximized)
+            {
+                var leftField = typeof(Window).GetField("_actualLeft", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                return leftField?.GetValue(window) as double? ?? 0;
+            }
+
+            return window.Left;
+        }
+
+        /// <summary>
+        /// Returns the actual Top of the Window independently from the WindowState
+        /// </summary>
+        /// <param name="window"></param>
+        /// <returns></returns>
+        public static double GetActualTop(this Window window)
+        {
+            if (window.WindowState == WindowState.Maximized)
+            {
+                var topField = typeof(Window).GetField("_actualTop", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                return topField?.GetValue(window) as double? ?? 0;
+            }
+
+            return window.Top;
+        }
+
+        /// <summary>
         /// 设置当前窗口的置顶状态。
         /// </summary>
         /// <param name="window">一个 <see cref="Window" /> 对象。</param>

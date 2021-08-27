@@ -7,13 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="PrintPreviewWindow" Content="OpenPrintPreviewWindow" Width="200" Height="34" Click="Button_Click"/>
         <!--<ComboBox >
             <ComboBoxItem Content="111"/>
             <ComboBoxItem Content="222"/>
             <ComboBoxItem Content="333"/>
         </ComboBox>-->
-    </WrapPanel>
+        <Button x:Name="DragableWindows" Content="OpenDragableWindows" Width="200" Height="34" Click="Button_Click" Margin="0,20"/>
+    </StackPanel>
     
 </UserControl>

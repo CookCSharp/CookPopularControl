@@ -1,0 +1,50 @@
+﻿<Window x:Class="MvvmTestDemo.DemoDragables.QuickStartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmTestDemo.DemoDragables"
+        xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d" Style="{x:Null}"
+        Title="QuickStartWindow" Height="341" Width="617"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <sys:String x:Key="Partition">QuickStart</sys:String>
+        <Style x:Key="TabItemHeaderStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+        </Style>
+    </Window.Resources>
+
+    <pc:Layout Partition="{StaticResource Partition}">
+        <pc:DragableTabControl Margin="8" ConsolidateOrphanedItems="True">
+            <pc:DragableTabControl.InterTabController>
+                <pc:InterTabController Partition="{StaticResource Partition}" />
+            </pc:DragableTabControl.InterTabController>
+            <TabItem Header="Tab No.1" IsSelected="False">
+                <TextBlock Text="This is First TabItem" Style="{StaticResource TabItemHeaderStyle}"/>
+            </TabItem>
+            <TabItem Header="Tab No.2">
+                <TextBlock Text="This is Second TabItem" Style="{StaticResource TabItemHeaderStyle}"/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Grid>
+                        <Grid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="{x:Static pc:DragableTabControl.CloseItemCommand}"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
+                        <TextBlock Text="Tab No.3" Foreground="{StaticResource PrimaryForeground}"/>
+                    </Grid>
+                </TabItem.Header>
+                <TextBlock Text="This is Third TabItem" Style="{StaticResource TabItemHeaderStyle}"/>
+            </TabItem>
+        </pc:DragableTabControl>
+    </pc:Layout>
+
+</Window>
