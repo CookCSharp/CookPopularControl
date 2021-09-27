@@ -10,8 +10,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border x:Name="ItemBorder"
-                            Width="{TemplateBinding Width}"
+                    <Border x:Name="ItemBorder" Background="{TemplateBinding Background}"
+                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemWidth)}"
                             Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemHeight)}">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -25,11 +25,11 @@
                                            Padding="{TemplateBinding Padding}" Background="Transparent"
                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                            Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox},Path=(ripple:RippleAssist.IsDisabled),Converter={toolsConverters:BooleanToVisibilityReConverter}}"/>
-                            <TextBlock Grid.Column="0" x:Name="ItemContent"
-                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content}"   
-                                       Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=Padding}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter Grid.Column="0" x:Name="ItemContent"
+                                              Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content}"   
+                                              Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             <Grid Grid.Column="0" x:Name="ItemGrid" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"
                                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemControlWidth)}"
                                   Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.ItemControlHeight)}">
@@ -64,10 +64,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Icon">
-                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
+                            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Image">
-                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
+                            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
                         </DataTrigger>
                         <!--鼠标仅在Image之上时触发-->
                         <MultiTrigger>
@@ -123,7 +123,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="8,0,0,0" />
+        <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>

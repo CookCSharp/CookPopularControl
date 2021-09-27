@@ -304,7 +304,7 @@ namespace CookPopularControl.Controls.Fields
             if (numericTextBox != null)
             {
                 numericTextBox.SetBinding(TextBoxBase.SelectionBrushProperty, new Binding(TextBoxBase.SelectionBrushProperty.Name) { Source = numericTextBox });
-#if !NET461
+#if !NET46 && !NET461
                 numericTextBox.SetBinding(TextBoxBase.SelectionTextBrushProperty, new Binding(TextBoxBase.SelectionTextBrushProperty.Name) { Source = numericTextBox });
 #endif
                 numericTextBox.SetBinding(TextBoxBase.SelectionOpacityProperty, new Binding(TextBoxBase.SelectionOpacityProperty.Name) { Source = numericTextBox });

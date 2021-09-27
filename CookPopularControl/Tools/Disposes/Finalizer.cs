@@ -18,6 +18,10 @@ namespace CookPopularControl.Tools.Disposes
     /// <summary>
     /// 终结器(以前称为析构函数)
     /// </summary>
+    /// <remarks>
+    /// 用于在垃圾回收器收集类实例时执行任何必要的最终清理操作。 
+    /// 在大多数情况下，通过使用 System.Runtime.InteropServices.SafeHandle 或派生类包装任何非托管句柄，可以免去编写终结器的过程。
+    /// </remarks>
     public class Finalizer : IDisposable
     {
         private bool disposedValue;
@@ -50,6 +54,8 @@ namespace CookPopularControl.Tools.Disposes
             // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
+
+            //GC.WaitForPendingFinalizers();
         }
 
         protected virtual void Dispose(bool disposing)

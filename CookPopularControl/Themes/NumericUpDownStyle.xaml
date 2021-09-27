@@ -44,7 +44,7 @@
                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                      attached:FrameworkElementBaseAttached.IconMargin="0"
                                      attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                     InputMethod.IsInputMethodEnabled="False" Background="Transparent"
+                                     InputMethod.IsInputMethodEnabled="False" Foreground="{TemplateBinding Foreground}" Background="Transparent"
                                      Validation.ErrorTemplate="{x:Null}"/>
                             <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                         Margin="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonMargin}"

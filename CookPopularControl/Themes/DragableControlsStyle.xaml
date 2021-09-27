@@ -9,5 +9,9 @@
     <Style x:Key="DefaultDragableTabControlStyle" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DragableTabControlBaseStyle}">
         
     </Style>
-    
+
+    <Style x:Key="DefaultDragableItemsControlStyle" TargetType="{x:Type drag:DragableItemsControl}" BasedOn="{StaticResource DragableItemsControlBaseStyle}">
+
+    </Style>
+
 </ResourceDictionary>

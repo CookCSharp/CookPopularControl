@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,10 +21,11 @@ namespace CookPopularControl.Tools
     public class DestructorHandle
     {
         // 释放非托管资源
-        [System.Runtime.InteropServices.DllImport("Kernel32")]
+        [DllImport("Kernel32", CharSet = CharSet.Auto, SetLastError = true)]
+        [return:MarshalAs(UnmanagedType.Bool)]
         private extern static bool CloseHandle(IntPtr handle);
 
-       
+
         private IntPtr handle;  //保存一个非托管资源的win32句柄
 
 

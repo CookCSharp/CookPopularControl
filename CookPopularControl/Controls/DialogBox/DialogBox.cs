@@ -34,6 +34,9 @@ namespace CookPopularControl.Controls.DialogBox
         public static readonly ICommand CloseDialogCommand = new RoutedCommand("CloseDialog", typeof(DialogBox));
 
 
+        public bool IsOpen { get; private set; }
+
+
         public static string GetMark(DependencyObject obj) => (string)obj.GetValue(MarkProperty);
         public static void SetMark(DependencyObject obj, string value) => obj.SetValue(MarkProperty, value);
         /// <summary>
@@ -72,8 +75,13 @@ namespace CookPopularControl.Controls.DialogBox
 
         public static DialogBox Show(object content, string mark = "")
         {
+            if (content is FrameworkElement fe)
+            {
+                fe.MouseLeftButtonUp += (s, e) => e.Handled = true; //只有在content以外的区域DialogBox.MouseLeftButtonUp才生效
+            }
+
             DialogBox dialogBox;
-            dialogBox = new DialogBox { Content = content };
+            dialogBox = new DialogBox { Content = content, IsOpen = true };
             SetMark(dialogBox, mark);
 
             FrameworkElement element;
@@ -121,6 +129,7 @@ namespace CookPopularControl.Controls.DialogBox
                 var decorator = VisualTreeHelperExtension.GetVisualDescendants(element).OfType<AdornerDecorator>().FirstOrDefault();
                 if (decorator != null)
                 {
+                    IsOpen = false;
                     var layer = decorator.AdornerLayer;
                     layer?.Remove(Container);
                     DialogInstances.Remove(this);

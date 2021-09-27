@@ -154,5 +154,6 @@
     <Style x:Key="{x:Type drag:Branch}" TargetType="{x:Type drag:Branch}" BasedOn="{StaticResource DefaultBranchStyle}"/>
     <Style x:Key="{x:Type drag:DropZone}" TargetType="{x:Type drag:DropZone}" BasedOn="{StaticResource DefaultDropZoneStyle}"/>
     <Style x:Key="{x:Type drag:DragableTabControl}" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DefaultDragableTabControlStyle}"/>
+    <Style x:Key="{x:Type drag:DragableItemsControl}" TargetType="{x:Type drag:DragableItemsControl}" BasedOn="{StaticResource DefaultDragableItemsControlStyle}"/>
 
 </ResourceDictionary>

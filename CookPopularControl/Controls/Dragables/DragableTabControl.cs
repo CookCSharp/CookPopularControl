@@ -523,7 +523,7 @@ namespace CookPopularControl.Controls.Dragables
             DependencyProperty.Register("EmptyHeaderSizingHint", typeof(EmptyHeaderSizingHint), typeof(DragableTabControl), new PropertyMetadata(default(EmptyHeaderSizingHint)));
 
 
-        internal static void SetIsWrappingTabItem(DependencyObject element, bool value) => element.SetValue(IsWrappingTabItemProperty, value);
+        public static void SetIsWrappingTabItem(DependencyObject element, bool value) => element.SetValue(IsWrappingTabItemProperty, value);
         public static bool GetIsWrappingTabItem(DependencyObject element) => (bool)element.GetValue(IsWrappingTabItemProperty);
         public static readonly DependencyProperty IsWrappingTabItemProperty =
             DependencyProperty.RegisterAttached("IsWrappingTabItem", typeof(bool), typeof(DragableTabControl), new PropertyMetadata(default(bool)));

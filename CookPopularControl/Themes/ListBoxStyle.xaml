@@ -12,6 +12,7 @@
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
         <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="20" />
         <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="20" />
+        <Setter Property="attached:SelectorAttached.ItemHeight" Value="{Binding RelativeSource={RelativeSource Self},Path=Width}" />
         <Setter Property="attached:SelectorAttached.ItemHeight" Value="32" />
         <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryColorTheme}" />
         <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
