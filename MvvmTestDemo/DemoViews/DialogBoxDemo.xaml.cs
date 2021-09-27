@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Controls.DialogBox;
 using MvvmTestDemo.UserControls;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,7 +20,10 @@ namespace MvvmTestDemo.DemoViews
         private DialogBox dialogBox;
         private void ButtonDefault_Click(object sender, RoutedEventArgs e)
         {
-            dialogBox = DialogBox.Show<AdornerDemo>();
+            var win = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            var adornerDemo = new AdornerDemo { Width = win.ActualWidth, Height = win.ActualHeight };
+            dialogBox = DialogBox.Show(adornerDemo);
+            dialogBox.MouseLeftButtonUp += (s, e) => dialogBox.Close();
         }
 
         private void ButtonInherit_Click(object sender, RoutedEventArgs e)

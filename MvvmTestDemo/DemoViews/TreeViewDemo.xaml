@@ -9,6 +9,7 @@
              xmlns:vm="clr-namespace:MvvmTestDemo.DemoViewModels"
              xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             d:IsDataSource="True"
              d:DataContext="{Binding Source={d:DesignInstance Type=vm:TreeViewDemoViewModel}}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">

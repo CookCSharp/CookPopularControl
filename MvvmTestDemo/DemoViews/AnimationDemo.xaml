@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
+             xmlns:userCtl="clr-namespace:MvvmTestDemo.UserControls"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
@@ -32,7 +33,6 @@
             <pc:AnimationPath Width="200" Height="200" Duration="0:0:5" Stretch="Uniform" IsEnabled="True"
                               Data="{StaticResource ArchGeometry}"/>
         </Viewbox>
-
         <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
@@ -78,6 +78,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
+        <userCtl:AnimationDemo Grid.Row="1" Grid.ColumnSpan="2"/>
     </Grid>
     
     

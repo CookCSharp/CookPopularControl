@@ -5,12 +5,118 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"  
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:vm="clr-namespace:MvvmTestDemo.DemoViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DataContext="{Binding Source={d:DesignInstance Type=vm:DragableControlsDemoViewModel}}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             TextElement.Foreground="{DynamicResource PrimaryForeground}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"  >
 
+    
+    <Grid Width="{StaticResource DemoViewsDefaultWidth}" >
+        <pc:DragableItemsControl x:Name="DragableItemsControl" ItemsSource="{Binding Data}"
+                                 VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="300">
+            <pc:DragableItemsControl.PositionMonitor>
+                <pc:VerticalPositionMonitor OrderChanged="StackPositionMonitor_OnOrderChanged" />
+            </pc:DragableItemsControl.PositionMonitor>
+            <pc:DragableItemsControl.ItemsOrganiser>
+                <pc:HorizontalOrganiser />
+            </pc:DragableItemsControl.ItemsOrganiser>
+            <pc:DragableItemsControl.ItemContainerStyle>
+                <Style TargetType="{x:Type pc:DragableItem}">
+                    <Setter Property="Padding" Value="4" />
+                    <Setter Property="Margin" Value="32 0 32 0" />
+                    <Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type pc:DragableItem}">
+                                <ControlTemplate.Resources>
+                                    <SineEase x:Key="Ease" EasingMode="EaseInOut" />
+                                </ControlTemplate.Resources>
+                                <Grid RenderTransformOrigin="0.5, 0.5" Background="Red" Margin="0,5">
+                                    <!--<materialDesign:Card Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" 
+                                                         HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                                         Margin="{TemplateBinding Control.Padding}"                                
+                                                         x:Name="Card" />-->
+                                    <ContentControl Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" 
+                                                    HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                                    Margin="{TemplateBinding Control.Padding}"                                
+                                                    x:Name="Card"/>
+                                    <Thumb Style="{StaticResource InvisibleThumbStyle}" pc:DragableItem.IsCustomThumb="True">
+                                        <Thumb.Template>
+                                            <ControlTemplate>
+                                                <Grid Background="Transparent"/>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                    <Grid.RenderTransform>
+                                        <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1" />
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsDragging" Value="True">
+                                        <Trigger.EnterActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.12" EasingFunction="{StaticResource Ease}" />
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.12" EasingFunction="{StaticResource Ease}" />
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Card" Storyboard.TargetProperty="(materialDesign:ShadowAssist.ShadowDepth)">
+                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.08" Value="{x:Static materialDesign:ShadowDepth.Depth2}" />
+                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.12" Value="{x:Static materialDesign:ShadowDepth.Depth3}" />
+                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.16" Value="{x:Static materialDesign:ShadowDepth.Depth4}" />
+                                                    </ObjectAnimationUsingKeyFrames>-->
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.EnterActions>
+                                        <Trigger.ExitActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" EasingFunction="{StaticResource Ease}" />
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" EasingFunction="{StaticResource Ease}" />
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Card" Storyboard.TargetProperty="(materialDesign:ShadowAssist.ShadowDepth)">
+                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.12" Value="{x:Static pc:sho.Depth4}" />
+                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.16" Value="{x:Static materialDesign:ShadowDepth.Depth3}" />
+                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.22" Value="{x:Static materialDesign:ShadowDepth.Depth2}" />
+                                                    </ObjectAnimationUsingKeyFrames>-->
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.ExitActions>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </pc:DragableItemsControl.ItemContainerStyle>
+            <pc:DragableItemsControl.ItemTemplate>
+                <DataTemplate DataType="system:Int32">
+                    <Grid Width="200" Height="100" Tag="{Binding}">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding}"/>
+                    </Grid>
+                </DataTemplate>
+            </pc:DragableItemsControl.ItemTemplate>
+        </pc:DragableItemsControl>
+        <Button Style="{StaticResource ButtonIconStyle}" 
+                pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="32"
+                Command="{Binding AddCommand}"
+                CommandParameter="{Binding ElementName=DragableItemsControl}"/>
     </Grid>
     
 </UserControl>

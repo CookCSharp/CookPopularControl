@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Tools.Extensions;
+using MvvmTestDemo.Commumal.IL;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -21,6 +22,9 @@ namespace MvvmTestDemo
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            //DynamicGeneratorDll.ILCreateSumAndSaveAsDll();
+            //DynamicGeneratorDll.ILCreateHexToColorAndSaveAsDll();
 
             var bootstrapper = new Bootstrapper();
             bootstrapper.Run();

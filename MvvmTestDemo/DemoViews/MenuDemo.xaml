@@ -44,6 +44,7 @@
                             <Path Data="{DynamicResource PlaneGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <Separator Height="5" Background="Red"/>
                     <MenuItem Header="篮球" IsCheckable="True" IsChecked="True" />
                     <MenuItem Header="足球" IsCheckable="True" />
                     <MenuItem Header="排名" >
@@ -52,6 +53,7 @@
                         <MenuItem Header="Third"/>
                     </MenuItem>
                 </MenuItem>
+                <Separator Style="{StaticResource VerticalSeparatorStyle}" Background="Red" Width="3"/>
                 <MenuItem Header="_Operation">
                     <MenuItem Command="Cut">
                         <MenuItem.Icon>
@@ -122,9 +124,8 @@
                 <Button Style="{StaticResource DemoButtonStyle}" Margin="0,10"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}"/>
             </pc:PopupMenu>
-            
-            <Separator Style="{StaticResource DefaultSeparatorStyle}" Width="300"/>
 
+            <Separator Style="{StaticResource DefaultSeparatorStyle}" Width="300"/>
         </StackPanel>
     </ScrollViewer>
  

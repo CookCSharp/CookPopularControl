@@ -56,7 +56,7 @@
                         <BeginStoryboard Storyboard="{StaticResource pathStoryboard}" />
                     </EventTrigger>
                 </Canvas.Triggers>
-                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
+                <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="3" />
                 <Ellipse Fill="#f00" Width="20" Height="20" >
                     <Ellipse.RenderTransform>
                         <MatrixTransform x:Name="ButtonMatrixTransform"/>
@@ -119,7 +119,7 @@
                         <PointAnimationUsingPath PathGeometry="{StaticResource path}"
                                           Storyboard.TargetName="ellipse"
                                           Storyboard.TargetProperty="Center"
-                                          Duration="0:0:5" RepeatBehavior="0:0:8" >
+                                          Duration="0:0:5"  RepeatBehavior="Forever"><!--RepeatBehavior="0:0:8"-->
                         </PointAnimationUsingPath>
                     </Storyboard>
                 </Canvas.Resources>
@@ -130,7 +130,7 @@
                 </Canvas.Triggers>
 
                 <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="1" />
-                <Path Fill="#eee">
+                <Path Fill="Green">
                     <Path.Data>
                         <EllipseGeometry x:Name="ellipse" Center="5,5" RadiusX="12" RadiusY="12"/>
                     </Path.Data>

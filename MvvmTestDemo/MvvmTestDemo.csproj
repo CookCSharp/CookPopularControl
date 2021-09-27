@@ -10,6 +10,13 @@
         <UserSecretsId>95f624a1-62e9-4f3e-9fd6-a95f38aeea9a</UserSecretsId>
     </PropertyGroup>
 
+    <!--剪裁应用-->
+    <!--<PropertyGroup>
+        <PublishTrimmed>true</PublishTrimmed>
+        <TrimMode>link</TrimMode>
+        <SuppressTrimAnalysisWarnings>false</SuppressTrimAnalysisWarnings>
+    </PropertyGroup>-->
+
     <ItemGroup>
       <Compile Remove="DemosViewViewModel\**" />
       <EmbeddedResource Remove="DemosViewViewModel\**" />

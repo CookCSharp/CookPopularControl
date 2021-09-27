@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmTestDemo.DemoViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace MvvmTestDemo.DemoViews
         public DragableControlsDemo()
         {
             InitializeComponent();
+        }
+
+        private void StackPositionMonitor_OnOrderChanged(object sender, CookPopularControl.Communal.Data.OrderChangedEventArgs e)
+        {
+
         }
     }
 }
