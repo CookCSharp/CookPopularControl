@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:win="clr-namespace:CookPopularControl.Controls.Windows"
                     xmlns:dialogBox="clr-namespace:CookPopularControl.Controls.DialogBox"
                     xmlns:animation="clr-namespace:CookPopularControl.Controls.Animation"
                     xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
@@ -82,9 +81,10 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style x:Key="{x:Type win:NormalWindow}" TargetType="{x:Type win:NormalWindow}" BasedOn="{StaticResource DefaultNormalWindowStyle}"/>
-    <Style x:Key="{x:Type win:SideBarWindow}" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource SideBarWindowStyle}"/>
-    <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource DefaultMessageDialogStyle}"/>
+    <Style x:Key="{x:Type pc:NormalWindow}" TargetType="{x:Type pc:NormalWindow}" BasedOn="{StaticResource DefaultNormalWindowStyle}"/>
+    <Style x:Key="{x:Type pc:SideBarWindow}" TargetType="{x:Type pc:SideBarWindow}" BasedOn="{StaticResource SideBarWindowStyle}"/>
+    <Style x:Key="{x:Type pc:NoneTitleBarWindow}" TargetType="{x:Type pc:NoneTitleBarWindow}" BasedOn="{StaticResource NoneTitleBarWindowStyle}"/>
+    <Style x:Key="{x:Type pc:MessageDialog}" TargetType="{x:Type pc:MessageDialog}" BasedOn="{StaticResource DefaultMessageDialogStyle}"/>
     <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}"/>
     <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
 
