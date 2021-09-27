@@ -23,7 +23,7 @@ using System.Windows.Shell;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-24 09:43:30
  */
-namespace CookPopularControl.Controls.Windows
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// <see cref="NormalWindow"/>表示标准的窗体

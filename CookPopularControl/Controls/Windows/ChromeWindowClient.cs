@@ -15,7 +15,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-18 09:20:55
  */
-namespace CookPopularControl.Controls.Windows
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 为 <see cref="NormalWindow"/> 提供客户端区域。无法继承此类。

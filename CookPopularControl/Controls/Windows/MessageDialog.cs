@@ -23,7 +23,7 @@ using OriginButton = System.Windows.Controls.Button;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-19 16:23:14
  */
-namespace CookPopularControl.Controls.Windows
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 消息框

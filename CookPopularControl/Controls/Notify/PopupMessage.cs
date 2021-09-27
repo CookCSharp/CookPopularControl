@@ -1,5 +1,4 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Controls.Windows;
 using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;

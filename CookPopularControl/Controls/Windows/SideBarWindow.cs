@@ -14,7 +14,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-18 09:46:32
  */
-namespace CookPopularControl.Controls.Windows
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// <see cref="SideBarWindow"/>表示具有侧边栏的窗体

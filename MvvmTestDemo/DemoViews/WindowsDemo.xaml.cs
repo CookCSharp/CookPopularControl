@@ -1,4 +1,5 @@
-﻿using CookPopularControl.Controls.Windows.Printers;
+﻿using MvvmTestDemo.Windows;
+using CookPopularControl.Controls.Windows.Printers;
 using MvvmTestDemo.DemoDragables;
 using System;
 using System.Windows;
@@ -23,6 +24,7 @@ namespace MvvmTestDemo.DemoViews
             {
                 "PrintPreviewWindow" => Show<PrintPreviewWindow>(),
                 "DragableWindows" => Show<QuickStartWindow>(),
+                "NoneTitleBarWindow" => Show<NoneWindow>(),
                 _ => throw new NotImplementedException(),
             };
         }

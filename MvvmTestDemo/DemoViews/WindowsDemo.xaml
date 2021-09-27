@@ -9,12 +9,8 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="PrintPreviewWindow" Content="OpenPrintPreviewWindow" Width="200" Height="34" Click="Button_Click"/>
-        <!--<ComboBox >
-            <ComboBoxItem Content="111"/>
-            <ComboBoxItem Content="222"/>
-            <ComboBoxItem Content="333"/>
-        </ComboBox>-->
         <Button x:Name="DragableWindows" Content="OpenDragableWindows" Width="200" Height="34" Click="Button_Click" Margin="0,20"/>
+        <Button x:Name="NoneTitleBarWindow" Content="OpenNoneTitleBarWindow" Width="200" Height="34" Click="Button_Click" />
     </StackPanel>
     
 </UserControl>

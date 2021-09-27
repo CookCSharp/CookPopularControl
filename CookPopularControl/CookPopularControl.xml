@@ -3392,173 +3392,178 @@
             <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.IsShowHeaderIconProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>是否显示标题头
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.ChromeWindowClient">
+        <member name="T:CookPopularControl.Controls.ChromeWindowClient">
             <summary>
-            为 <see cref="T:CookPopularControl.Controls.Windows.NormalWindow"/> 提供客户端区域。无法继承此类。
+            为 <see cref="T:CookPopularControl.Controls.NormalWindow"/> 提供客户端区域。无法继承此类。
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Windows.ChromeWindowClient.#ctor">
+        <member name="M:CookPopularControl.Controls.ChromeWindowClient.#ctor">
             <summary>
-            初始化 <see cref="T:CookPopularControl.Controls.Windows.ChromeWindowClient" /> 类的新实例。
+            初始化 <see cref="T:CookPopularControl.Controls.ChromeWindowClient" /> 类的新实例。
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.MessageDialog">
+        <member name="T:CookPopularControl.Controls.MessageDialog">
             <summary>
             消息框
             </summary>
             <remarks>模态的</remarks>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.MessageDialog.Message">
+        <member name="P:CookPopularControl.Controls.MessageDialog.Message">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Windows.MessageDialog"/>消息内容
+            <see cref="T:CookPopularControl.Controls.MessageDialog"/>消息内容
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.MessageDialog.Image">
+        <member name="P:CookPopularControl.Controls.MessageDialog.Image">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Windows.MessageDialog"/>图标
+            <see cref="T:CookPopularControl.Controls.MessageDialog"/>图标
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.MessageDialog.ImageBrush">
+        <member name="P:CookPopularControl.Controls.MessageDialog.ImageBrush">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Windows.MessageDialog"/>图标颜色
+            <see cref="T:CookPopularControl.Controls.MessageDialog"/>图标颜色
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.MessageDialog.IsShowImage">
+        <member name="P:CookPopularControl.Controls.MessageDialog.IsShowImage">
             <summary>
-            是否显示<see cref="T:CookPopularControl.Controls.Windows.MessageDialog"/>的图标
+            是否显示<see cref="T:CookPopularControl.Controls.MessageDialog"/>的图标
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Windows.MessageDialog.Show(CookPopularControl.Controls.Windows.CustomMessageDialog)">
+        <member name="M:CookPopularControl.Controls.MessageDialog.Show(CookPopularControl.Controls.CustomMessageDialog)">
             <summary>
             自定义展示信息
             </summary>
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Windows.MessageDialog.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
+        <member name="M:CookPopularControl.Controls.MessageDialog.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
             <summary>
             信息展示
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Windows.MessageDialog.Show(System.Windows.Window,System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
+        <member name="M:CookPopularControl.Controls.MessageDialog.Show(System.Windows.Window,System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
             <summary>
             信息展示
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.CustomMessageDialog">
+        <member name="T:CookPopularControl.Controls.CustomMessageDialog">
             <summary>
             自定义显示信息
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.NormalWindow">
+        <member name="T:CookPopularControl.Controls.NoneTitleBarWindow">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Windows.NormalWindow"/>表示标准的窗体
+            <see cref="T:CookPopularControl.Controls.NoneTitleBarWindow"/>标识没有标题的窗体
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarForeground">
+        <member name="T:CookPopularControl.Controls.NormalWindow">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.NormalWindow"/>表示标准的窗体
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarForeground">
             <summary>
             表示标题栏前置颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarForegroundProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarForegroundProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarForeground"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarForeground"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarBackground">
+        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarBackground">
             <summary>
             表示标题栏背景颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarBackgroundProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarBackgroundProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarBackground"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarBackground"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarAdditionalContent">
+        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarAdditionalContent">
             <summary>
             标题栏附加内容
             </summary>
             <remarks>除了Window图标和Title以外的其它内容</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarAdditionalContentProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarAdditionalContentProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarAdditionalContent"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarAdditionalContent"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarHeight">
+        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarHeight">
             <summary>
             标题栏高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarHeightProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarHeightProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.ClientTitleBarHeight"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarHeight"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowTitle">
+        <member name="P:CookPopularControl.Controls.NormalWindow.IsShowTitle">
             <summary>
             是否显示窗口标题
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsShowTitleProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.IsShowTitleProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowTitle"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsShowTitle"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowClientTitleBar">
+        <member name="P:CookPopularControl.Controls.NormalWindow.IsShowClientTitleBar">
             <summary>
             是否显示标题栏
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsShowClientTitleBarProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.IsShowClientTitleBarProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsShowClientTitleBar"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsShowClientTitleBar"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreen">
+        <member name="P:CookPopularControl.Controls.NormalWindow.IsFullScreen">
             <summary>
             窗口是否全屏
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreenProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.IsFullScreenProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsFullScreen"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsFullScreen"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.NormalWindow.IsNonClientActive">
+        <member name="P:CookPopularControl.Controls.NormalWindow.IsNonClientActive">
             <summary>
             窗体是否激活
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.NormalWindow.IsNonClientActiveProperty">
+        <member name="F:CookPopularControl.Controls.NormalWindow.IsNonClientActiveProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Windows.NormalWindow.IsNonClientActive"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsNonClientActive"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Windows.SideBarWindow">
+        <member name="T:CookPopularControl.Controls.SideBarWindow">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Windows.SideBarWindow"/>表示具有侧边栏的窗体
+            <see cref="T:CookPopularControl.Controls.SideBarWindow"/>表示具有侧边栏的窗体
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBar">
+        <member name="P:CookPopularControl.Controls.SideBarWindow.IsShowSideBar">
             <summary>
             是否显示侧边栏
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarProperty">
+        <member name="F:CookPopularControl.Controls.SideBarWindow.IsShowSideBarProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBar"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.SideBarWindow.IsShowSideBar"/>的依赖属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarChangedEvent">
+        <member name="F:CookPopularControl.Controls.SideBarWindow.IsShowSideBarChangedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Windows.SideBarWindow.IsShowSideBarChangedEvent"/>标识侧边栏是否打开事件
+            <see cref="F:CookPopularControl.Controls.SideBarWindow.IsShowSideBarChangedEvent"/>标识侧边栏是否打开事件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Windows.SideBarWindow.SettingClickEvent">
+        <member name="F:CookPopularControl.Controls.SideBarWindow.SettingClickEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
+            <see cref="F:CookPopularControl.Controls.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
             </summary>
         </member>
         <member name="T:CookPopularControl.Expression.Controls.Callout">
@@ -6833,36 +6838,6 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

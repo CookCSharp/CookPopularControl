@@ -1,6 +1,5 @@
 ﻿using CookPopularControl.Communal.Attached;
 using CookPopularControl.Communal.ViewModel;
-using CookPopularControl.Controls.Windows;
 using CookPopularControl.Tools.Extensions;
 using CookPopularControl.Tools.Helpers;
 using System;

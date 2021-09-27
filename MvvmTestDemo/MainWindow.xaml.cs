@@ -1,5 +1,5 @@
 ﻿using CookPopularControl.Communal.Data.Args;
-using CookPopularControl.Controls.Windows;
+using CookPopularControl.Controls;
 using CookPopularControl.Tools.Helpers;
 using MvvmTestDemo.Commumal;
 using PropertyChanged;
