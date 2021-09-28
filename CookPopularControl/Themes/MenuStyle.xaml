@@ -63,7 +63,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="{x:Type MenuItem}" TargetType="{x:Type MenuItem}"> 
+    <Style x:Key="DefaultMenuItemStyle" TargetType="{x:Type MenuItem}"> 
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=MenuBase},Path=Foreground}" />
         <Setter Property="Padding" Value="10,0" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -228,10 +228,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultMenuStyle" TargetType="{x:Type MenuBase}">
+    <Style x:Key="DefaultMenuBaseStyle" TargetType="{x:Type MenuBase}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultMenuItemStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuBase}">
@@ -246,7 +247,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultContextMenuStyle" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource DefaultMenuStyle}">
+    <Style x:Key="DefaultMenuStyle" TargetType="{x:Type Menu}" BasedOn="{StaticResource DefaultMenuBaseStyle}">
+
+    </Style>
+
+    <Style x:Key="DefaultContextMenuStyle" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource DefaultMenuBaseStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -460,5 +465,20 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+
+    <Style x:Key="{x:Static menu:Spelling.SuggestionMenuItemStyleKey}"  TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Header" Value="{Binding RelativeSource={RelativeSource Self}, Path=CommandParameter}" />
+    </Style>
+
+    <Style x:Key="{x:Static menu:Spelling.IgnoreAllMenuItemStyleKey}"  TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
+        <Setter Property="Header" Value="Ignore All" />
+    </Style>
+
+    <Style x:Key="{x:Static menu:Spelling.NoSuggestionsMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
+        <Setter Property="Header" Value="(no spelling suggestions)" />
+        <Setter Property="IsEnabled" Value="False" />
+    </Style>
+
 </ResourceDictionary>

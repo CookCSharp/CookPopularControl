@@ -84,7 +84,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:DragableControlsDemo Visibility="Collapsed"/>
+        <view:ToolBarDemo Visibility="Collapsed"/>
 
         <!--接收BubbleMessage的容器-->
         <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">

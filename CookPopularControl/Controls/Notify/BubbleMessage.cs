@@ -147,7 +147,7 @@ namespace CookPopularControl.Controls.Notify
                     throw new ArgumentException($"需要一个Panel容器去接收消息并设置{IsParentElementProperty}属性的值或设置{ParentElementTokenProperty}属性的值");
 
                 _info = info;
-                var NotifyMessageBaseControl = new ContentControl();
+                var NotifyMessageBaseControl = new BubbleMessage();
                 NotifyMessageBaseControl.Margin = new Thickness(5);
                 NotifyMessageBaseControl.Content = info.Content;
                 NotifyMessageBaseControl.Style = ResourceHelper.GetResource<Style>("BubbleMessageStyle");

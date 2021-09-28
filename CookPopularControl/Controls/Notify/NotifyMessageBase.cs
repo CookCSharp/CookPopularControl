@@ -20,7 +20,7 @@ namespace CookPopularControl.Controls.Notify
     /// <summary>
     /// 消息通知的基类
     /// </summary>
-    public abstract class NotifyMessageBase : FrameworkElement
+    public abstract class NotifyMessageBase : ContentControl
     {
         public static bool GetIsParentElement(DependencyObject obj) => (bool)obj.GetValue(IsParentElementProperty);
         public static void SetIsParentElement(DependencyObject obj, bool value) => obj.SetValue(IsParentElementProperty, ValueBoxes.BooleanBox(value));
