@@ -26,7 +26,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="NormalLabel:" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" />
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0">
-                    <Label Content="写代码的厨子"/>
+                    <Label Content="写代码的厨子" pc:LabelAssistant.CornerRadius="20"/>
                     <Label Content="写代码的厨子" pc:LabelAssistant.Header="C" Margin="20,0"/>
                     <Label Content="写代码的厨子" pc:LabelAssistant.Header="{StaticResource HeaderImage}"/>
                     <Label Content="写代码的厨子" Margin="20,0" 
@@ -44,7 +44,9 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="GroupLabel:" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center"/>
                     <pc:GroupLabel Width="290" ItemsSource="{Binding GroupLists}" Padding="10" Margin="20,0" 
-                                   ItemClosed="GroupLabel_ItemClosed"/>
+                                   ItemClosed="GroupLabel_ItemClosed" 
+                                   pc:FrameworkElementBaseAttached.CornerRadius="10"
+                                   pc:LabelAssistant.CornerRadius="15"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="32,0">
                     <TextBlock Text="GroupHeaderLabel:" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center"/>

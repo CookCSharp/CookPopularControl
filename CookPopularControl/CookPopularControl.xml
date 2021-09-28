@@ -1498,6 +1498,11 @@
             <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsShowDropDownButtonProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Dates.CalendarAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Calendar"/>的附加属性基类

@@ -95,7 +95,7 @@
         <Setter Property="AllowsTransparency" Value="True" />
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="White" />
         <Setter Property="ShowActivated" Value="False" />
         <Setter Property="ShowInTaskbar" Value="False" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -106,7 +106,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type notify:PopupMessage}">
-                    <Border SnapsToDevicePixels="True" Margin="5" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Margin="5" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
                         <panel:SimpleGrid>
                             <ContentPresenter Margin="{TemplateBinding Padding}"/>
                             <Button Command="{x:Static SystemCommands.CloseWindowCommand}"

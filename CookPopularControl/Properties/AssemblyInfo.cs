@@ -69,7 +69,7 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.TabControl")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Thumb")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.TooTip")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Windows")]
+//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Windows")]
 
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.ThreeDimensional")]
 

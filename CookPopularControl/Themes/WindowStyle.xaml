@@ -263,7 +263,6 @@
 
     <Style x:Key="NoneTitleBarWindowStyle" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource DefaultNormalWindowStyle}">
         <Setter Property="IsShowClientTitleBar" Value="False" />
-        <Setter Property="ClientTitleBarHeight" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:NoneTitleBarWindow}">
@@ -278,26 +277,28 @@
                                 </behavior:Interaction.Triggers>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=ClientTitleBarHeight}"/>
+                                        <RowDefinition Height="0"/>
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid Grid.Row="0" x:Name="PART_TitleBarArea" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}" Background="{TemplateBinding ClientTitleBarBackground}"/>
                                     <AdornerDecorator Grid.Row="1">
                                         <panel:SimpleGrid>
                                             <ContentPresenter ClipToBounds="True"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{TemplateBinding ClientTitleBarBackground}">
-                                                <Button x:Name="MinimizedButton" Width="30" Height="30" Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="最小化"
-                                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}"/>
-                                                <Button x:Name="MaximizedButton" Width="30" Height="30" Command="{x:Static SystemCommands.MaximizeWindowCommand}" ToolTip="最大化"
-                                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}"/>
-                                                <Button x:Name="NormalButton" Width="30" Height="30" Command="{x:Static SystemCommands.RestoreWindowCommand}" ToolTip="向下还原" Visibility="Collapsed"
-                                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}"/>
-                                                <Button x:Name="CloseButton" Width="30" Height="30" Command="{x:Static SystemCommands.CloseWindowCommand}" ToolTip="关闭"
-                                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}"/>
+                                            <StackPanel Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True"
+                                                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                                                        Background="{TemplateBinding ClientTitleBarBackground}">
+                                                <Button x:Name="MinimizedButton" Command="{x:Static SystemCommands.MinimizeWindowCommand}" ToolTip="最小化"
+                                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
+                                                        Style="{StaticResource WindowIconButtonStyle}"/>
+                                                <Button x:Name="MaximizedButton" Command="{x:Static SystemCommands.MaximizeWindowCommand}" ToolTip="最大化"
+                                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
+                                                        Style="{StaticResource WindowIconButtonStyle}"/>
+                                                <Button x:Name="NormalButton" Command="{x:Static SystemCommands.RestoreWindowCommand}" ToolTip="向下还原" Visibility="Collapsed"
+                                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
+                                                        Style="{StaticResource WindowIconButtonStyle}"/>
+                                                <Button x:Name="CloseButton" Command="{x:Static SystemCommands.CloseWindowCommand}" ToolTip="关闭"
+                                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                                        Style="{StaticResource WindowIconButtonStyle}"/>
                                             </StackPanel>
                                         </panel:SimpleGrid>
                                     </AdornerDecorator>
@@ -328,9 +329,6 @@
                         </Trigger>
                         <Trigger Property="IsNonClientActive" Value="False">
                             <Setter Property="ClientTitleBarBackground" Value="{DynamicResource UnEnabledBrush}"/>
-                        </Trigger>
-                        <Trigger Property="IsShowClientTitleBar" Value="False">
-                            <Setter Property="ClientTitleBarHeight" Value="0" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

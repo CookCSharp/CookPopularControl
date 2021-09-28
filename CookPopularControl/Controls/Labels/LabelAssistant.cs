@@ -55,5 +55,10 @@ namespace CookPopularControl.Controls.Labels
         /// </summary>
         public static readonly DependencyProperty HeaderStringFormatProperty =
             DependencyProperty.RegisterAttached("HeaderStringFormat", typeof(string), typeof(LabelAssistant), new PropertyMetadata(default(string)));
+
+        public static CornerRadius GetCornerRadius(DependencyObject obj) => (CornerRadius)obj.GetValue(CornerRadiusProperty);
+        public static void SetCornerRadius(DependencyObject obj, CornerRadius value) => obj.SetValue(CornerRadiusProperty, value);
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.RegisterAttached("CornerRadius", typeof(CornerRadius), typeof(LabelAssistant), new PropertyMetadata(ValueBoxes.CornerRadius0Box));
     }
 }

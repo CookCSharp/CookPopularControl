@@ -39,6 +39,7 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
       <DocumentationFile></DocumentationFile>
+      <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     </PropertyGroup>
 
     <ItemGroup>

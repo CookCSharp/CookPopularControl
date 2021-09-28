@@ -192,7 +192,8 @@
                                 </Button>
                                 <ToggleButton Style="{StaticResource DropDownToggleButtonStyle}"
                                               Focusable="False" HorizontalAlignment="Right" Margin="8,0"
-                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Visibility="{TemplateBinding assistant:ComboBoxAssistant.IsShowDropDownButton,Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
                             </WrapPanel>
                             <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Slide" Placement="Bottom"
                                    HorizontalOffset="-1" VerticalOffset="0" AllowsTransparency="True">

@@ -139,7 +139,7 @@
                               pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"/>
                 </WrapPanel>
             </GroupBox>
-            <GroupBox Grid.Row="2" Header="Loadings" Foreground="#54FF84" FontSize="26">
+            <GroupBox Grid.Row="2" Header="Loadings" Foreground="#C00000" FontSize="26">
                 <WrapPanel Margin="8">
                     <pc:DotCircleLoading Style="{StaticResource DefaultDotCircleLoadingStyle}" Margin="10,0" />
                     <pc:DotCircleLoading Style="{StaticResource DotFullCircleLoadingRunAsConstantStyle}" />

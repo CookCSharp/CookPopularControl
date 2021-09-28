@@ -80,5 +80,14 @@ namespace CookPopularControl.Controls.ComboBox
         /// </summary>
         public static readonly DependencyProperty ComboBoxPopupListShadowProperty =
             DependencyProperty.RegisterAttached("ComboBoxPopupListShadow", typeof(Effect), typeof(ComboBoxAssistant), new PropertyMetadata(default(Effect)));
+
+
+        public static bool GetIsShowDropDownButton(DependencyObject obj) => (bool)obj.GetValue(IsShowDropDownButtonProperty);
+        public static void SetIsShowDropDownButton(DependencyObject obj, bool value) => obj.SetValue(IsShowDropDownButtonProperty, value);
+        /// <summary>
+        /// <see cref="IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
+        /// </summary>
+        public static readonly DependencyProperty IsShowDropDownButtonProperty =
+            DependencyProperty.RegisterAttached("IsShowDropDownButton", typeof(bool), typeof(ComboBoxAssistant), new PropertyMetadata(ValueBoxes.TrueBox));
     }
 }

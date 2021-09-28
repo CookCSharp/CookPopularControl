@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              xmlns:local="clr-namespace:MvvmTestDemo.UserControls"
-             mc:Ignorable="d" Background="White" Width="400" Height="600"
+             mc:Ignorable="d" Background="White" Width="400" Height="800"
              d:DesignHeight="800" d:DesignWidth="800">
 
     <UserControl.Resources>
@@ -26,11 +26,10 @@
         </EventTrigger>
     </UserControl.Triggers>
 
-    <ScrollViewer>
-        <StackPanel>
+    <ScrollViewer Background="White">
+        <StackPanel >
             <Canvas>
                 <Canvas.Resources>
-                    <!--绘制几何图形-->
                     <PathGeometry x:Key="path">
                         <PathFigure StartPoint="40,40" IsClosed="True">
                             <LineSegment Point="40,130"></LineSegment>
@@ -138,7 +137,6 @@
             </Canvas>
 
             <Canvas Width="400" Height="400">
-                <!-- The Button that is animated across the screen by animating the MatrixTransform applied to the button. -->
                 <Button MinWidth="100" Content="A Button">
                     <Button.RenderTransform>
                         <MatrixTransform x:Name="ButtonMatrixTransform1">
@@ -173,25 +171,6 @@
                 <Ellipse x:Name="ellipse1"
                          Height="160" Width="160" StrokeThickness="5" Stroke="Green"
                          Canvas.Left="320" Canvas.Top="80" >
-                    <!--<Ellipse.Fill>
-                        <DrawingBrush TileMode="FlipXY" Viewport="0,-1,1,2" Stretch="Fill">
-                            <DrawingBrush.Drawing>
-                                <GeometryDrawing Geometry="{StaticResource SinWave}" Brush="Red">
-                                    <GeometryDrawing.Pen>
-                                        <Pen Brush="Orange" Thickness="1"/>
-                                    </GeometryDrawing.Pen>
-                                </GeometryDrawing>
-                            </DrawingBrush.Drawing>
-                            <DrawingBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform />
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform Y="{Binding Value,ElementName=y,Converter={StaticResource ConverterY}}"  />
-                                </TransformGroup>
-                            </DrawingBrush.RelativeTransform>
-                        </DrawingBrush>
-                    </Ellipse.Fill>-->
                     <Ellipse.Fill>
                         <VisualBrush AutoLayoutContent="True"
                                      TileMode="Tile" Viewport="0,-1,1,5" Stretch="None" 
@@ -217,14 +196,6 @@
                         </VisualBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <!--<Grid x:Name="wave" Height="160" Width="160" Canvas.Left="80" Canvas.Top="23" Background="Transparent">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Path Grid.Row="0" Stretch="Fill" Fill="Purple" Stroke="Red" StrokeThickness="2" Data="{StaticResource SinData}"/>
-                    <Rectangle Fill="Purple" Grid.Row="1" Margin="0,-2,0,0"/>
-                </Grid>-->
                 <Slider x:Name="y" Width="200" Minimum="0" Maximum="100" Value="0"/>
                 <TextBlock Text="{Binding ElementName=y,Path=Value}" FontSize="20" Canvas.Top="23"/>
                 <Slider x:Name="amplitude" Width="200" Minimum="1" Maximum="160" Value="20" Canvas.Top="43"/>

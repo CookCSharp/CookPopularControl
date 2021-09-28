@@ -139,7 +139,7 @@
     <Style x:Key="{x:Type player:MediaPlayer}" TargetType="{x:Type player:MediaPlayer}" BasedOn="{StaticResource DefaultMediaPlayerStyle}"/>
     <Style x:Key="{x:Type star:Star}" TargetType="{x:Type star:Star}" BasedOn="{StaticResource DefaultStarStyle}"/>
     <Style x:Key="{x:Type label:GroupLabel}" TargetType="{x:Type label:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}"/>
-    <!--<Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>-->
+    <Style x:Key="{x:Type notify:BubbleMessage}" TargetType="{x:Type notify:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}"/>
     <Style x:Key="{x:Type notify:PopupMessage}" TargetType="{x:Type notify:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}"/>
     <Style x:Key="{x:Type colorPicker:ColorPicker}" TargetType="{x:Type colorPicker:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}"/>
     <Style x:Key="{x:Type date:Clock}" TargetType="{x:Type date:Clock}" BasedOn="{StaticResource DefaultClockStyle}"/>

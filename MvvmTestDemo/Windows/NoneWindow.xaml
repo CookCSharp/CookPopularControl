@@ -5,11 +5,19 @@
                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                        xmlns:local="clr-namespace:MvvmTestDemo.Windows"
                        xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-                       mc:Ignorable="d"
+                       mc:Ignorable="d" x:Name="win"
                        Title="NoneTitleBarWindow" Height="450" Width="800">
     
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding ElementName=win,Path=ClientTitleBarHeight}" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="{StaticResource AssistantBackgroundBrush}">
+            <Button Width="200" Content="123" Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True"/>
+        </Border>
+        <Border Grid.Row="1" Background="Green">
+        </Border>
     </Grid>
     
 </pc:NoneTitleBarWindow>

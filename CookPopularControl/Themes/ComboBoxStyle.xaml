@@ -18,6 +18,7 @@
         <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
         <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
         <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
+        <Setter Property="assistant:ComboBoxAssistant.IsShowDropDownButton" Value="True" />
     </Style>
 
     <Style x:Key="AddClearButtonComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
