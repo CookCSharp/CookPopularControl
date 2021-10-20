@@ -1,22 +1,22 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"                 
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox">
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ComboBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--SimpleComboBox-->
+    <!--  SimpleComboBox  -->
     <Style x:Key="DefaultComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
-        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackgroundBrush}"/>
-        <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
+        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
         <Setter Property="assistant:ComboBoxAssistant.IsShowDropDownButton" Value="True" />
     </Style>
@@ -28,17 +28,17 @@
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
 
-    
-    <!--MultiComboBox-->
+
+    <!--  MultiComboBox  -->
     <Style x:Key="DefaultMultiComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MultiComboBoxBaseStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
-        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackgroundBrush}"/>
-        <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5"/>
+        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryColorTheme}"/>
+        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
 
         <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="24" />
@@ -74,11 +74,11 @@
 
     <Style x:Key="MultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Icon" />
-        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
     <Style x:Key="AddClearButtonMultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Icon" />
-        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
 
     <Style x:Key="MultiComboBoxImageItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">

@@ -4,10 +4,10 @@
                     xmlns:toolTip="clr-namespace:CookPopularControl.Controls.TooTip">
 
     <Style x:Key="DefaultToolTipStyle" TargetType="{x:Type ToolTip}">
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-        <Setter Property="Background" Value="{DynamicResource AssistantColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="HasDropShadow" Value="True" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Placement" Value="Mouse" />
@@ -17,11 +17,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToolTip}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" 
+                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}">
-                        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Effect="{DynamicResource ComboxBoxShadow}"
-                                          Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"/>
+                        <ContentPresenter x:Name="ContentPresenter"
+                                          ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                          ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                          Effect="{DynamicResource ComboxBoxShadow}"
+                                          Content="{TemplateBinding ContentControl.Content}"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

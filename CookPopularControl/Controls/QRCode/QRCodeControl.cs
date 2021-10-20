@@ -232,8 +232,8 @@ namespace CookPopularControl.Controls.QRCode
 
         private ImageSource GetQRCodeImage(QRCodeControl qrCodeControl)
         {
-            if (qrCodeControl.Foreground is null) qrCodeControl.Foreground = Application.Current.Resources["PrimaryForeground"] as SolidColorBrush;
-            if (qrCodeControl.Background is null) qrCodeControl.Background = Application.Current.Resources["PrimaryColorTheme"] as SolidColorBrush;
+            if (qrCodeControl.Foreground is null) qrCodeControl.Foreground = Application.Current.Resources["PrimaryForegroundBrush"] as SolidColorBrush;
+            if (qrCodeControl.Background is null) qrCodeControl.Background = Application.Current.Resources["PrimaryThemeBrush"] as SolidColorBrush;
 
             System.Drawing.ColorConverter colorConverter = new System.Drawing.ColorConverter();
             using (QRCodeGenerator qrCodeGenerator = new QRCodeGenerator())

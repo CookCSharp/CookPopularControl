@@ -6,9 +6,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type drag:Branch}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FirstItemLength, Mode=TwoWay}" />
@@ -16,8 +14,9 @@
                                 <ColumnDefinition Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SecondItemLength, Mode=TwoWay}" />
                             </Grid.ColumnDefinitions>
                             <ContentPresenter x:Name="PART_FirstContentPresenter" Content="{TemplateBinding FirstItem}" />
-                            <GridSplitter Grid.Column="1" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" 
-                                          Width="5"/>
+                            <GridSplitter Grid.Column="1"
+                                          Width="5"
+                                          ResizeBehavior="PreviousAndNext" ResizeDirection="Columns" />
                             <ContentPresenter x:Name="PART_SecondContentPresenter" Grid.Column="2" Content="{TemplateBinding SecondItem}" />
                         </Grid>
                     </Border>
@@ -29,9 +28,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type drag:Branch}">
-                            <Border Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FirstItemLength, Mode=TwoWay}" />
@@ -39,7 +36,10 @@
                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SecondItemLength, Mode=TwoWay}" />
                                     </Grid.RowDefinitions>
                                     <ContentPresenter x:Name="PART_FirstContentPresenter" Content="{TemplateBinding FirstItem}" />
-                                    <GridSplitter Grid.Row="1" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" Height="5" HorizontalAlignment="Stretch" />
+                                    <GridSplitter Grid.Row="1"
+                                                  Height="5"
+                                                  ResizeBehavior="PreviousAndNext" ResizeDirection="Rows"
+                                                  HorizontalAlignment="Stretch" />
                                     <ContentPresenter x:Name="PART_SecondContentPresenter" Grid.Row="2" Content="{TemplateBinding SecondItem}" />
                                 </Grid>
                             </Border>
@@ -49,5 +49,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
 </ResourceDictionary>

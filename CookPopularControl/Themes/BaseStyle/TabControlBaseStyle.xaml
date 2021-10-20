@@ -6,35 +6,37 @@
 
     <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
         <Setter Property="MinHeight" Value="30" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="assistant:TabControlAssistant.IsAddClearButton" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl},Path=(assistant:TabControlAssistant.IsAddClearButton)}" />
+        <Setter Property="assistant:TabControlAssistant.IsAddClearButton" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl}, Path=(assistant:TabControlAssistant.IsAddClearButton)}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Grid x:Name="PART_Root" KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" Padding="5"
-                                BorderBrush="{TemplateBinding BorderBrush}" 
+                        <Border Grid.Column="0"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" >
+                                Background="{TemplateBinding Background}"
+                                Padding="5">
                             <ContentPresenter x:Name="ContentSite"
                                               ContentSource="Header" RecognizesAccessKey="True"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
-                        <Button x:Name="PART_CloseButton" Grid.Column="1" Background="{TemplateBinding Background}"
+                        <Button x:Name="PART_CloseButton" Grid.Column="1"
                                 attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                attached:FrameworkElementBaseAttached.IconWidth="10"
-                                attached:FrameworkElementBaseAttached.IconHeight="10"
-                                Visibility="{TemplateBinding assistant:TabControlAssistant.IsAddClearButton,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                                attached:FrameworkElementBaseAttached.IconHeight="10" attached:FrameworkElementBaseAttached.IconWidth="10"
+                                Visibility="{TemplateBinding assistant:TabControlAssistant.IsAddClearButton,
+                                                             Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                Background="{TemplateBinding Background}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -49,7 +51,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="TabControlBaseStyle" TargetType="{x:Type TabControl}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -58,41 +60,40 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <DockPanel KeyboardNavigation.TabNavigation="Local">
+                        <TabPanel x:Name="HeaderPanel"
+                                  DockPanel.Dock="{TemplateBinding TabStripPlacement}"
+                                  IsItemsHost="True" KeyboardNavigation.TabIndex="1"
+                                  Panel.ZIndex="1" />
+                        <Border x:Name="Border"
+                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="PART_SelectedContentHost"
+                                              ContentSource="SelectedContent"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              Focusable="False"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              Margin="{TemplateBinding Padding}" />
+                        </Border>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
-                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
-                                                                      Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="0" Value="#FFAAAAAA"/>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="#FFAAAAAA" />
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <TabPanel x:Name="HeaderPanel"                         
-                                  DockPanel.Dock="{TemplateBinding TabStripPlacement}"
-                                  IsItemsHost="True" Panel.ZIndex="1"
-                                  KeyboardNavigation.TabIndex="1"/>
-                        <Border x:Name="Border"
-                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}" 
-                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                KeyboardNavigation.TabNavigation="Local"
-                                KeyboardNavigation.DirectionalNavigation="Contained"
-                                KeyboardNavigation.TabIndex="2">
-                            <ContentPresenter x:Name="PART_SelectedContentHost"
-                                              ContentSource="SelectedContent"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                              Margin="{TemplateBinding Padding}" Focusable="False"/>
-                        </Border>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

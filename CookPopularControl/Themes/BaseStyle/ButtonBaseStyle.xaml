@@ -1,26 +1,26 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Button"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Button"
+                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml" />
 
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type ButtonBase}">
-        <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
+    <Style x:Key="DefaultButtonBaseStyle" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
@@ -37,51 +37,63 @@
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
                         <AdornerDecorator CacheMode="{StaticResource DefaultBitmapCache}">
-                            <Border x:Name="RootBorder" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                            <Border x:Name="RootBorder"
+                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}">
                                 <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                    <Path x:Name="PART_Icon" Stretch="Uniform" SnapsToDevicePixels="True" 
+                                    <Path x:Name="PART_Icon"
+                                          Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                          Fill="{TemplateBinding Foreground}"
+                                          SnapsToDevicePixels="True" Stretch="Uniform"
                                           Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                           Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                          Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                          Fill="{TemplateBinding Foreground}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                    <Image x:Name="PART_Image_Gif" Stretch="Uniform"
-                                           Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
-                                           Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}" Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
-                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                           gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    <Image x:Name="PART_Image_Gif"
                                            gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
+                                           gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}"
+                                           gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"
                                            gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
-                                           gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"/>
+                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                           Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
+                                           Stretch="Uniform"
+                                           Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}"
+                                           Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}" />
                                     <Grid x:Name="ContentGrid">
-                                        <ProgressBar x:Name="PART_Progress" 
-                                                     Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                                                     Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
-                                                     Style="{TemplateBinding assistant:ButtonAssist.ProgressBarStyle}" 
-                                                     Foreground="{TemplateBinding assistant:ButtonAssist.ProgressBarBrush}" Background="Transparent" BorderThickness="0"
-                                                     HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        <ProgressBar x:Name="PART_Progress"
                                                      attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=(assistant:ButtonAssist.IsShowProgress),Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
-                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"   
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                                          RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                          Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"/>
+                                                     Style="{TemplateBinding assistant:ButtonAssist.ProgressBarStyle}"
+                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ButtonAssist.IsShowProgress), Converter={toolsConverters:BooleanToVisibilityConverter}}"
+                                                     Width="{TemplateBinding Width}"
+                                                     Height="{TemplateBinding Height}"
+                                                     BorderThickness="0"
+                                                     Foreground="{TemplateBinding assistant:ButtonAssist.ProgressBarBrush}"
+                                                     Background="Transparent"
+                                                     Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
+                                                     HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <ContentPresenter RecognizesAccessKey="True"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
+                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                     </Grid>
                                 </DockPanel>
                             </Border>
                         </AdornerDecorator>
-                        <ripple:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
-                                       ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Padding="{TemplateBinding Padding}"
+                        <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                       ContentTemplate="{TemplateBinding ContentTemplate}"
+                                       Focusable="False"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,
+                                                                    Converter={toolsConverters:BooleanToVisibilityConverter}}"
+                                       Padding="{TemplateBinding Padding}"
+                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ripple:Ripple.Clip>
                                 <MultiBinding Converter="{StaticResource BorderClipConverter}">
                                     <Binding ElementName="RootBorder" Path="ActualWidth" />
@@ -95,60 +107,58 @@
                     <ControlTemplate.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=(assistant:ButtonAssist.IsShowProgress)}" Value="True"/>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=(assistant:ButtonAssist.ProgressValue),Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(assistant:ButtonAssist.IsShowProgress)}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(assistant:ButtonAssist.ProgressValue), Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True" />
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.Setters>
-                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="IsEnabled" Value="False" />
                                 <!--<Setter Property="Foreground" Value="#22000000" TargetName="PART_Progress"/>-->
                             </MultiDataTrigger.Setters>
                         </MultiDataTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Left"/>
-                                <Condition Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Left" />
+                                <Condition Property="HorizontalContentAlignment" Value="Stretch" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="HorizontalAlignment" Value="Right" TargetName="ContentGrid"/>
+                            <Setter TargetName="ContentGrid" Property="HorizontalAlignment" Value="Right" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Right"/>
-                                <Condition Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Right" />
+                                <Condition Property="HorizontalContentAlignment" Value="Stretch" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="HorizontalAlignment" Value="Left" TargetName="ContentGrid"/>
+                            <Setter TargetName="ContentGrid" Property="HorizontalAlignment" Value="Left" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Top"/>
-                                <Condition Property="VerticalContentAlignment" Value="Stretch"/>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Top" />
+                                <Condition Property="VerticalContentAlignment" Value="Stretch" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="VerticalAlignment" Value="Bottom" TargetName="ContentGrid"/>
+                            <Setter TargetName="ContentGrid" Property="VerticalAlignment" Value="Bottom" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Bottom"/>
-                                <Condition Property="VerticalContentAlignment" Value="Stretch"/>
+                                <Condition Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Bottom" />
+                                <Condition Property="VerticalContentAlignment" Value="Stretch" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="VerticalAlignment" Value="Top" TargetName="ContentGrid"/>
+                            <Setter TargetName="ContentGrid" Property="VerticalAlignment" Value="Top" />
                         </MultiTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="RootBorder"/>
+                            <Setter TargetName="RootBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(attached:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ButtonBase},Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="RootBorder"/>
+                            <Setter TargetName="RootBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(attached:ButtonBaseAttached.ButtonBasePressBackground)}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style x:Key="DefaultButtonBaseStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource ButtonBaseStyle}"/>
 
 </ResourceDictionary>

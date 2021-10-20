@@ -5395,6 +5395,12 @@
             <summary>
             绑定代理
             </summary>
+            <remarks>
+            适用于控件自身是视觉树的根节点,即使通过RelativeSource.FindAncestor也找不到要传递的参数，例如ContextMenu
+            传递参数时:可以通过PlacementTarget解决。微软对PlacementTarget的解释是：获取或设置UIElement，当它打开时相对于它确定ContextMenu的位置
+            <![CDATA[CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget}"]]>
+            <![CDATA[CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" ]]>
+            </remarks>
         </member>
         <member name="T:CookPopularControl.Tools.Boxes.ValueBoxes">
             <summary>
@@ -5497,6 +5503,13 @@
             <summary>
             提供<see cref="T:System.Windows.Media.Color"/>与<see cref="T:System.Windows.Media.Brush"/>之间的转换
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.FramworkElementExtension.SaveAsPicture(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            将<see cref="T:System.Windows.FrameworkElement"/>保存为位图
+            </summary>
+            <param name="element">元素</param>
+            <param name="fileName">文件路径及文件名</param>
         </member>
         <member name="T:CookPopularControl.Tools.Extensions.GeometryExtension">
             <summary>
@@ -5723,6 +5736,14 @@
             </summary>
             <param name="bitmapSource"></param>
             <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.Images.ImageBitmapExtension.ToIcon(System.Drawing.Image,System.Boolean)">
+            <summary>
+            转换Image为Icon
+            </summary>
+            <param name="image">要转换为图标的Image对象</param>
+            <param name="nullTonull">当image为null时是否返回null。false则抛空引用异常</param>
+            <exception cref="T:System.ArgumentNullException" />
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.LogicalTreeHelperExtension.LogicalTreeAncestory(System.Windows.DependencyObject)">
             <summary>
@@ -6628,6 +6649,16 @@
             原点Y坐标
             </summary>
         </member>
+        <member name="T:CookPopularControl.Tools.Windows.Drawing.DispatcherVisual">
+            <summary>
+            在另一个线程绘制元素，在跟主界面一样的线程渲染
+            </summary>
+            <remarks>
+            使用VisualTarget做到多个UI线程的绘制，
+            WPF的渲染线程只有一个，多个UI线程无法让渲染的速度加快，
+            也就是说如果一个界面有很多的Visual那么渲染速度也不会因为添加UI线程用的时间比原来少
+            </remarks>
+        </member>
         <member name="T:CookPopularControl.Tools.Windows.Drawing.DrawingVisualElement">
             <summary>
             手绘一个带有命中测试的控件
@@ -6844,35 +6875,41 @@
             <param name="cultureInfo"></param>
             <returns></returns>
         </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+        <member name="T:CookPopularControl.Tools.Windows.Win32.MountVisual">
             <summary>
-            GeneratedInternalTypeHelper
+            在 Win32 应用程序中承载视觉对象
             </summary>
         </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+        <member name="M:CookPopularControl.Tools.Windows.Win32.MountVisual.CreateShape(System.IntPtr)">
             <summary>
-            CreateInstance
+            将视觉对象添加到宿主Win32窗口
             </summary>
+            <param name="parentHwnd"></param>
         </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:CookPopularControl.Tools.Windows.Win32.MountVisual.CreateHostHwnd(System.IntPtr)">
             <summary>
-            GetPropertyValue
+            创建宿主Win32窗口
             </summary>
+            <param name="parentHwnd"></param>
         </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:CookPopularControl.Tools.Windows.Win32.MountVisual.ApplicationMessageFilter(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
             <summary>
-            SetPropertyValue
+            实现 Win32 消息筛选器
             </summary>
+            <param name="hwnd"></param>
+            <param name="message"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <param name="handled"></param>
+            <returns></returns>
         </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+        <member name="M:CookPopularControl.Tools.Windows.Win32.MyShape.OnHitTest(System.Windows.Point,System.Int32)">
             <summary>
-            CreateDelegate
+            对主机 Win32 窗口中包含的视觉对象的层次结构执行命中测试
             </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
+            <param name="pt"></param>
+            <param name="msg"></param>
+            <remarks>Respond to WM_LBUTTONUP or WM_RBUTTONUP messages by determining which visual object was clicked</remarks>
         </member>
     </members>
 </doc>

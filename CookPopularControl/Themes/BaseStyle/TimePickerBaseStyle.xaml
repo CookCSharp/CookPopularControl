@@ -1,66 +1,97 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:date="clr-namespace:CookPopularControl.Controls.Dates"
                     xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="ClockRadioButtonStyle" TargetType="{x:Type RadioButton}">
         <Setter Property="Width" Value="30" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="15">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Border x:Name="border" CornerRadius="15" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--<Trigger Property="IsChecked" Value="False">
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border"/>
                         </Trigger>-->
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-                            <Setter Property="Background" Value="{DynamicResource PrimaryColorTheme}" TargetName="border"/>
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="ClockBaseStyle" TargetType="{x:Type date:Clock}">
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="300" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type date:Clock}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                            Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="50" />
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{TemplateBinding CurrentTime}" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <Border Grid.Row="1" Width="150" Height="150" CornerRadius="75" BorderBrush="{DynamicResource PrimaryColorTheme}" BorderThickness="5">
+                            <TextBlock Grid.Row="0"
+                                       Text="{TemplateBinding CurrentTime}"
+                                       FontSize="20" FontWeight="DemiBold"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Border Grid.Row="1"
+                                    CornerRadius="75"
+                                    Width="150" Height="150"
+                                    BorderBrush="{DynamicResource PrimaryThemeBrush}"
+                                    BorderThickness="5">
                                 <panel:SimpleGrid x:Name="PART_Ticks" Background="Transparent">
-                                    <TextBlock Text="12" FontSize="14" Foreground="{DynamicResource PrimaryColorTheme}" FontWeight="DemiBold" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                                    <TextBlock Text="3"  FontSize="14" Foreground="{DynamicResource PrimaryColorTheme}" FontWeight="DemiBold" Margin="0,0,12,0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                    <TextBlock Text="6"  FontSize="14" Foreground="{DynamicResource PrimaryColorTheme}" FontWeight="DemiBold" Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                                    <TextBlock Text="9"  FontSize="14" Foreground="{DynamicResource PrimaryColorTheme}" FontWeight="DemiBold" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Text="12"
+                                               Foreground="{DynamicResource PrimaryThemeBrush}"
+                                               FontSize="14" FontWeight="DemiBold"
+                                               Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                    <TextBlock Text="3"
+                                               Foreground="{DynamicResource PrimaryThemeBrush}"
+                                               FontSize="14" FontWeight="DemiBold"
+                                               Margin="0,0,12,0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                    <TextBlock Text="6"
+                                               Foreground="{DynamicResource PrimaryThemeBrush}"
+                                               FontSize="14" FontWeight="DemiBold"
+                                               Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                                    <TextBlock Text="9"
+                                               Foreground="{DynamicResource PrimaryThemeBrush}"
+                                               FontSize="14" FontWeight="DemiBold"
+                                               Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                 </panel:SimpleGrid>
                             </Border>
-                            <UniformGrid Grid.Row="2" Columns="3" x:Name="PART_UniformGrid">
-                                <RadioButton x:Name="PART_Am" Content="上午" IsChecked="True" Style="{StaticResource ClockRadioButtonStyle}"/>
-                                <RadioButton x:Name="PART_Pm" Content="下午" Style="{StaticResource ClockRadioButtonStyle}"/>
-                                <Button Width="30" Height="30" Content="重置" attached:FrameworkElementBaseAttached.CornerRadius="15" Command="{x:Static date:Clock.ResetCommand}"/>
-                                <Button Width="30" Height="30" Content="确定" attached:FrameworkElementBaseAttached.CornerRadius="15" Command="{x:Static date:Clock.ConfirmCommand}"
-                                        Visibility="{TemplateBinding date:ClockAssistant.IsAddConfirmButton,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                            <UniformGrid x:Name="PART_UniformGrid" Columns="3" Grid.Row="2">
+                                <RadioButton x:Name="PART_Am"
+                                             IsChecked="True"
+                                             Style="{StaticResource ClockRadioButtonStyle}"
+                                             Content="上午" />
+                                <RadioButton x:Name="PART_Pm" Style="{StaticResource ClockRadioButtonStyle}" Content="下午" />
+                                <Button attached:FrameworkElementBaseAttached.CornerRadius="15"
+                                        Command="{x:Static date:Clock.ResetCommand}"
+                                        Content="重置"
+                                        Width="30" Height="30" />
+                                <Button attached:FrameworkElementBaseAttached.CornerRadius="15"
+                                        Command="{x:Static date:Clock.ConfirmCommand}"
+                                        Visibility="{TemplateBinding date:ClockAssistant.IsAddConfirmButton,
+                                                                     Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                        Content="确定"
+                                        Width="30" Height="30" />
                             </UniformGrid>
                         </Grid>
                     </Border>
@@ -79,22 +110,29 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type date:TimePicker}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="30" />
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" x:Name="PART_TextBox" Text="{TemplateBinding CurrentTime}" BorderThickness="0"
-                                     attached:TextElementAttached.PlaceHolder="请选择时间"
-                                     attached:FrameworkElementBaseAttached.CornerRadius="2"/>
-                            <ToggleButton Grid.Column="1" x:Name="PART_Button" Style="{DynamicResource ToggleButtonTransparentIconStyle}"
-                                          attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ClockGeometry}"/>
-                            <Popup x:Name="PART_Popup" IsOpen="{Binding ElementName=PART_Button,Path=IsChecked,Mode=TwoWay}"
-                                   StaysOpen="False" AllowsTransparency="True" VerticalOffset="8"
-                                   Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}">
-                                <date:Clock x:Name="PART_Clock" Effect="{DynamicResource FieldShadowEffect}" date:ClockAssistant.IsAddConfirmButton="{TemplateBinding date:ClockAssistant.IsAddConfirmButton}"/>
+                            <TextBox x:Name="PART_TextBox" Grid.Column="0"
+                                     attached:FrameworkElementBaseAttached.CornerRadius="2" attached:TextElementAttached.PlaceHolder="请选择时间"
+                                     Text="{TemplateBinding CurrentTime}"
+                                     BorderThickness="0" />
+                            <ToggleButton x:Name="PART_Button" Grid.Column="1"
+                                          attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ClockGeometry}"
+                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}" />
+                            <Popup x:Name="PART_Popup"
+                                   AllowsTransparency="True"
+                                   IsOpen="{Binding ElementName=PART_Button, Path=IsChecked, Mode=TwoWay}"
+                                   Placement="Bottom"
+                                   PlacementTarget="{Binding ElementName=PART_TextBox}"
+                                   StaysOpen="False" VerticalOffset="8">
+                                <date:Clock x:Name="PART_Clock" date:ClockAssistant.IsAddConfirmButton="{TemplateBinding date:ClockAssistant.IsAddConfirmButton}" Effect="{DynamicResource FieldShadowEffect}" />
                             </Popup>
                         </Grid>
                     </Border>
@@ -102,5 +140,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

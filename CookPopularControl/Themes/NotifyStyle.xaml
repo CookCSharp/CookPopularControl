@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:notify="clr-namespace:CookPopularControl.Controls.Notify"
                     xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:tb="http://www.hardcodet.net/taskbar">
 
@@ -10,22 +10,22 @@
     </ResourceDictionary.MergedDictionaries>
 
     <ContextMenu x:Key="NotifyIconContextMenu">
-        <MenuItem Header="打开" Command="{x:Static notify:TaskbarIcon.OpenApplicationCommand}">
+        <MenuItem Command="{x:Static notify:TaskbarIcon.OpenApplicationCommand}" Header="打开">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource OpenGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                <Path Data="{DynamicResource OpenGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="隐藏到托盘" Command="{x:Static notify:TaskbarIcon.HideApplicationCommand}">
+        <MenuItem Command="{x:Static notify:TaskbarIcon.HideApplicationCommand}" Header="隐藏到托盘">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource HideGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                <Path Data="{DynamicResource HideGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="退出" Command="{x:Static notify:TaskbarIcon.ExitApplicationCommand}">
+        <MenuItem Command="{x:Static notify:TaskbarIcon.ExitApplicationCommand}" Header="退出">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource ExitGeometry}" Fill="{DynamicResource PrimaryForeground}" Stretch="Uniform"/>
+                <Path Data="{DynamicResource ExitGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="欢迎你，写代码的厨子😀"/>
+        <MenuItem Header="欢迎你，写代码的厨子😀" />
     </ContextMenu>
 
     <Style x:Key="BubbleMessageStyle" TargetType="{x:Type notify:BubbleMessage}">
@@ -33,7 +33,7 @@
         <Setter Property="MinHeight" Value="60" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -46,43 +46,57 @@
                     <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}" SnapsToDevicePixels="True">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="50" x:Name="closeWidth"/>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition x:Name="closeWidth" Width="50" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{TemplateBinding Effect}" Background="{TemplateBinding Background}" 
-                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"/>
-                            <Path Grid.Column="0" Grid.RowSpan="2" Width="24" Height="24" 
-                                  Data="{TemplateBinding notify:BubbleMessage.BubbleMessageIcon}" Stretch="Uniform" 
-                                  Fill="{TemplateBinding notify:BubbleMessage.BubbleMessageIconBrush}"/>
-                            <ContentPresenter Grid.Column="1" ContentSource="Content"
+                            <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                    Effect="{TemplateBinding Effect}"
+                                    Grid.RowSpan="2" Grid.ColumnSpan="3"
+                                    Background="{TemplateBinding Background}" />
+                            <Path Grid.Column="0"
+                                  Data="{TemplateBinding notify:BubbleMessage.BubbleMessageIcon}"
+                                  Fill="{TemplateBinding notify:BubbleMessage.BubbleMessageIconBrush}"
+                                  Stretch="Uniform"
+                                  Grid.RowSpan="2"
+                                  Width="24" Height="24" />
+                            <ContentPresenter Grid.Column="1"
+                                              ContentSource="Content"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <Button x:Name="CloseButton" Grid.Column="2"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}"
+                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                    attached:FrameworkElementBaseAttached.IconHeight="14" attached:FrameworkElementBaseAttached.IconWidth="14"
                                     Command="{x:Static notify:NotifyMessageBase.CloseNotifyMessageCommand}"
-                                    attached:FrameworkElementBaseAttached.IconWidth="14"
-                                    attached:FrameworkElementBaseAttached.IconHeight="14"
-                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"/>
-                            <UniformGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Columns="2" x:Name="PART_ButtonsClose" Height="20" Visibility="Collapsed">
-                                <Button Content="取消" Foreground="Red" Command="{x:Static notify:BubbleMessage.CancelNotifyMessageCommand}"
-                                        Style="{DynamicResource ButtonTransparentStyle}" HorizontalAlignment="Stretch" />
-                                <Button Content="确定" Foreground="Red" Command="{x:Static notify:BubbleMessage.ConfirmNotifyMessageCommand}" 
-                                        Style="{DynamicResource ButtonTransparentStyle}" HorizontalAlignment="Stretch" />
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
+                                    Foreground="{TemplateBinding Foreground}" />
+                            <UniformGrid x:Name="PART_ButtonsClose" Grid.Row="1" Grid.Column="1"
+                                         Columns="2" Visibility="Collapsed"
+                                         Grid.ColumnSpan="2"
+                                         Height="20">
+                                <Button Command="{x:Static notify:BubbleMessage.CancelNotifyMessageCommand}"
+                                        Style="{DynamicResource ButtonTransparentStyle}"
+                                        Content="取消"
+                                        Foreground="Red"
+                                        HorizontalAlignment="Stretch" />
+                                <Button Command="{x:Static notify:BubbleMessage.ConfirmNotifyMessageCommand}"
+                                        Style="{DynamicResource ButtonTransparentStyle}"
+                                        Content="确定"
+                                        Foreground="Red"
+                                        HorizontalAlignment="Stretch" />
                             </UniformGrid>
                         </Grid>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=(notify:NotifyMessageBase.IsShowCloseButton)}" Value="False">
-                            <Setter Property="Width" Value="0" TargetName="closeWidth"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(notify:NotifyMessageBase.IsShowCloseButton)}" Value="False">
+                            <Setter TargetName="closeWidth" Property="Width" Value="0" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -106,20 +120,23 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type notify:PopupMessage}">
-                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Margin="5" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            SnapsToDevicePixels="True"
+                            Background="{TemplateBinding Background}"
+                            Margin="5">
                         <panel:SimpleGrid>
-                            <ContentPresenter Margin="{TemplateBinding Padding}"/>
-                            <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                    Width="30" Height="30" Style="{DynamicResource ButtonNoMouseOverTransparentIconStyle}"
-                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                    attached:FrameworkElementBaseAttached.IconWidth="16"
-                                    attached:FrameworkElementBaseAttached.IconHeight="16"
-                                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5"/>
+                            <ContentPresenter Margin="{TemplateBinding Padding}" />
+                            <Button attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                    attached:FrameworkElementBaseAttached.IconHeight="16" attached:FrameworkElementBaseAttached.IconWidth="16"
+                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                    Style="{DynamicResource ButtonNoMouseOverTransparentIconStyle}"
+                                    Width="30" Height="30"
+                                    Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" />
                         </panel:SimpleGrid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

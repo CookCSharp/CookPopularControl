@@ -6,12 +6,8 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/DragableTabControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultDragableTabControlStyle" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DragableTabControlBaseStyle}">
-        
-    </Style>
+    <Style x:Key="DefaultDragableTabControlStyle" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DragableTabControlBaseStyle}" />
 
-    <Style x:Key="DefaultDragableItemsControlStyle" TargetType="{x:Type drag:DragableItemsControl}" BasedOn="{StaticResource DragableItemsControlBaseStyle}">
-
-    </Style>
+    <Style x:Key="DefaultDragableItemsControlStyle" TargetType="{x:Type drag:DragableItemsControl}" BasedOn="{StaticResource DragableItemsControlBaseStyle}" />
 
 </ResourceDictionary>

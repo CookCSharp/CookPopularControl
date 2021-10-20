@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Dates"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:date="clr-namespace:CookPopularControl.Controls.Dates">
 
     <ResourceDictionary.MergedDictionaries>
@@ -12,8 +12,8 @@
 
     <Style x:Key="DefaultCalendarStyle" TargetType="{x:Type Calendar}" BasedOn="{StaticResource CalenderBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
-        <Setter Property="assistant:CalendarAssistant.TitleBackgroundBrush" Value="{DynamicResource PrimaryColorTheme}" />
-        <Setter Property="assistant:CalendarAssistant.WeekForegroundBrush" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="assistant:CalendarAssistant.TitleBackgroundBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="assistant:CalendarAssistant.WeekForegroundBrush" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
 
     <Style x:Key="DefaultDatePickerStyle" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DatePickerBaseStyle}">

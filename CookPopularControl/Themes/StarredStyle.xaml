@@ -3,7 +3,7 @@
                     xmlns:star="clr-namespace:CookPopularControl.Controls.Starred">
 
     <Style x:Key="DefaultStarStyle" TargetType="{x:Type star:Star}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />

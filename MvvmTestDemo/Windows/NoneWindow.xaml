@@ -1,23 +1,27 @@
-﻿<pc:NoneTitleBarWindow x:Class="MvvmTestDemo.Windows.NoneWindow"
+﻿<pc:NoneTitleBarWindow x:Name="win"
+                       x:Class="MvvmTestDemo.Windows.NoneWindow"
                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                        xmlns:local="clr-namespace:MvvmTestDemo.Windows"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                        xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-                       mc:Ignorable="d" x:Name="win"
-                       Title="NoneTitleBarWindow" Height="450" Width="800">
-    
+                       mc:Ignorable="d"
+                       Title="NoneTitleBarWindow"
+                       Width="800"
+                       Height="450">
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{Binding ElementName=win,Path=ClientTitleBarHeight}" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="{Binding ElementName=win, Path=ClientTitleBarHeight}" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="{StaticResource AssistantBackgroundBrush}">
-            <Button Width="200" Content="123" Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True"/>
+            <Button Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True"
+                    Content="123"
+                    Width="200" />
         </Border>
-        <Border Grid.Row="1" Background="Green">
-        </Border>
+        <Border Grid.Row="1" Background="Green" />
     </Grid>
-    
+
 </pc:NoneTitleBarWindow>

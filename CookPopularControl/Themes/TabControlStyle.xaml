@@ -7,9 +7,9 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/TabControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultTabControlStyle" TargetType="{x:Type TabControl}" BasedOn="{StaticResource TabControlBaseStyle}" >
+    <Style x:Key="DefaultTabControlStyle" TargetType="{x:Type TabControl}" BasedOn="{StaticResource TabControlBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="0" />
         <Setter Property="assistant:TabControlAssistant.IsAddClearButton" Value="True" />
     </Style>
-    
+
 </ResourceDictionary>

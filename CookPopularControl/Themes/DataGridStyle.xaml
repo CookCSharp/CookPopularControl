@@ -10,5 +10,5 @@
         <Setter Property="assistant:DataGridAssistant.IsShowSerialNumber" Value="True" />
         <Setter Property="assistant:DataGridAssistant.IsRegisterSelectAll" Value="True" />
     </Style>
-    
+
 </ResourceDictionary>

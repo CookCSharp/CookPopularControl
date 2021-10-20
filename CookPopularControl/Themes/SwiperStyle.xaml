@@ -1,50 +1,57 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper"
-                    xmlns:simpleGird="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:simpleGird="clr-namespace:CookPopularControl.Controls.Panels"
+                    xmlns:swiper="clr-namespace:CookPopularControl.Controls.Swiper"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="DefaultSwiperStyle" TargetType="{x:Type swiper:Swiper}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="IsCyclePlay" Value="False" />
         <Setter Property="Duration" Value="0:0:0.5" />
         <Setter Property="IsShowIndicatorDots" Value="True" />
-        <Setter Property="IndicatorDotBrush" Value="{DynamicResource PrimaryColorTheme}" />
-        <Setter Property="IndicatorActiveDotBrush" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="IndicatorDotBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="IndicatorActiveDotBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type swiper:Swiper}">
                     <simpleGird:SimpleGrid ClipToBounds="True">
-                        <ContentPresenter x:Name="PART_Content" Content="{TemplateBinding CurrentItem}" 
+                        <ContentPresenter x:Name="PART_Content"
+                                          ContentStringFormat="{TemplateBinding ItemStringFormat}"
                                           ContentTemplate="{TemplateBinding ItemTemplate}"
-                                          ContentStringFormat="{TemplateBinding ItemStringFormat}"                                         
+                                          Content="{TemplateBinding CurrentItem}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ContentPresenter.RenderTransform>
-                                <TranslateTransform X="0" x:Name="PART_Translate"/>
+                                <TranslateTransform x:Name="PART_Translate" X="0" />
                             </ContentPresenter.RenderTransform>
                         </ContentPresenter>
-                        <Button x:Name="PART_LastView" Command="{x:Static swiper:Swiper.LastViewCommand}"
-                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource ButtonTransparentIconStyle}"
-                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}" 
-                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <Button x:Name="PART_NextView" Command="{x:Static swiper:Swiper.NextViewCommand}"
-                                Foreground="{TemplateBinding Foreground}" Style="{DynamicResource ButtonTransparentIconStyle}"
-                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}" 
-                                HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <StackPanel x:Name="PART_Panel" Orientation="Horizontal"
-                                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                                    Visibility="{TemplateBinding IsShowIndicatorDots,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                        <Button x:Name="PART_LastView"
+                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}"
+                                Command="{x:Static swiper:Swiper.LastViewCommand}"
+                                Style="{DynamicResource ButtonTransparentIconStyle}"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        <Button x:Name="PART_NextView"
+                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}"
+                                Command="{x:Static swiper:Swiper.NextViewCommand}"
+                                Style="{DynamicResource ButtonTransparentIconStyle}"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        <StackPanel x:Name="PART_Panel"
+                                    Orientation="Horizontal"
+                                    Visibility="{TemplateBinding IsShowIndicatorDots,
+                                                                 Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                    HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                     </simpleGird:SimpleGrid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsEnabled" Value="False" SourceName="PART_LastView">
-                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_LastView"/>
-                            <Setter Property="Background" Value="Transparent" TargetName="PART_LastView"/>
+                        <Trigger SourceName="PART_LastView" Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_LastView" Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter TargetName="PART_LastView" Property="Background" Value="Transparent" />
                         </Trigger>
-                        <Trigger Property="IsEnabled" Value="False" SourceName="PART_NextView">
-                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_NextView"/>
-                            <Setter Property="Background" Value="Transparent" TargetName="PART_NextView"/>
+                        <Trigger SourceName="PART_NextView" Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_NextView" Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter TargetName="PART_NextView" Property="Background" Value="Transparent" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

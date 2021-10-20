@@ -37,11 +37,11 @@ namespace MvvmTestDemo
         public object ControlContent { get; set; }
         public int DemoViewsSelectedIndex { get; set; }
         public bool IsOpenNotifyIconSwitch { get; set; }
-
         public ICommand ShowSideBarCommand { get; set; }
         public ICommand SettingClickCommand { get; set; }
         public ICommand HomePageCommand { get; set; }
         public ICommand DemoViewsSelectedCommand { get; set; }
+        public ICommand ViewSizeChangedCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -60,6 +60,12 @@ namespace MvvmTestDemo
             SettingClickCommand = new DelegateCommand(OnSettingClick);
             HomePageCommand = new DelegateCommand(OnHomePage);
             DemoViewsSelectedCommand = new DelegateCommand(OnDemoViewsSelected);
+            ViewSizeChangedCommand = new DelegateCommand(ViewSizeChanged);
+        }
+
+        private void ViewSizeChanged()
+        {
+           
         }
 
         private void OnLoaded()

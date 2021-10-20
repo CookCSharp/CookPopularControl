@@ -1,18 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
+                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:simpleGird="clr-namespace:CookPopularControl.Controls.Panels"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"                 
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
-                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif">
+                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--下拉按钮-->
+    <!--  下拉按钮  -->
     <Style x:Key="DropDownToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Cursor" Value="Hand" />
         <!--<Setter Property="ToolTip" Value="点击展开" />-->
@@ -21,43 +21,47 @@
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="CheckedStoryboard">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="border">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="border">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Border x:Name="border" Background="Transparent" RenderTransformOrigin="0.5,0.5"
-                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.7}"
-                            Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.7}">
+                    <Border x:Name="border"
+                            RenderTransformOrigin="0.5,0.5"
+                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=0.7}"
+                            Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=0.7}"
+                            Background="Transparent">
                         <Border.RenderTransform>
                             <TransformGroup>
-                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
                             </TransformGroup>
                         </Border.RenderTransform>
-                        <Path Data="{DynamicResource DownTriangleGeometry}" Stretch="Uniform"
-                              Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(assistant:ComboBoxAssistant.DropDownButtonFill)}" 
-                              HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Path Data="{DynamicResource DownTriangleGeometry}"
+                              Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(assistant:ComboBoxAssistant.DropDownButtonFill)}"
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="true">
                             <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="IsCheckedStoryboard" Storyboard="{StaticResource CheckedStoryboard}"/>
+                                <BeginStoryboard x:Name="IsCheckedStoryboard" Storyboard="{StaticResource CheckedStoryboard}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="IsCheckedStoryboard"/>
+                                <RemoveStoryboard BeginStoryboardName="IsCheckedStoryboard" />
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect ShadowDepth="1" Opacity="0.25" Direction="180" Color="#44000000"/>
+                                    <DropShadowEffect Direction="180" Opacity="0.25" ShadowDepth="1"
+                                                      Color="#44000000" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -79,26 +83,25 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <ScrollViewer x:Name="PART_ContentHost"
-                                  Focusable="False"
-                                  HorizontalScrollBarVisibility="Hidden"
-                                  VerticalScrollBarVisibility="Hidden"
-                                  Background="Transparent"
+                                  Focusable="False" HorizontalScrollBarVisibility="Hidden"
                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                  UseLayoutRounding="{TemplateBinding UseLayoutRounding}"/>
+                                  UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
+                                  VerticalScrollBarVisibility="Hidden"
+                                  Background="Transparent" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!--SimpleComboBox-->
+    <!--  SimpleComboBox  -->
     <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-        <Setter Property="Padding" Value="8,0,0,0"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Padding" Value="8,0,0,0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
@@ -110,30 +113,32 @@
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="{x:Type ComboBoxItem}">
-                    <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Foreground}"/>
-                    <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Height}"/>
-                    <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Width}"/>
+                    <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
+                    <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height}" />
+                    <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Width}" />
                     <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ComboBoxItem}">
                                 <simpleGird:SimpleGrid x:Name="ItemGrid" Margin="0,0,1,0">
-                                    <ripple:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
-                                                   ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                   Padding="{TemplateBinding Padding}" Background="Transparent"
+                                    <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                   Focusable="False"
                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox},Path=(ripple:RippleAssist.IsDisabled),Converter={toolsConverters:BooleanToVisibilityReConverter}}"/>
+                                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(ripple:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
+                                                   Background="Transparent"
+                                                   Padding="{TemplateBinding Padding}"
+                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                                     <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Padding}"
                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                      Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Padding}"/>
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                 </simpleGird:SimpleGrid>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-                                        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemGrid"/>
+                                        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                                        <Setter TargetName="ItemGrid" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.ItemMouseOverBackground)}" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -148,68 +153,94 @@
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="PopupLoaded">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PopupBorder">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PopupBorder">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Border x:Name="PART_Border"
-                            BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
                         <Grid x:Name="RootGrid">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:Name="PART_PlaceHolder" Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}" 
-                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}" Background="Transparent"
-                                       TextAlignment="Left" FontSize="{TemplateBinding FontSize}" Padding="{TemplateBinding Padding}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <TextBox x:Name="PART_EditableTextBox" Style="{StaticResource ComboBoxEditableTextBox}" Background="Purple"
-                                     Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Text,Mode=TwoWay}"
-                                     IsHitTestVisible="{TemplateBinding IsEditable}" IsReadOnly="{TemplateBinding IsReadOnly}" Padding="{TemplateBinding Padding}"
+                            <TextBlock x:Name="PART_PlaceHolder"
+                                       TextAlignment="Left"
+                                       Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
+                                       Background="Transparent"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Padding="{TemplateBinding Padding}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                                     IsHitTestVisible="{TemplateBinding IsEditable}"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     Style="{StaticResource ComboBoxEditableTextBox}"
+                                     Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay}"
+                                     Background="Purple"
+                                     Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <Button x:Name="PART_ClearButton" Effect="{x:Null}" ToolTip="Clear"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
-                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                <Button x:Name="PART_ClearButton"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
-                                        Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
-                                        Foreground="{DynamicResource PrimaryColorTheme}" Background="Transparent" BorderThickness="0">
+                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        Effect="{x:Null}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}"
+                                        ToolTip="Clear"
+                                        BorderThickness="0"
+                                        Foreground="{DynamicResource PrimaryThemeBrush}"
+                                        Background="Transparent"
+                                        Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}">
                                     <Button.Visibility>
                                         <MultiBinding Converter="{commonConverters:TextFieldClearButtonVisibilityConverter}">
-                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="(attached:TextElementAttached.IsAddClearButton)"/>
-                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Text"/>
+                                            <Binding Path="(attached:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
+                                            <Binding Path="Text" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
                                         </MultiBinding>
                                     </Button.Visibility>
                                 </Button>
-                                <ToggleButton Style="{StaticResource DropDownToggleButtonStyle}"
-                                              Focusable="False" HorizontalAlignment="Right" Margin="8,0"
+                                <ToggleButton Focusable="False"
                                               IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                              Visibility="{TemplateBinding assistant:ComboBoxAssistant.IsShowDropDownButton,Converter={toolsConverters:BooleanToVisibilityConverter}}"/>
+                                              Style="{StaticResource DropDownToggleButtonStyle}"
+                                              Visibility="{TemplateBinding assistant:ComboBoxAssistant.IsShowDropDownButton,
+                                                                           Converter={toolsConverters:BooleanToVisibilityConverter}}"
+                                              Margin="8,0" HorizontalAlignment="Right" />
                             </WrapPanel>
-                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Slide" Placement="Bottom"
-                                   HorizontalOffset="-1" VerticalOffset="0" AllowsTransparency="True">
-                                <Border x:Name="PopupBorder" Margin="5"
-                                        BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"   
+                            <Popup x:Name="PART_Popup"
+                                   AllowsTransparency="True" HorizontalOffset="-1"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom" PopupAnimation="Slide" VerticalOffset="0">
+                                <Border x:Name="PopupBorder"
+                                        CacheMode="{DynamicResource DefaultBitmapCache}"
+                                        Effect="{TemplateBinding assistant:ComboBoxAssistant.ComboBoxPopupListShadow}"
+                                        Width="{Binding ElementName=PART_Border, Path=ActualWidth}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
                                         Background="{TemplateBinding attached:SelectorAttached.ItemsListBackground}"
-                                        Width="{Binding ElementName=PART_Border,Path=ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                        CacheMode="{DynamicResource DefaultBitmapCache}" Effect="{TemplateBinding assistant:ComboBoxAssistant.ComboBoxPopupListShadow}" >
+                                        Margin="5">
                                     <Border.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0" ScaleY="0"/>
+                                            <ScaleTransform ScaleX="0" ScaleY="0" />
                                         </TransformGroup>
                                     </Border.RenderTransform>
-                                    <ScrollViewer x:Name="DropDownScorllViewer" CanContentScroll="True" SnapsToDevicePixels="True" Margin="0,0,0,5"
-                                                  MaxHeight="{TemplateBinding MaxDropDownHeight}" CacheMode="{DynamicResource DefaultBitmapCache}" 
-                                                  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                    <ScrollViewer x:Name="DropDownScorllViewer"
+                                                  CacheMode="{DynamicResource DefaultBitmapCache}"
+                                                  CanContentScroll="True" HorizontalScrollBarVisibility="Disabled" SnapsToDevicePixels="True"
+                                                  VerticalScrollBarVisibility="Auto"
+                                                  MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                                  Margin="0,0,0,5">
                                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                         <!--<ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>-->
                                     </ScrollViewer>
@@ -218,20 +249,20 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Text,Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
+                            <Setter TargetName="PART_PlaceHolder" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
                         <Trigger Property="IsDropDownOpen" Value="true">
-                            <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2,2,0,0"/>
+                            <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2,2,0,0" />
                             <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="PopupLoadedStoryBoard" Storyboard="{StaticResource PopupLoaded}"/>
+                                <BeginStoryboard x:Name="PopupLoadedStoryBoard" Storyboard="{StaticResource PopupLoaded}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="PopupLoadedStoryBoard"/>
+                                <RemoveStoryboard BeginStoryboardName="PopupLoadedStoryBoard" />
                             </Trigger.ExitActions>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
-                            <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self},Path=Foreground}" TargetName="PART_EditableTextBox"/>
+                        <Trigger SourceName="PART_EditableTextBox" Property="IsFocused" Value="True">
+                            <Setter TargetName="PART_EditableTextBox" Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -239,87 +270,96 @@
         </Setter>
     </Style>
 
-    
+
     <Style x:Key="MultiComboBoxItemStyle" TargetType="{x:Type ListBoxItem}">
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Foreground}"/>
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=ActualWidth}"/>
-        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=ActualHeight}"/>
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualWidth}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualHeight}" />
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border x:Name="ItemBorder" BorderBrush="Transparent"
-                            Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemsListBackground)}">
+                    <Border x:Name="ItemBorder" BorderBrush="Transparent" Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.ItemsListBackground)}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="7*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <ripple:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
-                                           ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                           Padding="{TemplateBinding Padding}"
+                            <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                           Focusable="False"
                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox},Path=(ripple:RippleAssist.IsDisabled),Converter={toolsConverters:BooleanToVisibilityReConverter}}"/>
-                            <TextBlock Grid.Column="0" x:Name="ItemContent" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content}"   
-                                       Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=Padding}"
+                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(ripple:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
+                                           Padding="{TemplateBinding Padding}"
+                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <TextBlock x:Name="ItemContent" Grid.Column="0"
+                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
+                                       Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Padding}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Grid Grid.Column="1" x:Name="ItemGrid" HorizontalAlignment="Center" Margin="10,0"
-                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemControlWidth)}"
-                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemControlHeight)}">
-                                <CheckBox x:Name="ItemCheckBox" Focusable="True" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
-                                          Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.CheckBoxContent)}"
-                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsSelected}"
-                                          attached:SelectorAttached.IsCheckBoxChecked="True"
-                                          Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
-                                                      Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=CheckBox}"/>
-                                <Button x:Name="ItemButton" Width="{Binding ElementName=ItemGrid,Path=ActualWidth}" Height="{Binding ElementName=ItemGrid,Path=ActualHeight}"
-                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ButtonContent)}" 
-                                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                                        attached:FrameworkElementBaseAttached.CornerRadius="2" Focusable="True" ToolTip="Delete"
-                                        attached:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IsButtonDeleteItem)}"
-                                        attached:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource AssistantForeground}"
-                                        attached:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource AssistantForeground}"
-                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
-                                                            Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Button}"/>
-                                <!--Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:FrameworkElementBaseAttached.IconGeometry)}"-->
-                                <Path x:Name="ItemIcon" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}" Stretch="Uniform"
-                                      Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.GeometryData}" 
-                                      Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IconFill)}" 
-                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
-                                                  Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Icon}"/>
-                                <!--Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ImageSource)}"-->
-                                <!--gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.GifSource)}"-->
-                                <Image x:Name="ItemImageGif" Width="{Binding ElementName=ItemGrid,Path=Width}" Height="{Binding ElementName=ItemGrid,Path=Height}"
-                                       Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.ImageSource}"
-                                       gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.GifSource}"
-                                       attached:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.IsPreviewImage)}"
-                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType),
-                                                    Converter={commonConverters:SelectorItemTypeToVisibilityConverter},ConverterParameter=Image}"/>
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Grid x:Name="ItemGrid" Grid.Column="1"
+                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.ItemControlWidth)}"
+                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.ItemControlHeight)}"
+                                  Margin="10,0" HorizontalAlignment="Center">
+                                <CheckBox x:Name="ItemCheckBox"
+                                          attached:SelectorAttached.IsCheckBoxChecked="True" Focusable="True"
+                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsSelected}"
+                                          Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.SelectorItemType), Converter={commonConverters:SelectorItemTypeToVisibilityConverter}, ConverterParameter=CheckBox}"
+                                          Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.CheckBoxContent)}"
+                                          Width="{Binding ElementName=ItemGrid, Path=Width}"
+                                          Height="{Binding ElementName=ItemGrid, Path=Height}" />
+                                <Button x:Name="ItemButton"
+                                        attached:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource AssistantForegroundBrush}"
+                                        attached:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource AssistantForegroundBrush}"
+                                        attached:FrameworkElementBaseAttached.CornerRadius="2"
+                                        attached:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.IsButtonDeleteItem)}"
+                                        Focusable="True" ToolTip="Delete"
+                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.SelectorItemType), Converter={commonConverters:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Button}"
+                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.ButtonContent)}"
+                                        Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
+                                        Height="{Binding ElementName=ItemGrid, Path=ActualHeight}"
+                                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                                <!--  Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:FrameworkElementBaseAttached.IconGeometry)}"  -->
+                                <Path x:Name="ItemIcon"
+                                      Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GeometryData}"
+                                      Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.IconFill)}"
+                                      Stretch="Uniform"
+                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.SelectorItemType), Converter={commonConverters:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Icon}"
+                                      Width="{Binding ElementName=ItemGrid, Path=Width}"
+                                      Height="{Binding ElementName=ItemGrid, Path=Height}" />
+                                <!--  Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ImageSource)}"  -->
+                                <!--  gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.GifSource)}"  -->
+                                <Image x:Name="ItemImageGif"
+                                       attached:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.IsPreviewImage)}"
+                                       gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GifSource}"
+                                       Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.ImageSource}"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.SelectorItemType), Converter={commonConverters:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Image}"
+                                       Width="{Binding ElementName=ItemGrid, Path=Width}"
+                                       Height="{Binding ElementName=ItemGrid, Path=Height}" />
                             </Grid>
-                            <Popup x:Name="Popup_PreviewImage" Placement="Right" PopupAnimation="Slide" AllowsTransparency="True">
-                                <Image Source="{Binding ElementName=ItemImageGif,Path=Source}" Width="300" Height="300"/>
+                            <Popup x:Name="Popup_PreviewImage"
+                                   AllowsTransparency="True" Placement="Right" PopupAnimation="Slide">
+                                <Image Source="{Binding ElementName=ItemImageGif, Path=Source}" Width="300" Height="300" />
                             </Popup>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Icon">
-                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.SelectorItemType)}" Value="Icon">
+                            <Setter TargetName="ItemContent" Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.SelectorItemType)}" Value="Image">
-                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" TargetName="ItemContent"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.SelectorItemType)}" Value="Image">
+                            <Setter TargetName="ItemContent" Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}" />
                         </DataTrigger>
-                        <!--鼠标仅在Image之上时触发-->
+                        <!--  鼠标仅在Image之上时触发  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True" SourceName="ItemImageGif"/>
-                                <Condition Property="attached:SelectorAttached.IsPreviewImage" Value="True" SourceName="ItemImageGif"/>
+                                <Condition SourceName="ItemImageGif" Property="IsMouseOver" Value="True" />
+                                <Condition SourceName="ItemImageGif" Property="attached:SelectorAttached.IsPreviewImage" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
+                            <Setter TargetName="Popup_PreviewImage" Property="IsOpen" Value="True" />
                         </MultiTrigger>
-                        <!--鼠标在整个ListBoxItem之上时触发-->
+                        <!--  鼠标在整个ListBoxItem之上时触发  -->
                         <!--<MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True" />
@@ -328,16 +368,16 @@
                             <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
                         </MultiDataTrigger>-->
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource AssistantForeground}" TargetName="ItemCheckBox"/>
-                            <Setter Property="Background" Value="{DynamicResource AssistantForeground}" TargetName="ItemButton"/>
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}" TargetName="ItemButton"/>
-                            <Setter Property="Fill" Value="{DynamicResource AssistantForeground}" TargetName="ItemIcon"/>
+                            <Setter TargetName="ItemCheckBox" Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter TargetName="ItemButton" Property="Background" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter TargetName="ItemButton" Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+                            <Setter TargetName="ItemIcon" Property="Fill" Value="{DynamicResource AssistantForegroundBrush}" />
 
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}" />
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(attached:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemBorder"/>
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter TargetName="ItemBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(attached:SelectorAttached.ItemMouseOverBackground)}" />
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="True" SourceName="ItemCheckBox">
-                            <Setter Property="BorderThickness" Value="3" TargetName="ItemCheckBox"/>
+                        <Trigger SourceName="ItemCheckBox" Property="IsChecked" Value="True">
+                            <Setter TargetName="ItemCheckBox" Property="BorderThickness" Value="3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -345,7 +385,7 @@
         </Setter>
     </Style>
 
-    <!--MultiComboBox-->
+    <!--  MultiComboBox  -->
     <Style x:Key="MultiComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
         <Setter Property="ripple:RippleAssist.IsDisabled" Value="True" />
@@ -354,90 +394,119 @@
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="PopupLoaded">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PopupBorder">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PopupBorder">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Border x:Name="PART_Border" SnapsToDevicePixels="True" Cursor="{TemplateBinding Cursor}"
-                            BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
-                        <Grid x:Name="RootGrid" SnapsToDevicePixels="True" >
+                    <Border x:Name="PART_Border"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            Cursor="{TemplateBinding Cursor}"
+                            SnapsToDevicePixels="True"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <Grid x:Name="RootGrid" SnapsToDevicePixels="True">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:Name="PART_PlaceHolder" Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}" 
+                            <TextBlock x:Name="PART_PlaceHolder"
+                                       TextAlignment="Left"
+                                       Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
                                        Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
-                                       TextAlignment="Left" FontSize="{TemplateBinding FontSize}" Padding="{TemplateBinding Padding}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <TextBox x:Name="PART_EditableTextBox" Style="{StaticResource ComboBoxEditableTextBox}"
-                                     Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Text,Mode=TwoWay}"
-                                     IsHitTestVisible="{TemplateBinding IsEditable}" IsReadOnly="{TemplateBinding IsReadOnly}" Padding="{TemplateBinding Padding}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Padding="{TemplateBinding Padding}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                                     IsHitTestVisible="{TemplateBinding IsEditable}"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     Style="{StaticResource ComboBoxEditableTextBox}"
+                                     Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay}"
+                                     Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <WrapPanel Grid.Column="1" Orientation="Horizontal"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <WrapPanel Grid.Column="1"
+                                       Orientation="Horizontal"
                                        HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <Button x:Name="PART_ClearButton" Effect="{x:Null}" ToolTip="Clear"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
-                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                <Button x:Name="PART_ClearButton"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
-                                        Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
-                                        Foreground="{DynamicResource PrimaryColorTheme}" Background="Transparent" BorderThickness="0">
+                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        Effect="{x:Null}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}"
+                                        ToolTip="Clear"
+                                        BorderThickness="0"
+                                        Foreground="{DynamicResource PrimaryThemeBrush}"
+                                        Background="Transparent"
+                                        Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}">
                                     <Button.Visibility>
                                         <MultiBinding Converter="{commonConverters:TextFieldClearButtonVisibilityConverter}">
-                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="(attached:TextElementAttached.IsAddClearButton)"/>
-                                            <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Text"/>
+                                            <Binding Path="(attached:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
+                                            <Binding Path="Text" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
                                         </MultiBinding>
                                     </Button.Visibility>
                                 </Button>
-                                <ToggleButton Style="{StaticResource DropDownToggleButtonStyle}"
-                                              Focusable="False" HorizontalAlignment="Right" Margin="8,0"
-                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <ToggleButton Focusable="False"
+                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Style="{StaticResource DropDownToggleButtonStyle}"
+                                              Margin="8,0" HorizontalAlignment="Right" />
                             </WrapPanel>
-                            <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Slide" Placement="Bottom"
-                                   HorizontalOffset="-1" VerticalOffset="0" AllowsTransparency="True">
-                                <Border x:Name="PopupBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"                                            
+                            <Popup x:Name="PART_Popup"
+                                   AllowsTransparency="True" HorizontalOffset="-1"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom" PopupAnimation="Slide" VerticalOffset="0">
+                                <Border x:Name="PopupBorder"
+                                        CacheMode="{DynamicResource DefaultBitmapCache}"
+                                        Effect="{TemplateBinding assistant:ComboBoxAssistant.ComboBoxPopupListShadow}"
+                                        Width="{Binding ElementName=PART_Border, Path=ActualWidth}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
                                         Background="{TemplateBinding attached:SelectorAttached.ItemsListBackground}"
-                                        Width="{Binding ElementName=PART_Border,Path=ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                        Margin="5" CacheMode="{DynamicResource DefaultBitmapCache}" Effect="{TemplateBinding assistant:ComboBoxAssistant.ComboBoxPopupListShadow}">
+                                        Margin="5">
                                     <Border.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0" ScaleY="0"/>
+                                            <ScaleTransform ScaleX="0" ScaleY="0" />
                                         </TransformGroup>
                                     </Border.RenderTransform>
-                                    <!--ItemsSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Items}"-->
-                                    <ListBox x:Name="PART_ListBox" Width="{TemplateBinding Width}" MaxHeight="{TemplateBinding MaxDropDownHeight}"                                            
+                                    <!--  ItemsSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Items}"  -->
+                                    <ListBox x:Name="PART_ListBox"
+                                             ripple:RippleAssist.IsDisabled="{TemplateBinding ripple:RippleAssist.IsDisabled}"
+                                             ItemContainerStyle="{StaticResource MultiComboBoxItemStyle}"
+                                             ItemTemplate="{TemplateBinding ItemTemplate}"
+                                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Extended"
+                                             Width="{TemplateBinding Width}"
+                                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                             BorderThickness="0"
+                                             Margin="0,0,0,5"
                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,0,0,5"                             
-                                             SelectionMode="Extended" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                             ItemContainerStyle="{StaticResource MultiComboBoxItemStyle}" ItemTemplate="{TemplateBinding ItemTemplate}"
-                                             ripple:RippleAssist.IsDisabled="{TemplateBinding ripple:RippleAssist.IsDisabled}"/>
+                                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                                 </Border>
                             </Popup>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Text,Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
+                            <Setter TargetName="PART_PlaceHolder" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
                         <Trigger Property="IsDropDownOpen" Value="true">
-                            <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2,2,0,0"/>
+                            <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2,2,0,0" />
                             <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="PopupLoadedStoryBoard" Storyboard="{StaticResource PopupLoaded}"/>
+                                <BeginStoryboard x:Name="PopupLoadedStoryBoard" Storyboard="{StaticResource PopupLoaded}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="PopupLoadedStoryBoard"/>
+                                <RemoveStoryboard BeginStoryboardName="PopupLoadedStoryBoard" />
                             </Trigger.ExitActions>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
-                            <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self},Path=Foreground}" TargetName="PART_EditableTextBox"/>
+                        <Trigger SourceName="PART_EditableTextBox" Property="IsFocused" Value="True">
+                            <Setter TargetName="PART_EditableTextBox" Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

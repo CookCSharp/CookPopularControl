@@ -1,23 +1,24 @@
-﻿<pc:SideBarWindow x:Class="MvvmTestDemo.MainWindow"
+﻿<pc:SideBarWindow x:Name="DemoMainWindow"
+                  x:Class="MvvmTestDemo.MainWindow"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                  xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"                 
                   xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                   xmlns:local="clr-namespace:MvvmTestDemo"
-                  xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
                   xmlns:prism="http://prismlibrary.com/"
-                  x:Name="DemoMainWindow"
-                  Title="CookPopularControl"
+                  xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
                   mc:Ignorable="d"
-                  prism:ViewModelLocator.AutoWireViewModel="True"
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
+                  prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
                   WindowStartupLocation="CenterScreen"
-                  Width="1000" Height="800">
-    
+                  Title="CookPopularControl"
+                  Width="1000"
+                  Height="800">
+
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
     </pc:SideBarWindow.DataContext>-->
@@ -35,14 +36,18 @@
         <behavior:EventTrigger EventName="SettingClick">
             <behavior:InvokeCommandAction Command="{Binding SettingClickCommand}" />
         </behavior:EventTrigger>
+
+        <behavior:EventTrigger EventName="SizeChanged">
+            <behavior:InvokeCommandAction Command="{Binding ViewSizeChangedCommand}" />
+        </behavior:EventTrigger>
     </behavior:Interaction.Triggers>
 
     <pc:SideBarWindow.ClientTitleBarAdditionalContent>
-        <Button Command="{Binding HomePageCommand}" ToolTip="主页" 
-                pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource HomePageGeometry}"
-                pc:FrameworkElementBaseAttached.IconWidth="18" 
-                pc:FrameworkElementBaseAttached.IconHeight="18" 
-                Style="{StaticResource WindowIconButtonStyle}"/>
+        <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource HomePageGeometry}"
+                pc:FrameworkElementBaseAttached.IconHeight="18" pc:FrameworkElementBaseAttached.IconWidth="18"
+                Command="{Binding HomePageCommand}"
+                Style="{StaticResource WindowIconButtonStyle}"
+                ToolTip="主页" />
     </pc:SideBarWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
@@ -51,11 +56,12 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="listBox"
+            <ListBox x:Name="listBox" Grid.Column="0"
                      ItemsSource="{Binding ControlNamesList}"
-                     SelectedIndex="{Binding DemoViewsSelectedIndex,Mode=TwoWay,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}"
-                     SelectionMode="Single" Grid.Column="0" Width="0" FontSize="14"
-                     FontWeight="Normal">
+                     SelectedIndex="{Binding DemoViewsSelectedIndex, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                     SelectionMode="Single"
+                     Width="0"
+                     FontSize="14" FontWeight="Normal">
                 <behavior:Interaction.Triggers>
                     <behavior:EventTrigger EventName="SelectionChanged">
                         <behavior:InvokeCommandAction Command="{Binding DemoViewsSelectedCommand}" />
@@ -64,8 +70,8 @@
                         <behavior:ControlStoryboardAction ControlStoryboardOption="Play">
                             <behavior:ControlStoryboardAction.Storyboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width" From="0" To="150"
-                                                     Duration="0:0:0.5" />
+                                    <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width"
+                                                     From="0" To="150" Duration="0:0:0.5" />
                                 </Storyboard>
                             </behavior:ControlStoryboardAction.Storyboard>
                         </behavior:ControlStoryboardAction>
@@ -74,8 +80,8 @@
                         <behavior:ControlStoryboardAction ControlStoryboardOption="Play">
                             <behavior:ControlStoryboardAction.Storyboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width" From="150" To="0"
-                                                     Duration="0:0:0.5" />
+                                    <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width"
+                                                     From="150" To="0" Duration="0:0:0.5" />
                                 </Storyboard>
                             </behavior:ControlStoryboardAction.Storyboard>
                         </behavior:ControlStoryboardAction>
@@ -84,11 +90,12 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:ToolBarDemo Visibility="Collapsed"/>
+        <view:ScrollViewerDemo Visibility="Collapsed" />
 
-        <!--接收BubbleMessage的容器-->
-        <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <StackPanel HorizontalAlignment="Right" pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken"/>
+        <!--  接收BubbleMessage的容器  -->
+        <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                      Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken" HorizontalAlignment="Right" />
         </ScrollViewer>
     </Grid>
 

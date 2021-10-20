@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:border="clr-namespace:CookPopularControl.Controls.Borders">
+                    xmlns:border="clr-namespace:CookPopularControl.Controls.Borders"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="DefaultLabelStyle" TargetType="{x:Type Label}">
         <Setter Property="Height" Value="30" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
-        <Setter Property="Background" Value="{DynamicResource LinearTheme}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource LinearThemeBrush}" />
         <Setter Property="Padding" Value="8,0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -17,28 +17,36 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Label}">
-                    <Border x:Name="PART_Root" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                    <Border x:Name="PART_Root"
                             CornerRadius="{TemplateBinding assistant:LabelAssistant.CornerRadius}"
-                            Background="{TemplateBinding Background}" SnapsToDevicePixels="True" >
-                        <StackPanel Orientation="Horizontal" >
-                            <Border x:Name="HeaderBorder" Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}" 
-                                    Background="{DynamicResource PrimaryColorTheme}" Style="{DynamicResource BorderCircularClipStyle}">
-                                <ContentPresenter Content="{TemplateBinding assistant:LabelAssistant.Header}"
+                            SnapsToDevicePixels="True"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border x:Name="HeaderBorder"
+                                    Style="{DynamicResource BorderCircularClipStyle}"
+                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                    Background="{DynamicResource PrimaryThemeBrush}">
+                                <ContentPresenter ContentStringFormat="{TemplateBinding assistant:LabelAssistant.HeaderStringFormat}"
                                                   ContentTemplate="{TemplateBinding assistant:LabelAssistant.HeaderTemplate}"
-                                                  ContentTemplateSelector="{TemplateBinding assistant:LabelAssistant.HeaderTemplateSelector}" 
-                                                  ContentStringFormat="{TemplateBinding assistant:LabelAssistant.HeaderStringFormat}"
-                                                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                  TextElement.Foreground="{DynamicResource AssistantForeground}"/>
+                                                  ContentTemplateSelector="{TemplateBinding assistant:LabelAssistant.HeaderTemplateSelector}"
+                                                  TextElement.Foreground="{DynamicResource AssistantForegroundBrush}"
+                                                  Content="{TemplateBinding assistant:LabelAssistant.Header}"
+                                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
-                            <ContentPresenter x:Name="PART_Content" Content="{TemplateBinding Content}" Margin="8,0"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <ContentPresenter x:Name="PART_Content"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              Content="{TemplateBinding Content}"
+                                              Margin="8,0"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="assistant:LabelAssistant.Header" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="HeaderBorder"/>
+                            <Setter TargetName="HeaderBorder" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
@@ -50,42 +58,53 @@
     </Style>
 
     <Style x:Key="GroupLabelItemStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}">
-        <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel},Path=Padding}" />
+        <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=Padding}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Label}">
-                    <Border x:Name="PART_Root" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                            CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type assistant:GroupLabel}},Path=(assistant:LabelAssistant.CornerRadius)}"
-                            Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                    <Border x:Name="PART_Root"
+                            CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type assistant:GroupLabel}}, Path=(assistant:LabelAssistant.CornerRadius)}"
+                            SnapsToDevicePixels="True"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
                         <StackPanel Orientation="Horizontal">
-                            <Border x:Name="HeaderBorder" Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}" Background="{DynamicResource PrimaryColorTheme}" Style="{DynamicResource BorderCircularClipStyle}">
-                                <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Header}"
-                                                  ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel},Path=ItemTemplate}"
-                                                  ContentTemplateSelector="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel},Path=ItemTemplateSelector}" 
-                                                  ContentStringFormat="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel},Path=ItemStringFormat}"
-                                                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                  TextElement.Foreground="{DynamicResource AssistantForeground}"/>
+                            <Border x:Name="HeaderBorder"
+                                    Style="{DynamicResource BorderCircularClipStyle}"
+                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                    Background="{DynamicResource PrimaryThemeBrush}">
+                                <ContentPresenter ContentStringFormat="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=ItemStringFormat}"
+                                                  ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=ItemTemplate}"
+                                                  ContentTemplateSelector="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=ItemTemplateSelector}"
+                                                  TextElement.Foreground="{DynamicResource AssistantForegroundBrush}"
+                                                  Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Header}"
+                                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
-                            <ContentPresenter x:Name="PART_Content" Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Content.Content}" Margin="8,0,0,0"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                            <Button x:Name="PART_CloseButton" Foreground="{TemplateBinding Foreground}" 
-                                    Width="17" Height="17" Opacity="0.4" Focusable="False" Margin="8,0"
-                                    attached:FrameworkElementBaseAttached.IconWidth="15"
-                                    attached:FrameworkElementBaseAttached.IconHeight="15"
+                            <ContentPresenter x:Name="PART_Content"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}"
+                                              Margin="8,0,0,0"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Button x:Name="PART_CloseButton"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}"
+                                    attached:FrameworkElementBaseAttached.IconHeight="15" attached:FrameworkElementBaseAttached.IconWidth="15"
                                     Command="{x:Static assistant:GroupLabel.CloseCommand}"
-                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel},Path=HasCloseButton,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                                    Focusable="False" Opacity="0.4"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
+                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=HasCloseButton, Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                    Width="17" Height="17"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Margin="8,0" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Header}" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="HeaderBorder"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content.Header}" Value="{x:Null}">
+                            <Setter TargetName="HeaderBorder" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
-                        <Trigger Property="IsMouseOver" Value="True" SourceName="PART_CloseButton">
-                            <Setter Property="Opacity" Value="0.6" TargetName="PART_CloseButton"/>
+                        <Trigger SourceName="PART_CloseButton" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_CloseButton" Property="Opacity" Value="0.6" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
@@ -99,13 +118,13 @@
     <Style x:Key="DefaultGroupLabelStyle" TargetType="{x:Type assistant:GroupLabel}">
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ItemContainerStyle" Value="{StaticResource GroupLabelItemStyle}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource GroupLabelItemStyle}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="HasCloseButton" Value="True" />
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="0"/>
-        <Setter Property="assistant:LabelAssistant.CornerRadius" Value="5"/>
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="0" />
+        <Setter Property="assistant:LabelAssistant.CornerRadius" Value="5" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -116,10 +135,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type assistant:GroupLabel}">
-                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                        <ScrollViewer Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <ScrollViewer Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>

@@ -1,52 +1,55 @@
 ﻿<UserControl x:Class="MvvmTestDemo.DemoViews.GroupControlsDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="{StaticResource DemosViewViewDefaultWidth}">
-        <TextBlock Text="SearchControl:" FontSize="20" FontWeight="DemiBold" Margin="0,8"/>
+    <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="SearchControl:"
+                   FontSize="20" FontWeight="DemiBold"
+                   Margin="0,8" />
         <WrapPanel>
-            <pc:SearchControl Width="200" Height="35" 
-                              StartSearch="SearchControl_StartSearch"
-                              ContentChanged="SearchControl_ContentChanged"/>
-            <pc:SearchControl Width="200" Height="35"  Margin="20,0"
+            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
+                              Width="200" Height="35" />
+            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
                               Style="{StaticResource SearchControlAddClearButtonStyle}"
-                              StartSearch="SearchControl_StartSearch"
-                              ContentChanged="SearchControl_ContentChanged"/>
-            <pc:SearchControl Width="200" Height="35"
+                              Width="200" Height="35"
+                              Margin="20,0" />
+            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
                               Style="{StaticResource SearchControlAddClearButtonStyle}"
-                              StartSearch="SearchControl_StartSearch"
-                              ContentChanged="SearchControl_ContentChanged">
+                              Width="200" Height="35">
                 <pc:SearchControl.Content>
-                    <Binding Path="SearchContent" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Mode="TwoWay" Path="SearchContent" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
-                            <pc:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True"/>
+                            <pc:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True" />
                         </Binding.ValidationRules>
                     </Binding>
                 </pc:SearchControl.Content>
             </pc:SearchControl>
-            <pc:SearchControl Width="200" Height="35" IsEnabled="False" Margin="0,20"
-                              StartSearch="SearchControl_StartSearch"
-                              ContentChanged="SearchControl_ContentChanged"/>
+            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" IsEnabled="False" StartSearch="SearchControl_StartSearch"
+                              Width="200" Height="35"
+                              Margin="0,20" />
         </WrapPanel>
 
-        <TextBlock Text="TagEditing:" FontSize="20" FontWeight="DemiBold" Margin="0,8"/>
+        <TextBlock Text="TagEditing:"
+                   FontSize="20" FontWeight="DemiBold"
+                   Margin="0,8" />
         <WrapPanel>
-            <pc:TagEditing Header="Chance:" Content="写代码的厨子" Style="{StaticResource DefaultTagEditingStyle}"/>
-            <pc:TagEditing Header="Chance:" Content="写代码的厨子" Style="{StaticResource TagEditingAddClearButtonStyle}"
-                           pc:FrameworkElementBaseAttached.IconWidth="15"
-                           pc:FrameworkElementBaseAttached.IconHeight="15"
-                           pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"/>
+            <pc:TagEditing Header="Chance:" Style="{StaticResource DefaultTagEditingStyle}" Content="写代码的厨子" />
+            <pc:TagEditing pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0" pc:FrameworkElementBaseAttached.IconWidth="15"
+                           Header="Chance:"
+                           Style="{StaticResource TagEditingAddClearButtonStyle}"
+                           Content="写代码的厨子" />
         </WrapPanel>
-        
-        
-        <Grid x:Name="customCursor" Width="32" Height="32"/>
+
+
+        <Grid x:Name="customCursor" Width="32" Height="32" />
     </StackPanel>
-    
+
 </UserControl>

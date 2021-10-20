@@ -5,7 +5,7 @@
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -15,58 +15,70 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border x:Name="RootBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                    <Border x:Name="RootBorder"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" Background="Transparent"
-                                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
-                                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                            <TextBlock x:Name="PART_PlaceHolder" Margin="2,0,0,0"
-                                       Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}" 
-                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}" 
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Padding="{TemplateBinding Padding}"/>
-                            <Button x:Name="PART_ClearButton" Grid.Column="1" Effect="{x:Null}"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}"
-                                    attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                    attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
+                                          VerticalScrollBarVisibility="Hidden"
+                                          Background="Transparent" />
+                            <TextBlock x:Name="PART_PlaceHolder"
+                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                       Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
+                                       Margin="2,0,0,0"
+                                       Padding="{TemplateBinding Padding}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Button x:Name="PART_ClearButton" Grid.Column="1"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
-                                    Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
-                                    Foreground="{DynamicResource PrimaryColorTheme}" Background="Transparent" BorderThickness="0">
+                                    attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                    attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                    Effect="{x:Null}"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
+                                    BorderThickness="0"
+                                    Foreground="{DynamicResource PrimaryThemeBrush}"
+                                    Background="Transparent"
+                                    Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}">
                                 <Button.Visibility>
                                     <MultiBinding Converter="{commonConverters:TextFieldClearButtonVisibilityConverter}">
-                                        <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="(attached:TextElementAttached.IsAddClearButton)"/>
-                                        <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Text"/>
+                                        <Binding Path="(attached:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
+                                        <Binding Path="Text" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
                                     </MultiBinding>
                                 </Button.Visibility>
                             </Button>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Text,Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder"/>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={toolsConverters:ValueIsEmptyOrNullConverter}}" Value="False">
+                            <Setter TargetName="PART_PlaceHolder" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
-                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness.Left,Converter={commonConverters:DoubleToThickness},ConverterParameter=1.5}" TargetName="RootBorder"/>
+                            <Setter TargetName="RootBorder" Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={commonConverters:DoubleToThickness}, ConverterParameter=1.5}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder"/>
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForeground}"/>
-                            <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource AssistantForeground}" />
+                            <Setter TargetName="RootBorder" Property="BorderThickness" Value="0" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

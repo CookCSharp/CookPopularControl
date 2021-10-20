@@ -4,16 +4,16 @@
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="BorderCircularStyle" TargetType="{x:Type Border}">
-        <Setter Property="assistant:BorderAssistant.IsCircular" Value="True"/>
+        <Setter Property="assistant:BorderAssistant.IsCircular" Value="True" />
     </Style>
 
     <Style x:Key="BorderClipStyle" TargetType="{x:Type Border}">
         <Setter Property="Clip">
             <Setter.Value>
                 <MultiBinding Converter="{toolConverters:BorderClipToolConverter}">
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
-                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
-                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}" />
+                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
+                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}" />
                 </MultiBinding>
             </Setter.Value>
         </Setter>
@@ -23,9 +23,9 @@
         <Setter Property="Clip">
             <Setter.Value>
                 <MultiBinding Converter="{toolConverters:BorderCircularClipConverter}">
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
-                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
-                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}" />
+                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
+                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}" />
                 </MultiBinding>
             </Setter.Value>
         </Setter>

@@ -6,10 +6,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type carousel:CarouselView}">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <Canvas x:Name="PART_ImageCanvas" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                                Background="{TemplateBinding Background}"/>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Canvas x:Name="PART_ImageCanvas"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                Background="{TemplateBinding Background}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

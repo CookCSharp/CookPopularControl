@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ListBoxItemBaseStyle.xaml" />
@@ -12,9 +12,9 @@
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Default" />
         <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="20" />
         <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="20" />
-        <Setter Property="attached:SelectorAttached.ItemHeight" Value="{Binding RelativeSource={RelativeSource Self},Path=Width}" />
+        <Setter Property="attached:SelectorAttached.ItemHeight" Value="{Binding RelativeSource={RelativeSource Self}, Path=Width}" />
         <Setter Property="attached:SelectorAttached.ItemHeight" Value="32" />
-        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ButtonBasePressBackground}" />
         <Setter Property="ripple:RippleAssist.IsDisabled" Value="False" />
@@ -33,7 +33,7 @@
 
     <Style x:Key="ListBoxIconStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
         <Setter Property="attached:SelectorAttached.SelectorItemType" Value="Icon" />
-        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryColorTheme}" />
+        <Setter Property="attached:SelectorAttached.IconFill" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
 
     <Style x:Key="ListBoxImageStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">

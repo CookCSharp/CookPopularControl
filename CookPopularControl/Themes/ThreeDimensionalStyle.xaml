@@ -5,10 +5,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <!--3D Control Style-->
-    <Style x:Key="Alertor3DStyle" TargetType="{x:Type d3:Alertor3D}">
-        
-    </Style>
+
+    <!--  3D Control Style  -->
+    <Style x:Key="Alertor3DStyle" TargetType="{x:Type d3:Alertor3D}" />
 
 </ResourceDictionary>

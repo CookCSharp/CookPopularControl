@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Slider"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
@@ -16,7 +16,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
-                    <Border Background="Transparent"/>
+                    <Border Background="Transparent" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -29,56 +29,53 @@
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="ShowHorizontalSliderValueGridStoryboard">
-                            <DoubleAnimation Duration="0:0:0.2" From="0" To="1"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
-                                             Storyboard.TargetName="SliderValueHorizontalGrid"/>
-                            <DoubleAnimation Duration="0:0:0.2" From="0" To="1"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
-                                             Storyboard.TargetName="SliderValueHorizontalGrid"/>
+                            <DoubleAnimation Storyboard.TargetName="SliderValueHorizontalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                             From="0" To="1" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetName="SliderValueHorizontalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                             From="0" To="1" Duration="0:0:0.2" />
                         </Storyboard>
                         <Storyboard x:Key="HideHorizontalSliderValueGridStoryboard">
-                            <DoubleAnimation Duration="0:0:0.2" From="1" To="0"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
-                                             Storyboard.TargetName="SliderValueHorizontalGrid"/>
-                            <DoubleAnimation Duration="0:0:0.2" From="1" To="0"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
-                                             Storyboard.TargetName="SliderValueHorizontalGrid"/>
+                            <DoubleAnimation Storyboard.TargetName="SliderValueHorizontalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                             From="1" To="0" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetName="SliderValueHorizontalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                             From="1" To="0" Duration="0:0:0.2" />
                         </Storyboard>
                         <Storyboard x:Key="ShowVerticalSliderValueGridStoryboard">
-                            <DoubleAnimation Duration="0:0:0.2" From="0" To="1"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
-                                             Storyboard.TargetName="SliderValueVerticalGrid"/>
-                            <DoubleAnimation Duration="0:0:0.2" From="0" To="1"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
-                                             Storyboard.TargetName="SliderValueVerticalGrid"/>
+                            <DoubleAnimation Storyboard.TargetName="SliderValueVerticalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                             From="0" To="1" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetName="SliderValueVerticalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                             From="0" To="1" Duration="0:0:0.2" />
                         </Storyboard>
                         <Storyboard x:Key="HideVerticalSliderValueGridStoryboard">
-                            <DoubleAnimation Duration="0:0:0.2" From="1" To="0"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
-                                             Storyboard.TargetName="SliderValueVerticalGrid"/>
-                            <DoubleAnimation Duration="0:0:0.2" From="1" To="0"
-                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
-                                             Storyboard.TargetName="SliderValueVerticalGrid"/>
+                            <DoubleAnimation Storyboard.TargetName="SliderValueVerticalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                             From="1" To="0" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetName="SliderValueVerticalGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                             From="1" To="0" Duration="0:0:0.2" />
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid>
-                        <Border Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(attached:ThumbAttached.ThumbWidth)}"
-                                Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(attached:ThumbAttached.ThumbHeight)}"
-                                BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="Transparent"
-                                x:Name="ThumbBorder" Margin="-1">
+                        <Border x:Name="ThumbBorder"
+                                Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(attached:ThumbAttached.ThumbWidth)}"
+                                Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(attached:ThumbAttached.ThumbHeight)}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="Transparent"
+                                Margin="-1">
                             <Grid x:Name="GeometryGrid">
-                                <!--<Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(attached:ThumbAttached.ThumbGeometryData)}" 
+                                <!--<Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(attached:ThumbAttached.ThumbGeometryData)}"
                                       Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}" Stretch="Uniform" Focusable="True"/>-->
-                                <Ellipse Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}"/>
+                                <Ellipse Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}" />
                                 <!--<Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}"/>-->
                             </Grid>
                         </Border>
                         <Canvas HorizontalAlignment="Center" VerticalAlignment="Top">
-                            <Grid x:Name="SliderValueHorizontalGrid" Height="36" IsHitTestVisible="False" RenderTransformOrigin="0.5,1">
+                            <Grid x:Name="SliderValueHorizontalGrid"
+                                  IsHitTestVisible="False" RenderTransformOrigin="0.5,1"
+                                  Height="36">
                                 <Grid.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="0" ScaleY="0" />
-                                        <TranslateTransform Y="-40" X="{Binding ActualWidth, ElementName=SliderValueHorizontalGrid, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=-0.5}" />
+                                        <TranslateTransform X="{Binding ActualWidth, ElementName=SliderValueHorizontalGrid, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=-0.5}" Y="-40" />
                                     </TransformGroup>
                                 </Grid.RenderTransform>
                                 <AdornerDecorator>
@@ -86,29 +83,34 @@
                                         <BitmapCache SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                     </AdornerDecorator.CacheMode>
                                     <Grid Effect="{DynamicResource CustomShadowDepth1}">
-                                        <Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}" Margin="0,0,0,8" RadiusX="2" RadiusY="2" />
-                                        <Polygon HorizontalAlignment="Center" VerticalAlignment="Bottom" Points="0,0 6,8 12,0" 
-                                                 Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}" />
+                                        <Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}"
+                                                   RadiusX="2" RadiusY="2"
+                                                   Margin="0,0,0,8" />
+                                        <Polygon Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}"
+                                                 Points="0,0 6,8 12,0"
+                                                 HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                                     </Grid>
                                 </AdornerDecorator>
-                                <TextBlock Foreground="{DynamicResource AssistantForeground}" Margin="8,0,8,8"
-                                           Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Slider},Path=Value}"
-                                           TextAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock TextAlignment="Center"
+                                           Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Slider}, Path=Value}"
+                                           Foreground="{DynamicResource AssistantForegroundBrush}"
+                                           Margin="8,0,8,8" VerticalAlignment="Center" />
                             </Grid>
-                            <Grid x:Name="SliderValueVerticalGrid" Height="36" IsHitTestVisible="False" RenderTransformOrigin="1,0.5">
+                            <Grid x:Name="SliderValueVerticalGrid"
+                                  IsHitTestVisible="False" RenderTransformOrigin="1,0.5"
+                                  Height="36">
                                 <Grid.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="0" ScaleY="0" />
                                         <TranslateTransform>
                                             <TranslateTransform.X>
                                                 <MultiBinding Converter="{commonConverters:SliderValueLeftPositionXConverter}">
-                                                    <Binding ElementName="SliderValueVerticalGrid" Path="ActualWidth"/>
-                                                    <Binding ElementName="ThumbBorder" Path="ActualWidth"/>
+                                                    <Binding ElementName="SliderValueVerticalGrid" Path="ActualWidth" />
+                                                    <Binding ElementName="ThumbBorder" Path="ActualWidth" />
                                                 </MultiBinding>
                                             </TranslateTransform.X>
                                             <TranslateTransform.Y>
-                                                <Binding ElementName="ThumbBorder" Path="ActualWidth" 
-                                                         Converter="{commonConverters:SliderValueLeftPositionYConverter}"/>
+                                                <Binding Converter="{commonConverters:SliderValueLeftPositionYConverter}" ElementName="ThumbBorder" Path="ActualWidth" />
                                             </TranslateTransform.Y>
                                         </TranslateTransform>
                                     </TransformGroup>
@@ -118,42 +120,46 @@
                                         <BitmapCache SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                     </AdornerDecorator.CacheMode>
                                     <Grid Effect="{DynamicResource CustomShadowDepth1}">
-                                        <Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}" Margin="0,0,8,0" RadiusX="2" RadiusY="2" />
-                                        <Polygon HorizontalAlignment="Right" VerticalAlignment="Center" Points="0,0 8,6 0,12" 
-                                                 Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Foreground}" />
+                                        <Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}"
+                                                   RadiusX="2" RadiusY="2"
+                                                   Margin="0,0,8,0" />
+                                        <Polygon Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}"
+                                                 Points="0,0 8,6 0,12"
+                                                 HorizontalAlignment="Right" VerticalAlignment="Center" />
                                     </Grid>
                                 </AdornerDecorator>
-                                <TextBlock Foreground="{DynamicResource AssistantForeground}" Margin="8,0,14,0"
-                                           Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Slider},Path=Value}"
-                                           TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock TextAlignment="Center"
+                                           Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Slider}, Path=Value}"
+                                           Foreground="{DynamicResource AssistantForegroundBrush}"
+                                           Margin="8,0,14,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
                         </Canvas>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(assistant:SliderAssistant.IsShowValue)}" Value="True"/>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsDragging}" Value="True"/>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Orientation}" Value="Horizontal"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(assistant:SliderAssistant.IsShowValue)}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsDragging}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Orientation}" Value="Horizontal" />
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource ShowHorizontalSliderValueGridStoryboard}"/>
+                                <BeginStoryboard Storyboard="{StaticResource ShowHorizontalSliderValueGridStoryboard}" />
                             </MultiDataTrigger.EnterActions>
                             <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource HideHorizontalSliderValueGridStoryboard}"/>
+                                <BeginStoryboard Storyboard="{StaticResource HideHorizontalSliderValueGridStoryboard}" />
                             </MultiDataTrigger.ExitActions>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(assistant:SliderAssistant.IsShowValue)}" Value="True"/>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsDragging}" Value="True"/>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=Orientation}" Value="Vertical"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(assistant:SliderAssistant.IsShowValue)}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsDragging}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Orientation}" Value="Vertical" />
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource ShowVerticalSliderValueGridStoryboard}"/>
+                                <BeginStoryboard Storyboard="{StaticResource ShowVerticalSliderValueGridStoryboard}" />
                             </MultiDataTrigger.EnterActions>
                             <MultiDataTrigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource HideVerticalSliderValueGridStoryboard}"/>
+                                <BeginStoryboard Storyboard="{StaticResource HideVerticalSliderValueGridStoryboard}" />
                             </MultiDataTrigger.ExitActions>
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
@@ -163,27 +169,48 @@
     </Style>
 
     <ControlTemplate x:Key="SliderHorizontal" TargetType="{x:Type Slider}">
-        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" 
-                Background="{TemplateBinding Background}" SnapsToDevicePixels="True" UseLayoutRounding="True">
-            <Grid VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+        <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                SnapsToDevicePixels="True" UseLayoutRounding="True"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}">
+            <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" UseLayoutRounding="{TemplateBinding UseLayoutRounding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TickBar Grid.Row="0" x:Name="TopLeftTick" Height="5" Fill="{TemplateBinding Foreground}" Placement="Top" Margin="0,0,0,5" Visibility="Collapsed"/>
-                <TickBar Grid.Row="2" x:Name="BottomRightTick" Height="5" Fill="{TemplateBinding Foreground}" Placement="Bottom" Margin="0,5,0,0" Visibility="Collapsed"/>
-                <Border Grid.Row="1" Height="{TemplateBinding attached:ThumbAttached.ThumbWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.25}" 
-                        Background="{TemplateBinding Foreground}" Opacity="0.35" CornerRadius="4"/>
-                <Border Grid.Row="1" x:Name="ValueBorder" Height="{TemplateBinding attached:ThumbAttached.ThumbWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.25}" 
-                        Width="{Binding ElementName=PART_Track,Path=DecreaseRepeatButton.ActualWidth}" 
-                        Background="{TemplateBinding Foreground}" CornerRadius="4,0,0,4"
-                        HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Canvas Grid.Row="1" VerticalAlignment="Center" Height="10">
-                    <Border x:Name="PART_SelectionRange" Background="{TemplateBinding assistant:SliderAssistant.SliderSelectionRangeFill}" Height="10" CornerRadius="4"/>
+                <TickBar x:Name="TopLeftTick" Grid.Row="0"
+                         Fill="{TemplateBinding Foreground}"
+                         Placement="Top" Visibility="Collapsed"
+                         Height="5"
+                         Margin="0,0,0,5" />
+                <TickBar x:Name="BottomRightTick" Grid.Row="2"
+                         Fill="{TemplateBinding Foreground}"
+                         Placement="Bottom" Visibility="Collapsed"
+                         Height="5"
+                         Margin="0,5,0,0" />
+                <Border Grid.Row="1"
+                        CornerRadius="4" Opacity="0.35"
+                        Height="{TemplateBinding attached:ThumbAttached.ThumbWidth,
+                                                 Converter={toolsConverters:ValueTranslateConverter},
+                                                 ConverterParameter=0.25}"
+                        Background="{TemplateBinding Foreground}" />
+                <Border x:Name="ValueBorder" Grid.Row="1"
+                        CornerRadius="4,0,0,4"
+                        Width="{Binding ElementName=PART_Track, Path=DecreaseRepeatButton.ActualWidth}"
+                        Height="{TemplateBinding attached:ThumbAttached.ThumbWidth,
+                                                 Converter={toolsConverters:ValueTranslateConverter},
+                                                 ConverterParameter=0.25}"
+                        Background="{TemplateBinding Foreground}"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <Canvas Grid.Row="1" Height="10" VerticalAlignment="Center">
+                    <Border x:Name="PART_SelectionRange"
+                            CornerRadius="4"
+                            Height="10"
+                            Background="{TemplateBinding assistant:SliderAssistant.SliderSelectionRangeFill}" />
                 </Canvas>
-                <Track Grid.Row="1" x:Name="PART_Track">
+                <Track x:Name="PART_Track" Grid.Row="1">
                     <Track.DecreaseRepeatButton>
                         <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButton}" />
                     </Track.DecreaseRepeatButton>
@@ -191,24 +218,24 @@
                         <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButton}" />
                     </Track.IncreaseRepeatButton>
                     <Track.Thumb>
-                        <Thumb Style="{StaticResource SliderThumb}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <Thumb SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Style="{StaticResource SliderThumb}" />
                     </Track.Thumb>
                 </Track>
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="TickPlacement" Value="TopLeft">
-                <Setter Property="Visibility" Value="Visible" TargetName="TopLeftTick"/>
+                <Setter TargetName="TopLeftTick" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="TickPlacement" Value="BottomRight">
-                <Setter Property="Visibility" Value="Visible" TargetName="BottomRightTick"/>
+                <Setter TargetName="BottomRightTick" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="TickPlacement" Value="Both">
-                <Setter Property="Visibility" Value="Visible" TargetName="TopLeftTick"/>
-                <Setter Property="Visibility" Value="Visible" TargetName="BottomRightTick"/>
+                <Setter TargetName="TopLeftTick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="BottomRightTick" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="IsSelectionRangeEnabled" Value="true">
-                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                <Setter TargetName="PART_SelectionRange" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="IsDirectionReversed" Value="True">
                 <Setter TargetName="ValueBorder" Property="CornerRadius" Value="0,4,4,0" />
@@ -218,27 +245,48 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="SliderVertical" TargetType="{x:Type Slider}">
-        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                Background="{TemplateBinding Background}" SnapsToDevicePixels="True" UseLayoutRounding="True"
-                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
-            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+        <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                SnapsToDevicePixels="True" UseLayoutRounding="True"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}">
+            <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" UseLayoutRounding="{TemplateBinding UseLayoutRounding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding MinWidth}"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding MinWidth}" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TickBar Grid.Column="0" x:Name="TopLeftTick" Width="5" Fill="{TemplateBinding Foreground}" Placement="Left" Margin="0,0,5,0" Visibility="Collapsed"/>
-                <TickBar Grid.Column="2" x:Name="BottomRightTick" Width="5" Fill="{TemplateBinding Foreground}" Placement="Right" Margin="5,0,0,0" Visibility="Collapsed"/>
-                <Border Grid.Column="1" Width="{TemplateBinding attached:ThumbAttached.ThumbWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.25}" 
-                        Background="{TemplateBinding Foreground}" Opacity="0.4" CornerRadius="4"/>
-                <Border Grid.Column="1" x:Name="ValueBorder" Width="{TemplateBinding attached:ThumbAttached.ThumbWidth,Converter={toolsConverters:ValueTranslateConverter},ConverterParameter=0.25}" 
-                        Height="{Binding ElementName=PART_Track,Path=DecreaseRepeatButton.ActualHeight}" 
-                        Background="{TemplateBinding Foreground}" CornerRadius="0,0,4,4"
-                        HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                <Canvas Grid.Column="1" HorizontalAlignment="Center" Width="10">
-                    <Border x:Name="PART_SelectionRange" Background="{TemplateBinding assistant:SliderAssistant.SliderSelectionRangeFill}" Width="10" CornerRadius="4"/>
+                <TickBar x:Name="TopLeftTick" Grid.Column="0"
+                         Fill="{TemplateBinding Foreground}"
+                         Placement="Left" Visibility="Collapsed"
+                         Width="5"
+                         Margin="0,0,5,0" />
+                <TickBar x:Name="BottomRightTick" Grid.Column="2"
+                         Fill="{TemplateBinding Foreground}"
+                         Placement="Right" Visibility="Collapsed"
+                         Width="5"
+                         Margin="5,0,0,0" />
+                <Border Grid.Column="1"
+                        CornerRadius="4" Opacity="0.4"
+                        Width="{TemplateBinding attached:ThumbAttached.ThumbWidth,
+                                                Converter={toolsConverters:ValueTranslateConverter},
+                                                ConverterParameter=0.25}"
+                        Background="{TemplateBinding Foreground}" />
+                <Border x:Name="ValueBorder" Grid.Column="1"
+                        CornerRadius="0,0,4,4"
+                        Width="{TemplateBinding attached:ThumbAttached.ThumbWidth,
+                                                Converter={toolsConverters:ValueTranslateConverter},
+                                                ConverterParameter=0.25}"
+                        Height="{Binding ElementName=PART_Track, Path=DecreaseRepeatButton.ActualHeight}"
+                        Background="{TemplateBinding Foreground}"
+                        HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                <Canvas Grid.Column="1" Width="10" HorizontalAlignment="Center">
+                    <Border x:Name="PART_SelectionRange"
+                            CornerRadius="4"
+                            Width="10"
+                            Background="{TemplateBinding assistant:SliderAssistant.SliderSelectionRangeFill}" />
                 </Canvas>
-                <Track Grid.Column="1" x:Name="PART_Track">
+                <Track x:Name="PART_Track" Grid.Column="1">
                     <Track.DecreaseRepeatButton>
                         <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButton}" />
                     </Track.DecreaseRepeatButton>
@@ -246,24 +294,24 @@
                         <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButton}" />
                     </Track.IncreaseRepeatButton>
                     <Track.Thumb>
-                        <Thumb Style="{StaticResource SliderThumb}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <Thumb SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Style="{StaticResource SliderThumb}" />
                     </Track.Thumb>
                 </Track>
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="TickPlacement" Value="TopLeft">
-                <Setter Property="Visibility" Value="Visible" TargetName="TopLeftTick"/>
+                <Setter TargetName="TopLeftTick" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="TickPlacement" Value="BottomRight">
-                <Setter Property="Visibility" Value="Visible" TargetName="BottomRightTick"/>
+                <Setter TargetName="BottomRightTick" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="TickPlacement" Value="Both">
-                <Setter Property="Visibility" Value="Visible" TargetName="TopLeftTick"/>
-                <Setter Property="Visibility" Value="Visible" TargetName="BottomRightTick"/>
+                <Setter TargetName="TopLeftTick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="BottomRightTick" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="IsSelectionRangeEnabled" Value="true">
-                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                <Setter TargetName="PART_SelectionRange" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="IsDirectionReversed" Value="True">
                 <Setter TargetName="ValueBorder" Property="CornerRadius" Value="4,4,0,0" />
@@ -273,10 +321,10 @@
     </ControlTemplate>
 
     <Style x:Key="SliderBaseStyle" TargetType="{x:Type Slider}">
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryColorTheme}"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="IsMoveToPointEnabled" Value="True"/>
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="IsMoveToPointEnabled" Value="True" />
         <Setter Property="IsSnapToTickEnabled" Value="False" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -286,10 +334,10 @@
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Horizontal">
-                <Setter Property="Template" Value="{StaticResource SliderHorizontal}"/>
+                <Setter Property="Template" Value="{StaticResource SliderHorizontal}" />
             </Trigger>
             <Trigger Property="Orientation" Value="Vertical">
-                <Setter Property="Template" Value="{StaticResource SliderVertical}"/>
+                <Setter Property="Template" Value="{StaticResource SliderVertical}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />

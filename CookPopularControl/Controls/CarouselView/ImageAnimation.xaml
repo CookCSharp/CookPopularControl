@@ -1,18 +1,21 @@
-﻿<UserControl x:Class="CookPopularControl.Controls.CarouselView.ImageAnimation"
-             x:ClassModifier="internal"
+﻿<UserControl x:Name="ImageItem"
+             x:Class="CookPopularControl.Controls.CarouselView.ImageAnimation"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:switch="clr-namespace:CookPopularControl.Controls.CheckBox"
-             xmlns:helix="http://helix-toolkit.org/wpf"
              xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-             mc:Ignorable="d" RenderTransformOrigin="0.5,0.5"
-             d:DesignHeight="450" d:DesignWidth="800" x:Name="ImageItem">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:helix="http://helix-toolkit.org/wpf"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:switch="clr-namespace:CookPopularControl.Controls.CheckBox"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:ClassModifier="internal"
+             RenderTransformOrigin="0.5,0.5">
 
     <UserControl.Resources>
         <Style x:Key="popup" TargetType="{x:Type Border}">
-            <Setter Property="CornerRadius" Value="0"></Setter>
+            <Setter Property="CornerRadius" Value="0" />
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect>
@@ -26,28 +29,35 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    
+
     <UserControl.RenderTransform>
         <TransformGroup>
-            <ScaleTransform ScaleX="{Binding Path=ScaleX}" ScaleY="{Binding Path=ScaleY}"/>
-            <TranslateTransform X="{Binding Path=X}" Y="{Binding Path=Y}"/>
+            <ScaleTransform ScaleX="{Binding Path=ScaleX}" ScaleY="{Binding Path=ScaleY}" />
+            <TranslateTransform X="{Binding Path=X}" Y="{Binding Path=Y}" />
         </TransformGroup>
     </UserControl.RenderTransform>
-    
+
     <Grid>
-        <Border CornerRadius="10" Margin="2,0,0,0" BorderThickness="2" BorderBrush="Gray">
+        <Border CornerRadius="10"
+                BorderBrush="Gray" BorderThickness="2"
+                Margin="2,0,0,0">
             <Border.Background>
-                <SolidColorBrush Color="#FFFFFF" Opacity="0.8"/>
+                <SolidColorBrush Opacity="0.8" Color="#FFFFFF" />
             </Border.Background>
-            <Grid Height="{Binding RelativeSource={RelativeSource Self}}" Width="{Binding RelativeSource={RelativeSource Self}}">
+            <Grid Width="{Binding RelativeSource={RelativeSource Self}}" Height="{Binding RelativeSource={RelativeSource Self}}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Margin="10,5" Stretch="Uniform" x:Name="ImgMain" Source="{Binding Path=Source}" />
-                <Button Grid.Row="1" x:Name="WholeScene" Content="详情" Width="40" Height="40"
-                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                        attached:FrameworkElementBaseAttached.CornerRadius="20"/>
+                <Image x:Name="ImgMain" Grid.Row="0"
+                       Source="{Binding Path=Source}"
+                       Stretch="Uniform"
+                       Margin="10,5" />
+                <Button x:Name="WholeScene" Grid.Row="1"
+                        attached:FrameworkElementBaseAttached.CornerRadius="20"
+                        Content="详情"
+                        Width="40" Height="40"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Foreground="White" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Path=ImageTagName}" Margin="0,0,10,0"/>
                     <switch:SwitchControl x:Name="WholeScene" SwitchContent="详情" Width="35" Height="35" Foreground="Gray" SwicthCloseBackground="White" SwitchOpenBackground="Gray"/>

@@ -38,8 +38,8 @@ namespace CookPopularControl.Controls.Dates
         private const int HourDegree = 30; //360/12=30
         private const int MinuteSecondDegree = 6; //30/5=6
         private const int ClockLineLength = 70; //(150 - 5 * 2) / 2 = 70，时钟的长度为150，厚度为5，故得出标准长度为70
-        private static readonly Brush ThemeBrush = ResourceHelper.GetResource<Brush>("PrimaryColorTheme");
-        private static readonly Brush AssistantBrush = ResourceHelper.GetResource<Brush>("AssistantColorTheme");
+        private static readonly Brush ThemeBrush = ResourceHelper.GetResource<Brush>("PrimaryThemeBrush");
+        private static readonly Brush AssistantBrush = ResourceHelper.GetResource<Brush>("AssistantThemeBrush");
         private static readonly Brush UnabledBrush = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
 
         public static readonly ICommand ResetCommand = new RoutedCommand(nameof(ResetCommand), typeof(Clock));

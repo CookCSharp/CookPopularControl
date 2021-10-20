@@ -4,62 +4,62 @@
 
 
     <ControlTemplate x:Key="ValidationToolTipTemplate" TargetType="{x:Type ToolTip}">
-        <Border x:Name="Root" Margin="8,0,0,0" Opacity="0"
-                RenderTransformOrigin="0,0" Effect="{DynamicResource CustomShadowDepth1}">
+        <Border x:Name="Root"
+                Effect="{DynamicResource CustomShadowDepth1}"
+                Opacity="0" RenderTransformOrigin="0,0"
+                Margin="8,0,0,0">
             <Border.RenderTransform>
                 <TranslateTransform x:Name="xform" X="-20" />
             </Border.RenderTransform>
+            <Border CornerRadius="10"
+                    BorderBrush="{DynamicResource FieldValidationErrorBrush}"
+                    BorderThickness="0"
+                    Background="{DynamicResource FieldValidationErrorBrush}">
+                <TextBlock TextWrapping="Wrap" UseLayoutRounding="false"
+                           Text="{Binding [0].ErrorContent}"
+                           MaxWidth="250"
+                           Foreground="{DynamicResource AssistantForegroundBrush}"
+                           Margin="10,5" />
+            </Border>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="OpenStates">
                     <VisualStateGroup.Transitions>
                         <VisualTransition GeneratedDuration="0:0:0" />
                         <VisualTransition GeneratedDuration="0:0:0.5" From="Closed" To="Open">
                             <Storyboard>
-                                <DoubleAnimation Duration="0:0:0.5" To="0"
-                                                 Storyboard.TargetProperty="X"
-                                                 Storyboard.TargetName="xform">
+                                <DoubleAnimation Storyboard.TargetName="xform" Storyboard.TargetProperty="X"
+                                                 To="0" Duration="0:0:0.5">
                                     <DoubleAnimation.EasingFunction>
                                         <BackEase Amplitude="0.5" EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
-                                <DoubleAnimation Duration="0:0:0.5" To="1"
-                                                 Storyboard.TargetProperty="Opacity"
-                                                 Storyboard.TargetName="Root" />
+                                <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity"
+                                                 To="1" Duration="0:0:0.5" />
                             </Storyboard>
                         </VisualTransition>
                     </VisualStateGroup.Transitions>
                     <VisualState x:Name="Closed">
                         <Storyboard>
-                            <DoubleAnimation Duration="0:0:0.5" To="-20"
-                                             Storyboard.TargetProperty="X"
-                                             Storyboard.TargetName="xform" />
-                            <DoubleAnimation Duration="0:0:0.5" To="0"
-                                             Storyboard.TargetProperty="Opacity"
-                                             Storyboard.TargetName="Root" />
+                            <DoubleAnimation Storyboard.TargetName="xform" Storyboard.TargetProperty="X"
+                                             To="-20" Duration="0:0:0.5" />
+                            <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity"
+                                             To="0" Duration="0:0:0.5" />
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Open">
                         <Storyboard>
-                            <DoubleAnimation Duration="0:0:0.5" To="0"
-                                             Storyboard.TargetProperty="X"
-                                             Storyboard.TargetName="xform">
+                            <DoubleAnimation Storyboard.TargetName="xform" Storyboard.TargetProperty="X"
+                                             To="0" Duration="0:0:0.5">
                                 <DoubleAnimation.EasingFunction>
                                     <BackEase Amplitude="0.5" EasingMode="EaseOut" />
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
-                            <DoubleAnimation Duration="0:0:0.5" To="1"
-                                             Storyboard.TargetProperty="Opacity"
-                                             Storyboard.TargetName="Root" />
+                            <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity"
+                                             To="1" Duration="0:0:0.5" />
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Border Background="{DynamicResource FieldValidationErrorBrush}" CornerRadius="10"
-                    BorderThickness="0" BorderBrush="{DynamicResource FieldValidationErrorBrush}">
-                <TextBlock Text="{Binding [0].ErrorContent}" MaxWidth="250"
-                           Foreground="{DynamicResource AssistantForeground}"
-                           Margin="10,5" TextWrapping="Wrap" UseLayoutRounding="false" />
-            </Border>
         </Border>
     </ControlTemplate>
 
@@ -72,10 +72,11 @@
                              PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                              Template="{StaticResource ValidationToolTipTemplate}" />
                 </ToolTipService.ToolTip>
-                <Grid Width="14" Height="14" Background="Transparent"
-                      HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-1,0,0">
-                    <Path Stretch="Uniform" Data="M 0,0 L6,0 A 2,2 90 0 1 8,2 L8,7 z" Fill="{DynamicResource FieldValidationErrorBrush}"/>
-                    <Path Data="M 0,0 L2,0 L 8,6 L8,8" Fill="Transparent"/>
+                <Grid Width="14" Height="14"
+                      Background="Transparent"
+                      Margin="0,-1,0,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Path Data="M 0,0 L6,0 A 2,2 90 0 1 8,2 L8,7 z" Fill="{DynamicResource FieldValidationErrorBrush}" Stretch="Uniform" />
+                    <Path Data="M 0,0 L2,0 L 8,6 L8,8" Fill="Transparent" />
                 </Grid>
             </Border>
         </AdornedElementPlaceholder>
@@ -83,15 +84,15 @@
             <!--<DataTrigger Binding="{Binding ElementName=Placeholder,Path=AdornedElement.IsFocused}" Value="True">
                 <Setter Property="Visibility" Value="Visible" TargetName="Placeholder"/>
             </DataTrigger>-->
-            <DataTrigger Binding="{Binding ElementName=Placeholder,Path=AdornedElement.(Validation.HasError)}" Value="True">
-                <Setter Property="Visibility" Value="Visible" TargetName="Placeholder"/>
+            <DataTrigger Binding="{Binding ElementName=Placeholder, Path=AdornedElement.(Validation.HasError)}" Value="True">
+                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible" />
             </DataTrigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type AdornedElementPlaceholder}}, Path= AdornedElement.IsKeyboardFocusWithin, Mode=OneWay}" Value="True" />
-                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type AdornedElementPlaceholder}}, Path= AdornedElement.(Validation.HasError), Mode=OneWay}" Value="True" />
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type AdornedElementPlaceholder}}, Path=AdornedElement.IsKeyboardFocusWithin, Mode=OneWay}" Value="True" />
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type AdornedElementPlaceholder}}, Path=AdornedElement.(Validation.HasError), Mode=OneWay}" Value="True" />
                 </MultiDataTrigger.Conditions>
-                <Setter Property="IsOpen" Value="True" TargetName="ValidationTooltip" />
+                <Setter TargetName="ValidationTooltip" Property="IsOpen" Value="True" />
             </MultiDataTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

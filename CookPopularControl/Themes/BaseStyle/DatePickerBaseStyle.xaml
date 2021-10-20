@@ -11,14 +11,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}">
-                        <Path x:Name="PathButton" Data="{DynamicResource DateGeometry}" Fill="{DynamicResource PrimaryColorTheme}" Stretch="Fill"/>
+                        <Path x:Name="PathButton"
+                              Data="{DynamicResource DateGeometry}"
+                              Fill="{DynamicResource PrimaryThemeBrush}"
+                              Stretch="Fill" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Fill" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="PathButton"/>
+                            <Setter TargetName="PathButton" Property="Fill" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Fill" Value="{DynamicResource ButtonBasePressBackground}" TargetName="PathButton"/>
+                            <Setter TargetName="PathButton" Property="Fill" Value="{DynamicResource ButtonBasePressBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -40,55 +43,70 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DatePicker}">
-                    <Border x:Name="RootBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" Background="{TemplateBinding Background}">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="Disabled">
-                                    <Storyboard>
-                                        <DoubleAnimation Duration="0" To="1"
-                                                         Storyboard.TargetName="PART_DisabledVisual"
-                                                         Storyboard.TargetProperty="Opacity"/>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
+                    <Border x:Name="RootBorder"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}">
                         <Grid x:Name="PART_Root" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <DatePickerTextBox Grid.Column="0" x:Name="PART_TextBox"
-                                               Foreground="{TemplateBinding Foreground}" Background="Transparent" 
+                            <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0"
+                                               attached:TextElementAttached.PlaceHolder="请选择日期"
+                                               Focusable="{TemplateBinding Focusable}"
                                                Style="{DynamicResource DefaultTextBoxStyle}"
-                                               attached:TextElementAttached.PlaceHolder="请选择日期" Focusable="{TemplateBinding Focusable}"/>
-                            <Button Grid.Column="1" x:Name="PART_Button"                   
-                                    Foreground="{TemplateBinding Foreground}" Focusable="False" Margin="5,0"
+                                               Foreground="{TemplateBinding Foreground}"
+                                               Background="Transparent" />
+                            <Button x:Name="PART_Button" Grid.Column="1"
+                                    Focusable="False"
                                     Style="{DynamicResource DatePickerButtonStyle}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Grid Grid.Column="0" Grid.ColumnSpan="2" x:Name="PART_DisabledVisual" IsHitTestVisible="False" Opacity="0.2">
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Margin="5,0"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Grid x:Name="PART_DisabledVisual" Grid.Column="0"
+                                  IsHitTestVisible="False" Opacity="0.2"
+                                  Grid.ColumnSpan="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Rectangle Grid.Column="0" Fill="#A5FFFFFF" RadiusX="1" RadiusY="1"/>
-                                <Rectangle Grid.Column="1" Width="20" Height="20" Fill="#A5FFFFFF" RadiusX="1" RadiusY="1" Margin="5,0" />
-                                <Popup x:Name="PART_Popup" StaysOpen="False" AllowsTransparency="True"
-                                       Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}"/>
+                                <Rectangle Grid.Column="0"
+                                           Fill="#A5FFFFFF" RadiusX="1" RadiusY="1" />
+                                <Rectangle Grid.Column="1"
+                                           Fill="#A5FFFFFF" RadiusX="1" RadiusY="1"
+                                           Width="20" Height="20"
+                                           Margin="5,0" />
+                                <Popup x:Name="PART_Popup"
+                                       AllowsTransparency="True" Placement="Bottom"
+                                       PlacementTarget="{Binding ElementName=PART_TextBox}"
+                                       StaysOpen="False" />
                             </Grid>
                         </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_DisabledVisual" Storyboard.TargetProperty="Opacity"
+                                                         To="1" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Validation.HasError" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" TargetName="RootBorder"/>
-                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=BorderThickness,Converter={commonConverters:ThicknessToThickness},ConverterParameter=1.2}" TargetName="RootBorder"/>
+                            <Setter TargetName="RootBorder" Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
+                            <Setter TargetName="RootBorder" Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness, Converter={commonConverters:ThicknessToThickness}, ConverterParameter=1.2}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>
