@@ -56,6 +56,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/OtherControlTemplate.xaml" />
 
         <!--  Extension Control  -->
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />

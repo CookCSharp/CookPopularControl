@@ -4,18 +4,8 @@
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
-
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml" />
-
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
-    </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultButtonBaseStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -28,15 +18,15 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{StaticResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{StaticResource ButtonBasePressBackground}" />
+        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
+        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
         <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
         <Setter Property="gif:AnimationBehavior.AutoStart" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
-                        <AdornerDecorator CacheMode="{StaticResource DefaultBitmapCache}">
+                        <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                             <Border x:Name="RootBorder"
                                     CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                     Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"
@@ -89,13 +79,12 @@
                                        ContentTemplate="{TemplateBinding ContentTemplate}"
                                        Focusable="False"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,
-                                                                    Converter={toolsConverters:BooleanToVisibilityConverter}}"
+                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}"
                                        Padding="{TemplateBinding Padding}"
                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ripple:Ripple.Clip>
-                                <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                                <MultiBinding Converter="{commonConverters:BorderClipConverter}">
                                     <Binding ElementName="RootBorder" Path="ActualWidth" />
                                     <Binding ElementName="RootBorder" Path="ActualHeight" />
                                     <Binding ElementName="RootBorder" Path="CornerRadius" />

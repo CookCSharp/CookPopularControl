@@ -38,7 +38,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
-      <DocumentationFile></DocumentationFile>
+      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
       <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     </PropertyGroup>
 
