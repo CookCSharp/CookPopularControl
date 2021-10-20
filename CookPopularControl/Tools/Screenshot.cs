@@ -171,8 +171,21 @@ namespace CookPopularControl.Tools
         private static ImageCodecInfo GetCodec(this ImageFormat format)
         {
             foreach (var codec in ImageCodecInfo.GetImageEncoders())
+            {
                 if (codec.FormatID == format.Guid)
                     return codec;
+            }
+
+            return default;
+        }
+
+        private static ImageCodecInfo GetCodec(this string mimeType)
+        {
+            foreach (var codec in ImageCodecInfo.GetImageEncoders())
+            {
+                if (codec.MimeType == mimeType)
+                    return codec;
+            }
 
             return default;
         }

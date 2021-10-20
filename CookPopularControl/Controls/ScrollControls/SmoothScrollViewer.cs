@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 
@@ -22,6 +23,9 @@ namespace CookPopularControl.Controls.ScrollControls
     /// </summary>
     public class SmoothScrollViewer : ScrollViewer
     {
+        //对于图像的绘制，可以通过降低其渲染度(可能会损坏图片质量 特别是低清小图 ),对你的图片对象
+        //RenderOptions.SetBitmapScalingMode(控件对象,BitmapScalingMode.LowQuality);
+
         private double lastOffset;
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
@@ -44,7 +48,7 @@ namespace CookPopularControl.Controls.ScrollControls
 
         private void ScrollAnimation(double offset)
         {
-            BeginAnimation(ScrollViewerAssistant.VerticalOffsetProperty, null);
+            BeginAnimation(ScrollViewerAssistant.VerticalOffsetProperty, null, HandoffBehavior.SnapshotAndReplace);
             DoubleAnimation Animation = new DoubleAnimation();
             Animation.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
             Animation.From = VerticalOffset;

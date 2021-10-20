@@ -165,7 +165,7 @@ namespace CookPopularControl.Tools.Helpers
         {
             try
             {
-                var assembly = Assembly.GetExecutingAssembly(); //获取当前程序集
+                var assembly = Assembly.GetEntryAssembly(); //获取当前程序集
                 var instance = assembly.CreateInstance(typeName);
 
                 //var type = Type.GetType(typeName);
