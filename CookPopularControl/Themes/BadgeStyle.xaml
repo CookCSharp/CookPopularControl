@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+
+    <Style x:Key="DefaultBadgeStyle" TargetType="{x:Type pc:Badge}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type pc:Badge}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                        <panel:SimpleGrid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ContentPresenter x:Name="PART_Content" Content="{TemplateBinding Content}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              HorizontalAlignment="Left"/>
+                            <ContentPresenter x:Name="PART_Badge" Content="{TemplateBinding Element}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              HorizontalAlignment="Left" 
+                                              Visibility="{TemplateBinding IsShowBadge,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
+                        </panel:SimpleGrid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Direction" Value="LeftTop">
+                            <Setter Property="RenderTransform" TargetName="PART_Badge">
+                                <Setter.Value>
+                                    <TranslateTransform>
+                                        <TranslateTransform.X>
+                                            <Binding ElementName="PART_Badge" Path="ActualWidth" 
+                                                     Converter="{toolConverters:ValueTranslateConverter}" ConverterParameter="-0.5" Mode="OneWay"/>
+                                        </TranslateTransform.X>
+                                        <TranslateTransform.Y>
+                                            <Binding ElementName="PART_Badge" Path="ActualHeight" 
+                                                     Converter="{toolConverters:ValueTranslateConverter}" ConverterParameter="-0.5" Mode="OneWay"/>
+                                        </TranslateTransform.Y>
+                                    </TranslateTransform>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Direction" Value="LeftBottom">
+                            <Setter Property="RenderTransform" TargetName="PART_Badge">
+                                <Setter.Value>
+                                    <TranslateTransform>
+                                        <TranslateTransform.X>
+                                            <Binding ElementName="PART_Badge" Path="ActualWidth" 
+                                                     Converter="{toolConverters:ValueTranslateConverter}" ConverterParameter="-0.5" Mode="OneWay"/>
+                                        </TranslateTransform.X>
+                                        <TranslateTransform.Y>
+                                            <MultiBinding Converter="{toolConverters:TranslateToCenterConverter}" Mode="OneWay">
+                                                <Binding ElementName="PART_Content" Path="ActualHeight" />
+                                                <Binding ElementName="PART_Badge" Path="ActualHeight" />
+                                            </MultiBinding>
+                                        </TranslateTransform.Y>
+                                    </TranslateTransform>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Direction" Value="RightTop">
+                            <Setter Property="RenderTransform" TargetName="PART_Badge">
+                                <Setter.Value>
+                                    <TranslateTransform>
+                                        <TranslateTransform.X>
+                                            <MultiBinding Converter="{toolConverters:TranslateToCenterConverter}" Mode="OneWay">
+                                                <Binding ElementName="PART_Content" Path="ActualWidth" />
+                                                <Binding ElementName="PART_Badge" Path="ActualWidth" />
+                                            </MultiBinding>
+                                        </TranslateTransform.X>
+                                        <TranslateTransform.Y>
+                                            <Binding ElementName="PART_Badge" Path="ActualHeight" Converter="{toolConverters:ValueTranslateConverter}" ConverterParameter="-0.5" Mode="OneWay"/>
+                                        </TranslateTransform.Y>
+                                    </TranslateTransform>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Direction" Value="RightBottom">
+                            <Setter Property="RenderTransform" TargetName="PART_Badge">
+                                <Setter.Value>
+                                    <TranslateTransform>
+                                        <TranslateTransform.X>
+                                            <MultiBinding Converter="{toolConverters:TranslateToCenterConverter}" Mode="OneWay">
+                                                <Binding ElementName="PART_Content" Path="ActualWidth" />
+                                                <Binding ElementName="PART_Badge" Path="ActualWidth" />
+                                            </MultiBinding>
+                                        </TranslateTransform.X>
+                                        <TranslateTransform.Y>
+                                            <MultiBinding Converter="{toolConverters:TranslateToCenterConverter}" Mode="OneWay">
+                                                <Binding ElementName="PART_Content" Path="ActualHeight" />
+                                                <Binding ElementName="PART_Badge" Path="ActualHeight" />
+                                            </MultiBinding>
+                                        </TranslateTransform.Y>
+                                    </TranslateTransform>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

@@ -151,6 +151,7 @@
 
 
     <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}" />
+    <Style x:Key="{x:Type pc:Badge}" TargetType="{x:Type pc:Badge}" BasedOn="{StaticResource DefaultBadgeStyle}" />
     <Style x:Key="{x:Type pc:Layout}" TargetType="{x:Type pc:Layout}" BasedOn="{StaticResource DefaultLayoutStyle}" />
     <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}" />
     <Style x:Key="{x:Type groupCtl:TagEditing}" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultTagEditingStyle}" />

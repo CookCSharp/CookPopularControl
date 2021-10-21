@@ -23,6 +23,13 @@
                               Width="100" Height="35"
                               Margin="10,0" />
             </WrapPanel>
+            <pc:Badge Margin="0,50,0,0" Direction="LeftTop" Height="100"
+                      Background="Green" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <pc:Badge.Element>
+                    <Rectangle Width="30" Height="20" Fill="Red"/>
+                </pc:Badge.Element>
+                <Button Content="123" Width="200" Height="35"/>
+            </pc:Badge>
         </StackPanel>
 
         <Viewport3D RenderOptions.EdgeMode="Unspecified" Visibility="Collapsed"
