@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
@@ -23,5 +24,22 @@ namespace CookPopularControl.Tools.Extensions.Colors
         public static SolidColorBrush ToBrushFromColor(this Color color) => new SolidColorBrush(color);
 
         public static Color ToColorFromBrush(this Brush brush) => (Color)(ColorConverter.ConvertFromString(brush.ToString()));
+
+        public static string GetColorName(this Color color)
+        {
+            var colorProperties = typeof(System.Drawing.Color)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Where(p => p.PropertyType == typeof(System.Drawing.Color));
+            foreach (var colorProperty in colorProperties)
+            {
+                var colorPropertyValue = (System.Drawing.Color)colorProperty.GetValue(null, null);
+                if (colorPropertyValue.R == color.R && colorPropertyValue.G == color.G && colorPropertyValue.B == color.B)
+                {
+                    return colorPropertyValue.Name;
+                }
+            }
+
+            return default;
+        }
     }
 }

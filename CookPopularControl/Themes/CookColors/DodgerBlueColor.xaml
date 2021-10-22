@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="PrimaryThemeColor">#1E90FF</Color>
+    <Color x:Key="AssistantThemeColor">#FF5722</Color>
+    <SolidColorBrush x:Key="PrimaryThemeBrush" Color="{StaticResource PrimaryThemeColor}" />
+    <SolidColorBrush x:Key="AssistantThemeBrush" Color="{StaticResource AssistantThemeColor}" />
+
+    <!--  #FF9C8844  -->
+    <Color x:Key="ButtonBaseMouseOverColor">#55AAFF</Color>
+    <Color x:Key="ButtonBasePressColor">#4169E1</Color>
+    <Color x:Key="BorderBrushColor">#4285F4</Color>
+    <SolidColorBrush x:Key="ButtonBaseMouseOverBackground" Color="{StaticResource ButtonBaseMouseOverColor}" />
+    <SolidColorBrush x:Key="ButtonBasePressBackground" Color="{StaticResource ButtonBasePressColor}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderBrushColor}" />
+
+    <Color x:Key="DataGirdCellFocusedColor">#FF5722</Color>
+    <Color x:Key="DataGridRowSelectedColor">#1E90FF</Color>
+    <Color x:Key="DataGridRowMouseOverColor">#55AAFF</Color>
+    <Color x:Key="DataGridRowMouseOverSelected">#4169E1</Color>
+
+</ResourceDictionary>
