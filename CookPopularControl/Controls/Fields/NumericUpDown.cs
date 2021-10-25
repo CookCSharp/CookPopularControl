@@ -322,6 +322,8 @@ namespace CookPopularControl.Controls.Fields
 
         private void SetUpDownButtonEnabled(NumericUpDown numeric)
         {
+            if (numeric.plusButton == null || numeric.subtractButton == null)
+                return;
             if (numeric.Value.Equals(numeric.Maximum))
                 numeric.plusButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
             else

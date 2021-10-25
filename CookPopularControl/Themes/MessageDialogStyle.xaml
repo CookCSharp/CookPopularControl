@@ -80,8 +80,7 @@
                                               Data="{TemplateBinding Image}"
                                               Fill="{TemplateBinding ImageBrush}"
                                               Stretch="Uniform"
-                                              Visibility="{TemplateBinding IsShowImage,
-                                                                           Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                              Visibility="{TemplateBinding IsShowImage,Converter={toolConverters:BooleanToVisibilityConverter}}"
                                               Width="30" Height="30" />
                                         <ScrollViewer Grid.Row="0" Grid.Column="1">
                                             <TextBlock Style="{StaticResource MessageDialogTextBlockStyle}"

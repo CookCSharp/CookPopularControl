@@ -9,7 +9,7 @@
 
 
     <Style x:Key="DefaultCheckBoxStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBoxBaseStyle}">
-        <Setter Property="assistant:CheckBoxAssistant.FillBrush" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="assistant:CheckBoxAssistant.FillBrush" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="assistant:CheckBoxAssistant.FillThickness" Value="1" />
         <Setter Property="assistant:CheckBoxAssistant.FillType" Value="Check" />
         <Setter Property="assistant:CheckBoxAssistant.FillSize" Value="30" />
@@ -17,7 +17,7 @@
     </Style>
 
     <Style x:Key="DefaultSwitchControlStyle" TargetType="{x:Type assistant:SwitchControl}" BasedOn="{StaticResource SwitchControlBaseStyle}">
-        <Setter Property="SwicthCloseBackground" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="SwicthCloseBackground" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="SwitchOpenBackground" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
 

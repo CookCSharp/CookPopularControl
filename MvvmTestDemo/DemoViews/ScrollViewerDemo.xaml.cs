@@ -13,7 +13,7 @@ namespace MvvmTestDemo.DemoViews
         {
             InitializeComponent();
 
-            scrollViewer2.ScrollChanged += ScrollViewer2_ScrollChanged;
+            //scrollViewer2.ScrollChanged += ScrollViewer2_ScrollChanged;
         }
 
         private void ScrollViewer2_ScrollChanged(object sender, ScrollChangedEventArgs e)
@@ -33,12 +33,12 @@ namespace MvvmTestDemo.DemoViews
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            scrollViewer2.ScrollToHorizontalOffset(1500);
+            //scrollViewer2.ScrollToHorizontalOffset(1500);
         }
 
         private void btn2_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            var point = e.GetPosition(scrollViewer2);
+            //var point = e.GetPosition(scrollViewer2);
             //System.Diagnostics.Debug.WriteLine(point.Y);
             //System.Diagnostics.Debug.WriteLine(canvas.ActualHeight);
             //System.Diagnostics.Debug.WriteLine(Window.GetWindow(this).ActualHeight);
@@ -55,7 +55,7 @@ namespace MvvmTestDemo.DemoViews
                 //    scrollViewer2.ScrollToVerticalOffset(point.Y - 768);
                 //else
 
-                ScrollBar.LineDownCommand.Execute(null,scrollViewer2);
+                //ScrollBar.LineDownCommand.Execute(null,scrollViewer2);
                 //scrollViewer2.ScrollToHorizontalOffset(point.X - SystemParameters.WorkArea.Width + 20);
 
                 //System.Diagnostics.Debug.WriteLine("ViewportHeight" + scrollViewer2.ViewportHeight);

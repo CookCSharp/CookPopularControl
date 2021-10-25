@@ -164,7 +164,7 @@
     <Style x:Key="DefaultColorPickerStyle" TargetType="{x:Type color:ColorPicker}">
         <Setter Property="Width" Value="330" />
         <Setter Property="Height" Value="400" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type color:ColorPicker}">

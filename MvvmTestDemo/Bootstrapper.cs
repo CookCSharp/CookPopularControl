@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using CookPopularControl.Themes.CookColors;
+using Prism.Ioc;
 using Prism.Mvvm;
 using Prism.Unity;
 using System;
@@ -30,6 +31,7 @@ namespace MvvmTestDemo
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             var container = PrismIocExtensions.GetContainer(containerRegistry);
+            var b = Container.Equals(container);
 
             //var assemblyName = new AssemblyName("Kitty");
             //var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.RunAndSave);

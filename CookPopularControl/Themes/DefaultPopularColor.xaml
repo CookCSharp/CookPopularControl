@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CookColors/DodgerBlueColor.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CookColors/BaseColor.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

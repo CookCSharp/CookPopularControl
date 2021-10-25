@@ -199,7 +199,7 @@ namespace CookPopularControl.Controls.Popup
             var intPtr = handSource.Handle;
             if (!NativeMethods.GetWindowRect(intPtr, out RECT rect)) return;
 
-            NativeMethods.SetWindowPos(intPtr, isTop ? -1 : -2, rect.Left, rect.Top, (int)Width, (int)Height, SWP.TOPMOST);
+            NativeMethods.SetWindowPos(intPtr, new IntPtr(isTop ? -1 : -2), rect.Left, rect.Top, (int)Width, (int)Height, SWP.TOPMOST);
         }
     }
 }

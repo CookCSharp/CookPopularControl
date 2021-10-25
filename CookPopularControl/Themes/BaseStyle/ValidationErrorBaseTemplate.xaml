@@ -5,7 +5,7 @@
 
     <ControlTemplate x:Key="ValidationToolTipTemplate" TargetType="{x:Type ToolTip}">
         <Border x:Name="Root"
-                Effect="{DynamicResource CustomShadowDepth1}"
+                Effect="{DynamicResource ShadowEffectDepth1}"
                 Opacity="0" RenderTransformOrigin="0,0"
                 Margin="8,0,0,0">
             <Border.RenderTransform>

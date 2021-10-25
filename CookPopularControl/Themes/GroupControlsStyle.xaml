@@ -2,48 +2,51 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
+                    xmlns:field="clr-namespace:CookPopularControl.Controls.Fields"
                     xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups">
 
-    <Style x:Key="DefaultSearchControlStyle" TargetType="{x:Type groupCtl:SearchControl}">
-        <Setter Property="Height" Value="28" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
+    <Style x:Key="DefaultGroupControlBaseStyle" TargetType="{x:Type Control}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="15" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="15" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="搜索" />
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="False" />
+    </Style>
+
+    <Style x:Key="DefaultSearchControlStyle" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultGroupControlBaseStyle}">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type groupCtl:SearchControl}">
                     <Border x:Name="RootBorder"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                            SnapsToDevicePixels="True"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            Margin="0,-1">
+                            Margin="0,-1" SnapsToDevicePixels="True"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <TextBox Grid.Column="0"
+                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderThickness="0"
                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                      attached:FrameworkElementBaseAttached.IconMargin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
                                      attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                      attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
-                                     attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
-                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                     BorderThickness="0" />
+                                     attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}" />
                             <Button Grid.Column="1"
+                                    Margin="5,0"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SearchGeometry}"
                                     attached:FrameworkElementBaseAttached.IconHeight="15" attached:FrameworkElementBaseAttached.IconWidth="15"
                                     Command="{x:Static groupCtl:SearchControl.SearchCommand}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}"
-                                    ToolTip="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
-                                    Margin="5,0" />
+                                    ToolTip="{TemplateBinding attached:TextElementAttached.PlaceHolder}" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -69,37 +72,61 @@
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
     </Style>
 
-    <Style x:Key="DefaultTagEditingStyle" TargetType="{x:Type groupCtl:TagEditing}">
+    <Style x:Key="DefaultTagEditingStyle" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultGroupControlBaseStyle}">
         <Setter Property="Height" Value="28" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HeaderMargin" Value="0,0,5,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type groupCtl:TagEditing}">
-                    <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
-                        <DockPanel>
-                            <ContentPresenter DockPanel.Dock="{TemplateBinding Position}"
-                                              Content="{TemplateBinding Header}"
+                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter Grid.Column="0" Content="{TemplateBinding Header}"
                                               Margin="{TemplateBinding HeaderMargin}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <TextBox attached:FrameworkElementBaseAttached.CornerRadius="2"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              DockPanel.Dock="{TemplateBinding Position}" />
+                            <TextBox Grid.Column="1" Height="{TemplateBinding Height}"
+                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                     Padding="2"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     attached:FrameworkElementBaseAttached.CornerRadius="2"
                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                      attached:FrameworkElementBaseAttached.IconMargin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
                                      attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                      attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
                                      attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
-                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                     Height="{TemplateBinding Height}"
-                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                     Padding="2" />
-                        </DockPanel>
+                                     Visibility="{TemplateBinding EditorType,Converter={commonConverters:EditorTypeToVisibilityConverter},ConverterParameter=TextBox}" />
+                            <field:NumericUpDown Grid.Column="1" Height="{TemplateBinding Height}"
+                                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                                 Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 Padding="2"
+                                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                 attached:FrameworkElementBaseAttached.CornerRadius="2"
+                                                 attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                                 attached:FrameworkElementBaseAttached.IconMargin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
+                                                 attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                                 attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
+                                                 attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                                 Visibility="{TemplateBinding EditorType,Converter={commonConverters:EditorTypeToVisibilityConverter},ConverterParameter=NumericUpDown}" />
+                            <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" Visibility="{TemplateBinding EditorType, Converter={commonConverters:EditorTypeToVisibilityConverter}, ConverterParameter=Other}" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

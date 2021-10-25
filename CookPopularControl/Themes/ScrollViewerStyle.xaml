@@ -12,19 +12,21 @@
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="assistant:ScrollViewerAssistant.IsCornerShow" Value="False" />
         <Setter Property="assistant:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
-        <Setter Property="assistant:ScrollBarAssistant.IsScrollBarRepeatButton" Value="True" />
+        <Setter Property="assistant:ScrollBarAssistant.IsScrollBarRepeatButton" Value="False" />
         <Setter Property="assistant:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
+        <!--<Setter Property="assistant:ScrollBarAssistant.VerticalScrollBarWidth" Value="{x:Static SystemParameters.VerticalScrollBarWidth}" />
+        <Setter Property="assistant:ScrollBarAssistant.HorizontalScrollBarHeight" Value="{x:Static SystemParameters.HorizontalScrollBarHeight}" />-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
                     <Grid Background="{TemplateBinding Background}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" x:Name="col"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" x:Name="row"/>
                         </Grid.RowDefinitions>
                         <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.Row="0" Grid.Column="0"
                                                 CanContentScroll="{TemplateBinding CanContentScroll}"
@@ -52,11 +54,18 @@
                                    Foreground="{TemplateBinding Foreground}"
                                    Value="{TemplateBinding HorizontalOffset}" />
                         <Rectangle x:Name="PART_Corner" Grid.Row="1" Grid.Column="1"
+                                   Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ScrollViewerAssistant.IsCornerShow), Converter={toolsConverters:BooleanToVisibilityConverter}}"
                                    Fill="{TemplateBinding Foreground}"
-                                   Opacity="0.8"
-                                   Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ScrollViewerAssistant.IsCornerShow), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                                   Opacity="0.8" />
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ScrollBarAssistant.VerticalScrollBarWidth),Converter={toolsConverters:ValueMoreThanTargetValue},ConverterParameter=0}" Value="True">
+                            <Setter TargetName="col" Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ScrollBarAssistant.VerticalScrollBarWidth)}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(assistant:ScrollBarAssistant.HorizontalScrollBarHeight),Converter={toolsConverters:ValueMoreThanTargetValue},ConverterParameter=0}" Value="True">
+                            <Setter TargetName="row" Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ScrollBarAssistant.HorizontalScrollBarHeight)}" />
+                        </DataTrigger>
+
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="assistant:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />

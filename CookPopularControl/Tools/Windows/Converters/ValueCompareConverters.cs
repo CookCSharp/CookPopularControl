@@ -43,7 +43,7 @@ namespace CookPopularControl.Tools.Windows.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is double v && parameter is double p)
+            if (value is double v && double.TryParse(parameter.ToString(), out double p))
             {
                 return v.Equals(p) ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
             }
@@ -62,7 +62,7 @@ namespace CookPopularControl.Tools.Windows.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is double v && parameter is double p)
+            if (value is double v && double.TryParse(parameter.ToString(), out double p))
             {
                 return v < p ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
             }
@@ -81,7 +81,7 @@ namespace CookPopularControl.Tools.Windows.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is double v && parameter is double p)
+            if (value is double v && double.TryParse(parameter.ToString(), out double p))
             {
                 return v > p ? ValueBoxes.TrueBox : ValueBoxes.FalseBox;
             }

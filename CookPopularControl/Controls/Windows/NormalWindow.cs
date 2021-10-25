@@ -203,6 +203,36 @@ namespace CookPopularControl.Controls
         }
 
 
+        /// <summary>
+        /// 窗体图标宽度
+        /// </summary>
+        public double IconWidth
+        {
+            get { return (double)GetValue(IconWidthProperty); }
+            set { SetValue(IconWidthProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="IconWidth"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IconWidthProperty =
+            DependencyProperty.Register("IconWidth", typeof(double), typeof(NormalWindow), new PropertyMetadata(ValueBoxes.Double20Box));
+
+
+        /// <summary>
+        /// 窗体图标高度
+        /// </summary>
+        public double IconHeight
+        {
+            get { return (double)GetValue(IconHeightProperty); }
+            set { SetValue(IconHeightProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="IconHeight"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IconHeightProperty =
+            DependencyProperty.Register("IconHeight", typeof(double), typeof(NormalWindow), new PropertyMetadata(ValueBoxes.Double20Box));
+
+
 
         static NormalWindow()
         {

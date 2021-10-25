@@ -11,7 +11,7 @@
     <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center">
-                <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}"
+                <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
                           pc:CheckBoxAssistant.FillSize="50" pc:CheckBoxAssistant.FillThickness="5" pc:CheckBoxAssistant.FillType="Line"
                           ToolTip="LineCheckBox"
                           Content="LineCheckBox"
@@ -25,7 +25,7 @@
                           Width="230" Height="30"
                           FontSize="20"
                           Margin="30,0" Padding="10,0,0,0" />
-                <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}"
+                <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
                           pc:CheckBoxAssistant.FillSize="25" pc:CheckBoxAssistant.FillThickness="1" pc:CheckBoxAssistant.FillType="Check"
                           ToolTip="CheckCheckBox"
                           Content="CheckCheckBox"
@@ -33,7 +33,7 @@
                           Background="Red"
                           FontSize="20"
                           Padding="10,0,0,0" />
-                <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}"
+                <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
                           pc:CheckBoxAssistant.FillSize="50" pc:CheckBoxAssistant.FillThickness="5" pc:CheckBoxAssistant.FillType="Line"
                           IsEnabled="False" ToolTip="LineCheckBox"
                           Content="LineCheckBox"
@@ -42,14 +42,14 @@
                           Margin="0,20" Padding="10,0,0,0" />
             </WrapPanel>
             <WrapPanel Margin="0,50" HorizontalAlignment="Center">
-                <pc:SwitchControl pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource CustomShadowDepth1}"
-                                  Effect="{StaticResource CustomShadowDepth1}"
+                <pc:SwitchControl pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth1}"
+                                  Effect="{StaticResource ShadowEffectDepth1}"
                                   IsEnabled="False" ToolTip="UnEnabled"
                                   Content="LineCheckBox"
                                   Width="100" Height="30"
                                   FontSize="10" />
-                <pc:SwitchControl pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource CustomShadowDepth1}"
-                                  Effect="{StaticResource CustomShadowDepth1}"
+                <pc:SwitchControl pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth1}"
+                                  Effect="{StaticResource ShadowEffectDepth1}"
                                   IsEnabled="True" ToolTip="IsEnabled"
                                   Content="LineCheckBox"
                                   Width="200" Height="50"

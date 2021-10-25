@@ -15,7 +15,7 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Controls.Dragables.Core
 {
-    public class DefaultNewItemFactory
+    internal class DefaultNewItemFactory
     {
         public static Func<HeaderedItemViewModel> DefaultItemFactory
         {

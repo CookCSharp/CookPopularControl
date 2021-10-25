@@ -14,6 +14,7 @@
     <commonConverters:CheckBoxFillTypeToVisibilityConverter x:Key="CheckBoxFillTypeToVisibilityConverter" />
     <commonConverters:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter" />
     <commonConverters:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter" />
+    <commonConverters:EditorTypeToVisibilityConverter x:Key="EditorTypeToVisibilityConverter" />
     <commonConverters:SliderValueLeftPositionXConverter x:Key="SliderValueLeftPositionXConverter" />
     <commonConverters:SliderValueLeftPositionYConverter x:Key="SliderValueLeftPositionYConverter" />
     <commonConverters:DoubleToTimeSpan x:Key="DoubleToTimeSpan" />
@@ -41,5 +42,6 @@
     <toolConverters:BorderCircularConverter x:Key="BorderCircularConverter" />
     <toolConverters:BorderClipToolConverter x:Key="BorderClipToolConverter" />
     <toolConverters:BorderCircularClipConverter x:Key="BorderCircularClipConverter" />
+    <toolConverters:TranslateToCenterConverter x:Key="TranslateToCenterConverter" />
 
 </ResourceDictionary>

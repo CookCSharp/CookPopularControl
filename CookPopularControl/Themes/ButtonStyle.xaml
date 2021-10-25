@@ -38,8 +38,8 @@
 
 
     <Style x:Key="ButtonContentWithIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{StaticResource Double26Value}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double26Value}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double26Value}" />
     </Style>
     <Style x:Key="ButtonIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />

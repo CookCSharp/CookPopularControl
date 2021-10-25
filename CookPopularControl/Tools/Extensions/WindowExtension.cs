@@ -127,6 +127,7 @@ namespace CookPopularControl.Tools.Extensions
             internal const int HWND_BOTTOM = 1;
 
             internal const int GWL_EXSTYLE = -20;
+            internal const int WS_EX_DLGMODALFRAME = 0x0001;
             internal const uint WS_EX_TOPMOST = 0x0008;
 
             [DllImport("user32.dll")]
@@ -208,6 +209,20 @@ namespace CookPopularControl.Tools.Extensions
         }
 
         public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
+
+        public static void RemoveIcon(this Window window)
+        {
+            //获取窗体的句柄
+            IntPtr hwnd = new WindowInteropHelper(window).Handle;
+
+            //改变窗体的样式
+            int extendedStyle = NativeMethods.GetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE);
+            Interop.NativeMethods.SetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE, extendedStyle | NativeMethods.WS_EX_DLGMODALFRAME);
+
+            //更新窗口的非客户区，以反映变化
+            Interop.NativeMethods.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, Interop.NativeMethods.SWP.NOMOVE |
+                  Interop.NativeMethods.SWP.NOSIZE | Interop.NativeMethods.SWP.NOZORDER | Interop.NativeMethods.SWP.FRAMECHANGED);
+        }
 
         /// <summary>
         /// Returns the actual Left of the Window independently from the WindowState

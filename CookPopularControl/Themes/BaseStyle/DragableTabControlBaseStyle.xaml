@@ -189,7 +189,7 @@
     <Style x:Key="StandardDragableTabItemHorizontalStyle" TargetType="{x:Type drag:DragableItem}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="6,2" />
@@ -681,7 +681,7 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Padding" Value="2,2,2,2" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="PenBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="PenThickness" Value=".5" />
         <Setter Property="Template">
@@ -696,7 +696,7 @@
     <Style x:Key="TrapezoidDragableTabItemStyle" TargetType="{x:Type drag:DragableItem}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -824,7 +824,7 @@
     </Style>
 
     <Style x:Key="DragableTabControlBaseStyle" TargetType="{x:Type drag:DragableTabControl}">
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />

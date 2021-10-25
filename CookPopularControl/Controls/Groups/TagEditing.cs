@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookPopularControl.Communal.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,18 +38,33 @@ namespace CookPopularControl.Controls.Groups
 
 
         /// <summary>
+        /// 可编辑标签元素的类型
+        /// </summary>
+        public EditorType EditorType
+        {
+            get { return (EditorType)GetValue(EditorTypeProperty); }
+            set { SetValue(EditorTypeProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="EditorType"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty EditorTypeProperty =
+            DependencyProperty.Register("EditorType", typeof(EditorType), typeof(TagEditing), new PropertyMetadata(default(EditorType)));
+
+
+        /// <summary>
         /// 标签内容
         /// </summary>
-        public string Content
+        public object Content
         {
-            get { return (string)GetValue(ContentProperty); }
+            get { return (object)GetValue(ContentProperty); }
             set { SetValue(ContentProperty, value); }
         }
         /// <summary>
         /// 表示<see cref="Content"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(string), typeof(TagEditing), new PropertyMetadata(default(string)));
+            DependencyProperty.Register("Content", typeof(object), typeof(TagEditing), new PropertyMetadata(default(object)));
 
 
         /// <summary>

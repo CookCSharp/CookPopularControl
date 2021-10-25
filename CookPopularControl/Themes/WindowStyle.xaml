@@ -8,6 +8,7 @@
                     xmlns:win="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -33,12 +34,21 @@
     </Style>
 
     <!--Icon<—☐✕>-->
-    <Style x:Key="WindowIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentIconStyle}">
+    <Style x:Key="WindowIconButtonStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={toolConverters:ValueTranslateConverter}, ConverterParameter=1.5}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarForeground}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="10" />
         <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="10" />
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarForeground}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="0" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="WindowIconToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
@@ -57,7 +67,7 @@
 
     <Style x:Key="DefaultNormalWindowStyle" TargetType="{x:Type win:NormalWindow}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="#E82323" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="UseLayoutRounding" Value="True" />
@@ -92,8 +102,7 @@
                                     </Grid.RowDefinitions>
                                     <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
                                           TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                          Visibility="{TemplateBinding IsShowClientTitleBar,
-                                                                       Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                          Visibility="{TemplateBinding IsShowClientTitleBar,Converter={toolConverters:BooleanToVisibilityConverter}}"
                                           Background="{TemplateBinding ClientTitleBarBackground}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition />
@@ -105,7 +114,7 @@
                                                     <Image IsHitTestVisible="False"
                                                            Source="{TemplateBinding Icon}"
                                                            Stretch="Uniform"
-                                                           Width="20" Height="20"
+                                                           Width="{TemplateBinding IconWidth}" Height="{TemplateBinding IconHeight}"
                                                            Margin="5,0" />
                                                     <behavior:Interaction.Triggers>
                                                         <behavior:EventTrigger EventName="MouseDoubleClick">
@@ -114,8 +123,7 @@
                                                     </behavior:Interaction.Triggers>
                                                 </Button>
                                                 <TextBlock IsHitTestVisible="False"
-                                                           Visibility="{TemplateBinding IsShowTitle,
-                                                                                        Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                                           Visibility="{TemplateBinding IsShowTitle,Converter={toolConverters:BooleanToVisibilityConverter}}"
                                                            Text="{TemplateBinding Title}"
                                                            Foreground="{TemplateBinding ClientTitleBarForeground}"
                                                            FontSize="14"
@@ -161,6 +169,10 @@
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter Property="IconWidth" Value="0" />
+                            <Setter Property="IconHeight" Value="0" />
+                        </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter TargetName="NormalButton" Property="Visibility" Value="Visible" />
                             <Setter TargetName="MaximizedButton" Property="Visibility" Value="Collapsed" />
@@ -213,8 +225,7 @@
                                     </Grid.RowDefinitions>
                                     <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
                                           TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                          Visibility="{TemplateBinding IsShowClientTitleBar,
-                                                                       Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                          Visibility="{TemplateBinding IsShowClientTitleBar,Converter={toolConverters:BooleanToVisibilityConverter}}"
                                           Background="{TemplateBinding ClientTitleBarBackground}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />

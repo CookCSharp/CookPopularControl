@@ -9,7 +9,7 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-    <!--<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <ScrollBar Width="50" Height="100" Value="0" Minimum="0" Maximum="100"
                        Background="#F0F0F0" Orientation="Vertical" Foreground="Red"
@@ -101,7 +101,7 @@
                 </StackPanel>
             </ScrollViewer>
         </WrapPanel>
-    </StackPanel>-->
+    </StackPanel>
 
     <!--<pc:SmoothScrollViewer x:Name="scrollViewer1" Width="300" Height="200" Background="LightGray"
                            CanContentScroll="True" PanningMode="Both" IsDeferredScrollingEnabled="False"
@@ -151,37 +151,5 @@
             <TextBlock Text="999"/>
         </StackPanel>
     </pc:SmoothScrollViewer>-->
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="100" />
-        </Grid.ColumnDefinitions>
-        <ScrollViewer x:Name="scrollViewer2" pc:ScrollViewerAssistant.IsAutoHideScrollBar="False">
-            <Canvas x:Name="canvas"
-                    ClipToBounds="True"
-                    Width="2000" Height="3000"
-                    Background="Green">
-                <Button x:Name="btn1"
-                        Content="Chance1"
-                        Width="100" Height="35"
-                        Foreground="White" />
-                <!--<Button x:Name="btn2" Content="Chance2" Width="100" Height="35" Foreground="White" Canvas.Top="2950"
-                    PreviewMouseMove="btn2_MouseMove" Style="{x:Null}"/>
-                <Button x:Name="btn3" Content="Chance3" Width="100" Height="35" Foreground="White"/>-->
-            </Canvas>
-            <!--<Grid>
-            <TextBlock Text="123" Height="1000"/>
-            <Button Content="Chance" Width="100" Height="35"  Foreground="White"/>
-        </Grid>-->
-        </ScrollViewer>
-        <Button x:Name="btn4" Grid.Column="1"
-                PreviewMouseMove="btn2_MouseMove"
-                Style="{x:Null}"
-                Content="Chance4"
-                Width="100" Height="35"
-                Foreground="Red" />
-    </Grid>
-
 
 </UserControl>

@@ -4,11 +4,6 @@
         <name>CookPopularControl</name>
     </assembly>
     <members>
-        <member name="M:CookPopularControl.Backcolors.ThemeProvider.#ctor">
-            <summary>
-            Creates a new swatch provider based on standard Material Design colors.
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Communal.Attached.ButtonBaseAttached">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.ButtonBase"/>的附加属性
@@ -418,6 +413,16 @@
         <member name="F:CookPopularControl.Communal.Data.Enum.SelectorItemType.Icon">
             <summary>
             包含IconGeometry
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.BadgeDirection">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.Badge"/>位置
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Communal.Data.EditorType">
+            <summary>
+            可编辑标签元素的类型
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Data.EmptyHeaderSizingHint">
@@ -2261,6 +2266,16 @@
             表示<see cref="P:CookPopularControl.Controls.Groups.TagEditing.Header"/>的依赖属性
             </summary>
         </member>
+        <member name="P:CookPopularControl.Controls.Groups.TagEditing.EditorType">
+            <summary>
+            可编辑标签元素的类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Groups.TagEditing.EditorTypeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Groups.TagEditing.EditorType"/>的依赖属性
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Controls.Groups.TagEditing.Content">
             <summary>
             标签内容
@@ -2576,6 +2591,36 @@
         <member name="F:CookPopularControl.Controls.Alertor.StateChangedEvent">
             <summary>
             <see cref="F:CookPopularControl.Controls.Alertor.StateChangedEvent"/>标识警报器状态变化时的事件
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Badge">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Badge.Element">
+            <summary>
+            表示<see cref="T:CookPopularControl.Controls.Badge"/>的元素
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Badge.ElementProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Badge.Element"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Badge.DirectionProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Badge.Direction"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Badge.BadgeMarginProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Badge.BadgeMargin"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Badge.IsShowBadgeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Badge.IsShowBadge"/>的依赖属性
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.Layout.GetLoadedInstances">
@@ -3061,6 +3106,11 @@
             流畅的滚动轮
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.ScrollControls.SmoothScrollViewer.VerticalOffsetProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ScrollControls.SmoothScrollViewer.VerticalOffset"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Slider.SliderAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Slider"/>的附加属性基类
@@ -3544,6 +3594,26 @@
         <member name="F:CookPopularControl.Controls.NormalWindow.IsNonClientActiveProperty">
             <summary>
             标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsNonClientActive"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NormalWindow.IconWidth">
+            <summary>
+            窗体图标宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.NormalWindow.IconWidthProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.NormalWindow.IconWidth"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NormalWindow.IconHeight">
+            <summary>
+            窗体图标高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.NormalWindow.IconHeightProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.NormalWindow.IconHeight"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.SideBarWindow">

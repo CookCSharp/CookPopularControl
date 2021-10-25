@@ -4,6 +4,7 @@
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
+                    xmlns:scroller="clr-namespace:CookPopularControl.Controls.ScrollControls"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
@@ -22,10 +23,10 @@
                             <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                            ContentTemplate="{TemplateBinding ContentTemplate}"
                                            Focusable="False"
-                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                            Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(ripple:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
                                            Background="Transparent"
                                            Padding="{TemplateBinding Padding}"
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <ContentPresenter x:Name="ItemContent" Grid.Column="0"
@@ -36,7 +37,8 @@
                             <Grid x:Name="ItemGrid" Grid.Column="0"
                                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.ItemControlWidth)}"
                                   Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.ItemControlHeight)}"
-                                  Margin="0,0,8,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                  Margin="0,0,8,0"
+                                  HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <CheckBox x:Name="ItemCheckBox"
                                           Focusable="True"
                                           IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected, Mode=TwoWay}"
@@ -51,16 +53,16 @@
                                         attached:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.IsButtonDeleteItem)}"
                                         Focusable="True" ToolTip="Delete"
                                         Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.SelectorItemType), Converter={commonConverters:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Button}"
-                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.ButtonContent)}"
                                         Width="{Binding ElementName=ItemGrid, Path=Width}"
-                                        Height="{Binding ElementName=ItemGrid, Path=Height}" />
+                                        Height="{Binding ElementName=ItemGrid, Path=Height}"
+                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.ButtonContent)}" />
                                 <Path x:Name="ItemIcon"
-                                      Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GeometryData}"
-                                      Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.IconFill)}"
                                       Stretch="Uniform"
                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.SelectorItemType), Converter={commonConverters:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Icon}"
                                       Width="{Binding ElementName=ItemGrid, Path=Width}"
-                                      Height="{Binding ElementName=ItemGrid, Path=Height}" />
+                                      Height="{Binding ElementName=ItemGrid, Path=Height}"
+                                      Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GeometryData}"
+                                      Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.IconFill)}" />
                                 <Image x:Name="ItemImageGif"
                                        attached:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(attached:SelectorAttached.IsPreviewImage)}"
                                        gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GifSource}"
@@ -151,10 +153,11 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}">
-                        <ScrollViewer Focusable="False"
+                        <ScrollViewer Focusable="False" Background="Transparent"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
-                                      Background="Transparent">
+                                      scroller:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding scroller:ScrollBarAssistant.VerticalScrollBarWidth}"
+                                      scroller:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding scroller:ScrollBarAssistant.HorizontalScrollBarHeight}">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>

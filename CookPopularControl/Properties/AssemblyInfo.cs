@@ -13,7 +13,7 @@ using System.Windows.Markup;
 
 [assembly: ComVisible(true)]
 [assembly: CLSCompliant(true)]
-//[assembly: InternalsVisibleTo(assemblyName:)]
+//[assembly: InternalsVisibleTo("CookPopularControl,PublicKey=" + "")]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID。
 

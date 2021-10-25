@@ -184,7 +184,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.Height = Height;
             border.SetBinding(VerticalAlignmentProperty, new Binding(VerticalContentAlignmentProperty.Name) { Source = this });
             border.SetBinding(HorizontalAlignmentProperty, new Binding(HorizontalContentAlignmentProperty.Name) { Source = this });
-            //border.Effect = Application.Current.Resources["CustomShadowDepth2"] as DropShadowEffect;
+            //border.Effect = Application.Current.Resources["ShadowEffectDepth2"] as DropShadowEffect;
 
             return border;
         }

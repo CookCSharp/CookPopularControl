@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:toolbar="clr-namespace:CookPopularControl.Controls.ToolBar">
+                    xmlns:toolbar="clr-namespace:CookPopularControl.Controls.ToolBar"
+                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CheckBoxStyle.xaml" />
@@ -156,7 +157,7 @@
                                           FocusVisualStyle="{x:Null}"
                                           IsChecked="{Binding IsOverflowOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                           Style="{StaticResource ToolBarHorizontalOverflowToggleButtonStyle}"
-                                          Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                          Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={toolsConverters:BooleanToVisibilityConverter}}"
                                           Foreground="{TemplateBinding Foreground}" />
                             <Popup x:Name="OverflowPopup"
                                    AllowsTransparency="true" Focusable="false"
@@ -167,7 +168,7 @@
                                    Margin="1">
                                 <Border x:Name="ToolBarSubMenuBorder"
                                         CornerRadius="2"
-                                        Effect="{DynamicResource CustomShadowDepth1}"
+                                        Effect="{DynamicResource ShadowEffectDepth1}"
                                         RenderOptions.ClearTypeHint="Enabled" TextBlock.FontWeight="ExtraBold"
                                         Background="{TemplateBinding Background}"
                                         Margin="1">

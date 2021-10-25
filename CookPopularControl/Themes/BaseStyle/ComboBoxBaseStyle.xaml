@@ -96,7 +96,7 @@
     <!--  SimpleComboBox  -->
     <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="Background" Value="{DynamicResource DefaultBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />

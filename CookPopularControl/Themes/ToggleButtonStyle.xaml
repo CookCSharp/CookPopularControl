@@ -18,8 +18,8 @@
 
     <Style x:Key="ToggleButtonIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{StaticResource Double26Value}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{StaticResource Double26Value}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double26Value}" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double26Value}" />
     </Style>
 
     <Style x:Key="ToggleButtonTransparentIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonIconStyle}">
@@ -61,27 +61,28 @@
                             <Border x:Name="RootBorder"
                                     CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                     Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}">
+                                    Background="{TemplateBinding Background}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                                 <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Path x:Name="PART_Icon"
-                                          Data="{TemplateBinding assistant:ToggleButtonAssistant.UnCheckedGeometry}"
                                           DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                          Fill="{TemplateBinding Foreground}"
-                                          RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" Stretch="Uniform"
+                                          RenderTransformOrigin="0.5,0.5" Stretch="Uniform"
                                           Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                           Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                          Data="{TemplateBinding assistant:ToggleButtonAssistant.UnCheckedGeometry}"
+                                          Fill="{TemplateBinding Foreground}"
+                                          SnapsToDevicePixels="True"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                         <Path.RenderTransform>
                                             <RotateTransform x:Name="RotateAngle" Angle="0" />
                                         </Path.RenderTransform>
                                     </Path>
-                                    <ContentPresenter RecognizesAccessKey="True"
-                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    <ContentPresenter x:Name="PART_Content" RecognizesAccessKey="True"
                                                       Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                 </DockPanel>
@@ -90,14 +91,13 @@
                         <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                        ContentTemplate="{TemplateBinding ContentTemplate}"
                                        Focusable="False"
-                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,
-                                                                    Converter={toolsConverters:BooleanToVisibilityConverter}}"
+                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}"
                                        Padding="{TemplateBinding Padding}"
+                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ripple:Ripple.Clip>
-                                <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                                <MultiBinding Converter="{commonConverters:BorderClipConverter}">
                                     <Binding ElementName="border" Path="ActualWidth" />
                                     <Binding ElementName="border" Path="ActualHeight" />
                                     <Binding ElementName="border" Path="CornerRadius" />
@@ -109,6 +109,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="PART_Icon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ToggleButtonAssistant.OnCheckedGeometry)}" />
+                            <Setter TargetName="PART_Content" Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ToggleButtonAssistant.OnCheckedElement)}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -222,10 +223,11 @@
                     <Viewbox>
                         <simpleGrid:SimpleGrid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
                             <Border Name="UnCheckedElement"
-                                    RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true"
+                                    RenderTransformOrigin="0.5,0.5"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}">
+                                    Background="{TemplateBinding Background}"
+                                    SnapsToDevicePixels="true">
                                 <Border.Clip>
                                     <MultiBinding Converter="{commonConverters:ClipCircularConverter}">
                                         <Binding ElementName="UnCheckedElement" Path="ActualWidth" />
@@ -240,16 +242,17 @@
                                     </TransformGroup>
                                 </Border.RenderTransform>
                                 <ContentPresenter RecognizesAccessKey="True"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                   Margin="{TemplateBinding Padding}"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </Border>
                             <Border Name="CheckedElement"
-                                    RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true"
+                                    RenderTransformOrigin="0.5,0.5"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}">
+                                    Background="{TemplateBinding Background}"
+                                    SnapsToDevicePixels="true">
                                 <Border.Clip>
                                     <MultiBinding Converter="{commonConverters:ClipCircularConverter}">
                                         <Binding ElementName="CheckedElement" Path="ActualWidth" />
@@ -264,9 +267,9 @@
                                     </TransformGroup>
                                 </Border.RenderTransform>
                                 <ContentPresenter RecognizesAccessKey="True"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                   Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assistant:ToggleButtonAssistant.OnCheckedElement)}"
                                                   Margin="{TemplateBinding Padding}"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </Border>

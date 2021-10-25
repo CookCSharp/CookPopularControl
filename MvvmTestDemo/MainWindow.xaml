@@ -61,7 +61,9 @@
                      SelectedIndex="{Binding DemoViewsSelectedIndex, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
                      SelectionMode="Single"
                      Width="0"
-                     FontSize="14" FontWeight="Normal">
+                     FontSize="14" FontWeight="Normal"
+                     pc:ScrollBarAssistant.VerticalScrollBarWidth="8"
+                     pc:ScrollBarAssistant.HorizontalScrollBarHeight="8">
                 <behavior:Interaction.Triggers>
                     <behavior:EventTrigger EventName="SelectionChanged">
                         <behavior:InvokeCommandAction Command="{Binding DemoViewsSelectedCommand}" />

@@ -16,19 +16,20 @@
         "xmlns:*",
         "x:Key, Key, x:Name, Name, x:Uid, Uid, TargetType, BasedOn",
         "mc:Ignorable, d:IsDataSource, d:LayoutOverrides, d:IsStaticText",
-        "*:*, *",   
         "Title",     
         "Grid.Row, Grid.RowSpan, Grid.Column, Grid.ColumnSpan, Canvas.Left, Canvas.Top, Canvas.Right, Canvas.Bottom",
-        "Text,Content", 
-        "Width, Height, MinWidth, MinHeight, MaxWidth, MaxHeight",  
+        "Width, Height, MinWidth, MinHeight, MaxWidth, MaxHeight", 
+        "Text, Content, Header, Data, ContextMenu",  
         "BorderBrush, BorderThickness",    
-        "Foreground, Background",
+        "Foreground, Background, Fill",
         "FontSize, FontFamliy, FontWeight",
         "ResizeBehavior, ResizeDirection",
         "PageSource, PageIndex, Offset, Color, TargetName, Property, Value, StartPoint, EndPoint", 
-        "Margin, Padding, HorizontalAlignment, VerticalAlignment, HorizontalContentAlignment, VerticalContentAlignment, Panel.ZIndex",     
+        "Margin, Padding, Opacity, SnapsToDevicePixels",
+        "HorizontalAlignment, VerticalAlignment, HorizontalContentAlignment, VerticalContentAlignment, Panel.ZIndex",     
         "Storyboard.*,",
-        "From, To, Duration, RepeatBehavior"
+        "From, To, Duration, RepeatBehavior",
+        "*:*, *" 
     ],
     "FirstLineAttributes": "x:Name,Grid.Row,Grid.Column",  //应该在第一行的属性，例如Name x:Name 和x:Uid等等,None【默认】
     "OrderAttributesByName": true, //是否按照属性名称进行排序

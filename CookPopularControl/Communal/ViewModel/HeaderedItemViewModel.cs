@@ -19,7 +19,7 @@ namespace CookPopularControl.Communal.ViewModel
     /// <summary>
     /// Helper class to create view models, particularly for tool/MDI windows.
     /// </summary>
-    public class HeaderedItemViewModel : INotifyPropertyChanged
+    internal class HeaderedItemViewModel : INotifyPropertyChanged
     {
         private bool _isSelected;
         private object _header;

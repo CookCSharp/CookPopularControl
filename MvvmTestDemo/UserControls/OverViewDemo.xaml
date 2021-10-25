@@ -93,7 +93,7 @@
                     <RadioButton Content="RadioButton"
                                  Width="150" Height="34"
                                  FontSize="16" />
-                    <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource DefaultBackgroundBrush}"
+                    <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
                               pc:CheckBoxAssistant.FillSize="25" pc:CheckBoxAssistant.FillThickness="1" pc:CheckBoxAssistant.FillType="Check"
                               ToolTip="CheckCheckBox"
                               Content="CheckCheckBox"

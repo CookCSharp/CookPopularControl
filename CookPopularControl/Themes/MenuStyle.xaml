@@ -11,25 +11,45 @@
     <ContextMenu x:Key="DefaultContextMenu">
         <MenuItem Command="Cut">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource CutGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
+                <Path Stretch="Uniform" Data="{DynamicResource CutGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
             </MenuItem.Icon>
         </MenuItem>
         <MenuItem Command="Copy">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource CopyGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
+                <Path Stretch="Uniform" Data="{DynamicResource CopyGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
             </MenuItem.Icon>
         </MenuItem>
         <MenuItem Command="Paste">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource PasteGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
+                <Path Stretch="Uniform" Data="{DynamicResource PasteGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
             </MenuItem.Icon>
         </MenuItem>
         <MenuItem Command="SelectAll">
             <MenuItem.Icon>
-                <Path Data="{DynamicResource SelectAllGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
+                <Path Stretch="Uniform" Data="{DynamicResource SelectAllGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
             </MenuItem.Icon>
         </MenuItem>
     </ContextMenu>
+
+    <!--Menu元素内的Separator控件外观与Menu外的Separator控件不一样,
+    当创建带Separator的Menu时，该控件会自动应用由SeparatorStyleKey属性标识的 Style-->
+    <Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}">
+        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="MinHeight" Value="1" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="Height" Value="2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Separator}">
+                    <Rectangle Width="{TemplateBinding Width}"
+                               Height="{TemplateBinding Height}"
+                               Fill="{TemplateBinding Background}"
+                               HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="DefaultSeparatorStyle" TargetType="{x:Type Separator}">
         <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
@@ -40,9 +60,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
-                    <Rectangle Fill="{TemplateBinding Background}"
-                               Width="{TemplateBinding Width}"
+                    <Rectangle Width="{TemplateBinding Width}"
                                Height="{TemplateBinding Height}"
+                               Fill="{TemplateBinding Background}"
                                HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                 </ControlTemplate>
             </Setter.Value>
@@ -58,9 +78,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
-                    <Rectangle Fill="{TemplateBinding Background}"
-                               Width="{TemplateBinding Width}"
+                    <Rectangle Width="{TemplateBinding Width}"
                                Height="{TemplateBinding Height}"
+                               Fill="{TemplateBinding Background}"
                                HorizontalAlignment="Center" VerticalAlignment="Stretch" />
                 </ControlTemplate>
             </Setter.Value>
@@ -75,17 +95,20 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Separator}" BasedOn="{StaticResource {x:Static MenuItem.SeparatorStyleKey}}"/>
+                    </ControlTemplate.Resources>
                     <Grid ClipToBounds="True">
                         <Border x:Name="TemplateRoot"
-                                SnapsToDevicePixels="True"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" />
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True" />
                         <Border x:Name="BackgroundRoot"
-                                Opacity="0" SnapsToDevicePixels="True"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" />
+                                Background="{TemplateBinding Background}"
+                                Opacity="0" SnapsToDevicePixels="True" />
                         <ripple:Ripple Feedback="{TemplateBinding ripple:RippleAssist.Feedback}"
                                        Focusable="False"
                                        Background="Transparent"
@@ -100,9 +123,9 @@
                                     <Grid x:Name="IconWrapper" Visibility="Visible" Margin="10,0">
                                         <ContentPresenter x:Name="Icon"
                                                           ContentSource="Icon"
-                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                          Content="{TemplateBinding Icon}"
                                                           Width="16" Height="16"
+                                                          Content="{TemplateBinding Icon}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           HorizontalAlignment="Left" VerticalAlignment="Center" />
                                     </Grid>
                                     <Grid x:Name="GlyphWrapper" Visibility="Collapsed" Margin="10,0">
@@ -112,9 +135,9 @@
                                                  HorizontalAlignment="Left" VerticalAlignment="Center">
                                             <Grid Width="24" Height="24">
                                                 <Path x:Name="Glyph"
+                                                      Stretch="Uniform"
                                                       Data="{DynamicResource CheckGeometry}"
-                                                      Fill="{TemplateBinding Foreground}"
-                                                      Stretch="Uniform" />
+                                                      Fill="{TemplateBinding Foreground}" />
                                             </Grid>
                                         </Viewbox>
                                     </Grid>
@@ -123,38 +146,39 @@
                                                           ContentSource="Header"
                                                           ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                                          RecognizesAccessKey="True"
-                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                          TextBlock.FontWeight="Bold"
+                                                          RecognizesAccessKey="True" TextBlock.FontWeight="Bold"
                                                           TextElement.Foreground="{TemplateBinding Foreground}"
                                                           Visibility="Hidden"
                                                           Content="{TemplateBinding Header}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           VerticalAlignment="Center" />
                                         <ContentPresenter x:Name="HeaderPresenter"
                                                           ContentSource="Header"
                                                           ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                           RecognizesAccessKey="True"
-                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           TextElement.Foreground="{TemplateBinding Foreground}"
                                                           Content="{TemplateBinding Header}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           VerticalAlignment="Center" />
                                     </Grid>
                                     <Grid x:Name="InputGestureTextWrapper" Visibility="Collapsed" Grid.Column="2">
-                                        <TextBlock SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                   Visibility="{TemplateBinding InputGestureText,
+                                        <TextBlock Visibility="{TemplateBinding InputGestureText,
                                                                                 Converter={toolConverters:StringToVisibilityConverter}}"
                                                    Text="{TemplateBinding InputGestureText}"
                                                    Foreground="{TemplateBinding Foreground}"
-                                                   Margin="16,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                                   Margin="16,0,0,0"
+                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
                                     </Grid>
                                     <Grid x:Name="SubBlock" Grid.Column="2"
                                           Visibility="Collapsed"
                                           Margin="16,0,0,0">
-                                        <Path Data="M0,16 L8,8 L0,0 Z"
-                                              Fill="{TemplateBinding Foreground}"
-                                              SnapsToDevicePixels="False" Stretch="Uniform"
+                                        <Path Stretch="Uniform"
                                               Width="5" Height="10"
+                                              Data="M0,16 L8,8 L0,0 Z"
+                                              Fill="{TemplateBinding Foreground}"
+                                              SnapsToDevicePixels="False"
                                               HorizontalAlignment="Right" VerticalAlignment="Center" />
                                     </Grid>
                                 </Grid>
@@ -168,7 +192,7 @@
                                Placement="Bottom" PopupAnimation="Slide" VerticalOffset="0">
                             <Border x:Name="SubMenuBorder"
                                     CornerRadius="2"
-                                    Effect="{DynamicResource CustomShadowDepth1}"
+                                    Effect="{DynamicResource ShadowEffectDepth1}"
                                     Background="{Binding Path=Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=MenuBase}}">
                                 <Border Background="Transparent">
                                     <ScrollViewer x:Name="SubMenuScrollViewer" Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
@@ -176,9 +200,9 @@
                                             <Canvas Width="0" Height="0"
                                                     HorizontalAlignment="Left" VerticalAlignment="Top">
                                                 <Rectangle x:Name="OpaqueRect"
-                                                           Fill="{Binding Background, ElementName=SubMenuBorder}"
                                                            Width="{Binding ActualWidth, ElementName=SubMenuBorder}"
-                                                           Height="{Binding ActualHeight, ElementName=SubMenuBorder}" />
+                                                           Height="{Binding ActualHeight, ElementName=SubMenuBorder}"
+                                                           Fill="{Binding Background, ElementName=SubMenuBorder}" />
                                             </Canvas>
                                             <ItemsPresenter x:Name="ItemsPresenter"
                                                             Grid.IsSharedSizeScope="True" KeyboardNavigation.DirectionalNavigation="Cycle" KeyboardNavigation.TabNavigation="Cycle"
@@ -204,13 +228,13 @@
                         <Trigger Property="Role" Value="TopLevelHeader">
                             <Setter Property="Grid.IsSharedSizeScope" Value="True" />
                             <Setter Property="Padding" Value="16,0" />
-                            <Setter Property="Height" Value="48" />
+                            <!--<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Menu}},Path=ActualHeight}" />-->
                             <Setter TargetName="TemplateRoot" Property="CornerRadius" Value="2" />
                             <Setter TargetName="BackgroundRoot" Property="CornerRadius" Value="2" />
                         </Trigger>
                         <Trigger Property="Role" Value="TopLevelItem">
                             <Setter Property="Padding" Value="16,0" />
-                            <Setter Property="Height" Value="48" />
+                            <!--<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Menu}},Path=ActualHeight}" />-->
                             <Setter TargetName="TemplateRoot" Property="CornerRadius" Value="2" />
                             <Setter TargetName="BackgroundRoot" Property="CornerRadius" Value="2" />
                         </Trigger>
@@ -247,7 +271,7 @@
                             <Setter TargetName="BackgroundRoot" Property="Opacity" Value="0.53" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value=".56" />
+                            <Setter Property="Opacity" Value="0.56" />
                         </Trigger>
                         <Trigger SourceName="SubMenuScrollViewer" Property="CanContentScroll" Value="False">
                             <Setter TargetName="OpaqueRect" Property="Canvas.Top" Value="{Binding VerticalOffset, ElementName=SubMenuScrollViewer}" />
@@ -264,16 +288,17 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultMenuItemStyle}" />
+        <Setter Property="Height" Value="{DynamicResource Double30Value}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuBase}">
                     <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                         <Border x:Name="Border"
-                                SnapsToDevicePixels="True"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
-                                Padding="{TemplateBinding Padding}">
+                                Padding="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="True">
                             <StackPanel ClipToBounds="True" IsItemsHost="True" Orientation="Horizontal"
                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
@@ -293,7 +318,7 @@
                     <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                         <Grid>
                             <Border CornerRadius="2"
-                                    Effect="{DynamicResource CustomShadowDepth1}"
+                                    Effect="{DynamicResource ShadowEffectDepth1}"
                                     Background="{TemplateBinding Background}"
                                     Margin="5" />
                             <Border Background="Transparent" Margin="5">
@@ -374,8 +399,9 @@
                                                 IsItemRotate="{TemplateBinding IsItemRotate}"
                                                 IsItemsHost="True"
                                                 Radius="{TemplateBinding Radius}"
-                                                RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True"
-                                                Margin="{TemplateBinding Padding}">
+                                                RenderTransformOrigin="0.5,0.5"
+                                                Margin="{TemplateBinding Padding}"
+                                                SnapsToDevicePixels="True">
                                     <panel:ArcPanel.RenderTransform>
                                         <TransformGroup>
                                             <RotateTransform x:Name="Rotate" Angle="180" />
@@ -439,8 +465,9 @@
                                          PopupAnimation="{TemplateBinding PopupAnimation}"
                                          StaysOpen="False">
                             <Border Effect="{DynamicResource NotifyMessageShadowEffect}" Margin="5">
-                                <StackPanel Focusable="True" IsItemsHost="True" SnapsToDevicePixels="True"
-                                            Margin="{TemplateBinding Padding}" />
+                                <StackPanel Focusable="True" IsItemsHost="True"
+                                            Margin="{TemplateBinding Padding}"
+                                            SnapsToDevicePixels="True" />
                             </Border>
                         </pop:ExtendPopup>
                     </panel:SimpleGrid>

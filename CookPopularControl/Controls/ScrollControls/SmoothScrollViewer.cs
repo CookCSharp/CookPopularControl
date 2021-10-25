@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CookPopularControl.Tools.Boxes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -23,6 +25,18 @@ namespace CookPopularControl.Controls.ScrollControls
     /// </summary>
     public class SmoothScrollViewer : ScrollViewer
     {
+        public new double VerticalOffset
+        {
+            get { return (double)GetValue(VerticalOffsetProperty); }
+            set { SetValue(VerticalOffsetProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="VerticalOffset"/>的依赖属性
+        /// </summary>
+        public static new readonly DependencyProperty VerticalOffsetProperty =
+            DependencyProperty.Register("VerticalOffset", typeof(double), typeof(SmoothScrollViewer), new UIPropertyMetadata(ValueBoxes.Double0Box, OnVerticalOffsetChanged));
+        private static void OnVerticalOffsetChanged(DependencyObject target, DependencyPropertyChangedEventArgs e) => (target as SmoothScrollViewer)?.ScrollToVerticalOffset((double)e.NewValue);
+
         //对于图像的绘制，可以通过降低其渲染度(可能会损坏图片质量 特别是低清小图 ),对你的图片对象
         //RenderOptions.SetBitmapScalingMode(控件对象,BitmapScalingMode.LowQuality);
 
@@ -48,7 +62,7 @@ namespace CookPopularControl.Controls.ScrollControls
 
         private void ScrollAnimation(double offset)
         {
-            BeginAnimation(ScrollViewerAssistant.VerticalOffsetProperty, null, HandoffBehavior.SnapshotAndReplace);
+            BeginAnimation(VerticalOffsetProperty, null, HandoffBehavior.SnapshotAndReplace);
             DoubleAnimation Animation = new DoubleAnimation();
             Animation.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
             Animation.From = VerticalOffset;
@@ -56,7 +70,7 @@ namespace CookPopularControl.Controls.ScrollControls
             Animation.Duration = TimeSpan.FromMilliseconds(500);
             //考虑到性能，可以降低动画帧数
             //Timeline.SetDesiredFrameRate(Animation, 40);
-            BeginAnimation(ScrollViewerAssistant.VerticalOffsetProperty, Animation);
+            BeginAnimation(VerticalOffsetProperty, Animation);
         }
     }
 }

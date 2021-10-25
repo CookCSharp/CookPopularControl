@@ -139,6 +139,6 @@ namespace CookPopularControl.Communal.Attached
                 window.Hide();
                 e.Cancel = true;
             }
-        }
+        }       
     }
 }

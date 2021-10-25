@@ -45,6 +45,17 @@ namespace CookPopularControl.Controls.ScrollControls
             DependencyProperty.RegisterAttached("ThumbInsideMargin", typeof(Thickness), typeof(ScrollBarAssistant), new PropertyMetadata(default(Thickness)));
 
 
+        public static double GetVerticalScrollBarWidth(DependencyObject obj) => (double)obj.GetValue(VerticalScrollBarWidthProperty);
+        public static void SetVerticalScrollBarWidth(DependencyObject obj, double value) => obj.SetValue(VerticalScrollBarWidthProperty, value);
+        public static readonly DependencyProperty VerticalScrollBarWidthProperty =
+            DependencyProperty.RegisterAttached("VerticalScrollBarWidth", typeof(double), typeof(ScrollBarAssistant), new PropertyMetadata(ValueBoxes.Double0Box));
+
+
+        public static double GetHorizontalScrollBarHeight(DependencyObject obj) => (double)obj.GetValue(HorizontalScrollBarHeightProperty);
+        public static void SetHorizontalScrollBarHeight(DependencyObject obj, double value) => obj.SetValue(HorizontalScrollBarHeightProperty, value);
+        public static readonly DependencyProperty HorizontalScrollBarHeightProperty =
+            DependencyProperty.RegisterAttached("HorizontalScrollBarHeight", typeof(double), typeof(ScrollBarAssistant), new PropertyMetadata(ValueBoxes.Double0Box));
+
 
         public static bool GetIsExecuteCommand(DependencyObject obj) => (bool)obj.GetValue(IsExecuteCommandProperty);
         public static void SetIsExecuteCommand(DependencyObject obj, bool value) => obj.SetValue(IsExecuteCommandProperty, value);

@@ -82,7 +82,7 @@
                                     <AdornerDecorator.CacheMode>
                                         <BitmapCache SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                     </AdornerDecorator.CacheMode>
-                                    <Grid Effect="{DynamicResource CustomShadowDepth1}">
+                                    <Grid Effect="{DynamicResource ShadowEffectDepth1}">
                                         <Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}"
                                                    RadiusX="2" RadiusY="2"
                                                    Margin="0,0,0,8" />
@@ -119,7 +119,7 @@
                                     <AdornerDecorator.CacheMode>
                                         <BitmapCache SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                     </AdornerDecorator.CacheMode>
-                                    <Grid Effect="{DynamicResource CustomShadowDepth1}">
+                                    <Grid Effect="{DynamicResource ShadowEffectDepth1}">
                                         <Rectangle Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=Foreground}"
                                                    RadiusX="2" RadiusY="2"
                                                    Margin="0,0,8,0" />

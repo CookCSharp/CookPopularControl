@@ -26,12 +26,11 @@
                         <StackPanel Orientation="Horizontal">
                             <Border x:Name="HeaderBorder"
                                     Style="{DynamicResource BorderCircularClipStyle}"
-                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                    Background="{DynamicResource PrimaryThemeBrush}">
+                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
                                 <ContentPresenter ContentStringFormat="{TemplateBinding assistant:LabelAssistant.HeaderStringFormat}"
                                                   ContentTemplate="{TemplateBinding assistant:LabelAssistant.HeaderTemplate}"
                                                   ContentTemplateSelector="{TemplateBinding assistant:LabelAssistant.HeaderTemplateSelector}"
-                                                  TextElement.Foreground="{DynamicResource AssistantForegroundBrush}"
+                                                  TextElement.Foreground="{TemplateBinding Foreground}"
                                                   Content="{TemplateBinding assistant:LabelAssistant.Header}"
                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
@@ -49,7 +48,7 @@
                             <Setter TargetName="HeaderBorder" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_Root"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

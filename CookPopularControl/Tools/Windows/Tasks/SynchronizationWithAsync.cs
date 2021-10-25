@@ -23,14 +23,14 @@ namespace CookPopularControl.Tools.Windows.Tasks
     /// <remarks><see cref="Dispatcher"/>与<see cref="SynchronizationContext"/></remarks>
     public sealed class SynchronizationWithAsync
     {
-        public static void AppBeginInvoke(Action action)
+        public static void AppInvokeAsync(Action action)
         {
-            Application.Current.Dispatcher.BeginInvoke(action);
+            Application.Current.Dispatcher.InvokeAsync(action, DispatcherPriority.Normal);
         }
 
         public static void AppInvoke(Action action)
         {
-            Application.Current.Dispatcher.Invoke(action);
+            Application.Current.Dispatcher.Invoke(action, DispatcherPriority.Normal);
         }
 
         public static void AppSyncPost(SendOrPostCallback action, SynchronizationContext synchronizationContext, object state = null)

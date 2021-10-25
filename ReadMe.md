@@ -22,7 +22,7 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DefaultPopularControl.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Backcolors/DefaultPopularColor.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Colors/DefaultPopularColor.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

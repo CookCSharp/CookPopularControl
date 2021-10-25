@@ -2,16 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
-    <Color x:Key="CustomShadowColor">#88000000</Color>
-    <SolidColorBrush x:Key="CustomShadowBrush" po:Freeze="True" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="CustomShadowDepth1" po:Freeze="True" BlurRadius="5" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="1" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="CustomShadowDepth2" po:Freeze="True" BlurRadius="8" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="CustomShadowDepth3" po:Freeze="True" BlurRadius="14" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="4.5" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="CustomShadowDepth4" po:Freeze="True" BlurRadius="25" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="8" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="CustomShadowDepth5" po:Freeze="True" BlurRadius="35" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="13" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="ComboxBoxShadow" po:Freeze="True" BlurRadius="10" Direction="270" Opacity="0.15" RenderingBias="Performance" ShadowDepth="2" Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="FieldShadowEffect" po:Freeze="True" BlurRadius="10" Direction="270" Opacity="0.4" RenderingBias="Performance" ShadowDepth="-10"  Color="{StaticResource CustomShadowColor}" />
-    <DropShadowEffect x:Key="NotifyMessageShadowEffect" po:Freeze="True" BlurRadius="8" Direction="270" Opacity="0.2" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource CustomShadowColor}" />
+    <Color x:Key="ShadowEffectColor">#88000000</Color>
+    <SolidColorBrush x:Key="ShadowEffectBrush" po:Freeze="True" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ShadowEffectDepth0" po:Freeze="True" BlurRadius="5" Direction="270" Opacity="0.22" RenderingBias="Performance" ShadowDepth="0" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ShadowEffectDepth1" po:Freeze="True" BlurRadius="5" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="1" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ShadowEffectDepth2" po:Freeze="True" BlurRadius="8" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ShadowEffectDepth3" po:Freeze="True" BlurRadius="14" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="4.5" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ShadowEffectDepth4" po:Freeze="True" BlurRadius="25" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="8" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ShadowEffectDepth5" po:Freeze="True" BlurRadius="35" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="13" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="ComboxBoxShadow" po:Freeze="True" BlurRadius="10" Direction="270" Opacity="0.15" RenderingBias="Performance" ShadowDepth="2" Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="FieldShadowEffect" po:Freeze="True" BlurRadius="10" Direction="270" Opacity="0.4" RenderingBias="Performance" ShadowDepth="-10"  Color="{StaticResource ShadowEffectColor}" />
+    <DropShadowEffect x:Key="NotifyMessageShadowEffect" po:Freeze="True" BlurRadius="8" Direction="270" Opacity="0.2" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource ShadowEffectColor}" />
 
     <BitmapCache x:Key="DefaultBitmapCache" EnableClearType="True" RenderAtScale="1" SnapsToDevicePixels="True" />
 

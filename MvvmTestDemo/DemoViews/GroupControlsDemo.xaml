@@ -15,15 +15,15 @@
                    FontSize="20" FontWeight="DemiBold"
                    Margin="0,8" />
         <WrapPanel>
-            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
-                              Width="200" Height="35" />
-            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
-                              Style="{StaticResource SearchControlAddClearButtonStyle}"
-                              Width="200" Height="35"
-                              Margin="20,0" />
-            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
-                              Style="{StaticResource SearchControlAddClearButtonStyle}"
-                              Width="200" Height="35">
+            <pc:SearchControl Width="200" Height="35"
+                              ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch" />
+            <pc:SearchControl Width="200" Height="35"
+                              Margin="20,0"
+                              ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
+                              Style="{StaticResource SearchControlAddClearButtonStyle}" />
+            <pc:SearchControl Width="200" Height="35"
+                              ContentChanged="SearchControl_ContentChanged" StartSearch="SearchControl_StartSearch"
+                              Style="{StaticResource SearchControlAddClearButtonStyle}">
                 <pc:SearchControl.Content>
                     <Binding Mode="TwoWay" Path="SearchContent" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -32,20 +32,28 @@
                     </Binding>
                 </pc:SearchControl.Content>
             </pc:SearchControl>
-            <pc:SearchControl ContentChanged="SearchControl_ContentChanged" IsEnabled="False" StartSearch="SearchControl_StartSearch"
-                              Width="200" Height="35"
-                              Margin="0,20" />
+            <pc:SearchControl Width="200" Height="35"
+                              Margin="0,20"
+                              ContentChanged="SearchControl_ContentChanged" IsEnabled="False" StartSearch="SearchControl_StartSearch" />
         </WrapPanel>
 
         <TextBlock Text="TagEditing:"
                    FontSize="20" FontWeight="DemiBold"
                    Margin="0,8" />
         <WrapPanel>
-            <pc:TagEditing Header="Chance:" Style="{StaticResource DefaultTagEditingStyle}" Content="写代码的厨子" />
-            <pc:TagEditing pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0" pc:FrameworkElementBaseAttached.IconWidth="15"
-                           Header="Chance:"
-                           Style="{StaticResource TagEditingAddClearButtonStyle}"
-                           Content="写代码的厨子" />
+            <pc:TagEditing Content="写代码的厨子" Header="Chance:" Style="{StaticResource DefaultTagEditingStyle}" />
+            <pc:TagEditing Content="写代码的厨子" Header="Chance:" Margin="10,0"
+                           pc:FrameworkElementBaseAttached.IconHeight="15" 
+                           pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0" 
+                           pc:FrameworkElementBaseAttached.IconWidth="15"
+                           Style="{StaticResource TagEditingAddClearButtonStyle}" />
+            <pc:TagEditing Content="写代码的厨子" Header="Chance:" Margin="10,0"
+                           EditorType="NumericUpDown" Width="400" Background="Red"
+                           HorizontalContentAlignment="Left" Padding="10,0,0,0"
+                           pc:FrameworkElementBaseAttached.IconHeight="15" 
+                           pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0" 
+                           pc:FrameworkElementBaseAttached.IconWidth="15"
+                           Style="{StaticResource TagEditingAddClearButtonStyle}" />
         </WrapPanel>
 
 

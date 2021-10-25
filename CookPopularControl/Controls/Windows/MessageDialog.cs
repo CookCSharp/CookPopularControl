@@ -1,6 +1,7 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
 using CookPopularControl.Tools.Helpers;
+using CookPopularControl.Tools.Interop;
 using CookPopularControl.Tools.Windows.Tasks;
 using System;
 using System.Collections.Generic;
@@ -38,11 +39,12 @@ namespace CookPopularControl.Controls
         private MessageBoxButton currentMessageBoxButton;
         private MessageBoxResult currentMessageBoxResult;
         private Panel currentPanel;
+        private IntPtr _lastActiveWindowIntPtr;
 
-        private static ICommand ConfirmCommand = new RoutedCommand(nameof(ConfirmCommand), typeof(MessageDialog));
-        private static ICommand YesCommand = new RoutedCommand(nameof(YesCommand), typeof(MessageDialog));
-        private static ICommand NoCommand = new RoutedCommand(nameof(NoCommand), typeof(MessageDialog));
-        private static ICommand CancelCommand = new RoutedCommand(nameof(CancelCommand), typeof(MessageDialog));
+        public static ICommand ConfirmCommand = new RoutedCommand(nameof(ConfirmCommand), typeof(MessageDialog));
+        public static ICommand YesCommand = new RoutedCommand(nameof(YesCommand), typeof(MessageDialog));
+        public static ICommand NoCommand = new RoutedCommand(nameof(NoCommand), typeof(MessageDialog));
+        public static ICommand CancelCommand = new RoutedCommand(nameof(CancelCommand), typeof(MessageDialog));
 
         /// <summary>
         /// <see cref="MessageDialog"/>消息内容
@@ -88,34 +90,49 @@ namespace CookPopularControl.Controls
         public static readonly DependencyProperty IsShowImageProperty =
             DependencyProperty.Register("IsShowImage", typeof(bool), typeof(MessageDialog), new PropertyMetadata(ValueBoxes.TrueBox));
 
-        static MessageDialog()
-        {
-            //DefaultStyleKeyProperty.OverrideMetadata(typeof(MessageDialog), new FrameworkPropertyMetadata(typeof(MessageDialog)));
-            //StyleProperty.AddOwner(typeof(MessageDialog), new FrameworkPropertyMetadata(default, (s, e) => ResourceHelper.GetResource<Style>("DefaultMessageDialogStyle")));
-            //CommandManager.RegisterClassCommandBinding(typeof(MessageDialog), new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => (s as Window).Close(), (s, e) => e.CanExecute = true));
-        }
 
         public MessageDialog()
         {
+            CommandBindings.Add(new CommandBinding(ConfirmCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(YesCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(NoCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(CancelCommand, Executed, (s, e) => e.CanExecute = true));
             InputMethod.SetIsInputMethodEnabled(this, false); //屏蔽输入法
-            CommandBindings.Add(new CommandBinding(ConfirmCommand, Executed));
-            CommandBindings.Add(new CommandBinding(YesCommand, Executed));
-            CommandBindings.Add(new CommandBinding(NoCommand, Executed));
-            CommandBindings.Add(new CommandBinding(CancelCommand, Executed));
         }
 
-        private void Executed(object sender, ExecutedRoutedEventArgs e)
+        private static void Executed(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ConfirmCommand)
-                currentMessageBoxResult = MessageBoxResult.OK;
+                CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.OK;
             else if (e.Command == YesCommand)
-                currentMessageBoxResult = MessageBoxResult.Yes;
+                CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.Yes;
             else if (e.Command == NoCommand)
-                currentMessageBoxResult = MessageBoxResult.No;
+                CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.No;
             else if (e.Command == CancelCommand)
-                currentMessageBoxResult = MessageBoxResult.Cancel;
+                CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.Cancel;
 
             CurrentMessageDialog.Close();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            var hMenu = InteropMethods.GetSystemMenu(this.EnsureHandle(), false);
+            if (hMenu != IntPtr.Zero)
+            {
+                InteropMethods.EnableMenuItem(hMenu, InteropValues.SC_CLOSE, InteropValues.MF_BYCOMMAND | InteropValues.MF_GRAYED);
+            }
+
+            base.OnSourceInitialized(e);
+
+            CurrentMessageDialog._lastActiveWindowIntPtr = InteropMethods.GetForegroundWindow();
+            Activate();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            InteropMethods.SetForegroundWindow(CurrentMessageDialog._lastActiveWindowIntPtr);
+
+            base.OnClosed(e);
         }
 
         protected override void OnPreviewKeyDown(KeyEventArgs e)
@@ -155,12 +172,12 @@ namespace CookPopularControl.Controls
         {
             base.OnApplyTemplate();
 
-            currentPanel = GetTemplateChild(ButtonsPanel) as Panel;
-            if (currentPanel != null)
+            CurrentMessageDialog.currentPanel = GetTemplateChild(ButtonsPanel) as Panel;
+            if (CurrentMessageDialog.currentPanel != null)
             {
-                foreach (var btn in CreateButton(currentMessageBoxButton))
+                foreach (var btn in CreateButton(CurrentMessageDialog.currentMessageBoxButton))
                 {
-                    currentPanel.Children.Add(btn);
+                    CurrentMessageDialog.currentPanel.Children.Add(btn);
                 }
             }
         }
