@@ -92,11 +92,11 @@ namespace CookPopularControl.Communal.Converters
             if (new[] { actualWidth, actualHeight, value, minimum, maximum }.AnyNan())
                 return Binding.DoNothing;
 
-            ///圆
+            //圆
             //var circilarDiameter = Math.Min(actualWidth, actualHeight);
             //var circilarRadius = circilarDiameter / 2D;
 
-            ///椭圆
+            //椭圆
             var circilarRadiusX = actualWidth / 2D;
             var circilarRadiusY = actualHeight / 2D;
 
@@ -116,12 +116,12 @@ namespace CookPopularControl.Communal.Converters
             var degrees = 360 * percent;
             var radians = degrees * (Math.PI / 180);
 
-            ///圆
+            //圆
             //var centre = new Point(circilarRadius, circilarRadius);
             //var adjacent = Math.Cos(radians) * circilarRadius;
             //var opposite = Math.Sin(radians) * circilarRadius;
 
-            ///椭圆
+            //椭圆
             var centre = new Point(circilarRadiusX, circilarRadiusY);
             var adjacent = Math.Cos(radians) * circilarRadiusY;
             var opposite = Math.Sin(radians) * circilarRadiusX;

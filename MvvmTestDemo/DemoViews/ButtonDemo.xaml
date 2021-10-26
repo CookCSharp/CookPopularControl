@@ -138,11 +138,11 @@
             <WrapPanel Margin="0,30" HorizontalAlignment="Center">
                 <Button pc:ButtonAssist.ProgressBarBrush="LimeGreen"
                         pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
-                        Click="Button_Click"
+                        Click="Button_Click" BorderThickness="0"
                         Style="{StaticResource ButtonLinearProgressStyle}"
                         ToolTip="LinearProgressButton"
                         Content="{Binding ButtonContent}"
-                        Width="300" Height="60"
+                        Width="300" Height="60" 
                         FontSize="20" />
                 <Button pc:ButtonAssist.ProgressBarBrush="Yellow"
                         pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
@@ -150,7 +150,7 @@
                         Style="{StaticResource ButtonCircularProgressStyle}"
                         ToolTip="CircularProgressButton"
                         Content="{Binding ButtonContent}"
-                        Width="100" Height="100"
+                        Width="100" Height="100" BorderBrush="Red"
                         FontSize="20"
                         Margin="20,0" />
                 <Button pc:ButtonAssist.ProgressBarBrush="BlueViolet"

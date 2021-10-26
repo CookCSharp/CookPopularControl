@@ -19,6 +19,7 @@ using System.Globalization;
 namespace CookPopularControl.Tools.Windows.Converters
 {
     [MarkupExtensionReturnType(typeof(double))]
+    [ValueConversion(typeof(double),typeof(double))]
     public class TranslateToCenterConverter: MarkupExtensionBase, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)

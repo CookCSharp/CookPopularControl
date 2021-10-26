@@ -37,7 +37,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <GroupBox Grid.Row="0"
+            <GroupBox Grid.Row="0" 
                       Header="Buttons"
                       Foreground="#D80000"
                       FontSize="26">
@@ -64,7 +64,7 @@
                             Width="250" Height="40"
                             FontSize="16"
                             Margin="10,0" />
-                    <Button pc:ButtonAssist.ProgressBarBrush="Yellow"
+                    <Button pc:ButtonAssist.ProgressBarBrush="Yellow" 
                             pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
                             pc:FrameworkElementBaseAttached.CornerRadius="25"
                             Command="{Binding ProgressButtonCommand}"

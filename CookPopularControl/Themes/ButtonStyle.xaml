@@ -80,7 +80,6 @@
 
     <Style x:Key="ButtonLinearProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressValue" Value="50" />
         <Setter Property="buttonassist:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource LinearProgressBarBaseStyle}" />
     </Style>

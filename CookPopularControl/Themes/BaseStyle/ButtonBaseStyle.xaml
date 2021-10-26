@@ -2,17 +2,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assistant="clr-namespace:CookPopularControl.Controls.Button"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="DefaultButtonBaseStyle" TargetType="{x:Type ButtonBase}">
+        <!--<Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />-->
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="0" />
+        <!--<Setter Property="Padding" Value="2" />-->
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Effect" Value="{x:Null}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -28,61 +29,61 @@
                     <Grid>
                         <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}">
                             <Border x:Name="RootBorder"
-                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}">
+                                    Background="{TemplateBinding Background}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
                                 <DockPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Path x:Name="PART_Icon"
-                                          Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
-                                          DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
-                                          Fill="{TemplateBinding Foreground}"
-                                          SnapsToDevicePixels="True" Stretch="Uniform"
                                           Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                           Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                          Data="{TemplateBinding attached:FrameworkElementBaseAttached.IconGeometry}"
+                                          Fill="{TemplateBinding Foreground}"
+                                          SnapsToDevicePixels="True"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
+                                          Stretch="Uniform" />
                                     <Image x:Name="PART_Image_Gif"
+                                           Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}"
+                                           Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}"
                                            gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
                                            gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}"
                                            gif:AnimationBehavior.SourceStream="{TemplateBinding assistant:ButtonAssist.GifStream}"
                                            gif:AnimationBehavior.SourceUri="{TemplateBinding assistant:ButtonAssist.GifSource}"
                                            DockPanel.Dock="{TemplateBinding attached:FrameworkElementBaseAttached.IconDirection}"
                                            Source="{TemplateBinding assistant:ButtonAssist.ImageSource}"
-                                           Stretch="Uniform"
-                                           Width="{TemplateBinding assistant:ButtonAssist.ImageWidth}"
-                                           Height="{TemplateBinding assistant:ButtonAssist.ImageHeight}" />
+                                           Stretch="Uniform" />
                                     <Grid x:Name="ContentGrid">
-                                        <ProgressBar x:Name="PART_Progress"
-                                                     attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                                     Style="{TemplateBinding assistant:ButtonAssist.ProgressBarStyle}"
-                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ButtonAssist.IsShowProgress), Converter={toolsConverters:BooleanToVisibilityConverter}}"
+                                        <ProgressBar x:Name="PART_Progress" Margin="-1"
                                                      Width="{TemplateBinding Width}"
-                                                     Height="{TemplateBinding Height}"
-                                                     BorderThickness="0"
+                                                     Height="{TemplateBinding Height}"                                                    
                                                      Foreground="{TemplateBinding assistant:ButtonAssist.ProgressBarBrush}"
                                                      Background="Transparent"
                                                      Value="{TemplateBinding assistant:ButtonAssist.ProgressValue}"
-                                                     HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        <ContentPresenter RecognizesAccessKey="True"
+                                                     HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                     attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                                     Style="{TemplateBinding assistant:ButtonAssist.ProgressBarStyle}"
+                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(assistant:ButtonAssist.IsShowProgress), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                                        <ContentPresenter Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                          Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
                                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                          RecognizesAccessKey="True" />
                                     </Grid>
                                 </DockPanel>
                             </Border>
                         </AdornerDecorator>
-                        <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                        <ripple:Ripple Padding="{TemplateBinding Padding}"
+                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                        ContentTemplate="{TemplateBinding ContentTemplate}"
                                        Focusable="False"
-                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}"
-                                       Padding="{TemplateBinding Padding}"
-                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                                       Visibility="{TemplateBinding attached:ButtonBaseAttached.IsShowRipple,Converter={toolsConverters:BooleanToVisibilityConverter}}">
                             <ripple:Ripple.Clip>
                                 <MultiBinding Converter="{commonConverters:BorderClipConverter}">
                                     <Binding ElementName="RootBorder" Path="ActualWidth" />
@@ -96,8 +97,8 @@
                     <ControlTemplate.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(assistant:ButtonAssist.IsShowProgress)}" Value="True" />
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(assistant:ButtonAssist.ProgressValue), Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True" />
+                                <Condition Value="True" Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(assistant:ButtonAssist.IsShowProgress)}" />
+                                <Condition Value="True" Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(assistant:ButtonAssist.ProgressValue), Converter={toolsConverters:ValueBetweenZeroAnd100}}" />
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.Setters>
                                 <Setter Property="IsEnabled" Value="False" />

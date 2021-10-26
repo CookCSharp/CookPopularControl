@@ -27,7 +27,6 @@ namespace CookPopularControl.Controls.Progress
         public static double GetArcThickness(DependencyObject obj) => (double)obj.GetValue(ArcThicknessProperty);
         public static void SetArcThickness(DependencyObject obj, double value) => obj.SetValue(ArcThicknessProperty, value);
         public static readonly DependencyProperty ArcThicknessProperty =
-            DependencyProperty.RegisterAttached("ArcThickness", typeof(double), typeof(CircularProgressAssistant),
-                new FrameworkPropertyMetadata(ValueBoxes.Double5Box, FrameworkPropertyMetadataOptions.Inherits));
+            DependencyProperty.RegisterAttached("ArcThickness", typeof(double), typeof(CircularProgressAssistant), new FrameworkPropertyMetadata(ValueBoxes.Double5Box, FrameworkPropertyMetadataOptions.Inherits));
     }
 }

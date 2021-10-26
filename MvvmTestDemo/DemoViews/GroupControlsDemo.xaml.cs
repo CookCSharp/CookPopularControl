@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.Groups;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Helpers;
 using PropertyChanged;
 using System.Windows;

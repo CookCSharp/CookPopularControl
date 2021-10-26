@@ -7,7 +7,6 @@
                     xmlns:dialogBox="clr-namespace:CookPopularControl.Controls.DialogBox"
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
                     xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields"
-                    xmlns:groupCtl="clr-namespace:CookPopularControl.Controls.Groups"
                     xmlns:label="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:loading="clr-namespace:CookPopularControl.Controls.Animation.Loading"
                     xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
@@ -21,6 +20,13 @@
                     xmlns:switch="clr-namespace:CookPopularControl.Controls.CheckBox">
 
     <ResourceDictionary.MergedDictionaries>
+        <!--  Other Resource Dictionaries  -->
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml" />
+
         <!--  WPF Original Control  -->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
@@ -72,13 +78,6 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/OtherControlsStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupControlsStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DragableControlsStyle.xaml" />
-
-        <!--  Other Resource Dictionaries  -->
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/GeometryFigure.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/FontFamily.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/EffectShadow.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
@@ -153,8 +152,8 @@
     <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}" />
     <Style x:Key="{x:Type pc:Badge}" TargetType="{x:Type pc:Badge}" BasedOn="{StaticResource DefaultBadgeStyle}" />
     <Style x:Key="{x:Type pc:Layout}" TargetType="{x:Type pc:Layout}" BasedOn="{StaticResource DefaultLayoutStyle}" />
-    <Style x:Key="{x:Type groupCtl:SearchControl}" TargetType="{x:Type groupCtl:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}" />
-    <Style x:Key="{x:Type groupCtl:TagEditing}" TargetType="{x:Type groupCtl:TagEditing}" BasedOn="{StaticResource DefaultTagEditingStyle}" />
+    <Style x:Key="{x:Type pc:SearchControl}" TargetType="{x:Type pc:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}" />
+    <Style x:Key="{x:Type pc:EditingTag}" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultEditingTagStyle}" />
 
     <Style x:Key="{x:Type drag:Branch}" TargetType="{x:Type drag:Branch}" BasedOn="{StaticResource DefaultBranchStyle}" />
     <Style x:Key="{x:Type drag:DropZone}" TargetType="{x:Type drag:DropZone}" BasedOn="{StaticResource DefaultDropZoneStyle}" />
