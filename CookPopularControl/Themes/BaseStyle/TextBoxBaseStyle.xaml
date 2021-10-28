@@ -10,8 +10,8 @@
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Template">
             <Setter.Value>

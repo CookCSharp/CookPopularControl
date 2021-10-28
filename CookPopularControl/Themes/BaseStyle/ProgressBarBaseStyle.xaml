@@ -13,6 +13,8 @@
         <Setter Property="IsIndeterminate" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
@@ -49,9 +51,9 @@
                                           Height="{TemplateBinding assistant:LinearProgressBarAssistant.IconSize}"
                                           Data="{DynamicResource AirFanGeometry}"
                                           Fill="White"
+                                          Stretch="Uniform"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"
-                                          RenderTransformOrigin="0.5,0.5" Stretch="Uniform" Stroke="White"
-                                          StrokeThickness="1">
+                                          RenderTransformOrigin="0.5,0.5" Stroke="White" StrokeThickness="1">
                                         <Path.RenderTransform>
                                             <RotateTransform x:Name="ariFan" />
                                         </Path.RenderTransform>
@@ -61,9 +63,10 @@
                                           Height="{TemplateBinding assistant:LinearProgressBarAssistant.IconSize}"
                                           Data="{DynamicResource LeafGeometry}"
                                           Fill="White"
+                                          Stretch="Uniform"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"
-                                          RenderTransformOrigin="0.5,0.5" Stretch="Uniform" Stroke="White"
-                                          StrokeThickness="1" Visibility="Collapsed">
+                                          RenderTransformOrigin="0.5,0.5" Stroke="White" StrokeThickness="1"
+                                          Visibility="Collapsed">
                                         <Path.RenderTransform>
                                             <TransformGroup>
                                                 <MatrixTransform x:Name="leafMatrix" />
@@ -133,10 +136,10 @@
                     <ControlTemplate.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Value="True" Binding="{Binding RelativeSource={RelativeSource Self}, Path=(assistant:LinearProgressBarAssistant.IsShowIcon)}" />
-                                <Condition Value="True" Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value, Converter={toolsConverters:ValueBetweenZeroAnd100}}" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(assistant:LinearProgressBarAssistant.IsShowIcon)}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value, Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True" />
                             </MultiDataTrigger.Conditions>
-                            <Setter TargetName="IconLeaf" Property="Visibility" Value="Visible" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="IconLeaf" />
                             <MultiDataTrigger.EnterActions>
                                 <BeginStoryboard x:Name="AirFanStoryboard" Storyboard="{StaticResource AirFanStoryboard}" />
                             </MultiDataTrigger.EnterActions>
@@ -146,20 +149,20 @@
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Value="True" Binding="{Binding RelativeSource={RelativeSource Self}, Path=(assistant:LinearProgressBarAssistant.IsShowIcon)}" />
-                                <Condition Value="100" Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value}" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(assistant:LinearProgressBarAssistant.IsShowIcon)}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value}" Value="100" />
                             </MultiDataTrigger.Conditions>
-                            <Setter TargetName="IconGrid" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="IconGrid" />
                         </MultiDataTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border" />
                         </Trigger>
                         <Trigger Property="IsIndeterminate" Value="true">
-                            <Setter TargetName="width1" Property="Width" Value="0.25*" />
-                            <Setter TargetName="width2" Property="Width" Value="0.75*" />
+                            <Setter Property="Width" Value="0.25*" TargetName="width1" />
+                            <Setter Property="Width" Value="0.75*" TargetName="width2" />
                         </Trigger>
                         <Trigger Property="Orientation" Value="Vertical">
-                            <Setter TargetName="TemplateRoot" Property="LayoutTransform">
+                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
                                 <Setter.Value>
                                     <RotateTransform Angle="-90" />
                                 </Setter.Value>
@@ -173,7 +176,10 @@
 
     <Style x:Key="CircularProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
@@ -207,7 +213,7 @@
                                 </Grid.RenderTransform>
                             </Grid>
                             <Canvas>
-                                <Path x:Name="PART_PGOGRESS"
+                                <Path x:Name="PART_Progress"
                                       Fill="{TemplateBinding Background}"
                                       Stretch="None"
                                       Stroke="{TemplateBinding Foreground}"
@@ -270,8 +276,8 @@
                                     </Path.RenderTransform>
                                 </Path>
                             </Canvas>
-                            <TextBlock x:Name="PART_CONTENT"
-                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
+                            <TextBlock x:Name="PART_Text"
+                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
                                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assistant:LinearProgressBarAssistant.TextColor)}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
                                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assistant:LinearProgressBarAssistant.IsShowPercent), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
@@ -281,14 +287,14 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
                             <Setter Property="IsIndeterminate" Value="False" />
-                            <Setter TargetName="PART_Background" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Background" />
                         </Trigger>
-                        <DataTrigger Value="0" Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value}">
-                            <Setter TargetName="PART_PGOGRESS" Property="StrokeStartLineCap" Value="Flat" />
-                            <Setter TargetName="PART_PGOGRESS" Property="StrokeEndLineCap" Value="Flat" />
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value}" Value="0">
+                            <Setter Property="StrokeStartLineCap" Value="Flat" TargetName="PART_Progress" />
+                            <Setter Property="StrokeEndLineCap" Value="Flat" TargetName="PART_Progress" />
                         </DataTrigger>
                         <Trigger Property="IsIndeterminate" Value="True">
-                            <Setter TargetName="PART_Background" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Background" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="IsIndeterminateStoryboard" Storyboard="{StaticResource IsIndeterminateStoryboard}" />
                             </Trigger.EnterActions>
@@ -302,7 +308,7 @@
                                 <Condition Property="IsVisible" Value="True" />
                                 <Condition Property="Value" Value="0" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Background" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Background" />
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard x:Name="FullyCircularStoryboard" Storyboard="{StaticResource FullyCircularStoryboard}" />
                             </MultiTrigger.EnterActions>
@@ -319,12 +325,16 @@
     <Style x:Key="WaveProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="StoryboardOnLoaded">
-                            <DoubleAnimation Storyboard.TargetName="PART_Ellipse" Storyboard.TargetProperty="(Shape.Fill).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+                            <DoubleAnimation Storyboard.TargetName="PART_Ellipse"
+                                             Storyboard.TargetProperty="(Shape.Fill).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
                                              From="0" To="1" Duration="0:0:1"
                                              RepeatBehavior="Forever" />
                         </Storyboard>
@@ -337,8 +347,8 @@
                                      Stroke="{TemplateBinding BorderBrush}"
                                      StrokeThickness="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left}">
                                 <Ellipse.Fill>
-                                    <VisualBrush AutoLayoutContent="True" Stretch="None" TileMode="Tile"
-                                                 Viewport="0,-1,1,5">
+                                    <VisualBrush Stretch="None"
+                                                 AutoLayoutContent="True" TileMode="Tile" Viewport="0,-1,1,5">
                                         <VisualBrush.Visual>
                                             <Grid Width="{TemplateBinding Width, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=3}" Height="{TemplateBinding Height, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=3}">
                                                 <Border Background="{TemplateBinding Background}" />
@@ -369,7 +379,7 @@
                                 </Ellipse.Fill>
                             </Ellipse>
                         </Canvas>
-                        <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
                                    Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assistant:LinearProgressBarAssistant.TextColor)}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assistant:LinearProgressBarAssistant.IsShowPercent), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
@@ -381,7 +391,7 @@
                         <EventTrigger RoutedEvent="FrameworkElement.Unloaded" SourceName="PART_Ellipse">
                             <StopStoryboard BeginStoryboardName="BeginStoryboardWave" />
                         </EventTrigger>
-                        <DataTrigger Value="100" Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value}">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value}" Value="100">
                             <Setter Property="assistant:WaveProgressBarAssistant.WaveHeight" Value="0" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>

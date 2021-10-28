@@ -2,15 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:Double x:Key="LittleFontSize">10</sys:Double>
+    <sys:Double x:Key="FirstTitleFontSize">20</sys:Double>
+    <sys:Double x:Key="SecondTitleFontSize">18</sys:Double>
+    <sys:Double x:Key="ThirdTitleFontSize">16</sys:Double>
     <sys:Double x:Key="DefaultFontSize">14</sys:Double>
-    <sys:Double x:Key="LargeFontSize">16</sys:Double>
 
     <sys:Double x:Key="Double20Value">20</sys:Double>
     <sys:Double x:Key="Double26Value">26</sys:Double>
     <sys:Double x:Key="Double30Value">30</sys:Double>
 
     <sys:Double x:Key="DefaultControlHeight">34</sys:Double>
+    <sys:Double x:Key="DefaultButtonHeight">30</sys:Double>
     <sys:Double x:Key="DefaultTextElementHeight">30</sys:Double>
     
 </ResourceDictionary>

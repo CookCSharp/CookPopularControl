@@ -5,7 +5,7 @@
                     xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
                     xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:pop="clr-namespace:CookPopularControl.Controls.Popup"
-                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ContextMenu x:Key="DefaultContextMenu">
@@ -91,7 +91,7 @@
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=MenuBase}, Path=Foreground}" />
         <Setter Property="Padding" Value="10,0" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
+        <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
@@ -109,7 +109,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
                                 Opacity="0" SnapsToDevicePixels="True" />
-                        <ripple:Ripple Feedback="{TemplateBinding ripple:RippleAssist.Feedback}"
+                        <pc:Ripple Feedback="{TemplateBinding pc:RippleAssist.Feedback}"
                                        Focusable="False"
                                        Background="Transparent"
                                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
@@ -183,7 +183,7 @@
                                     </Grid>
                                 </Grid>
                             </Grid>
-                        </ripple:Ripple>
+                        </pc:Ripple>
                         <Popup x:Name="PART_Popup"
                                AllowsTransparency="True"
                                CacheMode="{DynamicResource DefaultBitmapCache}"

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,6 +20,28 @@ namespace CookPopularControl.Tools.Extensions
 {
     public static class DependencyObjectExtension
     {
+        //.Net通过"NotifyPropertyChange"主动触发通知
+        //当子属性发生变化时，发送一个Changed通知，新旧值相同，并将IsASubPropertyChange设置为true
+        //NotifyPropertyChange(new DependencyPropertyChangedEventArgs(dp, dp.GetMetadata(DependencyObjectType), GetValue(dp)));
+        /// <summary>
+        /// 调用示例：
+        ///<![CDATA[InvokeInternal<DependencyObject>("NotifySubPropertyChange", new object[] { DpColorProperty });]]>
+        /// </summary>
+
+        /// <summary>
+        /// 反射调用指定类型的Internal方法。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="caller"></param>
+        /// <param name="method"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public static object InvokeInternal<T>(this T caller, string method, object[] parameters)
+        {
+            MethodInfo methodInfo = typeof(T).GetMethod(method, BindingFlags.Instance | BindingFlags.NonPublic);
+            return methodInfo?.Invoke(caller, parameters); 
+        }
+
         public static IEnumerable<DependencyObject> VisualDepthFirstTraversal(this DependencyObject node)
         {
             if (node is null) throw new ArgumentNullException(nameof(node));

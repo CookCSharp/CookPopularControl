@@ -4,9 +4,9 @@
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
                     xmlns:simpleGird="clr-namespace:CookPopularControl.Controls.Panels"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
@@ -116,16 +116,16 @@
                     <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
                     <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height}" />
                     <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Width}" />
-                    <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
+                    <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ComboBoxItem}">
                                 <simpleGird:SimpleGrid x:Name="ItemGrid" Margin="0,0,1,0">
-                                    <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                    <pc:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
                                                    Focusable="False"
                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(ripple:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
+                                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
                                                    Background="Transparent"
                                                    Padding="{TemplateBinding Padding}"
                                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -275,7 +275,7 @@
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualWidth}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualHeight}" />
-        <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
+        <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -285,11 +285,11 @@
                                 <ColumnDefinition Width="7*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            <pc:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                            ContentTemplate="{TemplateBinding ContentTemplate}"
                                            Focusable="False"
                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(ripple:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
+                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
                                            Padding="{TemplateBinding Padding}"
                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
@@ -388,7 +388,7 @@
     <!--  MultiComboBox  -->
     <Style x:Key="MultiComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="ripple:RippleAssist.IsDisabled" Value="True" />
+        <Setter Property="pc:RippleAssist.IsDisabled" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -478,7 +478,7 @@
                                     </Border.RenderTransform>
                                     <!--  ItemsSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Items}"  -->
                                     <ListBox x:Name="PART_ListBox"
-                                             ripple:RippleAssist.IsDisabled="{TemplateBinding ripple:RippleAssist.IsDisabled}"
+                                             pc:RippleAssist.IsDisabled="{TemplateBinding pc:RippleAssist.IsDisabled}"
                                              ItemContainerStyle="{StaticResource MultiComboBoxItemStyle}"
                                              ItemTemplate="{TemplateBinding ItemTemplate}"
                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Extended"

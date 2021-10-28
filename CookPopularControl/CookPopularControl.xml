@@ -3051,18 +3051,18 @@
             </summary>
             <param name="qr"></param>
         </member>
-        <member name="F:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKeyProperty">
+        <member name="F:CookPopularControl.Controls.Ripple.RecognizesAccessKeyProperty">
             <summary>
               The DependencyProperty for the RecognizesAccessKey property. 
               Default Value: false 
             </summary> 
         </member>
-        <member name="P:CookPopularControl.Controls.Ripple.Ripple.RecognizesAccessKey">
+        <member name="P:CookPopularControl.Controls.Ripple.RecognizesAccessKey">
             <summary> 
               Determine if Ripple should use AccessText in its style
             </summary> 
         </member>
-        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.SetIsCentered(System.Windows.DependencyObject,System.Boolean)">
+        <member name="M:CookPopularControl.Controls.RippleAssist.SetIsCentered(System.Windows.DependencyObject,System.Boolean)">
             <summary>
             Set to <c>true</c> to cause the ripple to originate from the centre of the 
             content.  Otherwise the effect will originate from the mouse down position.        
@@ -3070,33 +3070,33 @@
             <param name="element"></param>
             <param name="value"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.GetIsCentered(System.Windows.DependencyObject)">
+        <member name="M:CookPopularControl.Controls.RippleAssist.GetIsCentered(System.Windows.DependencyObject)">
             <summary>
             Set to <c>true</c> to cause the ripple to originate from the centre of the 
             content.  Otherwise the effect will originate from the mouse down position.        
             </summary>
             <param name="element"></param>        
         </member>
-        <member name="F:CookPopularControl.Controls.Ripple.RippleAssist.IsCenteredProperty">
+        <member name="F:CookPopularControl.Controls.RippleAssist.IsCenteredProperty">
             <summary>
             Set to <c>true</c> to cause the ripple to originate from the centre of the 
             content.  Otherwise the effect will originate from the mouse down position.        
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.SetIsDisabled(System.Windows.DependencyObject,System.Boolean)">
+        <member name="M:CookPopularControl.Controls.RippleAssist.SetIsDisabled(System.Windows.DependencyObject,System.Boolean)">
             <summary>
             Set to <c>True</c> to disable ripple effect
             </summary>
             <param name="element"></param>
             <param name="value"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.Ripple.RippleAssist.GetIsDisabled(System.Windows.DependencyObject)">
+        <member name="M:CookPopularControl.Controls.RippleAssist.GetIsDisabled(System.Windows.DependencyObject)">
             <summary>
             Set to <c>True</c> to disable ripple effect
             </summary>
             <param name="element"></param>        
         </member>
-        <member name="F:CookPopularControl.Controls.Ripple.RippleAssist.IsDisabledProperty">
+        <member name="F:CookPopularControl.Controls.RippleAssist.IsDisabledProperty">
             <summary>
             Set to <c>True</c> to disable ripple effect
             </summary>
@@ -5608,6 +5608,20 @@
             <summary>
             提供<see cref="T:System.Windows.Media.Color"/>与<see cref="T:System.Windows.Media.Brush"/>之间的转换
             </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.Extensions.DependencyObjectExtension.InvokeInternal``1(``0,System.String,System.Object[])">
+             <summary>
+             调用示例：
+            <![CDATA[InvokeInternal<DependencyObject>("NotifySubPropertyChange", new object[] { DpColorProperty });]]>
+             </summary>
+            <summary>
+            反射调用指定类型的Internal方法。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="caller"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <returns></returns>
         </member>
         <member name="M:CookPopularControl.Tools.Extensions.FramworkElementExtension.SaveAsPicture(System.Windows.FrameworkElement,System.String)">
             <summary>

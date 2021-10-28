@@ -14,62 +14,70 @@
 
     <ScrollViewer>
         <StackPanel VerticalAlignment="Center">
-            <StackPanel>
-                <Button Click="Button_Click"
+            <StackPanel Orientation="Horizontal">
+                <Button Width="50" Height="34"
                         Content="开始"
-                        Width="50" Height="34"
-                        Margin="0,20" />
-                <ProgressBar Style="{StaticResource DefaultProgressBarStyle}"
-                             Width="500" Height="35"
-                             Value="{Binding Value, Mode=OneWay}" />
-                <ProgressBar Style="{StaticResource DefaultProgressBarStyle}"
-                             Width="500" Height="35"
-                             Value="50"
-                             Margin="0,20" />
-                <ProgressBar Style="{StaticResource AirFanLinearProgressBarStyle}"
-                             Width="500" Height="35"
-                             Value="{Binding Value, Mode=OneWay}" />
-                <ProgressBar pc:FrameworkElementBaseAttached.CornerRadius="2" pc:LinearProgressBarAssistant.IsShowPercent="False" IsIndeterminate="True"
-                             Style="{StaticResource DefaultProgressBarStyle}"
-                             Width="500" Height="35"
-                             Margin="0,20" />
+                        Margin="50,0"
+                        HorizontalAlignment="Center"
+                        Click="Button_Click" />
+                <StackPanel Margin="100,0,0,0">
+                    <ProgressBar Width="500" Height="35"
+                                 Value="{Binding Value, Mode=OneWay}"
+                                 Style="{StaticResource DefaultProgressBarStyle}" />
+                    <ProgressBar Width="500" Height="35"
+                                 Value="50"
+                                 Margin="0,20"
+                                 Style="{StaticResource DefaultProgressBarStyle}" />
+                    <ProgressBar Width="500" Height="35"
+                                 Value="{Binding Value, Mode=OneWay}"
+                                 Style="{StaticResource AirFanLinearProgressBarStyle}" />
+                    <ProgressBar Width="500" Height="35"
+                                 Margin="0,20"
+                                 pc:FrameworkElementBaseAttached.CornerRadius="2" pc:LinearProgressBarAssistant.IsShowPercent="False"
+                                 IsIndeterminate="True"
+                                 Style="{StaticResource DefaultProgressBarStyle}" />
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <ProgressBar Orientation="Vertical"
-                             Style="{StaticResource DefaultProgressBarStyle}"
-                             Width="35" Height="500"
-                             Value="{Binding Value, Mode=OneWay}" />
-                <ProgressBar Orientation="Vertical"
-                             Style="{StaticResource DefaultProgressBarStyle}"
-                             Width="35" Height="500"
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <ProgressBar Width="35" Height="500"
+                             Value="{Binding Value, Mode=OneWay}"
+                             Orientation="Vertical"
+                             Style="{StaticResource DefaultProgressBarStyle}" />
+                <ProgressBar Width="35" Height="500"
                              Value="50"
-                             Margin="20,0" />
-                <ProgressBar Orientation="Vertical"
-                             Style="{StaticResource AirFanLinearProgressBarStyle}"
-                             Width="35" Height="500"
-                             Value="{Binding Value, Mode=OneWay}" />
-                <ProgressBar pc:LinearProgressBarAssistant.IsShowPercent="False" IsIndeterminate="True" Orientation="Vertical"
-                             Style="{StaticResource DefaultProgressBarStyle}"
-                             Width="35" Height="500"
-                             Margin="20,0" />
+                             Margin="20,0"
+                             Orientation="Vertical"
+                             Style="{StaticResource DefaultProgressBarStyle}" />
+                <ProgressBar Width="35" Height="500"
+                             Value="{Binding Value, Mode=OneWay}"
+                             Orientation="Vertical"
+                             Style="{StaticResource AirFanLinearProgressBarStyle}" />
+                <ProgressBar Width="35" Height="500"
+                             Margin="20,0"
+                             pc:LinearProgressBarAssistant.IsShowPercent="False" IsIndeterminate="True" Orientation="Vertical"
+                             Style="{StaticResource DefaultProgressBarStyle}" />
 
                 <WrapPanel Width="700" Margin="30">
-                    <ProgressBar Style="{StaticResource CircularProgressBarStyle}"
-                                 Width="300" Height="200"
-                                 Value="{Binding Value}" />
-                    <ProgressBar Style="{StaticResource CircularProgressBarStyle}"
-                                 Width="200" Height="200"
-                                 Value="{Binding Value}" />
-                    <ProgressBar Style="{StaticResource IndeterminateCircularProgressBarStyle}"
-                                 Width="200" Height="200"
-                                 Value="35" />
-                    <ProgressBar pc:LinearProgressBarAssistant.IsShowPercent="False"
-                                 Style="{StaticResource LoadingCircularProgressBarStyle}"
-                                 Width="200" Height="200" />
-                    <ProgressBar Style="{StaticResource WaveProgressBarShowPercentStyle}"
-                                 Width="200" Height="200"
+                    <ProgressBar Width="300" Height="200"
+                                 FontSize="20" 
                                  Value="{Binding Value}"
-                                 Margin="0,20" />
+                                 Style="{StaticResource CircularProgressBarStyle}" />
+                    <ProgressBar Width="200" Height="200"
+                                 FontSize="20"
+                                 Value="{Binding Value}"
+                                 Style="{StaticResource CircularProgressBarStyle}" />
+                    <ProgressBar Width="200" Height="200"
+                                 FontSize="20"
+                                 Value="35"
+                                 Style="{StaticResource IndeterminateCircularProgressBarStyle}" />
+                    <ProgressBar Width="200" Height="200"
+                                 FontSize="20"
+                                 Style="{StaticResource LoadingCircularProgressBarStyle}" />
+                    <ProgressBar Width="200" Height="200"
+                                 FontSize="20"
+                                 Value="{Binding Value}"
+                                 Margin="0,20"
+                                 Style="{StaticResource WaveProgressBarShowPercentStyle}" />
                 </WrapPanel>
 
             </StackPanel>

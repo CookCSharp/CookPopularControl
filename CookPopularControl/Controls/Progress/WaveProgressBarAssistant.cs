@@ -29,13 +29,13 @@ namespace CookPopularControl.Controls.Progress
 
 
 
-        public static bool GetIsStartWave(DependencyObject obj) => (bool)obj.GetValue(IsStartWaveProperty);
-        public static void SetIsStartWave(DependencyObject obj, bool value) => obj.SetValue(IsStartWaveProperty, ValueBoxes.BooleanBox(value));
+        internal static bool GetIsStartWave(DependencyObject obj) => (bool)obj.GetValue(IsStartWaveProperty);
+        internal static void SetIsStartWave(DependencyObject obj, bool value) => obj.SetValue(IsStartWaveProperty, ValueBoxes.BooleanBox(value));
         /// <summary>
         /// <see cref="IsStartWaveProperty"/>开启波纹
         /// </summary>
         /// <remarks>必须设置True，默认为False</remarks>
-        public static readonly DependencyProperty IsStartWaveProperty =
+        internal static readonly DependencyProperty IsStartWaveProperty =
             DependencyProperty.RegisterAttached("IsStartWave", typeof(bool), typeof(WaveProgressBarAssistant), new PropertyMetadata(ValueBoxes.FalseBox, OnStartWave));
 
         private static void OnStartWave(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -45,6 +45,7 @@ namespace CookPopularControl.Controls.Progress
                 wave.Loaded += delegate
                 {
                     var waveGrid = wave.Template.FindName(WaveGrid, wave) as System.Windows.Controls.Grid;
+                    if (waveGrid == null) return;
                     waveGrid.Width = wave.Width + 2 * GetWaveStrokeThickness(wave);
                     waveGrid.Height = wave.Width;
 

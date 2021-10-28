@@ -2,9 +2,9 @@
     /****************属性格式化**************************/
     "AttributesTolerance": 3,  //单行最大属性数，2【默认】，如果元素属性数不大于此数就不会换行
     "KeepFirstAttributeOnSameLine": true, //第一个属性是否与开始标记在同一行，false【默认】
-    "MaxAttributeCharactersPerLine": 0,   //多个属性大于多少个字符就该换行，0【默认】
+    "MaxAttributeCharactersPerLine": 100,   //多个属性大于多少个字符就该换行，0【默认】
     "MaxAttributesPerLine": 3,  //大于几个属性就该换行，1【默认】
-    "NewlineExemptionElements": "RadialGradientBrush, GradientStop, LinearGradientBrush, ScaleTransform, SkewTransform, RotateTransform, TranslateTransform, Trigger, Condition, Setter, Geometry",
+    "NewlineExemptionElements": "RadialGradientBrush, GradientStop, LinearGradientBrush, ScaleTransform, SkewTransform, RotateTransform, TranslateTransform, Trigger, Condition, Setter, Geometry,",
     "SeparateByGroups": true, //是否应该按照属性的分组进行分隔，false【默认】
     "AttributeIndentation": 0, //属性缩进空格字符数（-1不缩进；0【默认】缩进4个空格；其它个数则指定）
     "AttributeIndentationStyle": 1, //属性缩进风格（0混合，视情况使用制表符和空格；1【默认】使用空格）
@@ -14,22 +14,27 @@
         "x:Class",
         "xmlns, xmlns:x",
         "xmlns:*",
-        "x:Key, Key, x:Name, Name, x:Uid, Uid, TargetType, BasedOn",
+        "x:Key, Key, x:Name, Name, x:Uid, Uid, TargetType, BasedOn, ",
         "mc:Ignorable, d:IsDataSource, d:LayoutOverrides, d:IsStaticText",
         "Title",     
-        "Grid.Row, Grid.RowSpan, Grid.Column, Grid.ColumnSpan, Canvas.Left, Canvas.Top, Canvas.Right, Canvas.Bottom",
+        "Grid.Row, Grid.RowSpan, Grid.Column, Grid.ColumnSpan, Columns, Rows, Canvas.Left, Canvas.Top, Canvas.Right, Canvas.Bottom, DockPanel.Dock",
         "Width, Height, MinWidth, MinHeight, MaxWidth, MaxHeight", 
-        "Text, Content, Header, Data, ContextMenu",  
+        "Text, Content, Header, Data, ContextMenu,",  
         "BorderBrush, BorderThickness",    
         "Foreground, Background, Fill",
+        "CornerRadius",
+        "Source, Stretch, ImageSource",
         "FontSize, FontFamliy, FontWeight",
-        "ResizeBehavior, ResizeDirection",
-        "PageSource, PageIndex, Offset, Color, TargetName, Property, Value, StartPoint, EndPoint", 
-        "Margin, Padding, Opacity, SnapsToDevicePixels",
+        "ContentTemplate,ContentStringFormat,ContentTemplateSelector",
+        "ResizeBehavior, ResizeDirection,RecognizesAccessKey",
+        "PageSource, PageIndex, Offset, Color, Binding, Property, Value, TargetName, StartPoint, EndPoint", 
+        "Margin, Padding, Opacity, SnapsToDevicePixels, Focusable, ToolTip",
         "HorizontalAlignment, VerticalAlignment, HorizontalContentAlignment, VerticalContentAlignment, Panel.ZIndex",     
         "Storyboard.*,",
         "From, To, Duration, RepeatBehavior",
-        "*:*, *" 
+        "*:*, *",
+        "Visibility",
+        "Style"
     ],
     "FirstLineAttributes": "x:Name,Grid.Row,Grid.Column",  //应该在第一行的属性，例如Name x:Name 和x:Uid等等,None【默认】
     "OrderAttributesByName": true, //是否按照属性名称进行排序
@@ -45,7 +50,7 @@
     "ReorderSetters": 0, //是否重新排序Setter（0【默认】不排序；1按属性名；2按目标名；3先按目标名再按属性名）
     /****************标记扩展**************************/
     "FormatMarkupExtension": true, //是否格式化标记扩展的属性，true【默认】
-    "NoNewLineMarkupExtensions": "x:Bind, Binding", //始终放在一行上的标记扩展，"x:Bind, Binding"【默认】
+    "NoNewLineMarkupExtensions": "x:Bind, Binding, TemplateBinding, ", //始终放在一行上的标记扩展，"x:Bind, Binding"【默认】
     "ThicknessSeparator": 2, //Thickness类型的属性应该用哪种分隔符(0不格式化；1空格；2【默认】逗号）
     "ThicknessAttributes": "Margin, Padding, BorderThickness, ThumbnailClipMargin", //被认定为Thickness的元素应该是哪些
     "FormatOnSave": false, //是否在保存时进行格式化，true【默认】

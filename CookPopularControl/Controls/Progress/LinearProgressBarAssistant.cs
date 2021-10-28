@@ -24,9 +24,9 @@ namespace CookPopularControl.Controls.Progress
     [TemplatePart(Name = ElementBackground, Type = typeof(Ellipse))]
     public class LinearProgressBarAssistant
     {
-        private const string PathProgress = "PART_PGOGRESS";
+        private const string PathProgress = "PART_Progress";
         private const string PathGrid = "PathGrid";
-        private const string Content = "PART_CONTENT";
+        private const string Content = "PART_Text";
         private const string ElementBackground = "PART_Background";
 
         public static bool GetIsShowPercent(DependencyObject obj) => (bool)obj.GetValue(IsShowPercentProperty);

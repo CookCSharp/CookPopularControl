@@ -16,28 +16,34 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Value" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="15" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="15" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="14" />
+        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="14" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="输入数字" />
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="False" />
-        <Setter Property="fields:NumericUpDownAssistant.UpDownButtonMargin" Value="5,1" />
+        <Setter Property="fields:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />
         <Setter Property="fields:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type fields:NumericUpDown}">
                     <Border x:Name="RootBorder"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                            SnapsToDevicePixels="True"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}">
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            SnapsToDevicePixels="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <TextBox x:Name="PART_TextBox" Grid.Column="0"
+                                     BorderThickness="0"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     Background="Transparent"
+                                     Padding="{TemplateBinding Padding}"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                      attached:FrameworkElementBaseAttached.IconMargin="0"
@@ -46,36 +52,32 @@
                                      attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
                                      InputMethod.IsInputMethodEnabled="False"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
-                                     Validation.ErrorTemplate="{x:Null}"
-                                     BorderThickness="0"
-                                     Foreground="{TemplateBinding Foreground}"
-                                     Background="Transparent"
-                                     Padding="{TemplateBinding Padding}"
-                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <StackPanel Grid.Column="1"
-                                        Visibility="{TemplateBinding IsShowUpDownButton,
-                                                                     Converter={toolConverters:BooleanToVisibilityConverter}}"
-                                        Margin="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonMargin}"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                     Validation.ErrorTemplate="{x:Null}" />
+                            <UniformGrid Grid.Column="1"
+                                         Rows="2"
+                                         Margin="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonMargin}"
+                                         Visibility="{TemplateBinding IsShowUpDownButton, Converter={toolConverters:BooleanToVisibilityConverter}}">
                                 <Button x:Name="PART_PlusButton"
+                                        Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                        Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}"
+                                        Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         Command="{x:Static fields:NumericUpDown.PlusCommand}"
-                                        Focusable="False"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
-                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}" />
+                                        Style="{DynamicResource ButtonTransparentIconStyle}" />
                                 <Button x:Name="PART_SubtractButton"
+                                        Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
+                                        Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}"
+                                        Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
                                         Command="{x:Static fields:NumericUpDown.SubtractCommand}"
-                                        Focusable="False"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
-                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}" />
-                            </StackPanel>
+                                        Style="{DynamicResource ButtonTransparentIconStyle}" />
+                            </UniformGrid>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -84,13 +86,13 @@
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
-                            <Setter TargetName="RootBorder" Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={commonConverters:DoubleToThickness}, ConverterParameter=1.5}" />
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={commonConverters:DoubleToThickness}, ConverterParameter=1.5}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter TargetName="PART_PlusButton" Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter TargetName="PART_SubtractButton" Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_PlusButton" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_SubtractButton" />
                             <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

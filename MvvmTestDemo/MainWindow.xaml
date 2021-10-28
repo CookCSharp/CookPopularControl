@@ -63,7 +63,8 @@
                      Width="0"
                      FontSize="14" FontWeight="Normal"
                      pc:ScrollBarAssistant.VerticalScrollBarWidth="8"
-                     pc:ScrollBarAssistant.HorizontalScrollBarHeight="8">
+                     pc:ScrollBarAssistant.HorizontalScrollBarHeight="8"
+                     pc:FrameworkElementBaseAttached.CornerRadius="0">
                 <behavior:Interaction.Triggers>
                     <behavior:EventTrigger EventName="SelectionChanged">
                         <behavior:InvokeCommandAction Command="{Binding DemoViewsSelectedCommand}" />

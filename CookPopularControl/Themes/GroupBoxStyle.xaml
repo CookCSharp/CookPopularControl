@@ -82,7 +82,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="FontSize" Value="{DynamicResource Double20Value}" />
+        <Setter Property="FontSize" Value="{DynamicResource FirstTitleFontSize}" />
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>

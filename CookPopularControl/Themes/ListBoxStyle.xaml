@@ -17,8 +17,6 @@
         <Setter Property="attached:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="attached:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ButtonBasePressBackground}" />
-        <Setter Property="ripple:RippleAssist.IsDisabled" Value="False" />
-        <Setter Property="ripple:RippleAssist.Feedback" Value="#FFFFFF" />
     </Style>
 
     <Style x:Key="ListBoxCheckBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">

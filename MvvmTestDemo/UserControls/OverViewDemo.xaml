@@ -37,70 +37,69 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <GroupBox Grid.Row="0" 
+            <GroupBox Grid.Row="0"
                       Header="Buttons"
                       Foreground="#D80000"
                       FontSize="26">
                 <WrapPanel Margin="8">
-                    <Button pc:FrameworkElementBaseAttached.CornerRadius="5"
-                            Style="{StaticResource DefaultButtonStyle}"
-                            ToolTip="DefaultButton"
+                    <Button Width="120" Height="40"
                             Content="DefaultButton"
-                            Width="120" Height="40"
-                            FontSize="16" />
-                    <Button pc:FrameworkElementBaseAttached.CornerRadius="5" pc:FrameworkElementBaseAttached.IconDirection="Left" pc:FrameworkElementBaseAttached.IconMargin="5,0,0,0"
-                            Style="{StaticResource ButtonStyles}"
-                            ToolTip="IconWithContentButtonLeft"
-                            Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-                    <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
-                            pc:FrameworkElementBaseAttached.IconHeight="30" pc:FrameworkElementBaseAttached.IconWidth="30"
-                            Style="{StaticResource ButtonTransparentIconStyle}"
-                            ToolTip="IconTransparentButton" />
-                    <Button pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif" pc:ButtonAssist.ImageHeight="50" pc:ButtonAssist.ImageWidth="50"
-                            pc:FrameworkElementBaseAttached.CornerRadius="5" pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
-                            Style="{StaticResource ButtonContentWithGifStyle}"
-                            ToolTip="ContentWithGifButton"
-                            Content="ContentWithGifButton"
-                            Width="250" Height="40"
                             FontSize="16"
-                            Margin="10,0" />
-                    <Button pc:ButtonAssist.ProgressBarBrush="Yellow" 
+                            ToolTip="DefaultButton"
+                            pc:FrameworkElementBaseAttached.CornerRadius="5"
+                            Style="{StaticResource DefaultButtonStyle}" />
+                    <Button Margin="10,0" ToolTip="IconWithContentButtonLeft"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            pc:FrameworkElementBaseAttached.CornerRadius="5"
+                            pc:FrameworkElementBaseAttached.IconDirection="Left"
+                            pc:FrameworkElementBaseAttached.IconMargin="5,0,0,0"
+                            Style="{StaticResource ButtonStyles}" />
+                    <Button ToolTip="IconTransparentButton"
+                            pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
+                            pc:FrameworkElementBaseAttached.IconHeight="30" pc:FrameworkElementBaseAttached.IconWidth="30"
+                            Style="{StaticResource ButtonTransparentIconStyle}" />
+                    <Button Width="250" Height="40"
+                            Content="ContentWithGifButton"
+                            FontSize="16"
+                            Margin="10,0" ToolTip="ContentWithGifButton"
+                            pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif" pc:ButtonAssist.ImageHeight="50"
+                            pc:ButtonAssist.ImageWidth="50" pc:FrameworkElementBaseAttached.CornerRadius="5"
+                            pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
+                            Style="{StaticResource ButtonContentWithGifStyle}" />
+                    <Button Width="50" Height="50"
+                            FontSize="14"
+                            ToolTip="CircularProgressButton"
+                            pc:ButtonAssist.ProgressBarBrush="Yellow"
                             pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
                             pc:FrameworkElementBaseAttached.CornerRadius="25"
                             Command="{Binding ProgressButtonCommand}"
-                            Style="{StaticResource ButtonCircularProgressStyle}"
-                            ToolTip="CircularProgressButton"
-                            Content="{Binding ButtonContent}"
-                            Width="50" Height="50"
-                            FontSize="14" />
-                    <ToggleButton pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
+                            Style="{StaticResource ButtonCircularProgressStyle}" />
+                    <ToggleButton Height="40"
+                                  Content="ToggleButtonDoubbleIcon"
+                                  FontSize="16"
                                   pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource AirFanGeometry}"
                                   pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource LeafGeometry}"
-                                  Style="{StaticResource ToggleButtonDoubbleIconStyle}"
-                                  Content="ToggleButtonDoubbleIcon"
-                                  Height="40"
-                                  FontSize="16"
-                                  Padding="10" />
-                    <ToggleButton Style="{StaticResource ToggleButtonFlipStyle}"
+                                  Style="{StaticResource ToggleButtonDoubbleIconStyle}" />
+                    <ToggleButton Width="100" Height="100"
                                   Content="Flip"
-                                  Width="100" Height="100"
                                   FontSize="16"
-                                  Margin="10,0">
+                                  Margin="10,0"
+                                  Style="{StaticResource ToggleButtonFlipStyle}">
                         <pc:ToggleButtonAssistant.OnCheckedElement>
                             <TextBlock Text="Chance" />
                         </pc:ToggleButtonAssistant.OnCheckedElement>
                     </ToggleButton>
-                    <RadioButton Content="RadioButton"
-                                 Width="150" Height="34"
+                    <RadioButton Width="150" Height="34"
+                                 Content="RadioButton"
                                  FontSize="16" />
-                    <CheckBox pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
-                              pc:CheckBoxAssistant.FillSize="25" pc:CheckBoxAssistant.FillThickness="1" pc:CheckBoxAssistant.FillType="Check"
-                              ToolTip="CheckCheckBox"
+                    <CheckBox Width="200" Height="30"
                               Content="CheckCheckBox"
-                              Width="200" Height="30"
                               Background="Red"
                               FontSize="20"
-                              Padding="10,0,0,0" />
+                              Padding="10,0,0,0" ToolTip="CheckCheckBox"
+                              pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
+                              pc:CheckBoxAssistant.FillSize="25" pc:CheckBoxAssistant.FillThickness="1"
+                              pc:CheckBoxAssistant.FillType="Check" />
                 </WrapPanel>
             </GroupBox>
             <GroupBox Grid.Row="1"
@@ -108,9 +107,9 @@
                       Foreground="#FF4512"
                       FontSize="26">
                 <WrapPanel Margin="8">
-                    <TextBox Style="{StaticResource ValidationTextBoxStyle}"
-                             Width="300" Height="34"
-                             FontSize="14">
+                    <TextBox Width="300" Height="34"
+                             FontSize="14"
+                             Style="{StaticResource ValidationTextBoxStyle}">
                         <TextBox.Text>
                             <Binding Mode="TwoWay" Path="TextContent" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -119,11 +118,11 @@
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
-                    <pc:NumericUpDown Maximum="20" Minimum="0"
-                                      Style="{StaticResource NumericUpDownAddClearButtonStyle}"
-                                      Width="200" Height="34"
+                    <pc:NumericUpDown Width="200" Height="34"
                                       FontSize="14"
-                                      Margin="10,0">
+                                      Margin="10,0"
+                                      Maximum="20" Minimum="0"
+                                      Style="{StaticResource NumericUpDownAddClearButtonStyle}">
                         <pc:NumericUpDown.Value>
                             <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -133,18 +132,19 @@
                             </Binding>
                         </pc:NumericUpDown.Value>
                     </pc:NumericUpDown>
-                    <pc:TextPath Text="写代码的厨子" Width="380" Height="120" />
-                    <pc:TextPath pc:TextPath.DrawingRec="0,0,20,20" pc:TextPath.FillImageSource="../Resources/Gif/tomcat.jpg"
-                                 Style="{StaticResource FillImageTextPathStyle}"
+                    <pc:TextPath Width="380" Height="120" Text="写代码的厨子" />
+                    <pc:TextPath Width="380" Height="120"
                                  Text="Chance"
-                                 Width="380" Height="120"
-                                 Margin="10,0,0,0" />
-                    <PasswordBox pc:FrameworkElementBaseAttached.CornerRadius="5" pc:FrameworkElementBaseAttached.IconHeight="20" pc:FrameworkElementBaseAttached.IconWidth="20"
-                                 pc:PasswordBoxAssistant.IsShowIcon="True" pc:TextElementAttached.IsAddClearButton="True" InputMethod.InputScope="Password"
+                                 Margin="10,0,0,0"
+                                 pc:TextPath.DrawingRec="0,0,20,20" pc:TextPath.FillImageSource="../Resources/Gif/tomcat.jpg"
+                                 Style="{StaticResource FillImageTextPathStyle}" />
+                    <PasswordBox Width="300" Height="40"
+                                 FontSize="16"
+                                 pc:FrameworkElementBaseAttached.CornerRadius="5" pc:FrameworkElementBaseAttached.IconHeight="20"
+                                 pc:FrameworkElementBaseAttached.IconWidth="20" pc:PasswordBoxAssistant.IsShowIcon="True"
+                                 pc:TextElementAttached.IsAddClearButton="True" InputMethod.InputScope="Password"
                                  InputScope="Password"
-                                 Style="{StaticResource ValidationPasswordBoxStyle}"
-                                 Width="300" Height="40"
-                                 FontSize="16">
+                                 Style="{StaticResource ValidationPasswordBoxStyle}">
                         <pc:PasswordBoxAssistant.Password>
                             <Binding Mode="TwoWay" Path="PasswordContent" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -153,13 +153,14 @@
                             </Binding>
                         </pc:PasswordBoxAssistant.Password>
                     </PasswordBox>
-                    <ComboBox pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
-                              pc:SelectorAttached.ItemControlHeight="36" pc:SelectorAttached.ItemControlWidth="36" IsEditable="False"
-                              ItemsSource="{Binding Lists}"
-                              Style="{StaticResource MultiComboBoxCheckBoxItemsStyle}"
-                              Width="200" Height="40"
+                    <ComboBox Width="200" Height="40"
                               FontSize="16"
-                              Margin="10,0" />
+                              Margin="10,0"
+                              pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
+                              pc:SelectorAttached.ItemControlHeight="36" pc:SelectorAttached.ItemControlWidth="36"
+                              IsEditable="False"
+                              ItemsSource="{Binding Lists}"
+                              Style="{StaticResource MultiComboBoxCheckBoxItemsStyle}" />
                 </WrapPanel>
             </GroupBox>
             <GroupBox Grid.Row="2"
@@ -167,14 +168,14 @@
                       Foreground="#C00000"
                       FontSize="26">
                 <WrapPanel Margin="8">
-                    <pc:DotCircleLoading Style="{StaticResource DefaultDotCircleLoadingStyle}" Margin="10,0" />
+                    <pc:DotCircleLoading Margin="10,0" Style="{StaticResource DefaultDotCircleLoadingStyle}" />
                     <pc:DotCircleLoading Style="{StaticResource DotFullCircleLoadingRunAsConstantStyle}" />
-                    <pc:RecCircleLoading Style="{StaticResource DefaultRecCircleLoadingStyle}" Margin="10,0" />
-                    <pc:PlaneLoading Style="{StaticResource PlaneLoadingStyle}" Width="100" Height="100" />
-                    <pc:RecColumnLoading Style="{StaticResource DefaultRecColumnLoadingStyle}" Margin="10,0" />
+                    <pc:RecCircleLoading Margin="10,0" Style="{StaticResource DefaultRecCircleLoadingStyle}" />
+                    <pc:PlaneLoading Width="100" Height="100" Style="{StaticResource PlaneLoadingStyle}" />
+                    <pc:RecColumnLoading Margin="10,0" Style="{StaticResource DefaultRecColumnLoadingStyle}" />
                     <pc:RecGridLoading Style="{StaticResource DefaultRecGridLoadingStyle}" />
-                    <pc:DotLineLoading Style="{StaticResource DefaultDotLineLoadingStyle}" Width="800" Margin="0,20,0,0" />
-                    <pc:DotLineLoading Style="{StaticResource DotLineLoadingRunAsContantStyle}" Width="800" Margin="0,20" />
+                    <pc:DotLineLoading Width="800" Margin="0,20,0,0" Style="{StaticResource DefaultDotLineLoadingStyle}" />
+                    <pc:DotLineLoading Width="800" Margin="0,20" Style="{StaticResource DotLineLoadingRunAsContantStyle}" />
                 </WrapPanel>
             </GroupBox>
         </Grid>

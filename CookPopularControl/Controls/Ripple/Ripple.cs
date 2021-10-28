@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using OriginPopup = System.Windows.Controls.Primitives.Popup;
 
-namespace CookPopularControl.Controls.Ripple
+namespace CookPopularControl.Controls
 {
     [TemplateVisualState(GroupName = "CommonStates", Name = TemplateStateNormal)]
     [TemplateVisualState(GroupName = "CommonStates", Name = TemplateStateMousePressed)]

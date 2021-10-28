@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace CookPopularControl.Controls.Ripple
+namespace CookPopularControl.Controls
 {
     public static class RippleAssist
     {

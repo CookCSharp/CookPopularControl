@@ -3,7 +3,7 @@
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-                    xmlns:ripple="clr-namespace:CookPopularControl.Controls.Ripple"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:scroller="clr-namespace:CookPopularControl.Controls.ScrollControls"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
@@ -20,10 +20,10 @@
                                 <ColumnDefinition Width="7*" />
                                 <ColumnDefinition x:Name="OtherWidth" Width="0" />
                             </Grid.ColumnDefinitions>
-                            <ripple:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            <pc:Ripple ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                            ContentTemplate="{TemplateBinding ContentTemplate}"
                                            Focusable="False"
-                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(ripple:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
+                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={toolsConverters:BooleanToVisibilityReConverter}}"
                                            Background="Transparent"
                                            Padding="{TemplateBinding Padding}"
                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -146,6 +146,8 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
+        <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">

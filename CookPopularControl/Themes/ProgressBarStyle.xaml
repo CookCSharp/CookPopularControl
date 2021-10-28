@@ -9,41 +9,36 @@
 
     <Style x:Key="DefaultProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource LinearProgressBarBaseStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="attached:FrameworkElementBaseAttached.ShadowEffect" Value="{x:Null}" />
+        <Setter Property="assistant:LinearProgressBarAssistant.IsShowIcon" Value="False" />
+        <Setter Property="assistant:LinearProgressBarAssistant.IconSize" Value="30" />
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
         <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
     </Style>
     <Style x:Key="AirFanLinearProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}">
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowIcon" Value="True" />
-        <Setter Property="assistant:LinearProgressBarAssistant.IconSize" Value="30" />
     </Style>
 
     <Style x:Key="CircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarBaseStyle}">
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Background" Value="Transparent" />
         <Setter Property="assistant:CircularProgressAssistant.ArcThickness" Value="15" />
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
         <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="FontSize" Value="{DynamicResource Double20Value}" />
     </Style>
     <Style x:Key="IndeterminateCircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarStyle}">
         <Setter Property="IsIndeterminate" Value="True" />
     </Style>
-    <Style x:Key="LoadingCircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarStyle}">
+    <Style x:Key="LoadingCircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource IndeterminateCircularProgressBarStyle}">
+        <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="False" />
         <Setter Property="Value" Value="0" />
-        <Setter Property="IsIndeterminate" Value="True" />
     </Style>
 
     <Style x:Key="WaveProgressBarShowPercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarBaseStyle}">
-        <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
         <Setter Property="assistant:WaveProgressBarAssistant.IsStartWave" Value="True" />
         <Setter Property="assistant:WaveProgressBarAssistant.WaveHeight" Value="30" />
         <Setter Property="assistant:WaveProgressBarAssistant.WaveStroke" Value="{DynamicResource BorderBrush}" />
         <Setter Property="assistant:WaveProgressBarAssistant.WaveStrokeThickness" Value="2" />
-        <Setter Property="FontSize" Value="20" />
+        <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="True" />
+        <Setter Property="assistant:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
     </Style>
     <Style x:Key="WaveProgressBarHidePercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarShowPercentStyle}">
         <Setter Property="assistant:LinearProgressBarAssistant.IsShowPercent" Value="False" />

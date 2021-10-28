@@ -10,27 +10,41 @@
              d:DesignWidth="800">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ToggleButton Content="DefaultToggleButton" Padding="10" />
-        <ToggleButton pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
+        <ToggleButton Content="DefaultToggleButton" />
+
+        <ToggleButton Content="ToggleButtonContentWithIcon"
+                      Margin="0,30"
+                      pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
+                      Style="{StaticResource ToggleButtonContentWithIconStyle}" />
+        <ToggleButton pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}" Style="{StaticResource ToggleButtonTransparentIconStyle}" />
+        <ToggleButton Margin="0,30" pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}" Style="{StaticResource ToggleButtonNoMouseOverTransparentIconStyle}" />
+
+        <ToggleButton Content="ToggleButtonContentWithDoubbleIcon"
+                      pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource AirFanGeometry}"
+                      pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource LeafGeometry}"
+                      Style="{StaticResource ToggleButtonContentWithDoubbleIconStyle}">
+            <pc:ToggleButtonAssistant.OnCheckedElement>
+                <TextBlock Text="Chance" />
+            </pc:ToggleButtonAssistant.OnCheckedElement>
+        </ToggleButton>
+        <ToggleButton Margin="0,30" ToolTip="ToggleButtonDoubbleIcon"
+                      pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource AirFanGeometry}"
+                      pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource LeafGeometry}"
+                      Style="{StaticResource ToggleButtonDoubbleIconStyle}" />
+        <ToggleButton ToolTip="ToggleButtonDoubbleTransparentIcon"
                       pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
-                      Style="{StaticResource ToggleButtonIconStyle}"
-                      Content="ToggleButtonIcon"
-                      Margin="0,30" Padding="5" />
-        <ToggleButton pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}" Style="{StaticResource ToggleButtonTransparentIconStyle}" Padding="5" />
-        <ToggleButton pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
                       pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource AirFanGeometry}"
                       pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource LeafGeometry}"
-                      Style="{StaticResource ToggleButtonDoubbleIconStyle}"
-                      Content="ToggleButtonDoubbleIcon"
-                      Margin="0,30" Padding="10" />
-        <ToggleButton pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
+                      Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
+        <ToggleButton Margin="0,30" ToolTip="ToggleButtonNoMouseOverTransparentDoubbleIcon"
+                      pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
                       pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource AirFanGeometry}"
                       pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource LeafGeometry}"
-                      Style="{StaticResource ToggleButtonDoubbleTransparentIconStyle}"
-                      Margin="0,30" Padding="10" />
-        <ToggleButton Style="{StaticResource ToggleButtonFlipStyle}"
+                      Style="{StaticResource ToggleButtonNoMouseOverTransparentDoubbleIconStyle}" />
+
+        <ToggleButton Width="100" Height="100"
                       Content="Flip"
-                      Width="100" Height="100">
+                      Style="{StaticResource ToggleButtonFlipStyle}">
             <pc:ToggleButtonAssistant.OnCheckedElement>
                 <TextBlock Text="Chance" />
             </pc:ToggleButtonAssistant.OnCheckedElement>
