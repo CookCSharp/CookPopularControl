@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Lists"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:scrollViewer="clr-namespace:CookPopularControl.Controls.ScrollControls"
-                    xmlns:thumb="clr-namespace:CookPopularControl.Controls.Thumb"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
@@ -27,7 +25,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" Grid.Column="0">
-                            <ScrollViewer scrollViewer:ScrollViewerAssistant.SyncHorizontalOffset="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HorizontalOffset, Mode=OneWay}"
+                            <ScrollViewer pc:ScrollViewerAssistant.SyncHorizontalOffset="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HorizontalOffset, Mode=OneWay}"
                                           DockPanel.Dock="Top" Focusable="false" HorizontalScrollBarVisibility="Hidden"
                                           VerticalScrollBarVisibility="Hidden"
                                           Background="Transparent">
@@ -42,7 +40,7 @@
                                                                     ColumnHeaderToolTip="{Binding Path=TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}"
                                                                     Columns="{Binding Path=TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}"
                                                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assistant:ListViewAssistant.ListViewItemPadding)}" />
+                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:ListViewAssistant.ListViewItemPadding)}" />
                                     </StackPanel>
                                 </Border>
                             </ScrollViewer>
@@ -70,12 +68,12 @@
                         <Rectangle x:Name="PART_Corner" Grid.Row="1" Grid.Column="1"
                                    Fill="{TemplateBinding Foreground}"
                                    Opacity="0.8"
-                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(scrollViewer:ScrollViewerAssistant.IsCornerShow), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(pc:ScrollViewerAssistant.IsCornerShow), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="scrollViewer:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
+                                <Condition Property="pc:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
                                 <Condition Property="ComputedVerticalScrollBarVisibility" Value="Visible" />
                                 <Condition Property="IsMouseOver" Value="False" />
                             </MultiTrigger.Conditions>
@@ -103,7 +101,7 @@
 
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="scrollViewer:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
+                                <Condition Property="pc:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
                                 <Condition Property="ComputedHorizontalScrollBarVisibility" Value="Visible" />
                                 <Condition Property="IsMouseOver" Value="False" />
                             </MultiTrigger.Conditions>
@@ -159,7 +157,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                     <DockPanel>
-                        <thumb:GridViewColumThumb x:Name="PART_HeaderGripper" DockPanel.Dock="Right" Style="{StaticResource GridViewColumnHeaderGripperThumb}" />
+                        <pc:GridViewColumThumb x:Name="PART_HeaderGripper" DockPanel.Dock="Right" Style="{StaticResource GridViewColumnHeaderGripperThumb}" />
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -220,7 +218,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
                             Margin="-1"
-                            Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(assistant:ListViewAssistant.ListViewItemPadding)}">
+                            Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(pc:ListViewAssistant.ListViewItemPadding)}">
                         <GridViewRowPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Border>
                 </ControlTemplate>
@@ -264,8 +262,8 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewGridViewItem}" />
         <Setter Property="attached:DataGridViewAttached.ColumnHeaderHeight" Value="30" />
         <Setter Property="attached:DataGridViewAttached.ColumnHeaderPadding" Value="4,0,0,0" />
-        <Setter Property="assistant:ListViewAssistant.ListViewItemPadding" Value="0" />
-        <Setter Property="scrollViewer:ScrollViewerAssistant.IsCornerShow" Value="True" />
+        <Setter Property="pc:ListViewAssistant.ListViewItemPadding" Value="0" />
+        <Setter Property="pc:ScrollViewerAssistant.IsCornerShow" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListView}">

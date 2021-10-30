@@ -1,11 +1,9 @@
-﻿using System;
+﻿using CookPopularControl.Expression.Drawing.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using CookPopularControl.Expression.Drawing.Core;
 
 
 /*
@@ -94,7 +92,7 @@ namespace CookPopularControl.Expression.Media
                         {
                             double a = polyline.TotalLength / 8.0;
                             int sampleCount = (int)Math.Max(2.0, Math.Ceiling(a));
-                            double interval = polyline.TotalLength / (double)sampleCount;
+                            double interval = polyline.TotalLength / sampleCount;
                             double scale = interval / 8.0;
                             List<Point> samplePoints = new List<Point>(sampleCount);
                             List<Vector> sampleNormals = new List<Vector>(sampleCount);

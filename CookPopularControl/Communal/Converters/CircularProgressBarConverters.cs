@@ -1,9 +1,8 @@
-﻿using CookPopularControl.Tools.Extensions.Values;
-using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularControl.Tools.Extensions.Markup;
+using CookPopularControl.Tools.Extensions.Values;
 using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 
@@ -62,7 +61,7 @@ namespace CookPopularControl.Communal.Converters
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values.Length < 2) throw new ArgumentException("values 异常" + values.ToString());
-            if (values[0] is double && (double)values[0] > 0.0 && 
+            if (values[0] is double && (double)values[0] > 0.0 &&
                 values[1] is double && (double)values[1] > 0.0)
             {
                 return new Size((double)values[0] / 2, (double)values[1] / 2);

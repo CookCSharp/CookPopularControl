@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:star="clr-namespace:CookPopularControl.Controls.Starred">
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
-    <Style x:Key="DefaultStarStyle" TargetType="{x:Type star:Star}">
+    <Style x:Key="DefaultStarStyle" TargetType="{x:Type pc:Star}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />

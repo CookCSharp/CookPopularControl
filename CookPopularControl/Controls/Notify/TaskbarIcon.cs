@@ -1,18 +1,10 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
-using Hardcodet.Wpf.TaskbarNotification;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -24,7 +16,7 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-30 16:41:35
  */
-namespace CookPopularControl.Controls.Notify
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 任务栏图标
@@ -68,7 +60,7 @@ namespace CookPopularControl.Controls.Notify
                 };
 
                 var firstWin = Window.GetWindow(this);
-                if(firstWin != null)
+                if (firstWin != null)
                     PrepareWindows.Add(firstWin);
             };
         }
@@ -116,8 +108,8 @@ namespace CookPopularControl.Controls.Notify
         /// 提供<see cref="IsStartTaskbarFlash"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IsStartTaskbarFlashProperty =
-            DependencyProperty.Register("IsStartTaskbarFlash", typeof(bool), typeof(TaskbarIcon), 
-                new PropertyMetadata(ValueBoxes.FalseBox,OnTaskbarFlashChanged));
+            DependencyProperty.Register("IsStartTaskbarFlash", typeof(bool), typeof(TaskbarIcon),
+                new PropertyMetadata(ValueBoxes.FalseBox, OnTaskbarFlashChanged));
 
         private static void OnTaskbarFlashChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -158,7 +150,7 @@ namespace CookPopularControl.Controls.Notify
         /// 提供<see cref="IsStartTaskbarIconFlash"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IsStartTaskbarIconFlashProperty =
-            DependencyProperty.Register("IsStartTaskbarIconFlash", typeof(bool), typeof(TaskbarIcon), 
+            DependencyProperty.Register("IsStartTaskbarIconFlash", typeof(bool), typeof(TaskbarIcon),
                 new PropertyMetadata(ValueBoxes.FalseBox, OnTaskbarIconFlashPropertyChanged));
 
         private static void OnTaskbarIconFlashPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -166,7 +158,7 @@ namespace CookPopularControl.Controls.Notify
             var taskbarIcon = d as TaskbarIcon;
             if (taskbarIcon != null)
             {
-                if((bool)e.NewValue)
+                if ((bool)e.NewValue)
                     taskbarIcon.timer.Start();
                 else
                 {

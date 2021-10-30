@@ -1,9 +1,5 @@
-﻿using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -17,7 +13,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-09 11:14:27
  */
-namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示飞机飞行的动画
@@ -43,7 +39,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
         protected override void PrepareRun()
         {
             CreateText();
-           
+
             var container = CreaterContainer(length);
             var frames = new DoubleAnimationUsingKeyFrames
             {
@@ -99,7 +95,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
 
             var plane2 = CreatePlane(length);
             plane2.HorizontalAlignment = HorizontalAlignment.Center;
-            plane2.VerticalAlignment = VerticalAlignment.Bottom;           
+            plane2.VerticalAlignment = VerticalAlignment.Bottom;
             TransformGroup transformGroupPlane2 = new TransformGroup();
             RotateTransform rtPlane2 = new RotateTransform { Angle = 180 };
             TranslateTransform ttPlane2 = new TranslateTransform { Y = 0.09 * length };

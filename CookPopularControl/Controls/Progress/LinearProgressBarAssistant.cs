@@ -12,7 +12,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-11 15:32:24
  */
-namespace CookPopularControl.Controls.Progress
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示所有<see cref="ProgressBar"/>的附加属性基类
@@ -53,8 +53,8 @@ namespace CookPopularControl.Controls.Progress
         /// <see cref="IsShowIconProperty"/>提供是否添加图标的附加属性
         /// </summary>
         public static readonly DependencyProperty IsShowIconProperty =
-            DependencyProperty.RegisterAttached("IsShowIcon", typeof(bool), typeof(LinearProgressBarAssistant), 
-                new FrameworkPropertyMetadata(ValueBoxes.FalseBox,FrameworkPropertyMetadataOptions.Inherits));
+            DependencyProperty.RegisterAttached("IsShowIcon", typeof(bool), typeof(LinearProgressBarAssistant),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static double GetIconSize(DependencyObject obj) => (double)obj.GetValue(IconSizeProperty);
         public static void SetIconSize(DependencyObject obj, double value) => obj.SetValue(IconSizeProperty, value);

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：UnitType
  * Author： Chance_写代码的厨子
@@ -14,18 +6,18 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Expression.Media
 {
-	/// <summary>
-	/// Specifies the unit of thickness.
-	/// </summary>
-	public enum UnitType
-	{
-		/// <summary>
-		/// Unit in pixels.
-		/// </summary>
-		Pixel,
-		/// <summary>
-		/// Unit in percentage relative to the bounding box.
-		/// </summary>
-		Percent
-	}
+    /// <summary>
+    /// Specifies the unit of thickness.
+    /// </summary>
+    public enum UnitType
+    {
+        /// <summary>
+        /// Unit in pixels.
+        /// </summary>
+        Pixel,
+        /// <summary>
+        /// Unit in percentage relative to the bounding box.
+        /// </summary>
+        Percent
+    }
 }

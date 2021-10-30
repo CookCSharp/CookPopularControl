@@ -1,18 +1,12 @@
 ﻿using CookPopularControl.Communal.Attached;
-using CookPopularControl.Controls.Panels;
+using CookPopularControl.Controls;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using OriginButton = System.Windows.Controls.Button;
 
 
@@ -23,7 +17,7 @@ using OriginButton = System.Windows.Controls.Button;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-10 10:51:27
  */
-namespace CookPopularControl.Controls.Starred
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示点赞类控件
@@ -154,7 +148,7 @@ namespace CookPopularControl.Controls.Starred
                         star.StarValue = (int)star.StarValue;
                     star.OnValueChanged((double)e.OldValue, (double)e.NewValue);
                 }
-                else if(e.Property == IsAllowHalfProperty)
+                else if (e.Property == IsAllowHalfProperty)
                 {
                     if (!star.IsAllowHalf)
                         star.StarValue = (int)star.StarValue;
@@ -214,7 +208,7 @@ namespace CookPopularControl.Controls.Starred
                     var btn_Half = CreateGeometry(i);
                     btn_Half.Width = StarSize * 1.1 / 2D;
                     btn_Half.HorizontalContentAlignment = HorizontalAlignment.Left;
-                    if(i + step < StarValue)
+                    if (i + step < StarValue)
                         btn.Foreground = Foreground;
                     else if (i + step == StarValue)
                     {

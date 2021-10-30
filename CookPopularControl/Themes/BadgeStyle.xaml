@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
@@ -11,7 +10,7 @@
                 <ControlTemplate TargetType="{x:Type pc:Badge}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
-                        <panel:SimpleGrid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <pc:SimpleGrid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ContentPresenter x:Name="PART_Content" Content="{TemplateBinding Content}"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               HorizontalAlignment="Left"/>
@@ -19,7 +18,7 @@
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               HorizontalAlignment="Left" 
                                               Visibility="{TemplateBinding IsShowBadge,Converter={toolConverters:BooleanToVisibilityConverter}}"/>
-                        </panel:SimpleGrid>
+                        </pc:SimpleGrid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Direction" Value="LeftTop">

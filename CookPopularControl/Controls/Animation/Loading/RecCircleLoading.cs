@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using CookPopularControl.Tools.Boxes;
+using System;
 using System.Windows;
-using System.Windows.Media;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
-using CookPopularControl.Tools.Boxes;
-using System.Text.RegularExpressions;
 
 
 /*
@@ -18,7 +13,7 @@ using System.Text.RegularExpressions;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-04 09:01:00
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示一组矩形按照圆的轨迹形成的动画
@@ -109,7 +104,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             for (int i = 0; i < RecCount; i++)
             {
                 var frame = new LinearDoubleKeyFrame();
-                frame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds((double)(i + 1) * duration / RecCount));
+                frame.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds((i + 1) * duration / RecCount));
                 frame.Value = (framesOpacity.KeyFrames[i].Value + averageOpacity) > Opacity ? 0 : framesOpacity.KeyFrames[i].Value + averageOpacity;
                 framesOpacity.KeyFrames.Add(frame);
             }
@@ -133,7 +128,7 @@ namespace CookPopularControl.Controls.Animation.Loading
             border.RenderTransform = transformGroup;
             border.Child = rec;
             border.Padding = new Thickness(0, 0, 0, RecWidth / 2D + 5);
-            if(IsOpacityChanging)
+            if (IsOpacityChanging)
                 border.Opacity = (index + 1D) / RecCount;
             border.SetBinding(WidthProperty, new Binding(WidthProperty.Name) { Source = this });
             border.SetBinding(HeightProperty, new Binding(HeightProperty.Name) { Source = this });

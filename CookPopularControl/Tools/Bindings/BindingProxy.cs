@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 
 
@@ -30,7 +25,7 @@ namespace CookPopularControl.Tools.Bindings
 
         public object? Data
         {
-            get { return (object?)GetValue(DataProperty); }
+            get { return GetValue(DataProperty); }
             set { SetValue(DataProperty, value); }
         }
         public static readonly DependencyProperty DataProperty =

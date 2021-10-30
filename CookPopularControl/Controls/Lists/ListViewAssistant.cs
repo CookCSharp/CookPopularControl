@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 
@@ -14,7 +9,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-30 12:20:18
  */
-namespace CookPopularControl.Controls.Lists
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// <see cref="ListView"/>的附加属性基类

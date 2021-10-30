@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows;
-using System.Windows.Media.Animation;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 
 /*
@@ -16,7 +12,7 @@ using System.Windows.Data;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-03 15:53:06
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示点按照直线的运动轨迹形成的动画

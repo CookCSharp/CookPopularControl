@@ -1,10 +1,6 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,7 +12,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-27 19:03:54
  */
-namespace CookPopularControl.Controls.MediaPlayer
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 媒体播放器
@@ -32,13 +28,13 @@ namespace CookPopularControl.Controls.MediaPlayer
         /// <summary>
         /// 当前媒体资源路径
         /// </summary>
-        public Uri CurrentUri   
+        public Uri CurrentUri
         {
             get { return (Uri)GetValue(CurrentUriProperty); }
             set { SetValue(CurrentUriProperty, value); }
         }
         public static readonly DependencyProperty CurrentUriProperty =
-            DependencyProperty.Register("CurrentUri", typeof(Uri), typeof(MediaPlayer), 
+            DependencyProperty.Register("CurrentUri", typeof(Uri), typeof(MediaPlayer),
                 new PropertyMetadata(default(Uri), OnCurrentUriChanged));
 
         private static void OnCurrentUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -65,7 +61,7 @@ namespace CookPopularControl.Controls.MediaPlayer
         public static readonly DependencyProperty ItemSourceProperty =
             DependencyProperty.Register("ItemSource", typeof(IEnumerable<Uri>), typeof(MediaPlayer), new PropertyMetadata());
 
-                    
+
         /// <summary>
         /// 是否循环播放
         /// </summary>

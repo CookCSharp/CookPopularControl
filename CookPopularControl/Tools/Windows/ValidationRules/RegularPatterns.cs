@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 
 
@@ -167,9 +163,9 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
         public const string UrlPattern = "^[a-zA-z]+://(\\w+(-\\w+)*)(\\.(\\w+(-\\w+)*))*(\\?\\S*)?$";
 
 
-        
+
         public bool IsMatchRegularPattern(string inputText, InputTextType formatType = default)
-        {           
+        {
             return Regex.IsMatch(inputText, Default.GetValue(Enum.GetName(typeof(InputTextType), formatType) + "Pattern"));
         }
 

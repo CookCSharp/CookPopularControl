@@ -1,10 +1,7 @@
-﻿using CookPopularControl.Controls.PasswordBox;
+﻿using CookPopularControl.Controls;
 using Microsoft.Xaml.Behaviors;
-using System.Linq;
 using System.Reflection;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 
 
 
@@ -19,7 +16,7 @@ namespace CookPopularControl.Communal.Behaviors
     /// <summary>
     /// 提供<see cref="PasswordBox"/>输入密码时的光标行为
     /// </summary>
-    public class PasswordBoxBehavior: Behavior<PasswordBox>
+    public class PasswordBoxBehavior : Behavior<PasswordBox>
     {
         protected override void OnAttached()
         {
@@ -39,7 +36,7 @@ namespace CookPopularControl.Communal.Behaviors
         {
             var pwdBox = sender as PasswordBox;
             string password = PasswordBoxAssistant.GetPassword(pwdBox!);
-            if(pwdBox != null && pwdBox.Password != password)
+            if (pwdBox != null && pwdBox.Password != password)
             {
                 PasswordBoxAssistant.SetPassword(pwdBox, pwdBox.Password);
             }

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows;
-using System.Windows.Input;
-using CookPopularControl.Tools.Boxes;
-using System.Windows.Controls.Primitives;
+﻿using CookPopularControl.Tools.Boxes;
 using System.Collections;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 
 
@@ -18,7 +12,7 @@ using System.Collections;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-31 10:40:10
  */
-namespace CookPopularControl.Controls.TabControl
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="TabControl"/>中<see cref="TabItem"/>的附加属性类
@@ -27,7 +21,7 @@ namespace CookPopularControl.Controls.TabControl
     [TemplatePart(Name = ElementClearButton, Type = typeof(System.Windows.Controls.Button))]
     public class TabControlAssistant
     {
-        private const string ElementTabPanel= "HeaderPanel";
+        private const string ElementTabPanel = "HeaderPanel";
         private const string ElementClearButton = "PART_CloseButton";
 
         public static bool GetIsAddClearButton(DependencyObject obj) => (bool)obj.GetValue(IsAddClearButtonProperty);
@@ -40,14 +34,14 @@ namespace CookPopularControl.Controls.TabControl
 
         private static void OnIsAddClearButtonChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if(d is TabItem tabItem)
+            if (d is TabItem tabItem)
             {
                 tabItem.Loaded += (s, e) => ClearHandler(tabItem);
             }
         }
 
         private static void ClearHandler(TabItem tabItem)
-        {      
+        {
             var parentElement = ItemsControl.ItemsControlFromItemContainer(tabItem) as System.Windows.Controls.TabControl;
             if (parentElement != null)
             {

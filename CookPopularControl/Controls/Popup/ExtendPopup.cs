@@ -1,15 +1,10 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Interop;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
 using static CookPopularControl.Tools.Interop.NativeMethods;
 using OriginPopup = System.Windows.Controls.Primitives.Popup;
 
@@ -21,7 +16,7 @@ using OriginPopup = System.Windows.Controls.Primitives.Popup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-27 13:11:46
  */
-namespace CookPopularControl.Controls.Popup
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="OriginPopup"/>的扩展控件
@@ -169,7 +164,7 @@ namespace CookPopularControl.Controls.Popup
 
         private void HostWindow_Activated(object sender, EventArgs e) => UpdatePopup(true);
 
-        private void HostWindow_Deactivated(object sender, EventArgs e) =>UpdatePopup(false);
+        private void HostWindow_Deactivated(object sender, EventArgs e) => UpdatePopup(false);
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
@@ -182,7 +177,7 @@ namespace CookPopularControl.Controls.Popup
         protected override void OnOpened(EventArgs e)
         {
             UpdatePopup();
-            
+
             base.OnOpened(e);
         }
 

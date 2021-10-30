@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -17,7 +12,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-15 17:41:15
  */
-namespace CookPopularControl.Controls.Progress
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供WaveProgressBar的附加属性类

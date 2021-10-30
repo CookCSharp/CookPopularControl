@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
-                    xmlns:field="clr-namespace:CookPopularControl.Controls.Fields"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultGroupControlBaseStyle" TargetType="{x:Type Control}">
@@ -110,7 +109,7 @@
                                      attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
                                      attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
                                      Visibility="{TemplateBinding EditorType,Converter={commonConverters:EditorTypeToVisibilityConverter},ConverterParameter=TextBox}" />
-                            <field:NumericUpDown Grid.Column="1" x:Name="PART_NumericUpDown" Height="{TemplateBinding Height}"
+                            <pc:NumericUpDown Grid.Column="1" x:Name="PART_NumericUpDown" Height="{TemplateBinding Height}"
                                                  BorderBrush="{TemplateBinding BorderBrush}"
                                                  BorderThickness="{TemplateBinding BorderThickness}"
                                                  Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"

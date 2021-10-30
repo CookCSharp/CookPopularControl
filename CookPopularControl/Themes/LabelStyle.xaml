@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Labels"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:border="clr-namespace:CookPopularControl.Controls.Borders"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="DefaultLabelStyle" TargetType="{x:Type Label}">
@@ -13,12 +12,12 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
-        <Setter Property="border:BorderAssistant.IsCircular" Value="False" />
+        <Setter Property="pc:BorderAssistant.IsCircular" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Label}">
                     <Border x:Name="PART_Root"
-                            CornerRadius="{TemplateBinding assistant:LabelAssistant.CornerRadius}"
+                            CornerRadius="{TemplateBinding pc:LabelAssistant.CornerRadius}"
                             SnapsToDevicePixels="True"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -27,11 +26,11 @@
                             <Border x:Name="HeaderBorder"
                                     Style="{DynamicResource BorderCircularClipStyle}"
                                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
-                                <ContentPresenter ContentStringFormat="{TemplateBinding assistant:LabelAssistant.HeaderStringFormat}"
-                                                  ContentTemplate="{TemplateBinding assistant:LabelAssistant.HeaderTemplate}"
-                                                  ContentTemplateSelector="{TemplateBinding assistant:LabelAssistant.HeaderTemplateSelector}"
+                                <ContentPresenter ContentStringFormat="{TemplateBinding pc:LabelAssistant.HeaderStringFormat}"
+                                                  ContentTemplate="{TemplateBinding pc:LabelAssistant.HeaderTemplate}"
+                                                  ContentTemplateSelector="{TemplateBinding pc:LabelAssistant.HeaderTemplateSelector}"
                                                   TextElement.Foreground="{TemplateBinding Foreground}"
-                                                  Content="{TemplateBinding assistant:LabelAssistant.Header}"
+                                                  Content="{TemplateBinding pc:LabelAssistant.Header}"
                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
                             <ContentPresenter x:Name="PART_Content"
@@ -44,7 +43,7 @@
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="assistant:LabelAssistant.Header" Value="{x:Null}">
+                        <Trigger Property="pc:LabelAssistant.Header" Value="{x:Null}">
                             <Setter TargetName="HeaderBorder" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -57,12 +56,12 @@
     </Style>
 
     <Style x:Key="GroupLabelItemStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}">
-        <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=Padding}" />
+        <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=Padding}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Label}">
                     <Border x:Name="PART_Root"
-                            CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type assistant:GroupLabel}}, Path=(assistant:LabelAssistant.CornerRadius)}"
+                            CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type pc:GroupLabel}}, Path=(pc:LabelAssistant.CornerRadius)}"
                             SnapsToDevicePixels="True"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -72,9 +71,9 @@
                                     Style="{DynamicResource BorderCircularClipStyle}"
                                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                     Background="{DynamicResource PrimaryThemeBrush}">
-                                <ContentPresenter ContentStringFormat="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=ItemStringFormat}"
-                                                  ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=ItemTemplate}"
-                                                  ContentTemplateSelector="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=ItemTemplateSelector}"
+                                <ContentPresenter ContentStringFormat="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemStringFormat}"
+                                                  ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemTemplate}"
+                                                  ContentTemplateSelector="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemTemplateSelector}"
                                                   TextElement.Foreground="{DynamicResource AssistantForegroundBrush}"
                                                   Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Header}"
                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -89,10 +88,10 @@
                             <Button x:Name="PART_CloseButton"
                                     attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     attached:FrameworkElementBaseAttached.IconHeight="15" attached:FrameworkElementBaseAttached.IconWidth="15"
-                                    Command="{x:Static assistant:GroupLabel.CloseCommand}"
+                                    Command="{x:Static pc:GroupLabel.CloseCommand}"
                                     Focusable="False" Opacity="0.4"
                                     Style="{DynamicResource ButtonTransparentIconStyle}"
-                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=assistant:GroupLabel}, Path=HasCloseButton, Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=HasCloseButton, Converter={toolConverters:BooleanToVisibilityConverter}}"
                                     Width="17" Height="17"
                                     Foreground="{TemplateBinding Foreground}"
                                     Margin="8,0" />
@@ -114,7 +113,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultGroupLabelStyle" TargetType="{x:Type assistant:GroupLabel}">
+    <Style x:Key="DefaultGroupLabelStyle" TargetType="{x:Type pc:GroupLabel}">
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource GroupLabelItemStyle}" />
@@ -123,7 +122,7 @@
         <Setter Property="Padding" Value="5" />
         <Setter Property="HasCloseButton" Value="True" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="0" />
-        <Setter Property="assistant:LabelAssistant.CornerRadius" Value="5" />
+        <Setter Property="pc:LabelAssistant.CornerRadius" Value="5" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -133,7 +132,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type assistant:GroupLabel}">
+                <ControlTemplate TargetType="{x:Type pc:GroupLabel}">
                     <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"

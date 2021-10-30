@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.TreeView"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
@@ -9,15 +9,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Grid Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonSize)}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonSize)}" Background="Transparent">
+                    <Grid Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}" Background="Transparent">
                         <Path x:Name="Collapsed"
                               Data="M 4 0 L 8 4 L 4 8 Z"
-                              Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonFill)}"
+                              Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonFill)}"
                               Stretch="Uniform"
                               HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <Path x:Name="Expanded"
                               Data="M 0 4 L 8 4 L 4 8 Z"
-                              Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonFill)}"
+                              Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonFill)}"
                               Stretch="Uniform" Visibility="Hidden"
                               HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <VisualStateManager.VisualStateGroups>
@@ -67,16 +67,16 @@
                                           ClickMode="Press"
                                           IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
                                           Style="{StaticResource ExpandCollapseToggleButtonStyle}"
-                                          Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonSize)}"
-                                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonSize)}"
+                                          Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                           Margin="0,0,3,0" />
                             <Path x:Name="PART_HeaderIcon"
-                                  Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.HeaderIconHasItems)}"
-                                  Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.HeaderIconFill)}"
+                                  Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconHasItems)}"
+                                  Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconFill)}"
                                   Stretch="Uniform"
-                                  Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.IsShowHeaderIcon), Converter={toolConverters:BooleanToVisibilityConverter}}"
-                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonSize)}"
-                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.ExpandButtonSize)}"
+                                  Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={toolConverters:BooleanToVisibilityConverter}}"
+                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                   Margin="0,0,3,0" />
                         </StackPanel>
                         <Border x:Name="Bd" Grid.Row="0" Grid.Column="1"
@@ -130,7 +130,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasItems" Value="false">
                             <Setter TargetName="Expander" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="PART_HeaderIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(assistant:TreeViewAssistant.HeaderIconNoItems)}" />
+                            <Setter TargetName="PART_HeaderIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconNoItems)}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

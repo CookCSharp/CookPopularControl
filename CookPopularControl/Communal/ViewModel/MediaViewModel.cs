@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 
 
@@ -25,7 +21,7 @@ namespace CookPopularControl.Communal.ViewModel
         /// <summary>                                            
         /// VolumePopup是否打开                                  
         /// </summary>                                           
-        public bool IsVolumeOpen                               
+        public bool IsVolumeOpen
         {
             get { return _isVolumeOpen; }
             set { SetProperty(ref _isVolumeOpen, value); }

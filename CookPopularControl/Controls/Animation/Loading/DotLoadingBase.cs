@@ -1,10 +1,6 @@
-﻿using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,7 +15,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-03 15:16:01
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示由点组成的动画的基类

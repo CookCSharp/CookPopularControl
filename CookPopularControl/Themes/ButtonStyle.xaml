@@ -1,8 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:buttonassist="clr-namespace:CookPopularControl.Controls.Button"
-                    xmlns:progress="clr-namespace:CookPopularControl.Controls.Progress"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
@@ -23,15 +21,15 @@
         <Setter Property="attached:ButtonBaseAttached.IsShowRipple" Value="True" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
         <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
-        <Setter Property="buttonassist:ButtonAssist.ImageSource" Value="{x:Null}" />
-        <Setter Property="buttonassist:ButtonAssist.ImageWidth" Value="0" />
-        <Setter Property="buttonassist:ButtonAssist.ImageHeight" Value="0" />
-        <Setter Property="buttonassist:ButtonAssist.GifStream" Value="{x:Null}" />
-        <Setter Property="buttonassist:ButtonAssist.GifSource" Value="{x:Null}" />
-        <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="False" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarBrush" Value="{x:Null}" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressValue" Value="0" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource DefaultProgressBarStyle}" />
+        <Setter Property="pc:ButtonAssist.ImageSource" Value="{x:Null}" />
+        <Setter Property="pc:ButtonAssist.ImageWidth" Value="0" />
+        <Setter Property="pc:ButtonAssist.ImageHeight" Value="0" />
+        <Setter Property="pc:ButtonAssist.GifStream" Value="{x:Null}" />
+        <Setter Property="pc:ButtonAssist.GifSource" Value="{x:Null}" />
+        <Setter Property="pc:ButtonAssist.IsShowProgress" Value="False" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{x:Null}" />
+        <Setter Property="pc:ButtonAssist.ProgressValue" Value="0" />
+        <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{DynamicResource DefaultProgressBarStyle}" />
         <Setter Property="gif:AnimationBehavior.AutoStart" Value="True" />
         <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
         <Setter Property="gif:AnimationBehavior.SourceStream" Value="{x:Null}" />
@@ -90,8 +88,8 @@
 
     <Style x:Key="ButtonContentWithGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0,0,8,0" />
-        <Setter Property="buttonassist:ButtonAssist.ImageWidth" Value="{DynamicResource Double30Value}" />
-        <Setter Property="buttonassist:ButtonAssist.ImageHeight" Value="{DynamicResource Double30Value}" />
+        <Setter Property="pc:ButtonAssist.ImageWidth" Value="{DynamicResource Double30Value}" />
+        <Setter Property="pc:ButtonAssist.ImageHeight" Value="{DynamicResource Double30Value}" />
     </Style>
     <Style x:Key="ButtonGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithGifStyle}">
         <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
@@ -104,27 +102,27 @@
 
 
     <Style x:Key="ButtonLinearProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource DefaultProgressBarStyle}" />
-        <Setter Property="progress:LinearProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="progress:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{DynamicResource DefaultProgressBarStyle}" />
+        <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="True" />
+        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
     </Style>
     <Style x:Key="ButtonCircularProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource CircularProgressBarStyle}" />
-        <Setter Property="progress:CircularProgressAssistant.ArcThickness" Value="5" />
-        <Setter Property="progress:LinearProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="progress:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{DynamicResource CircularProgressBarStyle}" />
+        <Setter Property="pc:CircularProgressAssistant.ArcThickness" Value="5" />
+        <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="True" />
+        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
     </Style>
     <Style x:Key="ButtonWaveProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="buttonassist:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="buttonassist:ButtonAssist.ProgressBarStyle" Value="{DynamicResource WaveProgressBarShowPercentStyle}" />
-        <Setter Property="progress:WaveProgressBarAssistant.WaveStrokeThickness" Value="0" />
-        <Setter Property="progress:LinearProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="progress:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{DynamicResource WaveProgressBarShowPercentStyle}" />
+        <Setter Property="pc:WaveProgressBarAssistant.WaveStrokeThickness" Value="0" />
+        <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="True" />
+        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
     </Style>
 
 </ResourceDictionary>

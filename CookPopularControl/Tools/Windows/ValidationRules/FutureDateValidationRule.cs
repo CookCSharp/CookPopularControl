@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 
@@ -26,7 +22,7 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
 
         public override ValidationResult ValidateBase(object value, CultureInfo cultureInfo)
         {
-            if(!DateTime.TryParse((value ?? string.Empty).ToString(),CultureInfo.CurrentCulture,DateTimeStyles.AssumeLocal | DateTimeStyles.AllowWhiteSpaces, out DateTime dateTime))
+            if (!DateTime.TryParse((value ?? string.Empty).ToString(), CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal | DateTimeStyles.AllowWhiteSpaces, out DateTime dateTime))
                 return new ValidationResult(false, ErrorMessage);
 
             return dateTime.Date < DateTime.Now.Date ? new ValidationResult(false, ErrorMessage) : ValidationResult.ValidResult;

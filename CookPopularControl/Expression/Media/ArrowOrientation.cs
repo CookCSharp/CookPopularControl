@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：ArrowType
  * Author： Chance_写代码的厨子
@@ -14,26 +6,26 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Expression.Media
 {
-	/// <summary>
-	/// Specifies the direction the arrow points.
-	/// </summary>
-	public enum ArrowOrientation
-	{
-		/// <summary>
-		/// The arrow points to the left.
-		/// </summary>
-		Left,
-		/// <summary>
-		/// The arrow points to the right.
-		/// </summary>
-		Right,
-		/// <summary>
-		/// The arrow points up.
-		/// </summary>
-		Up,
-		/// <summary>
-		/// The arrow points down.
-		/// </summary>
-		Down
-	}
+    /// <summary>
+    /// Specifies the direction the arrow points.
+    /// </summary>
+    public enum ArrowOrientation
+    {
+        /// <summary>
+        /// The arrow points to the left.
+        /// </summary>
+        Left,
+        /// <summary>
+        /// The arrow points to the right.
+        /// </summary>
+        Right,
+        /// <summary>
+        /// The arrow points up.
+        /// </summary>
+        Up,
+        /// <summary>
+        /// The arrow points down.
+        /// </summary>
+        Down
+    }
 }

@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,7 +27,7 @@ namespace CookPopularControl.Tools.Windows.Drawing
         }
         public static readonly DependencyProperty OriginXProperty =
             DependencyProperty.Register("OriginX", typeof(double), typeof(CoordinateCanvas),
-                new PropertyMetadata(ValueBoxes.Double0Box,new PropertyChangedCallback(OnPropertiesValueChanged)));
+                new PropertyMetadata(ValueBoxes.Double0Box, new PropertyChangedCallback(OnPropertiesValueChanged)));
 
         /// <summary>
         /// 原点Y坐标
@@ -43,7 +38,7 @@ namespace CookPopularControl.Tools.Windows.Drawing
             set { SetValue(OriginYProperty, value); }
         }
         public static readonly DependencyProperty OriginYProperty =
-            DependencyProperty.Register("OriginY", typeof(double), typeof(CoordinateCanvas), 
+            DependencyProperty.Register("OriginY", typeof(double), typeof(CoordinateCanvas),
                 new PropertyMetadata(ValueBoxes.Double0Box, new PropertyChangedCallback(OnPropertiesValueChanged)));
 
         private static void OnPropertiesValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

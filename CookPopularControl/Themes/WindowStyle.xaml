@@ -2,13 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
-                    xmlns:btn="clr-namespace:CookPopularControl.Controls.Button"
-                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
-                    xmlns:win="clr-namespace:CookPopularControl.Controls">
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:win="clr-namespace:CookPopularControl.Windows"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />-->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -21,13 +19,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ResizeGrip">
-                    <panel:SimpleGrid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                    <pc:SimpleGrid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                         <Path Width="10" Height="10"
                               Data="{DynamicResource ResizeGripGeometry}"
                               Fill="{TemplateBinding Foreground}"
                               Stretch="Uniform"
                               HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </panel:SimpleGrid>
+                    </pc:SimpleGrid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -232,9 +230,9 @@
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
                                             <ToggleButton ToolTip="功能"
-                                                          btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
-                                                          btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
-                                                          btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource CatalogGeometry}"
+                                                          pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                                                          pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
+                                                          pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource CatalogGeometry}"
                                                           Command="{x:Static win:SideBarWindow.SidebarPopupCommand}"
                                                           IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsShowSideBar, Mode=TwoWay}"
                                                           Style="{StaticResource WindowDoubbleIconToggleButtonStyle}" />
@@ -350,7 +348,7 @@
                                           Background="{TemplateBinding ClientTitleBarBackground}"
                                           TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}" />
                                     <AdornerDecorator Grid.Row="1">
-                                        <panel:SimpleGrid>
+                                        <pc:SimpleGrid>
                                             <ContentPresenter ClipToBounds="True" />
                                             <StackPanel Background="{TemplateBinding ClientTitleBarBackground}"
                                                         HorizontalAlignment="Right" VerticalAlignment="Top"
@@ -377,7 +375,7 @@
                                                         Command="{x:Static SystemCommands.CloseWindowCommand}"
                                                         Style="{StaticResource WindowIconButtonStyle}" />
                                             </StackPanel>
-                                        </panel:SimpleGrid>
+                                        </pc:SimpleGrid>
                                     </AdornerDecorator>
                                     <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
                                                 Width="10" Height="10"

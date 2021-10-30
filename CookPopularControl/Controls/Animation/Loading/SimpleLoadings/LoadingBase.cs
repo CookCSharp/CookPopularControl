@@ -1,10 +1,6 @@
-﻿using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,7 +14,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-08 16:39:33
  */
-namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 简单动画的基类
@@ -52,7 +48,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
         /// 提供<see cref="Duration"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty DurationProperty =
-            DependencyProperty.Register("Duration", typeof(Duration), typeof(LoadingBase), 
+            DependencyProperty.Register("Duration", typeof(Duration), typeof(LoadingBase),
                 new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)), FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
 
         /// <summary>
@@ -104,7 +100,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
         }
 
         protected override void OnRender(DrawingContext drawingContext)
-        { 
+        {
             base.OnRender(drawingContext);
             UpdateLoadingAnimation();
         }

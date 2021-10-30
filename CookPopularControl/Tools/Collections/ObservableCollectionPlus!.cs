@@ -6,8 +6,6 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -32,7 +30,7 @@ namespace CookPopularControl.Tools.Collections
             collection.ForEach(item => base.Add(item));
         }
 #else
-        public ObservableCollectionPlus(IEnumerable<T> collection): base(collection)
+        public ObservableCollectionPlus(IEnumerable<T> collection) : base(collection)
         {
             m_roCollection = new ReadOnlyObservableCollection<T>(this);
             m_lock = new WrappedLock(BeforeMultiUpdate, FinishMultiUpdate);

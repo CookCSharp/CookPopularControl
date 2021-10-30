@@ -1,13 +1,6 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CookPopularControl.Tools.Boxes;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
@@ -19,7 +12,7 @@ using System.Windows.Media.Effects;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-23 18:42:49
  */
-namespace CookPopularControl.Controls.ComboBox
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示<see cref="System.Windows.Controls.ComboBox"/>的附加属性帮助类

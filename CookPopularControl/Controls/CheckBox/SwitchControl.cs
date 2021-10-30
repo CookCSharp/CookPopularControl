@@ -1,9 +1,5 @@
 ﻿using CookPopularControl.Communal.Attached;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -17,7 +13,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-17 17:51:01
  */
-namespace CookPopularControl.Controls.CheckBox
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示开关控件

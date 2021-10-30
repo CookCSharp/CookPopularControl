@@ -2,11 +2,7 @@
 using CookPopularControl.Tools.Boxes;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,7 +15,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-11 11:37:42
  */
-namespace CookPopularControl.Controls.Labels
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 标签组

@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
-                    xmlns:fields="clr-namespace:CookPopularControl.Controls.Fields"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
-    <Style x:Key="DefaultNumericUpDownStyle" TargetType="{x:Type fields:NumericUpDown}">
+    <Style x:Key="DefaultNumericUpDownStyle" TargetType="{x:Type pc:NumericUpDown}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
@@ -21,11 +21,11 @@
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="输入数字" />
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="False" />
-        <Setter Property="fields:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />
-        <Setter Property="fields:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="pc:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />
+        <Setter Property="pc:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type fields:NumericUpDown}">
+                <ControlTemplate TargetType="{x:Type pc:NumericUpDown}">
                     <Border x:Name="RootBorder"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -55,27 +55,27 @@
                                      Validation.ErrorTemplate="{x:Null}" />
                             <UniformGrid Grid.Column="1"
                                          Rows="2"
-                                         Margin="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonMargin}"
+                                         Margin="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonMargin}"
                                          Visibility="{TemplateBinding IsShowUpDownButton, Converter={toolConverters:BooleanToVisibilityConverter}}">
                                 <Button x:Name="PART_PlusButton"
                                         Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}"
+                                        Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
                                         Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                        Command="{x:Static fields:NumericUpDown.PlusCommand}"
+                                        Command="{x:Static pc:NumericUpDown.PlusCommand}"
                                         Style="{DynamicResource ButtonTransparentIconStyle}" />
                                 <Button x:Name="PART_SubtractButton"
                                         Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                        Foreground="{TemplateBinding fields:NumericUpDownAssistant.UpDownButtonBrush}"
+                                        Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
                                         Focusable="False"
                                         attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
                                         attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                        Command="{x:Static fields:NumericUpDown.SubtractCommand}"
+                                        Command="{x:Static pc:NumericUpDown.SubtractCommand}"
                                         Style="{DynamicResource ButtonTransparentIconStyle}" />
                             </UniformGrid>
                         </Grid>
@@ -101,7 +101,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NumericUpDownAddClearButtonStyle" TargetType="{x:Type fields:NumericUpDown}" BasedOn="{StaticResource DefaultNumericUpDownStyle}">
+    <Style x:Key="NumericUpDownAddClearButtonStyle" TargetType="{x:Type pc:NumericUpDown}" BasedOn="{StaticResource DefaultNumericUpDownStyle}">
         <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
     </Style>
 

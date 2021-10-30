@@ -1,11 +1,7 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Tools.Extensions.Markup;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -22,7 +18,7 @@ namespace CookPopularControl.Communal.Converters
 {
     [MarkupExtensionReturnType(typeof(Visibility))]
     [ValueConversion(typeof(EditorType), typeof(Visibility))]
-    public class EditorTypeToVisibilityConverter: MarkupExtensionBase, IValueConverter
+    public class EditorTypeToVisibilityConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

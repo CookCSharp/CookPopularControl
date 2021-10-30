@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -14,10 +10,10 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Expression.Media
 {
-	public class DrawingPropertyChangedEventArgs : EventArgs
-	{
-		public DrawingPropertyMetadata Metadata { get; set; }
+    public class DrawingPropertyChangedEventArgs : EventArgs
+    {
+        public DrawingPropertyMetadata Metadata { get; set; }
 
-		public bool IsAnimated { get; set; }
-	}
+        public bool IsAnimated { get; set; }
+    }
 }

@@ -1,10 +1,6 @@
 ﻿using CookPopularControl.Tools.Extensions.Markup;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -21,7 +17,7 @@ namespace CookPopularControl.Tools.Windows.Converters
 {
     [MarkupExtensionReturnType(typeof(object))]
     [Localizability(LocalizationCategory.NeverLocalize)]
-    public class DoubleToStringConverter: MarkupExtensionBase, IValueConverter
+    public class DoubleToStringConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

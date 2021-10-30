@@ -1,9 +1,5 @@
 ﻿using CookPopularControl.Communal.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,7 +15,7 @@ namespace CookPopularControl.Controls
     /// <summary>
     /// 可编辑标签
     /// </summary>
-    /// <remarks>由<see cref="ContentPresenter"/>与<see cref="TextBox"/>组合而成</remarks>
+    /// <remarks>由两个<see cref="ContentControl"/>组合而成的标签控件</remarks>
     public class EditingTag : Control
     {
         /// <summary>
@@ -27,14 +23,14 @@ namespace CookPopularControl.Controls
         /// </summary>
         public object Header
         {
-            get { return (object)GetValue(HeaderProperty); }
+            get { return GetValue(HeaderProperty); }
             set { SetValue(HeaderProperty, value); }
         }
         /// <summary>
         /// 表示<see cref="Header"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderProperty =
-            DependencyProperty.Register("Header", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object)));
+            DependencyProperty.Register("Header", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
 
 
         /// <summary>
@@ -49,7 +45,7 @@ namespace CookPopularControl.Controls
         /// 提供<see cref="HeaderWidth"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderWidthProperty =
-            DependencyProperty.Register("HeaderWidth", typeof(GridLength), typeof(EditingTag), new PropertyMetadata(GridLength.Auto));
+            DependencyProperty.Register("HeaderWidth", typeof(GridLength), typeof(EditingTag), new PropertyMetadata(GridLength.Auto, OnPropertiesChanged));
 
 
         /// <summary>
@@ -64,7 +60,7 @@ namespace CookPopularControl.Controls
         /// 提供<see cref="HeaderHorizontalAlignment"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderHorizontalAlignmentProperty =
-            DependencyProperty.Register("HeaderHorizontalAlignment", typeof(HorizontalAlignment), typeof(EditingTag), new PropertyMetadata(default(HorizontalAlignment)));
+            DependencyProperty.Register("HeaderHorizontalAlignment", typeof(HorizontalAlignment), typeof(EditingTag), new PropertyMetadata(default(HorizontalAlignment), OnPropertiesChanged));
 
 
         /// <summary>
@@ -79,7 +75,7 @@ namespace CookPopularControl.Controls
         /// 提供<see cref="HeaderVerticalAlignment"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderVerticalAlignmentProperty =
-            DependencyProperty.Register("HeaderVerticalAlignment", typeof(VerticalAlignment), typeof(EditingTag), new PropertyMetadata(default(VerticalAlignment)));
+            DependencyProperty.Register("HeaderVerticalAlignment", typeof(VerticalAlignment), typeof(EditingTag), new PropertyMetadata(default(VerticalAlignment), OnPropertiesChanged));
 
 
         /// <summary>
@@ -94,7 +90,7 @@ namespace CookPopularControl.Controls
         /// 提供<see cref="EditorType"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty EditorTypeProperty =
-            DependencyProperty.Register("EditorType", typeof(EditorType), typeof(EditingTag), new PropertyMetadata(default(EditorType)));
+            DependencyProperty.Register("EditorType", typeof(EditorType), typeof(EditingTag), new PropertyMetadata(default(EditorType), OnPropertiesChanged));
 
 
         /// <summary>
@@ -102,14 +98,14 @@ namespace CookPopularControl.Controls
         /// </summary>
         public object Content
         {
-            get { return (object)GetValue(ContentProperty); }
+            get { return GetValue(ContentProperty); }
             set { SetValue(ContentProperty, value); }
         }
         /// <summary>
         /// 表示<see cref="Content"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object)));
+            DependencyProperty.Register("Content", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
 
 
         /// <summary>
@@ -124,6 +120,18 @@ namespace CookPopularControl.Controls
         /// 表示<see cref="HeaderMargin"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderMarginProperty =
-            DependencyProperty.Register("HeaderMargin", typeof(Thickness), typeof(EditingTag), new PropertyMetadata(default(Thickness)));
+            DependencyProperty.Register("HeaderMargin", typeof(Thickness), typeof(EditingTag), new PropertyMetadata(default(Thickness), OnPropertiesChanged));
+
+
+        private static void OnPropertiesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is EditingTag editing)
+            {
+                if (!DesignerProperties.GetIsInDesignMode(editing))
+                {
+                    d.SetValue(e.Property, e.NewValue);
+                }
+            }
+        }
     }
 }

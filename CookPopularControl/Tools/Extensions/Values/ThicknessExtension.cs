@@ -1,10 +1,4 @@
 ﻿using CookPopularControl.Expression.Drawing.Core;
-using CookPopularControl.Tools.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 
@@ -27,7 +21,7 @@ namespace CookPopularControl.Tools.Extensions.Values
             && MathHelper.IsZero(thickness.Right)
             && MathHelper.IsZero(thickness.Bottom);
 
-        public static bool IsUniform(this Thickness thickness) 
+        public static bool IsUniform(this Thickness thickness)
             => MathHelper.AreClose(thickness.Left, thickness.Top)
             && MathHelper.AreClose(thickness.Left, thickness.Right)
             && MathHelper.AreClose(thickness.Left, thickness.Bottom);

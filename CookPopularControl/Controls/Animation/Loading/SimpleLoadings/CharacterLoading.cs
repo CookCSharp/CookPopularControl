@@ -1,11 +1,6 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,7 +15,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-08 18:10:45
  */
-namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示简单的Loading...文字
@@ -56,7 +51,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
         public static readonly DependencyProperty DotCountProperty =
             DependencyProperty.Register("DotCount", typeof(int), typeof(CharacterLoading),
                 new FrameworkPropertyMetadata(ValueBoxes.Inter5Box, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesValueChanged));
-        
+
         /// <summary>
         /// 文本内容
         /// </summary>
@@ -114,7 +109,7 @@ namespace CookPopularControl.Controls.Animation.Loading.SimpleLoadings
             tb.HorizontalAlignment = HorizontalAlignment.Left;
             tb.VerticalAlignment = VerticalAlignment.Center;
 
-            CharacterWidth = FontHelper.GetFontWidthHeight(tb,CharacterContent,FontFamily.Source,FontSize).width + 10;
+            CharacterWidth = FontHelper.GetFontWidthHeight(tb, CharacterContent, FontFamily.Source, FontSize).width + 10;
             RootGrid?.Children.Add(tb);
         }
 

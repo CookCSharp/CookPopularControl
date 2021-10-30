@@ -1,15 +1,10 @@
 ﻿using CookPopularControl.Controls.Animation;
-using CookPopularControl.Expression.Drawing.Core;
 using CookPopularControl.Tools;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -22,7 +17,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-05 09:16:28
  */
-namespace CookPopularControl.Controls.Panels
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 标识动画面板布局的抽象基类

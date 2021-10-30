@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Borders"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="BorderCircularStyle" TargetType="{x:Type Border}">
-        <Setter Property="assistant:BorderAssistant.IsCircular" Value="True" />
+        <Setter Property="pc:BorderAssistant.IsCircular" Value="True" />
     </Style>
 
     <Style x:Key="BorderClipStyle" TargetType="{x:Type Border}">

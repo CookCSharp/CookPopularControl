@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics.Contracts;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,7 +10,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-06 15:06:09
  */
-namespace CookPopularControl.Controls.BlockBar
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示矩形块状

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
@@ -15,7 +10,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-10 14:44:41
  */
-namespace CookPopularControl.Controls.Button
+namespace CookPopularControl.Controls
 {
     public class ButtonBase3D : UIElement3D
     {
@@ -37,7 +32,7 @@ namespace CookPopularControl.Controls.Button
 
         private void OnClick()
         {
-            RoutedEventArgs args = new RoutedEventArgs(ClickEvent,this);
+            RoutedEventArgs args = new RoutedEventArgs(ClickEvent, this);
             base.RaiseEvent(args);
         }
     }

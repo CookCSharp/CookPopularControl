@@ -5,10 +5,6 @@ using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -69,9 +65,9 @@ namespace CookPopularControl.Controls
 
         private static void OnIsCancelAlarmChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if(d is Alertor alertor)
+            if (d is Alertor alertor)
             {
-                if((bool)e.NewValue)
+                if ((bool)e.NewValue)
                 {
                     alertor._storyboard.Pause();
                 }

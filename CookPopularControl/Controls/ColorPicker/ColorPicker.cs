@@ -1,5 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Interop;
 using Microsoft.Xaml.Behaviors;
 using Microsoft.Xaml.Behaviors.Layout;
 using System;
@@ -39,7 +38,7 @@ using System.Windows.Media;
  * S = [max(r,g,b) - min(r,g,b)] / [M - |max(r,g,b) + min(r,g,b) - M|]
  * 其中 M 为 RGB 的理论最大值，一般为 255
  */
-namespace CookPopularControl.Controls.ColorPicker
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 颜色选择器
@@ -386,7 +385,7 @@ namespace CookPopularControl.Controls.ColorPicker
 
             var actualColor = HslColor.HSLToRGB(new HslColor(e.NewValue, _pickerCurrentPosition.X, 1 - _pickerCurrentPosition.Y));
             SelectedBrush = new SolidColorBrush(Color.FromArgb((byte)_sliderOpacity.Value, actualColor.R, actualColor.G, actualColor.B));
-            
+
             UpdateRGBValues(SelectedBrush.Color);
             UpdateHexColor(SelectedBrush.Color);
         }

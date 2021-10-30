@@ -7,8 +7,6 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -327,7 +325,7 @@ namespace CookPopularControl.Tools.Extensions
                     stack.Pop().Dispose();
                 }
             }
-        } 
+        }
 
         public static IList<TTo> ToCastList<TFrom, TTo>(this IList<TFrom> source) where TFrom : TTo
         {

@@ -1,11 +1,5 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -18,7 +12,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-06 14:37:47
  */
-namespace CookPopularControl.Controls.BlockBar
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示块状的基类
@@ -39,7 +33,7 @@ namespace CookPopularControl.Controls.BlockBar
         /// 标识<see cref="BlockCount"/>依赖属性
         /// </summary>
         public static readonly DependencyProperty BlockCountProperty =
-            DependencyProperty.Register("BlockCount", typeof(int), typeof(BlockBarBase), 
+            DependencyProperty.Register("BlockCount", typeof(int), typeof(BlockBarBase),
                 new FrameworkPropertyMetadata(ValueBoxes.Inter5Box, FrameworkPropertyMetadataOptions.AffectsRender, null, new CoerceValueCallback(CoerceBlockCount)));
 
         private static object CoerceBlockCount(DependencyObject d, object baseValue)

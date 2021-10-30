@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -16,7 +11,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-09 17:03:56
  */
-namespace CookPopularControl.Controls.Button
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="RadioButton"/>的附加属性基类
@@ -30,7 +25,7 @@ namespace CookPopularControl.Controls.Button
         /// </summary>
         public static readonly DependencyProperty CircleDiameterProperty =
             DependencyProperty.RegisterAttached("CircleDiameter", typeof(double), typeof(RadioButtonAssistant), new PropertyMetadata(ValueBoxes.Double20Box));
-    
+
         public static Brush GetCheckedBrush(DependencyObject obj) => (Brush)obj.GetValue(CheckedBrushProperty);
         public static void SetCheckedBrush(DependencyObject obj, Brush value) => obj.SetValue(CheckedBrushProperty, value);
         /// <summary>

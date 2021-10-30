@@ -1,6 +1,5 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Controls.CheckBox;
-using CookPopularControl.Controls.Notify;
+using CookPopularControl.Controls;
 using MvvmTestDemo.UserControls;
 using Prism.Unity;
 using System.Windows;

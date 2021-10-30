@@ -1,10 +1,7 @@
 ﻿using CookPopularControl.Tools.Extensions.Markup;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -25,7 +22,7 @@ namespace CookPopularControl.Communal.Converters
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values.Count() < 2) return double.NaN;
-            if(values[0] == DependencyProperty.UnsetValue || values[1] == DependencyProperty.UnsetValue)
+            if (values[0] == DependencyProperty.UnsetValue || values[1] == DependencyProperty.UnsetValue)
                 return double.NaN;
 
             return -(double)values[0] - (double)values[1] * 0.5 - 6D;

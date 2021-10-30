@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:shape="clr-namespace:CookPopularControl.Expression.Shapes">
 
     <ControlTemplate x:Key="ColorPickerCircularRing">
-        <panel:SimpleGrid x:Name="CustomColorGrid" Background="Transparent">
+        <pc:SimpleGrid x:Name="CustomColorGrid" Background="Transparent">
             <shape:Arc ArcThickness="40" EndAngle="51.5"
                        Fill="{DynamicResource RedLinearGradientBrush}"
                        StartAngle="0" Stretch="None" />
@@ -26,7 +26,7 @@
             <shape:Arc ArcThickness="40" EndAngle="360"
                        Fill="{DynamicResource PurpleLinearGradientBrush}"
                        StartAngle="309" Stretch="None" />
-        </panel:SimpleGrid>
+        </pc:SimpleGrid>
     </ControlTemplate>
 
 </ResourceDictionary>

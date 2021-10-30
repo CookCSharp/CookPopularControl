@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -22,7 +18,7 @@ namespace CookPopularControl.Tools
     {
         // 释放非托管资源
         [DllImport("Kernel32", CharSet = CharSet.Auto, SetLastError = true)]
-        [return:MarshalAs(UnmanagedType.Bool)]
+        [return: MarshalAs(UnmanagedType.Bool)]
         private extern static bool CloseHandle(IntPtr handle);
 
 

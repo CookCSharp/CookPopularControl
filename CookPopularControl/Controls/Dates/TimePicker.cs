@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,7 +11,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-07-27 17:19:34
  */
-namespace CookPopularControl.Controls.Dates
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 时间选择器
@@ -44,7 +40,7 @@ namespace CookPopularControl.Controls.Dates
         }
 
         public override void OnApplyTemplate()
-        {         
+        {
             base.OnApplyTemplate();
 
             _clock = GetTemplateChild(ElementClock) as Clock;

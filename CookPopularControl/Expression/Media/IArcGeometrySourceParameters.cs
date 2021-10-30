@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：ICalloutGeometrySourceParameters
  * Author： Chance_写代码的厨子
@@ -15,13 +6,13 @@ using System.Windows;
  */
 namespace CookPopularControl.Expression.Media
 {
-	public interface IArcGeometrySourceParameters : IGeometrySourceParameters
-	{
-		double StartAngle { get; }
-		double EndAngle { get; }
+    public interface IArcGeometrySourceParameters : IGeometrySourceParameters
+    {
+        double StartAngle { get; }
+        double EndAngle { get; }
 
-		double ArcThickness { get; }
+        double ArcThickness { get; }
 
-		UnitType ArcThicknessUnit { get; }
-	}
+        UnitType ArcThicknessUnit { get; }
+    }
 }

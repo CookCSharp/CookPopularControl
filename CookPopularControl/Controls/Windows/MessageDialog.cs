@@ -6,15 +6,12 @@ using CookPopularControl.Tools.Windows.Tasks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Media;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shell;
 using OriginButton = System.Windows.Controls.Button;
 
 
@@ -24,7 +21,7 @@ using OriginButton = System.Windows.Controls.Button;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-19 16:23:14
  */
-namespace CookPopularControl.Controls
+namespace CookPopularControl.Windows
 {
     /// <summary>
     /// 消息框

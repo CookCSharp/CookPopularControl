@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：RuntimeVersion
  * Author： Chance_写代码的厨子
@@ -14,8 +6,8 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Expression.BlendSDK
 {
-	internal static class RuntimeVersion
-	{
-		public const string AssemblyVersion = "4.0.0.0";
-	}
+    internal static class RuntimeVersion
+    {
+        public const string AssemblyVersion = "4.0.0.0";
+    }
 }

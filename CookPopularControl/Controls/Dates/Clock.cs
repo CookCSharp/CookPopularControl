@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Helpers;
 using CookPopularControl.Tools.Windows.Tasks;
 using System;
@@ -19,7 +19,7 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-07-13 15:14:04
  */
-namespace CookPopularControl.Controls.Dates
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 时钟
@@ -87,7 +87,7 @@ namespace CookPopularControl.Controls.Dates
         }
 
         public override void OnApplyTemplate()
-        {           
+        {
             if (_amRadioButton != null)
                 _amRadioButton.Click -= (s, e) => UpdateCurrentValue(0);
             if (_pmRadioButton != null)

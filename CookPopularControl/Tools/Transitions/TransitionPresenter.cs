@@ -1,4 +1,3 @@
-using CookPopularControl.Tools.Transitions;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,7 +31,7 @@ namespace CookPopularControl.Tools.Transitions
 
         public object Content
         {
-            get { return (object)GetValue(ContentProperty); }
+            get { return GetValue(ContentProperty); }
             set { SetValue(ContentProperty, value); }
         }
 

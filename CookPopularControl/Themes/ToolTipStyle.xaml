@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:toolTip="clr-namespace:CookPopularControl.Controls.TooTip">
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultToolTipStyle" TargetType="{x:Type ToolTip}">
         <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
@@ -12,7 +12,7 @@
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Placement" Value="Mouse" />
         <Setter Property="Padding" Value="8" />
-        <Setter Property="CustomPopupPlacementCallback" Value="{x:Static toolTip:ToolTipAssistant.CustomPopupPlacementCallback}" />
+        <Setter Property="CustomPopupPlacementCallback" Value="{x:Static pc:ToolTipAssistant.CustomPopupPlacementCallback}" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="Template">
             <Setter.Value>

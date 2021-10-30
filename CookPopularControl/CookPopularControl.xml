@@ -576,37 +576,37 @@
             将装饰器绑定到元素的基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.AnimationPath">
+        <member name="T:CookPopularControl.Controls.AnimationPath">
             <summary>
             提供<see cref="T:System.Windows.Media.Geometry"/>的路径动画控件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.AnimationPath._storyboard">
+        <member name="F:CookPopularControl.Controls.AnimationPath._storyboard">
             <summary>
             动画面板
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.AnimationPath._pathLength">
+        <member name="F:CookPopularControl.Controls.AnimationPath._pathLength">
             <summary>
             动画路径长度
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.PathLength">
+        <member name="P:CookPopularControl.Controls.AnimationPath.PathLength">
             <summary>
             Geometry路径长度
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.Duration">
+        <member name="P:CookPopularControl.Controls.AnimationPath.Duration">
             <summary>
             动画持续时间
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.RepeatBehavior">
+        <member name="P:CookPopularControl.Controls.AnimationPath.RepeatBehavior">
             <summary>
             指定动画的重复行为
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.AnimationPath.IsPlay">
+        <member name="P:CookPopularControl.Controls.AnimationPath.IsPlay">
             <summary>
             动画是否播放
             </summary>
@@ -626,198 +626,198 @@
             标识<see cref="P:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemHeight"/>的附加属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.DotCircleLoading">
+        <member name="T:CookPopularControl.Controls.DotCircleLoading">
             <summary>
             表示点按照圆的运动轨迹形成的动画
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.DotLineLoading">
+        <member name="T:CookPopularControl.Controls.DotLineLoading">
             <summary>
             表示点按照直线的运动轨迹形成的动画
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.DotLoadingBase">
+        <member name="T:CookPopularControl.Controls.DotLoadingBase">
             <summary>
             表示由点组成的动画的基类
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunning">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.IsDotRunning">
             <summary>
             Dot是否正在运动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunningProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.IsDotRunningProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunning"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.IsDotRunning"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotCount">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotCount">
             <summary>
             点的数量
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotCountProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotCountProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotCount"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotCount"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDiameter">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotDiameter">
             <summary>
             点的半径
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDiameterProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotDiameterProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDiameter"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotDiameter"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRadiusEqualScale">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.IsDotRadiusEqualScale">
             <summary>
             Dot半径是按照否比例系数变化
             </summary>
             <remarks>默认值为false</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRadiusEqualScaleProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.IsDotRadiusEqualScaleProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRadiusEqualScale"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.IsDotRadiusEqualScale"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStroke">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotStroke">
             <summary>
             点的BorderBrush
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotStrokeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStroke"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotStroke"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeThickness">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotStrokeThickness">
             <summary>
             点的BoderThcikness
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeThicknessProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotStrokeThicknessProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotStrokeThickness"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotStrokeThickness"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotInterval">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotInterval">
             <summary>
             相邻点之间的间隔距离
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotIntervalProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotIntervalProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotInterval"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotInterval"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDuration">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotDuration">
             <summary>
             动画持续时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDurationProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotDurationProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDuration"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotDuration"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotRunSpeed">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotRunSpeed">
             <summary>
             点的运行速率
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotRunSpeedProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotRunSpeedProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotRunSpeed"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotRunSpeed"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDelayTime">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.DotDelayTime">
             <summary>
             点之间延迟时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDelayTimeProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.DotDelayTimeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.DotDelayTime"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.DotLoadingBase.DotDelayTime"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstant">
+        <member name="P:CookPopularControl.Controls.DotLoadingBase.IsDotRunAsConstant">
             <summary>
             点是否匀速运动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstantProperty">
+        <member name="F:CookPopularControl.Controls.DotLoadingBase.IsDotRunAsConstantProperty">
             <summary>
             提供的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.OnPropertiesValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.OnPropertiesValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
             依赖属性值改变时触发
             </summary>
             <param name="d"></param>
             <param name="e"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.UpdateDotsAnimation">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.UpdateDotsAnimation">
             <summary>
             更新点动画
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.ConstantSpeedRun">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.ConstantSpeedRun">
             <summary>
             匀速运动
             </summary>
-            <remarks><see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstant"/>为True时</remarks>
+            <remarks><see cref="P:CookPopularControl.Controls.DotLoadingBase.IsDotRunAsConstant"/>为True时</remarks>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.UDSpeedRun">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.UDSpeedRun">
             <summary>
             加速与减速运动
             </summary>
-            <remarks><see cref="P:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.IsDotRunAsConstant"/>为False时</remarks>
+            <remarks><see cref="P:CookPopularControl.Controls.DotLoadingBase.IsDotRunAsConstant"/>为False时</remarks>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.CreateContainer(System.Int32)">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.CreateContainer(System.Int32)">
             <summary>
             创建一个容器来做动画
             </summary>
             <param name="index"></param>
             <returns>容器</returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.CreateEllipse(System.Int32)">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.CreateEllipse(System.Int32)">
             <summary>
             创建点
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotLoadingBase.StartValue(System.Int32)">
+        <member name="M:CookPopularControl.Controls.DotLoadingBase.StartValue(System.Int32)">
             <summary>
             初始值
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.DotOpacityLoading">
+        <member name="T:CookPopularControl.Controls.DotOpacityLoading">
             <summary>
             表示一组点按照直线轨迹运动并附加有透明度变化的加载动画
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading">
+        <member name="T:CookPopularControl.Controls.DotPendulumLoading">
             <summary>
             表示点按照钟摆运动的轨迹形成的动画
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.PendulumSwingAngleProperty">
+        <member name="F:CookPopularControl.Controls.DotPendulumLoading.PendulumSwingAngleProperty">
             <summary>
             钟摆的摆幅
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.PendulumSlipDistanceProperty">
+        <member name="F:CookPopularControl.Controls.DotPendulumLoading.PendulumSlipDistanceProperty">
             <summary>
             钟摆的滑动距离
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.DotPendulumLoading.GetFramesWhenAngleChanged(System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames,System.Int32,System.Double,System.Int32)">
+        <member name="M:CookPopularControl.Controls.DotPendulumLoading.GetFramesWhenAngleChanged(System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames,System.Int32,System.Double,System.Int32)">
             <summary>
             获取动画的<see cref="T:System.Windows.Media.Animation.DoubleKeyFrame"/>对象的集合
             </summary>
@@ -826,636 +826,636 @@
             <param name="value"></param>
             <param name="flag">标志位,angle为0时值为1，angle不为0是，值为0</param>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.RecCircleLoading">
+        <member name="T:CookPopularControl.Controls.RecCircleLoading">
             <summary>
             表示一组矩形按照圆的轨迹形成的动画
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityChanging">
+        <member name="P:CookPopularControl.Controls.RecCircleLoading.IsOpacityChanging">
             <summary>
             Opacity是否从小到大变化
             </summary>
             <remarks>由小到大为false，恒定为true</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityChangingProperty">
+        <member name="F:CookPopularControl.Controls.RecCircleLoading.IsOpacityChangingProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityChanging"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecCircleLoading.IsOpacityChanging"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityCycle">
+        <member name="P:CookPopularControl.Controls.RecCircleLoading.IsOpacityCycle">
             <summary>
             Opacity是否循环变化
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityCycleProperty">
+        <member name="F:CookPopularControl.Controls.RecCircleLoading.IsOpacityCycleProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecCircleLoading.IsOpacityCycle"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecCircleLoading.IsOpacityCycle"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.RecColumnLoading">
+        <member name="T:CookPopularControl.Controls.RecColumnLoading">
             <summary>
             表示一组矩形按照音调高低的轨迹进行运动
             </summary>
             <remarks>适合音乐播放、频率变化</remarks>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.RecGridLoading">
+        <member name="T:CookPopularControl.Controls.RecGridLoading">
             <summary>
             表示一组矩形按照DataGrid的轨迹形成的动画
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.RecGridLoading.CreateNN(System.Int32)">
+        <member name="M:CookPopularControl.Controls.RecGridLoading.CreateNN(System.Int32)">
             <summary>
             组建N*N的正方形点集合
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.RecLoadingBase">
+        <member name="T:CookPopularControl.Controls.RecLoadingBase">
             <summary>
             表示由矩形组成的一组动画基类
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.IsRecRunning">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.IsRecRunning">
             <summary>
             是否正在运动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.IsRecRunningProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.IsRecRunningProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.IsRecRunning"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.IsRecRunning"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecWidth">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecWidth">
             <summary>
             矩形宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecWidthProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecWidthProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecWidth"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecWidth"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecHeight">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecHeight">
             <summary>
             矩形高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecHeightProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecHeightProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecHeight"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecHeight"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecCount">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecCount">
             <summary>
             矩形数量
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecCountProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecCountProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecCount"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecCount"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecInterval">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecInterval">
             <summary>
             相邻矩形的间距
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecIntervalProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecIntervalProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecInterval"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecInterval"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDuration">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecDuration">
             <summary>
             动画持续时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDurationProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecDurationProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDuration"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecDuration"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecRunSpeed">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecRunSpeed">
             <summary>
             速率
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecRunSpeedProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecRunSpeedProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecRunSpeed"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecRunSpeed"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDelayTime">
+        <member name="P:CookPopularControl.Controls.RecLoadingBase.RecDelayTime">
             <summary>
             延迟时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDelayTimeProperty">
+        <member name="F:CookPopularControl.Controls.RecLoadingBase.RecDelayTimeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.RecDelayTime"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RecLoadingBase.RecDelayTime"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.UpdateRectangleAnimation">
+        <member name="M:CookPopularControl.Controls.RecLoadingBase.UpdateRectangleAnimation">
             <summary>
             更新动画
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.PrepareRun">
+        <member name="M:CookPopularControl.Controls.RecLoadingBase.PrepareRun">
             <summary>
             准备矩形
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.CreateContainer(System.Int32)">
+        <member name="M:CookPopularControl.Controls.RecLoadingBase.CreateContainer(System.Int32)">
             <summary>
             创建一个容器装载矩形
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.CreateRectangle(System.Int32)">
+        <member name="M:CookPopularControl.Controls.RecLoadingBase.CreateRectangle(System.Int32)">
             <summary>
             创建一个矩形
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.RecLoadingBase.StartValue(System.Int32)">
+        <member name="M:CookPopularControl.Controls.RecLoadingBase.StartValue(System.Int32)">
             <summary>
             起始值
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.BraceletLoading">
+        <member name="T:CookPopularControl.Controls.BraceletLoading">
             <summary>
             表示像手环一样的动画
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading">
+        <member name="T:CookPopularControl.Controls.CharacterLoading">
             <summary>
             表示简单的Loading...文字
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.DotDiameter">
+        <member name="P:CookPopularControl.Controls.CharacterLoading.DotDiameter">
             <summary>
             点(省略号)的直径
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.DotDiameterProperty">
+        <member name="F:CookPopularControl.Controls.CharacterLoading.DotDiameterProperty">
             <summary>
             提供的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.DotCount">
+        <member name="P:CookPopularControl.Controls.CharacterLoading.DotCount">
             <summary>
             点(省略号)的数量
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.DotCountProperty">
+        <member name="F:CookPopularControl.Controls.CharacterLoading.DotCountProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.DotCount"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.CharacterLoading.DotCount"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.CharacterContent">
+        <member name="P:CookPopularControl.Controls.CharacterLoading.CharacterContent">
             <summary>
             文本内容
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.CharacterContentProperty">
+        <member name="F:CookPopularControl.Controls.CharacterLoading.CharacterContentProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.CharacterContent"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.CharacterLoading.CharacterContent"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.CharacterLoading.CreateEllipse(System.Int32)">
+        <member name="M:CookPopularControl.Controls.CharacterLoading.CreateEllipse(System.Int32)">
             <summary>
             创建点
             </summary>
             <returns>圆点</returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase">
+        <member name="T:CookPopularControl.Controls.LoadingBase">
             <summary>
             简单动画的基类
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.IsRunning">
+        <member name="P:CookPopularControl.Controls.LoadingBase.IsRunning">
             <summary>
             是否正在运动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.IsRunningProperty">
+        <member name="F:CookPopularControl.Controls.LoadingBase.IsRunningProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.IsRunning"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.LoadingBase.IsRunning"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.Duration">
+        <member name="P:CookPopularControl.Controls.LoadingBase.Duration">
             <summary>
             动画持续时长
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.DurationProperty">
+        <member name="F:CookPopularControl.Controls.LoadingBase.DurationProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.Duration"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.LoadingBase.Duration"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.RunSpeed">
+        <member name="P:CookPopularControl.Controls.LoadingBase.RunSpeed">
             <summary>
             速率
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.RunSpeedProperty">
+        <member name="F:CookPopularControl.Controls.LoadingBase.RunSpeedProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.RunSpeed"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.LoadingBase.RunSpeed"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.LoadingBase.PrepareRun">
+        <member name="M:CookPopularControl.Controls.LoadingBase.PrepareRun">
             <summary>
             准备图形
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading">
+        <member name="T:CookPopularControl.Controls.PlaneLoading">
             <summary>
             表示飞机飞行的动画
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading.PlaneText">
+        <member name="P:CookPopularControl.Controls.PlaneLoading.PlaneText">
             <summary>
             文本内容
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading.PlaneTextProperty">
+        <member name="F:CookPopularControl.Controls.PlaneLoading.PlaneTextProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.PlaneLoading.PlaneText"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.PlaneLoading.PlaneText"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading">
+        <member name="T:CookPopularControl.Controls.RaindropLoading">
             <summary>
             表示一个雨点轨迹动画
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.RaindropStroke">
+        <member name="P:CookPopularControl.Controls.RaindropLoading.RaindropStroke">
             <summary>
             颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.RaindropStrokeProperty">
+        <member name="F:CookPopularControl.Controls.RaindropLoading.RaindropStrokeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.RaindropStroke"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RaindropLoading.RaindropStroke"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.RaindropStrokeThickness">
+        <member name="P:CookPopularControl.Controls.RaindropLoading.RaindropStrokeThickness">
             <summary>
             厚度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.RaindropStrokeThicknessProperty">
+        <member name="F:CookPopularControl.Controls.RaindropLoading.RaindropStrokeThicknessProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.RaindropStrokeThickness"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.RaindropLoading.RaindropStrokeThickness"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Animation.Loading.SimpleLoadings.RaindropLoading.CreateRaindrop">
+        <member name="M:CookPopularControl.Controls.RaindropLoading.CreateRaindrop">
             <summary>
             创建雨点
             </summary>
             <returns>圆点</returns>
         </member>
-        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarBase">
+        <member name="T:CookPopularControl.Controls.BlockBarBase">
             <summary>
             表示块状的基类
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockCount">
+        <member name="P:CookPopularControl.Controls.BlockBarBase.BlockCount">
             <summary>
             块状数量
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockCountProperty">
+        <member name="F:CookPopularControl.Controls.BlockBarBase.BlockCountProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockCount"/>依赖属性
+            标识<see cref="P:CookPopularControl.Controls.BlockBarBase.BlockCount"/>依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.BlockBar.BlockBarBase.Value">
+        <member name="P:CookPopularControl.Controls.BlockBarBase.Value">
             <summary>
             当前值
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarBase.ValueProperty">
+        <member name="F:CookPopularControl.Controls.BlockBarBase.ValueProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarBase.Value"/>依赖属性
+            标识<see cref="P:CookPopularControl.Controls.BlockBarBase.Value"/>依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockMargin">
+        <member name="P:CookPopularControl.Controls.BlockBarBase.BlockMargin">
             <summary>
             相邻块状之间的间距
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockMarginProperty">
+        <member name="F:CookPopularControl.Controls.BlockBarBase.BlockMarginProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarBase.BlockMargin"/>依赖属性
+            标识<see cref="P:CookPopularControl.Controls.BlockBarBase.BlockMargin"/>依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarCircle">
+        <member name="T:CookPopularControl.Controls.BlockBarCircle">
             <summary>
             表示圆形块
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarImage">
+        <member name="T:CookPopularControl.Controls.BlockBarImage">
             <summary>
             图片块
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.BlockBar.BlockBarImage.ImageSourceProperty">
+        <member name="F:CookPopularControl.Controls.BlockBarImage.ImageSourceProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.BlockBar.BlockBarImage.ImageSource"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.BlockBarImage.ImageSource"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.BlockBar.BlockBarRect">
+        <member name="T:CookPopularControl.Controls.BlockBarRect">
             <summary>
             表示矩形块状
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Borders.BorderAssistant">
+        <member name="T:CookPopularControl.Controls.BorderAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Border"/>附加属性类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Borders.BorderAssistant.IsCircularProperty">
+        <member name="F:CookPopularControl.Controls.BorderAssistant.IsCircularProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Borders.BorderAssistant.IsCircularProperty"/>标识是否满圆角
+            <see cref="F:CookPopularControl.Controls.BorderAssistant.IsCircularProperty"/>标识是否满圆角
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Button.ButtonAssist">
+        <member name="T:CookPopularControl.Controls.ButtonAssist">
             <summary>
             提供<see cref="T:System.Windows.Controls.Button"/>的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ButtonAssist.GifStreamProperty">
+        <member name="F:CookPopularControl.Controls.ButtonAssist.GifStreamProperty">
             <summary>
             提供<see cref="T:System.IO.Stream"/>的Gif图像
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ButtonAssist.ProgressBarStyleProperty">
+        <member name="F:CookPopularControl.Controls.ButtonAssist.ProgressBarStyleProperty">
             <summary>
             <see cref="T:System.Windows.Controls.ProgressBar"/>的样式
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ButtonAssist.ProgressBarBrushProperty">
+        <member name="F:CookPopularControl.Controls.ButtonAssist.ProgressBarBrushProperty">
             <summary>
             <see cref="T:System.Windows.Controls.ProgressBar"/>的Value位置的前置背景色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Button.RadioButtonAssistant">
+        <member name="T:CookPopularControl.Controls.RadioButtonAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.RadioButton"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CircleDiameterProperty">
+        <member name="F:CookPopularControl.Controls.RadioButtonAssistant.CircleDiameterProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CircleDiameterProperty"/>标识点的半径大小
+            <see cref="F:CookPopularControl.Controls.RadioButtonAssistant.CircleDiameterProperty"/>标识点的半径大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CheckedBrushProperty">
+        <member name="F:CookPopularControl.Controls.RadioButtonAssistant.CheckedBrushProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.CheckedBrushProperty"/>标识选中的填充背景色
+            <see cref="F:CookPopularControl.Controls.RadioButtonAssistant.CheckedBrushProperty"/>标识选中的填充背景色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty">
+        <member name="F:CookPopularControl.Controls.RadioButtonAssistant.IsFillFullyProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.RadioButtonAssistant.IsFillFullyProperty"/>标识是否全部填充
+            <see cref="F:CookPopularControl.Controls.RadioButtonAssistant.IsFillFullyProperty"/>标识是否全部填充
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.UnCheckedGeometryProperty">
+        <member name="F:CookPopularControl.Controls.ToggleButtonAssistant.UnCheckedGeometryProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示未选中时的图标
+            <see cref="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedElementProperty"/>表示未选中时的图标
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty">
+        <member name="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedGeometryProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedGeometryProperty"/>表示选中时的图标
+            <see cref="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedGeometryProperty"/>表示选中时的图标
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty">
+        <member name="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedElementProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示翻转的Content
+            <see cref="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedElementProperty"/>表示翻转的Content
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.IsAddCheckedAnimationProperty">
+        <member name="F:CookPopularControl.Controls.ToggleButtonAssistant.IsAddCheckedAnimationProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Button.ToggleButtonAssistant.OnCheckedElementProperty"/>表示点击时是否增加动画
+            <see cref="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedElementProperty"/>表示点击时是否增加动画
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.CarouselView.CarouselView">
+        <member name="T:CookPopularControl.Controls.CarouselView">
             <summary>
             旋转视图容器
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.CarouselView.CarouselView.ImageItemWidth">
+        <member name="P:CookPopularControl.Controls.CarouselView.ImageItemWidth">
             <summary>
             ImageItem的宽度
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.CarouselView.CarouselView.ImageItemHeight">
+        <member name="P:CookPopularControl.Controls.CarouselView.ImageItemHeight">
             <summary>
             ImageItem的长度
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.CarouselView.ImageAnimation">
+        <member name="T:CookPopularControl.Controls.ImageAnimation">
             <summary>
             ImageAnimation.xaml 的交互逻辑
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.CarouselView.ImageAnimation.InitializeComponent">
+        <member name="M:CookPopularControl.Controls.ImageAnimation.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.CheckBox.CheckBoxAssistant">
+        <member name="T:CookPopularControl.Controls.CheckBoxAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.CheckBox"/>的附加基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillBrushProperty">
+        <member name="F:CookPopularControl.Controls.CheckBoxAssistant.FillBrushProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillBrushProperty"/>提供填充颜色的附加属性
+            <see cref="F:CookPopularControl.Controls.CheckBoxAssistant.FillBrushProperty"/>提供填充颜色的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillThicknessProperty">
+        <member name="F:CookPopularControl.Controls.CheckBoxAssistant.FillThicknessProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillThicknessProperty"/>提供填充线条的厚度
+            <see cref="F:CookPopularControl.Controls.CheckBoxAssistant.FillThicknessProperty"/>提供填充线条的厚度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty">
+        <member name="F:CookPopularControl.Controls.CheckBoxAssistant.FillTypeProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty"/>提供填充类型(■，✔,➖)的附加属性
+            <see cref="F:CookPopularControl.Controls.CheckBoxAssistant.FillTypeProperty"/>提供填充类型(■，✔,➖)的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillSizeProperty">
+        <member name="F:CookPopularControl.Controls.CheckBoxAssistant.FillSizeProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.CheckBox.CheckBoxAssistant.FillTypeProperty"/>提供填充大小的附加属性
+            <see cref="F:CookPopularControl.Controls.CheckBoxAssistant.FillTypeProperty"/>提供填充大小的附加属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.CheckBox.SwitchControl">
+        <member name="T:CookPopularControl.Controls.SwitchControl">
             <summary>
             表示开关控件
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.CheckBox.SwitchControl.SwitchContent">
+        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchContent">
             <summary>
             文本
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.CheckBox.SwitchControl.SwitchOpenBackground">
+        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchOpenBackground">
             <summary>
             打开的背景颜色
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.CheckBox.SwitchControl.SwicthCloseBackground">
+        <member name="P:CookPopularControl.Controls.SwitchControl.SwicthCloseBackground">
             <summary>
             关闭的背景颜色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ColorPicker.ColorPicker">
+        <member name="T:CookPopularControl.Controls.ColorPicker">
             <summary>
             颜色选择器
             </summary>
             <remarks>参考<see cref="T:System.Windows.Forms.ColorDialog"/></remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelWidth">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPanelWidth">
             <summary>
                 颜色选取面板宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelHeight">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPanelHeight">
             <summary>
                 颜色选取面板高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker._isOnDragging">
+        <member name="F:CookPopularControl.Controls.ColorPicker._isOnDragging">
             <summary>
             是否在拖动小球
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker._isNeedUpdatePicker">
+        <member name="F:CookPopularControl.Controls.ColorPicker._isNeedUpdatePicker">
             <summary>
             是否需要更新小球位置
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker._pickerCurrentPosition">
+        <member name="F:CookPopularControl.Controls.ColorPicker._pickerCurrentPosition">
             <summary>
-            颜色选择面板<see cref="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ElementColorPanel"/>中颜色选择器<see cref="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ElementBorderPicker"/>的坐标位置
+            颜色选择面板<see cref="F:CookPopularControl.Controls.ColorPicker.ElementColorPanel"/>中颜色选择器<see cref="F:CookPopularControl.Controls.ColorPicker.ElementBorderPicker"/>的坐标位置
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrush">
+        <member name="P:CookPopularControl.Controls.ColorPicker.SelectedBrush">
             <summary>
             选中的颜色(包含透明度)
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.SelectedBrushProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrush"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.SelectedBrush"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushWithoutOpacity">
+        <member name="P:CookPopularControl.Controls.ColorPicker.SelectedBrushWithoutOpacity">
             <summary>
             选中色(不包含透明度)
             </summary>
             <remarks>透明度100%</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushWithoutOpacityProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.SelectedBrushWithoutOpacityProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushWithoutOpacity"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.SelectedBrushWithoutOpacity"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelBackground">
+        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPanelBackground">
             <summary>
             颜色选择器面板的主背景色
             </summary>
-            <remarks><see cref="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ElementColorPanel"/></remarks>
+            <remarks><see cref="F:CookPopularControl.Controls.ColorPicker.ElementColorPanel"/></remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelBackgroundProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPanelBackgroundProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ColorPanelBackground"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPanelBackground"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.HexColor">
+        <member name="P:CookPopularControl.Controls.ColorPicker.HexColor">
             <summary>
             十六进制颜色表示
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.HexColorProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.HexColorProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.HexColor"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.HexColor"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelA">
+        <member name="P:CookPopularControl.Controls.ColorPicker.ChannelA">
             <summary>
             透明度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelAProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ChannelAProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelA"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ChannelA"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelR">
+        <member name="P:CookPopularControl.Controls.ColorPicker.ChannelR">
             <summary>
             红色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelRProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ChannelRProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelR"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ChannelR"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelG">
+        <member name="P:CookPopularControl.Controls.ColorPicker.ChannelG">
             <summary>
             绿色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelGProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ChannelGProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelG"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ChannelG"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelB">
+        <member name="P:CookPopularControl.Controls.ColorPicker.ChannelB">
             <summary>
             蓝色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelBProperty">
+        <member name="F:CookPopularControl.Controls.ColorPicker.ChannelBProperty">
             <summary>
-            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ColorPicker.ChannelB"/>的依赖属性
+            表示<see cref="P:CookPopularControl.Controls.ColorPicker.ChannelB"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.ColorPicker.ColorPicker.UpdateColorWhenDrag(System.Windows.Point)">
+        <member name="M:CookPopularControl.Controls.ColorPicker.UpdateColorWhenDrag(System.Windows.Point)">
             <summary>
             拖动时更新颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ColorPicker.ColorPicker.SelectedBrushChangedEvent">
+        <member name="F:CookPopularControl.Controls.ColorPicker.SelectedBrushChangedEvent">
             <summary>
             <see cref="!:SelectedColorChangedEvent"/>标识颜色选择事件
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ColorPicker.HslColor">
+        <member name="T:CookPopularControl.Controls.HslColor">
             <summary>
             使用HSL(Hue, Saturation, Lightness )来描绘颜色而不是RGB (Red, Green, Blue)
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.HslColor.Hue">
+        <member name="P:CookPopularControl.Controls.HslColor.Hue">
             <summary>
             色度[0°,360°)
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.HslColor.Saturation">
+        <member name="P:CookPopularControl.Controls.HslColor.Saturation">
             <summary>
             饱和度[0,1]
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.ColorPicker.HslColor.Lightness">
+        <member name="P:CookPopularControl.Controls.HslColor.Lightness">
             <summary>
             亮度[0,1]
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.#ctor(System.Double,System.Double,System.Double)">
+        <member name="M:CookPopularControl.Controls.HslColor.#ctor(System.Double,System.Double,System.Double)">
             <summary>
             Class constructor.
             </summary>
@@ -1463,121 +1463,106 @@
             <param name="saturation"></param>
             <param name="lightness"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.RGBToHSL(System.Nullable{System.Windows.Media.Color})">
+        <member name="M:CookPopularControl.Controls.HslColor.RGBToHSL(System.Nullable{System.Windows.Media.Color})">
             <summary>
             将RGB转为HSL
             </summary>
             <param name="color"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.HSLToRGB(CookPopularControl.Controls.ColorPicker.HslColor)">
+        <member name="M:CookPopularControl.Controls.HslColor.HSLToRGB(CookPopularControl.Controls.HslColor)">
             <summary>
             将HSL转为RGB
             </summary>
             <param name="hslColor"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.ColorPicker.HslColor.GetPixelColor">
+        <member name="M:CookPopularControl.Controls.HslColor.GetPixelColor">
             <summary>
             获取鼠标点所在位置的颜色
             </summary>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.ComboBox.ComboBoxAssistant">
+        <member name="T:CookPopularControl.Controls.ComboBoxAssistant">
             <summary>
             表示<see cref="T:System.Windows.Controls.ComboBox"/>的附加属性帮助类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.DropDownButtonFillProperty">
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.DropDownButtonFillProperty">
             <summary>
-            标识<see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.DropDownButtonFillProperty"/>提供下拉按钮的背景色附加属性
+            标识<see cref="F:CookPopularControl.Controls.ComboBoxAssistant.DropDownButtonFillProperty"/>提供下拉按钮的背景色附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty">
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.IsClickDownProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
+            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxPopupListShadowProperty">
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.ComboBoxPopupListShadowProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
+            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsShowDropDownButtonProperty">
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ComboBox.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
+            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dates.CalendarAssistant">
+        <member name="T:CookPopularControl.Controls.CalendarAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Calendar"/>的附加属性基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dates.Clock">
+        <member name="T:CookPopularControl.Controls.Clock">
             <summary>
             时钟
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Dates.Clock.CurrentTime">
+        <member name="P:CookPopularControl.Controls.Clock.CurrentTime">
             <summary>
             当前时间
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Dates.Clock.CurrentTimeProperty">
+        <member name="F:CookPopularControl.Controls.Clock.CurrentTimeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Dates.Clock.CurrentTime"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.Clock.CurrentTime"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Dates.Clock.InitClockDial">
+        <member name="M:CookPopularControl.Controls.Clock.InitClockDial">
             <summary>
             初始化钟盘数据
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Dates.Clock.GetRadian(System.Windows.Point)">
+        <member name="M:CookPopularControl.Controls.Clock.GetRadian(System.Windows.Point)">
             <summary>
             由鼠标点得出指针转到哪个象限(以中心为原点，按照数学中ⅠⅡⅢⅣ)来确定位置，从而得到旋转弧度
             </summary>
             <param name="point"></param>
             <returns>旋转弧度</returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Dates.Clock.CalculateCurrentTime">
+        <member name="M:CookPopularControl.Controls.Clock.CalculateCurrentTime">
             <summary>
             计算调整后的时间
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dates.ClockAssistant">
+        <member name="T:CookPopularControl.Controls.ClockAssistant">
             <summary>
             时钟辅助类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Dates.ClockAssistant.IsAddConfirmButtonProperty">
+        <member name="F:CookPopularControl.Controls.ClockAssistant.IsAddConfirmButtonProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Dates.ClockAssistant.IsAddConfirmButtonProperty"/>标识是否增加确定按钮
+            <see cref="F:CookPopularControl.Controls.ClockAssistant.IsAddConfirmButtonProperty"/>标识是否增加确定按钮
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dates.TimePicker">
+        <member name="T:CookPopularControl.Controls.TimePicker">
             <summary>
             时间选择器
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Dates.TimePicker.CurrentTimeProperty">
+        <member name="F:CookPopularControl.Controls.TimePicker.CurrentTimeProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Dates.TimePicker.CurrentTime"/>的依赖属性
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.DialogBox.DialogBox">
-            <summary>
-            对话窗口
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.DialogBox.DialogBox.MarkProperty">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.DialogBox.DialogBox.MarkProperty"/>表示<see cref="T:CookPopularControl.Controls.DialogBox.DialogBox"/>的标识附加属性
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.DialogBox.DialogBoxContainer">
-            <summary>
-            承载对话框内容的对话容器
+            提供<see cref="P:CookPopularControl.Controls.TimePicker.CurrentTime"/>的依赖属性
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.Dragables.Branch.GetFirstProportion">
@@ -2039,195 +2024,195 @@
             with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Fields.NumericUpDown">
+        <member name="T:CookPopularControl.Controls.NumericUpDown">
             <summary>
             表示显示数值的 Windows 数字显示框（也称作 up-down 控件）。
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Value">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.Value">
             <summary>
             当前值
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.ValueProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.ValueProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Value"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.Value"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Maximum">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.Maximum">
             <summary>
             最大值
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.MaximumProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.MaximumProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Maximum"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.Maximum"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Minimum">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.Minimum">
             <summary>
             最小值
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.MinimumProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.MinimumProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Minimum"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.Minimum"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.Increment">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.Increment">
             <summary>
             获取或设置单击向上或向下按钮时，数字显示框（也称作 up-down 控件）递增或递减的值
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.IncrementProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.IncrementProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.Increment"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.Increment"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.IsReadOnly">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.IsReadOnly">
             <summary>
             是否只读
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.IsReadOnlyProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.IsReadOnlyProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.IsReadOnly"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.IsReadOnly"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.ValueFormat">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.ValueFormat">
             <summary>
             表示要显示数字的格式
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.ValueFormatProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.ValueFormatProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.ValueFormat"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.ValueFormat"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButton">
+        <member name="P:CookPopularControl.Controls.NumericUpDown.IsShowUpDownButton">
             <summary>
             是否显示UpDownButton
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButtonProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDown.IsShowUpDownButtonProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.NumericUpDown.IsShowUpDownButton"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.NumericUpDown.IsShowUpDownButton"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Fields.NumericUpDownAssistant">
+        <member name="T:CookPopularControl.Controls.NumericUpDownAssistant">
             <summary>
-            表示<see cref="T:CookPopularControl.Controls.Fields.NumericUpDown"/>的附加属性类
+            表示<see cref="T:CookPopularControl.Controls.NumericUpDown"/>的附加属性类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonMarginProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDownAssistant.UpDownButtonMarginProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonMarginProperty"/>表示UpDownButton的边距
+            <see cref="F:CookPopularControl.Controls.NumericUpDownAssistant.UpDownButtonMarginProperty"/>表示UpDownButton的边距
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonBrushProperty">
+        <member name="F:CookPopularControl.Controls.NumericUpDownAssistant.UpDownButtonBrushProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Fields.NumericUpDownAssistant.UpDownButtonBrushProperty"/>表示UpDownButton的填充颜色
+            <see cref="F:CookPopularControl.Controls.NumericUpDownAssistant.UpDownButtonBrushProperty"/>表示UpDownButton的填充颜色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Fields.TextPath">
+        <member name="T:CookPopularControl.Controls.TextPath">
             <summary>
             自定义绘制文本
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.TextPath.Data">
+        <member name="P:CookPopularControl.Controls.TextPath.Data">
             <summary>
             获取或设置用于指定所要绘制的形状的<see cref="T:System.Windows.Media.Geometry"/>
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.TextPath.DataProperty">
+        <member name="F:CookPopularControl.Controls.TextPath.DataProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.TextPath.Data"/>依赖属性。
+            标识<see cref="P:CookPopularControl.Controls.TextPath.Data"/>依赖属性。
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Fields.TextPath.Text">
+        <member name="P:CookPopularControl.Controls.TextPath.Text">
             <summary>
             获取或设置用于指定所要绘制的文本
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.TextPath.TextProperty">
+        <member name="F:CookPopularControl.Controls.TextPath.TextProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Fields.TextPath.Text"/>依赖属性。
+            标识<see cref="P:CookPopularControl.Controls.TextPath.Text"/>依赖属性。
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.TextPath.FillImageSourceProperty">
+        <member name="F:CookPopularControl.Controls.TextPath.FillImageSourceProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Fields.TextPath.FillImageSourceProperty"/>标识填充的图片资源附加属性
+            <see cref="F:CookPopularControl.Controls.TextPath.FillImageSourceProperty"/>标识填充的图片资源附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.TextPath.DrawingRecProperty">
+        <member name="F:CookPopularControl.Controls.TextPath.DrawingRecProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingRecProperty"/>标识获取或设置在其中绘制图像的区域
+            <see cref="F:CookPopularControl.Controls.TextPath.DrawingRecProperty"/>标识获取或设置在其中绘制图像的区域
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty">
+        <member name="F:CookPopularControl.Controls.TextPath.DrawingBrushProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Fields.TextPath.DrawingBrushProperty"/>标识填充IconGeometry的画刷
+            <see cref="F:CookPopularControl.Controls.TextPath.DrawingBrushProperty"/>标识填充IconGeometry的画刷
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Grid.DataGridAssistant">
+        <member name="T:CookPopularControl.Controls.DataGridAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.DataGrid"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsApplyDefaultStyleProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.IsApplyDefaultStyleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsApplyDefaultStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>是否引用CookPopularControl的默认样式
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.IsApplyDefaultStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>是否引用CookPopularControl的默认样式
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsRegisterSelectAllProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.IsRegisterSelectAllProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsRegisterSelectAllProperty"/>标识注册全选与取消全选事件
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.IsRegisterSelectAllProperty"/>标识注册全选与取消全选事件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowSerialNumberProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.IsShowSerialNumberProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowSerialNumberProperty"/>是否显示排序
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.IsShowSerialNumberProperty"/>是否显示排序
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowThicknessProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.IsShowThicknessProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsShowThicknessProperty"/>标识是否显示线框
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.IsShowThicknessProperty"/>标识是否显示线框
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsEnableEditWithoutFocusedProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.IsEnableEditWithoutFocusedProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.IsEnableEditWithoutFocusedProperty"/>标识允许使用单击后在<see cref="T:System.Windows.Controls.DataGrid"/>的<see cref="T:System.Windows.Controls.DataGridCell"/>内部编辑组件。
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.IsEnableEditWithoutFocusedProperty"/>标识允许使用单击后在<see cref="T:System.Windows.Controls.DataGrid"/>的<see cref="T:System.Windows.Controls.DataGridCell"/>内部编辑组件。
             </summary>
             <remarks>不需要先获取单元格焦点</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnStyleProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.TextColumnStyleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>默认文本样式
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.TextColumnStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>默认文本样式
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnEditingStyleProperty">
+        <member name="F:CookPopularControl.Controls.DataGridAssistant.TextColumnEditingStyleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.DataGridAssistant.TextColumnStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>编辑时文本样式
+            <see cref="F:CookPopularControl.Controls.DataGridAssistant.TextColumnStyleProperty"/>标识<see cref="T:System.Windows.Controls.DataGridCell"/>编辑时文本样式
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Grid.DataGridCellSingleClickBase">
+        <member name="T:CookPopularControl.Controls.DataGridCellSingleClickBase">
             <summary>
             单击进行编辑<see cref="T:System.Windows.Controls.DataGridCell"/>的基类
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Grid.DataGridCellSingleClickBase.PrepareCellForEdit(System.Windows.FrameworkElement,System.Windows.RoutedEventArgs)">
+        <member name="M:CookPopularControl.Controls.DataGridCellSingleClickBase.PrepareCellForEdit(System.Windows.FrameworkElement,System.Windows.RoutedEventArgs)">
             <summary>
             单击直接进行编辑，不需要先获取DataGridCell的焦点
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Grid.GridLinesAssistant">
+        <member name="T:CookPopularControl.Controls.GridLinesAssistant">
             <summary>
             提供<see cref="P:System.Windows.Controls.Grid.ShowGridLines"/>的辅助类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty">
+        <member name="F:CookPopularControl.Controls.GridLinesAssistant.ShowBorderProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Grid.GridLinesAssistant.ShowBorderProperty"/>标识是否显示外边框
+            <see cref="F:CookPopularControl.Controls.GridLinesAssistant.ShowBorderProperty"/>标识是否显示外边框
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.GroupBoxAssistant">
@@ -2249,7 +2234,7 @@
             <summary>
             可编辑标签
             </summary>
-            <remarks>由<see cref="T:System.Windows.Controls.ContentPresenter"/>与<see cref="T:System.Windows.Controls.TextBox"/>组合而成</remarks>
+            <remarks>由两个<see cref="T:System.Windows.Controls.ContentControl"/>组合而成的标签控件</remarks>
         </member>
         <member name="P:CookPopularControl.Controls.EditingTag.Header">
             <summary>
@@ -2341,89 +2326,89 @@
             <see cref="F:CookPopularControl.Controls.SearchControl.StartSearchEvent"/>标识搜索事件 
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Labels.GroupLabel">
+        <member name="T:CookPopularControl.Controls.GroupLabel">
             <summary>
             标签组
             </summary>
-            <remarks>子项必须使用<see cref="T:CookPopularControl.Controls.Labels.GroupLableItem"/></remarks>
+            <remarks>子项必须使用<see cref="T:CookPopularControl.Controls.GroupLableItem"/></remarks>
         </member>
-        <member name="P:CookPopularControl.Controls.Labels.GroupLabel.HasCloseButton">
+        <member name="P:CookPopularControl.Controls.GroupLabel.HasCloseButton">
             <summary>
             是否有关闭功能
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Labels.GroupLabel.ItemClosedEvent">
+        <member name="F:CookPopularControl.Controls.GroupLabel.ItemClosedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Labels.GroupLabel.ItemClosedEvent"/>标识子项删除事件
+            <see cref="F:CookPopularControl.Controls.GroupLabel.ItemClosedEvent"/>标识子项删除事件
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Labels.GroupLableItem">
+        <member name="T:CookPopularControl.Controls.GroupLableItem">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Labels.GroupLabel"/>的子项数据
+            <see cref="T:CookPopularControl.Controls.GroupLabel"/>的子项数据
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Labels.LabelAssistant">
+        <member name="T:CookPopularControl.Controls.LabelAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Label"/>的附加属性类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderProperty">
+        <member name="F:CookPopularControl.Controls.LabelAssistant.HeaderProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderProperty"/>标识标签头的附加属性
+            <see cref="F:CookPopularControl.Controls.LabelAssistant.HeaderProperty"/>标识标签头的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateProperty">
+        <member name="F:CookPopularControl.Controls.LabelAssistant.HeaderTemplateProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateProperty"/>标识标签标头的数据模板
+            <see cref="F:CookPopularControl.Controls.LabelAssistant.HeaderTemplateProperty"/>标识标签标头的数据模板
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateSelectorProperty">
+        <member name="F:CookPopularControl.Controls.LabelAssistant.HeaderTemplateSelectorProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderTemplateSelectorProperty"/>标识标签标头的数据模板选择器
+            <see cref="F:CookPopularControl.Controls.LabelAssistant.HeaderTemplateSelectorProperty"/>标识标签标头的数据模板选择器
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderStringFormatProperty">
+        <member name="F:CookPopularControl.Controls.LabelAssistant.HeaderStringFormatProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Labels.LabelAssistant.HeaderStringFormatProperty"/>标识标签标头的数据模板选择器
+            <see cref="F:CookPopularControl.Controls.LabelAssistant.HeaderStringFormatProperty"/>标识标签标头的数据模板选择器
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Lists.ListViewAssistant">
+        <member name="T:CookPopularControl.Controls.ListViewAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.MediaPlayer.MediaPlayer">
+        <member name="T:CookPopularControl.Controls.MediaPlayer">
             <summary>
             媒体播放器
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.CurrentUri">
+        <member name="P:CookPopularControl.Controls.MediaPlayer.CurrentUri">
             <summary>
             当前媒体资源路径
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.ItemSource">
+        <member name="P:CookPopularControl.Controls.MediaPlayer.ItemSource">
             <summary>
             媒体资源集合
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.MediaPlayer.MediaPlayer.ItemSourceProperty">
+        <member name="F:CookPopularControl.Controls.MediaPlayer.ItemSourceProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.ItemSource"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.MediaPlayer.ItemSource"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.IsCyclePlay">
+        <member name="P:CookPopularControl.Controls.MediaPlayer.IsCyclePlay">
             <summary>
             是否循环播放
             </summary>
             <remarks>指Next时资源内循环，单个资源循环播放</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.MediaPlayer.MediaPlayer.IsCyclePlayProperty">
+        <member name="F:CookPopularControl.Controls.MediaPlayer.IsCyclePlayProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.MediaPlayer.MediaPlayer.IsCyclePlay"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.MediaPlayer.IsCyclePlay"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.MediaPlayer.MediaView">
+        <member name="T:CookPopularControl.Controls.MediaView">
             <summary>
             UserMediaView.xaml 的交互逻辑
             </summary>
@@ -2431,65 +2416,65 @@
             MediaView
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.MediaPlayer.MediaView.CollapsedControl(System.Boolean,System.Double)">
+        <member name="M:CookPopularControl.Controls.MediaView.CollapsedControl(System.Boolean,System.Double)">
             <summary>
             ControlGrid显示与隐藏
             </summary>
             <param name="isControlPop">是否打开</param>
             <param name="times">动画时间</param>
         </member>
-        <member name="M:CookPopularControl.Controls.MediaPlayer.MediaView.InitializeComponent">
+        <member name="M:CookPopularControl.Controls.MediaView.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Menus.CircleMenu">
+        <member name="T:CookPopularControl.Controls.CircleMenu">
             <summary>
             弧形、圆形菜单
             </summary>
-            <remarks>子项布局采用<see cref="T:CookPopularControl.Controls.Panels.ArcPanel"/></remarks>
+            <remarks>子项布局采用<see cref="T:CookPopularControl.Controls.ArcPanel"/></remarks>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.IsShowMenu">
+        <member name="P:CookPopularControl.Controls.CircleMenu.IsShowMenu">
             <summary>
             是否显示菜单
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsShowMenuProperty">
+        <member name="F:CookPopularControl.Controls.CircleMenu.IsShowMenuProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsShowMenu"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.CircleMenu.IsShowMenu"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.Radius">
+        <member name="P:CookPopularControl.Controls.CircleMenu.Radius">
             <summary>
             弧形半径
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.RadiusProperty">
+        <member name="F:CookPopularControl.Controls.CircleMenu.RadiusProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.Radius"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.CircleMenu.Radius"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.ArcAngle">
+        <member name="P:CookPopularControl.Controls.CircleMenu.ArcAngle">
             <summary>
             弧形角度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.ArcAngleProperty">
+        <member name="F:CookPopularControl.Controls.CircleMenu.ArcAngleProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.ArcAngle"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.CircleMenu.ArcAngle"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate">
+        <member name="P:CookPopularControl.Controls.CircleMenu.IsItemRotate">
             <summary>
             子项是否围绕自身旋转
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotateProperty">
+        <member name="F:CookPopularControl.Controls.CircleMenu.IsItemRotateProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Menus.CircleMenu.IsItemRotate"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.CircleMenu.IsItemRotate"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Menus.PopupMenu">
+        <member name="T:CookPopularControl.Controls.PopupMenu">
             <summary>
             弹出菜单
             </summary>
@@ -2498,39 +2483,39 @@
             建议菜单子项属性设置Width=50，Height=50，可以保证对齐
             </remarks>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.PopupMenu.IsShowMenu">
+        <member name="P:CookPopularControl.Controls.PopupMenu.IsShowMenu">
             <summary>
             是否显示菜单
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.PopupMenu.IsShowMenuProperty">
+        <member name="F:CookPopularControl.Controls.PopupMenu.IsShowMenuProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Menus.PopupMenu.IsShowMenu"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.PopupMenu.IsShowMenu"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.PopupMenu.PopupPosition">
+        <member name="P:CookPopularControl.Controls.PopupMenu.PopupPosition">
             <summary>
             弹出方向
             </summary>
             <remarks>共9个方向，详细看<see cref="T:CookPopularControl.Communal.Data.Enum.PopupPosition"/></remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.PopupMenu.PopupPositionProperty">
+        <member name="F:CookPopularControl.Controls.PopupMenu.PopupPositionProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Menus.PopupMenu.PopupPosition"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.PopupMenu.PopupPosition"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimation">
+        <member name="P:CookPopularControl.Controls.PopupMenu.PopupAnimation">
             <summary>
             弹出动画
             </summary>
             <remarks>共4中动画</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimationProperty">
+        <member name="F:CookPopularControl.Controls.PopupMenu.PopupAnimationProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Menus.PopupMenu.PopupAnimation"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.PopupMenu.PopupAnimation"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Notify.BubbleMessage">
+        <member name="T:CookPopularControl.Controls.BubbleMessage">
             <summary>
             气泡消息
             </summary>
@@ -2542,17 +2527,17 @@
             另外<see cref="T:System.Windows.Controls.Primitives.PopupAnimation"/>提供4中动画效果
             </remarks> 
         </member>
-        <member name="T:CookPopularControl.Controls.Notify.NotifyMessageBase">
+        <member name="T:CookPopularControl.Controls.NotifyMessageBase">
             <summary>
             消息通知的基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Notify.PopupMessage">
+        <member name="T:CookPopularControl.Controls.PopupMessage">
             <summary>
             弹出消息
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Notify.PopupMessage.Show(System.Object,CookPopularControl.Communal.Data.Enum.PopupAnimationX,System.Boolean,System.Double)">
+        <member name="M:CookPopularControl.Controls.PopupMessage.Show(System.Object,CookPopularControl.Communal.Data.Enum.PopupAnimationX,System.Boolean,System.Double)">
             <summary>
             打开通知消息
             </summary>
@@ -2562,29 +2547,29 @@
             <param name="waitTime">自动关闭消息时保持打开的时间</param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Notify.TaskbarIcon">
+        <member name="T:CookPopularControl.Controls.TaskbarIcon">
             <summary>
             任务栏图标
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarFlash">
+        <member name="P:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarFlash">
             <summary>
             程序启动后是否开启任务栏闪烁
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarFlashProperty">
+        <member name="F:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarFlashProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarFlash"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarFlash"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlash">
+        <member name="P:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarIconFlash">
             <summary>
             是否启用任务栏图标闪烁
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlashProperty">
+        <member name="F:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarIconFlashProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Notify.TaskbarIcon.IsStartTaskbarIconFlash"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarIconFlash"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Alertor">
@@ -2754,298 +2739,298 @@
         <member name="M:CookPopularControl.Controls.Layout.OnApplyTemplate">
             <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.</summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Panels.AnimationPanel">
+        <member name="T:CookPopularControl.Controls.AnimationPanel">
             <summary>
             标识动画面板布局的抽象基类
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.AnimationPanel.Dampening">
+        <member name="P:CookPopularControl.Controls.AnimationPanel.Dampening">
             <summary>
             表示阻尼大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.AnimationPanel.DampeningProperty">
+        <member name="F:CookPopularControl.Controls.AnimationPanel.DampeningProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Panels.AnimationPanel.Dampening"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.AnimationPanel.Dampening"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.AnimationPanel.Attraction">
+        <member name="P:CookPopularControl.Controls.AnimationPanel.Attraction">
             <summary>
             表示吸附力大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.AnimationPanel.AttractionProperty">
+        <member name="F:CookPopularControl.Controls.AnimationPanel.AttractionProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Panels.AnimationPanel.Attraction"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.AnimationPanel.Attraction"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.AnimationPanel.Variation">
+        <member name="P:CookPopularControl.Controls.AnimationPanel.Variation">
             <summary>
             表示变化大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.AnimationPanel.VariationProperty">
+        <member name="F:CookPopularControl.Controls.AnimationPanel.VariationProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Panels.AnimationPanel.Variation"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.AnimationPanel.Variation"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Panels.ArcPanel">
+        <member name="T:CookPopularControl.Controls.ArcPanel">
             <summary>
             弧形、圆形布局
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.ArcAngle">
+        <member name="P:CookPopularControl.Controls.ArcPanel.ArcAngle">
             <summary>
             弧形的角度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.ArcAngleProperty">
+        <member name="F:CookPopularControl.Controls.ArcPanel.ArcAngleProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.ArcAngle"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.ArcPanel.ArcAngle"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.Radius">
+        <member name="P:CookPopularControl.Controls.ArcPanel.Radius">
             <summary>
             半径大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.RadiusProperty">
+        <member name="F:CookPopularControl.Controls.ArcPanel.RadiusProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.Radius"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.ArcPanel.Radius"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.IntervalAngle">
+        <member name="P:CookPopularControl.Controls.ArcPanel.IntervalAngle">
             <summary>
             间隔角度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.IntervalAngleProperty">
+        <member name="F:CookPopularControl.Controls.ArcPanel.IntervalAngleProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.IntervalAngle"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.ArcPanel.IntervalAngle"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Panels.ArcPanel.IsItemRotate">
+        <member name="P:CookPopularControl.Controls.ArcPanel.IsItemRotate">
             <summary>
             子项是否围绕自身旋转
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Panels.ArcPanel.IsItemRotateProperty">
+        <member name="F:CookPopularControl.Controls.ArcPanel.IsItemRotateProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.Panels.ArcPanel.IsItemRotate"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.ArcPanel.IsItemRotate"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Panels.SimpleGrid">
+        <member name="T:CookPopularControl.Controls.SimpleGrid">
             <summary>
             重叠面板
             </summary>
             <remarks>用于代替Grid</remarks>
         </member>
-        <member name="T:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant">
+        <member name="T:CookPopularControl.Controls.PasswordBoxAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.PasswordBox"/>的附加属性类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowIconProperty">
+        <member name="F:CookPopularControl.Controls.PasswordBoxAssistant.IsShowIconProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowIconProperty"/>表示图标是否可见
+            <see cref="F:CookPopularControl.Controls.PasswordBoxAssistant.IsShowIconProperty"/>表示图标是否可见
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowPasswordProperty">
+        <member name="F:CookPopularControl.Controls.PasswordBoxAssistant.IsShowPasswordProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsShowPasswordProperty"/>表示密码是否可见
+            <see cref="F:CookPopularControl.Controls.PasswordBoxAssistant.IsShowPasswordProperty"/>表示密码是否可见
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.PasswordProperty">
+        <member name="F:CookPopularControl.Controls.PasswordBoxAssistant.PasswordProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.PasswordProperty"/>表示可绑定的Password
+            <see cref="F:CookPopularControl.Controls.PasswordBoxAssistant.PasswordProperty"/>表示可绑定的Password
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsTriggerProperty">
+        <member name="F:CookPopularControl.Controls.PasswordBoxAssistant.IsTriggerProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.PasswordBox.PasswordBoxAssistant.IsTriggerProperty"/>表示是否触发PasswordChanged事件
+            <see cref="F:CookPopularControl.Controls.PasswordBoxAssistant.IsTriggerProperty"/>表示是否触发PasswordChanged事件
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Popup.ExtendPopup">
+        <member name="T:CookPopularControl.Controls.ExtendPopup">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.Popup"/>的扩展控件
             </summary>
             <remarks>可跟随父元素移动</remarks>
         </member>
-        <member name="P:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMost">
+        <member name="P:CookPopularControl.Controls.ExtendPopup.IsTopMost">
             <summary>
             是否置前
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMostProperty">
+        <member name="F:CookPopularControl.Controls.ExtendPopup.IsTopMostProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMostProperty"/>提供<see cref="P:CookPopularControl.Controls.Popup.ExtendPopup.IsTopMost"/>的依赖属性
+            <see cref="F:CookPopularControl.Controls.ExtendPopup.IsTopMostProperty"/>提供<see cref="P:CookPopularControl.Controls.ExtendPopup.IsTopMost"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdate">
+        <member name="P:CookPopularControl.Controls.ExtendPopup.IsPositionUpdate">
             <summary>
             是否跟随父元素移动
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdateProperty">
+        <member name="F:CookPopularControl.Controls.ExtendPopup.IsPositionUpdateProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdateProperty"/>提供<see cref="P:CookPopularControl.Controls.Popup.ExtendPopup.IsPositionUpdate"/>的依赖属性
+            <see cref="F:CookPopularControl.Controls.ExtendPopup.IsPositionUpdateProperty"/>提供<see cref="P:CookPopularControl.Controls.ExtendPopup.IsPositionUpdate"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosed">
+        <member name="P:CookPopularControl.Controls.ExtendPopup.IsMouseLeftButtonDownClosed">
             <summary>
-            鼠标左键按下是否关闭<see cref="T:CookPopularControl.Controls.Popup.ExtendPopup"/>
+            鼠标左键按下是否关闭<see cref="T:CookPopularControl.Controls.ExtendPopup"/>
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosedProperty">
+        <member name="F:CookPopularControl.Controls.ExtendPopup.IsMouseLeftButtonDownClosedProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosedProperty"/>提供<see cref="P:CookPopularControl.Controls.Popup.ExtendPopup.IsMouseLeftButtonDownClosed"/>的依赖属性
+            <see cref="F:CookPopularControl.Controls.ExtendPopup.IsMouseLeftButtonDownClosedProperty"/>提供<see cref="P:CookPopularControl.Controls.ExtendPopup.IsMouseLeftButtonDownClosed"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Progress.CircularProgressAssistant">
+        <member name="T:CookPopularControl.Controls.CircularProgressAssistant">
             <summary>
             表示圆形进度条的附加属性类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Progress.LinearProgressBarAssistant">
+        <member name="T:CookPopularControl.Controls.LinearProgressBarAssistant">
             <summary>
             表示所有<see cref="T:System.Windows.Controls.ProgressBar"/>的附加属性基类
             </summary>
             <remarks>即以LinearProgressBar为基准</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IsShowPercentProperty">
+        <member name="F:CookPopularControl.Controls.LinearProgressBarAssistant.IsShowPercentProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IsShowPercentProperty"/>提供是否显示百分比的附加属性
+            <see cref="F:CookPopularControl.Controls.LinearProgressBarAssistant.IsShowPercentProperty"/>提供是否显示百分比的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.TextColorProperty">
+        <member name="F:CookPopularControl.Controls.LinearProgressBarAssistant.TextColorProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.TextColorProperty"/>提供文本颜色的附加属性
+            <see cref="F:CookPopularControl.Controls.LinearProgressBarAssistant.TextColorProperty"/>提供文本颜色的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IsShowIconProperty">
+        <member name="F:CookPopularControl.Controls.LinearProgressBarAssistant.IsShowIconProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IsShowIconProperty"/>提供是否添加图标的附加属性
+            <see cref="F:CookPopularControl.Controls.LinearProgressBarAssistant.IsShowIconProperty"/>提供是否添加图标的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IconSizeProperty">
+        <member name="F:CookPopularControl.Controls.LinearProgressBarAssistant.IconSizeProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.LinearProgressBarAssistant.IconSizeProperty"/>提供图标大小的附加属性
+            <see cref="F:CookPopularControl.Controls.LinearProgressBarAssistant.IconSizeProperty"/>提供图标大小的附加属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Progress.WaveProgressBarAssistant">
+        <member name="T:CookPopularControl.Controls.WaveProgressBarAssistant">
             <summary>
             提供WaveProgressBar的附加属性类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.IsStartWaveProperty">
+        <member name="F:CookPopularControl.Controls.WaveProgressBarAssistant.IsStartWaveProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.IsStartWaveProperty"/>开启波纹
+            <see cref="F:CookPopularControl.Controls.WaveProgressBarAssistant.IsStartWaveProperty"/>开启波纹
             </summary>
             <remarks>必须设置True，默认为False</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeThicknessProperty">
+        <member name="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveStrokeThicknessProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeThicknessProperty"/>波纹厚度
+            <see cref="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveStrokeThicknessProperty"/>波纹厚度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeProperty">
+        <member name="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveStrokeProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveStrokeProperty"/>波纹绘制的颜色
+            <see cref="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveStrokeProperty"/>波纹绘制的颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveHeightProperty">
+        <member name="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveHeightProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Progress.WaveProgressBarAssistant.WaveHeightProperty"/>表示波纹的高度
+            <see cref="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveHeightProperty"/>表示波纹的高度
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.QRCode.QRCodeControl">
+        <member name="T:CookPopularControl.Controls.QRCodeControl">
             <summary>
             二维码控件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.IsRefreshChangedEvent">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.IsRefreshChangedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.IsRefreshChangedEvent"/>标识刷新的路由事件
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.IsRefreshChangedEvent"/>标识刷新的路由事件
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.IsShowRefreshIcon">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.IsShowRefreshIcon">
             <summary>
             是否显示刷新按钮        
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFill">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.RefreshButtonFill">
             <summary>
             刷新按钮颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFillProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.RefreshButtonFillProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFillProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.RefreshButtonFill"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.RefreshButtonFillProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.RefreshButtonFill"/>的附加属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.Duration">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.Duration">
             <summary>
             二维码持续时长
             </summary>
             <remarks>可设置无线等待<see cref="F:System.Threading.Timeout.InfiniteTimeSpan"/>,单位：s</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.DurationProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.DurationProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.DurationProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.Duration"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.DurationProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.Duration"/>的附加属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContent">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.QrCodeContent">
             <summary>
             二维码内容
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContentProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.QrCodeContentProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContentProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeContent"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.QrCodeContentProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.QrCodeContent"/>的附加属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIcon">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.QrCodeIcon">
             <summary>
             二维码图标
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.QrCodeIconProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIcon"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.QrCodeIconProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.QrCodeIcon"/>的附加属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercent">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.QrCodeIconSizePercent">
             <summary>
             图标百分比大小
             </summary>
             <remarks>0~30</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercentProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.QrCodeIconSizePercentProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercentProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconSizePercent"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.QrCodeIconSizePercentProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.QrCodeIconSizePercent"/>的附加属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidth">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.QrCodeIconBorderWidth">
             <summary>
             图标外边框Border宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidthProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.QrCodeIconBorderWidthProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidthProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodeIconBorderWidth"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.QrCodeIconBorderWidthProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.QrCodeIconBorderWidth"/>的附加属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModule">
+        <member name="P:CookPopularControl.Controls.QRCodeControl.QrCodePixelsPerModule">
             <summary>
             二维码像素
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModuleProperty">
+        <member name="F:CookPopularControl.Controls.QRCodeControl.QrCodePixelsPerModuleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModuleProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCode.QRCodeControl.QrCodePixelsPerModule"/>的附加属性
+            <see cref="F:CookPopularControl.Controls.QRCodeControl.QrCodePixelsPerModuleProperty"/>标识<see cref="P:CookPopularControl.Controls.QRCodeControl.QrCodePixelsPerModule"/>的附加属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.QRCode.QRCodeControl.SetQRCodeImage(CookPopularControl.Controls.QRCode.QRCodeControl)">
+        <member name="M:CookPopularControl.Controls.QRCodeControl.SetQRCodeImage(CookPopularControl.Controls.QRCodeControl)">
             <summary>
             设置QRCodeImage
             </summary>
@@ -3101,253 +3086,253 @@
             Set to <c>True</c> to disable ripple effect
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ScrollControls.ExtendedScrollViewer">
+        <member name="T:CookPopularControl.Controls.ExtendedScrollViewer">
             <summary>
             解决滚动条劫持(scroll-wheel-hijack)的问题
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant">
+        <member name="T:CookPopularControl.Controls.ScrollBarAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty">
+        <member name="F:CookPopularControl.Controls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.RepeatButton"/>是否显示，默认True
+            <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.RepeatButton"/>是否显示，默认True
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty">
+        <member name="F:CookPopularControl.Controls.ScrollBarAssistant.ThumbInsideMarginProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollBarAssistant.ThumbInsideMarginProperty"/>标识<see cref="N:CookPopularControl.Controls.Thumb"/>在<see cref="T:System.Windows.Controls.Primitives.Track"/>中移动时距离边界的位置
+            <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.ThumbInsideMarginProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.Thumb"/>在<see cref="T:System.Windows.Controls.Primitives.Track"/>中移动时距离边界的位置
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant">
+        <member name="T:CookPopularControl.Controls.ScrollViewerAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.ScrollViewer"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsCornerShowProperty">
+        <member name="F:CookPopularControl.Controls.ScrollViewerAssistant.IsCornerShowProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsCornerShowProperty"/>标识右下角的矩形块是否显示
+            <see cref="F:CookPopularControl.Controls.ScrollViewerAssistant.IsCornerShowProperty"/>标识右下角的矩形块是否显示
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty">
+        <member name="F:CookPopularControl.Controls.ScrollViewerAssistant.IsAutoHideScrollBarProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ScrollControls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
+            <see cref="F:CookPopularControl.Controls.ScrollViewerAssistant.IsAutoHideScrollBarProperty"/>标识是否自动隐藏<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ScrollControls.SmoothScrollViewer">
+        <member name="T:CookPopularControl.Controls.SmoothScrollViewer">
             <summary>
             流畅的滚动轮
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ScrollControls.SmoothScrollViewer.VerticalOffsetProperty">
+        <member name="F:CookPopularControl.Controls.SmoothScrollViewer.VerticalOffsetProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.ScrollControls.SmoothScrollViewer.VerticalOffset"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Controls.SmoothScrollViewer.VerticalOffset"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Slider.SliderAssistant">
+        <member name="T:CookPopularControl.Controls.SliderAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Slider"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Slider.SliderAssistant.IsShowValueProperty">
+        <member name="F:CookPopularControl.Controls.SliderAssistant.IsShowValueProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.IsShowValueProperty"/>标识显示进度值的附加属性
+            <see cref="F:CookPopularControl.Controls.SliderAssistant.IsShowValueProperty"/>标识显示进度值的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty">
+        <member name="F:CookPopularControl.Controls.SliderAssistant.SliderSelectionRangeFillProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Slider.SliderAssistant.SliderSelectionRangeFillProperty"/>标识选定范围的填充背景色
+            <see cref="F:CookPopularControl.Controls.SliderAssistant.SliderSelectionRangeFillProperty"/>标识选定范围的填充背景色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Starred.Star">
+        <member name="T:CookPopularControl.Controls.Star">
             <summary>
             表示点赞类控件
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.StarCount">
+        <member name="P:CookPopularControl.Controls.Star.StarCount">
             <summary>
             数量
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.StarCountProperty">
+        <member name="F:CookPopularControl.Controls.Star.StarCountProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarCount"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.StarCount"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.StarValue">
+        <member name="P:CookPopularControl.Controls.Star.StarValue">
             <summary>
             当前评分
             </summary>
-            <remarks>当<see cref="P:CookPopularControl.Controls.Starred.Star.IsAllowHalf"/>为False时，会强制转换为Int型</remarks>
+            <remarks>当<see cref="P:CookPopularControl.Controls.Star.IsAllowHalf"/>为False时，会强制转换为Int型</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.StarValueProperty">
+        <member name="F:CookPopularControl.Controls.Star.StarValueProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarValue"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.StarValue"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.StarSize">
+        <member name="P:CookPopularControl.Controls.Star.StarSize">
             <summary>
             图标大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.StarSizeProperty">
+        <member name="F:CookPopularControl.Controls.Star.StarSizeProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarSize"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.StarSize"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.IsAllowHalf">
+        <member name="P:CookPopularControl.Controls.Star.IsAllowHalf">
             <summary>
             是否允许点赞一半
             </summary>    
             可通过Button的大小与Icon的大小来设置，例如btn.Width = 15; icon.Width = 30;
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.IsAllowHalfProperty">
+        <member name="F:CookPopularControl.Controls.Star.IsAllowHalfProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.IsAllowHalf"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.IsAllowHalf"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.IsShowScore">
+        <member name="P:CookPopularControl.Controls.Star.IsShowScore">
             <summary>
             是否显示分数
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.IsShowScoreProperty">
+        <member name="F:CookPopularControl.Controls.Star.IsShowScoreProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.IsShowScore"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.IsShowScore"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.StarIcon">
+        <member name="P:CookPopularControl.Controls.Star.StarIcon">
             <summary>
             点赞图标
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.StarIconProperty">
+        <member name="F:CookPopularControl.Controls.Star.StarIconProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.StarIcon"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.StarIcon"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Starred.Star.Orientation">
+        <member name="P:CookPopularControl.Controls.Star.Orientation">
             <summary>
             布局方向
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Starred.Star.OrientationProperty">
+        <member name="F:CookPopularControl.Controls.Star.OrientationProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Starred.Star.Orientation"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Star.Orientation"/>的依赖属性
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Starred.Star.CreateGeometry(System.Int32)">
+        <member name="M:CookPopularControl.Controls.Star.CreateGeometry(System.Int32)">
             <summary>
             创建图形
             </summary>
             <param name="index">标识第几个图形</param>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Swiper.Swiper">
+        <member name="T:CookPopularControl.Controls.Swiper">
             <summary>
             滑块视图容器
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.CurrentIndex">
+        <member name="P:CookPopularControl.Controls.Swiper.CurrentIndex">
             <summary>
             当前显示视图的索引
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.CurrentIndexProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.CurrentIndexProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.CurrentIndex"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.CurrentIndex"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.CurrentItem">
+        <member name="P:CookPopularControl.Controls.Swiper.CurrentItem">
             <summary>
             当前显示的视图
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.CurrentItemProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.CurrentItemProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.CurrentItem"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.CurrentItem"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IsCyclePlay">
+        <member name="P:CookPopularControl.Controls.Swiper.IsCyclePlay">
             <summary>
             是否循环播放
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IsCyclePlayProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.IsCyclePlayProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IsCyclePlay"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.IsCyclePlay"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IsShowIndicatorDots">
+        <member name="P:CookPopularControl.Controls.Swiper.IsShowIndicatorDots">
             <summary>
             是否显示面板指示点
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IsShowIndicatorDotsProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.IsShowIndicatorDotsProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IsShowIndicatorDots"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.IsShowIndicatorDots"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorDotBrush">
+        <member name="P:CookPopularControl.Controls.Swiper.IndicatorDotBrush">
             <summary>
             指示点颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IndicatorDotBrushProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.IndicatorDotBrushProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorDotBrush"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.IndicatorDotBrush"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorActiveDotBrush">
+        <member name="P:CookPopularControl.Controls.Swiper.IndicatorActiveDotBrush">
             <summary>
             选中点的颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IndicatorActiveDotBrushProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.IndicatorActiveDotBrushProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IndicatorActiveDotBrush"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.IndicatorActiveDotBrush"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.IsAutoPlay">
+        <member name="P:CookPopularControl.Controls.Swiper.IsAutoPlay">
             <summary>
             是否自动切换
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IsAutoPlayProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.IsAutoPlayProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.IsAutoPlay"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.IsAutoPlay"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.Interval">
+        <member name="P:CookPopularControl.Controls.Swiper.Interval">
             <summary>
             自动切换间隔时长(s)
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.IntervalProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.IntervalProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.Interval"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Interval"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Swiper.Swiper.Duration">
+        <member name="P:CookPopularControl.Controls.Swiper.Duration">
             <summary>
             滑动动画时长
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Swiper.Swiper.DurationProperty">
+        <member name="F:CookPopularControl.Controls.Swiper.DurationProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Swiper.Swiper.Duration"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Controls.Swiper.Duration"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.TabControl.TabControlAssistant">
+        <member name="T:CookPopularControl.Controls.TabControlAssistant">
             <summary>
-            提供<see cref="N:CookPopularControl.Controls.TabControl"/>中<see cref="T:System.Windows.Controls.TabItem"/>的附加属性类
+            提供<see cref="T:System.Windows.Controls.TabControl"/>中<see cref="T:System.Windows.Controls.TabItem"/>的附加属性类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TabControl.TabControlAssistant.IsAddClearButtonProperty">
+        <member name="F:CookPopularControl.Controls.TabControlAssistant.IsAddClearButtonProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TabControl.TabControlAssistant.IsAddClearButtonProperty"/>标识是否增加删除按钮
+            <see cref="F:CookPopularControl.Controls.TabControlAssistant.IsAddClearButtonProperty"/>标识是否增加删除按钮
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.ThreeDimensional.Alertor3D">
@@ -3423,17 +3408,17 @@
             提供<see cref="P:CookPopularControl.Controls.ThreeDimensional.FlipTile3D.ItemMaterials"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Thumb.GridViewColumThumb">
+        <member name="T:CookPopularControl.Controls.GridViewColumThumb">
             <summary>
             GridViewColumThumb
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.TooTip.ToolTipAssistant">
+        <member name="T:CookPopularControl.Controls.ToolTipAssistant">
             <summary>
             <see cref="T:System.Windows.Controls.ToolTip"/>的附加属性基类
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.TooTip.ToolTipAssistant.CustomPopupPlacementCallbackImplement(System.Windows.Size,System.Windows.Size,System.Windows.Point)">
+        <member name="M:CookPopularControl.Controls.ToolTipAssistant.CustomPopupPlacementCallbackImplement(System.Windows.Size,System.Windows.Size,System.Windows.Point)">
             <summary>
             自定义TooTip的位置
             </summary>
@@ -3442,238 +3427,253 @@
             <param name="offset"></param>
             <returns></returns>
         </member>
-        <member name="F:CookPopularControl.Controls.TooTip.ToolTipAssistant.CookPopularToolTipBackgroundProperty">
+        <member name="F:CookPopularControl.Controls.ToolTipAssistant.CookPopularToolTipBackgroundProperty">
             <summary>
             提供<see cref="T:System.Windows.Controls.ToolTip"/>的背景色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.TreeView.TreeViewAssistant">
+        <member name="T:CookPopularControl.Controls.TreeViewAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.TreeView"/>的附加属性帮助类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonSizeProperty">
+        <member name="F:CookPopularControl.Controls.TreeViewAssistant.ExpandButtonSizeProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonSizeProperty"/>标识展开按钮的大小
+            <see cref="F:CookPopularControl.Controls.TreeViewAssistant.ExpandButtonSizeProperty"/>标识展开按钮的大小
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonFillProperty">
+        <member name="F:CookPopularControl.Controls.TreeViewAssistant.ExpandButtonFillProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.ExpandButtonFillProperty"/>标识展开按钮的填充颜色
+            <see cref="F:CookPopularControl.Controls.TreeViewAssistant.ExpandButtonFillProperty"/>标识展开按钮的填充颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconHasItemsProperty">
+        <member name="F:CookPopularControl.Controls.TreeViewAssistant.HeaderIconHasItemsProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconHasItemsProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>有子项的标题头图标
+            <see cref="F:CookPopularControl.Controls.TreeViewAssistant.HeaderIconHasItemsProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>有子项的标题头图标
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconNoItemsProperty">
+        <member name="F:CookPopularControl.Controls.TreeViewAssistant.HeaderIconNoItemsProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconNoItemsProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>无子项的标题头图标
+            <see cref="F:CookPopularControl.Controls.TreeViewAssistant.HeaderIconNoItemsProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>无子项的标题头图标
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconFillProperty">
+        <member name="F:CookPopularControl.Controls.TreeViewAssistant.HeaderIconFillProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.HeaderIconFillProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>的标题头填充颜色
+            <see cref="F:CookPopularControl.Controls.TreeViewAssistant.HeaderIconFillProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>的标题头填充颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.IsShowHeaderIconProperty">
+        <member name="F:CookPopularControl.Controls.TreeViewAssistant.IsShowHeaderIconProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.TreeView.TreeViewAssistant.IsShowHeaderIconProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>是否显示标题头
+            <see cref="F:CookPopularControl.Controls.TreeViewAssistant.IsShowHeaderIconProperty"/>标识<see cref="T:System.Windows.Controls.TreeView"/>是否显示标题头
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.ChromeWindowClient">
+        <member name="T:CookPopularControl.DialogBox.DialogBox">
             <summary>
-            为 <see cref="T:CookPopularControl.Controls.NormalWindow"/> 提供客户端区域。无法继承此类。
+            对话窗口
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.ChromeWindowClient.#ctor">
+        <member name="F:CookPopularControl.DialogBox.DialogBox.MarkProperty">
             <summary>
-            初始化 <see cref="T:CookPopularControl.Controls.ChromeWindowClient" /> 类的新实例。
+            <see cref="F:CookPopularControl.DialogBox.DialogBox.MarkProperty"/>表示<see cref="T:CookPopularControl.DialogBox.DialogBox"/>的标识附加属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.MessageDialog">
+        <member name="T:CookPopularControl.DialogBox.DialogBoxContainer">
+            <summary>
+            承载对话框内容的对话容器
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Windows.ChromeWindowClient">
+            <summary>
+            为 <see cref="T:CookPopularControl.Windows.NormalWindow"/> 提供客户端区域。无法继承此类。
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Windows.ChromeWindowClient.#ctor">
+            <summary>
+            初始化 <see cref="T:CookPopularControl.Windows.ChromeWindowClient" /> 类的新实例。
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Windows.MessageDialog">
             <summary>
             消息框
             </summary>
             <remarks>模态的</remarks>
         </member>
-        <member name="P:CookPopularControl.Controls.MessageDialog.Message">
+        <member name="P:CookPopularControl.Windows.MessageDialog.Message">
             <summary>
-            <see cref="T:CookPopularControl.Controls.MessageDialog"/>消息内容
+            <see cref="T:CookPopularControl.Windows.MessageDialog"/>消息内容
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.MessageDialog.Image">
+        <member name="P:CookPopularControl.Windows.MessageDialog.Image">
             <summary>
-            <see cref="T:CookPopularControl.Controls.MessageDialog"/>图标
+            <see cref="T:CookPopularControl.Windows.MessageDialog"/>图标
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.MessageDialog.ImageBrush">
+        <member name="P:CookPopularControl.Windows.MessageDialog.ImageBrush">
             <summary>
-            <see cref="T:CookPopularControl.Controls.MessageDialog"/>图标颜色
+            <see cref="T:CookPopularControl.Windows.MessageDialog"/>图标颜色
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.MessageDialog.IsShowImage">
+        <member name="P:CookPopularControl.Windows.MessageDialog.IsShowImage">
             <summary>
-            是否显示<see cref="T:CookPopularControl.Controls.MessageDialog"/>的图标
+            是否显示<see cref="T:CookPopularControl.Windows.MessageDialog"/>的图标
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.MessageDialog.Show(CookPopularControl.Controls.CustomMessageDialog)">
+        <member name="M:CookPopularControl.Windows.MessageDialog.Show(CookPopularControl.Windows.CustomMessageDialog)">
             <summary>
             自定义展示信息
             </summary>
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.MessageDialog.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
+        <member name="M:CookPopularControl.Windows.MessageDialog.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
             <summary>
             信息展示
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.MessageDialog.Show(System.Windows.Window,System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
+        <member name="M:CookPopularControl.Windows.MessageDialog.Show(System.Windows.Window,System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult,System.Windows.MessageBoxOptions)">
             <summary>
             信息展示
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.CustomMessageDialog">
+        <member name="T:CookPopularControl.Windows.CustomMessageDialog">
             <summary>
             自定义显示信息
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.NoneTitleBarWindow">
+        <member name="T:CookPopularControl.Windows.NoneTitleBarWindow">
             <summary>
-            <see cref="T:CookPopularControl.Controls.NoneTitleBarWindow"/>标识没有标题的窗体
+            <see cref="T:CookPopularControl.Windows.NoneTitleBarWindow"/>标识没有标题的窗体
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.NormalWindow">
+        <member name="T:CookPopularControl.Windows.NormalWindow">
             <summary>
-            <see cref="T:CookPopularControl.Controls.NormalWindow"/>表示标准的窗体
+            <see cref="T:CookPopularControl.Windows.NormalWindow"/>表示标准的窗体
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarForeground">
+        <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarForeground">
             <summary>
             表示标题栏前置颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarForegroundProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.ClientTitleBarForegroundProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarForeground"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarForeground"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarBackground">
+        <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarBackground">
             <summary>
             表示标题栏背景颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarBackgroundProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.ClientTitleBarBackgroundProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarBackground"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarBackground"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarAdditionalContent">
+        <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarAdditionalContent">
             <summary>
             标题栏附加内容
             </summary>
             <remarks>除了Window图标和Title以外的其它内容</remarks>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarAdditionalContentProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.ClientTitleBarAdditionalContentProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarAdditionalContent"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarAdditionalContent"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarHeight">
+        <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarHeight">
             <summary>
             标题栏高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.ClientTitleBarHeightProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.ClientTitleBarHeightProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.ClientTitleBarHeight"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarHeight"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.IsShowTitle">
+        <member name="P:CookPopularControl.Windows.NormalWindow.IsShowTitle">
             <summary>
             是否显示窗口标题
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.IsShowTitleProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.IsShowTitleProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsShowTitle"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.IsShowTitle"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.IsShowClientTitleBar">
+        <member name="P:CookPopularControl.Windows.NormalWindow.IsShowClientTitleBar">
             <summary>
             是否显示标题栏
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.IsShowClientTitleBarProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.IsShowClientTitleBarProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsShowClientTitleBar"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.IsShowClientTitleBar"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.IsFullScreen">
+        <member name="P:CookPopularControl.Windows.NormalWindow.IsFullScreen">
             <summary>
             窗口是否全屏
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.IsFullScreenProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.IsFullScreenProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsFullScreen"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.IsFullScreen"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.IsNonClientActive">
+        <member name="P:CookPopularControl.Windows.NormalWindow.IsNonClientActive">
             <summary>
             窗体是否激活
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.IsNonClientActiveProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.IsNonClientActiveProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.NormalWindow.IsNonClientActive"/>的依赖属性
+            标识<see cref="P:CookPopularControl.Windows.NormalWindow.IsNonClientActive"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.IconWidth">
+        <member name="P:CookPopularControl.Windows.NormalWindow.IconWidth">
             <summary>
             窗体图标宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.IconWidthProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.IconWidthProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.NormalWindow.IconWidth"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Windows.NormalWindow.IconWidth"/>的依赖属性
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.NormalWindow.IconHeight">
+        <member name="P:CookPopularControl.Windows.NormalWindow.IconHeight">
             <summary>
             窗体图标高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.NormalWindow.IconHeightProperty">
+        <member name="F:CookPopularControl.Windows.NormalWindow.IconHeightProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.NormalWindow.IconHeight"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Windows.NormalWindow.IconHeight"/>的依赖属性
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.SideBarWindow">
+        <member name="T:CookPopularControl.Windows.SideBarWindow">
             <summary>
-            <see cref="T:CookPopularControl.Controls.SideBarWindow"/>表示具有侧边栏的窗体
+            <see cref="T:CookPopularControl.Windows.SideBarWindow"/>表示具有侧边栏的窗体
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.SideBarWindow.IsShowSideBar">
+        <member name="P:CookPopularControl.Windows.SideBarWindow.IsShowSideBar">
             <summary>
             是否显示侧边栏
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.SideBarWindow.IsShowSideBarProperty">
+        <member name="F:CookPopularControl.Windows.SideBarWindow.IsShowSideBarProperty">
             <summary>
-            提供<see cref="P:CookPopularControl.Controls.SideBarWindow.IsShowSideBar"/>的依赖属性
+            提供<see cref="P:CookPopularControl.Windows.SideBarWindow.IsShowSideBar"/>的依赖属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.SideBarWindow.IsShowSideBarChangedEvent">
+        <member name="F:CookPopularControl.Windows.SideBarWindow.IsShowSideBarChangedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.SideBarWindow.IsShowSideBarChangedEvent"/>标识侧边栏是否打开事件
+            <see cref="F:CookPopularControl.Windows.SideBarWindow.IsShowSideBarChangedEvent"/>标识侧边栏是否打开事件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.SideBarWindow.SettingClickEvent">
+        <member name="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent">
             <summary>
-            <see cref="F:CookPopularControl.Controls.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
+            <see cref="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
             </summary>
         </member>
         <member name="T:CookPopularControl.Expression.Controls.Callout">

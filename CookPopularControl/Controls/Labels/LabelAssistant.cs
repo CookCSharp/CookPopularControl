@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,14 +9,14 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-11 09:00:57
  */
-namespace CookPopularControl.Controls.Labels
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="Label"/>的附加属性类
     /// </summary>
     public class LabelAssistant
     {
-        public static object GetHeader(DependencyObject obj) => (object)obj.GetValue(HeaderProperty);
+        public static object GetHeader(DependencyObject obj) => obj.GetValue(HeaderProperty);
         public static void SetHeader(DependencyObject obj, object value) => obj.SetValue(HeaderProperty, value);
         /// <summary>
         /// <see cref="HeaderProperty"/>标识标签头的附加属性

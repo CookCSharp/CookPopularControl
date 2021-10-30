@@ -1,10 +1,5 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -17,7 +12,7 @@ using System.Windows.Controls.Primitives;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-25 14:58:39
  */
-namespace CookPopularControl.Controls.Menus
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 弹出菜单

@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Communal.Data.Infos;
+﻿using CookPopularControl.Communal.Data.Infos;
 using CookPopularControl.Tools.Helpers;
 using System;
 using System.Windows;
@@ -18,7 +17,7 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-21 09:01:36
  */
-namespace CookPopularControl.Controls.Notify
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 气泡消息

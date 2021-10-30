@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,7 +10,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-28 16:35:56
  */
-namespace CookPopularControl.Controls.Button
+namespace CookPopularControl.Controls
 {
     public class ToggleButtonAssistant
     {
@@ -37,7 +32,7 @@ namespace CookPopularControl.Controls.Button
             DependencyProperty.RegisterAttached("OnCheckedGeometry", typeof(Geometry), typeof(ToggleButtonAssistant), new PropertyMetadata());
 
 
-        public static object GetOnCheckedElement(DependencyObject obj) => (object)obj.GetValue(OnCheckedElementProperty);
+        public static object GetOnCheckedElement(DependencyObject obj) => obj.GetValue(OnCheckedElementProperty);
         public static void SetOnCheckedElement(DependencyObject obj, object value) => obj.SetValue(OnCheckedElementProperty, value);
         /// <summary>
         /// <see cref="OnCheckedElementProperty"/>表示翻转的Content

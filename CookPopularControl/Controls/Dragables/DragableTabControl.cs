@@ -12,8 +12,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
@@ -199,7 +197,7 @@ namespace CookPopularControl.Controls.Dragables
 
         public object HeaderPrefixContent
         {
-            get { return (object)GetValue(HeaderPrefixContentProperty); }
+            get { return GetValue(HeaderPrefixContentProperty); }
             set { SetValue(HeaderPrefixContentProperty, value); }
         }
         public static readonly DependencyProperty HeaderPrefixContentProperty =
@@ -235,7 +233,7 @@ namespace CookPopularControl.Controls.Dragables
 
         public object HeaderSuffixContent
         {
-            get { return (object)GetValue(HeaderSuffixContentProperty); }
+            get { return GetValue(HeaderSuffixContentProperty); }
             set { SetValue(HeaderSuffixContentProperty, value); }
         }
         public static readonly DependencyProperty HeaderSuffixContentProperty =

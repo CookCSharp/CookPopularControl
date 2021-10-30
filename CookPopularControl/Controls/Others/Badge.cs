@@ -1,14 +1,9 @@
-﻿using CookPopularControl.Communal.Data.Args;
+﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CookPopularControl.Communal.Data;
 
 
 
@@ -30,7 +25,7 @@ namespace CookPopularControl.Controls
         /// </summary>
         public object Element
         {
-            get { return (object)GetValue(ElementProperty); }
+            get { return GetValue(ElementProperty); }
             set { SetValue(ElementProperty, value); }
         }
         /// <summary>
@@ -80,7 +75,7 @@ namespace CookPopularControl.Controls
         /// <summary>
         /// 提供<see cref="IsShowBadge"/>的依赖属性
         /// </summary>
-        public static readonly DependencyProperty IsShowBadgeProperty = 
+        public static readonly DependencyProperty IsShowBadgeProperty =
             DependencyProperty.Register("IsShowBadge", typeof(bool), typeof(Badge), new PropertyMetadata(ValueBoxes.TrueBox));
 
 

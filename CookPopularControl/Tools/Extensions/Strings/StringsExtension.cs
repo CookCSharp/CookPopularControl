@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 
@@ -77,7 +73,7 @@ namespace CookPopularControl.Tools.Extensions.Strings
                 int offset = 0; long remainData = fs.Length;
                 var buffer = new byte[fs.Length];
                 //只要有剩余的字节就不停的读
-                while (remainData>0)
+                while (remainData > 0)
                 {
                     int read = fs.Read(buffer, offset, (int)remainData);
                     if (read <= 0)

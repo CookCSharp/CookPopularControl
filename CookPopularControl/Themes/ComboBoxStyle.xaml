@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.ComboBox"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
     <ResourceDictionary.MergedDictionaries>
@@ -15,10 +15,10 @@
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
-        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
-        <Setter Property="assistant:ComboBoxAssistant.IsShowDropDownButton" Value="True" />
+        <Setter Property="pc:ComboBoxAssistant.IsClickDown" Value="True" />
+        <Setter Property="pc:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="pc:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
+        <Setter Property="pc:ComboBoxAssistant.IsShowDropDownButton" Value="True" />
     </Style>
 
     <Style x:Key="AddClearButtonComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
@@ -37,9 +37,9 @@
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="attached:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
-        <Setter Property="assistant:ComboBoxAssistant.IsClickDown" Value="True" />
-        <Setter Property="assistant:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="assistant:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
+        <Setter Property="pc:ComboBoxAssistant.IsClickDown" Value="True" />
+        <Setter Property="pc:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="pc:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
 
         <Setter Property="attached:SelectorAttached.ItemControlWidth" Value="24" />
         <Setter Property="attached:SelectorAttached.ItemControlHeight" Value="24" />

@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -16,7 +11,7 @@ using System.Windows.Controls.Primitives;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-26 15:22:43
  */
-namespace CookPopularControl.Controls.ScrollControls
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="ScrollViewer"/>的附加属性基类
@@ -42,7 +37,7 @@ namespace CookPopularControl.Controls.ScrollControls
         public static double GetSyncHorizontalOffset(DependencyObject obj) => (double)obj.GetValue(SyncHorizontalOffsetProperty);
         public static void SetSyncHorizontalOffset(DependencyObject obj, double value) => obj.SetValue(SyncHorizontalOffsetProperty, value);
         public static readonly DependencyProperty SyncHorizontalOffsetProperty =
-            DependencyProperty.RegisterAttached("SyncHorizontalOffset", typeof(double), typeof(ScrollViewerAssistant), 
+            DependencyProperty.RegisterAttached("SyncHorizontalOffset", typeof(double), typeof(ScrollViewerAssistant),
                 new PropertyMetadata(ValueBoxes.Double0Box, OnSyncHorizontalOffsetChanged));
         private static void OnSyncHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

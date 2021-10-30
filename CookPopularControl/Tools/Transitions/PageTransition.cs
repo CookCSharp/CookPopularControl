@@ -1,4 +1,3 @@
-using CookPopularControl.Tools.Transitions;
 using System;
 using System.Windows;
 using System.Windows.Controls;

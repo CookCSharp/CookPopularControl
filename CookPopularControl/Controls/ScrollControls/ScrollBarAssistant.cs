@@ -1,17 +1,10 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Animation;
-using System.Windows.Threading;
-using ThreadState = System.Threading.ThreadState;
 
 
 
@@ -21,7 +14,7 @@ using ThreadState = System.Threading.ThreadState;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-26 13:22:25
  */
-namespace CookPopularControl.Controls.ScrollControls
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="ScrollBar"/>的附加属性基类

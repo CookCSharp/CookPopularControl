@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 
 
@@ -14,7 +8,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-30 10:52:48
  */
-namespace CookPopularControl.Controls.Thumb
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// GridViewColumThumb

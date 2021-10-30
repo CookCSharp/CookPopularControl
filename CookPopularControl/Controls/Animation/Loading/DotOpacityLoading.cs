@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows;
-using System.Windows.Media.Animation;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 
 /*
@@ -16,7 +12,7 @@ using System.Windows.Data;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-08 11:48:51
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示一组点按照直线轨迹运动并附加有透明度变化的加载动画

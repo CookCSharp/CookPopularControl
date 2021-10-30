@@ -1,6 +1,7 @@
 ﻿using CookPopularControl.Communal.Attached;
-using CookPopularControl.Controls.Panels;
-using CookPopularControl.Controls.Animation;
+using CookPopularControl.Communal.Data.Enum;
+using CookPopularControl.Controls;
+using CookPopularControl.Expression.Drawing.Core;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
 using CookPopularControl.Tools.Helpers;
@@ -8,21 +9,11 @@ using Microsoft.Xaml.Behaviors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Effects;
 using System.Windows.Shapes;
-using CookPopularControl.Expression.Drawing.Core;
-using System.Windows.Automation.Text;
-using CookPopularControl.Communal.Data.Enum;
 
 
 /*

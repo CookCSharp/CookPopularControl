@@ -1,13 +1,7 @@
-﻿using CookPopularControl.Controls.Adorner;
-using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
+﻿using CookPopularControl.Tools.Extensions;
 using Microsoft.Xaml.Behaviors.Layout;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -21,7 +15,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-12 13:55:42
  */
-namespace CookPopularControl.Controls.DialogBox
+namespace CookPopularControl.DialogBox
 {
     /// <summary>
     /// 对话窗口

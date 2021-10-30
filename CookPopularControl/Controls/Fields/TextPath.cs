@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -16,7 +11,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-23 15:43:41
  */
-namespace CookPopularControl.Controls.Fields
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 自定义绘制文本
@@ -37,8 +32,8 @@ namespace CookPopularControl.Controls.Fields
         /// 标识<see cref="Data"/>依赖属性。
         /// </summary>
         public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(Geometry), typeof(TextPath), 
-                new FrameworkPropertyMetadata(Geometry.Empty,FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Data", typeof(Geometry), typeof(TextPath),
+                new FrameworkPropertyMetadata(Geometry.Empty, FrameworkPropertyMetadataOptions.AffectsRender));
 
         /// <summary>
         /// 获取或设置用于指定所要绘制的文本
@@ -52,7 +47,7 @@ namespace CookPopularControl.Controls.Fields
         /// 标识<see cref="Text"/>依赖属性。
         /// </summary>
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(TextPath), 
+            DependencyProperty.Register("Text", typeof(string), typeof(TextPath),
                 new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesChanged));
 
         public static ImageSource GetFillImageSource(DependencyObject obj) => (ImageSource)obj.GetValue(FillImageSourceProperty);
@@ -71,7 +66,7 @@ namespace CookPopularControl.Controls.Fields
         /// </summary>
         public static readonly DependencyProperty DrawingRecProperty =
             DependencyProperty.RegisterAttached("DrawingRec", typeof(Rect), typeof(TextPath),
-                new FrameworkPropertyMetadata(new Rect(0,0,20,20), FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesChanged));
+                new FrameworkPropertyMetadata(new Rect(0, 0, 20, 20), FrameworkPropertyMetadataOptions.AffectsRender, OnPropertiesChanged));
 
         public static Brush GetDrawingBrush(DependencyObject obj) => (Brush)obj.GetValue(DrawingBrushProperty);
         public static void SetDrawingBrush(DependencyObject obj, Brush value) => obj.SetValue(DrawingBrushProperty, value);

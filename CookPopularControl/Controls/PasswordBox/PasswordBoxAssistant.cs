@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CookPopularControl.Tools.Boxes;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using CookPopularControl.Communal.Behaviors;
-using CookPopularControl.Tools.Boxes;
-using Microsoft.Xaml.Behaviors;
 
 
 
@@ -19,7 +10,7 @@ using Microsoft.Xaml.Behaviors;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-18 16:15:12
  */
-namespace CookPopularControl.Controls.PasswordBox
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="System.Windows.Controls.PasswordBox"/>的附加属性类
@@ -49,7 +40,7 @@ namespace CookPopularControl.Controls.PasswordBox
         /// <see cref="PasswordProperty"/>表示可绑定的Password
         /// </summary>
         public static readonly DependencyProperty PasswordProperty =
-            DependencyProperty.RegisterAttached("Password", typeof(string), typeof(PasswordBoxAssistant), new PropertyMetadata(string.Empty,OnPasswordValueChanged));
+            DependencyProperty.RegisterAttached("Password", typeof(string), typeof(PasswordBoxAssistant), new PropertyMetadata(string.Empty, OnPasswordValueChanged));
 
         private static void OnPasswordValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -67,7 +58,7 @@ namespace CookPopularControl.Controls.PasswordBox
         /// <see cref="IsTriggerProperty"/>表示是否触发PasswordChanged事件
         /// </summary>
         public static readonly DependencyProperty IsTriggerProperty =
-            DependencyProperty.RegisterAttached("IsTrigger", typeof(bool), typeof(PasswordBoxAssistant), 
+            DependencyProperty.RegisterAttached("IsTrigger", typeof(bool), typeof(PasswordBoxAssistant),
                 new PropertyMetadata(ValueBoxes.FalseBox, OnIsTriggerValueChanged));
 
         private static void OnIsTriggerValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

@@ -1,7 +1,7 @@
 ﻿using CookPopularControl.Communal.Attached;
 using CookPopularControl.Communal.ViewModel;
-using CookPopularControl.Tools.Extensions;
 using CookPopularControl.Tools.Helpers;
+using CookPopularControl.Windows;
 using System;
 using System.Linq;
 using System.Windows;
@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
-namespace CookPopularControl.Controls.MediaPlayer
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// UserMediaView.xaml 的交互逻辑
@@ -210,7 +210,7 @@ namespace CookPopularControl.Controls.MediaPlayer
 
         private void playSpeed_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (e.GetPosition(playSpeed).Y >= playSpeed.Height || e.GetPosition(playSpeed).X <=0  || e.GetPosition(playSpeed).X >= playSpeed.Width)
+            if (e.GetPosition(playSpeed).Y >= playSpeed.Height || e.GetPosition(playSpeed).X <= 0 || e.GetPosition(playSpeed).X >= playSpeed.Width)
                 mediaViewModel.IsSpeedOpen = false;
         }
 
@@ -306,7 +306,7 @@ namespace CookPopularControl.Controls.MediaPlayer
             {
                 if (index < 0)
                     index = mediaPlayer.ItemSource.Count() - 1;
-                mediaPlayer.CurrentUri = mediaPlayer.ItemSource.ElementAt(index);           
+                mediaPlayer.CurrentUri = mediaPlayer.ItemSource.ElementAt(index);
             }
             else
             {
@@ -330,7 +330,7 @@ namespace CookPopularControl.Controls.MediaPlayer
             {
                 if (index >= mediaPlayer.ItemSource.Count())
                     index = 0;
-                 mediaPlayer.CurrentUri = mediaPlayer.ItemSource.ElementAt(index);
+                mediaPlayer.CurrentUri = mediaPlayer.ItemSource.ElementAt(index);
             }
             else
             {

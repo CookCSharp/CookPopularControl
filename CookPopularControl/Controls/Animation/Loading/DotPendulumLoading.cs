@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media;
+﻿using CookPopularControl.Tools.Boxes;
+using System;
 using System.Windows;
-using System.Windows.Media.Animation;
-using CookPopularControl.Tools.Boxes;
-using System.Windows.Media.Effects;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 
 /*
@@ -18,7 +13,7 @@ using System.Windows.Data;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-03 15:56:35
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示点按照钟摆运动的轨迹形成的动画

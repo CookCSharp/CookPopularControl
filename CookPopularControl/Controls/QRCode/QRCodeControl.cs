@@ -2,12 +2,9 @@
 using CookPopularControl.Tools.Extensions.Images;
 using QRCoder;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,7 +23,7 @@ using Image = System.Windows.Controls.Image;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-30 20:03:45
  */
-namespace CookPopularControl.Controls.QRCode
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 二维码控件
@@ -250,7 +247,7 @@ namespace CookPopularControl.Controls.QRCode
                             ImageBitmapExtension.ToBitmap(qrCodeControl.QrCodeIcon),
                             qrCodeControl.QrCodeIconSizePercent,
                             qrCodeControl.QrCodeIconBorderWidth);
-                        
+
                         codeImage.Save(AppDomain.CurrentDomain.BaseDirectory + "QRCode.png", ImageFormat.Png);
                         return ImageBitmapExtension.ToImageSource(codeImage);
                     }

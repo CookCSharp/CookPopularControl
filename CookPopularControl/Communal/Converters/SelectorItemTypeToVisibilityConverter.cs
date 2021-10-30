@@ -1,11 +1,7 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Tools.Extensions.Markup;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -29,7 +25,7 @@ namespace CookPopularControl.Communal.Converters
             if (hasParam && ((SelectorItemType)value).Equals(itemType))
                 return Visibility.Visible;
             else
-                return Visibility.Collapsed;          
+                return Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -1,11 +1,5 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
 
@@ -16,7 +10,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-27 16:48:57
  */
-namespace CookPopularControl.Controls.Slider
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="System.Windows.Controls.Slider"/>的附加属性基类

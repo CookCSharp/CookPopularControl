@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows.Controls;
 
 
@@ -29,7 +24,7 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
             return string.IsNullOrEmpty((value ?? "").ToString())
                     ? new ValidationResult(false, ErrorMessage)
                     : ValidationResult.ValidResult;
-        }      
+        }
     }
 
     /// <summary>

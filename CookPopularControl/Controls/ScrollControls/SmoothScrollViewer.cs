@@ -1,13 +1,8 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 
@@ -18,7 +13,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-09 08:57:39
  */
-namespace CookPopularControl.Controls.ScrollControls
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 流畅的滚动轮

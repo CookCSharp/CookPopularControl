@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using CookPopularControl.Communal.Data.Enum;
+using CookPopularControl.Tools.Boxes;
 using System.Windows;
 using System.Windows.Controls;
-using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
+using System.Windows.Media;
 
 
 
@@ -17,7 +12,7 @@ using CookPopularControl.Tools.Boxes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-16 15:06:11
  */
-namespace CookPopularControl.Controls.CheckBox
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// <see cref="System.Windows.Controls.CheckBox"/>的附加基类
@@ -55,8 +50,8 @@ namespace CookPopularControl.Controls.CheckBox
         /// <see cref="FillTypeProperty"/>提供填充大小的附加属性
         /// </summary>
         public static readonly DependencyProperty FillSizeProperty =
-            DependencyProperty.RegisterAttached("FillSize", typeof(double), typeof(CheckBoxAssistant), 
-                new FrameworkPropertyMetadata(ValueBoxes.Double30Box,FrameworkPropertyMetadataOptions.Inherits, OnFillSizeChanged));
+            DependencyProperty.RegisterAttached("FillSize", typeof(double), typeof(CheckBoxAssistant),
+                new FrameworkPropertyMetadata(ValueBoxes.Double30Box, FrameworkPropertyMetadataOptions.Inherits, OnFillSizeChanged));
 
         private static void OnFillSizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

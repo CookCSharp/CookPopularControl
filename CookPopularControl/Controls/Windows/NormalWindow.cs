@@ -1,18 +1,14 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
+using CookPopularControl.Tools.Extensions.Images;
+using CookPopularControl.Tools.Helpers;
+using CookPopularControl.Tools.Interop;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using CookPopularControl.Tools.Extensions.Images;
-using CookPopularControl.Tools.Helpers;
-using CookPopularControl.Tools.Interop;
 using System.Windows.Shell;
 
 
@@ -23,12 +19,12 @@ using System.Windows.Shell;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-24 09:43:30
  */
-namespace CookPopularControl.Controls
+namespace CookPopularControl.Windows
 {
     /// <summary>
     /// <see cref="NormalWindow"/>表示标准的窗体
     /// </summary>
-    [TemplatePart(Name = TitleBarArea,Type =typeof(System.Windows.Controls.Grid))]
+    [TemplatePart(Name = TitleBarArea, Type = typeof(System.Windows.Controls.Grid))]
     public class NormalWindow : Window
     {
         private const string TitleBarArea = "PART_TitleBarArea";
@@ -73,7 +69,7 @@ namespace CookPopularControl.Controls
         /// <remarks>除了Window图标和Title以外的其它内容</remarks>
         public object ClientTitleBarAdditionalContent
         {
-            get { return (object)GetValue(ClientTitleBarAdditionalContentProperty); }
+            get { return GetValue(ClientTitleBarAdditionalContentProperty); }
             set { SetValue(ClientTitleBarAdditionalContentProperty, value); }
         }
         /// <summary>
@@ -183,11 +179,11 @@ namespace CookPopularControl.Controls
         /// 标识<see cref="IsNonClientActive"/>的依赖属性
         /// </summary>
         internal static readonly DependencyProperty IsNonClientActiveProperty =
-            DependencyProperty.Register("IsNonClientActive", typeof(bool), typeof(NormalWindow), new PropertyMetadata(ValueBoxes.FalseBox,OnIsNoneClientActiveChanged));
+            DependencyProperty.Register("IsNonClientActive", typeof(bool), typeof(NormalWindow), new PropertyMetadata(ValueBoxes.FalseBox, OnIsNoneClientActiveChanged));
 
         private static void OnIsNoneClientActiveChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if(d is NormalWindow window)
+            if (d is NormalWindow window)
             {
                 IntPtr handle = window.EnsureHandle();
                 window.GetHwndSource()?.AddHook(new HwndSourceHook(window.WndProc));

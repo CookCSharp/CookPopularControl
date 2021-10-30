@@ -1,17 +1,7 @@
-﻿using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using OriginButton = System.Windows.Controls.Button;
 
 
 
@@ -21,7 +11,7 @@ using OriginButton = System.Windows.Controls.Button;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-07 14:01:49
  */
-namespace CookPopularControl.Controls.Menus
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 弧形、圆形菜单

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -18,7 +16,7 @@ using System.Windows.Media.Imaging;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-27 17:02:09
  */
-namespace CookPopularControl.Controls.CarouselView
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 旋转视图容器
@@ -43,7 +41,7 @@ namespace CookPopularControl.Controls.CarouselView
 
         private void CarouselControl_Loaded(object sender, RoutedEventArgs e)
         {
-            CanvasContainer = GetTemplateChild(ImageCanvas) as Canvas;         
+            CanvasContainer = GetTemplateChild(ImageCanvas) as Canvas;
             GetElements();
             GetTopMost();
 

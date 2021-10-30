@@ -1,15 +1,10 @@
 ﻿using CookPopularControl.Expression.Drawing.Core;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
@@ -21,7 +16,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-24 09:49:09
  */
-namespace CookPopularControl.Controls.Animation
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="Geometry"/>的路径动画控件
@@ -78,7 +73,7 @@ namespace CookPopularControl.Controls.Animation
             set { SetValue(DurationProperty, value); }
         }
         public static readonly DependencyProperty DurationProperty =
-            DependencyProperty.Register("Duration", typeof(Duration), typeof(AnimationPath), 
+            DependencyProperty.Register("Duration", typeof(Duration), typeof(AnimationPath),
                 new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)), OnValuePropertyChanged));
 
         /// <summary>

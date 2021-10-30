@@ -1,14 +1,9 @@
-﻿using CookPopularControl.Controls.Panels;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Expression.Drawing.Core;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -52,7 +47,7 @@ namespace CookPopularControl.Controls.Animation
         /// </summary>
         public static readonly DependencyProperty ItemHeightProperty =
             DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(AnimationTilePanel),
-                new FrameworkPropertyMetadata(ValueBoxes.Double30Box, FrameworkPropertyMetadataOptions.AffectsMeasure), value => OnValidateValue(value, 0, double.PositiveInfinity, false, false));       
+                new FrameworkPropertyMetadata(ValueBoxes.Double30Box, FrameworkPropertyMetadataOptions.AffectsMeasure), value => OnValidateValue(value, 0, double.PositiveInfinity, false, false));
 
 
         private bool m_AppliedTemplate;

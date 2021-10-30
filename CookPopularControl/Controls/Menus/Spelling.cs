@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 
 
@@ -13,7 +8,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-09-28 16:25:53
  */
-namespace CookPopularControl.Controls.Menus
+namespace CookPopularControl.Controls
 {
     public static class Spelling
     {

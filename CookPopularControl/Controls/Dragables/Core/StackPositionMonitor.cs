@@ -1,11 +1,8 @@
 ﻿using CookPopularControl.Communal.Data;
-using CookPopularControl.Controls.Dragables;
 using CookPopularControl.References;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 

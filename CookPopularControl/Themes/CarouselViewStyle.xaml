@@ -1,11 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:carousel="clr-namespace:CookPopularControl.Controls.CarouselView">
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
-    <Style x:Key="DefaultCarouselViewStyle" TargetType="{x:Type carousel:CarouselView}">
+    <Style x:Key="DefaultCarouselViewStyle" TargetType="{x:Type pc:CarouselView}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type carousel:CarouselView}">
+                <ControlTemplate TargetType="{x:Type pc:CarouselView}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Canvas x:Name="PART_ImageCanvas"
                                 Width="{TemplateBinding Width}"

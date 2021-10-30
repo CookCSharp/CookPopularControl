@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Slider"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
 
     <ResourceDictionary.MergedDictionaries>
@@ -13,11 +13,11 @@
         <Setter Property="attached:ThumbAttached.ThumbBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="attached:ThumbAttached.ThumbGeometryData" Value="{DynamicResource CircleGeometry}" />
         <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
-        <Setter Property="assistant:SliderAssistant.SliderSelectionRangeFill" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="pc:SliderAssistant.SliderSelectionRangeFill" Value="{DynamicResource AssistantThemeBrush}" />
     </Style>
 
     <Style x:Key="ShowValueSliderStyle" TargetType="{x:Type Slider}" BasedOn="{StaticResource DefaultSliderStyle}">
-        <Setter Property="assistant:SliderAssistant.IsShowValue" Value="True" />
+        <Setter Property="pc:SliderAssistant.IsShowValue" Value="True" />
     </Style>
 
 </ResourceDictionary>

@@ -1,10 +1,6 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -20,7 +16,7 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-25 15:06:06
  */
-namespace CookPopularControl.Controls.Swiper
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 滑块视图容器
@@ -128,7 +124,7 @@ namespace CookPopularControl.Controls.Swiper
             rb.BorderBrush = IndicatorDotBrush;
             rb.Style = ResourceHelper.GetResource<Style>("FillFullyRadioButtonStyle");
             rb.Margin = new Thickness(10, 0, 10, 0);
-            rb.Checked += (s, e) => 
+            rb.Checked += (s, e) =>
             {
                 rb.Background = IndicatorActiveDotBrush;
                 CurrentIndex = dotsPanel.Children.IndexOf(rb);
@@ -186,7 +182,7 @@ namespace CookPopularControl.Controls.Swiper
         /// </summary>
         public object CurrentItem
         {
-            get { return (object)GetValue(CurrentItemProperty); }
+            get { return GetValue(CurrentItemProperty); }
             set { SetValue(CurrentItemProperty, value); }
         }
         /// <summary>

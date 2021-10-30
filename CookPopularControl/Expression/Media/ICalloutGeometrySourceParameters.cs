@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 
 
@@ -16,9 +11,9 @@ using System.Windows;
 namespace CookPopularControl.Expression.Media
 {
     public interface ICalloutGeometrySourceParameters : IGeometrySourceParameters
-	{
-		CalloutStyle CalloutStyle { get; }
+    {
+        CalloutStyle CalloutStyle { get; }
 
-		Point AnchorPoint { get; }
-	}
+        Point AnchorPoint { get; }
+    }
 }

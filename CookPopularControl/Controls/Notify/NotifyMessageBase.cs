@@ -15,7 +15,7 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-21 09:16:19
  */
-namespace CookPopularControl.Controls.Notify
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 消息通知的基类

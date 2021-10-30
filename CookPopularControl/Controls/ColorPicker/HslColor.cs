@@ -1,9 +1,5 @@
 ﻿using CookPopularControl.Tools.Interop;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 
@@ -14,7 +10,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-06-09 15:48:02
  */
-namespace CookPopularControl.Controls.ColorPicker
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 使用HSL(Hue, Saturation, Lightness )来描绘颜色而不是RGB (Red, Green, Blue)

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -14,13 +10,13 @@ using System.Threading.Tasks;
  */
 namespace CookPopularControl.Expression.Media
 {
-	[Flags]
-	public enum DrawingPropertyMetadataOptions
-	{
-		None = 0,
+    [Flags]
+    public enum DrawingPropertyMetadataOptions
+    {
+        None = 0,
 
-		AffectsMeasure = 1,
+        AffectsMeasure = 1,
 
-		AffectsRender = 16
-	}
+        AffectsRender = 16
+    }
 }

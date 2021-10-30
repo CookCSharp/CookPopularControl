@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 
@@ -30,7 +25,7 @@ namespace CookPopularControl.Tools.Helpers
         {
             //var pixelsPerDip = VisualTreeHelper.GetDpi(visual).PixelsPerDip;
             var pixelsPerDip = Screenshot.GetDpiX();
-            FormattedText ft = new FormattedText(textToFormat, 
+            FormattedText ft = new FormattedText(textToFormat,
                                                 CultureInfo.CurrentCulture,
                                                 FlowDirection.LeftToRight,
                                                 new Typeface(fontFamily),

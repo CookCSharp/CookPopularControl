@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 
@@ -28,7 +23,7 @@ namespace CookPopularControl.Controls.Dragables
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Branch), new FrameworkPropertyMetadata(typeof(Branch)));
         }
 
-        public static readonly DependencyProperty OrientationProperty = 
+        public static readonly DependencyProperty OrientationProperty =
             DependencyProperty.Register("Orientation", typeof(Orientation), typeof(Branch), new PropertyMetadata(default(Orientation)));
 
         public Orientation Orientation
@@ -37,7 +32,7 @@ namespace CookPopularControl.Controls.Dragables
             set { SetValue(OrientationProperty, value); }
         }
 
-        public static readonly DependencyProperty FirstItemProperty = 
+        public static readonly DependencyProperty FirstItemProperty =
             DependencyProperty.Register("FirstItem", typeof(object), typeof(Branch), new PropertyMetadata(default(object)));
 
         public object FirstItem
@@ -46,7 +41,7 @@ namespace CookPopularControl.Controls.Dragables
             set { SetValue(FirstItemProperty, value); }
         }
 
-        public static readonly DependencyProperty FirstItemLengthProperty = 
+        public static readonly DependencyProperty FirstItemLengthProperty =
             DependencyProperty.Register("FirstItemLength", typeof(GridLength), typeof(Branch), new FrameworkPropertyMetadata(new GridLength(0.49999, GridUnitType.Star), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         public GridLength FirstItemLength
@@ -55,7 +50,7 @@ namespace CookPopularControl.Controls.Dragables
             set { SetValue(FirstItemLengthProperty, value); }
         }
 
-        public static readonly DependencyProperty SecondItemProperty = 
+        public static readonly DependencyProperty SecondItemProperty =
             DependencyProperty.Register("SecondItem", typeof(object), typeof(Branch), new PropertyMetadata(default(object)));
 
         public object SecondItem
@@ -64,7 +59,7 @@ namespace CookPopularControl.Controls.Dragables
             set { SetValue(SecondItemProperty, value); }
         }
 
-        public static readonly DependencyProperty SecondItemLengthProperty = 
+        public static readonly DependencyProperty SecondItemLengthProperty =
             DependencyProperty.Register("SecondItemLength", typeof(GridLength), typeof(Branch), new FrameworkPropertyMetadata(new GridLength(0.50001, GridUnitType.Star), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         public GridLength SecondItemLength

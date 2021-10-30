@@ -1,13 +1,7 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
-using CookPopularControl.Tools.Windows.ValidationRules;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -23,7 +17,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-12 17:25:14
  */
-namespace CookPopularControl.Controls.Fields
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示显示数值的 Windows 数字显示框（也称作 up-down 控件）。

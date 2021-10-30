@@ -1,9 +1,4 @@
 ﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -17,7 +12,7 @@ using OriginGrid = System.Windows.Controls.Grid;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-31 17:42:13
  */
-namespace CookPopularControl.Controls.Grid
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="System.Windows.Controls.Grid.ShowGridLines"/>的辅助类
@@ -97,7 +92,7 @@ namespace CookPopularControl.Controls.Grid
 
                 //如果Child是Border就不要重新实例化一个Border，否则会造成Border叠加
                 Border border;
-                if(item is Border child)
+                if (item is Border child)
                 {
                     child.BorderBrush = GetGridLineBrush(grid);
                     child.BorderThickness = thickness;

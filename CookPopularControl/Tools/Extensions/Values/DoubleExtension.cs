@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -15,7 +12,7 @@ using System.Threading.Tasks;
 namespace CookPopularControl.Tools.Extensions.Values
 {
     public static class DoubleExtension
-    {        
+    {
         public static double ExtractDouble(this object val)
         {
             var d = val as double? ?? double.NaN;
@@ -43,14 +40,14 @@ namespace CookPopularControl.Tools.Extensions.Values
         /// <returns>true</returns>
         public static bool BetweenMinMax(this double targetValue, double min, double max, bool isContainMin = false, bool isContainMax = false)
         {
-            if(isContainMin && isContainMax)
+            if (isContainMin && isContainMax)
             {
                 if (targetValue >= min && targetValue <= max)
                     return true;
                 else
                     return false;
             }
-            else if(!isContainMin && !isContainMax)
+            else if (!isContainMin && !isContainMax)
             {
                 if (targetValue > min && targetValue < max)
                     return true;

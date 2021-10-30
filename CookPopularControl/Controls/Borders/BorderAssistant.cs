@@ -1,10 +1,5 @@
 ﻿using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Windows.Converters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,7 +11,7 @@ using System.Windows.Data;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-11 14:51:09
  */
-namespace CookPopularControl.Controls.Borders
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 提供<see cref="Border"/>附加属性类
@@ -33,7 +28,7 @@ namespace CookPopularControl.Controls.Borders
 
         private static void OnIsCircularChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if(d is Border border)
+            if (d is Border border)
             {
                 if ((bool)e.NewValue)
                 {

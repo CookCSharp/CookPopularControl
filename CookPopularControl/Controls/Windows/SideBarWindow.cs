@@ -1,11 +1,9 @@
 ﻿using CookPopularControl.Communal.Data.Args;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
-using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 
 
 /*
@@ -14,7 +12,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-18 09:46:32
  */
-namespace CookPopularControl.Controls
+namespace CookPopularControl.Windows
 {
     /// <summary>
     /// <see cref="SideBarWindow"/>表示具有侧边栏的窗体
@@ -87,7 +85,7 @@ namespace CookPopularControl.Controls
             RoutedPropertySingleEventArgs<bool> arg = new RoutedPropertySingleEventArgs<bool>(value, IsShowSideBarChangedEvent);
             this.RaiseEvent(arg);
         }
-        
+
 
         [Description("设置按钮点击时发生")]
         public event RoutedEventHandler SettingClick

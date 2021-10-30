@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Permissions;
-using Microsoft.Win32.SafeHandles;
 
 namespace CookPopularControl.Tools.Interop.Handle
 {
@@ -42,7 +42,7 @@ namespace CookPopularControl.Tools.Interop.Handle
         [SecurityCritical]
         public static bool CloseHandleNoThrow(HandleRef handle)
         {
-            HandleCollector.Remove((IntPtr) handle, CommonHandles.Kernel);
+            HandleCollector.Remove((IntPtr)handle, CommonHandles.Kernel);
             var result = InteropMethods.IntCloseHandle(handle);
             return result;
         }

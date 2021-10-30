@@ -4,7 +4,6 @@
                     xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:scroller="clr-namespace:CookPopularControl.Controls.ScrollControls"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
@@ -158,8 +157,8 @@
                         <ScrollViewer Focusable="False" Background="Transparent"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
-                                      scroller:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding scroller:ScrollBarAssistant.VerticalScrollBarWidth}"
-                                      scroller:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding scroller:ScrollBarAssistant.HorizontalScrollBarHeight}">
+                                      pc:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding pc:ScrollBarAssistant.VerticalScrollBarWidth}"
+                                      pc:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding pc:ScrollBarAssistant.HorizontalScrollBarHeight}">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>

@@ -10,7 +10,7 @@
 [![Github stars](https://img.shields.io/github/stars/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl) [![Github forks](https://img.shields.io/github/forks/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl)
 
 ## 介绍
-CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前提供了多达60款左右的控件，还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
+CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前提供了近70款左右的控件，还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
 ***
 
 ## 使用
@@ -22,7 +22,7 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DefaultPopularControl.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Colors/DefaultPopularColor.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DefaultPopularColor.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

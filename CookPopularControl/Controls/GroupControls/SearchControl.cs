@@ -1,10 +1,5 @@
 ﻿using CookPopularControl.Communal.Data.Args;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -35,7 +30,7 @@ namespace CookPopularControl.Controls
         /// </summary>
         public object Content
         {
-            get { return (object)GetValue(ContentProperty); }
+            get { return GetValue(ContentProperty); }
             set { SetValue(ContentProperty, value); }
         }
         /// <summary>

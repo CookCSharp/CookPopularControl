@@ -1,9 +1,5 @@
 ﻿using CookPopularControl.Controls.Dragables;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
@@ -30,14 +26,14 @@ namespace CookPopularControl.Communal.Data
             _dragDeltaEventArgs = dragDeltaEventArgs;
         }
 
-        public DragableDragDeltaEventArgs(RoutedEvent routedEvent, DragableItem dragablzItem, DragDeltaEventArgs dragDeltaEventArgs): base(routedEvent, dragablzItem)
+        public DragableDragDeltaEventArgs(RoutedEvent routedEvent, DragableItem dragablzItem, DragDeltaEventArgs dragDeltaEventArgs) : base(routedEvent, dragablzItem)
         {
             if (dragDeltaEventArgs == null) throw new ArgumentNullException("dragDeltaEventArgs");
 
             _dragDeltaEventArgs = dragDeltaEventArgs;
         }
 
-        public DragableDragDeltaEventArgs(RoutedEvent routedEvent, object source, DragableItem dragablzItem, DragDeltaEventArgs dragDeltaEventArgs): base(routedEvent, source, dragablzItem)
+        public DragableDragDeltaEventArgs(RoutedEvent routedEvent, object source, DragableItem dragablzItem, DragDeltaEventArgs dragDeltaEventArgs) : base(routedEvent, source, dragablzItem)
         {
             if (dragDeltaEventArgs == null) throw new ArgumentNullException("dragDeltaEventArgs");
 

@@ -1,10 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
-                    xmlns:btn="clr-namespace:CookPopularControl.Controls.Button"
-                    xmlns:menu="clr-namespace:CookPopularControl.Controls.Menus"
-                    xmlns:panel="clr-namespace:CookPopularControl.Controls.Panels"
-                    xmlns:pop="clr-namespace:CookPopularControl.Controls.Popup"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
@@ -323,10 +319,10 @@
                                     Margin="5" />
                             <Border Background="Transparent" Margin="5">
                                 <ScrollViewer Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
-                                    <panel:SimpleGrid RenderOptions.ClearTypeHint="Enabled" Margin="0,16">
+                                    <pc:SimpleGrid RenderOptions.ClearTypeHint="Enabled" Margin="0,16">
                                         <ItemsPresenter Grid.IsSharedSizeScope="True" KeyboardNavigation.DirectionalNavigation="Cycle" KeyboardNavigation.TabNavigation="Cycle"
                                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    </panel:SimpleGrid>
+                                    </pc:SimpleGrid>
                                 </ScrollViewer>
                             </Border>
                         </Grid>
@@ -336,13 +332,13 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CircleMenuStyle" TargetType="{x:Type menu:CircleMenu}">
+    <Style x:Key="CircleMenuStyle" TargetType="{x:Type pc:CircleMenu}">
         <Setter Property="Width" Value="50" />
         <Setter Property="Height" Value="50" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type menu:CircleMenu}">
+                <ControlTemplate TargetType="{x:Type pc:CircleMenu}">
                     <ControlTemplate.Resources>
                         <SineEase x:Key="EasingFuctionKey" EasingMode="EaseInOut" />
                         <Storyboard x:Key="VisibleStoryboard">
@@ -378,23 +374,23 @@
                                              To="0" />
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <panel:SimpleGrid Background="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <pc:SimpleGrid Background="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <ToggleButton x:Name="PART_PopupButton"
                                       attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding Height}"
                                       attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding Width}"
-                                      btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
-                                      btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
-                                      btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                                      pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                                      pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
+                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
                                       IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                       Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}" />
-                        <pop:ExtendPopup x:Name="PART_MenuItems"
+                        <pc:ExtendPopup x:Name="PART_MenuItems"
                                          AllowsTransparency="True"
                                          IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                          IsPositionUpdate="True" Placement="Center"
                                          PlacementTarget="{Binding ElementName=PART_PopupButton}"
                                          PopupAnimation="Fade" StaysOpen="False">
                             <Border Effect="{DynamicResource NotifyMessageShadowEffect}" Margin="5">
-                                <panel:ArcPanel x:Name="MenuItems"
+                                <pc:ArcPanel x:Name="MenuItems"
                                                 ArcAngle="{TemplateBinding ArcAngle}"
                                                 IsItemRotate="{TemplateBinding IsItemRotate}"
                                                 IsItemsHost="True"
@@ -402,16 +398,16 @@
                                                 RenderTransformOrigin="0.5,0.5"
                                                 Margin="{TemplateBinding Padding}"
                                                 SnapsToDevicePixels="True">
-                                    <panel:ArcPanel.RenderTransform>
+                                    <pc:ArcPanel.RenderTransform>
                                         <TransformGroup>
                                             <RotateTransform x:Name="Rotate" Angle="180" />
                                             <ScaleTransform x:Name="Scale" ScaleX="0" ScaleY="0" />
                                         </TransformGroup>
-                                    </panel:ArcPanel.RenderTransform>
-                                </panel:ArcPanel>
+                                    </pc:ArcPanel.RenderTransform>
+                                </pc:ArcPanel>
                             </Border>
-                        </pop:ExtendPopup>
-                    </panel:SimpleGrid>
+                        </pc:ExtendPopup>
+                    </pc:SimpleGrid>
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="PART_PopupButton" Property="IsChecked" Value="True">
                             <Trigger.EnterActions>
@@ -439,7 +435,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PopupMenuStyle" TargetType="{x:Type menu:PopupMenu}">
+    <Style x:Key="PopupMenuStyle" TargetType="{x:Type pc:PopupMenu}">
         <Setter Property="Width" Value="50" />
         <Setter Property="Height" Value="50" />
         <Setter Property="Background" Value="Transparent" />
@@ -447,17 +443,17 @@
         <Setter Property="PopupAnimation" Value="Slide" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type menu:PopupMenu}">
-                    <panel:SimpleGrid ClipToBounds="False"
+                <ControlTemplate TargetType="{x:Type pc:PopupMenu}">
+                    <pc:SimpleGrid ClipToBounds="False"
                                       Background="{TemplateBinding Background}"
                                       HorizontalAlignment="Center" VerticalAlignment="Center">
                         <ToggleButton x:Name="PART_PopupButton"
-                                      attached:FrameworkElementBaseAttached.IconHeight="50" attached:FrameworkElementBaseAttached.IconWidth="50" btn:ToggleButtonAssistant.IsAddCheckedAnimation="True"
-                                      btn:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
-                                      btn:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                                      attached:FrameworkElementBaseAttached.IconHeight="50" attached:FrameworkElementBaseAttached.IconWidth="50" pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                                      pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
+                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
                                       IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                       Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}" />
-                        <pop:ExtendPopup x:Name="PART_MenuItems"
+                        <pc:ExtendPopup x:Name="PART_MenuItems"
                                          AllowsTransparency="True"
                                          IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                          Placement="Left"
@@ -469,8 +465,8 @@
                                             Margin="{TemplateBinding Padding}"
                                             SnapsToDevicePixels="True" />
                             </Border>
-                        </pop:ExtendPopup>
-                    </panel:SimpleGrid>
+                        </pc:ExtendPopup>
+                    </pc:SimpleGrid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=PopupPosition}" Value="LeftBottom">
                             <Setter TargetName="PART_MenuItems" Property="HorizontalOffset" Value="18" />
@@ -551,16 +547,16 @@
     </Style>
 
 
-    <Style x:Key="{x:Static menu:Spelling.SuggestionMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
+    <Style x:Key="{x:Static pc:Spelling.SuggestionMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Header" Value="{Binding RelativeSource={RelativeSource Self}, Path=CommandParameter}" />
     </Style>
 
-    <Style x:Key="{x:Static menu:Spelling.IgnoreAllMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
+    <Style x:Key="{x:Static pc:Spelling.IgnoreAllMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
         <Setter Property="Header" Value="Ignore All" />
     </Style>
 
-    <Style x:Key="{x:Static menu:Spelling.NoSuggestionsMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
+    <Style x:Key="{x:Static pc:Spelling.NoSuggestionsMenuItemStyleKey}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}">
         <Setter Property="Header" Value="(no spelling suggestions)" />
         <Setter Property="IsEnabled" Value="False" />
     </Style>

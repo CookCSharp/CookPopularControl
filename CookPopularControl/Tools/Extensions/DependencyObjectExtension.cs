@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
@@ -39,7 +37,7 @@ namespace CookPopularControl.Tools.Extensions
         public static object InvokeInternal<T>(this T caller, string method, object[] parameters)
         {
             MethodInfo methodInfo = typeof(T).GetMethod(method, BindingFlags.Instance | BindingFlags.NonPublic);
-            return methodInfo?.Invoke(caller, parameters); 
+            return methodInfo?.Invoke(caller, parameters);
         }
 
         public static IEnumerable<DependencyObject> VisualDepthFirstTraversal(this DependencyObject node)

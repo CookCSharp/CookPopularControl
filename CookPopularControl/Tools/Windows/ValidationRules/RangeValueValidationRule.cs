@@ -1,10 +1,4 @@
-﻿using CookPopularControl.Tools.Boxes;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows.Controls;
 
 
@@ -31,7 +25,7 @@ namespace CookPopularControl.Tools.Windows.ValidationRules
 
         public override ValidationResult ValidateBase(object value, CultureInfo cultureInfo)
         {
-            if (value == null) 
+            if (value == null)
                 return new ValidationResult(false, ErrorMessage);
             if (!RegularPatterns.Default.IsMatchRegularPattern(value.ToString()))
                 return new ValidationResult(false, ErrorMessage);

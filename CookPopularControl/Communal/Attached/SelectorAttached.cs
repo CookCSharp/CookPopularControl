@@ -1,12 +1,7 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Tools.Boxes;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -99,7 +94,7 @@ namespace CookPopularControl.Communal.Attached
                         {
                             if (item is string)
                                 comboBoxText += item.ToString() + ",";
-                            if(item is SelectorItem pic)
+                            if (item is SelectorItem pic)
                                 comboBoxText += pic.Content.ToString() + ",";
                         }
                         if (comboBoxText.Length > 0)
@@ -109,7 +104,7 @@ namespace CookPopularControl.Communal.Attached
                     };
                 }
             }
-            else if(selector is ListBox listBox && GetSelectorItemType(selector) != SelectorItemType.Default)
+            else if (selector is ListBox listBox && GetSelectorItemType(selector) != SelectorItemType.Default)
             {
 
             }
@@ -203,7 +198,7 @@ namespace CookPopularControl.Communal.Attached
 
         #region SelectotItemType=Button
 
-        public static object GetButtonContent(DependencyObject obj) => (object)obj.GetValue(ButtonContentProperty);
+        public static object GetButtonContent(DependencyObject obj) => obj.GetValue(ButtonContentProperty);
         public static void SetButtonContent(DependencyObject obj, object value) => obj.SetValue(ButtonContentProperty, value);
         public static readonly DependencyProperty ButtonContentProperty =
             DependencyProperty.RegisterAttached("ButtonContent", typeof(object), typeof(SelectorAttached), new PropertyMetadata(default(object)));
@@ -290,7 +285,7 @@ namespace CookPopularControl.Communal.Attached
         /// </summary>
         public static readonly DependencyProperty IsPreviewImageProperty =
             DependencyProperty.RegisterAttached("IsPreviewImage", typeof(bool), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.FalseBox));
-        
+
         #endregion
     }
 

@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace CookPopularControl.Controls.CarouselView
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// ImageAnimation.xaml 的交互逻辑

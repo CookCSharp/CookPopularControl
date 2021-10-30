@@ -13,7 +13,7 @@ namespace CookPopularControl.Tools.Transitions
             set { SetValue(ClipToBoundsProperty, ValueBoxes.BooleanBox(value)); }
         }
         public static readonly DependencyProperty ClipToBoundsProperty =
-            DependencyProperty.Register("ClipToBounds",typeof(bool),typeof(TransitionBase), new UIPropertyMetadata(ValueBoxes.FalseBox));
+            DependencyProperty.Register("ClipToBounds", typeof(bool), typeof(TransitionBase), new UIPropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsNewContentTopmost
         {
@@ -22,7 +22,7 @@ namespace CookPopularControl.Tools.Transitions
         }
 
         public static readonly DependencyProperty IsNewContentTopmostProperty =
-            DependencyProperty.Register("IsNewContentTopmost",typeof(bool),typeof(TransitionBase),new UIPropertyMetadata(ValueBoxes.TrueBox));
+            DependencyProperty.Register("IsNewContentTopmost", typeof(bool), typeof(TransitionBase), new UIPropertyMetadata(ValueBoxes.TrueBox));
 
         /// <summary>
         /// 当从TransitionPresenter的Visual树中删除元素时调用

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -16,7 +11,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-28 14:59:19
  */
-namespace CookPopularControl.Controls.Grid
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 单击进行编辑<see cref="DataGridCell"/>的基类

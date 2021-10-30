@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,7 +12,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-05 21:15:28
  */
-namespace CookPopularControl.Controls.Animation.Loading
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示一组矩形按照DataGrid的轨迹形成的动画

@@ -19,7 +19,7 @@ namespace CookPopularControl.Communal.Converters
     /// Double To Thickness
     /// </summary>
     [MarkupExtensionReturnType(typeof(Thickness))]
-    [ValueConversion(typeof(double),typeof(Thickness))]
+    [ValueConversion(typeof(double), typeof(Thickness))]
     public class DoubleToThickness : MarkupExtensionBase, IValueConverter
     {
         public static Thickness FixedThickness = new Thickness(1);

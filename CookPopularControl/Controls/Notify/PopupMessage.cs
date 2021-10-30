@@ -1,13 +1,8 @@
 ﻿using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Tools.Helpers;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -20,12 +15,12 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-21 09:03:29
  */
-namespace CookPopularControl.Controls.Notify
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 弹出消息
     /// </summary>
-    public class PopupMessage : Window
+    public sealed class PopupMessage : Window
     {
         private const double thickness = 5D;//窗体外边距，为了使窗体阴影显示出来
         private PopupAnimationX _animation;

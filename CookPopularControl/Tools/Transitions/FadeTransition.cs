@@ -1,4 +1,3 @@
-using CookPopularControl.Tools.Transitions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -17,8 +16,8 @@ namespace CookPopularControl.Tools.Transitions
         }
         public static readonly DependencyProperty DurationProperty =
             DependencyProperty.Register("Duration", typeof(Duration), typeof(FadeTransition), new UIPropertyMetadata(Duration.Automatic));
-        
-        
+
+
         static FadeTransition()
         {
             IsNewContentTopmostProperty.OverrideMetadata(typeof(FadeTransition), new FrameworkPropertyMetadata(false));

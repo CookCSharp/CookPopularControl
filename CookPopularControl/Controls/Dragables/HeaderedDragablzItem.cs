@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 
@@ -28,7 +23,7 @@ namespace CookPopularControl.Controls.Dragables
 
         public object HeaderContent
         {
-            get { return (object)GetValue(HeaderContentProperty); }
+            get { return GetValue(HeaderContentProperty); }
             set { SetValue(HeaderContentProperty, value); }
         }
 
