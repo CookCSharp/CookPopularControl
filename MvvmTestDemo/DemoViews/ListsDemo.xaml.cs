@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Attached;
+﻿using CookPopularControl.Communal;
 using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;

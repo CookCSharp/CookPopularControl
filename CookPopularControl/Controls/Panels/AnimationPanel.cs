@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Controls.Animation;
-using CookPopularControl.Tools;
+﻿using CookPopularControl.Tools;
 using CookPopularControl.Tools.Boxes;
 using CookPopularControl.Tools.Helpers;
 using System;

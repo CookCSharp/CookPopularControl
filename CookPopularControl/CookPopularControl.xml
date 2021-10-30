@@ -4,230 +4,153 @@
         <name>CookPopularControl</name>
     </assembly>
     <members>
-        <member name="T:CookPopularControl.Communal.Attached.ButtonBaseAttached">
+        <member name="T:CookPopularControl.Communal.ButtonBaseAttached">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.ButtonBase"/>的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.ButtonBaseAttached.IsShowRippleProperty">
+        <member name="F:CookPopularControl.Communal.ButtonBaseAttached.IsShowRippleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.ButtonBaseAttached.IsShowRippleProperty"/>是否显示按钮点击的波纹效果
+            <see cref="F:CookPopularControl.Communal.ButtonBaseAttached.IsShowRippleProperty"/>是否显示按钮点击的波纹效果
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Attached.DataGridViewAttached">
+        <member name="T:CookPopularControl.Communal.DataGridViewAttached">
             <summary>
             提供<see cref="T:System.Windows.Controls.DataGrid"/>与<see cref="T:System.Windows.Controls.GridView"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnMinWidthProperty">
+        <member name="F:CookPopularControl.Communal.DataGridViewAttached.ColumnMinWidthProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnMinWidthProperty"/>标识列项最小宽度
+            <see cref="F:CookPopularControl.Communal.DataGridViewAttached.ColumnMinWidthProperty"/>标识列项最小宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnHeaderHeightProperty">
+        <member name="F:CookPopularControl.Communal.DataGridViewAttached.ColumnHeaderHeightProperty">
             <summary>
             标识ColumnHeader的高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.DataGridViewAttached.ColumnHeaderPaddingProperty">
+        <member name="F:CookPopularControl.Communal.DataGridViewAttached.ColumnHeaderPaddingProperty">
             <summary>
             标识ColumnHeader的内容的内边距
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached">
+        <member name="T:CookPopularControl.Communal.FrameworkElementBaseAttached">
             <summary>
             提供WPF控件附加属性的基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.IconMarginProperty">
+        <member name="F:CookPopularControl.Communal.FrameworkElementBaseAttached.IconMarginProperty">
             <summary>
-            提供<see cref="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.IconMarginProperty"/>的附加属性
+            提供<see cref="F:CookPopularControl.Communal.FrameworkElementBaseAttached.IconMarginProperty"/>的附加属性
             </summary>
             <remarks>Icon与Content的间距</remarks>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.StayDecimalPlaceProperty">
+        <member name="F:CookPopularControl.Communal.FrameworkElementBaseAttached.StayDecimalPlaceProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.FrameworkElementBaseAttached.StayDecimalPlaceProperty"/>标识保留几位小数
+            <see cref="F:CookPopularControl.Communal.FrameworkElementBaseAttached.StayDecimalPlaceProperty"/>标识保留几位小数
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Attached.SelectorAttached">
+        <member name="T:CookPopularControl.Communal.SelectorAttached">
             <summary>
             提供具有Items子项控件的附加属性基类
             </summary>
             <remarks>适用于ListBox, ListView，ComboBox</remarks>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemsListBackgroundProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemsListBackgroundProperty">
             <summary>
-            标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemsListBackgroundProperty"/>提供下拉列表的背景色附加属性
+            标识<see cref="F:CookPopularControl.Communal.SelectorAttached.ItemsListBackgroundProperty"/>提供下拉列表的背景色附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemMouseOverBackgroundProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemMouseOverBackgroundProperty">
             <summary>
-            标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
+            标识<see cref="F:CookPopularControl.Communal.SelectorAttached.ItemMouseOverBackgroundProperty"/>提供子项的背景色附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemSelectedBackgroundProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemSelectedBackgroundProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemSelectedBackgroundProperty"/>标识子项选中的后背景色附加属性
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.ItemSelectedBackgroundProperty"/>标识子项选中的后背景色附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.SelectorItemTypeProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.SelectorItemTypeProperty">
             <summary>
-            标识<see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.SelectorItemTypeProperty"/>子项类型的附加属性
+            标识<see cref="F:CookPopularControl.Communal.SelectorAttached.SelectorItemTypeProperty"/>子项类型的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemWidthProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemWidthProperty"/>标识子项的宽度
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.ItemWidthProperty"/>标识子项的宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemHeightProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemHeightProperty"/>标识子项的高度
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.ItemHeightProperty"/>标识子项的高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlWidthProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemControlWidthProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlWidthProperty"/>标识Selector子项控件的宽度
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.ItemControlWidthProperty"/>标识Selector子项控件的宽度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlHeightProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.ItemControlHeightProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.ItemControlHeightProperty"/>标识Selector子项控件的高度
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.ItemControlHeightProperty"/>标识Selector子项控件的高度
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.IsItemCheckedEvent">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemCheckedEvent"/>标识子项ItemCheck是否选中的事件
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.IsItemCheckedEvent"/>标识子项ItemCheck是否选中的事件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsButtonDeleteItemProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.IsButtonDeleteItemProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsButtonDeleteItemProperty"/>用于触发Button的Click事件
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.IsButtonDeleteItemProperty"/>用于触发Button的Click事件
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemDeleteEvent">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.IsItemDeleteEvent">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsItemDeleteEvent"/>标识是否删除该项的事件
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.IsItemDeleteEvent"/>标识是否删除该项的事件
             </summary>
         </member>
-        <member name="M:CookPopularControl.Communal.Attached.SelectorAttached.GetIconFill(System.Windows.DependencyObject)">
+        <member name="M:CookPopularControl.Communal.SelectorAttached.GetIconFill(System.Windows.DependencyObject)">
             当使用Icon时，在设置的ItemsSource每个子项中必须含有属性GeometryData,属于<see cref="T:System.Windows.Media.Geometry"/>
             因为ComboBoxItem.Template中Path的绑定方式为Content.GeometryData
             *
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.SelectorAttached.IsPreviewImageProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.IsPreviewImageProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.SelectorAttached.IsPreviewImageProperty"/>表示是否可以预览图片
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.IsPreviewImageProperty"/>表示是否可以预览图片
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Attached.SelectorItem">
+        <member name="T:CookPopularControl.Communal.SelectorItem">
             <summary>
             当ListBoxItem的子项显示Icon或Image或Gif时必须使用该类，方可加入ItemsSource
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Attached.TextElementAttached">
+        <member name="T:CookPopularControl.Communal.TextElementAttached">
             <summary>
-            <see cref="T:CookPopularControl.Communal.Attached.TextElementAttached"/>表示可输入文本控件的附加属性基类
+            <see cref="T:CookPopularControl.Communal.TextElementAttached"/>表示可输入文本控件的附加属性基类
             </summary>
             <remarks>包括TextBox、TextBlock、RichTextBox、PasswordBox、ComboBox等</remarks>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderProperty">
+        <member name="F:CookPopularControl.Communal.TextElementAttached.PlaceHolderProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderProperty"/>提供占位符内容
+            <see cref="F:CookPopularControl.Communal.TextElementAttached.PlaceHolderProperty"/>提供占位符内容
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderBrushProperty">
+        <member name="F:CookPopularControl.Communal.TextElementAttached.PlaceHolderBrushProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.PlaceHolderBrushProperty"/>占位符内容文本颜色
+            <see cref="F:CookPopularControl.Communal.TextElementAttached.PlaceHolderBrushProperty"/>占位符内容文本颜色
             </summary>
         </member>
-        <member name="F:CookPopularControl.Communal.Attached.TextElementAttached.IsAddClearButtonProperty">
+        <member name="F:CookPopularControl.Communal.TextElementAttached.IsAddClearButtonProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.Attached.TextElementAttached.IsAddClearButtonProperty"/>表示是否增加清除文本内容按钮
+            <see cref="F:CookPopularControl.Communal.TextElementAttached.IsAddClearButtonProperty"/>表示是否增加清除文本内容按钮
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Attached.ThumbAttached">
+        <member name="T:CookPopularControl.Communal.ThumbAttached">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.Thumb"/>的附加属性基类
             </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1">
-            <summary>
-            使用正则表达式对输入控件的字符串进行的过滤行为
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1.RegularExpressionPropertyProperty">
-            <summary>
-            正则表达式
-            </summary>
-            <remarks>用来对字符串进行过滤</remarks>
-        </member>
-        <member name="M:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1.OnPaste(System.Object,System.Windows.DataObjectPastingEventArgs)">
-            <summary>
-            检查粘贴的字符串是否符合正则表达式，不符合则取消输入
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Communal.Behaviors.AllowableCharactersInputElementBehavior`1.IsValid(System.String,System.Boolean,System.String)">
-            <summary>
-            确定字符串是否符合正则表达式。
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Behaviors.ControlBorderBehavior">
-            <summary>
-            提供控件边框的行为动画
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Behaviors.MouseDragElementBehavior">
-            <summary>
-            鼠标拖动行为，该类是反编译微软的System.Windows.Interactivity程序集得到的
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Behaviors.MouseDragElementBehavior.LockY">
-            <summary>
-                是否固定住Y轴
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Behaviors.MouseDragElementBehavior.LockX">
-            <summary>
-                是否固定住X轴
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Behaviors.PasswordBoxBehavior">
-            <summary>
-            提供<see cref="T:System.Windows.Controls.PasswordBox"/>输入密码时的光标行为
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Communal.Behaviors.PasswordBoxBehavior.SetCursorPosition(System.Windows.Controls.PasswordBox,System.Int32,System.Int32)">
-            <summary>
-            设置光标焦点
-            </summary>
-            <param name="pwd">控件</param>
-            <param name="start">起始位置</param>
-            <param name="length">长度</param>
-        </member>
-        <member name="P:CookPopularControl.Communal.Behaviors.IValidationExceptionHandle.HasValidationError">
-            <summary>
-            是否有错误
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Behaviors.ValidationExceptionBehavior">
-            <summary>
-            验证行为类
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Communal.Behaviors.ValidationExceptionBehavior.GetValidationHandle">
-            <summary>
-            获取
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Communal.Behaviors.ValidationExceptionBehavior.OnOccuredValidationError(System.Object,System.Windows.Controls.ValidationErrorEventArgs)">
-            <summary>
-            验证ValidationError事件
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
         </member>
         <member name="T:CookPopularControl.Communal.Converters.DoubleToCornerRadius">
             <summary>
@@ -345,7 +268,7 @@
         </member>
         <member name="T:CookPopularControl.Communal.Data.Enum.ControlBorderAnimationType">
             <summary>
-            表示<see cref="P:CookPopularControl.Communal.Behaviors.ControlBorderBehavior.AnimationType"/>枚举类型
+            表示<see cref="P:CookPopularControl.Tools.ControlBorderBehavior.AnimationType"/>枚举类型
             </summary>
         </member>
         <member name="F:CookPopularControl.Communal.Data.Enum.ControlBorderAnimationType.Thickness">
@@ -611,19 +534,19 @@
             动画是否播放
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Animation.AnimationTilePanel">
+        <member name="T:CookPopularControl.Controls.AnimationTilePanel">
             <summary>
             标识类似瓦片的动画面板
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemWidthProperty">
+        <member name="F:CookPopularControl.Controls.AnimationTilePanel.ItemWidthProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemWidth"/>的附加属性
+            标识<see cref="P:CookPopularControl.Controls.AnimationTilePanel.ItemWidth"/>的附加属性
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemHeightProperty">
+        <member name="F:CookPopularControl.Controls.AnimationTilePanel.ItemHeightProperty">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Animation.AnimationTilePanel.ItemHeight"/>的附加属性
+            标识<see cref="P:CookPopularControl.Controls.AnimationTilePanel.ItemHeight"/>的附加属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.DotCircleLoading">
@@ -5495,6 +5418,83 @@
             <summary>
             指定为某个类型的导出提供元数据的自定义特性
             </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.AllowableCharactersInputElementBehavior`1">
+            <summary>
+            使用正则表达式对输入控件的字符串进行的过滤行为
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Tools.AllowableCharactersInputElementBehavior`1.RegularExpressionPropertyProperty">
+            <summary>
+            正则表达式
+            </summary>
+            <remarks>用来对字符串进行过滤</remarks>
+        </member>
+        <member name="M:CookPopularControl.Tools.AllowableCharactersInputElementBehavior`1.OnPaste(System.Object,System.Windows.DataObjectPastingEventArgs)">
+            <summary>
+            检查粘贴的字符串是否符合正则表达式，不符合则取消输入
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.AllowableCharactersInputElementBehavior`1.IsValid(System.String,System.Boolean,System.String)">
+            <summary>
+            确定字符串是否符合正则表达式。
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.ControlBorderBehavior">
+            <summary>
+            提供控件边框的行为动画
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.MouseDragElementBehavior">
+            <summary>
+            鼠标拖动行为，该类是反编译微软的System.Windows.Interactivity程序集得到的
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.MouseDragElementBehavior.LockY">
+            <summary>
+                是否固定住Y轴
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Tools.MouseDragElementBehavior.LockX">
+            <summary>
+                是否固定住X轴
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.PasswordBoxBehavior">
+            <summary>
+            提供<see cref="T:System.Windows.Controls.PasswordBox"/>输入密码时的光标行为
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.PasswordBoxBehavior.SetCursorPosition(System.Windows.Controls.PasswordBox,System.Int32,System.Int32)">
+            <summary>
+            设置光标焦点
+            </summary>
+            <param name="pwd">控件</param>
+            <param name="start">起始位置</param>
+            <param name="length">长度</param>
+        </member>
+        <member name="P:CookPopularControl.Tools.IValidationExceptionHandle.HasValidationError">
+            <summary>
+            是否有错误
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Tools.ValidationExceptionBehavior">
+            <summary>
+            验证行为类
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Tools.ValidationExceptionBehavior.GetValidationHandle">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Tools.ValidationExceptionBehavior.OnOccuredValidationError(System.Object,System.Windows.Controls.ValidationErrorEventArgs)">
+            <summary>
+            验证ValidationError事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="T:CookPopularControl.Tools.Bindings.BindingProxy">
             <summary>

@@ -11,7 +11,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-27 17:00:36
  */
-namespace CookPopularControl.Communal.Attached
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// 提供<see cref="Thumb"/>的附加属性基类

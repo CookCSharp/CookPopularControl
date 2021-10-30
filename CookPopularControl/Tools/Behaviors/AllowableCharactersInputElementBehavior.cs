@@ -10,7 +10,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-06-09 19:03:03
  */
-namespace CookPopularControl.Communal.Behaviors
+namespace CookPopularControl.Tools
 {
     /// <summary>
     /// 使用正则表达式对输入控件的字符串进行的过滤行为

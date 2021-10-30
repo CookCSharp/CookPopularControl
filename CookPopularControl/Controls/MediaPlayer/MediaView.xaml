@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="clr-namespace:CookPopularControl.Controls"
-             xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+             xmlns:attached="clr-namespace:CookPopularControl.Communal"
              xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
              xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
              mc:Ignorable="d"

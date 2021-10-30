@@ -17,7 +17,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-05 09:08:31
  */
-namespace CookPopularControl.Controls.Animation
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 标识类似瓦片的动画面板

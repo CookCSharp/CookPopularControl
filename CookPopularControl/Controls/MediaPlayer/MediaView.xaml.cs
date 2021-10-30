@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Attached;
+﻿using CookPopularControl.Communal;
 using CookPopularControl.Communal.ViewModel;
 using CookPopularControl.Tools.Helpers;
 using CookPopularControl.Windows;

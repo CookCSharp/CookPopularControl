@@ -3,7 +3,7 @@
              x:ClassModifier="internal"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached"
+             xmlns:attached="clr-namespace:CookPopularControl.Communal"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:helix="http://helix-toolkit.org/wpf"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"

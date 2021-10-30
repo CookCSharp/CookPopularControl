@@ -13,7 +13,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-06-07 17:04:38
  */
-namespace CookPopularControl.Communal.Behaviors
+namespace CookPopularControl.Tools
 {
     /// <summary>
     /// 鼠标拖动行为，该类是反编译微软的System.Windows.Interactivity程序集得到的

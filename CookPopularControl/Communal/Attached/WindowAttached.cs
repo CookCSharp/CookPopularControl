@@ -14,13 +14,13 @@ using System.Windows.Interop;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-24 19:31:14
  */
-namespace CookPopularControl.Communal.Attached
+namespace CookPopularControl.Communal
 {
-    public static class WindowAttach
+    public static class WindowAttached
     {
         public static void SetIsDragElement(DependencyObject element, bool value) => element.SetValue(IsDragElementProperty, ValueBoxes.BooleanBox(value));
         public static bool GetIsDragElement(DependencyObject element) => (bool)element.GetValue(IsDragElementProperty);
-        public static readonly DependencyProperty IsDragElementProperty = DependencyProperty.RegisterAttached("IsDragElement", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDragElementChanged));
+        public static readonly DependencyProperty IsDragElementProperty = DependencyProperty.RegisterAttached("IsDragElement", typeof(bool), typeof(WindowAttached), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDragElementChanged));
 
         private static void OnIsDragElementChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -48,7 +48,7 @@ namespace CookPopularControl.Communal.Attached
 
         public static void SetIgnoreAltF4(DependencyObject element, bool value) => element.SetValue(IgnoreAltF4Property, ValueBoxes.BooleanBox(value));
         public static bool GetIgnoreAltF4(DependencyObject element) => (bool)element.GetValue(IgnoreAltF4Property);
-        public static readonly DependencyProperty IgnoreAltF4Property = DependencyProperty.RegisterAttached("IgnoreAltF4", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIgnoreAltF4Changed));
+        public static readonly DependencyProperty IgnoreAltF4Property = DependencyProperty.RegisterAttached("IgnoreAltF4", typeof(bool), typeof(WindowAttached), new PropertyMetadata(ValueBoxes.FalseBox, OnIgnoreAltF4Changed));
 
         private static void OnIgnoreAltF4Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -76,7 +76,7 @@ namespace CookPopularControl.Communal.Attached
 
         public static void SetShowInTaskManager(DependencyObject element, bool value) => element.SetValue(ShowInTaskManagerProperty, ValueBoxes.BooleanBox(value));
         public static bool GetShowInTaskManager(DependencyObject element) => (bool)element.GetValue(ShowInTaskManagerProperty);
-        public static readonly DependencyProperty ShowInTaskManagerProperty = DependencyProperty.RegisterAttached("ShowInTaskManager", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.TrueBox, OnShowInTaskManagerChanged));
+        public static readonly DependencyProperty ShowInTaskManagerProperty = DependencyProperty.RegisterAttached("ShowInTaskManager", typeof(bool), typeof(WindowAttached), new PropertyMetadata(ValueBoxes.TrueBox, OnShowInTaskManagerChanged));
 
         private static void OnShowInTaskManagerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -110,7 +110,7 @@ namespace CookPopularControl.Communal.Attached
 
         public static void SetHideWhenClosing(DependencyObject element, bool value) => element.SetValue(HideWhenClosingProperty, ValueBoxes.BooleanBox(value));
         public static bool GetHideWhenClosing(DependencyObject element) => (bool)element.GetValue(HideWhenClosingProperty);
-        public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached("HideWhenClosing", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
+        public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached("HideWhenClosing", typeof(bool), typeof(WindowAttached), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
 
         private static void OnHideWhenClosingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.Animation;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Collections;
 using CookPopularControl.Tools.Extensions.Colors;
 using Prism.Mvvm;

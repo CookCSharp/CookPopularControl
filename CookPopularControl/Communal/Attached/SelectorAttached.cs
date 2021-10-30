@@ -15,7 +15,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-24 11:02:41
  */
-namespace CookPopularControl.Communal.Attached
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// 提供具有Items子项控件的附加属性基类

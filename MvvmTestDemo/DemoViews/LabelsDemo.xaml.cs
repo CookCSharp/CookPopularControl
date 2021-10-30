@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.Labels;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Tools.Helpers;
 using PropertyChanged;
 using System.Collections.Generic;

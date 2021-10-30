@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.CarouselView;
+﻿using CookPopularControl.Controls;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;

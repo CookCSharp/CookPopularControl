@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.Notify;
+﻿using CookPopularControl.Controls;
 using System.Windows;
 using System.Windows.Controls;
 

@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.DialogBox;
+﻿using CookPopularControl.DialogBox;
 using MvvmTestDemo.UserControls;
 using System.Linq;
 using System.Windows;

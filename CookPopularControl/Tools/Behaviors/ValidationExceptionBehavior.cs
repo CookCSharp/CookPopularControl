@@ -11,7 +11,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-30 22:36:25
  */
-namespace CookPopularControl.Communal.Behaviors
+namespace CookPopularControl.Tools
 {
     public interface IValidationExceptionHandle
     {

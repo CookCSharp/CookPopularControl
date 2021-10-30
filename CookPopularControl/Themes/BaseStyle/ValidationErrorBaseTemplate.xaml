@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal.Attached">
+                    xmlns:attached="clr-namespace:CookPopularControl.Communal">
 
 
     <ControlTemplate x:Key="ValidationToolTipTemplate" TargetType="{x:Type ToolTip}">

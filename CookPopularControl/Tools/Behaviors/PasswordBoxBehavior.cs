@@ -11,7 +11,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-19 10:23:46
  */
-namespace CookPopularControl.Communal.Behaviors
+namespace CookPopularControl.Tools
 {
     /// <summary>
     /// 提供<see cref="PasswordBox"/>输入密码时的光标行为

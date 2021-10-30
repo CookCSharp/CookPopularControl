@@ -11,7 +11,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-18 16:35:11
  */
-namespace CookPopularControl.Communal.Attached
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// <see cref="TextElementAttached"/>表示可输入文本控件的附加属性基类

@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Attached;
+﻿using CookPopularControl.Communal;
 using CookPopularControl.Communal.Data.Enum;
 using CookPopularControl.Controls;
 using CookPopularControl.Expression.Drawing.Core;
@@ -22,7 +22,7 @@ using System.Windows.Shapes;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-20 17:49:53
  */
-namespace CookPopularControl.Communal.Behaviors
+namespace CookPopularControl.Tools
 {
     /// <summary>
     /// 提供控件边框的行为动画

@@ -10,7 +10,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-30 11:21:15
  */
-namespace CookPopularControl.Communal.Attached
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// 提供<see cref="DataGrid"/>与<see cref="GridView"/>的附加属性基类

@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Controls.Notify;
+﻿using CookPopularControl.Controls;
 using CookPopularControl.Controls.Windows;
 using CookPopularControl.Tools.Helpers;
 using MvvmTestDemo.Commumal;

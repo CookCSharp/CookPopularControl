@@ -11,7 +11,7 @@ using System.Windows.Media.Effects;
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-18 16:07:05
  */
-namespace CookPopularControl.Communal.Attached
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// 提供WPF控件附加属性的基类
