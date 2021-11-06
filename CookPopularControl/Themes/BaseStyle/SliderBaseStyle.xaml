@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
@@ -75,7 +76,7 @@
                                 <Grid.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="0" ScaleY="0" />
-                                        <TranslateTransform X="{Binding ActualWidth, ElementName=SliderValueHorizontalGrid, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=-0.5}" Y="-40" />
+                                        <TranslateTransform X="{Binding ActualWidth, ElementName=SliderValueHorizontalGrid, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=-0.5}" Y="-40" />
                                     </TransformGroup>
                                 </Grid.RenderTransform>
                                 <AdornerDecorator>
@@ -193,14 +194,14 @@
                 <Border Grid.Row="1"
                         CornerRadius="4" Opacity="0.35"
                         Height="{TemplateBinding attached:ThumbAttached.ThumbWidth,
-                                                 Converter={toolsConverters:ValueTranslateConverter},
+                                                 Converter={toolkit:ValueTranslateToDoubleConverter},
                                                  ConverterParameter=0.25}"
                         Background="{TemplateBinding Foreground}" />
                 <Border x:Name="ValueBorder" Grid.Row="1"
                         CornerRadius="4,0,0,4"
                         Width="{Binding ElementName=PART_Track, Path=DecreaseRepeatButton.ActualWidth}"
                         Height="{TemplateBinding attached:ThumbAttached.ThumbWidth,
-                                                 Converter={toolsConverters:ValueTranslateConverter},
+                                                 Converter={toolkit:ValueTranslateToDoubleConverter},
                                                  ConverterParameter=0.25}"
                         Background="{TemplateBinding Foreground}"
                         HorizontalAlignment="Left" VerticalAlignment="Center" />
@@ -269,13 +270,13 @@
                 <Border Grid.Column="1"
                         CornerRadius="4" Opacity="0.4"
                         Width="{TemplateBinding attached:ThumbAttached.ThumbWidth,
-                                                Converter={toolsConverters:ValueTranslateConverter},
+                                                Converter={toolkit:ValueTranslateToDoubleConverter},
                                                 ConverterParameter=0.25}"
                         Background="{TemplateBinding Foreground}" />
                 <Border x:Name="ValueBorder" Grid.Column="1"
                         CornerRadius="0,0,4,4"
                         Width="{TemplateBinding attached:ThumbAttached.ThumbWidth,
-                                                Converter={toolsConverters:ValueTranslateConverter},
+                                                Converter={toolkit:ValueTranslateToDoubleConverter},
                                                 ConverterParameter=0.25}"
                         Height="{Binding ElementName=PART_Track, Path=DecreaseRepeatButton.ActualHeight}"
                         Background="{TemplateBinding Foreground}"

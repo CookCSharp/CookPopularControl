@@ -1,11 +1,11 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Interop;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using static CookPopularControl.Tools.Interop.NativeMethods;
+using static CookPopularCSharpToolkit.Windows.Interop.NativeMethods;
 using OriginPopup = System.Windows.Controls.Primitives.Popup;
 
 

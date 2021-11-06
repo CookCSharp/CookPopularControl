@@ -1,7 +1,7 @@
 ﻿using CookPopularControl.Communal;
 using CookPopularControl.Communal.ViewModel;
-using CookPopularControl.Tools.Helpers;
 using CookPopularControl.Windows;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Linq;
 using System.Windows;

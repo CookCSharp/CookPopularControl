@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Windows.Data;
@@ -12,7 +12,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-27 20:00:48
  */
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     [MarkupExtensionReturnType(typeof(string))]
     public class StringToPlaySpeedConverter : MarkupExtensionBase, IValueConverter

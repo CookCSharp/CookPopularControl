@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Data.Enum;
+﻿using CookPopularControl.Communal.Data;
 using System;
 using System.Collections.Generic;
 using System.Windows;

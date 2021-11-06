@@ -1,5 +1,5 @@
 ﻿using CookPopularControl.Communal.Data;
-using CookPopularControl.Tools.Boxes;
+using CookPopularCSharpToolkit.Communal;
 using System;
 using System.Windows;
 using System.Windows.Controls;

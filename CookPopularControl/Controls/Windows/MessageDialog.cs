@@ -1,8 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Helpers;
-using CookPopularControl.Tools.Interop;
-using CookPopularControl.Tools.Windows.Tasks;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using OriginButton = System.Windows.Controls.Button;
+using CookPopularCSharpToolkit.Windows;
 
 
 /*

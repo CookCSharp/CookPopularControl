@@ -1,11 +1,10 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Communal.Interface;
 using CookPopularControl.Controls.Dragables.Core;
-using CookPopularControl.Expression.Drawing.Core;
 using CookPopularControl.References;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Extensions.Controls;
-using CookPopularControl.Tools.Interop;
+using CookPopularCSharpToolkit.Windows.Interop;
+using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections;
 using System.Collections.Generic;

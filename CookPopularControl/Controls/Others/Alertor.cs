@@ -1,7 +1,6 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions.Colors;
-using CookPopularControl.Tools.Helpers;
+﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
                     xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
 
     <ResourceDictionary.MergedDictionaries>
@@ -46,7 +47,7 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}"
                                     CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(attached:FrameworkElementBaseAttached.CornerRadius)}">
-                                <Grid x:Name="IconGrid" Visibility="{TemplateBinding pc:LinearProgressBarAssistant.IsShowIcon, Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                <Grid x:Name="IconGrid" Visibility="{TemplateBinding pc:LinearProgressBarAssistant.IsShowIcon, Converter={toolkit:BooleanToVisibilityConverter}}">
                                     <Path Width="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Height="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Data="{DynamicResource AirFanGeometry}"
@@ -103,7 +104,7 @@
                                                            SnapsToDevicePixels="True"
                                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                                            RenderTransformOrigin="0.5,0.5"
-                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={toolsConverters:BooleanToVisibilityConverter}}">
+                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={toolkit:BooleanToVisibilityConverter}}">
                                                     <TextBlock.RenderTransform>
                                                         <TransformGroup>
                                                             <ScaleTransform ScaleX="-1" ScaleY="1" />
@@ -137,7 +138,7 @@
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:LinearProgressBarAssistant.IsShowIcon)}" Value="True" />
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value, Converter={toolsConverters:ValueBetweenZeroAnd100}}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Value, Converter={toolkit:ValueBetween0And100ToBooleanConverter}}" Value="True" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Visible" TargetName="IconLeaf" />
                             <MultiDataTrigger.EnterActions>
@@ -206,7 +207,7 @@
                                  Stretch="Fill"
                                  Stroke="{DynamicResource UnEnabledBrush}"
                                  StrokeThickness="{TemplateBinding pc:CircularProgressAssistant.ArcThickness}" />
-                        <Grid x:Name="PathGrid" Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:CircularProgressAssistant.ArcThickness), Converter={commonConverters:DoubleToThickness}, ConverterParameter=0.5, Mode=OneWay}">
+                        <Grid x:Name="PathGrid" Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:CircularProgressAssistant.ArcThickness), Converter={toolkit:DoubleToThicknessConverter}, ConverterParameter=0.5, Mode=OneWay}">
                             <Grid>
                                 <Grid.RenderTransform>
                                     <ScaleTransform x:Name="FullyGridScaleTransform" ScaleX="0" />
@@ -271,7 +272,7 @@
                                     </Path.Data>
                                     <Path.RenderTransform>
                                         <TransformGroup>
-                                            <RotateTransform x:Name="PathProgressRotateTransform" CenterX="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=0.5, Mode=OneWay}" CenterY="{Binding ElementName=PathGrid, Path=ActualHeight, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=0.5, Mode=OneWay}" />
+                                            <RotateTransform x:Name="PathProgressRotateTransform" CenterX="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5, Mode=OneWay}" CenterY="{Binding ElementName=PathGrid, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5, Mode=OneWay}" />
                                         </TransformGroup>
                                     </Path.RenderTransform>
                                 </Path>
@@ -280,7 +281,7 @@
                                        Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
                                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:LinearProgressBarAssistant.TextColor)}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                                       Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                                       Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={toolkit:BooleanToVisibilityConverter}}" />
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -350,7 +351,7 @@
                                     <VisualBrush Stretch="None"
                                                  AutoLayoutContent="True" TileMode="Tile" Viewport="0,-1,1,5">
                                         <VisualBrush.Visual>
-                                            <Grid Width="{TemplateBinding Width, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=3}" Height="{TemplateBinding Height, Converter={toolsConverters:ValueTranslateConverter}, ConverterParameter=3}">
+                                            <Grid Width="{TemplateBinding Width, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=3}" Height="{TemplateBinding Height, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=3}">
                                                 <Border Background="{TemplateBinding Background}" />
                                                 <Grid x:Name="PART_Wave">
                                                     <Grid.RowDefinitions>
@@ -382,7 +383,7 @@
                         <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
                                    Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:LinearProgressBarAssistant.TextColor)}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={toolsConverters:BooleanToVisibilityConverter}}" />
+                                   Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={toolkit:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="PART_Ellipse">

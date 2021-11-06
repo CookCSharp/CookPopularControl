@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools;
+﻿using System;
 
 
 
@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-07-30 16:38:38
  */
-namespace CookPopularControl.Communal.Data.Enum
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// 表示<see cref="ControlBorderBehavior.AnimationType"/>枚举类型

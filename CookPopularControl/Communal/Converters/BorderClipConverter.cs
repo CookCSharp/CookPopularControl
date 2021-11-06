@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -6,7 +6,7 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     [MarkupExtensionReturnType(typeof(Geometry))]
     public class BorderClipConverter : MarkupExtensionBase, IMultiValueConverter

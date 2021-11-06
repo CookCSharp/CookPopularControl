@@ -1,8 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Extensions.Images;
-using CookPopularControl.Tools.Helpers;
-using CookPopularControl.Tools.Interop;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -10,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shell;
+using CookPopularCSharpToolkit.Windows;
 
 
 

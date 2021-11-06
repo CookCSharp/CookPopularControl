@@ -1,7 +1,8 @@
-<Project>
+<Project>    
     <PropertyGroup>
         <!--统一所有项目输出目录-->
-        <OutputPath>$(SolutionDir)Output\bin\$(Configuration)</OutputPath> <!--$(Platform)-->
+        <!--$(Platform)-->
+        <OutputPath>$(SolutionDir)Output\bin\$(Configuration)</OutputPath>
         <PackageOutputPath>$(OutputPath)</PackageOutputPath>
         <!--<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Platform)</BaseIntermediateOutputPath>-->
         <IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(ProjectName)</IntermediateOutputPath>
@@ -12,22 +13,22 @@
         <!--指示编译器是否应为相同的输入产生相同的程序集-->
         <Deterministic>true</Deterministic>
         <WarningLevel>4</WarningLevel>
-        <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 
         <!--CookPopularControl Nuget包说明配置 $(MSBuildToolsPath)-->
         <PackageId>$(MSBuildProjectName)</PackageId>
-        <Version>1.0.0.1-alpha01</Version>
+        <Version>1.0.1.1-alpha1</Version>
         <Authors>写代码的厨子</Authors>
         <Company>写代码的厨子</Company>
         <Product>$(MSBuildProjectName)</Product>
+        <Title>$(MSBuildProjectName)</Title>
         <Description>基于.NetFramework4.6.1和.Net5.0 WPF控件库</Description>
         <Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>
-        <PackageIcon>CookCSharp.png</PackageIcon>
-        <PackageTags>xaml,wpf,ui,controls,windows</PackageTags>
+        <PackageTags>xaml,wpf,ui,controls,windows,desktop,cookpopularcontrol,library</PackageTags>
         <RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
         <PackageReleaseNotes>预发行版</PackageReleaseNotes>
     </PropertyGroup>
 
@@ -38,5 +39,4 @@
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <OutputPath>$(SolutionDir)Output\bin\Release</OutputPath>
     </PropertyGroup>
-    
 </Project>

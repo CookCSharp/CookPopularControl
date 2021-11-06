@@ -2,8 +2,8 @@
 using CookPopularControl.Communal.Interface;
 using CookPopularControl.Controls.Dragables.Core;
 using CookPopularControl.References;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Extensions.Controls;
+using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;

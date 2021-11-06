@@ -4,6 +4,7 @@
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
                     xmlns:win="clr-namespace:CookPopularControl.Windows">
 
     <ResourceDictionary.MergedDictionaries>
@@ -44,28 +45,29 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:MessageDialog}">
-                    <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}" SnapsToDevicePixels="True">
+                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{DynamicResource DefaultBitmapCache}">
                         <win:ChromeWindowClient>
-                            <Border SnapsToDevicePixels="True"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}">
+                                    Background="{TemplateBinding Background}"
+                                    SnapsToDevicePixels="True">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <pc:SimpleGrid TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}" Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}">
-                                        <TextBlock Style="{StaticResource MessageDialogTextBlockStyle}"
-                                                   Text="{TemplateBinding Title}"
+                                    <pc:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}">
+                                        <TextBlock Text="{TemplateBinding Title}"
                                                    Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                                   Margin="8,0" VerticalAlignment="Center" />
-                                        <Button attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                                   Margin="8,0"
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource MessageDialogTextBlockStyle}" />
+                                        <Button ToolTip="关闭"
+                                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                                 Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                                Cursor="Arrow"
-                                                Style="{StaticResource WindowIconButtonStyle}"
-                                                ToolTip="关闭" WindowChrome.IsHitTestVisibleInChrome="True"
-                                                HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                                Cursor="Arrow" WindowChrome.IsHitTestVisibleInChrome="True"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
                                     </pc:SimpleGrid>
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
@@ -77,21 +79,22 @@
                                             <RowDefinition Height="Auto" MinHeight="26" />
                                         </Grid.RowDefinitions>
                                         <Path Grid.Row="0" Grid.Column="0"
+                                              Width="30" Height="30"
                                               Data="{TemplateBinding Image}"
                                               Fill="{TemplateBinding ImageBrush}"
                                               Stretch="Uniform"
-                                              Visibility="{TemplateBinding IsShowImage,Converter={toolConverters:BooleanToVisibilityConverter}}"
-                                              Width="30" Height="30" />
+                                              Visibility="{TemplateBinding IsShowImage, Converter={toolkit:BooleanToVisibilityConverter}}" />
                                         <ScrollViewer Grid.Row="0" Grid.Column="1">
-                                            <TextBlock Style="{StaticResource MessageDialogTextBlockStyle}"
+                                            <TextBlock Text="{TemplateBinding Message}"
+                                                       VerticalAlignment="Center"
                                                        TextWrapping="Wrap"
-                                                       Text="{TemplateBinding Message}"
-                                                       VerticalAlignment="Center" />
+                                                       Style="{StaticResource MessageDialogTextBlockStyle}" />
                                         </ScrollViewer>
                                         <StackPanel x:Name="PART_Panel" Grid.Row="1" Grid.Column="0"
-                                                    Orientation="Horizontal"
                                                     Grid.ColumnSpan="2"
-                                                    Margin="0,10" HorizontalAlignment="Center" />
+                                                    Margin="0,10"
+                                                    HorizontalAlignment="Center"
+                                                    Orientation="Horizontal" />
                                     </Grid>
                                 </Grid>
                             </Border>

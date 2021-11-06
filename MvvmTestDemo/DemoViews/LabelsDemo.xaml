@@ -31,7 +31,7 @@
                            FontSize="20" FontWeight="DemiBold"
                            VerticalAlignment="Center" />
                 <WrapPanel Margin="20,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label pc:LabelAssistant.CornerRadius="20" Content="写代码的厨子" />
+                    <Label pc:FrameworkElementBaseAttached.CornerRadius="20" Content="写代码的厨子" />
                     <Label pc:LabelAssistant.Header="C" Content="写代码的厨子" Margin="20,0" />
                     <Label pc:LabelAssistant.Header="{StaticResource HeaderImage}" Content="写代码的厨子" />
                     <Label pc:LabelAssistant.Header="pack://application:,,,/MvvmTestDemo;component/Resources/Gif/tomcat.jpg"
@@ -52,7 +52,7 @@
                     <TextBlock Text="GroupLabel:"
                                FontSize="20" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:GroupLabel pc:FrameworkElementBaseAttached.CornerRadius="10" pc:LabelAssistant.CornerRadius="15" ItemClosed="GroupLabel_ItemClosed"
+                    <pc:GroupLabel pc:FrameworkElementBaseAttached.CornerRadius="10" ItemClosed="GroupLabel_ItemClosed"
                                    ItemsSource="{Binding GroupLists}"
                                    Width="290"
                                    Margin="20,0" Padding="10" />

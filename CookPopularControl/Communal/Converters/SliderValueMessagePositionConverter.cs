@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-29 11:29:07
  */
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     [MarkupExtensionReturnType(typeof(double))]
     public class SliderValueLeftPositionXConverter : MarkupExtensionBase, IMultiValueConverter

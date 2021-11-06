@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions.Images;
+﻿using CookPopularCSharpToolkit.Communal;
 using QRCoder;
 using System;
 using System.ComponentModel;

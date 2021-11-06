@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:data="clr-namespace:CookPopularControl.Communal.Data"
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultDropZoneStyle" TargetType="{x:Type drag:DropZone}">
         <Setter Property="Opacity" Value="0.25" />
@@ -10,7 +11,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type drag:DropZone}">
                     <Grid>
-                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolConverters:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Top}}">
+                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolkit:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Top}}">
                             <Path.Data>
                                 <PathGeometry>
                                     <PathFigure x:Name="PathFigure" StartPoint="160, 0">
@@ -19,7 +20,7 @@
                                 </PathGeometry>
                             </Path.Data>
                         </Path>
-                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolConverters:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Right}}">
+                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolkit:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Right}}">
                             <Path.Data>
                                 <PathGeometry>
                                     <PathFigure StartPoint="60, 160">
@@ -28,7 +29,7 @@
                                 </PathGeometry>
                             </Path.Data>
                         </Path>
-                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolConverters:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Bottom}}">
+                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolkit:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Bottom}}">
                             <Path.Data>
                                 <PathGeometry>
                                     <PathFigure StartPoint="0, 60">
@@ -37,7 +38,7 @@
                                 </PathGeometry>
                             </Path.Data>
                         </Path>
-                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolConverters:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Left}}">
+                        <Path Fill="{TemplateBinding Foreground}" Visibility="{TemplateBinding Location, Converter={toolkit:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Left}}">
                             <Path.Data>
                                 <PathGeometry>
                                     <PathFigure StartPoint="0, 0">
@@ -46,11 +47,9 @@
                                 </PathGeometry>
                             </Path.Data>
                         </Path>
-                        <Ellipse Fill="{TemplateBinding Foreground}"
-                                 Visibility="{TemplateBinding Location,
-                                                              Converter={toolConverters:EqualityToVisibilityConverter},
-                                                              ConverterParameter={x:Static data:DropZoneLocation.Floating}}"
-                                 Width="120" Height="120" />
+                        <Ellipse Width="120" Height="120"
+                                 Fill="{TemplateBinding Foreground}"
+                                 Visibility="{TemplateBinding Location, Converter={toolkit:EqualityToVisibilityConverter}, ConverterParameter={x:Static data:DropZoneLocation.Floating}}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

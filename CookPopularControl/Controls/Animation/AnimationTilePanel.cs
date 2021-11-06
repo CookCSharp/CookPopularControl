@@ -1,7 +1,6 @@
 ﻿using CookPopularControl.Controls;
-using CookPopularControl.Expression.Drawing.Core;
-using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
+using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Linq;
 using System.Windows;

@@ -1,6 +1,6 @@
 ﻿using CookPopularControl.Communal.Interface;
-using CookPopularControl.Tools.Comparators;
-using CookPopularControl.Tools.Extensions.Animatables;
+using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;

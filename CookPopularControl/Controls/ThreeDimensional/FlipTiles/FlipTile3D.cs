@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
+﻿using CookPopularCSharpToolkit.Communal;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

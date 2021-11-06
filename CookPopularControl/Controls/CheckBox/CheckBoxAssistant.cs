@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
+﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Communal;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;

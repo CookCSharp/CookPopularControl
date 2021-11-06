@@ -4,7 +4,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-16 15:08:09
  */
-namespace CookPopularControl.Communal.Data.Enum
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// CheckBox填充类型

@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections.Generic;
 using System.Windows;

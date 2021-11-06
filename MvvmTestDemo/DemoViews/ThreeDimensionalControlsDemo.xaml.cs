@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Extensions;
+﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Communal;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;

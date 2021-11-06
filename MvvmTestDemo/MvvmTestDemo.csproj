@@ -8,6 +8,8 @@
         <LangVersion>9.0</LangVersion>
         <ApplicationIcon>CookCSharp.ico</ApplicationIcon>
         <UserSecretsId>95f624a1-62e9-4f3e-9fd6-a95f38aeea9a</UserSecretsId>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <!--剪裁应用-->
@@ -53,6 +55,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CookPopularControl\CookPopularControl.csproj" />
+        <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
     </ItemGroup>
 
     <ItemGroup>

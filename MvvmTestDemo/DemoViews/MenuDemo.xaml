@@ -25,26 +25,39 @@
                      ContextMenu="{StaticResource DefaultContextMenu}"
                      Foreground="Red" />
 
-            <Menu IsMainMenu="True" Margin="0,50">
+            <Menu Margin="0,50" IsMainMenu="True" Effect="{StaticResource ShadowEffectDepth1}">
+                <MenuItem Header="File">
+                    <MenuItem Header="Open"/>
+                    <MenuItem Header="Save As"/>
+                    <Separator Margin="-20,0,0,0"/>
+                    <MenuItem Header="Property"/>
+                    <MenuItem Header="Select Physical Define File"/>
+                    <Separator Margin="-20,0,0,0"/>
+                    <MenuItem Header="Clear File Name List"/>
+                    <Separator Margin="-20,0,0,0"/>
+                    <MenuItem Header="展示选择过的文件"/>
+                    <Separator Margin="-20,0,0,0"/>
+                    <MenuItem Header="Exit"/>
+                </MenuItem>
                 <MenuItem Header="_Example">
                     <MenuItem Header="Close">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource CloseGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource CloseGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Fatal">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource FatalGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource FatalGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Leaf">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource LeafGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource LeafGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Plane">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource PlaneGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource PlaneGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <Separator Height="5" Background="Red" />
@@ -56,39 +69,28 @@
                         <MenuItem Header="Third" />
                     </MenuItem>
                 </MenuItem>
-                <Separator Style="{StaticResource VerticalSeparatorStyle}" Width="3" Background="Red" />
+                <Separator Width="3" Background="Red" Style="{StaticResource VerticalSeparatorStyle}" />
                 <MenuItem Header="_Operation">
                     <MenuItem Command="Cut">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource CutGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource CutGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Command="Copy">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource CopyGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource CopyGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Command="Paste">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource PasteGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource PasteGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Command="SelectAll">
                         <MenuItem.Icon>
-                            <Path Stretch="Uniform" Data="{DynamicResource SelectAllGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" />
+                            <Path Data="{DynamicResource SelectAllGeometry}" Fill="{DynamicResource PrimaryForegroundBrush}" Stretch="Uniform" />
                         </MenuItem.Icon>
                     </MenuItem>
-                </MenuItem>
-                <MenuItem Header="File">
-                    <MenuItem Header="Open" Icon="{x:Null}" />
-                    <MenuItem Header="Save As" />
-                    <Separator />
-                    <MenuItem Header="Property" />
-                    <MenuItem Header="Select Physical Define File" />
-                    <Separator />
-                    <MenuItem Header="Clear File Name List" />
-                    <Separator />
-                    <MenuItem Header="Exit" />
                 </MenuItem>
             </Menu>
 
@@ -106,10 +108,9 @@
             </pc:ArcPanel>-->
 
             <pc:CircleMenu x:Name="circleMenu"
+                           Width="100" Height="100" Padding="20"
                            ArcAngle="360" IsItemRotate="False" Radius="100"
-                           Style="{StaticResource CircleMenuStyle}"
-                           Width="100" Height="100"
-                           Padding="20">
+                           Style="{StaticResource CircleMenuStyle}">
                 <Button Click="Button_Click" Style="{StaticResource DemoButtonStyle}" />
                 <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource AirFanGeometry}" Style="{StaticResource DemoButtonStyle}" />
                 <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ArchGeometry}" Style="{StaticResource DemoButtonStyle}" />
@@ -122,17 +123,16 @@
                 <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}" Style="{StaticResource DemoButtonStyle}" />
             </pc:CircleMenu>
 
-            <pc:PopupMenu x:Name="popupMenu"
-                          PopupPosition="LeftCenter"
-                          Style="{StaticResource PopupMenuStyle}"
-                          Margin="0,20" Padding="0" VerticalContentAlignment="Center">
+            <pc:PopupMenu x:Name="popupMenu" Margin="0,100,0,10"
+                          PopupPosition="LeftCenter" 
+                          Style="{StaticResource PopupMenuStyle}">
                 <Button Click="Button_Click" Style="{StaticResource DemoButtonStyle}" />
-                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}" Style="{StaticResource DemoButtonStyle}" Margin="0,10" />
+                <Button Margin="0,10" pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}" Style="{StaticResource DemoButtonStyle}" />
                 <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}" Style="{StaticResource DemoButtonStyle}" />
-                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}" Style="{StaticResource DemoButtonStyle}" Margin="0,10" />
+                <Button Margin="0,10" pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}" Style="{StaticResource DemoButtonStyle}" />
             </pc:PopupMenu>
 
-            <Separator Style="{StaticResource DefaultSeparatorStyle}" Width="300" />
+            <Separator Width="300" Style="{StaticResource DefaultSeparatorStyle}" />
         </StackPanel>
     </ScrollViewer>
 

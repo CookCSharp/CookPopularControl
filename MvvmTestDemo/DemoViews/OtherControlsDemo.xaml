@@ -4,10 +4,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"     
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
+
+    <!--xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"-->
 
     <Grid>
         <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">

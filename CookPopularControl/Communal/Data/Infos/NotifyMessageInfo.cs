@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Data.Enum;
+﻿using CookPopularControl.Communal.Data;
 using System;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
@@ -11,7 +11,7 @@ using System.Windows.Media;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-21 14:41:11
  */
-namespace CookPopularControl.Communal.Data.Infos
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// 通知消息附带的信息类

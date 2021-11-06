@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal.Converters"
+                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultNumericUpDownStyle" TargetType="{x:Type pc:NumericUpDown}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
@@ -56,7 +57,7 @@
                             <UniformGrid Grid.Column="1"
                                          Rows="2"
                                          Margin="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonMargin}"
-                                         Visibility="{TemplateBinding IsShowUpDownButton, Converter={toolConverters:BooleanToVisibilityConverter}}">
+                                         Visibility="{TemplateBinding IsShowUpDownButton, Converter={toolkit:BooleanToVisibilityConverter}}">
                                 <Button x:Name="PART_PlusButton"
                                         Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
                                         Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
@@ -86,7 +87,7 @@
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
-                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={commonConverters:DoubleToThickness}, ConverterParameter=1.5}" TargetName="RootBorder" />
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={toolkit:DoubleToThicknessConverter}, ConverterParameter=1.5}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" />

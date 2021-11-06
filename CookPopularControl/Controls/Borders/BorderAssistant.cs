@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Windows.Converters;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -32,7 +32,7 @@ namespace CookPopularControl.Controls
             {
                 if ((bool)e.NewValue)
                 {
-                    var binding = new MultiBinding { Converter = new BorderCircularConverter() };
+                    var binding = new MultiBinding { Converter = new BorderCircularToCornerRadiusConverter() };
                     binding.Bindings.Add(new Binding(FrameworkElement.ActualWidthProperty.Name) { Source = border });
                     binding.Bindings.Add(new Binding(FrameworkElement.ActualHeightProperty.Name) { Source = border });
                     border.SetBinding(Border.CornerRadiusProperty, binding);

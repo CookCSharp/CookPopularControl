@@ -6,6 +6,7 @@
              xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="450"
@@ -156,7 +157,7 @@
                                                        Focusable="False"
                                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                       Visibility="{TemplateBinding pc:ButtonBaseAttached.IsShowRipple, Converter={pc:BooleanToVisibilityConverter}}">
+                                                       Visibility="{TemplateBinding pc:ButtonBaseAttached.IsShowRipple, Converter={toolkit:BooleanToVisibilityConverter}}">
                                                 <pc:Ripple.Clip>
                                                     <MultiBinding Converter="{pc:BorderClipConverter}">
                                                         <Binding ElementName="RootBorder" Path="ActualWidth" />
@@ -184,12 +185,11 @@
                         Click="Button_Click"
                         Style="{StaticResource ButtonLinearProgressStyle}" />
                 <Button Width="100" Height="100"
-                        FontSize="20" 
+                        FontSize="20"
                         Margin="20,0" ToolTip="CircularProgressButton"
                         pc:ButtonAssist.ProgressBarBrush="Red"
                         pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
-                        pc:CircularProgressAssistant.ArcThickness="5" 
-                        pc:FrameworkElementBaseAttached.CornerRadius="50"
+                        pc:CircularProgressAssistant.ArcThickness="5" pc:FrameworkElementBaseAttached.CornerRadius="50"
                         Click="Button_Click"
                         Style="{StaticResource ButtonCircularProgressStyle}" />
                 <Button Width="200" Height="200"

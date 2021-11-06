@@ -1,5 +1,5 @@
 ﻿using CookPopularControl.Communal.Data;
-using CookPopularControl.Tools.Extensions.Markup;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -14,7 +14,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-10-24 15:12:55
  */
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     [MarkupExtensionReturnType(typeof(Visibility))]
     [ValueConversion(typeof(EditorType), typeof(Visibility))]

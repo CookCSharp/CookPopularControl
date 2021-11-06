@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Boxes;
+﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Communal;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -41,7 +41,7 @@ namespace CookPopularControl.Controls
         /// <summary>
         /// 弹出方向
         /// </summary>
-        /// <remarks>共9个方向，详细看<see cref="CookPopularControl.Communal.Data.Enum.PopupPosition"/></remarks>
+        /// <remarks>共9个方向，详细看<see cref="CookPopularControl.Communal.Data.PopupPosition"/></remarks>
         public PopupPosition PopupPosition
         {
             get { return (PopupPosition)GetValue(PopupPositionProperty); }

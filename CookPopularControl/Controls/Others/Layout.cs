@@ -1,11 +1,11 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Communal.Interface;
-using CookPopularControl.Communal.StyleSelectors;
+using CookPopularControl.Communal;
 using CookPopularControl.Controls.Dragables;
 using CookPopularControl.Controls.Dragables.Core;
 using CookPopularControl.References;
-using CookPopularControl.Tools.Extensions;
-using CookPopularControl.Tools.Interop;
+using CookPopularCSharpToolkit.Windows;
+using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -390,9 +390,7 @@ namespace CookPopularControl.Controls
         }
 
         private static readonly DependencyPropertyKey IsTopLeftItemPropertyKey =
-            DependencyProperty.RegisterReadOnly(
-                "IsTopLeftItem", typeof(bool), typeof(Layout),
-                new PropertyMetadata(default(bool)));
+            DependencyProperty.RegisterReadOnly("IsTopLeftItem", typeof(bool), typeof(Layout), new PropertyMetadata(default(bool)));
 
         /// <summary>
         /// Indicates if an item/tab control within a layout is contained at the top most and left most branch item.

@@ -84,7 +84,8 @@
                                   Content="Flip"
                                   FontSize="16"
                                   Margin="10,0"
-                                  Style="{StaticResource ToggleButtonFlipStyle}">
+                                  Style="{StaticResource ToggleButtonFlipStyle}"
+                                  pc:FrameworkElementBaseAttached.CornerRadius="100">
                         <pc:ToggleButtonAssistant.OnCheckedElement>
                             <TextBlock Text="Chance" />
                         </pc:ToggleButtonAssistant.OnCheckedElement>

@@ -4,7 +4,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-24 10:36:02
  */
-namespace CookPopularControl.Communal.Data.Enum
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// Selector子项类型

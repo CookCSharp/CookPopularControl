@@ -4,7 +4,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-01 15:46:27
  */
-namespace CookPopularControl.Communal.Data.Enum
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// 加载缓动画类型

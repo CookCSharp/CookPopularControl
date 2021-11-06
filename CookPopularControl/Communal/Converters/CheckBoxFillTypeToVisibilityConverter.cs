@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Communal.Data.Enum;
-using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -14,7 +14,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-16 16:02:21
  */
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     [MarkupExtensionReturnType(typeof(Visibility))]
     public class CheckBoxFillTypeToVisibilityConverter : MarkupExtensionBase, IValueConverter

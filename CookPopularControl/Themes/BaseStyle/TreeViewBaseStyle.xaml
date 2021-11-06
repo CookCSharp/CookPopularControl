@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="ExpandCollapseToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Focusable" Value="False" />
@@ -18,17 +19,18 @@
                         <Path x:Name="Expanded"
                               Data="M 0 4 L 8 4 L 4 8 Z"
                               Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonFill)}"
-                              Stretch="Uniform" Visibility="Hidden"
-                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                              Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Visibility="Hidden" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CheckStates">
                                 <VisualState x:Name="Checked">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Collapsed" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Hidden}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Expanded" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -62,22 +64,22 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                             <ToggleButton x:Name="Expander"
-                                          ClickMode="Press"
-                                          IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
-                                          Style="{StaticResource ExpandCollapseToggleButtonStyle}"
                                           Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                           Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
-                                          Margin="0,0,3,0" />
+                                          Margin="0,0,3,0"
+                                          ClickMode="Press"
+                                          IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Style="{StaticResource ExpandCollapseToggleButtonStyle}" />
                             <Path x:Name="PART_HeaderIcon"
+                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                   Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconHasItems)}"
                                   Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconFill)}"
                                   Stretch="Uniform"
-                                  Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={toolConverters:BooleanToVisibilityConverter}}"
-                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
-                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
-                                  Margin="0,0,3,0" />
+                                  Margin="0,0,3,0"
+                                  Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={toolkit:BooleanToVisibilityConverter}}" />
                         </StackPanel>
                         <Border x:Name="Bd" Grid.Row="0" Grid.Column="1"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -86,20 +88,20 @@
                                 Margin="0,2"
                                 Padding="{TemplateBinding Padding}"
                                 VerticalAlignment="Center">
-                            <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            <ContentPresenter x:Name="PART_Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" ContentSource="Header" />
                         </Border>
                         <ItemsPresenter x:Name="ItemsHost" Grid.Row="1" Grid.Column="1"
-                                        Visibility="Collapsed"
-                                        Grid.ColumnSpan="2" />
+                                        Grid.ColumnSpan="2"
+                                        Visibility="Collapsed" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="SelectionStates">
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource PrimaryThemeColor}" />
+                                            <EasingColorKeyFrame Value="{DynamicResource PrimaryThemeColor}" KeyTime="0" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Header" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource AssistantForegroundColor}" />
+                                            <EasingColorKeyFrame Value="{DynamicResource AssistantForegroundColor}" KeyTime="0" />
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -107,10 +109,10 @@
                                 <VisualState x:Name="SelectedInactive">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ButtonBaseMouseOverColor}" />
+                                            <EasingColorKeyFrame Value="{DynamicResource ButtonBaseMouseOverColor}" KeyTime="0" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Header" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource AssistantForegroundColor}" />
+                                            <EasingColorKeyFrame Value="{DynamicResource AssistantForegroundColor}" KeyTime="0" />
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -119,7 +121,7 @@
                                 <VisualState x:Name="Expanded">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ItemsHost" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -129,22 +131,22 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasItems" Value="false">
-                            <Setter TargetName="Expander" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="PART_HeaderIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconNoItems)}" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="Expander" />
+                            <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconNoItems)}" TargetName="PART_HeaderIcon" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="HasHeader" Value="false" />
                                 <Condition Property="Width" Value="Auto" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Header" Property="MinWidth" Value="75" />
+                            <Setter Property="MinWidth" Value="75" TargetName="PART_Header" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="HasHeader" Value="false" />
                                 <Condition Property="Height" Value="Auto" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Header" Property="MinHeight" Value="20" />
+                            <Setter Property="MinHeight" Value="20" TargetName="PART_Header" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -165,11 +167,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="TreeView">
                     <Border x:Name="Border"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}">
-                        <ScrollViewer CanContentScroll="False" Focusable="False" Padding="5">
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                        <ScrollViewer Padding="5" Focusable="False" CanContentScroll="False">
                             <ItemsPresenter />
                         </ScrollViewer>
                     </Border>

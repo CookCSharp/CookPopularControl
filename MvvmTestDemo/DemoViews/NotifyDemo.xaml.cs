@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Data.Enum;
+﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Controls;
 using MvvmTestDemo.UserControls;
 using Prism.Unity;

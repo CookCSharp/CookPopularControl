@@ -1,5 +1,5 @@
-﻿using CookPopularControl.Tools.Boxes;
-using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-03-19 17:27:36
  */
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// 文本清除按钮

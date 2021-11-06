@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultSwiperStyle" TargetType="{x:Type pc:Swiper}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -16,9 +17,9 @@
                 <ControlTemplate TargetType="{x:Type pc:Swiper}">
                     <pc:SimpleGrid ClipToBounds="True">
                         <ContentPresenter x:Name="PART_Content"
-                                          ContentStringFormat="{TemplateBinding ItemStringFormat}"
-                                          ContentTemplate="{TemplateBinding ItemTemplate}"
                                           Content="{TemplateBinding CurrentItem}"
+                                          ContentTemplate="{TemplateBinding ItemTemplate}"
+                                          ContentStringFormat="{TemplateBinding ItemStringFormat}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ContentPresenter.RenderTransform>
@@ -26,31 +27,30 @@
                             </ContentPresenter.RenderTransform>
                         </ContentPresenter>
                         <Button x:Name="PART_LastView"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Left" VerticalAlignment="Center"
                                 attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}"
                                 Command="{x:Static pc:Swiper.LastViewCommand}"
-                                Style="{DynamicResource ButtonTransparentIconStyle}"
-                                Foreground="{TemplateBinding Foreground}"
-                                HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                Style="{DynamicResource ButtonTransparentIconStyle}" />
                         <Button x:Name="PART_NextView"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
                                 attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}"
                                 Command="{x:Static pc:Swiper.NextViewCommand}"
-                                Style="{DynamicResource ButtonTransparentIconStyle}"
-                                Foreground="{TemplateBinding Foreground}"
-                                HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                Style="{DynamicResource ButtonTransparentIconStyle}" />
                         <StackPanel x:Name="PART_Panel"
+                                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                     Orientation="Horizontal"
-                                    Visibility="{TemplateBinding IsShowIndicatorDots,
-                                                                 Converter={toolConverters:BooleanToVisibilityConverter}}"
-                                    HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                                    Visibility="{TemplateBinding IsShowIndicatorDots, Converter={toolkit:BooleanToVisibilityConverter}}" />
                     </pc:SimpleGrid>
                     <ControlTemplate.Triggers>
-                        <Trigger SourceName="PART_LastView" Property="IsEnabled" Value="False">
-                            <Setter TargetName="PART_LastView" Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter TargetName="PART_LastView" Property="Background" Value="Transparent" />
+                        <Trigger Property="IsEnabled" Value="False" SourceName="PART_LastView">
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_LastView" />
+                            <Setter Property="Background" Value="Transparent" TargetName="PART_LastView" />
                         </Trigger>
-                        <Trigger SourceName="PART_NextView" Property="IsEnabled" Value="False">
-                            <Setter TargetName="PART_NextView" Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter TargetName="PART_NextView" Property="Background" Value="Transparent" />
+                        <Trigger Property="IsEnabled" Value="False" SourceName="PART_NextView">
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_NextView" />
+                            <Setter Property="Background" Value="Transparent" TargetName="PART_NextView" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

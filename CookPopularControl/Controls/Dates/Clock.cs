@@ -1,6 +1,5 @@
 ﻿using CookPopularControl.Controls;
-using CookPopularControl.Tools.Helpers;
-using CookPopularControl.Tools.Windows.Tasks;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Threading.Tasks;
 using System.Windows;

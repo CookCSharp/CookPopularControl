@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools.Extensions.Markup;
+﻿using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -14,7 +14,7 @@ using System.Windows.Markup;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 14:50:39
  */
-namespace CookPopularControl.Communal.Converters
+namespace CookPopularControl.Communal
 {
     /// <summary>
     /// <see cref="TabControl"/>标题面板大小转换器

@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools.Boxes;
+﻿using CookPopularCSharpToolkit.Communal;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -41,5 +41,14 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty IsFillFullyProperty =
             DependencyProperty.RegisterAttached("IsFillFully", typeof(bool), typeof(RadioButtonAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
+
+
+        public static object GetHeader(DependencyObject obj) => (object)obj.GetValue(HeaderProperty);
+        public static void SetHeader(DependencyObject obj, object value) => obj.SetValue(HeaderProperty, value);
+        /// <summary>
+        /// <see cref="HeaderProperty"/>标识可填充的任意元素
+        /// </summary>
+        public static readonly DependencyProperty HeaderProperty =
+            DependencyProperty.RegisterAttached("Header", typeof(object), typeof(RadioButtonAssistant), new PropertyMetadata(default(object)));
     }
 }

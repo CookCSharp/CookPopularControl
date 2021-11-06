@@ -4,7 +4,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-21 09:04:28
  */
-namespace CookPopularControl.Communal.Data.Enum
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// 表示弹出控件的弹出位置；

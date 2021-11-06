@@ -1,6 +1,5 @@
 ﻿using CookPopularControl.Controls;
 using CookPopularControl.Controls.Windows;
-using CookPopularControl.Tools.Helpers;
 using MvvmTestDemo.Commumal;
 using MvvmTestDemo.UserControls;
 using Prism.Commands;

@@ -5,16 +5,15 @@
         <UseWindowsForms>true</UseWindowsForms>
         <OutputType>Library</OutputType>
         <Nullable>enable</Nullable>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.0.1</Version>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
-        <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
+        
         <PackageIcon>CookCSharp.png</PackageIcon>
-        <PackageTags>xaml,wpf,ui,controls,windows,desktop</PackageTags>
-        <PackageReleaseNotes></PackageReleaseNotes>
+        <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
+        <!--<Version>1.0.3-alpha1</Version>
         <AssemblyVersion>1.0.1</AssemblyVersion>
-        <FileVersion>1.0.1</FileVersion>
+        <FileVersion>1.0.1</FileVersion>-->
     </PropertyGroup>
 
     <!--创建 snupkg 文件-->
@@ -24,22 +23,22 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
-      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
-      <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
-      <DefineConstants>DEBUG;TRACE</DefineConstants>
-      <DocumentationFile></DocumentationFile>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <DocumentationFile></DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
-      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
+        <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
-      <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
-      <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+        <DocumentationFile>D:\WPFSourceCode\CookPopularControl\CookPopularControl\CookPopularControl.xml</DocumentationFile>
+        <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     </PropertyGroup>
 
     <ItemGroup>
@@ -75,23 +74,52 @@
         <None Remove="Resources\Images\CookCSharpTransparent.ico" />
         <None Remove="Resources\Images\MediaPlayerBackground.png" />
         <None Include="Resources\Images\CookCSharp.png">
-          <Pack>True</Pack>
-          <PackagePath></PackagePath>
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
         </None>
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="..\.editorconfig" Link=".editorconfig" />
+        <None Include="..\.editorconfig" Link=".editorconfig" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
-      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
-      <PackageReference Include="QRCoder" Version="1.4.1" />
-      <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
-      <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-      <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-      <PackageReference Include="XamlAnimatedGif" Version="2.0.0" />
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Converters\*.*">
+            <Link>Communal\Converters\%(RecursiveDir)%(FileName)%(Extension)</Link>
+            <!--<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>-->
+        </Compile>
+        <!--<Compile Include="..\CookPopularCSharpToolkit\Communal\Boxes\*.*">
+            <Link>Tools\Boxes\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>-->
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Behaviors\*.*">
+            <Link>Communal\Behaviors\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Bindings\*.*">
+            <Link>Communal\Bindings\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Drawing\*.*">
+            <Link>Communal\Drawing\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\ValidationRules\*.*">
+            <Link>Communal\ValidationRules\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Expression\Controls\*.*">
+            <Link>Communal\Expression\Controls\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Expression\Shapes\*.*">
+            <Link>Communal\Expression\Shapes\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Include="..\CookPopularCSharpToolkit\Windows\Transitions\*.*">
+            <Link>Communal\Transitions\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+        <PackageReference Include="QRCoder" Version="1.4.1" />
+        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+        <PackageReference Include="XamlAnimatedGif" Version="2.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -128,38 +156,42 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controls\Layout\" />
+        <Folder Include="Controls\Layout\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Page Update="Themes\CookColors\GreenColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-      <Page Update="Themes\CookColors\OrangeColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-      <Page Update="Themes\CookColors\YellowColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-      <Page Update="Themes\CookColors\AquaColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-      <Page Update="Themes\CookColors\PurpleColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-      <Page Update="Themes\CookColors\BlueColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-      <Page Update="Themes\CookColors\RedColor.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
+      <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Page Update="Themes\CookColors\GreenColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+        <Page Update="Themes\CookColors\OrangeColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+        <Page Update="Themes\CookColors\YellowColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+        <Page Update="Themes\CookColors\AquaColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+        <Page Update="Themes\CookColors\PurpleColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+        <Page Update="Themes\CookColors\BlueColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+        <Page Update="Themes\CookColors\RedColor.xaml">
+            <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
     </ItemGroup>
 
 </Project>

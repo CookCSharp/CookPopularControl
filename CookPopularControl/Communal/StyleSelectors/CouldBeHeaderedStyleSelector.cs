@@ -10,7 +10,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 16:05:06
  */
-namespace CookPopularControl.Communal.StyleSelectors
+namespace CookPopularControl.Communal
 {
     public class CouldBeHeaderedStyleSelector : StyleSelector
     {

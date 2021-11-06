@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Tools.Boxes;
+﻿using CookPopularCSharpToolkit.Communal;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -66,7 +66,7 @@ namespace CookPopularControl.Communal
             {
                 RoutedEventHandler handler = (s, e) =>
                 {
-                    if (box is ComboBox comboBox && SelectorAttached.GetSelectorItemType(comboBox) != Data.Enum.SelectorItemType.Default)
+                    if (box is ComboBox comboBox && SelectorAttached.GetSelectorItemType(comboBox) != Data.SelectorItemType.Default)
                     {
                         var listBox = comboBox.Template.FindName("PART_ListBox", comboBox) as ListBox;
                         listBox?.UnselectAll();

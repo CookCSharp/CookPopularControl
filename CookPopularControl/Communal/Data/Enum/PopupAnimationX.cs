@@ -4,7 +4,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-25 15:16:08
  */
-namespace CookPopularControl.Communal.Data.Enum
+namespace CookPopularControl.Communal.Data
 {
     /// <summary>
     /// 通知消息的弹出动画

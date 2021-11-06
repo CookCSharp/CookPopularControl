@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attached="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <!--<Style x:Key="DefaultGroupBoxStyle" TargetType="{x:Type GroupBox}">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
@@ -49,28 +50,38 @@
                 <ControlTemplate TargetType="{x:Type GroupBox}">
                     <Grid x:Name="RootGrid">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="4"/>
-                            <RowDefinition Height="{Binding ElementName=PART_Header,Path=ActualHeight,Converter={toolConverters:ValueTranslateConverter},ConverterParameter=0.5}"/>
-                            <RowDefinition Height="4"/>
-                            <RowDefinition Height="{Binding ElementName=PART_Header,Path=ActualHeight,Converter={toolConverters:ValueTranslateConverter},ConverterParameter=0.5}"/>
+                            <RowDefinition Height="4" />
+                            <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
+                            <RowDefinition Height="4" />
+                            <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="2" Grid.RowSpan="3" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"/>
-                        <Border Grid.RowSpan="4" Background="{TemplateBinding pc:GroupBoxAssistant.HeaderBackground}" 
+                        <Border Grid.Row="2"
+                                Grid.RowSpan="3"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" />
+                        <Border Grid.RowSpan="4"
+                                Background="{TemplateBinding pc:GroupBoxAssistant.HeaderBackground}"
+                                Margin="10,0"
                                 HorizontalAlignment="{TemplateBinding pc:GroupBoxAssistant.HeaderHorizontalAlignment}"
-                                VerticalAlignment="Top" Margin="10,0">
-                            <ContentPresenter x:Name="PART_Header" RecognizesAccessKey="True" 
-                                              Content="{TemplateBinding Header}" Margin="6,4"
+                                VerticalAlignment="Top">
+                            <ContentPresenter x:Name="PART_Header"
+                                              Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                               ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
-                                              ContentStringFormat="{TemplateBinding HeaderStringFormat}"/>
+                                              RecognizesAccessKey="True"
+                                              Margin="6,4" />
                         </Border>
-                        <ContentPresenter Grid.Row="4" Content="{TemplateBinding Content}" RecognizesAccessKey="True"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" 
-                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                        <ContentPresenter Grid.Row="4"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
                                           ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                          Margin="{TemplateBinding Padding}"/>
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                          RecognizesAccessKey="True"
+                                          Margin="{TemplateBinding Padding}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -90,9 +101,10 @@
                         <Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(attached:FrameworkElementBaseAttached.IconGeometry)}"
                               Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=Foreground}"
                               Stretch="Uniform"
+                              Margin="10,8"
+                              VerticalAlignment="Center"
                               Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=Foreground}"
-                              StrokeThickness="1"
-                              Margin="10,8" VerticalAlignment="Center" />
+                              StrokeThickness="1" />
                         <TextBlock Text="{Binding}"
                                    Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=Foreground}"
                                    FontSize="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=FontSize}"
@@ -105,27 +117,27 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GroupBox}">
                     <Grid>
-                        <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="Transparent" />
+                                Background="Transparent"
+                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" />
                         <DockPanel>
-                            <Border CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                    DockPanel.Dock="Top"
-                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter ContentSource="Header"
+                            <Border DockPanel.Dock="Top"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                                <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   ContentStringFormat="{TemplateBinding HeaderStringFormat}"
-                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
                                                   RecognizesAccessKey="True"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  ContentSource="Header" />
                             </Border>
-                            <ContentPresenter ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                               ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               Margin="{TemplateBinding Padding}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </DockPanel>

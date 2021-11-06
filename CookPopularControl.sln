@@ -10,9 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		Settings.XamlStyler = Settings.XamlStyler
+		Version.props = Version.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmTestDemo", "MvvmTestDemo\MvvmTestDemo.csproj", "{D832B078-7825-4D6C-8EF9-78E04EB2296B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookPopularCSharpToolkit", "CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj", "{C577F66C-168A-40FF-89B2-F699DF1D8A1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +51,18 @@ Global
 		{D832B078-7825-4D6C-8EF9-78E04EB2296B}.Release|x64.Build.0 = Release|x64
 		{D832B078-7825-4D6C-8EF9-78E04EB2296B}.Release|x86.ActiveCfg = Release|x86
 		{D832B078-7825-4D6C-8EF9-78E04EB2296B}.Release|x86.Build.0 = Release|x86
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Debug|x64.ActiveCfg = Debug|x64
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Debug|x64.Build.0 = Debug|x64
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Debug|x86.ActiveCfg = Debug|x86
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Debug|x86.Build.0 = Debug|x86
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Release|x64.ActiveCfg = Release|x64
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Release|x64.Build.0 = Release|x64
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Release|x86.ActiveCfg = Release|x86
+		{C577F66C-168A-40FF-89B2-F699DF1D8A1C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
