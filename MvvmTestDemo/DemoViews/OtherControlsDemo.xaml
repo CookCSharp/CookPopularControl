@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
@@ -18,7 +19,7 @@
                 <Button Width="100" Height="35"
                         Content="切换状态"
                         Click="StateExchange_Click"
-                        IsEnabled="{Binding ElementName=control, Path=IsChecked, Converter={pc:BooleanToReBooleanConverter}}" />
+                        IsEnabled="{Binding ElementName=control, Path=IsChecked, Converter={pt:BooleanToReBooleanConverter}}" />
                 <ToggleButton x:Name="control"
                               Width="100" Height="35"
                               Content="停止"

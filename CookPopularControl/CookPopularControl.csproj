@@ -6,7 +6,7 @@
         <OutputType>Library</OutputType>
         <Nullable>enable</Nullable>
         
-        <PackageIcon>CookCSharp.png</PackageIcon>
+        <PackageIcon>WpfControl.png</PackageIcon>
         <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -73,9 +73,14 @@
         <None Remove="Resources\Images\CookCSharp.png" />
         <None Remove="Resources\Images\CookCSharpTransparent.ico" />
         <None Remove="Resources\Images\MediaPlayerBackground.png" />
+        <None Remove="Resources\Images\WpfControl.png" />
         <None Include="Resources\Images\CookCSharp.png">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
+        </None>
+        <None Include="Resources\Images\WpfControl.png">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
         </None>
     </ItemGroup>
 
@@ -88,10 +93,7 @@
             <Link>Communal\Converters\%(RecursiveDir)%(FileName)%(Extension)</Link>
             <!--<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>-->
         </Compile>
-        <!--<Compile Include="..\CookPopularCSharpToolkit\Communal\Boxes\*.*">
-            <Link>Tools\Boxes\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>-->
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Behaviors\*.*">
+        <!--<Compile Include="..\CookPopularCSharpToolkit\Windows\Behaviors\*.*">
             <Link>Communal\Behaviors\%(RecursiveDir)%(FileName)%(Extension)</Link>
         </Compile>
         <Compile Include="..\CookPopularCSharpToolkit\Windows\Bindings\*.*">
@@ -111,14 +113,12 @@
         </Compile>
         <Compile Include="..\CookPopularCSharpToolkit\Windows\Transitions\*.*">
             <Link>Communal\Transitions\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
+        </Compile>-->
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
         <PackageReference Include="QRCoder" Version="1.4.1" />
-        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
         <PackageReference Include="XamlAnimatedGif" Version="2.0.0" />
     </ItemGroup>
 
@@ -153,6 +153,9 @@
         <Resource Include="Resources\Images\CookCSharp.png" />
         <Resource Include="Resources\Images\CookCSharpTransparent.ico" />
         <Resource Include="Resources\Images\MediaPlayerBackground.png" />
+        <Resource Include="Resources\Images\WpfControl.png">
+          <CopyToOutputDirectory></CopyToOutputDirectory>
+        </Resource>
     </ItemGroup>
 
     <ItemGroup>

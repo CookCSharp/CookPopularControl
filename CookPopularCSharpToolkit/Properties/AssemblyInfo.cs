@@ -17,7 +17,7 @@ using System.Windows.Markup;
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID。
 [assembly: Guid("969067b6-6d85-40df-b024-7d9eca442855")]
 
-[assembly: XmlnsPrefix("https://Chance.CookPopularCSharpToolkit/2021/xaml", "toolkit")]
+[assembly: XmlnsPrefix("https://Chance.CookPopularCSharpToolkit/2021/xaml", "pt")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit.Communal")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit.Windows")]

@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -27,7 +28,7 @@
                 <pc:SearchControl.Content>
                     <Binding Mode="TwoWay" Path="SearchContent" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
-                            <pc:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True" />
+                            <pt:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True" />
                         </Binding.ValidationRules>
                     </Binding>
                 </pc:SearchControl.Content>

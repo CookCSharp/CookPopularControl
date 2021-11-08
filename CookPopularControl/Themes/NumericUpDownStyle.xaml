@@ -17,7 +17,7 @@
         <Setter Property="Value" Value="0" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="14" />
         <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="14" />
-        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="输入数字" />
         <Setter Property="common:TextElementAttached.IsAddClearButton" Value="False" />
         <Setter Property="pc:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />

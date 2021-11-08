@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
@@ -19,7 +20,7 @@
                 <x:Type Type="local:OrderStatus" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        <pc:BindingProxy x:Key="DataSource" Data="{Binding}" />
+        <pt:BindingProxy x:Key="DataSource" Data="{Binding}" />
     </UserControl.Resources>
 
     <ScrollViewer>

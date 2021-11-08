@@ -55,7 +55,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CookPopularControl\CookPopularControl.csproj" />
-        <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
     </ItemGroup>
 
     <ItemGroup>

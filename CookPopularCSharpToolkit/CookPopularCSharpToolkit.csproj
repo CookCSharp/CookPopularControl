@@ -5,14 +5,20 @@
         <UseWindowsForms>true</UseWindowsForms>
         <TargetFrameworks>net46;net461;net5.0-windows</TargetFrameworks>
 
-        <PackageIcon>PackageIcon.png</PackageIcon>
+        <PackageIcon>CSharp.png</PackageIcon>
         <PackageTags>c#,csharp,toolkit,</PackageTags>
         <Description>基于.NetFramework4.6.1和.Net5.0的C#工具方法</Description>
-        <Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>
+        <!--<Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>-->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <RepositoryUrl>https://gitee.com/cook-csharp/CookPopularControl</RepositoryUrl>
         <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
+    </PropertyGroup>
+
+    <!--创建 snupkg 文件-->
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
@@ -20,18 +26,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="PackageIcon.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="log4net" Version="2.0.13" />
       <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.37" />
       <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0-preview.1.21102.12" />
       <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
       <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="CSharp.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

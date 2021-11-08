@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MvvmTestDemo.UserControls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:vm="clr-namespace:MvvmTestDemo.DemoViewModels"
              mc:Ignorable="d"
@@ -114,7 +115,7 @@
                         <TextBox.Text>
                             <Binding Mode="TwoWay" Path="TextContent" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
-                                    <pc:RangeValueValidationRule MaxValue="10" MinValue="1" ValidatesOnTargetUpdated="True" />
+                                    <pt:RangeValueValidationRule MaxValue="10" MinValue="1" ValidatesOnTargetUpdated="True" />
                                 </Binding.ValidationRules>
                             </Binding>
                         </TextBox.Text>
@@ -127,7 +128,7 @@
                         <pc:NumericUpDown.Value>
                             <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
-                                    <pc:RangeValueValidationRule ErrorMessage="{x:Null}"
+                                    <pt:RangeValueValidationRule ErrorMessage="{x:Null}"
                                                                  MaxValue="10" MinValue="5" ValidatesOnTargetUpdated="True" />
                                 </Binding.ValidationRules>
                             </Binding>
@@ -149,7 +150,7 @@
                         <pc:PasswordBoxAssistant.Password>
                             <Binding Mode="TwoWay" Path="PasswordContent" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
-                                    <pc:RegularPatternValidationRule RegularPattern="PhoneNumber" ValidatesOnTargetUpdated="True" />
+                                    <pt:RegularPatternValidationRule RegularPattern="PhoneNumber" ValidatesOnTargetUpdated="True" />
                                 </Binding.ValidationRules>
                             </Binding>
                         </pc:PasswordBoxAssistant.Password>

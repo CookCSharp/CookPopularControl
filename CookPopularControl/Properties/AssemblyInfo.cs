@@ -42,11 +42,10 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Communal")]
 
 
-
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Communal")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows.Expression")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows.Transitions")]
+//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
+//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Communal", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
+//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
+//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows.Expression", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
+//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows.Transitions", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
 
 
