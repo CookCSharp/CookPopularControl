@@ -19,7 +19,7 @@
 
         <!--CookPopularControl Nuget包说明配置 $(MSBuildToolsPath)-->
         <PackageId>$(MSBuildProjectName)</PackageId>
-        <Version>1.0.1.1-alpha1</Version>
+        <Version>1.0.1.1-alpha2</Version>
         <Authors>写代码的厨子</Authors>
         <Company>写代码的厨子</Company>
         <Product>$(MSBuildProjectName)</Product>
