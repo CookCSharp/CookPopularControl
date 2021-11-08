@@ -7,24 +7,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
+             Focusable="True"
              d:DesignHeight="450"
-             d:DesignWidth="800"
-             Focusable="True">
+             d:DesignWidth="800">
 
     <StackPanel x:Name="RootGrid"
                 Width="400" Height="400"
                 Background="#FF9C8844"
                 HorizontalAlignment="Left">
         <Button x:Name="ChanceBtn"
-                Content="Chance"
-                Width="300" Height="40" />
+                Width="300" Height="40"
+                Content="Chance" />
         <TextBox x:Name="ChanceTxt"
-                 Text="Chance"
                  Width="300" Height="40"
+                 Text="Chance"
                  Margin="0,50" />
-        <Button Command="{x:Static pc:DialogBox.CloseDialogCommand}"
+        <Button Width="300" Height="40"
                 Content="CloseDialogBox"
-                Width="300" Height="40" />
+                Command="{x:Static pc:DialogBox.CloseDialogCommand}" />
     </StackPanel>
 
 </UserControl>

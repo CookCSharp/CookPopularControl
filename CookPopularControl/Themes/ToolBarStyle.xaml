@@ -1,8 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:toolbar="clr-namespace:CookPopularControl.Controls.ToolBar"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CheckBoxStyle.xaml" />

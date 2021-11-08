@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
@@ -11,16 +11,16 @@
 
 
     <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
-        <Setter Property="attached:FrameworkElementBaseAttached.ShadowEffect" Value="{x:Null}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Right" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
-        <Setter Property="attached:ButtonBaseAttached.IsShowRipple" Value="True" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="common:FrameworkElementBaseAttached.ShadowEffect" Value="{x:Null}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="0" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="0" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0" />
+        <Setter Property="common:ButtonBaseAttached.IsShowRipple" Value="True" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
         <Setter Property="pc:ButtonAssist.ImageSource" Value="{x:Null}" />
         <Setter Property="pc:ButtonAssist.ImageWidth" Value="0" />
         <Setter Property="pc:ButtonAssist.ImageHeight" Value="0" />
@@ -40,14 +40,14 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonNoMouseOverTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -61,19 +61,19 @@
 
 
     <Style x:Key="ButtonContentWithIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0,0,8,0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double20Value}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double20Value}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0,0,8,0" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double20Value}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double20Value}" />
     </Style>
     <Style x:Key="ButtonIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double30Value}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double30Value}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double30Value}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double30Value}" />
     </Style>
     <Style x:Key="ButtonTransparentIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonIconStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonNoMouseOverTransparentIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonIconStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -87,17 +87,17 @@
 
 
     <Style x:Key="ButtonContentWithGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0,0,8,0" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0,0,8,0" />
         <Setter Property="pc:ButtonAssist.ImageWidth" Value="{DynamicResource Double30Value}" />
         <Setter Property="pc:ButtonAssist.ImageHeight" Value="{DynamicResource Double30Value}" />
     </Style>
     <Style x:Key="ButtonGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithGifStyle}">
-        <Setter Property="attached:FrameworkElementBaseAttached.IconMargin" Value="0" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
     <Style x:Key="ButtonTransparentGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonGifStyle}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="attached:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
     </Style>
 
 

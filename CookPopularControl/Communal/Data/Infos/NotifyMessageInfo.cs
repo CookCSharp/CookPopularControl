@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Data;
-using System;
+﻿using System;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 

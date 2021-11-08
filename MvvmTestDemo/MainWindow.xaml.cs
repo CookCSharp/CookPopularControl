@@ -1,13 +1,5 @@
-﻿using CookPopularControl.Communal.Data.Args;
-using CookPopularControl.Windows;
-using MvvmTestDemo.Commumal;
+﻿using CookPopularControl.Windows;
 using PropertyChanged;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace MvvmTestDemo
 {

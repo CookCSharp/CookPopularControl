@@ -1,10 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
@@ -52,22 +50,22 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="Transparent"
-                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                                CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                             <Grid x:Name="FillGrid" Background="{TemplateBinding Background}">
                                 <Rectangle Width="{TemplateBinding pc:CheckBoxAssistant.FillSize}"
                                            Height="{TemplateBinding pc:CheckBoxAssistant.FillThickness}"
                                            Fill="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
-                                           Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Line}" />
+                                           Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={common:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Line}" />
                                 <Rectangle Width="{TemplateBinding pc:CheckBoxAssistant.FillSize}"
                                            Height="{TemplateBinding pc:CheckBoxAssistant.FillSize}"
                                            Fill="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
-                                           Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Rectangle}" />
+                                           Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={common:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Rectangle}" />
                                 <Path Data="{DynamicResource CheckGeometry}"
                                       Fill="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
                                       Stretch="Uniform"
                                       Stroke="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
                                       StrokeThickness="{TemplateBinding pc:CheckBoxAssistant.FillThickness}"
-                                      Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={commonConverters:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Check}" />
+                                      Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={common:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Check}" />
                             </Grid>
                         </Border>
                         <Canvas>
@@ -143,7 +141,7 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding SwicthCloseBackground}"
-                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                                    CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                                 <Canvas Background="Transparent">
                                     <Border x:Name="PART_CheckFlag"
                                             Width="{TemplateBinding Height}"
@@ -151,8 +149,8 @@
                                             BorderBrush="{TemplateBinding BorderBrush}"
                                             BorderThickness="{TemplateBinding BorderThickness}"
                                             Background="{TemplateBinding Background}"
-                                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                            Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                                            Effect="{TemplateBinding common:FrameworkElementBaseAttached.ShadowEffect}">
                                         <TextBlock Text="{TemplateBinding SwitchContent}"
                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

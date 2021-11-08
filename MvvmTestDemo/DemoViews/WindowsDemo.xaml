@@ -10,18 +10,18 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="PrintPreviewWindow"
-                Click="Button_Click"
-                Content="OpenPrintPreviewWindow"
-                Width="200" Height="34" />
-        <Button x:Name="DragableWindows"
-                Click="Button_Click"
-                Content="OpenDragableWindows"
                 Width="200" Height="34"
-                Margin="0,20" />
+                Content="OpenPrintPreviewWindow"
+                Click="Button_Click" />
+        <Button x:Name="DragableWindows"
+                Width="200" Height="34"
+                Content="OpenDragableWindows"
+                Margin="0,20"
+                Click="Button_Click" />
         <Button x:Name="NoneTitleBarWindow"
-                Click="Button_Click"
+                Width="200" Height="34"
                 Content="OpenNoneTitleBarWindow"
-                Width="200" Height="34" />
+                Click="Button_Click" />
     </StackPanel>
 
 </UserControl>

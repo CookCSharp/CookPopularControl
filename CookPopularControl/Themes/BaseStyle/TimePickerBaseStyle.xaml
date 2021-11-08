@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
                     xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="ClockRadioButtonStyle" TargetType="{x:Type RadioButton}">
@@ -41,7 +40,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50" />
@@ -88,11 +87,11 @@
                                 <RadioButton x:Name="PART_Pm" Content="下午" Style="{StaticResource ClockRadioButtonStyle}" />
                                 <Button Width="30" Height="30"
                                         Content="重置"
-                                        attached:FrameworkElementBaseAttached.CornerRadius="15"
+                                        common:FrameworkElementBaseAttached.CornerRadius="15"
                                         Command="{x:Static pc:Clock.ResetCommand}" />
                                 <Button Width="30" Height="30"
                                         Content="确定"
-                                        attached:FrameworkElementBaseAttached.CornerRadius="15"
+                                        common:FrameworkElementBaseAttached.CornerRadius="15"
                                         Command="{x:Static pc:Clock.ConfirmCommand}"
                                         Visibility="{TemplateBinding pc:ClockAssistant.IsAddConfirmButton, Converter={toolkit:BooleanToVisibilityConverter}}" />
                             </UniformGrid>
@@ -116,7 +115,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -125,10 +124,9 @@
                             <TextBox x:Name="PART_TextBox" Grid.Column="0"
                                      Text="{TemplateBinding CurrentTime}"
                                      BorderThickness="0"
-                                     attached:FrameworkElementBaseAttached.CornerRadius="2"
-                                     attached:TextElementAttached.PlaceHolder="请选择时间" />
+                                     common:FrameworkElementBaseAttached.CornerRadius="2" common:TextElementAttached.PlaceHolder="请选择时间" />
                             <ToggleButton x:Name="PART_Button" Grid.Column="1"
-                                          attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ClockGeometry}"
+                                          common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ClockGeometry}"
                                           Style="{DynamicResource ToggleButtonTransparentIconStyle}" />
                             <Popup x:Name="PART_Popup"
                                    AllowsTransparency="True"

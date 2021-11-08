@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
-                    xmlns:common="clr-namespace:CookPopularControl.Communal">
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <common:ArcStartPointConverter x:Key="ArcStartPointConverter" />
     <common:ArcEndPointConverter x:Key="ArcEndPointConverter" />

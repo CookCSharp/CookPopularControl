@@ -13,9 +13,9 @@
 
     <StackPanel VerticalAlignment="Center">
         <pc:ColorPicker Background="#F9C8A0" />
-        <Button Click="Button_Click"
+        <Button Width="200" Height="35"
                 Content="OpenColorDialog"
-                Width="200" Height="35" />
+                Click="Button_Click" />
     </StackPanel>
 
 </UserControl>

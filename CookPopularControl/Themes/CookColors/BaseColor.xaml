@@ -10,11 +10,11 @@
     <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="{StaticResource PrimaryBackgroundColor}" />
     <SolidColorBrush x:Key="AssistantBackgroundBrush" Color="{StaticResource AssistantBackgroundColoc}" />
 
-    
-    
-    
-    <!--**********以下不变的***********-->
-    
+
+
+
+    <!--  **********以下不变的***********  -->
+
     <SolidColorBrush x:Key="FieldBorderBrush" Color="{x:Static SystemColors.ActiveBorderColor}" />
     <SolidColorBrush x:Key="FieldPlaceHolderBrush" Color="#D3D3D3" />
     <SolidColorBrush x:Key="FieldValidationErrorBrush" Color="#FF1F1F" />

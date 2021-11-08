@@ -1,6 +1,6 @@
-﻿using CookPopularControl.Communal.Data;
+﻿using CookPopularControl.Communal;
+using CookPopularControl.Communal.Data;
 using CookPopularControl.Communal.Interface;
-using CookPopularControl.Communal;
 using CookPopularControl.Controls.Dragables;
 using CookPopularControl.Controls.Dragables.Core;
 using CookPopularControl.References;

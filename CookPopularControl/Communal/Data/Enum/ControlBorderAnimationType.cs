@@ -1,8 +1,4 @@
-﻿using System;
-
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：ControlBorderAni
  * Author： Chance_写代码的厨子

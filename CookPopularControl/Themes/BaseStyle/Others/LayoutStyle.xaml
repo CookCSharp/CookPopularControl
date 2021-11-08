@@ -1,13 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
                     xmlns:dragCore="clr-namespace:CookPopularControl.Controls.Dragables.Core"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
-                    xmlns:common="clr-namespace:CookPopularControl.Communal">
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="HideDisabledButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type pc:Layout}}, Path=(pc:Layout.IsFloatingInLayout), Converter={toolkit:BooleanToVisibilityConverter}}" />
+        <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type pc:Layout}}, Path=(pc:Layout.IsFloatingInLayout), Converter={toolkit:BooleanToVisibilityConverter}}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />

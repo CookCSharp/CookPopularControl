@@ -1,12 +1,9 @@
-﻿using CookPopularControl.Themes.CookColors;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Mvvm;
 using Prism.Unity;
 using System;
 using System.Reflection;
-using System.Reflection.Emit;
 using System.Windows;
-using System.Windows.Data;
 
 
 

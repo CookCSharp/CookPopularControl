@@ -84,8 +84,8 @@
                                   Content="Flip"
                                   FontSize="16"
                                   Margin="10,0"
-                                  Style="{StaticResource ToggleButtonFlipStyle}"
-                                  pc:FrameworkElementBaseAttached.CornerRadius="100">
+                                  pc:FrameworkElementBaseAttached.CornerRadius="100"
+                                  Style="{StaticResource ToggleButtonFlipStyle}">
                         <pc:ToggleButtonAssistant.OnCheckedElement>
                             <TextBlock Text="Chance" />
                         </pc:ToggleButtonAssistant.OnCheckedElement>
@@ -121,8 +121,8 @@
                     </TextBox>
                     <pc:NumericUpDown Width="200" Height="34"
                                       FontSize="14"
+                                      Minimum="0" Maximum="20"
                                       Margin="10,0"
-                                      Maximum="20" Minimum="0"
                                       Style="{StaticResource NumericUpDownAddClearButtonStyle}">
                         <pc:NumericUpDown.Value>
                             <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged">

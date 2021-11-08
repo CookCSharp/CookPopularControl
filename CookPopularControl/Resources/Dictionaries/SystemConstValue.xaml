@@ -14,5 +14,5 @@
     <sys:Double x:Key="DefaultControlHeight">30</sys:Double>
     <sys:Double x:Key="DefaultButtonHeight">30</sys:Double>
     <sys:Double x:Key="DefaultTextElementHeight">30</sys:Double>
-    
+
 </ResourceDictionary>

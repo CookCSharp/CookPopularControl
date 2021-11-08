@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -25,7 +21,7 @@ namespace CookPopularCSharpToolkit.Windows
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value is double d)
+            if (value is double d)
                 return TimeSpan.FromSeconds(Math.Round(d, 0));
 
             return TimeSpan.Zero;

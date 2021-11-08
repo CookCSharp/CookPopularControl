@@ -1,9 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ContextMenu x:Key="DefaultContextMenu">
         <MenuItem Command="Cut">
@@ -385,8 +384,8 @@
                         <ToggleButton x:Name="PART_PopupButton"
                                       Width="{TemplateBinding Width}"
                                       Height="{TemplateBinding Height}"
-                                      attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding Height}"
-                                      attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding Width}"
+                                      common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding Height}"
+                                      common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding Width}"
                                       pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
                                       pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
@@ -459,8 +458,8 @@
                         <ToggleButton x:Name="PART_PopupButton"
                                       Width="{TemplateBinding Width}"
                                       Height="{TemplateBinding Height}"
-                                      attached:FrameworkElementBaseAttached.IconHeight="50"
-                                      attached:FrameworkElementBaseAttached.IconWidth="50"
+                                      common:FrameworkElementBaseAttached.IconHeight="50"
+                                      common:FrameworkElementBaseAttached.IconWidth="50"
                                       pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
                                       pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"

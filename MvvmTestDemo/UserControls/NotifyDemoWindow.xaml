@@ -13,36 +13,37 @@
     <pc:SimpleGrid>
         <WrapPanel>
             <Button x:Name="ShowInfoBubbleMessage"
-                    Click="OpenBubbleMessage_Click"
+                    Width="200" Height="35"
                     Content="ShowInfoBubbleMessage"
-                    Width="200" Height="35" />
+                    Click="OpenBubbleMessage_Click" />
             <Button x:Name="ShowWarningBubbleMessage"
-                    Click="OpenBubbleMessage_Click"
+                    Width="200" Height="35"
                     Content="ShowWarningBubbleMessage"
-                    Width="200" Height="35"
-                    Margin="10,0" />
+                    Margin="10,0"
+                    Click="OpenBubbleMessage_Click" />
             <Button x:Name="ShowErrorBubbleMessage"
-                    Click="OpenBubbleMessage_Click"
+                    Width="200" Height="35"
                     Content="ShowErrorBubbleMessage"
-                    Width="200" Height="35" />
+                    Click="OpenBubbleMessage_Click" />
             <Button x:Name="ShowFatalBubbleMessage"
-                    Click="OpenBubbleMessage_Click"
+                    Width="200" Height="35"
                     Content="ShowFatalBubbleMessage"
-                    Width="200" Height="35"
-                    Margin="0,10" />
+                    Margin="0,10"
+                    Click="OpenBubbleMessage_Click" />
             <Button x:Name="ShowQuestionBubbleMessage"
-                    Click="OpenBubbleMessage_Click"
-                    Content="ShowQuestionBubbleMessage"
                     Width="200" Height="35"
-                    Margin="10,0" />
+                    Content="ShowQuestionBubbleMessage"
+                    Margin="10,0"
+                    Click="OpenBubbleMessage_Click" />
             <Button x:Name="ShowSuccessBubbleMessage"
-                    Click="OpenBubbleMessage_Click"
+                    Width="200" Height="35"
                     Content="ShowSuccessBubbleMessage"
-                    Width="200" Height="35" />
+                    Click="OpenBubbleMessage_Click" />
         </WrapPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right">
-            <StackPanel pc:NotifyMessageBase.ParentElementToken="NewPanel"
-                        Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <ScrollViewer HorizontalAlignment="Right" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Margin="0,10,10,10"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        pc:NotifyMessageBase.ParentElementToken="NewPanel" />
         </ScrollViewer>
     </pc:SimpleGrid>
 

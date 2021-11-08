@@ -34,7 +34,8 @@
             </pc:SearchControl>
             <pc:SearchControl Width="200" Height="35"
                               Margin="0,20"
-                              ContentChanged="SearchControl_ContentChanged" IsEnabled="False" StartSearch="SearchControl_StartSearch" />
+                              ContentChanged="SearchControl_ContentChanged" IsEnabled="False"
+                              StartSearch="SearchControl_StartSearch" />
         </WrapPanel>
 
         <TextBlock Text="EditingTag:"
@@ -42,17 +43,18 @@
                    Margin="0,8" />
         <WrapPanel>
             <pc:EditingTag Content="写代码的厨子" Header="Chance:" Style="{StaticResource DefaultEditingTagStyle}" />
-            <pc:EditingTag Content="写代码的厨子" Header="Chance:" Margin="10,0"
-                           pc:FrameworkElementBaseAttached.IconHeight="15" 
-                           pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0" 
+            <pc:EditingTag Content="写代码的厨子" Header="Chance:"
+                           Margin="10,0"
+                           pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"
                            pc:FrameworkElementBaseAttached.IconWidth="15"
                            Style="{StaticResource EditingTagAddClearButtonStyle}" />
-            <pc:EditingTag Content="写代码的厨子" Header="Chance:" Margin="10,0"
-                           EditorType="NumericUpDown" Width="400" Background="Red"
-                           HorizontalContentAlignment="Left" Padding="10,0,0,0"
-                           pc:FrameworkElementBaseAttached.IconHeight="15" 
-                           pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0" 
-                           pc:FrameworkElementBaseAttached.IconWidth="15"
+            <pc:EditingTag Width="400"
+                           Content="写代码的厨子" Header="Chance:"
+                           Background="Red"
+                           Margin="10,0" Padding="10,0,0,0"
+                           HorizontalContentAlignment="Left"
+                           pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"
+                           pc:FrameworkElementBaseAttached.IconWidth="15" EditorType="NumericUpDown"
                            Style="{StaticResource EditingTagAddClearButtonStyle}" />
         </WrapPanel>
 

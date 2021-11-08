@@ -1,5 +1,4 @@
-﻿using CookPopularCSharpToolkit.Communal;
-using System.Drawing;
+﻿using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;

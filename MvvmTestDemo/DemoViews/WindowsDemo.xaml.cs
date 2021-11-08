@@ -1,6 +1,6 @@
-﻿using MvvmTestDemo.Windows;
-using CookPopularControl.Controls.Windows.Printers;
+﻿using CookPopularControl.Controls.Windows.Printers;
 using MvvmTestDemo.DemoDragables;
+using MvvmTestDemo.Windows;
 using System;
 using System.Windows;
 using System.Windows.Controls;

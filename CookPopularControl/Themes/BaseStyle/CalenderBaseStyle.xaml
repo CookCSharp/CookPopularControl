@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assistant="clr-namespace:CookPopularControl.Controls.Dates"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal">
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
@@ -20,15 +20,17 @@
                 <ControlTemplate TargetType="CalendarButton">
                     <Grid>
                         <Rectangle x:Name="SelectedBackground"
-                                   Fill="Transparent" Opacity="0" RadiusX="1"
-                                   RadiusY="1" />
+                                   Fill="Transparent"
+                                   Opacity="0"
+                                   RadiusX="1" RadiusY="1" />
                         <Rectangle x:Name="TodayBackground"
-                                   Fill="Transparent" Opacity="0" RadiusX="1"
-                                   RadiusY="1" />
+                                   Fill="Transparent"
+                                   Opacity="0"
+                                   RadiusX="1" RadiusY="1" />
                         <ContentPresenter x:Name="NormalText"
-                                          TextElement.Foreground="{TemplateBinding Foreground}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}" />
                         <Rectangle x:Name="CalendarButtonFocusVisual"
                                    IsHitTestVisible="false" RadiusX="1" RadiusY="1"
                                    Stroke="{DynamicResource PrimaryThemeBrush}"
@@ -46,7 +48,8 @@
                                         <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
                                                         Storyboard.TargetName="NormalText"
                                                         Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
-                                        <ColorAnimation Storyboard.TargetName="TodayBackground" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                        <ColorAnimation Storyboard.TargetName="TodayBackground"
+                                                        Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
                                                         To="{DynamicResource ButtonBaseMouseOverColor}"
                                                         Duration="0:0:0.2" />
                                     </Storyboard>
@@ -62,7 +65,8 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="SelectedBackground" Storyboard.TargetProperty="Opacity"
                                                          To="1" Duration="0:0:0.2" />
-                                        <ColorAnimation Storyboard.TargetName="SelectedBackground" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                        <ColorAnimation Storyboard.TargetName="SelectedBackground"
+                                                        Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
                                                         To="{DynamicResource PrimaryThemeColor}"
                                                         Duration="0:0:0.2" />
                                     </Storyboard>
@@ -84,14 +88,14 @@
                                 <VisualState Name="CalendarButtonFocused">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CalendarButtonFocusVisual" Storyboard.TargetProperty="Visibility" Duration="0:0:0.2">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState Name="CalendarButtonUnfocused">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CalendarButtonFocusVisual" Storyboard.TargetProperty="Visibility" Duration="0:0:0.2">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -123,17 +127,20 @@
                     <Grid>
                         <Rectangle x:Name="TodayBackground"
                                    Fill="{DynamicResource PrimaryThemeBrush}"
-                                   Opacity="0" RadiusX="1" RadiusY="1" />
+                                   Opacity="0"
+                                   RadiusX="1" RadiusY="1" />
                         <Rectangle x:Name="SelectedBackground"
                                    Fill="{DynamicResource PrimaryThemeBrush}"
-                                   Opacity="0" RadiusX="1" RadiusY="1" />
+                                   Opacity="0"
+                                   RadiusX="1" RadiusY="1" />
                         <Rectangle x:Name="HighlightBackground"
                                    Fill="{DynamicResource ButtonBaseMouseOverBackground}"
-                                   Opacity="0" RadiusX="1" RadiusY="1" />
+                                   Opacity="0"
+                                   RadiusX="1" RadiusY="1" />
                         <ContentPresenter x:Name="NormalText"
-                                          TextElement.Foreground="{TemplateBinding Foreground}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}" />
                         <Rectangle x:Name="DayButtonFocusVisual"
                                    IsHitTestVisible="false" RadiusX="1" RadiusY="1"
                                    Stroke="{DynamicResource PrimaryThemeBrush}"
@@ -176,14 +183,14 @@
                                 <VisualState Name="CalendarButtonFocused">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DayButtonFocusVisual" Storyboard.TargetProperty="Visibility" Duration="0:0:0.2">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="0:0:0" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState Name="CalendarButtonUnfocused">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DayButtonFocusVisual" Storyboard.TargetProperty="Visibility" Duration="0:0:0.2">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -232,23 +239,23 @@
     </Style>
 
     <ControlTemplate x:Key="PreviousButtonTemplate" TargetType="{x:Type Button}">
-        <Grid Cursor="Hand"
-              Width="30" Height="30"
-              Background="Transparent">
-            <Path Data="{DynamicResource LeftTriangleGeometry}"
+        <Grid Width="30" Height="30"
+              Background="Transparent"
+              Cursor="Hand">
+            <Path Width="10" Height="15"
+                  Data="{DynamicResource LeftTriangleGeometry}"
                   Fill="{DynamicResource AssistantForegroundBrush}"
-                  Stretch="Fill"
-                  Width="10" Height="15" />
+                  Stretch="Fill" />
         </Grid>
     </ControlTemplate>
     <ControlTemplate x:Key="NextButtonTemplate" TargetType="{x:Type Button}">
-        <Grid Cursor="Hand"
-              Width="30" Height="30"
-              Background="Transparent">
-            <Path Data="{DynamicResource RightTriangleGeometry}"
+        <Grid Width="30" Height="30"
+              Background="Transparent"
+              Cursor="Hand">
+            <Path Width="10" Height="15"
+                  Data="{DynamicResource RightTriangleGeometry}"
                   Fill="{DynamicResource AssistantForegroundBrush}"
-                  Stretch="Fill"
-                  Width="10" Height="15" />
+                  Stretch="Fill" />
         </Grid>
     </ControlTemplate>
 
@@ -263,16 +270,17 @@
                         <SineEase x:Key="EasingFunctionOut" EasingMode="EaseOut" />
                         <CubicEase x:Key="EasingFunctionIn" EasingMode="EaseIn" />
                         <DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
-                            <TextBlock FontFamily="Verdana"
-                                       Text="{Binding [0]}"
-                                       Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(assistant:CalendarAssistant.WeekForegroundBrush)}"
+                            <TextBlock Text="{Binding [0]}"
+                                       Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(pc:CalendarAssistant.WeekForegroundBrush)}"
                                        FontWeight="DemiBold"
-                                       Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                       Margin="0,5"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       FontFamily="Verdana" />
                         </DataTemplate>
                     </ControlTemplate.Resources>
                     <Grid x:Name="PART_Root">
-                        <Border CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(attached:FrameworkElementBaseAttached.CornerRadius)}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <Grid RenderOptions.ClearTypeHint="Enabled" Background="{TemplateBinding Background}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}">
+                            <Grid Background="{TemplateBinding Background}" RenderOptions.ClearTypeHint="Enabled">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="*" />
@@ -284,33 +292,35 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Row="0"
-                                        CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(attached:FrameworkElementBaseAttached.CornerRadius)}"
                                         Grid.ColumnSpan="3"
-                                        Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(assistant:CalendarAssistant.TitleBackgroundBrush)}"
+                                        Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(pc:CalendarAssistant.TitleBackgroundBrush)}"
+                                        CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}"
                                         Margin="2" />
                                 <Button x:Name="PART_HeaderButton" Grid.Row="0" Grid.Column="0"
-                                        attached:FrameworkElementBaseAttached.CornerRadius="0" Focusable="False"
-                                        Style="{StaticResource ButtonTransparentStyle}"
                                         Foreground="{DynamicResource AssistantForegroundBrush}"
                                         Background="Transparent"
                                         FontSize="16" FontWeight="DemiBold"
-                                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        Focusable="False"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        common:FrameworkElementBaseAttached.CornerRadius="0"
+                                        Style="{StaticResource ButtonTransparentStyle}">
                                     <Button.RenderTransform>
                                         <TranslateTransform X="0" />
                                     </Button.RenderTransform>
                                 </Button>
                                 <Button x:Name="PART_PreviousButton" Grid.Row="0" Grid.Column="1"
-                                        Focusable="False"
-                                        Template="{StaticResource PreviousButtonTemplate}"
-                                        Margin="30,0,0,0" HorizontalAlignment="Right" />
+                                        Margin="30,0,0,0" Focusable="False"
+                                        HorizontalAlignment="Right"
+                                        Template="{StaticResource PreviousButtonTemplate}" />
                                 <Button x:Name="PART_NextButton" Grid.Row="0" Grid.Column="2"
-                                        Focusable="False"
-                                        Template="{StaticResource NextButtonTemplate}"
-                                        Margin="0,0,10,0" HorizontalAlignment="Right" />
+                                        Margin="0,0,10,0" Focusable="False"
+                                        HorizontalAlignment="Right"
+                                        Template="{StaticResource NextButtonTemplate}" />
                                 <Viewbox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
                                     <Grid x:Name="PART_MonthView"
-                                          Visibility="Visible"
-                                          Margin="10,0" HorizontalAlignment="Center">
+                                          Margin="10,0"
+                                          HorizontalAlignment="Center"
+                                          Visibility="Visible">
                                         <Grid.RenderTransform>
                                             <TranslateTransform X="0" />
                                         </Grid.RenderTransform>
@@ -336,8 +346,9 @@
                                 </Viewbox>
                                 <Viewbox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
                                     <Grid x:Name="PART_YearView"
-                                          Visibility="Hidden"
-                                          Margin="10,0" HorizontalAlignment="Center">
+                                          Margin="10,0"
+                                          HorizontalAlignment="Center"
+                                          Visibility="Hidden">
                                         <Grid.RenderTransform>
                                             <TranslateTransform X="0" />
                                         </Grid.RenderTransform>
@@ -357,9 +368,12 @@
                             </Grid>
                         </Border>
                         <Rectangle x:Name="PART_DisabledVisual"
-                                   Fill="#A5FFFFFF" Opacity="1" RadiusX="2"
-                                   RadiusY="2" Stretch="Fill" Stroke="#A5FFFFFF"
-                                   StrokeThickness="1" Visibility="Collapsed" />
+                                   Fill="#A5FFFFFF"
+                                   Stretch="Fill"
+                                   Opacity="1"
+                                   RadiusX="2" RadiusY="2" Stroke="#A5FFFFFF"
+                                   StrokeThickness="1"
+                                   Visibility="Collapsed" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -374,45 +388,51 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="PART_DisabledVisual" Property="Visibility" Value="Visible" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="PART_DisabledVisual" />
                         </Trigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=DisplayMode}" Value="Year">
-                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Hidden" />
-                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Visible" />
+                            <Setter Property="Visibility" Value="Hidden" TargetName="PART_MonthView" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="PART_YearView" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=DisplayMode}" Value="Decade">
-                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Hidden" />
-                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Visible" />
+                            <Setter Property="Visibility" Value="Hidden" TargetName="PART_MonthView" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="PART_YearView" />
                         </DataTrigger>
                         <EventTrigger RoutedEvent="Button.Click" SourceName="PART_PreviousButton">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation AccelerationRatio="0.1" DecelerationRatio="0.9"
-                                                     EasingFunction="{StaticResource EasingFunctionOut}"
-                                                     Storyboard.TargetName="PART_HeaderButton" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                     From="-240" To="0" Duration="0:0:0.3" />
-                                    <DoubleAnimation AccelerationRatio="0.3" DecelerationRatio="0.7"
-                                                     Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                     From="-270" To="0" Duration="0:0:0.3" />
-                                    <DoubleAnimation AccelerationRatio="0.3" DecelerationRatio="0.7"
-                                                     Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                     From="-240" To="0" Duration="0:0:0.3" />
+                                    <DoubleAnimation Storyboard.TargetName="PART_HeaderButton"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     From="-240" To="0" Duration="0:0:0.3"
+                                                     AccelerationRatio="0.1" DecelerationRatio="0.9"
+                                                     EasingFunction="{StaticResource EasingFunctionOut}" />
+                                    <DoubleAnimation Storyboard.TargetName="PART_MonthView"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     From="-270" To="0" Duration="0:0:0.3"
+                                                     AccelerationRatio="0.3" DecelerationRatio="0.7" />
+                                    <DoubleAnimation Storyboard.TargetName="PART_YearView"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     From="-240" To="0" Duration="0:0:0.3"
+                                                     AccelerationRatio="0.3" DecelerationRatio="0.7" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.Click" SourceName="PART_NextButton">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation AccelerationRatio="0.1" DecelerationRatio="0.9"
-                                                     EasingFunction="{StaticResource EasingFunctionIn}"
-                                                     Storyboard.TargetName="PART_HeaderButton" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                     From="240" To="0" Duration="0:0:0.3" />
-                                    <DoubleAnimation AccelerationRatio="0.3" DecelerationRatio="0.7"
-                                                     Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                     From="270" To="0" Duration="0:0:0.3" />
-                                    <DoubleAnimation AccelerationRatio="0.3" DecelerationRatio="0.7"
-                                                     Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                     From="240" To="0" Duration="0:0:0.3" />
+                                    <DoubleAnimation Storyboard.TargetName="PART_HeaderButton"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     From="240" To="0" Duration="0:0:0.3"
+                                                     AccelerationRatio="0.1" DecelerationRatio="0.9"
+                                                     EasingFunction="{StaticResource EasingFunctionIn}" />
+                                    <DoubleAnimation Storyboard.TargetName="PART_MonthView"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     From="270" To="0" Duration="0:0:0.3"
+                                                     AccelerationRatio="0.3" DecelerationRatio="0.7" />
+                                    <DoubleAnimation Storyboard.TargetName="PART_YearView"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     From="240" To="0" Duration="0:0:0.3"
+                                                     AccelerationRatio="0.3" DecelerationRatio="0.7" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -436,10 +456,10 @@
                     <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}" ClipToBounds="True" Effect="{DynamicResource ComboxBoxShadow}">
                         <StackPanel x:Name="PART_Root" Width="234">
                             <CalendarItem x:Name="PART_CalendarItem"
-                                          Style="{TemplateBinding CalendarItemStyle}"
                                           BorderBrush="{TemplateBinding BorderBrush}"
                                           BorderThickness="{TemplateBinding BorderThickness}"
-                                          Background="{TemplateBinding Background}" />
+                                          Background="{TemplateBinding Background}"
+                                          Style="{TemplateBinding CalendarItemStyle}" />
                         </StackPanel>
                     </AdornerDecorator>
                 </ControlTemplate>

@@ -13,123 +13,130 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <WrapPanel>
-            <TextBlock Text="NotEditable"
-                       Width="200" Height="34"
+            <TextBlock Width="200" Height="34"
+                       Text="NotEditable"
                        FontSize="20" />
-            <TextBlock Text="IsEditable"
-                       Width="200" Height="34"
+            <TextBlock Width="200" Height="34"
+                       Text="IsEditable"
                        FontSize="20"
                        Margin="30,0" />
         </WrapPanel>
-        <TextBlock Text="SimpleComboBox"
-                   Width="200" Height="34"
+        <TextBlock Width="200" Height="34"
+                   Text="SimpleComboBox"
                    FontSize="20"
-                   Margin="0,40,0,20" HorizontalAlignment="Left" />
+                   Margin="0,40,0,20"
+                   HorizontalAlignment="Left" />
         <WrapPanel>
-            <ComboBox IsEditable="False"
-                      Style="{StaticResource DefaultComboBoxStyle}"
-                      Width="200" Height="34">
+            <ComboBox Width="200" Height="34"
+                      IsEditable="False"
+                      Style="{StaticResource DefaultComboBoxStyle}">
                 <ComboBoxItem Content="Chance" />
                 <ComboBoxItem Content="Lori" />
                 <ComboBoxItem Content="写代码的厨子" />
             </ComboBox>
-            <ComboBox IsEditable="True"
-                      Style="{StaticResource DefaultComboBoxStyle}"
-                      Width="200" Height="34"
-                      Margin="30,0">
+            <ComboBox Width="200" Height="34"
+                      Margin="30,0"
+                      IsEditable="True"
+                      Style="{StaticResource DefaultComboBoxStyle}">
                 <ComboBoxItem Content="Chance" />
                 <ComboBoxItem Content="Lori" />
                 <ComboBoxItem Content="写代码的厨子" />
             </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,20">
-            <ComboBox pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
+            <ComboBox Width="200" Height="34"
+                      Foreground="Red"
+                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
                       IsEditable="False"
-                      Style="{StaticResource AddClearButtonComboBoxStyle}"
-                      Width="200" Height="34"
-                      Foreground="Red">
+                      Style="{StaticResource AddClearButtonComboBoxStyle}">
                 <ComboBoxItem Content="Chance" />
                 <ComboBoxItem Content="Lori" />
                 <ComboBoxItem Content="写代码的厨子" />
             </ComboBox>
-            <ComboBox IsEditable="True"
-                      Style="{StaticResource AddClearButtonComboBoxStyle}"
-                      Width="400" Height="34"
+            <ComboBox Width="400" Height="34"
                       Foreground="Red"
-                      Margin="30,0">
+                      Margin="30,0"
+                      IsEditable="True"
+                      Style="{StaticResource AddClearButtonComboBoxStyle}">
                 <ComboBoxItem Content="Chance" />
                 <ComboBoxItem Content="Lori" />
                 <ComboBoxItem Content="写代码的厨子" />
             </ComboBox>
         </WrapPanel>
 
-        <TextBlock Text="MultiComboBox"
-                   Width="200" Height="34"
+        <TextBlock Width="200" Height="34"
+                   Text="MultiComboBox"
                    FontSize="20"
-                   Margin="0,40,0,20" HorizontalAlignment="Left" />
+                   Margin="0,40,0,20"
+                   HorizontalAlignment="Left" />
         <WrapPanel>
-            <ComboBox pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
-                      pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked" pc:SelectorAttached.ItemControlHeight="36" pc:SelectorAttached.ItemControlWidth="36"
+            <ComboBox Width="200" Height="50"
+                      pc:ComboBoxAssistant.ComboBoxPopupListShadow="{StaticResource ComboxBoxShadow}"
+                      pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked"
+                      pc:SelectorAttached.ItemControlHeight="36" pc:SelectorAttached.ItemControlWidth="36"
                       IsEditable="False"
                       ItemsSource="{Binding Lists}"
-                      Style="{StaticResource MultiComboBoxCheckBoxItemsStyle}"
-                      Width="200" Height="50" />
-            <ComboBox pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked" IsEditable="True"
+                      Style="{StaticResource MultiComboBoxCheckBoxItemsStyle}" />
+            <ComboBox Width="400" Height="34"
+                      Margin="30,0"
+                      pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked" IsEditable="True"
                       ItemsSource="{Binding Lists}"
-                      Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}"
-                      Width="400" Height="34"
-                      Margin="30,0" />
-            <CheckBox Content="ItemsCheckBox"
-                      Width="200" Height="30"
+                      Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}" />
+            <CheckBox Width="200" Height="30"
+                      Content="ItemsCheckBox"
                       FontSize="20" />
         </WrapPanel>
         <WrapPanel Margin="0,20">
-            <ComboBox pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete" pc:SelectorAttached.ItemControlHeight="20" pc:SelectorAttached.ItemControlWidth="20"
-                      IsEditable="False"
+            <ComboBox pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete" pc:SelectorAttached.ItemControlHeight="20"
+                      pc:SelectorAttached.ItemControlWidth="20" IsEditable="False"
                       ItemsSource="{Binding Lists}"
                       Style="{StaticResource MultiComboBoxButtonItemsStyle}" />
-            <ComboBox pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete" pc:SelectorAttached.ItemControlHeight="24" pc:SelectorAttached.ItemControlWidth="30"
-                      IsEditable="True"
+            <ComboBox Width="400" Height="34"
+                      Margin="30,0"
+                      pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete" pc:SelectorAttached.ItemControlHeight="24"
+                      pc:SelectorAttached.ItemControlWidth="30" IsEditable="True"
                       ItemsSource="{Binding Lists}"
-                      Style="{StaticResource AddClearButtonMultiComboBoxButtonItemsStyle}"
-                      Width="400" Height="34"
-                      Margin="30,0" />
-            <Button pc:ButtonBaseAttached.ButtonBaseMouseOverBackground="DodgerBlue" pc:ButtonBaseAttached.ButtonBasePressBackground="DodgerBlue" pc:FrameworkElementBaseAttached.CornerRadius="2"
+                      Style="{StaticResource AddClearButtonMultiComboBoxButtonItemsStyle}" />
+            <Button Width="100" Height="34"
                     Content="ItemsButton"
-                    Width="100" Height="34"
-                    FontSize="16" />
+                    FontSize="16"
+                    pc:ButtonBaseAttached.ButtonBaseMouseOverBackground="DodgerBlue"
+                    pc:ButtonBaseAttached.ButtonBasePressBackground="DodgerBlue"
+                    pc:FrameworkElementBaseAttached.CornerRadius="2" />
         </WrapPanel>
 
         <WrapPanel>
-            <ComboBox pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
+            <ComboBox Width="200" Height="34"
+                      pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
                       IsEditable="False"
                       ItemsSource="{Binding IconLists}"
-                      Style="{StaticResource MultiComboBoxIconItemsStyle}"
-                      Width="200" Height="34" />
-            <ComboBox pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
+                      Style="{StaticResource MultiComboBoxIconItemsStyle}" />
+            <ComboBox Width="400" Height="34"
+                      Margin="30,0"
+                      pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
                       IsEditable="True"
                       ItemsSource="{Binding IconLists}"
-                      Style="{StaticResource AddClearButtonMultiComboBoxIconItemsStyle}"
-                      Width="400" Height="34"
-                      Margin="30,0" />
-            <Path Data="{StaticResource LeafGeometry}"
-                  Fill="Red" Stretch="Uniform"
-                  Width="30" Height="30" />
+                      Style="{StaticResource AddClearButtonMultiComboBoxIconItemsStyle}" />
+            <Path Width="30" Height="30"
+                  Data="{StaticResource LeafGeometry}"
+                  Fill="Red"
+                  Stretch="Uniform" />
             <TextBlock Text="ItemsIcon" FontSize="20" Margin="10,0" />
         </WrapPanel>
 
         <WrapPanel Margin="0,20">
-            <ComboBox pc:SelectorAttached.IsPreviewImage="True" pc:SelectorAttached.ItemControlHeight="20" pc:SelectorAttached.ItemControlWidth="20"
-                      IsEditable="False"
+            <ComboBox Width="200" Height="34"
+                      pc:SelectorAttached.IsPreviewImage="True" pc:SelectorAttached.ItemControlHeight="20"
+                      pc:SelectorAttached.ItemControlWidth="20" IsEditable="False"
                       ItemsSource="{Binding ImageLists}"
-                      Style="{StaticResource MultiComboBoxImageItemsStyle}"
-                      Width="200" Height="34" />
-            <ComboBox pc:SelectorAttached.ItemControlHeight="30" pc:SelectorAttached.ItemControlWidth="30" IsEditable="True"
+                      Style="{StaticResource MultiComboBoxImageItemsStyle}" />
+            <ComboBox Width="400" Height="34"
+                      Margin="30,0"
+                      pc:SelectorAttached.ItemControlHeight="30" pc:SelectorAttached.ItemControlWidth="30"
+                      IsEditable="True"
                       ItemsSource="{Binding ImageLists}"
-                      Style="{StaticResource AddClearButtonMultiComboBoxImageItemsStyle}"
-                      Width="400" Height="34"
-                      Margin="30,0" />
-            <Image gif:AnimationBehavior.SourceUri="../Resources/Gif/programmer.gif" Width="34" Height="34" />
+                      Style="{StaticResource AddClearButtonMultiComboBoxImageItemsStyle}" />
+            <Image Width="34" Height="34" gif:AnimationBehavior.SourceUri="../Resources/Gif/programmer.gif" />
             <TextBlock Text="ItemsImageGif" FontSize="20" Margin="10,0" />
         </WrapPanel>
     </StackPanel>

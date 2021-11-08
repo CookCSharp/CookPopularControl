@@ -62,7 +62,6 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ColorPickerStyle.xaml" />
 
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/OtherControlsStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupControlsStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DragableControlsStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 

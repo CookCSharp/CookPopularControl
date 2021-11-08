@@ -6,38 +6,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
+             Background="#F0F0F0"
              d:DesignHeight="450"
-             d:DesignWidth="1000" Background="#F0F0F0">
+             d:DesignWidth="1000">
 
     <ScrollViewer>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GroupBox BorderBrush="Red" BorderThickness="4"
-                      Width="300" Height="400" 
-                      pc:GroupBoxAssistant.HeaderBackground="#F0F0F0"
-                      pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left"
+            <GroupBox Width="300" Height="400"
+                      BorderBrush="Red" BorderThickness="4"
                       Foreground="{StaticResource AssistantThemeBrush}"
-                      FontSize="20">
+                      FontSize="20"
+                      pc:GroupBoxAssistant.HeaderBackground="#F0F0F0"
+                      pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left">
                 <GroupBox.Header>
-                    <Button Content="写代码的厨子" Width="200" Height="40"/>
+                    <Button Width="200" Height="40" Content="写代码的厨子" />
                 </GroupBox.Header>
                 <Border Background="Green">
-                    <Button Content="DefaultGroupBox" Width="200" Height="40"/>
+                    <Button Width="200" Height="40" Content="DefaultGroupBox" />
                 </Border>
             </GroupBox>
-            <GroupBox Header="写代码的厨子"
-                      Style="{DynamicResource CustomHeaderGroupBoxStyle}"
-                      Width="300" Height="400"
-                      Margin="30,0">
-                <Button Content="CustomHeaderGroupBox" Width="250" Height="40" />
+            <GroupBox Width="300" Height="400"
+                      Header="写代码的厨子"
+                      Margin="30,0"
+                      Style="{DynamicResource CustomHeaderGroupBoxStyle}">
+                <Button Width="250" Height="40" Content="CustomHeaderGroupBox" />
             </GroupBox>
-            <GroupBox pc:FrameworkElementBaseAttached.CornerRadius="0"
+            <GroupBox Width="300" Height="400"
+                      Header="写代码的厨子"
+                      Foreground="#FFFFFF"
+                      Margin="0,0"
+                      pc:FrameworkElementBaseAttached.CornerRadius="0"
                       pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
                       pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth3}"
-                      Header="写代码的厨子"
-                      Style="{DynamicResource CustomHeaderGroupBoxStyle}"
-                      Width="300" Height="400"
-                      Foreground="#FFFFFF"
-                      Margin="0,0">
+                      Style="{DynamicResource CustomHeaderGroupBoxStyle}">
                 <Grid Width="300" Height="350">
                     <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform" />
                 </Grid>

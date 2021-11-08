@@ -32,51 +32,51 @@
             </Grid.ColumnDefinitions>
 
             <pc:BlockBarRect Grid.Row="0"
-                             BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
-                             BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}"
                              Grid.ColumnSpan="2"
                              Height="50"
                              Foreground="Red" Background="#808000"
                              Value="{Binding ElementName=SliderValue, Path=Value}"
-                             Margin="5" />
+                             Margin="5"
+                             BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
+                             BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}" />
 
             <pc:BlockBarCircle Grid.Row="1"
-                               BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
-                               BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}"
                                Grid.ColumnSpan="2"
                                Height="50"
                                Foreground="Green" Background="#800080"
-                               Value="{Binding ElementName=SliderValue, Path=Value}" />
+                               Value="{Binding ElementName=SliderValue, Path=Value}"
+                               BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
+                               BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}" />
 
             <pc:BlockBarImage Grid.Row="2"
-                              BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
-                              BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}"
-                              ImageSource="../Resources/CarouselViewImages/1.jpg"
                               Grid.ColumnSpan="2"
                               Height="50"
                               Foreground="Blue" Background="#008080"
-                              Value="{Binding ElementName=SliderValue, Path=Value}" />
+                              ImageSource="../Resources/CarouselViewImages/1.jpg"
+                              Value="{Binding ElementName=SliderValue, Path=Value}"
+                              BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
+                              BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}" />
 
             <TextBlock Grid.Row="3" Grid.Column="0"
                        Text="{Binding ElementName=SliderValue, Path=Value, StringFormat=Value:{0:F2}}"
                        VerticalAlignment="Center" />
             <Slider x:Name="SliderValue" Grid.Row="3" Grid.Column="1"
-                    Maximum="1" Minimum="0" />
+                    Minimum="0" Maximum="1" />
 
             <TextBlock Grid.Row="4" Grid.Column="0"
                        Text="{Binding ElementName=SliderBlockCount, Path=Value, StringFormat=BlockCount:{0:F0}}"
                        VerticalAlignment="Center" />
             <Slider x:Name="SliderBlockCount" Grid.Row="4" Grid.Column="1"
-                    Maximum="20" Minimum="1"
-                    Value="5" />
+                    Value="5"
+                    Minimum="1" Maximum="20" />
 
             <TextBlock Grid.Row="5" Grid.Column="0"
                        Text="{Binding ElementName=SliderBlockMargin, Path=Value, StringFormat=BlockMargin:{0:F0}}"
                        VerticalAlignment="Center" />
             <Slider Grid.Row="5" Grid.Column="1"
                     Name="SliderBlockMargin"
-                    Maximum="20" Minimum="0"
-                    Value="1" />
+                    Value="1"
+                    Minimum="0" Maximum="20" />
         </Grid>
     </ScrollViewer>
 

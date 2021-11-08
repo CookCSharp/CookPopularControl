@@ -56,17 +56,18 @@
             <WrapPanel>
                 <pc:NumericUpDown Width="200" Height="34" Maximum="10" />
                 <pc:NumericUpDown Width="200" Height="34"
+                                  Maximum="20"
                                   Margin="20,0"
-                                  Increment="0.5" IsShowUpDownButton="False" Maximum="20"
-                                  ValueChanged="NumericUpDown_ValueChanged" />
+                                  Increment="0.5" IsShowUpDownButton="False" ValueChanged="NumericUpDown_ValueChanged" />
                 <pc:NumericUpDown Width="200" Height="34"
-                                  Increment="0.5" Maximum="10" ValueFormat="F4" />
+                                  Maximum="10"
+                                  Increment="0.5" ValueFormat="F4" />
                 <pc:NumericUpDown Width="200" Height="34"
                                   Margin="0,20"
                                   Style="{StaticResource NumericUpDownAddClearButtonStyle}" />
                 <pc:NumericUpDown Width="200" Height="34"
+                                  Minimum="0" Maximum="20"
                                   Margin="20"
-                                  Maximum="20" Minimum="0"
                                   Style="{StaticResource NumericUpDownAddClearButtonStyle}">
                     <pc:NumericUpDown.Value>
                         <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged">
@@ -79,8 +80,9 @@
                 </pc:NumericUpDown>
                 <pc:NumericUpDown Width="200" Height="34"
                                   Value="5"
+                                  Maximum="10"
                                   ToolTip="ReadOnly"
-                                  IsEnabled="False" IsReadOnly="True" Maximum="10" />
+                                  IsEnabled="False" IsReadOnly="True" />
             </WrapPanel>
 
             <TextBlock Text="TextPath:"

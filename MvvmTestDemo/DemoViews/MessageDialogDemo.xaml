@@ -9,30 +9,30 @@
              d:DesignWidth="800">
 
     <WrapPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button Click="Button_Click"
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogSuccess"
-                Width="200" Height="34" />
-        <Button Click="Button_Click"
+                Click="Button_Click" />
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogInfo"
-                Width="200" Height="34"
-                Margin="30,0" />
-        <Button Click="Button_Click"
+                Margin="30,0"
+                Click="Button_Click" />
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogWarning"
-                Width="200" Height="34" />
-        <Button Click="Button_Click"
+                Click="Button_Click" />
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogError"
-                Width="200" Height="34"
-                Margin="0,30" />
-        <Button Click="Button_Click"
+                Margin="0,30"
+                Click="Button_Click" />
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogFatal"
-                Width="200" Height="34"
-                Margin="30,0" />
-        <Button Click="Button_Click"
+                Margin="30,0"
+                Click="Button_Click" />
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogQuestion"
-                Width="200" Height="34" />
-        <Button Click="Button_Click"
+                Click="Button_Click" />
+        <Button Width="200" Height="34"
                 Content="ShowMessageDialogCustom"
-                Width="200" Height="34" />
+                Click="Button_Click" />
     </WrapPanel>
 
 </UserControl>

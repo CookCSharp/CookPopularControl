@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Communal;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,8 +17,15 @@ namespace CookPopularControl.Controls
     /// 可编辑标签
     /// </summary>
     /// <remarks>由两个<see cref="ContentControl"/>组合而成的标签控件</remarks>
+    [TemplatePart(Name = ElementFrameworkElement, Type = typeof(FrameworkElement))]
+    [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+    [TemplatePart(Name = ElementNumericUpDown, Type = typeof(NumericUpDown))]
     public class EditingTag : Control
     {
+        private const string ElementFrameworkElement = "PART_Content";
+        private const string ElementTextBox = "PART_TextBox";
+        private const string ElementNumericUpDown = "PART_NumericUpDown";
+
         /// <summary>
         /// 标签头
         /// </summary>
@@ -133,5 +141,23 @@ namespace CookPopularControl.Controls
                 }
             }
         }
+    }
+
+
+    /// <summary>
+    /// 可编辑标签的附加属性类
+    /// </summary>
+    public class EditingTagAssistant
+    {
+        public static double GetNumericMinimum(DependencyObject obj) => (double)obj.GetValue(NumericMinimumProperty);
+        public static void SetNumericMinimum(DependencyObject obj, double value) => obj.SetValue(NumericMinimumProperty, value);
+        public static readonly DependencyProperty NumericMinimumProperty =
+            DependencyProperty.RegisterAttached("NumericMinimum", typeof(double), typeof(EditingTagAssistant), new PropertyMetadata(ValueBoxes.Double0Box));
+
+
+        public static double GetNumericaMaximum(DependencyObject obj) => (double)obj.GetValue(NumericMaximumProperty);
+        public static void SetNumericMaximum(DependencyObject obj, double value) => obj.SetValue(NumericMaximumProperty, value);
+        public static readonly DependencyProperty NumericMaximumProperty =
+            DependencyProperty.RegisterAttached("NumericMaximum", typeof(double), typeof(EditingTagAssistant), new PropertyMetadata(double.MaxValue));
     }
 }

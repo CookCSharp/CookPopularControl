@@ -8,11 +8,11 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
+             Background="Transparent"
              d:DesignHeight="450"
-             d:DesignWidth="800"
-             Background="Transparent">
+             d:DesignWidth="800">
 
-    <pc:ExtendPopup x:Name="ExtendPop" 
+    <pc:ExtendPopup x:Name="ExtendPop"
                     AllowsTransparency="True" IsMouseLeftButtonDownClosed="False" IsOpen="False"
                     IsPositionUpdate="True" IsTopMost="False" Placement="Left"
                     PlacementTarget="{Binding ElementName=Root}"

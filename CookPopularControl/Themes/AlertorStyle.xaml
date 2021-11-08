@@ -32,11 +32,12 @@
                         </Storyboard>
 
                         <Storyboard x:Key="RotateAlarmStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="PART_Alarm" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                            <DoubleAnimation Storyboard.TargetName="PART_Alarm"
+                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
                                              To="360" Duration="0:0:2" RepeatBehavior="Forever" />
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Grid SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
+                    <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="30" />
@@ -44,7 +45,8 @@
                         <Path x:Name="PART_Alarm" Grid.Row="0"
                               Data="{DynamicResource AlertorGeometry}"
                               Fill="{TemplateBinding Foreground}"
-                              RenderTransformOrigin="0.5,0.5" Stretch="Uniform">
+                              Stretch="Uniform"
+                              RenderTransformOrigin="0.5,0.5">
                             <Path.RenderTransform>
                                 <TransformGroup>
                                     <RotateTransform Angle="0" />

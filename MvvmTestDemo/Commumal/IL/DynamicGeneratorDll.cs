@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading;
 using System.Windows.Media;
 
 
@@ -52,10 +48,10 @@ namespace MvvmTestDemo.Commumal.IL
             iL.Emit(OpCodes.Ldloc_0);
             iL.Emit(OpCodes.Ldloc_1);
             iL.Emit(OpCodes.Add);
-            iL.Emit(OpCodes.Stloc,i);
-            iL.Emit(OpCodes.Br_S,lbl);
+            iL.Emit(OpCodes.Stloc, i);
+            iL.Emit(OpCodes.Br_S, lbl);
             iL.MarkLabel(lbl);
-            iL.Emit(OpCodes.Ldloc,i);
+            iL.Emit(OpCodes.Ldloc, i);
             iL.Emit(OpCodes.Ret);
 
             typeBuilder.CreateType();

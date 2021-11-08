@@ -14,14 +14,15 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:Ripple}">
                     <Grid Background="{TemplateBinding Background}">
-                        <Canvas IsHitTestVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsHitTestVisible="False">
                             <Ellipse x:Name="ClickEllipse"
-                                     Fill="{TemplateBinding Feedback}"
-                                     Opacity="0" RenderTransformOrigin=".5,.5"
                                      Canvas.Left="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RippleX}"
                                      Canvas.Top="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RippleY}"
                                      Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RippleSize}"
-                                     Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RippleSize}">
+                                     Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RippleSize}"
+                                     Fill="{TemplateBinding Feedback}"
+                                     Opacity="0"
+                                     RenderTransformOrigin=".5,.5">
                                 <Ellipse.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform x:Name="ScaleTransform" ScaleX="0" ScaleY="0" />
@@ -42,13 +43,13 @@
                                 </Style>
                             </Canvas.Style>
                         </Canvas>
-                        <ContentPresenter ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                        <ContentPresenter Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           RecognizesAccessKey="{TemplateBinding RecognizesAccessKey}"
-                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                          Content="{TemplateBinding Content}"
                                           Margin="{TemplateBinding Padding}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Panel.ZIndex="1" />
@@ -58,64 +59,64 @@
                                     <VisualTransition From="Normal" To="MousePressed">
                                         <Storyboard>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:1.2">
                                                     <EasingDoubleKeyFrame.EasingFunction>
                                                         <SineEase EasingMode="EaseIn" />
                                                     </EasingDoubleKeyFrame.EasingFunction>
                                                 </EasingDoubleKeyFrame>
                                             </DoubleAnimationUsingKeyFrames>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:1.2">
                                                     <EasingDoubleKeyFrame.EasingFunction>
                                                         <SineEase EasingMode="EaseIn" />
                                                     </EasingDoubleKeyFrame.EasingFunction>
                                                 </EasingDoubleKeyFrame>
                                             </DoubleAnimationUsingKeyFrames>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ClickEllipse" Storyboard.TargetProperty="Opacity">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value=".26" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value=".26" KeyTime="0:0:0.05" />
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
                                     <VisualTransition From="MousePressed" To="MouseOut">
                                         <Storyboard>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.12">
                                                     <EasingDoubleKeyFrame.EasingFunction>
                                                         <SineEase EasingMode="EaseIn" />
                                                     </EasingDoubleKeyFrame.EasingFunction>
                                                 </EasingDoubleKeyFrame>
                                             </DoubleAnimationUsingKeyFrames>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.12">
                                                     <EasingDoubleKeyFrame.EasingFunction>
                                                         <SineEase EasingMode="EaseIn" />
                                                     </EasingDoubleKeyFrame.EasingFunction>
                                                 </EasingDoubleKeyFrame>
                                             </DoubleAnimationUsingKeyFrames>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ClickEllipse" Storyboard.TargetProperty="Opacity">
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.12" />
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
                                     <VisualTransition From="MousePressed" To="Normal">
                                         <Storyboard>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
-                                                <EasingDoubleKeyFrame x:Name="MousePressedToNormalScaleXKeyFrame" KeyTime="0:0:0.30" Value="1" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="0" />
+                                                <EasingDoubleKeyFrame x:Name="MousePressedToNormalScaleXKeyFrame" Value="1" KeyTime="0:0:0.30" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.50" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.50" />
                                             </DoubleAnimationUsingKeyFrames>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
-                                                <EasingDoubleKeyFrame x:Name="MousePressedToNormalScaleYKeyFrame" KeyTime="0:0:0.30" Value="1" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="0" />
+                                                <EasingDoubleKeyFrame x:Name="MousePressedToNormalScaleYKeyFrame" Value="1" KeyTime="0:0:0.30" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.50" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.50" />
                                             </DoubleAnimationUsingKeyFrames>
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ClickEllipse" Storyboard.TargetProperty="Opacity">
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value=".26" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value=".26" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="0">
+                                                <EasingDoubleKeyFrame Value=".26" KeyTime="0:0:0.05" />
+                                                <EasingDoubleKeyFrame Value=".26" KeyTime="0:0:0.30" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.50">
                                                     <EasingDoubleKeyFrame.EasingFunction>
                                                         <SineEase EasingMode="EaseOut" />
                                                     </EasingDoubleKeyFrame.EasingFunction>

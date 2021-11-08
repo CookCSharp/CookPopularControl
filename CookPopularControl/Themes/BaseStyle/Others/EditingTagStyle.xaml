@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultAttachedIconControlBaseStyle}">
+        <Setter Property="Height" Value="{DynamicResource DefaultTextElementHeight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HeaderMargin" Value="0,0,6,0" />
+        <Setter Property="HeaderHorizontalAlignment" Value="Right" />
+        <Setter Property="HeaderVerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type pc:EditingTag}">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" SnapsToDevicePixels="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{TemplateBinding HeaderWidth}" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="PART_Header" Grid.Column="0"
+                                              Content="{TemplateBinding Header}"
+                                              Margin="{TemplateBinding HeaderMargin}"
+                                              HorizontalAlignment="{TemplateBinding HeaderHorizontalAlignment}"
+                                              VerticalAlignment="{TemplateBinding HeaderVerticalAlignment}" />
+                            <TextBox x:Name="PART_TextBox" Grid.Column="1"
+                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     common:FrameworkElementBaseAttached.CornerRadius="2"
+                                     common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                     common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
+                                     common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                     common:TextElementAttached.IsAddClearButton="{TemplateBinding common:TextElementAttached.IsAddClearButton}"
+                                     common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
+                                     Visibility="{TemplateBinding EditorType, Converter={common:EditorTypeToVisibilityConverter}, ConverterParameter=TextBox}"
+                                     Style="{DynamicResource DefaultTextBoxStyle}" />
+                            <pc:NumericUpDown x:Name="PART_NumericUpDown" Grid.Column="1"
+                                              Height="{TemplateBinding Height}"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Minimum="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:EditingTagAssistant.NumericMinimum)}"
+                                              Maximum="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:EditingTagAssistant.NumericMaximum)}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              common:FrameworkElementBaseAttached.CornerRadius="2"
+                                              common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                              common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
+                                              common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                              common:TextElementAttached.IsAddClearButton="{TemplateBinding common:TextElementAttached.IsAddClearButton}"
+                                              common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
+                                              Visibility="{TemplateBinding EditorType, Converter={common:EditorTypeToVisibilityConverter}, ConverterParameter=NumericUpDown}" />
+                            <ContentPresenter x:Name="PART_Content" Grid.Column="1"
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Visibility="{TemplateBinding EditorType, Converter={common:EditorTypeToVisibilityConverter}, ConverterParameter=Other}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" TargetName="PART_TextBox" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" TargetName="PART_NumericUpDown" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EditingTagAddClearButtonStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultEditingTagStyle}">
+        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="True" />
+    </Style>
+
+</ResourceDictionary>

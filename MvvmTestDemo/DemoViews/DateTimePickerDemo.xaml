@@ -17,11 +17,12 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <DatePicker x:Name="FutureDatePicker"
-                            IsEnabled="True"
-                            Style="{StaticResource DefaultDatePickerStyle}"
-                            ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"
                             Width="300" Height="50"
-                            Margin="0,20" VerticalContentAlignment="Center">
+                            Margin="0,20"
+                            ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"
+                            VerticalContentAlignment="Center"
+                            IsEnabled="True"
+                            Style="{StaticResource DefaultDatePickerStyle}">
                     <DatePicker.SelectedDate>
                         <Binding Mode="TwoWay" Path="FutureValidatingDate" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
@@ -30,17 +31,18 @@
                         </Binding>
                     </DatePicker.SelectedDate>
                 </DatePicker>
-                <DatePicker pc:FrameworkElementBaseAttached.CornerRadius="0"
-                            Style="{StaticResource DefaultDatePickerStyle}"
-                            Width="300" Height="50"
+                <DatePicker Width="300" Height="50"
                             BorderThickness="0,0,0,1"
-                            Padding="0,0,0,0" VerticalContentAlignment="Bottom" />
-                <Calendar IsEnabled="True"
-                          Style="{StaticResource DefaultCalendarStyle}"
-                          Width="300" Height="300"
+                            Padding="0,0,0,0"
+                            VerticalContentAlignment="Bottom"
+                            pc:FrameworkElementBaseAttached.CornerRadius="0"
+                            Style="{StaticResource DefaultDatePickerStyle}" />
+                <Calendar Width="300" Height="300"
                           BorderBrush="DodgerBlue" BorderThickness="2"
                           Foreground="#4A4A4A" Background="White"
-                          Margin="0,30" />
+                          Margin="0,30"
+                          IsEnabled="True"
+                          Style="{StaticResource DefaultCalendarStyle}" />
             </StackPanel>
             <StackPanel Grid.Column="1">
                 <pc:Clock Margin="0,20" />

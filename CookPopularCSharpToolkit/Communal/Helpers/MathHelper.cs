@@ -1,5 +1,4 @@
-﻿using CookPopularCSharpToolkit.Windows;
-using System;
+﻿using System;
 using System.Diagnostics.Contracts;
 using System.Windows;
 using System.Windows.Media.Media3D;

@@ -8,15 +8,15 @@
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
         mc:Ignorable="d"
-        d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Loaded="Window_Loaded"
-        ResizeMode="NoResize"
         Title="打印与预览"
         MinWidth="700"
         MinHeight="450"
         Foreground="{DynamicResource PrimaryForegroundBrush}"
-        FontWeight="DemiBold">
+        FontWeight="DemiBold"
+        d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize">
 
     <Window.Icon>
         <DrawingImage>
@@ -60,9 +60,11 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Column="0" Background="#F0F0F0">
-            <ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Disabled" ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback"
-                          PanningMode="VerticalOnly" VerticalScrollBarVisibility="Auto"
-                          Margin="20,20,20,0">
+            <ScrollViewer DockPanel.Dock="Top"
+                          Margin="20,20,20,0"
+                          HorizontalScrollBarVisibility="Disabled"
+                          ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback" PanningMode="VerticalOnly"
+                          VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -92,14 +94,15 @@
                                Text="份数"
                                VerticalAlignment="Center" />
                     <pc:NumericUpDown Grid.Row="2" Grid.Column="1"
-                                      pc:NumericUpDownAssistant.UpDownButtonMargin="12,0" Minimum="1"
-                                      VerticalAlignment="Center" />
+                                      Minimum="1"
+                                      VerticalAlignment="Center"
+                                      pc:NumericUpDownAssistant.UpDownButtonMargin="12,0" />
                     <TextBlock Grid.Row="4" Grid.Column="0"
                                Text="页面"
                                VerticalAlignment="Center" />
                     <ComboBox Grid.Row="4" Grid.Column="1"
-                              SelectedIndex="0"
-                              VerticalAlignment="Center">
+                              VerticalAlignment="Center"
+                              SelectedIndex="0">
                         <ComboBoxItem>所有页面</ComboBoxItem>
                         <ComboBoxItem>当前页面</ComboBoxItem>
                         <ComboBoxItem>自定义页面</ComboBoxItem>
@@ -108,32 +111,32 @@
                                Text="布局"
                                VerticalAlignment="Center" />
                     <ComboBox Grid.Row="6" Grid.Column="1"
-                              SelectedIndex="0"
-                              VerticalAlignment="Center">
+                              VerticalAlignment="Center"
+                              SelectedIndex="0">
                         <ComboBoxItem>Portrait</ComboBoxItem>
                         <ComboBoxItem>Landscape</ComboBoxItem>
                     </ComboBox>
                 </Grid>
             </ScrollViewer>
-            <StackPanel Orientation="Horizontal"
-                        Margin="20" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <StackPanel Margin="20"
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                        Orientation="Horizontal">
                 <Button x:Name="printButton"
-                        pc:FrameworkElementBaseAttached.CornerRadius="5"
-                        Command="{x:Static local:PrintPreviewWindow.PrintCommand}"
-                        ToolTip="Print"
-                        Content="打印"
-                        Width="100" Height="30" />
-                <Button x:Name="cancelButton"
-                        pc:FrameworkElementBaseAttached.CornerRadius="5"
-                        Command="{x:Static local:PrintPreviewWindow.CancelCommand}"
-                        ToolTip="Cancel"
-                        Content="取消"
                         Width="100" Height="30"
+                        Content="打印"
+                        ToolTip="Print"
+                        pc:FrameworkElementBaseAttached.CornerRadius="5"
+                        Command="{x:Static local:PrintPreviewWindow.PrintCommand}" />
+                <Button x:Name="cancelButton"
+                        Width="100" Height="30"
+                        Content="取消"
                         Background="{DynamicResource UnEnabledBrush}"
-                        Margin="20,0,0,0" />
+                        Margin="20,0,0,0" ToolTip="Cancel"
+                        pc:FrameworkElementBaseAttached.CornerRadius="5"
+                        Command="{x:Static local:PrintPreviewWindow.CancelCommand}" />
             </StackPanel>
         </DockPanel>
-        <local:NoKeypadDocumentViewer x:Name="documentPreviewer" ContextMenuOpening="DocumentPreviewer_ContextMenuOpening" Grid.Column="1">
+        <local:NoKeypadDocumentViewer x:Name="documentPreviewer" Grid.Column="1" ContextMenuOpening="DocumentPreviewer_ContextMenuOpening">
             <DocumentViewer.Template>
                 <ControlTemplate TargetType="{x:Type DocumentViewer}">
                     <Grid Background="#FFD8D9DA">
@@ -146,89 +149,91 @@
                             <UniformGrid Grid.Row="0"
                                          Columns="8"
                                          Width="320"
-                                         Margin="10,0" HorizontalAlignment="Left">
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PrinterGeometry}"
+                                         Margin="10,0"
+                                         HorizontalAlignment="Left">
+                                <Button Foreground="{DynamicResource UnEnabledBrush}"
+                                        Background="Transparent"
+                                        ToolTip="打印"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PrinterGeometry}"
                                         Command="{x:Static ApplicationCommands.Print}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="打印"
-                                        Foreground="{DynamicResource UnEnabledBrush}"
-                                        Background="Transparent" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CopyGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="复制"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CopyGeometry}"
                                         Command="{x:Static ApplicationCommands.Copy}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="复制" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ZoomInGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="放大"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ZoomInGeometry}"
                                         Command="{x:Static NavigationCommands.IncreaseZoom}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="放大" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ZoomOutGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="缩小"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ZoomOutGeometry}"
                                         Command="{x:Static NavigationCommands.DecreaseZoom}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="缩小" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ActualGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="100%"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ActualGeometry}"
                                         Command="{x:Static NavigationCommands.Zoom}"
                                         CommandParameter="100.0"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="100%" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource AdaptiveGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="页宽"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource AdaptiveGeometry}"
                                         Command="{x:Static DocumentViewer.FitToWidthCommand}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="页宽" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource FigureOneGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="整页"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource FigureOneGeometry}"
                                         Command="{x:Static DocumentViewer.FitToMaxPagesAcrossCommand}"
                                         CommandParameter="1"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="整页" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource FigureTwoGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="双页"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource FigureTwoGeometry}"
                                         Command="{x:Static DocumentViewer.FitToMaxPagesAcrossCommand}"
                                         CommandParameter="2"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="双页" />
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
                             </UniformGrid>
                         </ToolBar>
                         <ScrollViewer x:Name="PART_ContentHost" Grid.Row="1"
+                                      Background="#FFE8E9EA"
                                       CanContentScroll="True" Cursor="Arrow" HorizontalScrollBarVisibility="Auto"
-                                      IsTabStop="True" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Auto"
-                                      Background="#FFE8E9EA" />
-                        <ContentControl x:Name="PART_FindToolBarHost" Visibility="Collapsed" Grid.Row="2" />
+                                      IsTabStop="True" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Auto" />
+                        <ContentControl x:Name="PART_FindToolBarHost" Grid.Row="2" Visibility="Collapsed" />
                         <pc:SimpleGrid Grid.Row="2">
-                            <TextBlock TextAlignment="Center"
-                                       Foreground="{DynamicResource PrimaryForegroundBrush}"
+                            <TextBlock Foreground="{DynamicResource PrimaryForegroundBrush}"
                                        FontSize="16"
-                                       Margin="20,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                       Margin="20,0"
+                                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                                       TextAlignment="Center">
                                 <Run Text="Page" />
                                 <Run Text="{Binding CurrentPage, StringFormat={}{0} /}" />
                                 <Run Text="{Binding TotalPages}" />
                             </TextBlock>
                             <UniformGrid Columns="4" Width="160" HorizontalAlignment="Right">
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PageLeftGeometry}"
+                                <Button ToolTip="第一页"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PageLeftGeometry}"
                                         Command="{x:Static local:PrintPreviewWindow.GoToFirstPageCommand}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="第一页" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeftGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="上一页"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeftGeometry}"
                                         Command="{x:Static local:PrintPreviewWindow.PreviousPageCommand}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="上一页" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource RightGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="下一页"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource RightGeometry}"
                                         Command="{x:Static local:PrintPreviewWindow.NextPageCommand}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="下一页" />
-                                <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PageRightGeometry}"
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
+                                <Button ToolTip="最后一页"
+                                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PageRightGeometry}"
                                         Command="{x:Static local:PrintPreviewWindow.GoToLastPageCommand}"
                                         CommandTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                        Style="{DynamicResource DocumentViewerButtonIconStyle}"
-                                        ToolTip="最后一页" />
+                                        Style="{DynamicResource DocumentViewerButtonIconStyle}" />
                             </UniformGrid>
                         </pc:SimpleGrid>
                     </Grid>
@@ -239,9 +244,9 @@
             </DocumentViewer.InputBindings>
         </local:NoKeypadDocumentViewer>
         <Grid Grid.Column="1"
-              Visibility="{Binding IsLoadingPage, Converter={StaticResource BooleanToVisibilityConverter}}"
               Background="#FFE8E9EA"
-              Margin="0,40">
+              Margin="0,40"
+              Visibility="{Binding IsLoadingPage, Converter={StaticResource BooleanToVisibilityConverter}}">
             <pc:CharacterLoading Content="Loading Preview . . ."
                                  Foreground="{DynamicResource PrimaryForegroundBrush}"
                                  HorizontalAlignment="Center" VerticalAlignment="Center" />

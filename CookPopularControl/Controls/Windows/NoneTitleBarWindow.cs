@@ -18,7 +18,7 @@ namespace CookPopularControl.Windows
     public class NoneTitleBarWindow : NormalWindow
     {
         public static readonly RoutedCommand MoveWindowCommand = new RoutedCommand(nameof(MoveWindowCommand), typeof(NoneTitleBarWindow));
-        
+
         static NoneTitleBarWindow()
         {
             //DefaultStyleKeyProperty.OverrideMetadata(typeof(NoneTitleBarWindow), new FrameworkPropertyMetadata(typeof(NoneTitleBarWindow)));

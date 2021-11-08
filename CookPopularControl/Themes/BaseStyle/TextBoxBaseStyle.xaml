@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
-                    xmlns:toolsConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters">
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
         <Setter Property="Height" Value="{DynamicResource DefaultTextElementHeight}" />
@@ -21,7 +19,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -35,8 +33,8 @@
                                           UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
                                           VerticalScrollBarVisibility="Hidden" />
                             <TextBlock x:Name="PART_PlaceHolder"
-                                       Text="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
-                                       Foreground="{TemplateBinding attached:TextElementAttached.PlaceHolderBrush}"
+                                       Text="{TemplateBinding common:TextElementAttached.PlaceHolder}"
+                                       Foreground="{TemplateBinding common:TextElementAttached.PlaceHolderBrush}"
                                        Margin="2,0,0,0"
                                        Padding="{TemplateBinding Padding}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -46,15 +44,15 @@
                                     BorderThickness="0"
                                     Foreground="{DynamicResource PrimaryThemeBrush}"
                                     Background="Transparent"
-                                    Margin="{TemplateBinding attached:FrameworkElementBaseAttached.IconMargin}"
-                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
-                                    attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                    attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                    Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
+                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
+                                    common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                    common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                     Effect="{x:Null}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}">
                                 <Button.Visibility>
-                                    <MultiBinding Converter="{commonConverters:TextFieldClearButtonVisibilityConverter}">
-                                        <Binding Path="(attached:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
+                                    <MultiBinding Converter="{common:TextFieldClearButtonVisibilityConverter}">
+                                        <Binding Path="(common:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
                                         <Binding Path="Text" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
                                     </MultiBinding>
                                 </Button.Visibility>
@@ -76,7 +74,7 @@
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-                            <Setter Property="attached:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

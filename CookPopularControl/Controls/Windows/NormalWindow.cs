@@ -1,4 +1,5 @@
 ﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Runtime.InteropServices;
@@ -7,7 +8,6 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shell;
-using CookPopularCSharpToolkit.Windows;
 
 
 

@@ -4,43 +4,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"     
+             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-    <!--xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"-->
+    <!--  xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"  -->
 
     <Grid>
         <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <pc:Alertor x:Name="alertor" Width="100" Height="100" />
             <WrapPanel Margin="0,50,0,0" HorizontalAlignment="Center">
-                <Button Click="StateExchange_Click"
-                        IsEnabled="{Binding ElementName=control, Path=IsChecked, Converter={pc:BooleanToReBooleanConverter}}"
+                <Button Width="100" Height="35"
                         Content="切换状态"
-                        Width="100" Height="35" />
+                        Click="StateExchange_Click"
+                        IsEnabled="{Binding ElementName=control, Path=IsChecked, Converter={pc:BooleanToReBooleanConverter}}" />
                 <ToggleButton x:Name="control"
-                              Click="StartOrStop_Click"
-                              Content="停止"
                               Width="100" Height="35"
-                              Margin="10,0" />
+                              Content="停止"
+                              Margin="10,0"
+                              Click="StartOrStop_Click" />
             </WrapPanel>
-            <pc:Badge Margin="0,50,0,0" Direction="LeftTop" Height="100"
-                      Background="Green" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <pc:Badge Height="100"
+                      Background="Green"
+                      Margin="0,50,0,0"
+                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                      Direction="LeftTop">
                 <pc:Badge.Element>
-                    <Rectangle Width="30" Height="20" Fill="Red"/>
+                    <Rectangle Width="30" Height="20" Fill="Red" />
                 </pc:Badge.Element>
-                <Button Content="123" Width="200" Height="35"/>
+                <Button Width="200" Height="35" Content="123" />
             </pc:Badge>
         </StackPanel>
 
-        <Viewport3D RenderOptions.EdgeMode="Unspecified" Visibility="Collapsed"
-                    Width="300" Height="300">
+        <Viewport3D Width="300" Height="300"
+                    RenderOptions.EdgeMode="Unspecified"
+                    Visibility="Collapsed">
             <Viewport3D.Camera>
                 <!--<PerspectiveCamera x:Name="camera" FieldOfView="45" LookDirection="0,100,0" FarPlaneDistance="102122.68952517369" NearPlaneDistance="1" Position="-100,0.05,3200" UpDirection="0,1,0"/>-->
                 <PerspectiveCamera x:Name="camera"
                                    FarPlaneDistance="102122.68952517369" FieldOfView="45" LookDirection="0,0,-34697.3945552662"
-                                   NearPlaneDistance="0.1" Position="-292.292480468755,0.00048828125,32204.4668208912" UpDirection="0,1,0" />
+                                   NearPlaneDistance="0.1" Position="-292.292480468755,0.00048828125,32204.4668208912"
+                                   UpDirection="0,1,0" />
                 <!--<PerspectiveCamera x:Name="camera" Position="0.233348,0.169731,0.119750" LookDirection="-0.577382,-0.577288,-0.577382" UpDirection="-0.408204,0.816541,-0.408204" NearPlaneDistance="0.103701" FarPlaneDistance="0.311103"/>-->
                 <!--<OrthographicCamera x:Name="camera" Position="0.233348,0.169731,0.119750" LookDirection="-0.577382,-0.577288,-0.577382" UpDirection="-0.408204,0.816541,-0.408204" NearPlaneDistance="0.103701" FarPlaneDistance="0.311103" Width="0.307402"/>-->
             </Viewport3D.Camera>
@@ -64,9 +69,9 @@
                                         <!--<DirectionalLight Color="#6F6F6F" Direction="3.150000,-8.090000,-4.960000"/>
                                     <DirectionalLight Color="#454545" Direction="8.610000,4.820000,-1.640000"/>
                                     <DirectionalLight Color="#332835" Direction="-9.490000,3.090000,0.600000"/>-->
-                                        <DirectionalLight Direction="3.150000,-8.090000,-4.960000" Color="#FFFFFF" />
-                                        <DirectionalLight Direction="8.610000,4.820000,-1.640000" Color="#FFFFFF" />
-                                        <DirectionalLight Direction="-9.490000,3.090000,0.600000" Color="#FFFFFF" />
+                                        <DirectionalLight Color="#FFFFFF" Direction="3.150000,-8.090000,-4.960000" />
+                                        <DirectionalLight Color="#FFFFFF" Direction="8.610000,4.820000,-1.640000" />
+                                        <DirectionalLight Color="#FFFFFF" Direction="-9.490000,3.090000,0.600000" />
                                     </Model3DGroup.Children>
                                 </Model3DGroup>
                             </ModelVisual3D.Content>
@@ -83,17 +88,17 @@
                                                 <MaterialGroup>
                                                     <DiffuseMaterial>
                                                         <DiffuseMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#D50000" />
+                                                            <SolidColorBrush Color="#D50000" Opacity="1" />
                                                         </DiffuseMaterial.Brush>
                                                     </DiffuseMaterial>
                                                     <SpecularMaterial>
                                                         <SpecularMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#4A4A4A" />
+                                                            <SolidColorBrush Color="#4A4A4A" Opacity="1" />
                                                         </SpecularMaterial.Brush>
                                                     </SpecularMaterial>
                                                     <EmissiveMaterial>
                                                         <EmissiveMaterial.Brush>
-                                                            <SolidColorBrush Opacity="0.5" Color="#D55912" />
+                                                            <SolidColorBrush Color="#D55912" Opacity="0.5" />
                                                         </EmissiveMaterial.Brush>
                                                     </EmissiveMaterial>
                                                 </MaterialGroup>
@@ -107,17 +112,17 @@
                                                 <MaterialGroup>
                                                     <DiffuseMaterial>
                                                         <DiffuseMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#D50000" />
+                                                            <SolidColorBrush Color="#D50000" Opacity="1" />
                                                         </DiffuseMaterial.Brush>
                                                     </DiffuseMaterial>
                                                     <SpecularMaterial SpecularPower="10">
                                                         <SpecularMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#4A4A4A" />
+                                                            <SolidColorBrush Color="#4A4A4A" Opacity="1" />
                                                         </SpecularMaterial.Brush>
                                                     </SpecularMaterial>
                                                     <EmissiveMaterial>
                                                         <EmissiveMaterial.Brush>
-                                                            <SolidColorBrush Opacity="0.5" Color="#D55912" />
+                                                            <SolidColorBrush Color="#D55912" Opacity="0.5" />
                                                         </EmissiveMaterial.Brush>
                                                     </EmissiveMaterial>
                                                 </MaterialGroup>
@@ -131,17 +136,17 @@
                                                 <MaterialGroup>
                                                     <DiffuseMaterial>
                                                         <DiffuseMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#D50000" />
+                                                            <SolidColorBrush Color="#D50000" Opacity="1" />
                                                         </DiffuseMaterial.Brush>
                                                     </DiffuseMaterial>
                                                     <SpecularMaterial SpecularPower="10">
                                                         <SpecularMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#4A4A4A" />
+                                                            <SolidColorBrush Color="#4A4A4A" Opacity="1" />
                                                         </SpecularMaterial.Brush>
                                                     </SpecularMaterial>
                                                     <EmissiveMaterial>
                                                         <EmissiveMaterial.Brush>
-                                                            <SolidColorBrush Opacity="0.5" Color="#D55912" />
+                                                            <SolidColorBrush Color="#D55912" Opacity="0.5" />
                                                         </EmissiveMaterial.Brush>
                                                     </EmissiveMaterial>
                                                 </MaterialGroup>
@@ -155,17 +160,17 @@
                                                 <MaterialGroup>
                                                     <DiffuseMaterial>
                                                         <DiffuseMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#D50000" />
+                                                            <SolidColorBrush Color="#D50000" Opacity="1" />
                                                         </DiffuseMaterial.Brush>
                                                     </DiffuseMaterial>
                                                     <SpecularMaterial SpecularPower="10">
                                                         <SpecularMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#4A4A4A" />
+                                                            <SolidColorBrush Color="#4A4A4A" Opacity="1" />
                                                         </SpecularMaterial.Brush>
                                                     </SpecularMaterial>
                                                     <EmissiveMaterial>
                                                         <EmissiveMaterial.Brush>
-                                                            <SolidColorBrush Opacity="0.5" Color="#D55912" />
+                                                            <SolidColorBrush Color="#D55912" Opacity="0.5" />
                                                         </EmissiveMaterial.Brush>
                                                     </EmissiveMaterial>
                                                 </MaterialGroup>
@@ -179,17 +184,17 @@
                                                 <MaterialGroup>
                                                     <DiffuseMaterial>
                                                         <DiffuseMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#D50000" />
+                                                            <SolidColorBrush Color="#D50000" Opacity="1" />
                                                         </DiffuseMaterial.Brush>
                                                     </DiffuseMaterial>
                                                     <SpecularMaterial SpecularPower="10">
                                                         <SpecularMaterial.Brush>
-                                                            <SolidColorBrush Opacity="1" Color="#4A4A4A" />
+                                                            <SolidColorBrush Color="#4A4A4A" Opacity="1" />
                                                         </SpecularMaterial.Brush>
                                                     </SpecularMaterial>
                                                     <EmissiveMaterial>
                                                         <EmissiveMaterial.Brush>
-                                                            <SolidColorBrush Opacity="0.5" Color="#D55912" />
+                                                            <SolidColorBrush Color="#D55912" Opacity="0.5" />
                                                         </EmissiveMaterial.Brush>
                                                     </EmissiveMaterial>
                                                 </MaterialGroup>

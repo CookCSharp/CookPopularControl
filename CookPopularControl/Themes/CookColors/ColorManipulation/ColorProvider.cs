@@ -64,7 +64,7 @@ namespace CookPopularControl.Themes.CookColors
         public void AddThemes(string pattern, params Assembly[] assemblys)
         {
             Assembly assembly;
-            if(assemblys == null)
+            if (assemblys == null)
             {
                 assembly = Assembly.GetEntryAssembly();
                 GetThemes(assembly, pattern);
@@ -75,7 +75,7 @@ namespace CookPopularControl.Themes.CookColors
                 {
                     GetThemes(asm, pattern);
                 }
-            }           
+            }
         }
 
         public void SetAppTheme(string key, int replaceResourceDictionaryIndex = 1)

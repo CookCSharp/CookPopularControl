@@ -2166,102 +2166,6 @@
             <see cref="F:CookPopularControl.Controls.GroupBoxAssistant.HeaderBackgroundProperty"/>标识Header的背景颜色
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.EditingTag">
-            <summary>
-            可编辑标签
-            </summary>
-            <remarks>由两个<see cref="T:System.Windows.Controls.ContentControl"/>组合而成的标签控件</remarks>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.Header">
-            <summary>
-            标签头
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.HeaderProperty">
-            <summary>
-            表示<see cref="P:CookPopularControl.Controls.EditingTag.Header"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.HeaderWidth">
-            <summary>
-            标签头的宽度
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.HeaderWidthProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderWidth"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignment">
-            <summary>
-            标签头的水平定位
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignmentProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignment"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignment">
-            <summary>
-            标签头的垂直定位
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignmentProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignment"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.EditorType">
-            <summary>
-            <see cref="T:CookPopularControl.Controls.EditingTag"/>内容类型，<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>默认为<see cref="T:System.Windows.Controls.TextBox"/>
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.EditorTypeProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.Content">
-            <summary>
-            标签内容
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.ContentProperty">
-            <summary>
-            表示<see cref="P:CookPopularControl.Controls.EditingTag.Content"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.HeaderMargin">
-            <summary>
-            标签头与内容间距
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.HeaderMarginProperty">
-            <summary>
-            表示<see cref="P:CookPopularControl.Controls.EditingTag.HeaderMargin"/>的依赖属性
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.SearchControl">
-            <summary>
-            搜索框
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.SearchControl.Content">
-            <summary>
-            搜索内容
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.SearchControl.ContentProperty">
-            <summary>
-            标识<see cref="P:CookPopularControl.Controls.SearchControl.Content"/>的依赖属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.SearchControl.StartSearchEvent">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.SearchControl.StartSearchEvent"/>标识搜索事件 
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Controls.GroupLabel">
             <summary>
             标签组
@@ -2579,6 +2483,87 @@
             提供<see cref="P:CookPopularControl.Controls.Badge.IsShowBadge"/>的依赖属性
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.EditingTag">
+            <summary>
+            可编辑标签
+            </summary>
+            <remarks>由两个<see cref="T:System.Windows.Controls.ContentControl"/>组合而成的标签控件</remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.Header">
+            <summary>
+            标签头
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.HeaderProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.EditingTag.Header"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.HeaderWidth">
+            <summary>
+            标签头的宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.HeaderWidthProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderWidth"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignment">
+            <summary>
+            标签头的水平定位
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignmentProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignment"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignment">
+            <summary>
+            标签头的垂直定位
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignmentProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignment"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.EditorType">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.EditingTag"/>内容类型，<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>默认为<see cref="T:System.Windows.Controls.TextBox"/>
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.EditorTypeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.Content">
+            <summary>
+            标签内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.ContentProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.EditingTag.Content"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.HeaderMargin">
+            <summary>
+            标签头与内容间距
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.HeaderMarginProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.EditingTag.HeaderMargin"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.EditingTagAssistant">
+            <summary>
+            可编辑标签的附加属性类
+            </summary>
+        </member>
         <member name="M:CookPopularControl.Controls.Layout.GetLoadedInstances">
             <summary>
             Helper method to get all the currently loaded layouts.
@@ -2674,6 +2659,26 @@
         </member>
         <member name="M:CookPopularControl.Controls.Layout.OnApplyTemplate">
             <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.</summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.SearchControl">
+            <summary>
+            搜索框
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.SearchControl.Content">
+            <summary>
+            搜索内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.SearchControl.ContentProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.SearchControl.Content"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.SearchControl.StartSearchEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.SearchControl.StartSearchEvent"/>标识搜索事件 
+            </summary>
         </member>
         <member name="T:CookPopularControl.Controls.AnimationPanel">
             <summary>

@@ -13,7 +13,7 @@
 
     <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <pc:Swiper Style="{StaticResource DefaultSwiperStyle}" Width="300" Height="300">
+            <pc:Swiper Width="300" Height="300" Style="{StaticResource DefaultSwiperStyle}">
                 <pc:SwiperItem>
                     <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform" />
                 </pc:SwiperItem>
@@ -28,9 +28,9 @@
                 </pc:SwiperItem>
             </pc:Swiper>
 
-            <pc:Swiper Style="{StaticResource CyclePlaySwiperStyle}"
-                       Width="300" Height="300"
-                       Margin="50">
+            <pc:Swiper Width="300" Height="300"
+                       Margin="50"
+                       Style="{StaticResource CyclePlaySwiperStyle}">
                 <pc:SwiperItem>
                     <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform" />
                 </pc:SwiperItem>
@@ -45,9 +45,9 @@
                 </pc:SwiperItem>
             </pc:Swiper>
 
-            <pc:Swiper Style="{StaticResource NoIndicatorDotsSwiperStyle}"
-                       Width="300" Height="300"
-                       Margin="30">
+            <pc:Swiper Width="300" Height="300"
+                       Margin="30"
+                       Style="{StaticResource NoIndicatorDotsSwiperStyle}">
                 <pc:SwiperItem>
                     <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform" />
                 </pc:SwiperItem>
@@ -62,7 +62,7 @@
                 </pc:SwiperItem>
             </pc:Swiper>
 
-            <pc:Swiper Style="{StaticResource AutoPlaySwiperStyle}" Width="300" Height="300">
+            <pc:Swiper Width="300" Height="300" Style="{StaticResource AutoPlaySwiperStyle}">
                 <pc:SwiperItem>
                     <Image Source="../Resources/CarouselViewImages/1.jpg" Stretch="Uniform" />
                 </pc:SwiperItem>

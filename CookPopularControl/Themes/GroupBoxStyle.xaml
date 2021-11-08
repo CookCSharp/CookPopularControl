@@ -1,41 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
                     xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
-
-    <!--<Style x:Key="DefaultGroupBoxStyle" TargetType="{x:Type GroupBox}">
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type GroupBox}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Border Grid.Row="0"
-                  BorderThickness="1" BorderBrush="Pink" Background="CadetBlue"
-                  CornerRadius="2,2,0,0">
-                            <ContentPresenter Margin="4"
-                              ContentSource="Header"
-                              RecognizesAccessKey="True" />
-                        </Border>
-
-                        <Border Grid.Row="1"
-                  BorderThickness="1,0,1,1" BorderBrush="Red" Background="Green"
-                  CornerRadius="0,0,2,2">
-                            <ContentPresenter Margin="4" />
-                        </Border>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
 
     <Style x:Key="DefaultGroupBoxStyle" TargetType="{x:Type GroupBox}">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
@@ -61,7 +28,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
-                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" />
+                                CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" />
                         <Border Grid.RowSpan="4"
                                 Background="{TemplateBinding pc:GroupBoxAssistant.HeaderBackground}"
                                 Margin="10,0"
@@ -98,7 +65,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <DockPanel Height="40" MaxHeight="80">
-                        <Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(attached:FrameworkElementBaseAttached.IconGeometry)}"
+                        <Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(common:FrameworkElementBaseAttached.IconGeometry)}"
                               Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=Foreground}"
                               Stretch="Uniform"
                               Margin="10,8"
@@ -120,12 +87,12 @@
                         <Border BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="Transparent"
-                                CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}" />
+                                CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" />
                         <DockPanel>
                             <Border DockPanel.Dock="Top"
                                     Background="{TemplateBinding Background}"
-                                    CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                    Effect="{TemplateBinding attached:FrameworkElementBaseAttached.ShadowEffect}">
+                                    CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                                    Effect="{TemplateBinding common:FrameworkElementBaseAttached.ShadowEffect}">
                                 <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                                   ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"

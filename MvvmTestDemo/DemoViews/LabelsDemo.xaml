@@ -17,9 +17,10 @@
             <Image Source="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Content.Header}" Stretch="Uniform" />
         </DataTemplate>
         <DataTemplate x:Key="HeaderIconTemplate" DataType="{x:Type Label}">
-            <Path Data="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Content.Header}"
-                  Fill="White" Stretch="Uniform"
-                  Width="20" Height="20" />
+            <Path Width="20" Height="20"
+                  Data="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Content.Header}"
+                  Fill="White"
+                  Stretch="Uniform" />
         </DataTemplate>
         <Image x:Key="HeaderImage" Source="../Resources/Gif/tomcat.jpg" />
     </UserControl.Resources>
@@ -31,18 +32,19 @@
                            FontSize="20" FontWeight="DemiBold"
                            VerticalAlignment="Center" />
                 <WrapPanel Margin="20,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label pc:FrameworkElementBaseAttached.CornerRadius="20" Content="写代码的厨子" />
-                    <Label pc:LabelAssistant.Header="C" Content="写代码的厨子" Margin="20,0" />
-                    <Label pc:LabelAssistant.Header="{StaticResource HeaderImage}" Content="写代码的厨子" />
-                    <Label pc:LabelAssistant.Header="pack://application:,,,/MvvmTestDemo;component/Resources/Gif/tomcat.jpg"
-                           pc:LabelAssistant.HeaderTemplate="{StaticResource HeaderTemplate}"
-                           Content="写代码的厨子"
-                           Margin="20,0" />
+                    <Label Content="写代码的厨子" pc:FrameworkElementBaseAttached.CornerRadius="20" />
+                    <Label Content="写代码的厨子" Margin="20,0" pc:LabelAssistant.Header="C" />
+                    <Label Content="写代码的厨子" pc:LabelAssistant.Header="{StaticResource HeaderImage}" />
+                    <Label Content="写代码的厨子"
+                           Margin="20,0"
+                           pc:LabelAssistant.Header="pack://application:,,,/MvvmTestDemo;component/Resources/Gif/tomcat.jpg"
+                           pc:LabelAssistant.HeaderTemplate="{StaticResource HeaderTemplate}" />
                     <Label Content="写代码的厨子">
                         <pc:LabelAssistant.Header>
-                            <Path Data="{StaticResource StarGeometry}"
-                                  Fill="White" Stretch="Uniform"
-                                  Width="20" Height="20" />
+                            <Path Width="20" Height="20"
+                                  Data="{StaticResource StarGeometry}"
+                                  Fill="White"
+                                  Stretch="Uniform" />
                         </pc:LabelAssistant.Header>
                     </Label>
                 </WrapPanel>
@@ -52,18 +54,18 @@
                     <TextBlock Text="GroupLabel:"
                                FontSize="20" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:GroupLabel pc:FrameworkElementBaseAttached.CornerRadius="10" ItemClosed="GroupLabel_ItemClosed"
-                                   ItemsSource="{Binding GroupLists}"
-                                   Width="290"
-                                   Margin="20,0" Padding="10" />
+                    <pc:GroupLabel Width="290"
+                                   Margin="20,0" Padding="10"
+                                   pc:FrameworkElementBaseAttached.CornerRadius="10" ItemClosed="GroupLabel_ItemClosed"
+                                   ItemsSource="{Binding GroupLists}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="32,0">
+                <StackPanel Margin="32,0" Orientation="Horizontal">
                     <TextBlock Text="GroupHeaderLabel:"
                                FontSize="20" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:GroupLabel ItemsSource="{Binding GroupHeaderLists}"
-                                   Width="350"
-                                   Margin="20,0" Padding="10" />
+                    <pc:GroupLabel Width="350"
+                                   Margin="20,0" Padding="10"
+                                   ItemsSource="{Binding GroupHeaderLists}" />
                 </StackPanel>
             </WrapPanel>
             <WrapPanel>
@@ -71,19 +73,19 @@
                     <TextBlock Text="GroupImageLabel:"
                                FontSize="20" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:GroupLabel ItemTemplate="{StaticResource HeaderImageTemplate}"
-                                   ItemsSource="{Binding GroupImageLists}"
-                                   Width="350"
-                                   Margin="20,0" Padding="10" />
+                    <pc:GroupLabel Width="350"
+                                   Margin="20,0" Padding="10"
+                                   ItemTemplate="{StaticResource HeaderImageTemplate}"
+                                   ItemsSource="{Binding GroupImageLists}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="GroupIconLabel:"
                                FontSize="20" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:GroupLabel ItemTemplate="{StaticResource HeaderIconTemplate}"
-                                   ItemsSource="{Binding GroupIconLists}"
-                                   Width="350"
-                                   Margin="20,0" Padding="10" />
+                    <pc:GroupLabel Width="350"
+                                   Margin="20,0" Padding="10"
+                                   ItemTemplate="{StaticResource HeaderIconTemplate}"
+                                   ItemsSource="{Binding GroupIconLists}" />
                 </StackPanel>
             </WrapPanel>
         </StackPanel>

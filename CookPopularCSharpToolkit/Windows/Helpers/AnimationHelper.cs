@@ -1,5 +1,5 @@
-﻿using CookPopularCSharpToolkit.Windows.Expression;
-using CookPopularCSharpToolkit.Communal;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows.Expression;
 using System;
 using System.Diagnostics;
 using System.Windows;

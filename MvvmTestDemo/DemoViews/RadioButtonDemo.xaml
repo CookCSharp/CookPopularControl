@@ -27,11 +27,12 @@
                      Style="{StaticResource FillFullyRadioButtonStyle}" />
         <StackPanel>
             <RadioButton x:Name="aaa" Content="Default" Style="{StaticResource Demo.RadioButtonCustomStyle}" />
-            <RadioButton x:Name="ddd" Content="Chance" 
+            <RadioButton x:Name="ddd"
+                         Content="Chance"
                          Foreground="Purple" Background="Green"
                          Margin="0,20"
                          Style="{StaticResource Demo.RadioButtonCustomStyle}" />
-            <RadioButton x:Name="ccc" Content="Lori" Style="{StaticResource Demo.RadioButtonCustomStyle}"/>
+            <RadioButton x:Name="ccc" Content="Lori" Style="{StaticResource Demo.RadioButtonCustomStyle}" />
         </StackPanel>
     </StackPanel>
 

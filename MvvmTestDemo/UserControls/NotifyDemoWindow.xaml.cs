@@ -36,8 +36,8 @@ namespace MvvmTestDemo.UserControls
                 case "ShowQuestionBubbleMessage":
                     BubbleMessage.ShowQuestion($"写代码的厨子_{bubbleMessageIndex++}", isSure =>
                      {
-                        //MessageDialog.ShowInfo($"Clicked the {isSure.ToString()}");
-                        BubbleMessage.ShowInfo($"Clicked the {isSure}");
+                         //MessageDialog.ShowInfo($"Clicked the {isSure.ToString()}");
+                         BubbleMessage.ShowInfo($"Clicked the {isSure}");
                          return true;
                      }, token);
                     break;

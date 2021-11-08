@@ -1,5 +1,4 @@
-﻿using CookPopularCSharpToolkit.Windows.Expression;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows;
 

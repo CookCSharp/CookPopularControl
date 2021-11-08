@@ -25,19 +25,19 @@
                      ContextMenu="{StaticResource DefaultContextMenu}"
                      Foreground="Red" />
 
-            <Menu Margin="0,50" IsMainMenu="True" Effect="{StaticResource ShadowEffectDepth1}">
+            <Menu Margin="0,50" Effect="{StaticResource ShadowEffectDepth1}" IsMainMenu="True">
                 <MenuItem Header="File">
-                    <MenuItem Header="Open"/>
-                    <MenuItem Header="Save As"/>
-                    <Separator Margin="-20,0,0,0"/>
-                    <MenuItem Header="Property"/>
-                    <MenuItem Header="Select Physical Define File"/>
-                    <Separator Margin="-20,0,0,0"/>
-                    <MenuItem Header="Clear File Name List"/>
-                    <Separator Margin="-20,0,0,0"/>
-                    <MenuItem Header="展示选择过的文件"/>
-                    <Separator Margin="-20,0,0,0"/>
-                    <MenuItem Header="Exit"/>
+                    <MenuItem Header="Open" />
+                    <MenuItem Header="Save As" />
+                    <Separator Margin="-20,0,0,0" />
+                    <MenuItem Header="Property" />
+                    <MenuItem Header="Select Physical Define File" />
+                    <Separator Margin="-20,0,0,0" />
+                    <MenuItem Header="Clear File Name List" />
+                    <Separator Margin="-20,0,0,0" />
+                    <MenuItem Header="展示选择过的文件" />
+                    <Separator Margin="-20,0,0,0" />
+                    <MenuItem Header="Exit" />
                 </MenuItem>
                 <MenuItem Header="_Example">
                     <MenuItem Header="Close">
@@ -108,7 +108,8 @@
             </pc:ArcPanel>-->
 
             <pc:CircleMenu x:Name="circleMenu"
-                           Width="100" Height="100" Padding="20"
+                           Width="100" Height="100"
+                           Padding="20"
                            ArcAngle="360" IsItemRotate="False" Radius="100"
                            Style="{StaticResource CircleMenuStyle}">
                 <Button Click="Button_Click" Style="{StaticResource DemoButtonStyle}" />
@@ -123,8 +124,9 @@
                 <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource UpTriangleGeometry}" Style="{StaticResource DemoButtonStyle}" />
             </pc:CircleMenu>
 
-            <pc:PopupMenu x:Name="popupMenu" Margin="0,100,0,10"
-                          PopupPosition="LeftCenter" 
+            <pc:PopupMenu x:Name="popupMenu"
+                          Margin="0,100,0,10"
+                          PopupPosition="LeftCenter"
                           Style="{StaticResource PopupMenuStyle}">
                 <Button Click="Button_Click" Style="{StaticResource DemoButtonStyle}" />
                 <Button Margin="0,10" pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource DateGeometry}" Style="{StaticResource DemoButtonStyle}" />

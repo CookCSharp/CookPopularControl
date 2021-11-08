@@ -52,7 +52,7 @@ namespace MvvmTestDemo.DemoViews
             timer.Start();
         }
 
-        private static readonly string SlnPath =  Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
+        private static readonly string SlnPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
         private static readonly string ImageFilesPath = SlnPath + "\\MvvmTestDemo\\Resources\\Effect";
         private ReadOnlyCollection<DiffuseMaterial> GetImageFiles(string path)
         {

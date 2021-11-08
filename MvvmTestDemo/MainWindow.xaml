@@ -11,13 +11,13 @@
                   xmlns:prism="http://prismlibrary.com/"
                   xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
                   mc:Ignorable="d"
+                  Title="CookPopularControl"
+                  Width="1000"
+                  Height="800"
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
-                  WindowStartupLocation="CenterScreen"
-                  Title="CookPopularControl"
-                  Width="1000"
-                  Height="800">
+                  WindowStartupLocation="CenterScreen">
 
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
@@ -43,11 +43,11 @@
     </behavior:Interaction.Triggers>
 
     <pc:SideBarWindow.ClientTitleBarAdditionalContent>
-        <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource HomePageGeometry}"
+        <Button ToolTip="主页"
+                pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource HomePageGeometry}"
                 pc:FrameworkElementBaseAttached.IconHeight="18" pc:FrameworkElementBaseAttached.IconWidth="18"
                 Command="{Binding HomePageCommand}"
-                Style="{StaticResource WindowIconButtonStyle}"
-                ToolTip="主页" />
+                Style="{StaticResource WindowIconButtonStyle}" />
     </pc:SideBarWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
@@ -57,14 +57,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ListBox x:Name="listBox" Grid.Column="0"
-                     ItemsSource="{Binding ControlNamesList}"
-                     SelectedIndex="{Binding DemoViewsSelectedIndex, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
-                     SelectionMode="Single"
                      Width="0"
                      FontSize="14" FontWeight="Normal"
+                     pc:FrameworkElementBaseAttached.CornerRadius="0" pc:ScrollBarAssistant.HorizontalScrollBarHeight="8"
                      pc:ScrollBarAssistant.VerticalScrollBarWidth="8"
-                     pc:ScrollBarAssistant.HorizontalScrollBarHeight="8"
-                     pc:FrameworkElementBaseAttached.CornerRadius="0">
+                     ItemsSource="{Binding ControlNamesList}"
+                     SelectedIndex="{Binding DemoViewsSelectedIndex, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                     SelectionMode="Single">
                 <behavior:Interaction.Triggers>
                     <behavior:EventTrigger EventName="SelectionChanged">
                         <behavior:InvokeCommandAction Command="{Binding DemoViewsSelectedCommand}" />
@@ -96,9 +95,10 @@
         <view:ScrollViewerDemo Visibility="Collapsed" />
 
         <!--  接收BubbleMessage的容器  -->
-        <ScrollViewer VerticalScrollBarVisibility="Hidden"
-                      Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <StackPanel pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken" HorizontalAlignment="Right" />
+        <ScrollViewer Margin="0,10,10,10"
+                      HorizontalAlignment="Right" VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Hidden">
+            <StackPanel HorizontalAlignment="Right" pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken" />
         </ScrollViewer>
     </Grid>
 

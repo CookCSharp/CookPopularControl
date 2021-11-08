@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
                     xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultSwiperStyle" TargetType="{x:Type pc:Swiper}">
@@ -29,13 +28,13 @@
                         <Button x:Name="PART_LastView"
                                 Foreground="{TemplateBinding Foreground}"
                                 HorizontalAlignment="Left" VerticalAlignment="Center"
-                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}"
+                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}"
                                 Command="{x:Static pc:Swiper.LastViewCommand}"
                                 Style="{DynamicResource ButtonTransparentIconStyle}" />
                         <Button x:Name="PART_NextView"
                                 Foreground="{TemplateBinding Foreground}"
                                 HorizontalAlignment="Right" VerticalAlignment="Center"
-                                attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}"
+                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}"
                                 Command="{x:Static pc:Swiper.NextViewCommand}"
                                 Style="{DynamicResource ButtonTransparentIconStyle}" />
                         <StackPanel x:Name="PART_Panel"

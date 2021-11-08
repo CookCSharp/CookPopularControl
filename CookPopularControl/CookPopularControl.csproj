@@ -156,10 +156,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Controls\Layout\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
     </ItemGroup>
 

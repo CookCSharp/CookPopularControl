@@ -1,14 +1,8 @@
 ﻿using CookPopularCSharpToolkit.Communal;
 using MvvmTestDemo.Commumal;
 using Prism.Commands;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 
@@ -32,7 +26,7 @@ namespace MvvmTestDemo.DemoViewModels
             get => _value;
             set
             {
-                SetProperty(ref _value, value, () => 
+                SetProperty(ref _value, value, () =>
                 {
                     if (_value.BetweenMinMax(0, 100))
                         IsButtonEnabled = false;

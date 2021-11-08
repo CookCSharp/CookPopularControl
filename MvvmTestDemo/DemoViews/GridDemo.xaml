@@ -9,10 +9,10 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-    <Grid pc:GridLinesAssistant.GridLineBrush="Green" pc:GridLinesAssistant.GridLineThickness="2" pc:GridLinesAssistant.ShowBorder="True"
-          ShowGridLines="False"
-          Width="600" Height="200"
-          HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Width="600" Height="200"
+          HorizontalAlignment="Center" VerticalAlignment="Center"
+          pc:GridLinesAssistant.GridLineBrush="Green" pc:GridLinesAssistant.GridLineThickness="2"
+          pc:GridLinesAssistant.ShowBorder="True" ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
@@ -26,104 +26,104 @@
             <ColumnDefinition Width="150" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0"
-                   FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
                    Text="Grid01"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="0" Grid.Column="1"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="0" Grid.Column="1"
                    Text="Grid02"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="0" Grid.Column="2"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="0" Grid.Column="2"
                    Text="Grid03"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="0" Grid.Column="3"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="0" Grid.Column="3"
                    Text="Grid04"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource RobotoFonts}"
+                   TextAlignment="Center" />
 
         <TextBlock Grid.Row="1" Grid.Column="0"
-                   FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
                    Text="Grid11"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="1" Grid.Column="1"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="1"
                    Text="Grid12"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="1" Grid.Column="2"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="2"
                    Text="Grid13"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="1" Grid.Column="3"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="3"
                    Text="Grid14"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource RobotoFonts}"
+                   TextAlignment="Center" />
 
         <TextBlock Grid.Row="2" Grid.Column="0"
-                   FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
                    Text="Grid21"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="2" Grid.Column="1"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="1"
                    Text="Grid22"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="2" Grid.Column="2"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="2"
                    Text="Grid23"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="2" Grid.Column="3"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="3"
                    Text="Grid24"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource RobotoFonts}"
+                   TextAlignment="Center" />
 
         <TextBlock Grid.Row="3" Grid.Column="0"
-                   FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
                    Text="Grid31"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="3" Grid.Column="1"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="3" Grid.Column="1"
                    Text="Grid32"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="3" Grid.Column="2"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="3" Grid.Column="2"
                    Text="Grid33"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
-        <TextBlock Grid.Row="3" Grid.Column="3"
+                   VerticalAlignment="Center"
                    FontFamily="{StaticResource RobotoFonts}"
-                   TextAlignment="Center"
+                   TextAlignment="Center" />
+        <TextBlock Grid.Row="3" Grid.Column="3"
                    Text="Grid34"
                    FontSize="20" FontWeight="Medium"
-                   VerticalAlignment="Center" />
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource RobotoFonts}"
+                   TextAlignment="Center" />
     </Grid>
 
 </UserControl>

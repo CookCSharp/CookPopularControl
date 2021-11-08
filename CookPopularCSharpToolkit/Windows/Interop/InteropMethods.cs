@@ -1,5 +1,4 @@
-﻿using CookPopularCSharpToolkit.Windows.Interop;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -11,7 +10,6 @@ using System.Security;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading;
-using HandleCollector = CookPopularCSharpToolkit.Windows.Interop.HandleCollector;
 
 namespace CookPopularCSharpToolkit.Windows.Interop
 {

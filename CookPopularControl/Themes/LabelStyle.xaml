@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
@@ -20,7 +20,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
                             SnapsToDevicePixels="True">
                         <StackPanel Orientation="Horizontal">
                             <Border x:Name="HeaderBorder" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Style="{DynamicResource BorderCircularClipStyle}">
@@ -87,9 +87,9 @@
                                     Width="17" Height="17"
                                     Foreground="{TemplateBinding Foreground}"
                                     Margin="8,0" Opacity="0.4" Focusable="False"
-                                    attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
-                                    attached:FrameworkElementBaseAttached.IconHeight="15"
-                                    attached:FrameworkElementBaseAttached.IconWidth="15"
+                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
+                                    common:FrameworkElementBaseAttached.IconHeight="15"
+                                    common:FrameworkElementBaseAttached.IconWidth="15"
                                     Command="{x:Static pc:GroupLabel.CloseCommand}"
                                     Visibility="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=HasCloseButton, Converter={toolkit:BooleanToVisibilityConverter}}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}" />
@@ -119,7 +119,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="HasCloseButton" Value="True" />
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="0" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
         <Setter Property="pc:LabelAssistant.CornerRadius" Value="5" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
@@ -134,7 +134,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}">
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <ScrollViewer Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>

@@ -1,19 +1,12 @@
 ﻿using CookPopularControl.Controls;
-using CookPopularControl.Controls.Windows;
 using MvvmTestDemo.Commumal;
 using MvvmTestDemo.UserControls;
 using Prism.Commands;
-using Prism.Common;
-using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 
 
@@ -64,7 +57,7 @@ namespace MvvmTestDemo
 
         private void ViewSizeChanged()
         {
-           
+
         }
 
         private void OnLoaded()

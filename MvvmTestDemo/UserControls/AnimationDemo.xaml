@@ -7,18 +7,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
-             d:DesignHeight="800"
-             d:DesignWidth="800"
              Width="400"
              Height="800"
-             Background="White">
+             Background="White"
+             d:DesignHeight="800"
+             d:DesignWidth="800">
 
     <UserControl.Resources>
         <Geometry x:Key="SinData">M12.5,27.077196 C12.5,27.077196 12.500094,27.077196 12.5,1.6925709    31.25,1.6925709 31.25,18.615654 50,18.615654   68.75,18.615654 68.75,1.6925709 87.5,1.6925709   87.499909,27.077196 87.5,27.077107 87.5,27.077107</Geometry>
         <PathGeometry x:Key="SinWave" Figures="M12.5,1.6925709 C31.25,1.6925709 31.25,18.615654 50,18.615654 68.75,18.615654 68.75,1.6925709 87.5,1.6925709 87.499909,27.077196 87.5,27.077107 87.5,27.077107 63.28125,27.077136 12.5,27.077196 12.5,27.077196 12.5,27.077196 12.500094,27.077196 12.5,1.6925709 z" />
         <local:ConverterY x:Key="ConverterY" />
         <Storyboard x:Key="Wave">
-            <DoubleAnimation Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(Shape.Fill).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+            <DoubleAnimation Storyboard.TargetName="ellipse1"
+                             Storyboard.TargetProperty="(Shape.Fill).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
                              From="0" To="1" Duration="0:0:1"
                              RepeatBehavior="Forever" />
             <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.OpacityMask).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
@@ -36,7 +37,7 @@
             <Canvas>
                 <Canvas.Resources>
                     <PathGeometry x:Key="path">
-                        <PathFigure IsClosed="True" StartPoint="40,40">
+                        <PathFigure StartPoint="40,40" IsClosed="True">
                             <LineSegment Point="40,130" />
                             <ArcSegment Point="60,150" Size="20,20" />
                             <LineSegment Point="200,150" />
@@ -48,10 +49,10 @@
                         </PathFigure>
                     </PathGeometry>
                     <Storyboard x:Key="pathStoryboard">
-                        <MatrixAnimationUsingPath AutoReverse="True" DoesRotateWithTangent="True"
-                                                  PathGeometry="{StaticResource path}"
-                                                  Storyboard.TargetName="ButtonMatrixTransform" Storyboard.TargetProperty="Matrix"
-                                                  Duration="0:0:5" RepeatBehavior="Forever" />
+                        <MatrixAnimationUsingPath Storyboard.TargetName="ButtonMatrixTransform" Storyboard.TargetProperty="Matrix"
+                                                  Duration="0:0:5" RepeatBehavior="Forever"
+                                                  AutoReverse="True" DoesRotateWithTangent="True"
+                                                  PathGeometry="{StaticResource path}" />
                     </Storyboard>
                 </Canvas.Resources>
                 <Canvas.Triggers>
@@ -60,7 +61,7 @@
                     </EventTrigger>
                 </Canvas.Triggers>
                 <Path Data="{StaticResource path}" Stroke="Black" StrokeThickness="3" />
-                <Ellipse Fill="#f00" Width="20" Height="20">
+                <Ellipse Width="20" Height="20" Fill="#f00">
                     <Ellipse.RenderTransform>
                         <MatrixTransform x:Name="ButtonMatrixTransform" />
                     </Ellipse.RenderTransform>
@@ -70,7 +71,7 @@
             <Canvas>
                 <Canvas.Resources>
                     <PathGeometry x:Key="path">
-                        <PathFigure IsClosed="True" StartPoint="40,40">
+                        <PathFigure StartPoint="40,40" IsClosed="True">
                             <LineSegment Point="40,130" />
                             <ArcSegment Point="60,150" Size="20,20" />
                             <LineSegment Point="200,150" />
@@ -82,14 +83,14 @@
                         </PathFigure>
                     </PathGeometry>
                     <Storyboard x:Key="pathStoryboard">
-                        <DoubleAnimationUsingPath PathGeometry="{StaticResource path}"
-                                                  Source="X"
+                        <DoubleAnimationUsingPath Source="X"
                                                   Storyboard.TargetName="translateTransform" Storyboard.TargetProperty="X"
-                                                  Duration="0:0:5" RepeatBehavior="Forever" />
-                        <DoubleAnimationUsingPath PathGeometry="{StaticResource path}"
-                                                  Source="Y"
+                                                  Duration="0:0:5" RepeatBehavior="Forever"
+                                                  PathGeometry="{StaticResource path}" />
+                        <DoubleAnimationUsingPath Source="Y"
                                                   Storyboard.TargetName="translateTransform" Storyboard.TargetProperty="Y"
-                                                  Duration="0:0:5" RepeatBehavior="Forever" />
+                                                  Duration="0:0:5" RepeatBehavior="Forever"
+                                                  PathGeometry="{StaticResource path}" />
                     </Storyboard>
                 </Canvas.Resources>
 
@@ -116,9 +117,9 @@
                 <Canvas.Resources>
                     <PathGeometry x:Key="path" Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100" />
                     <Storyboard x:Key="pathStoryboard">
-                        <PointAnimationUsingPath PathGeometry="{StaticResource path}"
-                                                 Storyboard.TargetName="ellipse" Storyboard.TargetProperty="Center"
-                                                 Duration="0:0:5" RepeatBehavior="Forever">
+                        <PointAnimationUsingPath Storyboard.TargetName="ellipse" Storyboard.TargetProperty="Center"
+                                                 Duration="0:0:5" RepeatBehavior="Forever"
+                                                 PathGeometry="{StaticResource path}">
                             <!--  RepeatBehavior="0:0:8"  -->
                         </PointAnimationUsingPath>
                     </Storyboard>
@@ -139,7 +140,7 @@
             </Canvas>
 
             <Canvas Width="400" Height="400">
-                <Button Content="A Button" MinWidth="100">
+                <Button MinWidth="100" Content="A Button">
                     <Button.RenderTransform>
                         <MatrixTransform x:Name="ButtonMatrixTransform1">
                             <MatrixTransform.Matrix>
@@ -151,9 +152,9 @@
                         <EventTrigger RoutedEvent="Button.Loaded">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <MatrixAnimationUsingPath DoesRotateWithTangent="True"
-                                                              Storyboard.TargetName="ButtonMatrixTransform1" Storyboard.TargetProperty="Matrix"
-                                                              Duration="0:0:5" RepeatBehavior="Forever">
+                                    <MatrixAnimationUsingPath Storyboard.TargetName="ButtonMatrixTransform1" Storyboard.TargetProperty="Matrix"
+                                                              Duration="0:0:5" RepeatBehavior="Forever"
+                                                              DoesRotateWithTangent="True">
                                         <MatrixAnimationUsingPath.PathGeometry>
                                             <PathGeometry PresentationOptions:Freeze="True" Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100" />
                                         </MatrixAnimationUsingPath.PathGeometry>
@@ -167,12 +168,13 @@
 
             <Canvas>
                 <Ellipse x:Name="ellipse1"
-                         Stroke="Green" StrokeThickness="5"
                          Canvas.Left="320" Canvas.Top="80"
-                         Width="160" Height="160">
+                         Width="160" Height="160"
+                         Stroke="Green" StrokeThickness="5">
                     <Ellipse.Fill>
-                        <VisualBrush AutoLayoutContent="True" Stretch="None" TileMode="Tile"
-                                     Viewport="0,-1,1,5" ViewportUnits="RelativeToBoundingBox">
+                        <VisualBrush Stretch="None"
+                                     AutoLayoutContent="True" TileMode="Tile" Viewport="0,-1,1,5"
+                                     ViewportUnits="RelativeToBoundingBox">
                             <VisualBrush.Visual>
                                 <Grid x:Name="wave"
                                       Width="160" Height="160"
@@ -183,9 +185,10 @@
                                     </Grid.RowDefinitions>
                                     <Path Grid.Row="0"
                                           Data="{StaticResource SinFuncGeometry}"
-                                          Fill="Purple" Stretch="Fill" Stroke="Red"
-                                          StrokeThickness="2" />
-                                    <Rectangle Fill="Purple" Grid.Row="1" Margin="0,-2,0,0" />
+                                          Fill="Purple"
+                                          Stretch="Fill"
+                                          Stroke="Red" StrokeThickness="2" />
+                                    <Rectangle Grid.Row="1" Fill="Purple" Margin="0,-2,0,0" />
                                 </Grid>
                             </VisualBrush.Visual>
                             <VisualBrush.RelativeTransform>
@@ -200,21 +203,23 @@
                     </Ellipse.Fill>
                 </Ellipse>
                 <Slider x:Name="y"
-                        Maximum="100" Minimum="0"
                         Width="200"
-                        Value="0" />
+                        Value="0"
+                        Minimum="0" Maximum="100" />
                 <TextBlock Canvas.Top="23" Text="{Binding ElementName=y, Path=Value}" FontSize="20" />
                 <Slider x:Name="amplitude"
-                        Maximum="160" Minimum="1"
                         Canvas.Top="43"
                         Width="200"
-                        Value="20" />
+                        Value="20"
+                        Minimum="1" Maximum="160" />
                 <TextBlock Canvas.Top="63" Text="{Binding ElementName=amplitude, Path=Value}" FontSize="20" />
             </Canvas>
             <Path Grid.Row="1"
-                  Data="M12.5,27.077196 C12.5,27.077196 12.500094,27.077196 12.5,1.6925709    31.25,1.6925709 31.25,18.615654 50,18.615654   68.75,18.615654 68.75,1.6925709 87.5,1.6925709   87.499909,27.077196 87.5,27.077107 87.5,27.077107" Fill="Green" Stretch="Fill"
-                  Stroke="Red" StrokeThickness="2"
-                  Width="300" Height="50" />
+                  Width="300" Height="50"
+                  Data="M12.5,27.077196 C12.5,27.077196 12.500094,27.077196 12.5,1.6925709    31.25,1.6925709 31.25,18.615654 50,18.615654   68.75,18.615654 68.75,1.6925709 87.5,1.6925709   87.499909,27.077196 87.5,27.077107 87.5,27.077107"
+                  Fill="Green"
+                  Stretch="Fill"
+                  Stroke="Red" StrokeThickness="2" />
         </StackPanel>
     </ScrollViewer>
 

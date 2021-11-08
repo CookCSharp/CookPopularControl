@@ -10,48 +10,50 @@
 
     <ScrollViewer>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TabControl Style="{StaticResource DefaultTabControlStyle}"
-                        TabStripPlacement="Left"
-                        Width="300" Height="300"
+            <TabControl Width="300" Height="300"
                         Foreground="#FFFFFF"
                         Background="{StaticResource BlockBrush}"
-                        HorizontalAlignment="Left">
+                        HorizontalAlignment="Left"
+                        TabStripPlacement="Left"
+                        Style="{StaticResource DefaultTabControlStyle}">
                 <TabItem Header="First11111111111">第一个页面</TabItem>
                 <TabItem Header="Second">第二个页面</TabItem>
                 <TabItem Header="Third">第三个页面</TabItem>
                 <TabItem Header="Fourth">第四个页面</TabItem>
             </TabControl>
 
-            <TabControl Style="{StaticResource DefaultTabControlStyle}"
+            <TabControl Width="300" Height="300"
+                        Foreground="#FFFFFF"
+                        Background="{StaticResource BlockBrush}"
+                        Margin="30,0"
+                        HorizontalAlignment="Left"
                         TabStripPlacement="Top"
-                        Width="300" Height="300"
-                        Foreground="#FFFFFF"
-                        Background="{StaticResource BlockBrush}"
-                        Margin="30,0" HorizontalAlignment="Left">
+                        Style="{StaticResource DefaultTabControlStyle}">
                 <TabItem Header="First">第一个页面</TabItem>
                 <TabItem Header="Second">第二个页面</TabItem>
                 <TabItem Header="Third">第三个页面</TabItem>
                 <TabItem Header="Fourth">第四个页面</TabItem>
             </TabControl>
 
-            <TabControl Style="{StaticResource DefaultTabControlStyle}"
+            <TabControl Width="300" Height="300"
+                        Foreground="#FFFFFF"
+                        Background="{StaticResource BlockBrush}"
+                        Margin="0,0,30,0"
+                        HorizontalAlignment="Left"
                         TabStripPlacement="Right"
-                        Width="300" Height="300"
-                        Foreground="#FFFFFF"
-                        Background="{StaticResource BlockBrush}"
-                        Margin="0,0,30,0" HorizontalAlignment="Left">
+                        Style="{StaticResource DefaultTabControlStyle}">
                 <TabItem Header="First">第一个页面</TabItem>
                 <TabItem Header="Second">第二个页面</TabItem>
                 <TabItem Header="Third">第三个页面</TabItem>
                 <TabItem Header="Fourth">第四个页面</TabItem>
             </TabControl>
 
-            <TabControl Style="{StaticResource DefaultTabControlStyle}"
-                        TabStripPlacement="Bottom"
-                        Width="300" Height="300"
+            <TabControl Width="300" Height="300"
                         Foreground="#FFFFFF"
                         Background="{StaticResource BlockBrush}"
-                        HorizontalAlignment="Left">
+                        HorizontalAlignment="Left"
+                        TabStripPlacement="Bottom"
+                        Style="{StaticResource DefaultTabControlStyle}">
                 <TabItem Header="First">第一个页面</TabItem>
                 <TabItem Header="Second">第二个页面</TabItem>
                 <TabItem Header="Third">第三个页面</TabItem>

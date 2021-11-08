@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace MvvmTestDemo.DemoViews
 {
@@ -43,7 +42,7 @@ namespace MvvmTestDemo.DemoViews
             //System.Diagnostics.Debug.WriteLine(canvas.ActualHeight);
             //System.Diagnostics.Debug.WriteLine(Window.GetWindow(this).ActualHeight);
 
-            
+
 
             //var sb = scrollViewer2.Template.FindName("PART_VerticalScrollBar", scrollViewer2) as ScrollBar;
             //sb.SmallChange = 1E-19;

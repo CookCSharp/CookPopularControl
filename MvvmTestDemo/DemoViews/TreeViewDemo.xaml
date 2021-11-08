@@ -21,8 +21,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TreeView Grid.Column="0"
-                  ItemsSource="{Binding TreeViewDemoItems}"
-                  Width="200" Height="300">
+                  Width="200" Height="300"
+                  ItemsSource="{Binding TreeViewDemoItems}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                     <HierarchicalDataTemplate.ItemTemplate>
@@ -54,9 +54,9 @@
             </behavior:Interaction.Triggers>
         </TreeView>
         <TreeView Grid.Column="1"
+                  Width="200" Height="300"
                   ItemsSource="{Binding TreeViewDemoItems}"
-                  Style="{StaticResource TreeViewShowHeaderIconStyle}"
-                  Width="200" Height="300">
+                  Style="{StaticResource TreeViewShowHeaderIconStyle}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                     <HierarchicalDataTemplate.ItemTemplate>

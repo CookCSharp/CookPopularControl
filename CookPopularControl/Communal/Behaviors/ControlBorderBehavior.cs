@@ -1,7 +1,8 @@
-﻿using CookPopularControl.Communal;
-using CookPopularControl.Communal.Data;
+﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Controls;
 using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
+using CookPopularCSharpToolkit.Windows;
 using Microsoft.Xaml.Behaviors;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using CookPopularCSharpToolkit.Windows;
 
 
 /*

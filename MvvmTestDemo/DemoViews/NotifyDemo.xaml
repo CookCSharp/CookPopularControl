@@ -13,8 +13,8 @@
 
     <pc:SimpleGrid Width="{StaticResource DemosViewViewDefaultWidth}">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="NotifyIcon:"
-                       Width="200" Height="34"
+            <TextBlock Width="200" Height="34"
+                       Text="NotifyIcon:"
                        FontSize="20" FontWeight="DemiBold"
                        HorizontalAlignment="Left" />
             <pc:TaskbarIcon x:Name="DefaultNotifyIcon"
@@ -47,101 +47,101 @@
                                Foreground="Red"
                                FontSize="16" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:SwitchControl Click="Button_Click_1"
-                                      Style="{StaticResource DefaultSwitchControlStyle}"
-                                      SwicthCloseBackground="LightBlue"
-                                      Width="100" Height="35"
+                    <pc:SwitchControl Width="100" Height="35"
                                       Background="Red"
-                                      Margin="10,0" />
+                                      Margin="10,0"
+                                      Click="Button_Click_1" SwicthCloseBackground="LightBlue"
+                                      Style="{StaticResource DefaultSwitchControlStyle}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="20">
+                <StackPanel Margin="20" Orientation="Horizontal">
                     <TextBlock Text="开启系统托盘菜单闪烁"
                                Foreground="Red"
                                FontSize="16" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:SwitchControl Click="Button_Click_2"
-                                      Style="{StaticResource DefaultSwitchControlStyle}"
-                                      SwicthCloseBackground="LightBlue"
-                                      Width="100" Height="35"
+                    <pc:SwitchControl Width="100" Height="35"
                                       Background="Red"
-                                      Margin="10,0" />
+                                      Margin="10,0"
+                                      Click="Button_Click_2" SwicthCloseBackground="LightBlue"
+                                      Style="{StaticResource DefaultSwitchControlStyle}" />
                 </StackPanel>
             </StackPanel>
 
-            <TextBlock Text="BubbleMessage:"
-                       Width="200" Height="34"
+            <TextBlock Width="200" Height="34"
+                       Text="BubbleMessage:"
                        FontSize="20" FontWeight="DemiBold"
                        HorizontalAlignment="Left" />
             <WrapPanel>
                 <Button x:Name="ShowInfoBubbleMessage"
-                        Click="OpenBubbleMessage_Click"
+                        Width="200" Height="35"
                         Content="ShowInfoBubbleMessage"
-                        Width="200" Height="35" />
+                        Click="OpenBubbleMessage_Click" />
                 <Button x:Name="ShowWarningBubbleMessage"
-                        Click="OpenBubbleMessage_Click"
+                        Width="200" Height="35"
                         Content="ShowWarningBubbleMessage"
-                        Width="200" Height="35"
-                        Margin="10,0" />
+                        Margin="10,0"
+                        Click="OpenBubbleMessage_Click" />
                 <Button x:Name="ShowErrorBubbleMessage"
-                        Click="OpenBubbleMessage_Click"
+                        Width="200" Height="35"
                         Content="ShowErrorBubbleMessage"
-                        Width="200" Height="35" />
+                        Click="OpenBubbleMessage_Click" />
                 <Button x:Name="ShowFatalBubbleMessage"
-                        Click="OpenBubbleMessage_Click"
+                        Width="200" Height="35"
                         Content="ShowFatalBubbleMessage"
-                        Width="200" Height="35"
-                        Margin="0,10" />
+                        Margin="0,10"
+                        Click="OpenBubbleMessage_Click" />
                 <Button x:Name="ShowQuestionBubbleMessage"
-                        Click="OpenBubbleMessage_Click"
-                        Content="ShowQuestionBubbleMessage"
                         Width="200" Height="35"
-                        Margin="10,0" />
+                        Content="ShowQuestionBubbleMessage"
+                        Margin="10,0"
+                        Click="OpenBubbleMessage_Click" />
                 <Button x:Name="ShowSuccessBubbleMessage"
-                        Click="OpenBubbleMessage_Click"
+                        Width="200" Height="35"
                         Content="ShowSuccessBubbleMessage"
-                        Width="200" Height="35" />
+                        Click="OpenBubbleMessage_Click" />
             </WrapPanel>
-            <Button Click="OpenNewWindow_Click"
+            <Button Width="220" Height="35"
                     Content="OpenBubbleMessageNewWindow"
-                    Width="220" Height="35" />
+                    Click="OpenNewWindow_Click" />
 
-            <TextBlock Text="PopupMessage:"
-                       Width="200" Height="34"
+            <TextBlock Width="200" Height="34"
+                       Text="PopupMessage:"
                        FontSize="20" FontWeight="DemiBold"
-                       Margin="0,30,0,0" HorizontalAlignment="Left" />
+                       Margin="0,30,0,0"
+                       HorizontalAlignment="Left" />
             <WrapPanel HorizontalAlignment="Center">
                 <Button x:Name="OpenPopupMessageNone"
-                        Click="OpenPopupMessage_Click"
+                        Width="220" Height="35"
                         Content="OpenPopupMessageNone"
-                        Width="220" Height="35" />
+                        Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageFade"
-                        Click="OpenPopupMessage_Click"
+                        Width="220" Height="35"
                         Content="OpenPopupMessageFade"
-                        Width="220" Height="35"
-                        Margin="10,0" />
+                        Margin="10,0"
+                        Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageHorizontalSlide"
-                        Click="OpenPopupMessage_Click"
+                        Width="220" Height="35"
                         Content="OpenPopupMessageHorizontalSlide"
-                        Width="220" Height="35" />
+                        Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageVerticalSlide"
-                        Click="OpenPopupMessage_Click"
+                        Width="220" Height="35"
                         Content="OpenPopupMessageVerticalSlide"
-                        Width="220" Height="35"
-                        Margin="0,10" />
+                        Margin="0,10"
+                        Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageHVSlide"
-                        Click="OpenPopupMessage_Click"
-                        Content="OpenPopupMessageHVSlide"
                         Width="220" Height="35"
-                        Margin="10,0" />
+                        Content="OpenPopupMessageHVSlide"
+                        Margin="10,0"
+                        Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageScroll"
-                        Click="OpenPopupMessage_Click"
+                        Width="220" Height="35"
                         Content="OpenPopupMessageScroll"
-                        Width="220" Height="35" />
+                        Click="OpenPopupMessage_Click" />
             </WrapPanel>
         </StackPanel>
 
-        <ScrollViewer VerticalScrollBarVisibility="Hidden"
-                      Margin="0,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <ScrollViewer Margin="0,10,10,10"
+                      HorizontalAlignment="Right" VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Hidden">
             <StackPanel pc:NotifyMessageBase.IsParentElement="True" />
         </ScrollViewer>
 

@@ -43,7 +43,7 @@ namespace CookPopularControl.Controls
             DependencyProperty.RegisterAttached("IsFillFully", typeof(bool), typeof(RadioButtonAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
 
 
-        public static object GetHeader(DependencyObject obj) => (object)obj.GetValue(HeaderProperty);
+        public static object GetHeader(DependencyObject obj) => obj.GetValue(HeaderProperty);
         public static void SetHeader(DependencyObject obj, object value) => obj.SetValue(HeaderProperty, value);
         /// <summary>
         /// <see cref="HeaderProperty"/>标识可填充的任意元素

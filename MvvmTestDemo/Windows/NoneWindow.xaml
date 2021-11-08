@@ -17,9 +17,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="{StaticResource AssistantBackgroundBrush}">
-            <Button Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True"
+            <Button Width="200"
                     Content="123"
-                    Width="200" />
+                    Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True" />
         </Border>
         <Border Grid.Row="1" Background="Green" />
     </Grid>

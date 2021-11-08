@@ -1,11 +1,11 @@
 ﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CookPopularCSharpToolkit.Windows;
 
 
 

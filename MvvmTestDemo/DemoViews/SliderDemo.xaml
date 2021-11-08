@@ -13,64 +13,70 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <WrapPanel>
             <StackPanel>
-                <Slider LargeChange="1" Maximum="100" Minimum="0"
-                        Orientation="Horizontal" SmallChange="1" TickFrequency="10"
-                        Width="300" Height="80"
-                        Foreground="Red" Background="#F0F0F0" />
-                <Slider IsDirectionReversed="True" Maximum="100" Minimum="0"
-                        Orientation="Horizontal"
-                        Width="300" Height="80"
+                <Slider Width="300" Height="80"
+                        Foreground="Red" Background="#F0F0F0"
+                        Minimum="0" Maximum="100"
+                        LargeChange="1" Orientation="Horizontal" SmallChange="1"
+                        TickFrequency="10" />
+                <Slider Width="300" Height="80"
                         Background="#F0F0F0"
                         Value="73"
-                        Margin="0,20" VerticalContentAlignment="Top" />
-                <Slider IsSelectionRangeEnabled="True" Maximum="100" Minimum="0"
-                        Orientation="Horizontal" SelectionEnd="60" SelectionStart="40"
-                        TickFrequency="10" TickPlacement="Both"
-                        Width="300" Height="80"
+                        Minimum="0" Maximum="100"
+                        Margin="0,20"
+                        VerticalContentAlignment="Top"
+                        IsDirectionReversed="True" Orientation="Horizontal" />
+                <Slider Width="300" Height="80"
                         Background="#F0F0F0"
                         Value="25"
-                        Margin="0,20" VerticalContentAlignment="Center" />
-                <Slider IsEnabled="False" Maximum="100" Minimum="0"
-                        Orientation="Horizontal"
-                        Width="300" Height="80"
-                        Value="45" />
+                        Minimum="0" Maximum="100"
+                        Margin="0,20"
+                        VerticalContentAlignment="Center"
+                        IsSelectionRangeEnabled="True" Orientation="Horizontal" SelectionEnd="60"
+                        SelectionStart="40" TickFrequency="10" TickPlacement="Both" />
+                <Slider Width="300" Height="80"
+                        Value="45"
+                        Minimum="0" Maximum="100"
+                        IsEnabled="False" Orientation="Horizontal" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0">
-                <Slider Maximum="100" Minimum="0" Orientation="Vertical"
-                        Width="80" Height="300"
-                        Background="#F0F0F0"
-                        Value="73" />
-                <Slider IsDirectionReversed="True" Maximum="100" Minimum="0"
-                        Orientation="Vertical"
-                        Width="80" Height="300"
+            <StackPanel Margin="50,0" Orientation="Horizontal">
+                <Slider Width="80" Height="300"
                         Background="#F0F0F0"
                         Value="73"
-                        Margin="20,0" VerticalContentAlignment="Top" />
-                <Slider IsSelectionRangeEnabled="True" Maximum="100" Minimum="0"
-                        Orientation="Vertical" SelectionEnd="60" SelectionStart="40"
-                        TickFrequency="10" TickPlacement="Both"
-                        Width="80" Height="300"
+                        Minimum="0" Maximum="100"
+                        Orientation="Vertical" />
+                <Slider Width="80" Height="300"
+                        Background="#F0F0F0"
+                        Value="73"
+                        Minimum="0" Maximum="100"
+                        Margin="20,0"
+                        VerticalContentAlignment="Top"
+                        IsDirectionReversed="True" Orientation="Vertical" />
+                <Slider Width="80" Height="300"
                         Background="#F0F0F0"
                         Value="25"
-                        Margin="20,0" VerticalContentAlignment="Center" />
-                <Slider IsEnabled="False" Maximum="100" Minimum="0"
-                        Orientation="Vertical"
-                        Width="80" Height="300"
-                        Value="45" />
+                        Minimum="0" Maximum="100"
+                        Margin="20,0"
+                        VerticalContentAlignment="Center"
+                        IsSelectionRangeEnabled="True" Orientation="Vertical" SelectionEnd="60"
+                        SelectionStart="40" TickFrequency="10" TickPlacement="Both" />
+                <Slider Width="80" Height="300"
+                        Value="45"
+                        Minimum="0" Maximum="100"
+                        IsEnabled="False" Orientation="Vertical" />
             </StackPanel>
         </WrapPanel>
         <WrapPanel>
-            <Slider IsSnapToTickEnabled="True" Maximum="100" Minimum="0"
-                    Orientation="Horizontal"
-                    Style="{StaticResource ShowValueSliderStyle}"
-                    Width="300" Height="80"
-                    Value="45" />
-            <Slider IsSnapToTickEnabled="True" Maximum="100" Minimum="0"
-                    Orientation="Vertical"
-                    Style="{StaticResource ShowValueSliderStyle}"
-                    Width="80" Height="300"
+            <Slider Width="300" Height="80"
                     Value="45"
-                    Margin="50,0" />
+                    Minimum="0" Maximum="100"
+                    IsSnapToTickEnabled="True" Orientation="Horizontal"
+                    Style="{StaticResource ShowValueSliderStyle}" />
+            <Slider Width="80" Height="300"
+                    Value="45"
+                    Minimum="0" Maximum="100"
+                    Margin="50,0"
+                    IsSnapToTickEnabled="True" Orientation="Vertical"
+                    Style="{StaticResource ShowValueSliderStyle}" />
         </WrapPanel>
     </StackPanel>
 

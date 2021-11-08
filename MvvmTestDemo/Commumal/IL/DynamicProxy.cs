@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
@@ -40,8 +37,8 @@ namespace MvvmTestDemo.Commumal.IL
         {
 #if NET461
             return AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(AssemblyName + typeof(T).Name), AssemblyBuilderAccess.Run);
-#else 
-return default;
+#else
+            return default;
 #endif
         }
 
@@ -50,7 +47,7 @@ return default;
 #if NET461
             return CreateDynamicAssembly<T>().DefineDynamicModule(ModuleName + typeof(T).Name);
 #else
-return default;
+            return default;
 #endif
         }
 

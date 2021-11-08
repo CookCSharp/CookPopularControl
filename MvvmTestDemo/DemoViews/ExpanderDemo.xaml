@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Expander ExpandDirection="Down" Header="First">
+                <Expander Header="First" ExpandDirection="Down">
                     <StackPanel Margin="8">
                         <TextBlock Text="First" Foreground="White" Background="Transparent" />
                         <TextBlock Text="Second" Foreground="White" Background="Transparent" />
@@ -38,7 +38,7 @@
                         <TextBlock Text="Sixth" Foreground="White" Background="Transparent" />
                     </StackPanel>
                 </Expander>
-                <Expander ExpandDirection="Up" Header="Second" Margin="0,30">
+                <Expander Header="Second" Margin="0,30" ExpandDirection="Up">
                     <StackPanel Margin="8">
                         <TextBlock Text="First" Foreground="White" Background="Transparent" />
                         <TextBlock Text="Second" Foreground="White" Background="Transparent" />
@@ -49,8 +49,8 @@
                     </StackPanel>
                 </Expander>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="30,0">
-                <Expander ExpandDirection="Left" Header="Third">
+            <StackPanel Grid.Column="2" Margin="30,0" Orientation="Horizontal">
+                <Expander Header="Third" ExpandDirection="Left">
                     <StackPanel Margin="8">
                         <TextBlock Text="First" Foreground="White" Background="Transparent" />
                         <TextBlock Text="Second" Foreground="White" Background="Transparent" />
@@ -61,10 +61,11 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander ExpandDirection="Right" Header="Fourth"
+                <Expander Header="Fourth"
                           BorderBrush="Yellow" BorderThickness="2"
                           Foreground="Red" Background="Green"
-                          Margin="30,0">
+                          Margin="30,0"
+                          ExpandDirection="Right">
                     <StackPanel Margin="8">
                         <TextBlock Text="First" Foreground="White" Background="Transparent" />
                         <TextBlock Text="Second" Foreground="White" Background="Transparent" />

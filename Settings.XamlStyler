@@ -28,6 +28,7 @@
         "ContentTemplate,ContentStringFormat,ContentTemplateSelector",
         "ResizeBehavior, ResizeDirection,RecognizesAccessKey",
         "PageSource, PageIndex, Offset, Color, Binding, Property, Value, TargetName, StartPoint, EndPoint", 
+        "Minimum, Maximum",
         "Margin, Padding, Opacity, SnapsToDevicePixels, Focusable, ToolTip",
         "HorizontalAlignment, VerticalAlignment, HorizontalContentAlignment, VerticalContentAlignment, Panel.ZIndex",     
         "Storyboard.*,",

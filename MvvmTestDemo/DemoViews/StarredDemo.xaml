@@ -18,33 +18,33 @@
             <pc:Star Orientation="Horizontal" StarCount="5"
                      StarIcon="{StaticResource StarGeometry}"
                      StarValue="3" StarValueChanged="Star_StarValueChanged" />
-            <pc:Star Orientation="Horizontal" StarCount="5"
+            <pc:Star Margin="0,10"
+                     Orientation="Horizontal" StarCount="5"
                      StarIcon="{StaticResource LovingGeometry}"
-                     StarValue="1"
-                     Margin="0,10" />
+                     StarValue="1" />
             <pc:Star IsAllowHalf="False" Orientation="Horizontal" StarCount="5"
                      StarIcon="{StaticResource PraiseGeometry}"
                      StarValue="3.333" />
-            <pc:Star IsShowScore="False" Orientation="Horizontal" StarCount="5"
+            <pc:Star Margin="0,10"
+                     IsShowScore="False" Orientation="Horizontal" StarCount="5"
                      StarIcon="{StaticResource StarGeometry}"
-                     StarValue="1.5"
-                     Margin="0,10" />
+                     StarValue="1.5" />
         </StackPanel>
         <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <pc:Star Orientation="Vertical" StarCount="5"
                      StarIcon="{StaticResource StarGeometry}"
                      StarValue="0" />
-            <pc:Star Orientation="Vertical" StarCount="5"
+            <pc:Star Margin="10,0"
+                     Orientation="Vertical" StarCount="5"
                      StarIcon="{StaticResource LovingGeometry}"
-                     StarValue="1"
-                     Margin="10,0" />
+                     StarValue="1" />
             <pc:Star IsAllowHalf="False" Orientation="Vertical" StarCount="5"
                      StarIcon="{StaticResource PraiseGeometry}"
                      StarValue="3" />
-            <pc:Star IsShowScore="False" Orientation="Vertical" StarCount="5"
+            <pc:Star Margin="10,0"
+                     IsShowScore="False" Orientation="Vertical" StarCount="5"
                      StarIcon="{StaticResource StarGeometry}"
-                     StarValue="4.5"
-                     Margin="10,0" />
+                     StarValue="4.5" />
         </WrapPanel>
     </Grid>
 

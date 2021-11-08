@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
-                    xmlns:commonConverters="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolConverters="clr-namespace:CookPopularControl.Tools.Windows.Converters"
                     xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultNumericUpDownStyle" TargetType="{x:Type pc:NumericUpDown}">
@@ -17,11 +15,11 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Value" Value="0" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconWidth" Value="14" />
-        <Setter Property="attached:FrameworkElementBaseAttached.IconHeight" Value="14" />
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="5" />
-        <Setter Property="attached:TextElementAttached.PlaceHolder" Value="输入数字" />
-        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="False" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="14" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="14" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+        <Setter Property="common:TextElementAttached.PlaceHolder" Value="输入数字" />
+        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="False" />
         <Setter Property="pc:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />
         <Setter Property="pc:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Template">
@@ -31,7 +29,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
                             SnapsToDevicePixels="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -45,12 +43,12 @@
                                      Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                     attached:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
-                                     attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                     attached:FrameworkElementBaseAttached.IconMargin="0"
-                                     attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
-                                     attached:TextElementAttached.IsAddClearButton="{TemplateBinding attached:TextElementAttached.IsAddClearButton}"
-                                     attached:TextElementAttached.PlaceHolder="{TemplateBinding attached:TextElementAttached.PlaceHolder}"
+                                     common:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                                     common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                     common:FrameworkElementBaseAttached.IconMargin="0"
+                                     common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                     common:TextElementAttached.IsAddClearButton="{TemplateBinding common:TextElementAttached.IsAddClearButton}"
+                                     common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                      InputMethod.IsInputMethodEnabled="False"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      Validation.ErrorTemplate="{x:Null}" />
@@ -59,23 +57,23 @@
                                          Margin="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonMargin}"
                                          Visibility="{TemplateBinding IsShowUpDownButton, Converter={toolkit:BooleanToVisibilityConverter}}">
                                 <Button x:Name="PART_PlusButton"
-                                        Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                        Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        Width="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                        Height="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
                                         Focusable="False"
-                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
-                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
+                                        common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Command="{x:Static pc:NumericUpDown.PlusCommand}"
                                         Style="{DynamicResource ButtonTransparentIconStyle}" />
                                 <Button x:Name="PART_SubtractButton"
-                                        Width="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                        Height="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        Width="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                        Height="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
                                         Focusable="False"
-                                        attached:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
-                                        attached:FrameworkElementBaseAttached.IconHeight="{TemplateBinding attached:FrameworkElementBaseAttached.IconHeight}"
-                                        attached:FrameworkElementBaseAttached.IconWidth="{TemplateBinding attached:FrameworkElementBaseAttached.IconWidth}"
+                                        common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
+                                        common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Command="{x:Static pc:NumericUpDown.SubtractCommand}"
                                         Style="{DynamicResource ButtonTransparentIconStyle}" />
                             </UniformGrid>
@@ -103,7 +101,7 @@
     </Style>
 
     <Style x:Key="NumericUpDownAddClearButtonStyle" TargetType="{x:Type pc:NumericUpDown}" BasedOn="{StaticResource DefaultNumericUpDownStyle}">
-        <Setter Property="attached:TextElementAttached.IsAddClearButton" Value="True" />
+        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="True" />
     </Style>
 
 </ResourceDictionary>

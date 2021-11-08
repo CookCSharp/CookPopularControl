@@ -5,27 +5,27 @@
 
     <ControlTemplate x:Key="ColorPickerCircularRing">
         <pc:SimpleGrid x:Name="CustomColorGrid" Background="Transparent">
-            <toolkit:Arc ArcThickness="40" EndAngle="51.5"
-                       Fill="{DynamicResource RedLinearGradientBrush}"
-                       StartAngle="0" Stretch="None" />
-            <toolkit:Arc ArcThickness="40" EndAngle="103"
-                       Fill="{DynamicResource OrangeLinearGradientBrush}"
-                       StartAngle="51.5" Stretch="None" />
-            <toolkit:Arc ArcThickness="40" EndAngle="154.5"
-                       Fill="{DynamicResource YellowLinearGradientBrush}"
-                       StartAngle="103" Stretch="None" />
-            <toolkit:Arc ArcThickness="40" EndAngle="206"
-                       Fill="{DynamicResource GreenLinearGradientBrush}"
-                       StartAngle="154.5" Stretch="None" />
-            <toolkit:Arc ArcThickness="40" EndAngle="257.5"
-                       Fill="{DynamicResource CyanLinearGradientBrush}"
-                       StartAngle="206" Stretch="None" />
-            <toolkit:Arc ArcThickness="40" EndAngle="309"
-                       Fill="{DynamicResource BlueLinearGradientBrush}"
-                       StartAngle="257.5" Stretch="None" />
-            <toolkit:Arc ArcThickness="40" EndAngle="360"
-                       Fill="{DynamicResource PurpleLinearGradientBrush}"
-                       StartAngle="309" Stretch="None" />
+            <toolkit:Arc Fill="{DynamicResource RedLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="51.5" StartAngle="0" />
+            <toolkit:Arc Fill="{DynamicResource OrangeLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="103" StartAngle="51.5" />
+            <toolkit:Arc Fill="{DynamicResource YellowLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="154.5" StartAngle="103" />
+            <toolkit:Arc Fill="{DynamicResource GreenLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="206" StartAngle="154.5" />
+            <toolkit:Arc Fill="{DynamicResource CyanLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="257.5" StartAngle="206" />
+            <toolkit:Arc Fill="{DynamicResource BlueLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="309" StartAngle="257.5" />
+            <toolkit:Arc Fill="{DynamicResource PurpleLinearGradientBrush}"
+                         Stretch="None"
+                         ArcThickness="40" EndAngle="360" StartAngle="309" />
         </pc:SimpleGrid>
     </ControlTemplate>
 

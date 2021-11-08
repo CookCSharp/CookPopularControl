@@ -10,39 +10,40 @@
              d:DesignWidth="800">
 
     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <pc:QRCodeControl IsShowRefreshIcon="False" Width="200" Height="200" />
-        <pc:QRCodeControl IsRefreshChanged="QRCodeControl_IsRefreshChanged" IsShowRefreshIcon="True" RefreshButtonFill="Purple"
-                          Width="200" Height="200"
+        <pc:QRCodeControl Width="200" Height="200" IsShowRefreshIcon="False" />
+        <pc:QRCodeControl Width="200" Height="200"
                           Margin="30,0"
-                          Duration="2" />
-        <pc:QRCodeControl QrCodeContent="Chance" QrCodeIcon="../Resources/Gif/tomcat.jpg" QrCodeIconBorderWidth="10"
-                          QrCodeIconSizePercent="10" QrCodePixelsPerModule="10"
-                          Width="200" Height="200" />
-        <pc:QRCodeControl IsShowRefreshIcon="True" QrCodeContent="Chance" QrCodeIcon="../Resources/Gif/tomcat.jpg"
+                          Duration="2"
+                          IsRefreshChanged="QRCodeControl_IsRefreshChanged" IsShowRefreshIcon="True"
+                          RefreshButtonFill="Purple" />
+        <pc:QRCodeControl Width="200" Height="200"
+                          QrCodeContent="Chance" QrCodeIcon="../Resources/Gif/tomcat.jpg" QrCodeIconBorderWidth="10"
+                          QrCodeIconSizePercent="10" QrCodePixelsPerModule="10" />
+        <pc:QRCodeControl Width="200" Height="200"
+                          Margin="30,0"
+                          Duration="2"
+                          IsShowRefreshIcon="True" QrCodeContent="Chance" QrCodeIcon="../Resources/Gif/tomcat.jpg"
                           QrCodeIconBorderWidth="10" QrCodeIconSizePercent="10" QrCodePixelsPerModule="10"
-                          RefreshButtonFill="Purple"
-                          Width="200" Height="200"
-                          Margin="30,0"
-                          Duration="2" />
+                          RefreshButtonFill="Purple" />
 
         <StackPanel Margin="0,30,0,0" HorizontalAlignment="Center">
             <Image x:Name="BarCodeImage" Stretch="None" StretchDirection="Both" />
-            <TextBlock TextAlignment="Center"
-                       Text="识别结果:"
+            <TextBlock Text="识别结果:"
                        FontSize="20"
-                       Margin="0,20,0,0" />
-            <TextBlock x:Name="CodeTypeText" TextAlignment="Center" FontSize="20" />
-            <TextBlock x:Name="CodeContentText" TextAlignment="Center" FontSize="20" />
+                       Margin="0,20,0,0"
+                       TextAlignment="Center" />
+            <TextBlock x:Name="CodeTypeText" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="CodeContentText" FontSize="20" TextAlignment="Center" />
         </StackPanel>
 
         <Border x:Name="PART_QRCodeImage"
-                CornerRadius="20"
                 Width="200" Height="200"
                 BorderBrush="Blue" BorderThickness="2"
+                CornerRadius="20"
                 Margin="30">
             <Border.Background>
-                <DrawingBrush Stretch="None" TileMode="Tile" Viewport="0,0,200,200"
-                              ViewportUnits="Absolute">
+                <DrawingBrush Stretch="None"
+                              TileMode="Tile" Viewport="0,0,200,200" ViewportUnits="Absolute">
                     <DrawingBrush.Drawing>
                         <ImageDrawing ImageSource="../Resources/Gif/tomcat.jpg" Rect="0,0,200,200" />
                     </DrawingBrush.Drawing>

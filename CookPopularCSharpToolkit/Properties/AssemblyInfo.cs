@@ -12,6 +12,7 @@ using System.Windows.Markup;
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
 [assembly: InternalsVisibleTo("CookPopularControl")]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")] //, ConfigFileExtension = "config", Watch = true
 
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID。
 [assembly: Guid("969067b6-6d85-40df-b024-7d9eca442855")]

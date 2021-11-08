@@ -23,8 +23,7 @@
                           FontSize="20"
                           Margin="30,0" Padding="10,0,0,0" ToolTip="RectangleCheckBox"
                           pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryThemeBrush}"
-                          pc:CheckBoxAssistant.FillSize="15" 
-                          pc:CheckBoxAssistant.FillType="Rectangle" />
+                          pc:CheckBoxAssistant.FillSize="15" pc:CheckBoxAssistant.FillType="Rectangle" />
                 <CheckBox Width="200" Height="30"
                           Content="CheckCheckBox"
                           Background="Red"

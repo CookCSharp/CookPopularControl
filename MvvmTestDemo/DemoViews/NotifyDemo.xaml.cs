@@ -1,7 +1,6 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Controls;
 using MvvmTestDemo.UserControls;
-using Prism.Unity;
 using System.Windows;
 using System.Windows.Controls;
 

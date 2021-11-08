@@ -33,10 +33,11 @@
         <Viewbox Grid.Row="0" Grid.Column="0"
                  Width="200" Height="200"
                  VerticalAlignment="Center">
-            <pc:AnimationPath Data="{StaticResource ArchGeometry}"
-                              IsEnabled="True" Stretch="Uniform"
-                              Width="200" Height="200"
-                              Duration="0:0:5" />
+            <pc:AnimationPath Width="200" Height="200"
+                              Data="{StaticResource ArchGeometry}"
+                              Stretch="Uniform"
+                              Duration="0:0:5"
+                              IsEnabled="True" />
         </Viewbox>
         <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
             <Grid.RowDefinitions>
@@ -47,46 +48,46 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0">
-                <TextBlock Text="{Binding ElementName=ItemSizeSlider, Path=Value, StringFormat=ItemSize:{0:F2}}"
-                           Width="150"
+                <TextBlock Width="150"
+                           Text="{Binding ElementName=ItemSizeSlider, Path=Value, StringFormat=ItemSize:{0:F2}}"
                            FontSize="16" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="ItemSizeSlider"
-                        LargeChange="20" Maximum="300" Minimum="5"
-                        SmallChange="5"
-                        Value="{Binding TilePanel.ItemWidth, ValidatesOnExceptions=true}" />
+                        Value="{Binding TilePanel.ItemWidth, ValidatesOnExceptions=true}"
+                        Minimum="5" Maximum="300"
+                        LargeChange="20" SmallChange="5" />
             </DockPanel>
             <DockPanel Grid.Row="1">
-                <TextBlock Text="{Binding ElementName=DampeningSlider, Path=Value, StringFormat=Dampening:{0:F2}}"
-                           Width="150"
+                <TextBlock Width="150"
+                           Text="{Binding ElementName=DampeningSlider, Path=Value, StringFormat=Dampening:{0:F2}}"
                            FontSize="16" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="DampeningSlider"
-                        LargeChange="0.1" Maximum="0.99" Minimum="0.01"
-                        SmallChange="0.01"
-                        Value="{Binding TilePanel.Dampening, ValidatesOnExceptions=true}" />
+                        Value="{Binding TilePanel.Dampening, ValidatesOnExceptions=true}"
+                        Minimum="0.01" Maximum="0.99"
+                        LargeChange="0.1" SmallChange="0.01" />
             </DockPanel>
             <DockPanel Grid.Row="2">
-                <TextBlock Text="{Binding ElementName=AttractionSlider, Path=Value, StringFormat=Attraction:{0:F2}}"
-                           Width="150"
+                <TextBlock Width="150"
+                           Text="{Binding ElementName=AttractionSlider, Path=Value, StringFormat=Attraction:{0:F2}}"
                            FontSize="16" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="AttractionSlider"
-                        LargeChange="1" Maximum="10" Minimum="0.01"
-                        SmallChange="0.1"
-                        Value="{Binding TilePanel.Attraction, ValidatesOnExceptions=true}" />
+                        Value="{Binding TilePanel.Attraction, ValidatesOnExceptions=true}"
+                        Minimum="0.01" Maximum="10"
+                        LargeChange="1" SmallChange="0.1" />
             </DockPanel>
             <DockPanel Grid.Row="3">
-                <TextBlock Text="{Binding ElementName=VariationSlider, Path=Value, StringFormat=Variation:{0:F2}}"
-                           Width="150"
+                <TextBlock Width="150"
+                           Text="{Binding ElementName=VariationSlider, Path=Value, StringFormat=Variation:{0:F2}}"
                            FontSize="16" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="VariationSlider"
-                        LargeChange="0.5" Maximum="1" Minimum="0"
-                        SmallChange="0.1"
-                        Value="{Binding TilePanel.Variation, ValidatesOnDataErrors=True}" />
+                        Value="{Binding TilePanel.Variation, ValidatesOnDataErrors=True}"
+                        Minimum="0" Maximum="1"
+                        LargeChange="0.5" SmallChange="0.1" />
             </DockPanel>
-            <ItemsControl Focusable="False" ItemsSource="{Binding TilePanelColors}" Grid.Row="4">
+            <ItemsControl Grid.Row="4" Focusable="False" ItemsSource="{Binding TilePanelColors}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <pc:AnimationTilePanel Attraction="{Binding ElementName=AttractionSlider, Path=Value}"

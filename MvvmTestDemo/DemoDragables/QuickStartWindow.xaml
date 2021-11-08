@@ -7,11 +7,11 @@
         xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Style="{x:Null}"
-        WindowStartupLocation="CenterScreen"
         Title="QuickStartWindow"
         Width="617"
-        Height="341">
+        Height="341"
+        WindowStartupLocation="CenterScreen"
+        Style="{x:Null}">
 
     <Window.Resources>
         <sys:String x:Key="Partition">QuickStart</sys:String>
@@ -24,15 +24,15 @@
     </Window.Resources>
 
     <pc:Layout Partition="{StaticResource Partition}">
-        <pc:DragableTabControl ConsolidateOrphanedItems="True" Margin="8">
+        <pc:DragableTabControl Margin="8" ConsolidateOrphanedItems="True">
             <pc:DragableTabControl.InterTabController>
                 <pc:InterTabController Partition="{StaticResource Partition}" />
             </pc:DragableTabControl.InterTabController>
             <TabItem Header="Tab No.1" IsSelected="False">
-                <TextBlock Style="{StaticResource TabItemHeaderStyle}" Text="This is First TabItem" />
+                <TextBlock Text="This is First TabItem" Style="{StaticResource TabItemHeaderStyle}" />
             </TabItem>
             <TabItem Header="Tab No.2">
-                <TextBlock Style="{StaticResource TabItemHeaderStyle}" Text="This is Second TabItem" />
+                <TextBlock Text="This is Second TabItem" Style="{StaticResource TabItemHeaderStyle}" />
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -45,7 +45,7 @@
                         <TextBlock Text="Tab No.3" Foreground="{StaticResource PrimaryForegroundBrush}" />
                     </Grid>
                 </TabItem.Header>
-                <TextBlock Style="{StaticResource TabItemHeaderStyle}" Text="This is Third TabItem" />
+                <TextBlock Text="This is Third TabItem" Style="{StaticResource TabItemHeaderStyle}" />
             </TabItem>
         </pc:DragableTabControl>
     </pc:Layout>

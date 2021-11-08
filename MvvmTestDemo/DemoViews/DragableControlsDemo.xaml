@@ -22,8 +22,8 @@
 
     <Grid Width="{StaticResource DemoViewsDefaultWidth}">
         <pc:DragableItemsControl x:Name="DragableItemsControl"
-                                 ItemsSource="{Binding Data}"
-                                 HorizontalAlignment="Center" VerticalAlignment="Center">
+                                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                                 ItemsSource="{Binding Data}">
             <pc:DragableItemsControl.PositionMonitor>
                 <pc:VerticalPositionMonitor OrderChanged="StackPositionMonitor_OnOrderChanged" />
             </pc:DragableItemsControl.PositionMonitor>
@@ -42,17 +42,17 @@
                                 <ControlTemplate.Resources>
                                     <SineEase x:Key="Ease" EasingMode="EaseInOut" />
                                 </ControlTemplate.Resources>
-                                <Grid RenderTransformOrigin="0.5, 0.5" Background="Red" Margin="0,5">
+                                <Grid Background="Red" Margin="0,5" RenderTransformOrigin="0.5, 0.5">
                                     <!--<materialDesign:Card Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
                                                          HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
                                                          Margin="{TemplateBinding Control.Padding}"
                                                          x:Name="Card" />-->
                                     <ContentControl x:Name="Card"
-                                                    ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
-                                                    ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
-                                                    SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
                                                     Content="{TemplateBinding ContentControl.Content}"
+                                                    ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                                    ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
                                                     Margin="{TemplateBinding Control.Padding}"
+                                                    SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
                                                     HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
                                                     VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
                                     <Thumb pc:DragableItem.IsCustomThumb="True" Style="{StaticResource InvisibleThumbStyle}">
@@ -72,10 +72,10 @@
                                             <BeginStoryboard>
                                                 <Storyboard>
                                                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
-                                                        <EasingDoubleKeyFrame EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" Value="1.12" />
+                                                        <EasingDoubleKeyFrame Value="1.12" EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" />
                                                     </DoubleAnimationUsingKeyFrames>
                                                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
-                                                        <EasingDoubleKeyFrame EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" Value="1.12" />
+                                                        <EasingDoubleKeyFrame Value="1.12" EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" />
                                                     </DoubleAnimationUsingKeyFrames>
                                                     <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Card" Storyboard.TargetProperty="(materialDesign:ShadowAssist.ShadowDepth)">
                                                         <DiscreteObjectKeyFrame KeyTime="0:0:0.08" Value="{x:Static materialDesign:ShadowDepth.Depth2}" />
@@ -89,10 +89,10 @@
                                             <BeginStoryboard>
                                                 <Storyboard>
                                                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX">
-                                                        <EasingDoubleKeyFrame EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" Value="1" />
+                                                        <EasingDoubleKeyFrame Value="1" EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" />
                                                     </DoubleAnimationUsingKeyFrames>
                                                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY">
-                                                        <EasingDoubleKeyFrame EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" Value="1" />
+                                                        <EasingDoubleKeyFrame Value="1" EasingFunction="{StaticResource Ease}" KeyTime="0:0:0.3" />
                                                     </DoubleAnimationUsingKeyFrames>
                                                     <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Card" Storyboard.TargetProperty="(materialDesign:ShadowAssist.ShadowDepth)">
                                                         <DiscreteObjectKeyFrame KeyTime="0:0:0.12" Value="{x:Static pc:sho.Depth4}" />
@@ -111,17 +111,18 @@
             </pc:DragableItemsControl.ItemContainerStyle>
             <pc:DragableItemsControl.ItemTemplate>
                 <DataTemplate DataType="system:Int32">
-                    <Grid Tag="{Binding}" Width="200" Height="100">
+                    <Grid Width="200" Height="100" Tag="{Binding}">
                         <TextBlock Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </pc:DragableItemsControl.ItemTemplate>
         </pc:DragableItemsControl>
-        <Button pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
+        <Button Margin="32"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
                 Command="{Binding AddCommand}"
                 CommandParameter="{Binding ElementName=DragableItemsControl}"
-                Style="{StaticResource ButtonIconStyle}"
-                Margin="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                Style="{StaticResource ButtonIconStyle}" />
     </Grid>
 
 </UserControl>

@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultTextPathStyle" TargetType="{x:Type pc:TextPath}">
@@ -13,7 +13,8 @@
     <Style x:Key="FillImageTextPathStyle" TargetType="{x:Type pc:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}">
         <Setter Property="Fill">
             <Setter.Value>
-                <DrawingBrush Stretch="None" TileMode="Tile"
+                <DrawingBrush Stretch="None"
+                              TileMode="Tile"
                               Viewport="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=(pc:TextPath.DrawingRec)}"
                               ViewportUnits="Absolute">
                     <DrawingBrush.Drawing>
@@ -30,11 +31,12 @@
         <Setter Property="pc:TextPath.DrawingBrush" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="Fill">
             <Setter.Value>
-                <DrawingBrush Stretch="Fill" TileMode="Tile"
+                <DrawingBrush Stretch="Fill"
+                              TileMode="Tile"
                               Viewport="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=(pc:TextPath.DrawingRec)}"
                               ViewportUnits="Absolute">
                     <DrawingBrush.Drawing>
-                        <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=(pc:TextPath.DrawingBrush)}" Geometry="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=(attached:FrameworkElementBaseAttached.IconGeometry)}">
+                        <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=(pc:TextPath.DrawingBrush)}" Geometry="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=(common:FrameworkElementBaseAttached.IconGeometry)}">
                             <GeometryDrawing.Pen>
                                 <Pen Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=Stroke}" Thickness="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=pc:TextPath}, Path=StrokeThickness}" />
                             </GeometryDrawing.Pen>

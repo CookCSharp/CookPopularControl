@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:attached="clr-namespace:CookPopularControl.Communal">
+                    xmlns:common="clr-namespace:CookPopularControl.Communal">
 
     <Style x:Key="DefaultExpanderStyle" TargetType="{x:Type Expander}">
         <Setter Property="MinWidth" Value="10" />
@@ -9,26 +9,30 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="attached:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Expander}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="ScaleXStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              To="1" Duration="0" />
                         </Storyboard>
                         <Storyboard x:Key="ScaleYStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
                                              To="1" Duration="0" />
                         </Storyboard>
                         <Storyboard x:Key="AngleStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ExpanderButtonRotateTransform" Storyboard.TargetProperty="(RotateTransform.Angle)"
+                            <DoubleAnimation Storyboard.TargetName="ExpanderButtonRotateTransform"
+                                             Storyboard.TargetProperty="(RotateTransform.Angle)"
                                              From="0" To="90" Duration="0" />
                         </Storyboard>
 
                         <Storyboard x:Key="LeftExpandedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              From="0" To="1" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -36,7 +40,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="LeftCollapsedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              From="1" To="0" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -44,7 +49,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="UpExpandedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
                                              From="0" To="1" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -52,7 +58,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="UpCollapsedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
                                              From="1" To="0" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -60,7 +67,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="RightExpandedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              From="0" To="1" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -68,7 +76,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="RightCollapsedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              From="1" To="0" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -76,7 +85,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="DownExpandedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
                                              From="0" To="1" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -84,7 +94,8 @@
                             </DoubleAnimation>
                         </Storyboard>
                         <Storyboard x:Key="DownCollapsedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
                                              From="1" To="0" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -93,10 +104,10 @@
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Border x:Name="RootBorder"
-                            CornerRadius="{TemplateBinding attached:FrameworkElementBaseAttached.CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}">
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition x:Name="Row1" />
@@ -107,18 +118,18 @@
                                 <ColumnDefinition x:Name="Column2" />
                             </Grid.ColumnDefinitions>
                             <ToggleButton x:Name="ExpanderButton"
-                                          attached:ButtonBaseAttached.IsShowRipple="True"
-                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                          Padding="{TemplateBinding Padding}"
+                                          common:ButtonBaseAttached.IsShowRipple="True"
                                           IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"
-                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}"
-                                          Padding="{TemplateBinding Padding}">
+                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}">
                                 <ToggleButton.Content>
-                                    <ContentPresenter ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                    <ContentPresenter Content="{TemplateBinding Header}"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                      ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                                      Content="{TemplateBinding Header}">
+                                                      ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                      ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}">
                                         <ContentPresenter.LayoutTransform>
                                             <RotateTransform x:Name="ExpanderButtonRotateTransform" Angle="0" />
                                         </ContentPresenter.LayoutTransform>
@@ -126,8 +137,8 @@
                                 </ToggleButton.Content>
                             </ToggleButton>
                             <ContentPresenter x:Name="ContentPresenter"
-                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                               ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                               RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
@@ -151,19 +162,19 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="ExpandDirection" Value="Left">
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource LeftTriangleGeometry}" />
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Top" />
-                            <Setter TargetName="ExpanderButton" Property="HorizontalContentAlignment" Value="Right" />
-                            <Setter TargetName="ExpanderButton" Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource LeftTriangleGeometry}" TargetName="ExpanderButton" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Top" TargetName="ExpanderButton" />
+                            <Setter Property="HorizontalContentAlignment" Value="Right" TargetName="ExpanderButton" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" TargetName="ExpanderButton" />
                             <!--<Setter Property="Width" Value="Auto" TargetName="Column1"/>
                             <Setter Property="Width" Value="Auto" TargetName="Column2"/>-->
 
-                            <Setter TargetName="ExpanderButton" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.RowSpan" Value="2" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.Column" Value="1" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.RowSpan" Value="2" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Column" Value="0" />
+                            <Setter Property="Grid.Row" Value="0" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.RowSpan" Value="2" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Column" Value="1" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Row" Value="0" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.RowSpan" Value="2" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.Column" Value="0" TargetName="ContentPresenter" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="AngleStoryboardLeft" Storyboard="{StaticResource AngleStoryboard}" />
                                 <BeginStoryboard x:Name="ScaleYStoryboardLeft" Storyboard="{StaticResource ScaleYStoryboard}" />
@@ -174,33 +185,33 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="ExpandDirection" Value="Up">
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource UpTriangleGeometry}" />
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Right" />
-                            <Setter TargetName="ExpanderButton" Property="HorizontalContentAlignment" Value="Stretch" />
-                            <Setter TargetName="ExpanderButton" Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource UpTriangleGeometry}" TargetName="ExpanderButton" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" TargetName="ExpanderButton" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" TargetName="ExpanderButton" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" TargetName="ExpanderButton" />
 
-                            <Setter TargetName="ExpanderButton" Property="Grid.Row" Value="1" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.ColumnSpan" Value="2" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.ColumnSpan" Value="2" />
+                            <Setter Property="Grid.Row" Value="1" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Column" Value="0" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Row" Value="0" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.Column" Value="0" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" TargetName="ContentPresenter" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource ScaleXStoryboard}" />
                             </Trigger.EnterActions>
                         </Trigger>
                         <Trigger Property="ExpandDirection" Value="Right">
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource RightTriangleGeometry}" />
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Top" />
-                            <Setter TargetName="ExpanderButton" Property="HorizontalContentAlignment" Value="Right" />
-                            <Setter TargetName="ExpanderButton" Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource RightTriangleGeometry}" TargetName="ExpanderButton" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Top" TargetName="ExpanderButton" />
+                            <Setter Property="HorizontalContentAlignment" Value="Right" TargetName="ExpanderButton" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" TargetName="ExpanderButton" />
 
-                            <Setter TargetName="ExpanderButton" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.RowSpan" Value="2" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.RowSpan" Value="2" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Column" Value="1" />
+                            <Setter Property="Grid.Row" Value="0" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.RowSpan" Value="2" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Column" Value="0" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Row" Value="0" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.RowSpan" Value="2" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.Column" Value="1" TargetName="ContentPresenter" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="AngleStoryboardRight" Storyboard="{StaticResource AngleStoryboard}" />
                                 <BeginStoryboard x:Name="ScaleYStoryboardRight" Storyboard="{StaticResource ScaleYStoryboard}" />
@@ -211,17 +222,17 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="ExpandDirection" Value="Down">
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" />
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconDirection" Value="Right" />
-                            <Setter TargetName="ExpanderButton" Property="HorizontalContentAlignment" Value="Stretch" />
-                            <Setter TargetName="ExpanderButton" Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" TargetName="ExpanderButton" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" TargetName="ExpanderButton" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" TargetName="ExpanderButton" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" TargetName="ExpanderButton" />
 
-                            <Setter TargetName="ExpanderButton" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="ExpanderButton" Property="Grid.ColumnSpan" Value="2" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Row" Value="1" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="ContentPresenter" Property="Grid.ColumnSpan" Value="2" />
+                            <Setter Property="Grid.Row" Value="0" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Column" Value="0" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" TargetName="ExpanderButton" />
+                            <Setter Property="Grid.Row" Value="1" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.Column" Value="0" TargetName="ContentPresenter" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" TargetName="ContentPresenter" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource ScaleXStoryboard}" />
                             </Trigger.EnterActions>
@@ -240,7 +251,7 @@
                                 <BeginStoryboard x:Name="LeftCollapsedStoryboard" Storyboard="{StaticResource LeftCollapsedStoryboard}" />
                                 <RemoveStoryboard BeginStoryboardName="LeftExpandedStoryboard" />
                             </MultiTrigger.ExitActions>
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource RightTriangleGeometry}" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource RightTriangleGeometry}" TargetName="ExpanderButton" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -256,7 +267,7 @@
                                 <BeginStoryboard x:Name="UpCollapsedStoryboard" Storyboard="{StaticResource UpCollapsedStoryboard}" />
                                 <RemoveStoryboard BeginStoryboardName="UpExpandedStoryboard" />
                             </MultiTrigger.ExitActions>
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" TargetName="ExpanderButton" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -272,7 +283,7 @@
                                 <BeginStoryboard x:Name="RightCollapsedStoryboard" Storyboard="{StaticResource RightCollapsedStoryboard}" />
                                 <RemoveStoryboard BeginStoryboardName="RightExpandedStoryboard" />
                             </MultiTrigger.ExitActions>
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource LeftTriangleGeometry}" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource LeftTriangleGeometry}" TargetName="ExpanderButton" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -288,7 +299,7 @@
                                 <BeginStoryboard x:Name="DownCollapsedStoryboard" Storyboard="{StaticResource DownCollapsedStoryboard}" />
                                 <RemoveStoryboard BeginStoryboardName="DownExpandedStoryboard" />
                             </MultiTrigger.ExitActions>
-                            <Setter TargetName="ExpanderButton" Property="attached:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource UpTriangleGeometry}" />
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource UpTriangleGeometry}" TargetName="ExpanderButton" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

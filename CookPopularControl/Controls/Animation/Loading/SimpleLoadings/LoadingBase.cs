@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Controls;
-using CookPopularCSharpToolkit.Communal;
+﻿using CookPopularCSharpToolkit.Communal;
 using System;
 using System.Windows;
 using System.Windows.Controls;

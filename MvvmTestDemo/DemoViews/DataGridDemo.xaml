@@ -24,39 +24,40 @@
 
     <ScrollViewer>
         <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}">
-            <Button Click="Button_Click"
+            <Button Width="100" Height="34"
                     Content="添加"
-                    Width="100" Height="34"
-                    Margin="0,20" />
-            <DataGrid AlternatingRowBackground="NavajoWhite" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
+                    Margin="0,20"
+                    Click="Button_Click" />
+            <DataGrid Width="800" Height="400"
+                      BorderBrush="Green" BorderThickness="2"
+                      Foreground="Purple" Background="#F8F9FA"
+                      FontSize="16"
+                      AlternatingRowBackground="NavajoWhite" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
                       CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
                       ColumnHeaderHeight="50" IsReadOnly="False"
                       ItemsSource="{Binding Workers}"
                       RowBackground="FloralWhite" RowHeaderWidth="80" RowHeight="50"
-                      Style="{StaticResource DefaultDataGridStyle}"
-                      Width="800" Height="400"
-                      BorderBrush="Green" BorderThickness="2"
-                      Foreground="Purple" Background="#F8F9FA"
-                      FontSize="16">
+                      Style="{StaticResource DefaultDataGridStyle}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="姓名" />
-                    <DataGridTextColumn Binding="{Binding Gender}" Header="性别" />
-                    <DataGridTextColumn Binding="{Binding Age}" Header="年龄" />
-                    <DataGridCheckBoxColumn Binding="{Binding IsWorkingOnIT}" Header="从事IT" />
+                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
+                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                    <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
                     <DataGridComboBoxColumn Header="电影" ItemsSource="{x:Static local:DataGridDemo.Movies}" SelectedValueBinding="{Binding FavoriteMovie}" />
-                    <DataGridTextColumn Binding="{Binding Job}" Header="职位" />
-                    <DataGridTextColumn Binding="{Binding Department}" Header="部门" />
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
+                    <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid pc:DataGridAssistant.IsRegisterSelectAll="False" pc:DataGridAssistant.IsShowSerialNumber="False" pc:DataGridAssistant.IsShowThickness="True"
-                      AreRowDetailsFrozen="False" AutoGenerateColumns="False" CanUserAddRows="False"
-                      CanUserDeleteRows="False" CanUserReorderColumns="True" IsReadOnly="True"
-                      ItemsSource="{Binding Workers}"
-                      Width="600" Height="400"
+            <DataGrid Width="600" Height="400"
                       FontSize="16"
-                      Margin="0,20">
+                      Margin="0,20"
+                      pc:DataGridAssistant.IsRegisterSelectAll="False" pc:DataGridAssistant.IsShowSerialNumber="False"
+                      pc:DataGridAssistant.IsShowThickness="True" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
+                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
+                      IsReadOnly="True"
+                      ItemsSource="{Binding Workers}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="姓名" />
+                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
                     <DataGridComboBoxColumn Header="性别" SelectedValueBinding="{Binding Gender}" TextBinding="{Binding Gender}">
                         <DataGridComboBoxColumn.ItemsSource>
                             <core:ArrayList>
@@ -65,33 +66,33 @@
                             </core:ArrayList>
                         </DataGridComboBoxColumn.ItemsSource>
                     </DataGridComboBoxColumn>
-                    <DataGridTextColumn Binding="{Binding Age}" Header="年龄" />
-                    <DataGridTextColumn Binding="{Binding Job}" Header="职位" />
-                    <DataGridTextColumn Binding="{Binding Department}" Header="部门" />
+                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
+                    <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid AlternatingRowBackground="BlueViolet" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
+            <DataGrid Width="600" Height="500"
+                      BorderBrush="Green" BorderThickness="1"
+                      Foreground="Purple" Background="WhiteSmoke"
+                      AlternatingRowBackground="BlueViolet" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
                       CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
                       ColumnHeaderHeight="40" HorizontalGridLinesBrush="Red" IsEnabled="True"
                       IsReadOnly="False"
                       ItemsSource="{Binding Workers}"
                       RowBackground="SandyBrown" RowHeaderWidth="80" RowHeight="50"
-                      Style="{x:Null}"
                       VerticalGridLinesBrush="Yellow"
-                      Width="600" Height="500"
-                      BorderBrush="Green" BorderThickness="1"
-                      Foreground="Purple" Background="WhiteSmoke">
+                      Style="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="姓名" />
-                    <DataGridTextColumn Binding="{Binding Gender}" Header="性别" />
-                    <DataGridTextColumn Binding="{Binding Age}" Header="年龄" />
-                    <DataGridCheckBoxColumn Binding="{Binding IsWorkingOnIT}" Header="从事IT" />
-                    <DataGridComboBoxColumn Header="电影"
+                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
+                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                    <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
+                    <DataGridComboBoxColumn Width="150"
+                                            Header="电影"
                                             ItemsSource="{Binding Source={StaticResource EnumSource}}"
-                                            SelectedValueBinding="{Binding Status}"
-                                            Width="150" />
-                    <DataGridTextColumn Binding="{Binding Job}" Header="职位" />
-                    <DataGridTextColumn Binding="{Binding Department}" Header="部门" />
+                                            SelectedValueBinding="{Binding Status}" />
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
+                    <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
