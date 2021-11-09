@@ -42,7 +42,7 @@
                          Margin="20,0"
                          Style="{StaticResource ValidationAddClearButtonTextBoxStyle}">
                     <TextBox.Text>
-                        <Binding Mode="TwoWay" Path="TextContent2" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Mode="TwoWay" Path="TextContent2" UpdateSourceTrigger="PropertyChanged" NotifyOnTargetUpdated="True" NotifyOnValidationError="True">
                             <Binding.ValidationRules>
                                 <pt:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True" />
                             </Binding.ValidationRules>
@@ -59,7 +59,7 @@
                 <pc:NumericUpDown Width="200" Height="34"
                                   Maximum="20"
                                   Margin="20,0"
-                                  Increment="0.5" IsShowUpDownButton="False" ValueChanged="NumericUpDown_ValueChanged" />
+                                  Increment="0.5" IsShowUpDownButton="False"  />
                 <pc:NumericUpDown Width="200" Height="34"
                                   Maximum="10"
                                   Increment="0.5" ValueFormat="F4" />
@@ -67,15 +67,14 @@
                                   Margin="0,20"
                                   Style="{StaticResource NumericUpDownAddClearButtonStyle}" />
                 <pc:NumericUpDown Width="200" Height="34"
-                                  Minimum="0" Maximum="20"
-                                  Margin="20"
+                                  Margin="20" ValueChanged="NumericUpDown_ValueChanged"
                                   Style="{StaticResource NumericUpDownAddClearButtonStyle}">
                     <pc:NumericUpDown.Value>
-                        <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
                             <Binding.ValidationRules>
-                                <pt:RegularPatternValidationRule RegularPattern="NotNegativeInt" ErrorMessage="Please Input Positive Number" ValidatesOnTargetUpdated="True"/>
-                                <!--<pt:RangeValueValidationRule ErrorMessage="{x:Null}"
-                                                             MaxValue="10" MinValue="5" ValidatesOnTargetUpdated="True" />-->
+                                <!--<pt:RegularPatternValidationRule RegularPattern="NotNegativeInt" ErrorMessage="Please Input Positive Number" ValidatesOnTargetUpdated="True"/>-->
+                                <pt:RangeValueValidationRule ErrorMessage="{x:Null}"
+                                                             MaxValue="10" MinValue="-5" ValidatesOnTargetUpdated="True" />
                             </Binding.ValidationRules>
                         </Binding>
                     </pc:NumericUpDown.Value>

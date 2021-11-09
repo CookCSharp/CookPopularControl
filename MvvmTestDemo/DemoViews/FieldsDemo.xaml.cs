@@ -23,7 +23,7 @@ namespace MvvmTestDemo.DemoViews
 
         private void NumericUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            var s = NumericValue;
         }
     }
 }

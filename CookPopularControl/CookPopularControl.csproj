@@ -117,9 +117,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CookPopularCSharpToolkit" Version="1.0.1.1-dev-20211109" />
         <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
         <PackageReference Include="QRCoder" Version="1.4.1" />
-        <PackageReference Include="XamlAnimatedGif" Version="2.0.0" />
+        <PackageReference Include="XamlAnimatedGif" Version="2.0.2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -156,10 +157,6 @@
         <Resource Include="Resources\Images\WpfControl.png">
           <CopyToOutputDirectory></CopyToOutputDirectory>
         </Resource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
     </ItemGroup>
 
     <ItemGroup>

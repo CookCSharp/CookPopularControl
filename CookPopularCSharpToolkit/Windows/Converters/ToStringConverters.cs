@@ -20,8 +20,10 @@ namespace CookPopularCSharpToolkit.Windows
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is double v && parameter is double param)
-                return v.ToString($"N{(int)param}");
+            if (value is double v1 && parameter == null)
+                return v1.ToString();
+            else if (value is double v2 && parameter is double param)
+                return v2.ToString($"N{(int)param}");
 
             return default;
         }

@@ -24,7 +24,6 @@ namespace MvvmTestDemo
     {
         protected override DependencyObject CreateShell()
         {
-            var s = Regex.IsMatch("-0", @"^-[0-9]\d*$"); 
             return Container.Resolve<MainWindow>();
         }
 

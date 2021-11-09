@@ -18,7 +18,7 @@
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="14" />
         <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="14" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
-        <Setter Property="common:TextElementAttached.PlaceHolder" Value="输入数字" />
+        <Setter Property="common:TextElementAttached.PlaceHolder" Value="请输入数字" />
         <Setter Property="common:TextElementAttached.IsAddClearButton" Value="False" />
         <Setter Property="pc:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />
         <Setter Property="pc:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -51,7 +51,7 @@
                                      common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                      InputMethod.IsInputMethodEnabled="False"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
-                                     Validation.ErrorTemplate="{x:Null}" />
+                                     Validation.ErrorTemplate="{TemplateBinding Validation.ErrorTemplate}" />
                             <UniformGrid Grid.Column="1"
                                          Rows="2"
                                          Margin="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonMargin}"

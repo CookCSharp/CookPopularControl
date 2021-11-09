@@ -2,6 +2,7 @@
 using CookPopularCSharpToolkit.Windows;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -28,18 +29,17 @@ namespace CookPopularControl.Controls
     [DefaultEvent("ValueChanged")]
     [DefaultProperty("Value")]
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
-    [TemplatePart(Name = ElementPlusButton, Type = typeof(System.Windows.Controls.Button))]
-    [TemplatePart(Name = ElementSubtractButton, Type = typeof(System.Windows.Controls.Button))]
+    [TemplatePart(Name = ElementPlusButton, Type = typeof(Button))]
+    [TemplatePart(Name = ElementSubtractButton, Type = typeof(Button))]
     public class NumericUpDown : Control
     {
         private const string ElementTextBox = "PART_TextBox";
         private const string ElementPlusButton = "PART_PlusButton";
         private const string ElementSubtractButton = "PART_SubtractButton";
-
-        private TextBox numericTextBox;
-        private System.Windows.Controls.Button plusButton;
-        private System.Windows.Controls.Button subtractButton;
-        private bool canUpdateValue; //输入的值满足要求时为false，不满足要求时重新赋值=CurrentValue
+        private TextBox _numericTextBox;
+        private Button _plusButton;
+        private Button _subtractButton;
+        private double _currentValue;
 
         public static readonly ICommand SubtractCommand = new RoutedCommand(nameof(SubtractCommand), typeof(NumericUpDown));
         public static readonly ICommand PlusCommand = new RoutedCommand(nameof(PlusCommand), typeof(NumericUpDown));
@@ -65,24 +65,21 @@ namespace CookPopularControl.Controls
         {
             if (d is NumericUpDown numeric)
             {
-                var minValue = numeric.Minimum;
-                var value = (double)baseValue;
+                double minValue = numeric.Minimum;
+                double value = (double)baseValue;
                 if (value < minValue)
                 {
                     numeric.Value = minValue;
-                    numeric.canUpdateValue = true;
                     numeric.SetNumericText();
                     return minValue;
                 }
-                var maxValue = numeric.Maximum;
+                double maxValue = numeric.Maximum;
                 if (value > maxValue)
                 {
                     numeric.Value = maxValue;
-                    numeric.canUpdateValue = true;
+                    numeric.SetNumericText();
+                    return maxValue;
                 }
-
-                numeric.SetNumericText();
-                return value > maxValue ? maxValue : value;
             }
 
             return baseValue;
@@ -96,15 +93,17 @@ namespace CookPopularControl.Controls
 
                 numeric.SetNumericText();
                 numeric.OnValueChanged((double)e.OldValue, (double)e.NewValue);
+                numeric._currentValue = (double)e.NewValue;
             }
         }
 
         private void SetNumericText()
         {
-            if (numericTextBox != null && canUpdateValue)
+            if (_numericTextBox != null) 
             {
-                numericTextBox.Text = CurrentValue;
-                numericTextBox.Select(numericTextBox.Text.Length, 0);
+                var text = string.IsNullOrWhiteSpace(ValueFormat) ? Value.ToString() : Value.ToString(ValueFormat);
+                _numericTextBox.Text = text;
+                _numericTextBox.Select(_numericTextBox.Text.Length, 0);
             }
         }
 
@@ -253,8 +252,6 @@ namespace CookPopularControl.Controls
         }
 
 
-        private string CurrentValue => string.IsNullOrWhiteSpace(ValueFormat) ? Value.ToString() : Value.ToString(ValueFormat);
-
         public NumericUpDown()
         {
             CommandBindings.Add(new CommandBinding(PlusCommand, (s, e) =>
@@ -281,34 +278,34 @@ namespace CookPopularControl.Controls
 
         public override void OnApplyTemplate()
         {
-            if (numericTextBox != null)
+            if (_numericTextBox != null)
             {
-                TextCompositionManager.RemovePreviewTextInputHandler(numericTextBox, (s, e) => UpdateValue());
-                numericTextBox.TextChanged -= (s, e) => UpdateValue();
-                numericTextBox.PreviewKeyDown -= NumericTextBox_PreviewKeyDown;
-                numericTextBox.LostFocus -= NumericTextBox_LostFocus;
+                TextCompositionManager.RemovePreviewTextInputHandler(_numericTextBox, (s, e) => UpdateValue());
+                _numericTextBox.TextChanged -= (s, e) => UpdateValue();
+                _numericTextBox.PreviewKeyDown -= NumericTextBox_PreviewKeyDown;
+                _numericTextBox.LostFocus -= NumericTextBox_LostFocus;
             }
 
-            numericTextBox = GetTemplateChild(ElementTextBox) as TextBox;
-            plusButton = GetTemplateChild(ElementPlusButton) as System.Windows.Controls.Button;
-            subtractButton = GetTemplateChild(ElementSubtractButton) as System.Windows.Controls.Button;
+            _numericTextBox = GetTemplateChild(ElementTextBox) as TextBox;
+            _plusButton = GetTemplateChild(ElementPlusButton) as Button;
+            _subtractButton = GetTemplateChild(ElementSubtractButton) as Button;
 
             SetUpDownButtonEnabled(this);
 
-            if (numericTextBox != null)
+            if (_numericTextBox != null)
             {
-                numericTextBox.SetBinding(TextBoxBase.SelectionBrushProperty, new Binding(TextBoxBase.SelectionBrushProperty.Name) { Source = numericTextBox });
+                _numericTextBox.SetBinding(TextBoxBase.SelectionBrushProperty, new Binding(TextBoxBase.SelectionBrushProperty.Name) { Source = _numericTextBox });
 #if !NET46 && !NET461
-                numericTextBox.SetBinding(TextBoxBase.SelectionTextBrushProperty, new Binding(TextBoxBase.SelectionTextBrushProperty.Name) { Source = numericTextBox });
+                _numericTextBox.SetBinding(TextBoxBase.SelectionTextBrushProperty, new Binding(TextBoxBase.SelectionTextBrushProperty.Name) { Source = _numericTextBox });
 #endif
-                numericTextBox.SetBinding(TextBoxBase.SelectionOpacityProperty, new Binding(TextBoxBase.SelectionOpacityProperty.Name) { Source = numericTextBox });
-                numericTextBox.SetBinding(TextBoxBase.CaretBrushProperty, new Binding(TextBoxBase.CaretBrushProperty.Name) { Source = numericTextBox });
+                _numericTextBox.SetBinding(TextBoxBase.SelectionOpacityProperty, new Binding(TextBoxBase.SelectionOpacityProperty.Name) { Source = _numericTextBox });
+                _numericTextBox.SetBinding(TextBoxBase.CaretBrushProperty, new Binding(TextBoxBase.CaretBrushProperty.Name) { Source = _numericTextBox });
 
-                TextCompositionManager.AddPreviewTextInputHandler(numericTextBox, (s, e) => UpdateValue());
-                numericTextBox.TextChanged += (s, e) => UpdateValue();
-                numericTextBox.PreviewKeyDown += NumericTextBox_PreviewKeyDown;
-                numericTextBox.LostFocus += NumericTextBox_LostFocus;
-                numericTextBox.Text = CurrentValue;
+                TextCompositionManager.AddPreviewTextInputHandler(_numericTextBox, (s, e) => UpdateValue());
+                _numericTextBox.TextChanged += (s, e) => UpdateValue();
+                _numericTextBox.PreviewKeyDown += NumericTextBox_PreviewKeyDown;
+                _numericTextBox.LostFocus += NumericTextBox_LostFocus;
+                _numericTextBox.Text = Value.ToString();
             }
 
             base.OnApplyTemplate();
@@ -316,36 +313,43 @@ namespace CookPopularControl.Controls
 
         private void SetUpDownButtonEnabled(NumericUpDown numeric)
         {
-            if (numeric.plusButton == null || numeric.subtractButton == null)
+            if (numeric._plusButton == null || numeric._subtractButton == null)
                 return;
             if (numeric.Value.Equals(numeric.Maximum))
-                numeric.plusButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
+                numeric._plusButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
             else
-                numeric.plusButton.Foreground = NumericUpDownAssistant.GetUpDownButtonBrush(numeric);
+                numeric._plusButton.Foreground = NumericUpDownAssistant.GetUpDownButtonBrush(numeric);
             if (numeric.Value.Equals(numeric.Minimum))
-                numeric.subtractButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
+                numeric._subtractButton.Foreground = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
             else
-                numeric.subtractButton.Foreground = NumericUpDownAssistant.GetUpDownButtonBrush(numeric);
+                numeric._subtractButton.Foreground = NumericUpDownAssistant.GetUpDownButtonBrush(numeric);
         }
 
         private void UpdateValue()
         {
-            if (string.IsNullOrWhiteSpace(numericTextBox.Text))
+            if (string.IsNullOrWhiteSpace(_numericTextBox.Text))
             {
-                canUpdateValue = false;
                 Value = 0;
-                canUpdateValue = true;
             }
-            else if (double.TryParse(numericTextBox.Text, out double v))
+            else if (double.TryParse(_numericTextBox.Text, out double v))
             {
-                canUpdateValue = false;
                 Value = v;
-                canUpdateValue = true;
+            }
+            else if (_numericTextBox.Text.StartsWith("-") && _numericTextBox.Text.Length == 1)
+            {
+
+            }
+            else if ((_numericTextBox.Text.StartsWith("-") && Regex.Matches(_numericTextBox.Text, "-").Count == 1)
+                    && _numericTextBox.Text.Length > 1 && RegularPatterns.Default.IsMatchRegularPattern(_numericTextBox.Text, InputTextType.Digital))
+            {
+                double.TryParse(_numericTextBox.Text, out double v1);
+                Value = v1;
             }
             else
             {
-                canUpdateValue = true;
+                Value = _currentValue;
                 CoerceValue(ValueProperty);
+                SetNumericText();
             }
         }
 
@@ -364,7 +368,7 @@ namespace CookPopularControl.Controls
         //失去焦点时重新赋值
         private void NumericTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            numericTextBox.Text = CurrentValue;
+            _numericTextBox.Text = Value.ToString();
         }
 
         //使得输入框获取焦点
@@ -372,10 +376,10 @@ namespace CookPopularControl.Controls
         {
             base.OnGotFocus(e);
 
-            if (numericTextBox != null)
+            if (_numericTextBox != null)
             {
-                numericTextBox.Focus();
-                numericTextBox.Select(numericTextBox.Text.Length, 0);
+                _numericTextBox.Focus();
+                _numericTextBox.Select(_numericTextBox.Text.Length, 0);
             }
         }
 
@@ -384,7 +388,7 @@ namespace CookPopularControl.Controls
         {
             base.OnMouseWheel(e);
 
-            if (numericTextBox.IsFocused && !IsReadOnly)
+            if (_numericTextBox.IsFocused && !IsReadOnly)
             {
                 Value += e.Delta > 0 ? Increment : -Increment;
                 e.Handled = true;
@@ -394,7 +398,7 @@ namespace CookPopularControl.Controls
         //判断<see cref="Value"/>改变时的值是否在<see cref="double"/>的范围
         private static bool IsInRangeOfDouble(object value)
         {
-            var v = (double)value;
+            double v = (double)value;
             return !(double.IsNaN(v) || double.IsInfinity(v));
         }
     }
