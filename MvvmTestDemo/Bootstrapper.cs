@@ -1,8 +1,10 @@
-﻿using Prism.Ioc;
+﻿using CookPopularCSharpToolkit.Windows;
+using Prism.Ioc;
 using Prism.Mvvm;
 using Prism.Unity;
 using System;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 
@@ -22,6 +24,7 @@ namespace MvvmTestDemo
     {
         protected override DependencyObject CreateShell()
         {
+            var s = Regex.IsMatch("-0", @"^-[0-9]\d*$"); 
             return Container.Resolve<MainWindow>();
         }
 

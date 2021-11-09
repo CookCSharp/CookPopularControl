@@ -65,7 +65,7 @@ namespace CookPopularCSharpToolkit.Windows
                 else if (e.Action == ValidationErrorEventAction.Removed)
                     validationExceptionCount--;
 
-                handle.HasValidationError = validationExceptionCount == 0;
+                handle.HasValidationError = validationExceptionCount != 0;
             }
             catch (Exception ex)
             {

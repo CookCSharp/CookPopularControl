@@ -42,12 +42,12 @@ namespace CookPopularCSharpToolkit.Windows
         /// <summary>
         /// 非负整数规则
         /// </summary>
-        public const string NotNegativeIntPattern = @"^[1-9]\d*|0$";
+        public const string NotNegativeIntPattern = @"^[0-9]\d*$";
 
         /// <summary>
         /// 非正整数规则
         /// </summary>
-        public const string NotPositveIntPattern = @"^-[1-9]\d*|0$";
+        public const string NotPositveIntPattern = @"^-[0-9]\d*$";
 
         /// <summary>
         /// 正浮点数规则

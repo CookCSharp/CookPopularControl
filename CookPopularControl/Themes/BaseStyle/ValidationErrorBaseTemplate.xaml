@@ -13,7 +13,7 @@
             <Border BorderBrush="{DynamicResource FieldValidationErrorBrush}"
                     BorderThickness="0"
                     Background="{DynamicResource FieldValidationErrorBrush}"
-                    CornerRadius="10">
+                    CornerRadius="2">
                 <TextBlock MaxWidth="250"
                            Text="{Binding [0].ErrorContent}"
                            Foreground="{DynamicResource AssistantForegroundBrush}"

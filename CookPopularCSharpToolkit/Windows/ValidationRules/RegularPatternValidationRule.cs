@@ -29,7 +29,9 @@ namespace CookPopularCSharpToolkit.Windows
         {
             if (RegularPattern is null) return ValidationResult.ValidResult;
 
-            ErrorMessage = "Please input " + Enum.GetName(typeof(InputTextType), RegularPattern);
+            if(ErrorMessage == "输入错误" || string.IsNullOrEmpty(ErrorMessage))
+                ErrorMessage = "Please input " + Enum.GetName(typeof(InputTextType), RegularPattern);
+
             return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), RegularPattern.Value)
                    ? ValidationResult.ValidResult
                    : new ValidationResult(false, ErrorMessage);

@@ -73,8 +73,9 @@
                     <pc:NumericUpDown.Value>
                         <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
-                                <pt:RangeValueValidationRule ErrorMessage="{x:Null}"
-                                                             MaxValue="10" MinValue="5" ValidatesOnTargetUpdated="True" />
+                                <pt:RegularPatternValidationRule RegularPattern="NotNegativeInt" ErrorMessage="Please Input Positive Number" ValidatesOnTargetUpdated="True"/>
+                                <!--<pt:RangeValueValidationRule ErrorMessage="{x:Null}"
+                                                             MaxValue="10" MinValue="5" ValidatesOnTargetUpdated="True" />-->
                             </Binding.ValidationRules>
                         </Binding>
                     </pc:NumericUpDown.Value>
