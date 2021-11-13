@@ -91,9 +91,11 @@ namespace CookPopularControl.Controls
                 if (numeric.IsLoaded)
                     numeric.SetUpDownButtonEnabled(numeric);
 
+                numeric.Value = (double)e.NewValue;
+                numeric._currentValue = (double)e.NewValue;
+
                 numeric.SetNumericText();
                 numeric.OnValueChanged((double)e.OldValue, (double)e.NewValue);
-                numeric._currentValue = (double)e.NewValue;
             }
         }
 

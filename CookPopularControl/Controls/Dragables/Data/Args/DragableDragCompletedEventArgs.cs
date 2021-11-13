@@ -3,15 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：DragableDragCompletedEventArgs
- * Author： Chance_写代码的厨子
- * Create Time：2021-08-11 11:29:29
- */
-namespace CookPopularControl.Communal.Data
+namespace CookPopularControl.Controls.Dragables
 {
     public delegate void DragableDragCompletedEventHandler(object sender, DragableDragCompletedEventArgs e);
 
@@ -23,25 +15,27 @@ namespace CookPopularControl.Communal.Data
 
         public DragableDragCompletedEventArgs(DragableItem dragableItem, DragCompletedEventArgs dragCompletedEventArgs)
         {
-            if (dragableItem == null) throw new ArgumentNullException("dragablzItem");
+            if (dragableItem == null) throw new ArgumentNullException("dragableItem");
             if (dragCompletedEventArgs == null) throw new ArgumentNullException("dragCompletedEventArgs");
-
+            
             _dragableItem = dragableItem;
             _dragCompletedEventArgs = dragCompletedEventArgs;
         }
 
-        public DragableDragCompletedEventArgs(RoutedEvent routedEvent, DragableItem dragableItem, DragCompletedEventArgs dragCompletedEventArgs) : base(routedEvent)
+        public DragableDragCompletedEventArgs(RoutedEvent routedEvent, DragableItem dragableItem, DragCompletedEventArgs dragCompletedEventArgs)
+            : base(routedEvent)
         {
-            if (dragableItem == null) throw new ArgumentNullException("dragablzItem");
+            if (dragableItem == null) throw new ArgumentNullException("dragableItem");
             if (dragCompletedEventArgs == null) throw new ArgumentNullException("dragCompletedEventArgs");
 
-            _dragableItem = dragableItem;
+            _dragableItem = dragableItem;            
             _dragCompletedEventArgs = dragCompletedEventArgs;
         }
 
-        public DragableDragCompletedEventArgs(RoutedEvent routedEvent, object source, DragableItem dragableItem, DragCompletedEventArgs dragCompletedEventArgs) : base(routedEvent, source)
+        public DragableDragCompletedEventArgs(RoutedEvent routedEvent, object source, DragableItem dragableItem, DragCompletedEventArgs dragCompletedEventArgs)
+            : base(routedEvent, source)
         {
-            if (dragableItem == null) throw new ArgumentNullException("dragablzItem");
+            if (dragableItem == null) throw new ArgumentNullException("dragableItem");
             if (dragCompletedEventArgs == null) throw new ArgumentNullException("dragCompletedEventArgs");
 
             _dragableItem = dragableItem;
@@ -56,6 +50,6 @@ namespace CookPopularControl.Communal.Data
         public DragCompletedEventArgs DragCompletedEventArgs
         {
             get { return _dragCompletedEventArgs; }
-        }
+        }        
     }
 }

@@ -224,31 +224,6 @@
             <param name="genericTarget">The current object along the event's route.</param>
             <returns>Nothing.</returns>
         </member>
-        <member name="T:CookPopularControl.Communal.Data.AddLocationHint">
-            <summary>
-            指定添加选项卡的位置,而顺序则与源项的顺序无关
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.First">
-            <summary>
-            第一个位置
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.Last">
-            <summary>
-            最后一个位置
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.Prior">
-            <summary>
-            选中项或指定项之前的位置
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.AddLocationHint.After">
-            <summary>
-            选中项或指定项之后的位置
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Communal.Data.AlertorState">
             <summary>
             警报器状态
@@ -1609,65 +1584,40 @@
             Idicates if this is a leaf in a branch. <c>True</c> if <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.ParentBranch"/> is not null.
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dragables.Core.StackPositionMonitor">
+        <member name="T:CookPopularControl.Controls.Dragables.AddLocationHint">
             <summary>
-            对子项的线性监听器(水平或垂直)，参见<see cref="T:CookPopularControl.Controls.Dragables.Core.StackOrganiser"/>
+            Specifies where an item should appear when added to tab control, as the headers order do not
+            specifically correlate to the order of the the source items.
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dragables.DragableItem">
+        <member name="F:CookPopularControl.Controls.Dragables.AddLocationHint.First">
             <summary>
-            可拖拽的子项
+            Display item in the first position.
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.XProperty">
+        <member name="F:CookPopularControl.Controls.Dragables.AddLocationHint.Last">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.X"/>的依赖属性
+            Display item in the first position.
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.XChangedEvent">
+        <member name="F:CookPopularControl.Controls.Dragables.AddLocationHint.Prior">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Dragables.DragableItem.XChangedEvent"/>标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.X"/>的变化事件
+            Display an item prior to the selected, or specified item.
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.YProperty">
+        <member name="F:CookPopularControl.Controls.Dragables.AddLocationHint.After">
             <summary>
-            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.Y"/>的依赖属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.YChangedEvent">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.Dragables.DragableItem.YChangedEvent"/>标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.Y"/>的变化事件
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.LogicalIndexProperty">
-            <summary>
-            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.LogicalIndex"/>的依赖属性
+            Display an item after the selected, or specified item.
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Dragables.DragableItem.ContentRotateTransformAngleProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.Dragables.DragableItem.ContentRotateTransformAngleProperty"/>允许项目内容旋转(在支持的模板中)，通常用于垂直/侧选项卡
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsSelectedProperty">
-            <summary>
-            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.IsSelected"/>的依赖属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsDraggingProperty">
-            <summary>
-            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.IsDragging"/>的依赖属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsSiblingDraggingProperty">
-            <summary>
-            标识<see cref="P:CookPopularControl.Controls.Dragables.DragableItem.IsSiblingDragging"/>的依赖属性
+            Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab.
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.Dragables.DragableItem.IsCustomThumbProperty">
             <summary>
-            <see cref="T:CookPopularControl.Controls.Dragables.DragableItem" /> 
-            templates contain a thumb, which is used to drag the item around.
+            <see cref="T:CookPopularControl.Controls.Dragables.DragableItem" /> templates contain a thumb, which is used to drag the item around.
             For most scenarios this is fine, but by setting this flag to <value>true</value> you can define
             a custom thumb in your content, without having to override the template.  This can be useful if you
             have extra content; such as a custom button that you want the user to be able to interact with (as usually
@@ -1676,25 +1626,25 @@
         </member>
         <member name="T:CookPopularControl.Controls.Dragables.DragableItemsControl">
             <summary>
-            可拖拽的集合控件
+            Items control which typically uses a canvas and 
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.AddToSource(System.Object,CookPopularControl.Communal.Data.AddLocationHint)">
+        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.AddToSource(System.Object,CookPopularControl.Controls.Dragables.AddLocationHint)">
             <summary>
-            将项添加到基础源，显示在呈现控件的特定位置
+            Adds an item to the underlying source, displaying in a specific position in rendered control.
             </summary>
             <param name="item"></param>
             <param name="addLocationHint"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.AddToSource(System.Object,System.Object,CookPopularControl.Communal.Data.AddLocationHint)">
+        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.AddToSource(System.Object,System.Object,CookPopularControl.Controls.Dragables.AddLocationHint)">
             <summary>
-            将项添加到基础源，显示在呈现控件的特定位置
+            Adds an item to the underlying source, displaying in a specific position in rendered control.
             </summary>
             <param name="item"></param>
             <param name="nearItem"></param>
             <param name="addLocationHint"></param>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.MoveItem(CookPopularControl.Controls.Dragables.Core.MoveItemRequest)">
+        <member name="M:CookPopularControl.Controls.Dragables.DragableItemsControl.MoveItem(CookPopularControl.Controls.Dragables.MoveItemRequest)">
             <summary>
             Move an item in the rendered layout.
             </summary>
@@ -1728,7 +1678,7 @@
             </remarks>
             <param name="tabContentItem">An existing Tab item content (a ViewModel in MVVM scenarios) which is backing a tab control</param>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.AddItem(System.Object,System.Object,CookPopularControl.Communal.Data.AddLocationHint)">
+        <member name="M:CookPopularControl.Controls.Dragables.DragableTabControl.AddItem(System.Object,System.Object,CookPopularControl.Controls.Dragables.AddLocationHint)">
             <summary>
             Helper method to add an item next to an existing item.
             </summary>
@@ -1958,6 +1908,26 @@
             <summary>
             The partition allows on or more tab environments in a single application.  Only tabs which have a tab controller
             with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.PositionMonitor">
+            <summary>
+            Consumers can provide a position monitor to receive updates regarding the location of an item.    
+            </summary>
+            <remarks>
+            A <see cref="T:CookPopularControl.Controls.Dragables.PositionMonitor"/> can be used to listen to  changes 
+            instead of routed events, which can be easier in a MVVM scenario.
+            </remarks>
+        </member>
+        <member name="E:CookPopularControl.Controls.Dragables.PositionMonitor.LocationChanged">
+            <summary>
+            Raised when the X,Y coordinate of a <see cref="!:DragablzItem"/> changes.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.StackPositionMonitor">
+            <summary>
+            A linear position monitor simplifies the montoring of the order of items, where they are laid out
+            horizontally or vertically (typically via a <see cref="!:StackOrganiser"/>.
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.NumericUpDown">
@@ -3615,119 +3585,6 @@
         <member name="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent">
             <summary>
             <see cref="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.References.AnonymousDisposable">
-            <summary>
-            匿名可释放对象
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.References.DefaultDisposable">
-            <summary>
-            默认可释放对象
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.References.Disposable">
-            <summary>
-            标准可释放对象
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.References.PositionMonitor">
-            <summary>
-            提供一个位置监视器来接收位置的更新   
-            </summary>
-            <remarks>
-            <see cref="T:CookPopularControl.References.PositionMonitor"/> 
-            可以用来监听位置变化而不是路由事件，更适合在MVVM中使用
-            </remarks>
-        </member>
-        <member name="E:CookPopularControl.References.PositionMonitor.LocationChanged">
-            <summary>
-            Raised when the X,Y coordinate of a <see cref="T:CookPopularControl.Controls.Dragables.DragableItem"/> changes.
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.References.SerialDisposable">
-            <summary>
-            串行可释放对象 
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.References.SerialDisposable.IsDisposed">
-            <summary>
-            获取一个值，该值指示是否已释放该对象
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.References.SerialDisposable.Dispose">
-            <summary>
-            释放潜在的对象
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.References.SerialDisposable.Disposable">
-            <summary>
-            获取或设置可释放的对象
-            </summary>
-            <remarks>
-            如果SerialDisposable已经被释放，则对该属性的赋值将导致立即释放给定的可释放对象。
-            指定此属性将处理前一个可释放对象。
-            </remarks>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.BooleanToReBooleanConverter">
-            <summary>
-            Bool to Re bool
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.ValueBetween0And100ToBooleanConverter">
-            <summary>
-            值在于(0,100)之间，返回Ture，否则返回False
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.DoubleToCornerRadiusConverter">
-            <summary>
-            Double To CornerRadius
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.ValueTranslateToDoubleConverter">
-            <summary>
-            值转换
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.DoubleToThicknessConverter">
-            <summary>
-            Double To Thickness
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.BooleanToVisibilityConverter">
-            <summary>
-            True to Visibility.Visible
-            </summary>
-        </member>
-        <member name="M:CookPopularCSharpToolkit.Windows.BooleanToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Convert bool or Nullable&lt;bool&gt; to Visibility
-            </summary>
-        </member>
-        <member name="M:CookPopularCSharpToolkit.Windows.BooleanToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Convert Visibility to boolean
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.BooleanToVisibilityReConverter">
-            <summary>
-            False to Visibility.Visible
-            </summary>
-        </member>
-        <member name="M:CookPopularCSharpToolkit.Windows.BooleanToVisibilityReConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Convert bool or Nullable&lt;bool&gt; to Visibility
-            </summary>
-        </member>
-        <member name="M:CookPopularCSharpToolkit.Windows.BooleanToVisibilityReConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Convert Visibility to boolean
-            </summary>
-        </member>
-        <member name="T:CookPopularCSharpToolkit.Windows.VisibilityToVisibilityReConverter">
-            <summary>
-            Visibility to Re Visibility
             </summary>
         </member>
     </members>

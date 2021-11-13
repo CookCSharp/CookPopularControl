@@ -201,7 +201,7 @@ namespace CookPopularControl.Controls.Dragables.Core
             var fixedItems = requestor.FixedItemCount;
             var lowerBound = fixedItems == 0
                 ? -1d
-                : GetLocationInfo(requestor.DragablzItems()
+                : GetLocationInfo(requestor.DragableItems()
                     .Take(fixedItems)
                     .Last()).End + _itemOffset - 1;
 

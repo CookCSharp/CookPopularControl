@@ -18,32 +18,21 @@ namespace CookPopularCSharpToolkit.Windows
         /// <summary>
         /// 是否有错误
         /// </summary>
-        public bool HasValidationError { get; set; }
+        public bool HasValidationError { get; }
     }
 
     /// <summary>
     /// 验证行为类
     /// </summary>
-    public class ValidationExceptionBehavior : Behavior<FrameworkElement>
+    public class ValidationExceptionBehavior : Behavior<FrameworkElement>, IValidationExceptionHandle
     {
         //错误计数器
         private int validationExceptionCount = 0;
+        public bool HasValidationError => validationExceptionCount > 0;
 
         protected override void OnAttached()
         {
             this.AssociatedObject.AddHandler(Validation.ErrorEvent, new EventHandler<ValidationErrorEventArgs>(OnOccuredValidationError));
-        }
-
-        /// <summary>
-        /// 获取
-        /// </summary>
-        /// <returns></returns>
-        private IValidationExceptionHandle GetValidationHandle()
-        {
-            if (this.AssociatedObject.DataContext is IValidationExceptionHandle)
-                return AssociatedObject.DataContext as IValidationExceptionHandle;
-
-            return null;
         }
 
         /// <summary>
@@ -65,12 +54,25 @@ namespace CookPopularCSharpToolkit.Windows
                 else if (e.Action == ValidationErrorEventAction.Removed)
                     validationExceptionCount--;
 
-                handle.HasValidationError = validationExceptionCount != 0;
+                //handle.HasValidationError = validationExceptionCount != 0;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+
+        /// <summary>
+        /// 获取<see cref="IValidationExceptionHandle"/>
+        /// </summary>
+        /// <returns></returns>
+        private IValidationExceptionHandle GetValidationHandle()
+        {
+            if (this.AssociatedObject.DataContext is IValidationExceptionHandle)
+                return AssociatedObject.DataContext as IValidationExceptionHandle;
+
+            return null;
         }
     }
 }

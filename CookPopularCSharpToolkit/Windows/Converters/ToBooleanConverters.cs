@@ -36,6 +36,7 @@ namespace CookPopularCSharpToolkit.Windows
         }
     }
 
+
     /// <summary>
     /// 值在于(0,100)之间，返回Ture，否则返回False
     /// </summary>
@@ -59,6 +60,7 @@ namespace CookPopularCSharpToolkit.Windows
         }
     }
 
+
     [MarkupExtensionReturnType(typeof(bool))]
     [Localizability(LocalizationCategory.NeverLocalize)]
     public class EqualityToBooleanConverter : MarkupExtensionBase, IValueConverter
@@ -70,9 +72,10 @@ namespace CookPopularCSharpToolkit.Windows
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return Binding.DoNothing;
+            return value?.Equals(true) == true ? parameter : Binding.DoNothing;
         }
     }
+
 
     [MarkupExtensionReturnType(typeof(bool))]
     [Localizability(LocalizationCategory.NeverLocalize)]
@@ -94,6 +97,7 @@ namespace CookPopularCSharpToolkit.Windows
         }
     }
 
+
     [MarkupExtensionReturnType(typeof(bool))]
     [Localizability(LocalizationCategory.NeverLocalize)]
     public class ValueMoreThanTargetValueToBooleanConverter : MarkupExtensionBase, IValueConverter
@@ -114,6 +118,7 @@ namespace CookPopularCSharpToolkit.Windows
         }
     }
 
+
     [MarkupExtensionReturnType(typeof(bool))]
     [Localizability(LocalizationCategory.NeverLocalize)]
     public class EmptyOrNullToBooleanConverter : MarkupExtensionBase, IValueConverter
@@ -129,6 +134,36 @@ namespace CookPopularCSharpToolkit.Windows
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+    }
+
+
+    [MarkupExtensionReturnType(typeof(bool))]
+    [Localizability(LocalizationCategory.NeverLocalize)]
+    [ValueConversion(typeof(Enum), typeof(bool))]
+    public class EnumToBooleanConverter : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string? parameterString = parameter as string;
+            if (parameterString == null)
+                return DependencyProperty.UnsetValue;
+
+            if (Enum.IsDefined(value.GetType(), value) == false)
+                return DependencyProperty.UnsetValue;
+
+            object parameterValue = Enum.Parse(value.GetType(), parameterString);
+
+            return parameterValue.Equals(value);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string? parameterString = parameter as string;
+            if (parameterString == null)
+                return DependencyProperty.UnsetValue;
+
+            return Enum.Parse(targetType, parameterString);
         }
     }
 }

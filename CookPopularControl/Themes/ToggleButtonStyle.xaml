@@ -3,7 +3,7 @@
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />
@@ -141,7 +141,7 @@
                                    Focusable="False"
                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                   Visibility="{TemplateBinding common:ButtonBaseAttached.IsShowRipple, Converter={toolkit:BooleanToVisibilityConverter}}">
+                                   Visibility="{TemplateBinding common:ButtonBaseAttached.IsShowRipple, Converter={pt:BooleanToVisibilityConverter}}">
                             <pc:Ripple.Clip>
                                 <MultiBinding Converter="{common:BorderClipConverter}">
                                     <Binding ElementName="border" Path="ActualWidth" />
@@ -298,7 +298,7 @@
                                     SnapsToDevicePixels="true"
                                     RenderTransformOrigin="0.5,0.5">
                                 <Border.Clip>
-                                    <MultiBinding Converter="{toolkit:BorderCircularClipToGeometryConverter}">
+                                    <MultiBinding Converter="{pt:BorderCircularClipToGeometryConverter}">
                                         <Binding ElementName="UnCheckedElement" Path="ActualWidth" />
                                         <Binding ElementName="UnCheckedElement" Path="ActualHeight" />
                                         <Binding ElementName="UnCheckedElement" Path="CornerRadius" />
@@ -324,7 +324,7 @@
                                     SnapsToDevicePixels="true"
                                     RenderTransformOrigin="0.5,0.5">
                                 <Border.Clip>
-                                    <MultiBinding Converter="{toolkit:BorderCircularClipToGeometryConverter}">
+                                    <MultiBinding Converter="{pt:BorderCircularClipToGeometryConverter}">
                                         <Binding ElementName="CheckedElement" Path="ActualWidth" />
                                         <Binding ElementName="CheckedElement" Path="ActualHeight" />
                                         <Binding ElementName="CheckedElement" Path="CornerRadius" />

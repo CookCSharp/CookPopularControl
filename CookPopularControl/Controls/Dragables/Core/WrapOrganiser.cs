@@ -18,32 +18,32 @@ namespace CookPopularControl.Controls.Dragables.Core
     {
         public void Organise(DragableItemsControl requestor, Size measureBounds, IEnumerable<DragableItem> items)
         {
-            throw new NotImplementedException();
+
         }
 
         public void Organise(DragableItemsControl requestor, Size measureBounds, IOrderedEnumerable<DragableItem> items)
         {
-            throw new NotImplementedException();
+
         }
 
         public void OrganiseOnMouseDownWithin(DragableItemsControl requestor, Size measureBounds, List<DragableItem> siblingItems, DragableItem dragablzItem)
         {
-            throw new NotImplementedException();
+
         }
 
         public void OrganiseOnDragStarted(DragableItemsControl requestor, Size measureBounds, IEnumerable<DragableItem> siblingItems, DragableItem dragItem)
         {
-            throw new NotImplementedException();
+
         }
 
         public void OrganiseOnDrag(DragableItemsControl requestor, Size measureBounds, IEnumerable<DragableItem> siblingItems, DragableItem dragItem)
         {
-            throw new NotImplementedException();
+
         }
 
         public void OrganiseOnDragCompleted(DragableItemsControl requestor, Size measureBounds, IEnumerable<DragableItem> siblingItems, DragableItem dragItem)
         {
-            throw new NotImplementedException();
+ 
         }
 
         public Point ConstrainLocation(DragableItemsControl requestor, Size measureBounds, Point itemCurrentLocation, Size itemCurrentSize, Point itemDesiredLocation, Size itemDesiredSize)

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
@@ -70,8 +70,8 @@
                         </Border>
                         <Canvas>
                             <Ellipse x:Name="InteractionEllipse"
-                                     Width="{Binding ElementName=PART_Border, Path=ActualWidth, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=1.8}"
-                                     Height="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=1.8}"
+                                     Width="{Binding ElementName=PART_Border, Path=ActualWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.8}"
+                                     Height="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.8}"
                                      Fill="#66000000"
                                      Opacity="0"
                                      HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -81,7 +81,7 @@
                                         <ScaleTransform />
                                         <SkewTransform />
                                         <RotateTransform />
-                                        <TranslateTransform X="{Binding ElementName=PART_Border, Path=ActualWidth, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=-0.4}" Y="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=-0.4}" />
+                                        <TranslateTransform X="{Binding ElementName=PART_Border, Path=ActualWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=-0.4}" Y="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=-0.4}" />
                                     </TransformGroup>
                                 </Ellipse.RenderTransform>
                             </Ellipse>

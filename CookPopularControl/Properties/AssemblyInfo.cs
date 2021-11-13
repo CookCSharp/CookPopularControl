@@ -30,22 +30,14 @@ using System.Windows.Markup;
 [assembly: XmlnsPrefix("https://Chance.CookPopularControl/2021/xaml", "pc")]
 
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.ThreeDimensional")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Adorner")]
-
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.DialogBox")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Windows")]
+
+[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Adorner")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Dragables")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.Dragables.Core")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Controls.ThreeDimensional")]
 
 [assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularControl.Communal")]
-
-
-//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
-//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Communal", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
-//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
-//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows.Expression", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
-//[assembly: XmlnsDefinition("https://Chance.CookPopularControl/2021/xaml", "CookPopularCSharpToolkit.Windows.Transitions", AssemblyName = "CookPopularCSharpToolkit, Version=1.0.1.1, Culture=neutral, PublicKeyToken=null")]
 
 

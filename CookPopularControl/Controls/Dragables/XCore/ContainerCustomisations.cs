@@ -1,23 +1,16 @@
-﻿using System;
+using CookPopularControl.Controls.Dragables;
+using System;
 using System.Windows;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：CustomContainer
- * Author： Chance_写代码的厨子
- * Create Time：2021-08-11 11:51:45
- */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
-    internal class CustomContainer
+    internal class ContainerCustomisations
     {
         private readonly Func<DragableItem> _getContainerForItemOverride;
         private readonly Action<DependencyObject, object> _prepareContainerForItemOverride;
         private readonly Action<DependencyObject, object> _clearingContainerForItemOverride;
 
-        public CustomContainer(Func<DragableItem> getContainerForItemOverride = null, Action<DependencyObject, object> prepareContainerForItemOverride = null, Action<DependencyObject, object> clearingContainerForItemOverride = null)
+        public ContainerCustomisations(Func<DragableItem> getContainerForItemOverride = null, Action<DependencyObject, object> prepareContainerForItemOverride = null, Action<DependencyObject, object> clearingContainerForItemOverride = null)
         {
             _getContainerForItemOverride = getContainerForItemOverride;
             _prepareContainerForItemOverride = prepareContainerForItemOverride;

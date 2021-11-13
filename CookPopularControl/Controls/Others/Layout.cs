@@ -3,7 +3,7 @@ using CookPopularControl.Communal.Data;
 using CookPopularControl.Communal.Interface;
 using CookPopularControl.Controls.Dragables;
 using CookPopularControl.Controls.Dragables.Core;
-using CookPopularControl.References;
+using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;
 using System;
@@ -91,7 +91,7 @@ namespace CookPopularControl.Controls
             //TODO bad bad behaviour.  Pick up this from the template.
             _floatingItems = new DragableItemsControl
             {
-                ContainerCustomisations = new CustomContainer(
+                ContainerCustomisations = new ContainerCustomisations(
                     GetFloatingContainerForItemOverride,
                     PrepareFloatingContainerForItemOverride,
                     ClearingFloatingContainerForItemOverride)
@@ -379,7 +379,7 @@ namespace CookPopularControl.Controls
         public static readonly DependencyPropertyKey KeyIsFloatingInLayoutPropertyKey = DependencyProperty.RegisterAttachedReadOnly(
             "IsFloatingInLayout", typeof(bool), typeof(Layout), new PropertyMetadata(default(bool)));
 
-        private static void SetIsFloatingInLayout(DependencyObject element, bool value)
+        public static void SetIsFloatingInLayout(DependencyObject element, bool value)
         {
             element.SetValue(KeyIsFloatingInLayoutPropertyKey, value);
         }
@@ -431,7 +431,7 @@ namespace CookPopularControl.Controls
 
         internal IEnumerable<DragableItem> FloatingDragablzItems()
         {
-            return _floatingItems.DragablzItems();
+            return _floatingItems.DragableItems();
         }
 
         internal static void RestoreFloatingItemSnapShots(DependencyObject ancestor, IEnumerable<FloatingItemSnapShot> floatingItemSnapShots)
@@ -793,7 +793,7 @@ namespace CookPopularControl.Controls
 
         private void TileFloatingItemsExecuted(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
-            var dragablzItems = _floatingItems.DragablzItems();
+            var dragablzItems = _floatingItems.DragableItems();
             Tile(dragablzItems, new Size(_floatingItems.ActualWidth, _floatingItems.ActualHeight));
         }
 
@@ -848,7 +848,7 @@ namespace CookPopularControl.Controls
 
         private void TileFloatingItemsHorizontallyExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            var dragablzItems = _floatingItems.DragablzItems();
+            var dragablzItems = _floatingItems.DragableItems();
             TileHorizontally(dragablzItems, new Size(_floatingItems.ActualWidth, _floatingItems.ActualHeight));
         }
 
@@ -873,7 +873,7 @@ namespace CookPopularControl.Controls
 
         private void TileFloatingItemsVerticallyExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            var dragablzItems = _floatingItems.DragablzItems();
+            var dragablzItems = _floatingItems.DragableItems();
             TileVertically(dragablzItems, new Size(_floatingItems.ActualWidth, _floatingItems.ActualHeight));
         }
 

@@ -1,14 +1,6 @@
 ﻿using System;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：OrderChangedEventArgs
- * Author： Chance_写代码的厨子
- * Create Time：2021-08-11 14:42:39
- */
-namespace CookPopularControl.Communal.Data
+namespace CookPopularControl.Controls.Dragables
 {
     public class OrderChangedEventArgs : EventArgs
     {

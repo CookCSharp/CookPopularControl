@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="clr-namespace:CookPopularControl.Controls"
              xmlns:common="clr-namespace:CookPopularControl.Communal"
-             xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
@@ -38,7 +38,7 @@
         </Border>
         <Grid x:Name="controlGrid" Grid.Row="1"
               Background="#33FFFFFF"
-              Visibility="{Binding IsControlOpen, Converter={toolkit:BooleanToVisibilityConverter}}">
+              Visibility="{Binding IsControlOpen, Converter={pt:BooleanToVisibilityConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
                 <RowDefinition />
@@ -79,7 +79,7 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                     <TextBlock x:Name="currentTime"
-                               Text="{Binding ElementName=playSlider, Path=Value, Converter={toolkit:DoubleToTimeSpanConverter}, Mode=OneWay}"
+                               Text="{Binding ElementName=playSlider, Path=Value, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}"
                                Foreground="{DynamicResource PrimaryThemeBrush}"
                                FontSize="16" />
                     <TextBlock Text="/"
@@ -87,7 +87,7 @@
                                FontSize="16"
                                Margin="5,0,5,0" />
                     <TextBlock x:Name="totalTime"
-                               Text="{Binding ElementName=playSlider, Path=Maximum, Converter={toolkit:DoubleToTimeSpanConverter}, Mode=OneWay}"
+                               Text="{Binding ElementName=playSlider, Path=Maximum, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}"
                                Foreground="{DynamicResource PrimaryThemeBrush}"
                                FontSize="16" />
                 </StackPanel>
@@ -173,7 +173,7 @@
                 </Grid>
             </Popup>
         </Grid>
-        <Border Visibility="{Binding ElementName=play_pause, Path=IsChecked, Converter={toolkit:BooleanToVisibilityReConverter}}">
+        <Border Visibility="{Binding ElementName=play_pause, Path=IsChecked, Converter={pt:BooleanToVisibilityReConverter}}">
             <pc:SimpleGrid Cursor="Arrow">
                 <Image Source="/CookPopularControl;component/Resources/Images/MediaPlayerBackground.png" Stretch="Uniform" />
                 <ToggleButton Width="60" Height="60"

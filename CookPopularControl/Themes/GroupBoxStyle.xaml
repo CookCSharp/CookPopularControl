@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultGroupBoxStyle" TargetType="{x:Type GroupBox}">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
@@ -18,9 +18,9 @@
                     <Grid x:Name="RootGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="4" />
-                            <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
+                            <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
                             <RowDefinition Height="4" />
-                            <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
+                            <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Border Grid.Row="2"

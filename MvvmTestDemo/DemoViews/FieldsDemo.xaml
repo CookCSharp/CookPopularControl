@@ -6,6 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+             xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -66,15 +67,19 @@
                 <pc:NumericUpDown Width="200" Height="34"
                                   Margin="0,20"
                                   Style="{StaticResource NumericUpDownAddClearButtonStyle}" />
-                <pc:NumericUpDown Width="200" Height="34"
+                <pc:NumericUpDown x:Name="num5" Width="200" Height="34" Minimum="0"
                                   Margin="20" ValueChanged="NumericUpDown_ValueChanged"
                                   Style="{StaticResource NumericUpDownAddClearButtonStyle}">
+                    <behavior:Interaction.Triggers>
+                        <behavior:EventTrigger EventName="ValueChanged">
+                            <behavior:InvokeCommandAction Command="{Binding Sure123Command}" CommandParameter="{Binding ElementName=num5,Path=Value}"/>
+                        </behavior:EventTrigger>
+                    </behavior:Interaction.Triggers>
                     <pc:NumericUpDown.Value>
                         <Binding Mode="TwoWay" Path="NumericValue" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
                             <Binding.ValidationRules>
-                                <!--<pt:RegularPatternValidationRule RegularPattern="NotNegativeInt" ErrorMessage="Please Input Positive Number" ValidatesOnTargetUpdated="True"/>-->
-                                <pt:RangeValueValidationRule ErrorMessage="{x:Null}"
-                                                             MaxValue="10" MinValue="-5" ValidatesOnTargetUpdated="True" />
+                                <pt:RegularPatternValidationRule RegularPattern="NotNegativeInt" ErrorMessage="Please Input Positive Number" ValidatesOnTargetUpdated="True" />
+                                <!--<pt:RangeValueValidationRule ErrorMessage="{x:Null}" MaxValue="10" MinValue="-5" ValidatesOnTargetUpdated="True" />-->
                             </Binding.ValidationRules>
                         </Binding>
                     </pc:NumericUpDown.Value>

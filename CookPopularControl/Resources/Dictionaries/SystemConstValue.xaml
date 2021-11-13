@@ -2,6 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <!--优点如下：如果有一天你的枚举类发生了变化，你不需要更新 GUI（XAML 文件）-->
+    <ObjectDataProvider x:Key="DefaultEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Enum" Type="{x:Type sys:Enum}"/>
+        </ObjectDataProvider.MethodParameters> 
+    </ObjectDataProvider>
+
     <sys:Double x:Key="FirstTitleFontSize">20</sys:Double>
     <sys:Double x:Key="SecondTitleFontSize">18</sys:Double>
     <sys:Double x:Key="ThirdTitleFontSize">16</sys:Double>

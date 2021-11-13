@@ -3,7 +3,7 @@
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
@@ -31,8 +31,8 @@
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Border x:Name="border"
-                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.7}"
-                            Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.7}"
+                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.7}"
+                            Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.7}"
                             Background="Transparent"
                             RenderTransformOrigin="0.5,0.5">
                         <Border.RenderTransform>
@@ -128,7 +128,7 @@
                                                Focusable="False"
                                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                               Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={toolkit:BooleanToVisibilityReConverter}}" />
+                                               Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}" />
                                     <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                                       Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Padding}"
                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -212,7 +212,7 @@
                                 <ToggleButton Margin="8,0" Focusable="False"
                                               HorizontalAlignment="Right"
                                               IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                              Visibility="{TemplateBinding pc:ComboBoxAssistant.IsShowDropDownButton, Converter={toolkit:BooleanToVisibilityConverter}}"
+                                              Visibility="{TemplateBinding pc:ComboBoxAssistant.IsShowDropDownButton, Converter={pt:BooleanToVisibilityConverter}}"
                                               Style="{StaticResource DropDownToggleButtonStyle}" />
                             </WrapPanel>
                             <Popup x:Name="PART_Popup"
@@ -246,7 +246,7 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={toolkit:EmptyOrNullToBooleanConverter}}" Value="False">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={pt:EmptyOrNullToBooleanConverter}}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder" />
                         </DataTrigger>
                         <Trigger Property="IsDropDownOpen" Value="true">
@@ -289,7 +289,7 @@
                                        Focusable="False"
                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={toolkit:BooleanToVisibilityReConverter}}" />
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}" />
                             <TextBlock x:Name="ItemContent" Grid.Column="0"
                                        Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
                                        Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Padding}"
@@ -492,7 +492,7 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={toolkit:EmptyOrNullToBooleanConverter}}" Value="False">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={pt:EmptyOrNullToBooleanConverter}}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder" />
                         </DataTrigger>
                         <Trigger Property="IsDropDownOpen" Value="true">

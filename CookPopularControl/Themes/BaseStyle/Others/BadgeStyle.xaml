@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultBadgeStyle" TargetType="{x:Type pc:Badge}">
         <Setter Property="Template">
@@ -21,7 +21,7 @@
                                               Content="{TemplateBinding Element}"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               HorizontalAlignment="Left"
-                                              Visibility="{TemplateBinding IsShowBadge, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                              Visibility="{TemplateBinding IsShowBadge, Converter={pt:BooleanToVisibilityConverter}}" />
                         </pc:SimpleGrid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -30,12 +30,12 @@
                                 <Setter.Value>
                                     <TranslateTransform>
                                         <TranslateTransform.X>
-                                            <Binding Converter="{toolkit:ValueTranslateToDoubleConverter}"
+                                            <Binding Converter="{pt:ValueTranslateToDoubleConverter}"
                                                      ConverterParameter="-0.5" ElementName="PART_Badge" Mode="OneWay"
                                                      Path="ActualWidth" />
                                         </TranslateTransform.X>
                                         <TranslateTransform.Y>
-                                            <Binding Converter="{toolkit:ValueTranslateToDoubleConverter}"
+                                            <Binding Converter="{pt:ValueTranslateToDoubleConverter}"
                                                      ConverterParameter="-0.5" ElementName="PART_Badge" Mode="OneWay"
                                                      Path="ActualHeight" />
                                         </TranslateTransform.Y>
@@ -48,12 +48,12 @@
                                 <Setter.Value>
                                     <TranslateTransform>
                                         <TranslateTransform.X>
-                                            <Binding Converter="{toolkit:ValueTranslateToDoubleConverter}"
+                                            <Binding Converter="{pt:ValueTranslateToDoubleConverter}"
                                                      ConverterParameter="-0.5" ElementName="PART_Badge" Mode="OneWay"
                                                      Path="ActualWidth" />
                                         </TranslateTransform.X>
                                         <TranslateTransform.Y>
-                                            <MultiBinding Converter="{toolkit:TranslateToCenterDoubleConverter}" Mode="OneWay">
+                                            <MultiBinding Converter="{pt:TranslateToCenterDoubleConverter}" Mode="OneWay">
                                                 <Binding ElementName="PART_Content" Path="ActualHeight" />
                                                 <Binding ElementName="PART_Badge" Path="ActualHeight" />
                                             </MultiBinding>
@@ -67,13 +67,13 @@
                                 <Setter.Value>
                                     <TranslateTransform>
                                         <TranslateTransform.X>
-                                            <MultiBinding Converter="{toolkit:TranslateToCenterDoubleConverter}" Mode="OneWay">
+                                            <MultiBinding Converter="{pt:TranslateToCenterDoubleConverter}" Mode="OneWay">
                                                 <Binding ElementName="PART_Content" Path="ActualWidth" />
                                                 <Binding ElementName="PART_Badge" Path="ActualWidth" />
                                             </MultiBinding>
                                         </TranslateTransform.X>
                                         <TranslateTransform.Y>
-                                            <Binding Converter="{toolkit:ValueTranslateToDoubleConverter}"
+                                            <Binding Converter="{pt:ValueTranslateToDoubleConverter}"
                                                      ConverterParameter="-0.5" ElementName="PART_Badge" Mode="OneWay"
                                                      Path="ActualHeight" />
                                         </TranslateTransform.Y>
@@ -86,13 +86,13 @@
                                 <Setter.Value>
                                     <TranslateTransform>
                                         <TranslateTransform.X>
-                                            <MultiBinding Converter="{toolkit:TranslateToCenterDoubleConverter}" Mode="OneWay">
+                                            <MultiBinding Converter="{pt:TranslateToCenterDoubleConverter}" Mode="OneWay">
                                                 <Binding ElementName="PART_Content" Path="ActualWidth" />
                                                 <Binding ElementName="PART_Badge" Path="ActualWidth" />
                                             </MultiBinding>
                                         </TranslateTransform.X>
                                         <TranslateTransform.Y>
-                                            <MultiBinding Converter="{toolkit:TranslateToCenterDoubleConverter}" Mode="OneWay">
+                                            <MultiBinding Converter="{pt:TranslateToCenterDoubleConverter}" Mode="OneWay">
                                                 <Binding ElementName="PART_Content" Path="ActualHeight" />
                                                 <Binding ElementName="PART_Badge" Path="ActualHeight" />
                                             </MultiBinding>

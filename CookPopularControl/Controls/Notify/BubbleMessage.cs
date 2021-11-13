@@ -146,43 +146,43 @@ namespace CookPopularControl.Controls
                     throw new ArgumentException($"需要一个Panel容器去接收消息并设置{IsParentElementProperty}属性的值或设置{ParentElementTokenProperty}属性的值");
 
                 _info = info;
-                var NotifyMessageBaseControl = new BubbleMessage();
-                NotifyMessageBaseControl.Margin = new Thickness(5);
-                NotifyMessageBaseControl.Content = info.Content;
-                NotifyMessageBaseControl.Style = ResourceHelper.GetResource<Style>("BubbleMessageStyle");
-                SetBubbleMessageIcon(NotifyMessageBaseControl, info.MessageIcon);
-                SetBubbleMessageIconBrush(NotifyMessageBaseControl, info.MessageIconBrush);
-                SetIsShowCloseButton(NotifyMessageBaseControl, info.IsShowCloseButton);
+                var notifyMessageBaseControl = new BubbleMessage();
+                notifyMessageBaseControl.Margin = new Thickness(5);
+                notifyMessageBaseControl.Content = info.Content;
+                notifyMessageBaseControl.Style = ResourceHelper.GetResource<Style>("BubbleMessageStyle");
+                SetBubbleMessageIcon(notifyMessageBaseControl, info.MessageIcon);
+                SetBubbleMessageIconBrush(notifyMessageBaseControl, info.MessageIconBrush);
+                SetIsShowCloseButton(notifyMessageBaseControl, info.IsShowCloseButton);
 
-                NotifyMessageBaseControl.Loaded += (s, e) =>
+                notifyMessageBaseControl.Loaded += (s, e) =>
                 {
-                    var buttonGroup = NotifyMessageBaseControl.Template.FindName(ButtonsClose, NotifyMessageBaseControl) as Panel;
+                    var buttonGroup = notifyMessageBaseControl.Template.FindName(ButtonsClose, notifyMessageBaseControl) as Panel;
                     if (buttonGroup != null && isShowQuestion)
                         buttonGroup.Visibility = Visibility.Visible;
                 };
 
-                NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CloseNotifyMessageCommand, (s, e) =>
+                notifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CloseNotifyMessageCommand, (s, e) =>
                 {
-                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, notifyMessageBaseControl);
                 }));
-                NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CancelNotifyMessageCommand, (s, e) =>
+                notifyMessageBaseControl.CommandBindings.Add(new CommandBinding(CancelNotifyMessageCommand, (s, e) =>
                 {
                     info.ActionBeforeClose?.Invoke(false);
-                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, notifyMessageBaseControl);
                 }));
-                NotifyMessageBaseControl.CommandBindings.Add(new CommandBinding(ConfirmNotifyMessageCommand, (s, e) =>
+                notifyMessageBaseControl.CommandBindings.Add(new CommandBinding(ConfirmNotifyMessageCommand, (s, e) =>
                 {
                     info.ActionBeforeClose?.Invoke(true);
-                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                    ClosePopupMode(rootMessagePanel, info.PopupAnimation, notifyMessageBaseControl);
                 }));
 
-                rootMessagePanel.Children.Insert(0, NotifyMessageBaseControl);
-                SetPopupMode(rootMessagePanel, info.PopupAnimation, NotifyMessageBaseControl);
+                rootMessagePanel.Children.Insert(0, notifyMessageBaseControl);
+                SetPopupMode(rootMessagePanel, info.PopupAnimation, notifyMessageBaseControl);
             });
         }
 
 
-        private static void SetPopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl NotifyMessageBaseControl)
+        private static void SetPopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl notifyMessageBaseControl)
         {
             switch (mode)
             {
@@ -190,64 +190,64 @@ namespace CookPopularControl.Controls
                     break;
                 case PopupAnimation.Fade:
                     showPopupAnimation = AnimationHelper.CreateDoubleAnimation(0, 1, AnimationTime);
-                    NotifyMessageBaseControl.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), UIElement.OpacityProperty, showPopupAnimation);
+                    notifyMessageBaseControl.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), UIElement.OpacityProperty, showPopupAnimation);
                     break;
                 case PopupAnimation.Slide:
                     TranslateTransform translate = new TranslateTransform();
-                    NotifyMessageBaseControl.RenderTransform = translate;
+                    notifyMessageBaseControl.RenderTransform = translate;
                     if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Left)
                     {
-                        NotifyMessageBaseControl.Loaded += (s, e) =>
+                        notifyMessageBaseControl.Loaded += (s, e) =>
                         {
-                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(-NotifyMessageBaseControl.ActualWidth, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, showPopupAnimation);
+                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(-notifyMessageBaseControl.ActualWidth, 0, AnimationTime);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.XProperty, showPopupAnimation);
                         };
                     }
                     else if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Center || rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Stretch)
                     {
                         if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Top)
                         {
-                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(-NotifyMessageBaseControl.ActualHeight, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, showPopupAnimation);
+                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(-notifyMessageBaseControl.ActualHeight, 0, AnimationTime);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.YProperty, showPopupAnimation);
                         }
                         else if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Bottom)
                         {
-                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(NotifyMessageBaseControl.ActualHeight, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, showPopupAnimation);
+                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(notifyMessageBaseControl.ActualHeight, 0, AnimationTime);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.YProperty, showPopupAnimation);
                         }
                         else
                         {
-                            SetScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
+                            SetScaleTransform(rootMessagePanel, notifyMessageBaseControl);
                         }
                     }
                     else
                     {
-                        NotifyMessageBaseControl.Loaded += (s, e) =>
+                        notifyMessageBaseControl.Loaded += (s, e) =>
                         {
-                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(NotifyMessageBaseControl.ActualWidth, 0, AnimationTime);
-                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, showPopupAnimation);
+                            showPopupAnimation = AnimationHelper.CreateDoubleAnimation(notifyMessageBaseControl.ActualWidth, 0, AnimationTime);
+                            translate.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.XProperty, showPopupAnimation);
                         };
                     }
                     break;
                 case PopupAnimation.Scroll:
-                    SetScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
+                    SetScaleTransform(rootMessagePanel, notifyMessageBaseControl);
                     break;
                 default:
                     break;
             }
         }
 
-        private static void SetScaleTransform(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
+        private static void SetScaleTransform(Panel rootMessagePanel, ContentControl notifyMessageBaseControl)
         {
             ScaleTransform scale = new ScaleTransform();
-            NotifyMessageBaseControl.RenderTransform = scale;
-            NotifyMessageBaseControl.RenderTransformOrigin = new Point(0.5, 0.5);
+            notifyMessageBaseControl.RenderTransform = scale;
+            notifyMessageBaseControl.RenderTransformOrigin = new Point(0.5, 0.5);
             showPopupAnimation = AnimationHelper.CreateDoubleAnimation(0, 1, AnimationTime);
-            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleXProperty, showPopupAnimation);
-            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleYProperty, showPopupAnimation);
+            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), ScaleTransform.ScaleXProperty, showPopupAnimation);
+            scale.BeginBeforeAnimation(() => ShowMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), ScaleTransform.ScaleYProperty, showPopupAnimation);
         }
 
-        private static void ClosePopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl NotifyMessageBaseControl)
+        private static void ClosePopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl notifyMessageBaseControl)
         {
             switch (mode)
             {
@@ -255,58 +255,58 @@ namespace CookPopularControl.Controls
                     break;
                 case PopupAnimation.Fade:
                     closePopupAnimation = AnimationHelper.CreateDoubleAnimation(1, 0, AnimationTime);
-                    NotifyMessageBaseControl.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), UIElement.OpacityProperty, closePopupAnimation);
+                    notifyMessageBaseControl.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), UIElement.OpacityProperty, closePopupAnimation);
                     break;
                 case PopupAnimation.Slide:
                     TranslateTransform translate = new TranslateTransform();
-                    NotifyMessageBaseControl.RenderTransform = translate;
+                    notifyMessageBaseControl.RenderTransform = translate;
                     if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Left)
                     {
-                        closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, -NotifyMessageBaseControl.ActualWidth, AnimationTime);
-                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, closePopupAnimation);
+                        closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, -notifyMessageBaseControl.ActualWidth, AnimationTime);
+                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.XProperty, closePopupAnimation);
                     }
                     else if (rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Center || rootMessagePanel.HorizontalAlignment == HorizontalAlignment.Stretch)
                     {
                         if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Top)
                         {
-                            closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, -NotifyMessageBaseControl.ActualHeight, AnimationTime);
-                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, closePopupAnimation);
+                            closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, -notifyMessageBaseControl.ActualHeight, AnimationTime);
+                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.YProperty, closePopupAnimation);
                         }
                         else if (rootMessagePanel.VerticalAlignment == VerticalAlignment.Bottom)
                         {
-                            closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, NotifyMessageBaseControl.ActualHeight, AnimationTime);
-                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.YProperty, closePopupAnimation);
+                            closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, notifyMessageBaseControl.ActualHeight, AnimationTime);
+                            translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.YProperty, closePopupAnimation);
                         }
                         else
                         {
-                            CloseScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
+                            CloseScaleTransform(rootMessagePanel, notifyMessageBaseControl);
                         }
                     }
                     else
                     {
-                        closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, NotifyMessageBaseControl.ActualWidth, AnimationTime);
-                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), TranslateTransform.XProperty, closePopupAnimation);
+                        closePopupAnimation = AnimationHelper.CreateDoubleAnimation(0, notifyMessageBaseControl.ActualWidth, AnimationTime);
+                        translate.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), TranslateTransform.XProperty, closePopupAnimation);
                     }
                     break;
                 case PopupAnimation.Scroll:
-                    CloseScaleTransform(rootMessagePanel, NotifyMessageBaseControl);
+                    CloseScaleTransform(rootMessagePanel, notifyMessageBaseControl);
                     break;
                 default:
                     break;
             }
         }
 
-        private static void CloseScaleTransform(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
+        private static void CloseScaleTransform(Panel rootMessagePanel, ContentControl notifyMessageBaseControl)
         {
             ScaleTransform scale = new ScaleTransform();
-            NotifyMessageBaseControl.RenderTransform = scale;
-            NotifyMessageBaseControl.RenderTransformOrigin = new Point(0.5, 0.5);
+            notifyMessageBaseControl.RenderTransform = scale;
+            notifyMessageBaseControl.RenderTransformOrigin = new Point(0.5, 0.5);
             closePopupAnimation = AnimationHelper.CreateDoubleAnimation(1, 0, AnimationTime);
-            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleXProperty, closePopupAnimation);
-            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, NotifyMessageBaseControl), ScaleTransform.ScaleYProperty, closePopupAnimation);
+            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), ScaleTransform.ScaleXProperty, closePopupAnimation);
+            scale.BeginBeforeAnimation(() => CloseMessageBeforeAction(rootMessagePanel, notifyMessageBaseControl), ScaleTransform.ScaleYProperty, closePopupAnimation);
         }
 
-        private static void ShowMessageBeforeAction(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
+        private static void ShowMessageBeforeAction(Panel rootMessagePanel, ContentControl notifyMessageBaseControl)
         {
             showPopupAnimation!.Completed += (s, e) =>
             {
@@ -315,7 +315,7 @@ namespace CookPopularControl.Controls
                     DispatcherTimer? CloseMessageTimer = null;
                     CloseMessageTimer = IntervalMultiSeconds(ref CloseMessageTimer, _info.Duration, () =>
                     {
-                        ClosePopupMode(rootMessagePanel, _info.PopupAnimation, NotifyMessageBaseControl);
+                        ClosePopupMode(rootMessagePanel, _info.PopupAnimation, notifyMessageBaseControl);
                         CloseMessageTimer.Stop();
                         CloseMessageTimer = null;
                     });
@@ -324,11 +324,11 @@ namespace CookPopularControl.Controls
             };
         }
 
-        private static void CloseMessageBeforeAction(Panel rootMessagePanel, ContentControl NotifyMessageBaseControl)
+        private static void CloseMessageBeforeAction(Panel rootMessagePanel, ContentControl notifyMessageBaseControl)
         {
             closePopupAnimation.Completed += (s, e) =>
             {
-                rootMessagePanel.Children.Remove(NotifyMessageBaseControl);
+                rootMessagePanel.Children.Remove(notifyMessageBaseControl);
             };
         }
     }

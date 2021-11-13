@@ -1,31 +1,17 @@
-﻿using CookPopularControl.Communal.Data;
-using CookPopularControl.References;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：StackPositionMonitor
- * Author： Chance_写代码的厨子
- * Create Time：2021-08-11 14:38:28
- */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     /// <summary>
-    /// 对子项的线性监听器(水平或垂直)，参见<see cref="StackOrganiser"/>
+    /// A linear position monitor simplifies the montoring of the order of items, where they are laid out
+    /// horizontally or vertically (typically via a <see cref="StackOrganiser"/>.
     /// </summary>
     public abstract class StackPositionMonitor : PositionMonitor
     {
         private readonly Func<DragableItem, double> _getLocation;
-
-        protected StackPositionMonitor()
-        {
-
-        }
 
         protected StackPositionMonitor(Orientation orientation)
         {

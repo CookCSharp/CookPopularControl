@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 10:43:55
  */
-namespace CookPopularControl.References
+namespace CookPopularCSharpToolkit.Communal
 {
     internal interface ICancelable : IDisposable
     {

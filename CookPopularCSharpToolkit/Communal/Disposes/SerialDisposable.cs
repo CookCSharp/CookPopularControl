@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 10:44:21
  */
-namespace CookPopularControl.References
+namespace CookPopularCSharpToolkit.Communal
 {
     /// <summary>
     /// 串行可释放对象 

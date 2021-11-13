@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 11:36:55
  */
-namespace CookPopularControl.References
+namespace CookPopularCSharpToolkit.Communal
 {
     /// <summary>
     /// 标准可释放对象

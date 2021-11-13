@@ -1,7 +1,6 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularControl.Communal.Interface;
 using CookPopularControl.Controls.Dragables.Core;
-using CookPopularControl.References;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;
@@ -103,7 +102,7 @@ namespace CookPopularControl.Controls.Dragables
             //Find all loaded DragableTabControl instances with tabs backed by this item and close them
             foreach (var tabWithItemContent in
                 GetLoadedInstances().SelectMany(tc =>
-                tc._dragablzItemsControl.DragablzItems().Where(di => di.Content.Equals(tabContentItem)).Select(di => new { tc, di })))
+                tc._dragablzItemsControl.DragableItems().Where(di => di.Content.Equals(tabContentItem)).Select(di => new { tc, di })))
             {
                 DragableTabControl.CloseItem(tabWithItemContent.di, tabWithItemContent.tc);
             }
@@ -580,7 +579,7 @@ namespace CookPopularControl.Controls.Dragables
         /// <returns></returns>
         public IEnumerable<DragableItem> GetOrderedHeaders()
         {
-            return _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragablzItems());
+            return _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragableItems());
         }
 
         /// <summary>
@@ -601,7 +600,7 @@ namespace CookPopularControl.Controls.Dragables
                             _dragablzItemsControl.ItemContainerGenerator.StatusChanged -=
                                 ItemContainerGeneratorOnStatusChanged);
 
-                _dragablzItemsControl.ContainerCustomisations = new CustomContainer(null, PrepareChildContainerForItemOverride);
+                _dragablzItemsControl.ContainerCustomisations = new ContainerCustomisations(null, PrepareChildContainerForItemOverride);
             }
 
             if (SelectedItem == null)
@@ -715,7 +714,7 @@ namespace CookPopularControl.Controls.Dragables
         /// <param name="e">Provides data for <see cref="T:System.Windows.Input.KeyEventArgs"/>.</param>
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            var sortedDragablzItems = _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragablzItems()).ToList();
+            var sortedDragablzItems = _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragableItems()).ToList();
             DragableItem? selectDragablzItem = null;
             switch (e.Key)
             {
@@ -798,7 +797,7 @@ namespace CookPopularControl.Controls.Dragables
 
             var window = (Window)sender;
 
-            var orphanedItems = _dragablzItemsControl.DragablzItems();
+            var orphanedItems = _dragablzItemsControl.DragableItems();
             if (ConsolidatingOrphanedItemCallback != null)
             {
                 orphanedItems = orphanedItems.Where(di =>
@@ -954,7 +953,7 @@ namespace CookPopularControl.Controls.Dragables
                 .Select(tc =>
                 {
                     var topLeft = tc._dragablzItemsControl.PointToScreen(new Point());
-                    var lastFixedItem = tc._dragablzItemsControl.DragablzItems()
+                    var lastFixedItem = tc._dragablzItemsControl.DragableItems()
                         .OrderBy(di => di.LogicalIndex)
                         .Take(tc._dragablzItemsControl.FixedItemCount)
                         .LastOrDefault();
@@ -1066,7 +1065,7 @@ namespace CookPopularControl.Controls.Dragables
         {
             if (!IsMyItem(e.DragableItem)) return;
             if (FixedHeaderCount > 0 &&
-                _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragablzItems())
+                _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragableItems())
                     .Take(FixedHeaderCount)
                     .Contains(e.DragableItem))
                 return;
@@ -1082,7 +1081,7 @@ namespace CookPopularControl.Controls.Dragables
 
         private bool IsMyItem(DragableItem item)
         {
-            return _dragablzItemsControl != null && _dragablzItemsControl.DragablzItems().Contains(item);
+            return _dragablzItemsControl != null && _dragablzItemsControl.DragableItems().Contains(item);
         }
 
         private void MonitorBreach(DragableDragDeltaEventArgs e)
@@ -1148,7 +1147,7 @@ namespace CookPopularControl.Controls.Dragables
 
             RestorePreviousSelection();
 
-            foreach (var dragablzItem in _dragablzItemsControl.DragablzItems())
+            foreach (var dragablzItem in _dragablzItemsControl.DragableItems())
             {
                 dragablzItem.IsDragging = false;
                 dragablzItem.IsSiblingDragging = false;
@@ -1236,7 +1235,7 @@ namespace CookPopularControl.Controls.Dragables
                         interTabTransfer.ItemPositionWithinHeader.Y + interTabTransfer.ItemSize.Height);
             }
 
-            var lastFixedItem = _dragablzItemsControl.DragablzItems()
+            var lastFixedItem = _dragablzItemsControl.DragableItems()
                 .OrderBy(i => i.LogicalIndex)
                 .Take(_dragablzItemsControl.FixedItemCount)
                 .LastOrDefault();

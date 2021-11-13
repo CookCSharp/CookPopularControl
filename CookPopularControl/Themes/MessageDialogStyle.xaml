@@ -3,7 +3,7 @@
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
                     xmlns:win="clr-namespace:CookPopularControl.Windows">
 
     <ResourceDictionary.MergedDictionaries>
@@ -82,7 +82,7 @@
                                               Data="{TemplateBinding Image}"
                                               Fill="{TemplateBinding ImageBrush}"
                                               Stretch="Uniform"
-                                              Visibility="{TemplateBinding IsShowImage, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                              Visibility="{TemplateBinding IsShowImage, Converter={pt:BooleanToVisibilityConverter}}" />
                                         <ScrollViewer Grid.Row="0" Grid.Column="1">
                                             <TextBlock Text="{TemplateBinding Message}"
                                                        VerticalAlignment="Center"

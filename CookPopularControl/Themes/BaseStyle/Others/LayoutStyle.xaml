@@ -4,10 +4,10 @@
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
                     xmlns:dragCore="clr-namespace:CookPopularControl.Controls.Dragables.Core"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="HideDisabledButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type pc:Layout}}, Path=(pc:Layout.IsFloatingInLayout), Converter={toolkit:BooleanToVisibilityConverter}}" />
+        <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type pc:Layout}}, Path=(pc:Layout.IsFloatingInLayout), Converter={pt:BooleanToVisibilityConverter}}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />
@@ -220,46 +220,46 @@
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}"
                                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
                                    drag:DragableItem.SizeGrip="Left" Cursor="SizeWE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Top}"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
                                    drag:DragableItem.SizeGrip="Top" Cursor="SizeNS"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
                                    drag:DragableItem.SizeGrip="Right" Cursor="SizeWE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                                    drag:DragableItem.SizeGrip="Bottom" Cursor="SizeNS"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Left" VerticalAlignment="Top"
                                    drag:DragableItem.SizeGrip="TopLeft" Cursor="SizeNWSE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Right" VerticalAlignment="Top"
                                    drag:DragableItem.SizeGrip="TopRight" Cursor="SizeNESW"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
                                    drag:DragableItem.SizeGrip="BottomRight" Cursor="SizeNWSE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
                                    drag:DragableItem.SizeGrip="BottomLeft" Cursor="SizeNESW"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={toolkit:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    Style="{StaticResource InvisibleThumbStyle}" />
                         </Grid>
                     </ControlTemplate>
@@ -295,24 +295,24 @@
                             <drag:DropZone x:Name="PART_TopDropZone"
                                            HorizontalAlignment="Center" VerticalAlignment="Top"
                                            Location="Top"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
                             <drag:DropZone x:Name="PART_RightDropZone"
                                            HorizontalAlignment="Right" VerticalAlignment="Center"
                                            Location="Right"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
                             <drag:DropZone x:Name="PART_BottomDropZone"
                                            HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                            Location="Bottom"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
                             <drag:DropZone x:Name="PART_LeftDropZone"
                                            HorizontalAlignment="Left" VerticalAlignment="Center"
                                            Location="Left"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
                             <drag:DropZone x:Name="PART_FloatDropZone"
                                            HorizontalAlignment="Center" VerticalAlignment="Center"
                                            Location="Floating">
                                 <drag:DropZone.Visibility>
-                                    <MultiBinding Converter="{toolkit:BooleanAllToVisibilityConverter}">
+                                    <MultiBinding Converter="{pt:BooleanAllToVisibilityConverter}">
                                         <Binding Path="IsParticipatingInDrag" RelativeSource="{RelativeSource TemplatedParent}" />
                                         <Binding Path="IsFloatDropZoneEnabled" RelativeSource="{RelativeSource TemplatedParent}" />
                                     </MultiBinding>

@@ -28,14 +28,14 @@
                 <pc:VerticalPositionMonitor OrderChanged="StackPositionMonitor_OnOrderChanged" />
             </pc:DragableItemsControl.PositionMonitor>
             <pc:DragableItemsControl.ItemsOrganiser>
-                <pc:HorizontalOrganiser />
+                <pc:WrapOrganiser />
             </pc:DragableItemsControl.ItemsOrganiser>
             <pc:DragableItemsControl.ItemContainerStyle>
                 <Style TargetType="{x:Type pc:DragableItem}">
                     <Setter Property="Padding" Value="4" />
                     <Setter Property="Margin" Value="32,0,32,0" />
-                    <!--<Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
-                    <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />-->
+                    <Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type pc:DragableItem}">

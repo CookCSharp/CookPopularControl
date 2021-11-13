@@ -11,7 +11,7 @@ using System.Linq;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 14:00:47
  */
-namespace CookPopularControl.References
+namespace CookPopularCSharpToolkit.Communal
 {
     public class CollectionTeaser
     {

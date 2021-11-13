@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="BorderCircularStyle" TargetType="{x:Type Border}">
         <Setter Property="pc:BorderAssistant.IsCircular" Value="True" />
@@ -10,7 +10,7 @@
     <Style x:Key="BorderClipStyle" TargetType="{x:Type Border}">
         <Setter Property="Clip">
             <Setter.Value>
-                <MultiBinding Converter="{toolkit:BorderClipToGeometryConverter}">
+                <MultiBinding Converter="{pt:BorderClipToGeometryConverter}">
                     <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}" />
                     <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
                     <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}" />
@@ -22,7 +22,7 @@
     <Style x:Key="BorderCircularClipStyle" TargetType="{x:Type Border}" BasedOn="{StaticResource BorderCircularStyle}">
         <Setter Property="Clip">
             <Setter.Value>
-                <MultiBinding Converter="{toolkit:BorderCircularClipToGeometryConverter}">
+                <MultiBinding Converter="{pt:BorderCircularClipToGeometryConverter}">
                     <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}" />
                     <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
                     <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}" />

@@ -89,38 +89,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Converters\*.*">
-            <Link>Communal\Converters\%(RecursiveDir)%(FileName)%(Extension)</Link>
-            <!--<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>-->
-        </Compile>
-        <!--<Compile Include="..\CookPopularCSharpToolkit\Windows\Behaviors\*.*">
-            <Link>Communal\Behaviors\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Bindings\*.*">
-            <Link>Communal\Bindings\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Drawing\*.*">
-            <Link>Communal\Drawing\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\ValidationRules\*.*">
-            <Link>Communal\ValidationRules\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Expression\Controls\*.*">
-            <Link>Communal\Expression\Controls\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Expression\Shapes\*.*">
-            <Link>Communal\Expression\Shapes\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-        <Compile Include="..\CookPopularCSharpToolkit\Windows\Transitions\*.*">
-            <Link>Communal\Transitions\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>-->
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="CookPopularCSharpToolkit" Version="1.0.1.1-dev-20211109" />
         <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
         <PackageReference Include="QRCoder" Version="1.4.1" />
         <PackageReference Include="XamlAnimatedGif" Version="2.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
     </ItemGroup>
 
     <ItemGroup>

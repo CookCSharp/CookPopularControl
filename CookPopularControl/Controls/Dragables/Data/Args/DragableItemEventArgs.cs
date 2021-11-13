@@ -1,16 +1,9 @@
-﻿using CookPopularControl.Controls.Dragables;
+using CookPopularControl.Controls.Dragables;
 using System;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：DragableItemEventArgs
- * Author： Chance_写代码的厨子
- * Create Time：2021-08-11 11:18:21
- */
-namespace CookPopularControl.Communal.Data
+namespace CookPopularControl.Controls.Dragables
 {
     public delegate void DragableItemEventHandler(object sender, DragableItemEventArgs e);
 
@@ -20,17 +13,19 @@ namespace CookPopularControl.Communal.Data
 
         public DragableItemEventArgs(DragableItem dragableItem)
         {
-            if (dragableItem == null) throw new ArgumentNullException("dragablzItem");
+            if (dragableItem == null) throw new ArgumentNullException("dragableItem");            
 
             _dragableItem = dragableItem;
         }
 
-        public DragableItemEventArgs(RoutedEvent routedEvent, DragableItem dragableItem) : base(routedEvent)
+        public DragableItemEventArgs(RoutedEvent routedEvent, DragableItem dragableItem)
+            : base(routedEvent)
         {
             _dragableItem = dragableItem;
         }
 
-        public DragableItemEventArgs(RoutedEvent routedEvent, object source, DragableItem dragableItem) : base(routedEvent, source)
+        public DragableItemEventArgs(RoutedEvent routedEvent, object source, DragableItem dragableItem)
+            : base(routedEvent, source)
         {
             _dragableItem = dragableItem;
         }

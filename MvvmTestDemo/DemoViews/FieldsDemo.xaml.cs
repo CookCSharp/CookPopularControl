@@ -1,4 +1,6 @@
-﻿using PropertyChanged;
+﻿using Prism.Commands;
+using PropertyChanged;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,6 +18,13 @@ namespace MvvmTestDemo.DemoViews
 
         public double NumericValue { get; set; }
 
+        public DelegateCommand<object> Sure123Command => new Lazy<DelegateCommand<object>>(() => new DelegateCommand<object>(OnSure123)).Value;
+
+        private void OnSure123(object obj)
+        {
+         
+        }
+
         public FieldsDemo()
         {
             InitializeComponent();
@@ -23,7 +32,7 @@ namespace MvvmTestDemo.DemoViews
 
         private void NumericUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            var s = NumericValue;
+            var s = num5.Value;
         }
     }
 }

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
 
     <ResourceDictionary.MergedDictionaries>
@@ -255,7 +255,7 @@
                         <pc:SimpleGrid>
                             <Grid>
                                 <CheckBox x:Name="PART_RowCheckBox"
-                                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=RowHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}"
+                                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=RowHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}"
                                           BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
                                           HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HorizontalContentAlignment}"
@@ -263,7 +263,7 @@
                                           IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Path=IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </Grid>
 
-                            <Control SnapsToDevicePixels="False" Template="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=ValidationErrorTemplate}" Visibility="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=(Validation.HasError), Converter={toolkit:BooleanToVisibilityConverter}}" />
+                            <Control SnapsToDevicePixels="False" Template="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=ValidationErrorTemplate}" Visibility="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=(Validation.HasError), Converter={pt:BooleanToVisibilityConverter}}" />
                             <Thumb x:Name="PART_TopHeaderGripper" VerticalAlignment="Top" Style="{StaticResource DataGridRowHeaderGripperStyle}" />
                             <Thumb x:Name="PART_BottomHeaderGripper" VerticalAlignment="Bottom" Style="{StaticResource DataGridRowHeaderGripperStyle}" />
                         </pc:SimpleGrid>

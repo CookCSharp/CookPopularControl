@@ -9,7 +9,7 @@ using System.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 11:37:32
  */
-namespace CookPopularControl.References
+namespace CookPopularCSharpToolkit.Communal
 {
     /// <summary>
     /// 匿名可释放对象

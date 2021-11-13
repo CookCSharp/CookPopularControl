@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
         <Setter Property="Height" Value="{DynamicResource DefaultTextElementHeight}" />
@@ -60,7 +60,7 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={toolkit:EmptyOrNullToBooleanConverter}}" Value="False">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={pt:EmptyOrNullToBooleanConverter}}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder" />
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -68,7 +68,7 @@
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
-                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={toolkit:DoubleToThicknessConverter}, ConverterParameter=1.5}" TargetName="RootBorder" />
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={pt:DoubleToThicknessConverter}, ConverterParameter=1.5}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />

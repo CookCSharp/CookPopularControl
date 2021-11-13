@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using CookPopularControl.Controls.Dragables;
+using System.Windows.Controls;
 
 namespace MvvmTestDemo.DemoViews
 {
@@ -12,7 +13,7 @@ namespace MvvmTestDemo.DemoViews
             InitializeComponent();
         }
 
-        private void StackPositionMonitor_OnOrderChanged(object sender, CookPopularControl.Communal.Data.OrderChangedEventArgs e)
+        private void StackPositionMonitor_OnOrderChanged(object sender, OrderChangedEventArgs e)
         {
 
         }

@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <common:ArcStartPointConverter x:Key="ArcStartPointConverter" />
     <common:ArcEndPointConverter x:Key="ArcEndPointConverter" />
@@ -20,29 +20,30 @@
     <common:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter" />
 
 
-    <toolkit:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    <toolkit:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
-    <toolkit:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter" />
-    <toolkit:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter" />
-    <toolkit:BooleanAllToVisibilityConverter x:Key="BooleanAllToVisibilityConverter" />
-    <toolkit:NullOrEmptyToVisibilityConverter x:Key="NullOrEmptyToVisibilityConverter" />
-    <toolkit:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter" />
-    <toolkit:EmptyOrNullToBooleanConverter x:Key="EmptyOrNullToBooleanConverter" />
-    <toolkit:ValueBetween0And100ToBooleanConverter x:Key="ValueBetween0And100ToBooleanConverter" />
-    <toolkit:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter" />
-    <toolkit:ValueLessThanTargetValueToBooleanConverter x:Key="ValueLessThanTargetValueToBooleanConverter" />
-    <toolkit:ValueMoreThanTargetValueToBooleanConverter x:Key="ValueMoreThanTargetValueToBooleanConverter" />
-    <toolkit:ValueTranslateToDoubleConverter x:Key="ValueTranslateToDoubleConverter" />
-    <toolkit:TranslateToCenterDoubleConverter x:Key="TranslateToCenterDoubleConverter" />
-    <toolkit:DoubleToStringConverter x:Key="DoubleToStringConverter" />
-    <toolkit:DoubleToTimeSpanConverter x:Key="DoubleToTimeSpanConverter" />
-    <toolkit:BorderClipToGeometryConverter x:Key="BorderClipToGeometryConverter" />
-    <toolkit:BorderCircularClipToGeometryConverter x:Key="BorderCircularClipToGeometryConverter" />
-    <toolkit:ClipCircularToGeometryConverter x:Key="ClipCircularToGeometryConverter" />
-    <toolkit:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
-    <toolkit:ThicknessToThicknessConverter x:Key="ThicknessToThicknessConverter" />
-    <toolkit:DoubleToCornerRadiusConverter x:Key="DoubleToCornerRadiusConverter" />
-    <toolkit:CornerRadiusToCornerRadiusConverter x:Key="CornerRadiusToCornerRadiusConverter" />
-    <toolkit:BorderCircularToCornerRadiusConverter x:Key="BorderCircularToCornerRadiusConverter" />
+    <pt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <pt:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
+    <pt:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter" />
+    <pt:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter" />
+    <pt:BooleanAllToVisibilityConverter x:Key="BooleanAllToVisibilityConverter" />
+    <pt:NullOrEmptyToVisibilityConverter x:Key="NullOrEmptyToVisibilityConverter" />
+    <pt:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter" />
+    <pt:EmptyOrNullToBooleanConverter x:Key="EmptyOrNullToBooleanConverter" />
+    <pt:EnumToBooleanConverter x:Key="EnumToBooleanConverter"/>
+    <pt:ValueBetween0And100ToBooleanConverter x:Key="ValueBetween0And100ToBooleanConverter" />
+    <pt:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter" />
+    <pt:ValueLessThanTargetValueToBooleanConverter x:Key="ValueLessThanTargetValueToBooleanConverter" />
+    <pt:ValueMoreThanTargetValueToBooleanConverter x:Key="ValueMoreThanTargetValueToBooleanConverter" />
+    <pt:ValueTranslateToDoubleConverter x:Key="ValueTranslateToDoubleConverter" />
+    <pt:TranslateToCenterDoubleConverter x:Key="TranslateToCenterDoubleConverter" />
+    <pt:DoubleToStringConverter x:Key="DoubleToStringConverter" />
+    <pt:DoubleToTimeSpanConverter x:Key="DoubleToTimeSpanConverter" />
+    <pt:BorderClipToGeometryConverter x:Key="BorderClipToGeometryConverter" />
+    <pt:BorderCircularClipToGeometryConverter x:Key="BorderCircularClipToGeometryConverter" />
+    <pt:ClipCircularToGeometryConverter x:Key="ClipCircularToGeometryConverter" />
+    <pt:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
+    <pt:ThicknessToThicknessConverter x:Key="ThicknessToThicknessConverter" />
+    <pt:DoubleToCornerRadiusConverter x:Key="DoubleToCornerRadiusConverter" />
+    <pt:CornerRadiusToCornerRadiusConverter x:Key="CornerRadiusToCornerRadiusConverter" />
+    <pt:BorderCircularToCornerRadiusConverter x:Key="BorderCircularToCornerRadiusConverter" />
 
 </ResourceDictionary>

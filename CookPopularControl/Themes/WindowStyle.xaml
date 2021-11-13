@@ -3,7 +3,7 @@
                     xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
                     xmlns:win="clr-namespace:CookPopularControl.Windows">
 
     <ResourceDictionary.MergedDictionaries>
@@ -33,7 +33,7 @@
 
     <!--Icon<—☐✕>-->
     <Style x:Key="WindowIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentIconStyle}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=1.5}" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.5}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarForeground}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="10" />
@@ -42,7 +42,7 @@
     </Style>
 
     <Style x:Key="WindowIconToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonNoMouseOverTransparentIconStyle}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=1.5}" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.5}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarForeground}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="14" />
@@ -51,7 +51,7 @@
     </Style>
 
     <Style x:Key="WindowDoubbleIconToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonNoMouseOverTransparentDoubbleIconStyle}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={toolkit:ValueTranslateToDoubleConverter}, ConverterParameter=1.5}" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.5}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarForeground}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="14" />
@@ -97,7 +97,7 @@
                                     <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
                                           Background="{TemplateBinding ClientTitleBarBackground}"
                                           TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                          Visibility="{TemplateBinding IsShowClientTitleBar, Converter={toolkit:BooleanToVisibilityConverter}}">
+                                          Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition />
                                             <ColumnDefinition Width="Auto" />
@@ -122,7 +122,7 @@
                                                            FontSize="14"
                                                            VerticalAlignment="Center"
                                                            IsHitTestVisible="False"
-                                                           Visibility="{TemplateBinding IsShowTitle, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                                           Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
                                             </StackPanel>
                                             <ContentPresenter Content="{TemplateBinding ClientTitleBarAdditionalContent}" Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True" />
                                         </DockPanel>
@@ -222,7 +222,7 @@
                                     <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
                                           Background="{TemplateBinding ClientTitleBarBackground}"
                                           TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                          Visibility="{TemplateBinding IsShowClientTitleBar, Converter={toolkit:BooleanToVisibilityConverter}}">
+                                          Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition />
@@ -250,7 +250,7 @@
                                                    FontSize="18"
                                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                                    IsHitTestVisible="False"
-                                                   Visibility="{TemplateBinding IsShowTitle, Converter={toolkit:BooleanToVisibilityConverter}}" />
+                                                   Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
                                             <Button x:Name="MinimizedButton"
                                                     ToolTip="最小化"

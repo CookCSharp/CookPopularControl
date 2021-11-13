@@ -3,7 +3,7 @@
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultButtonBaseStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="Height" Value="{DynamicResource DefaultButtonHeight}" />
@@ -68,7 +68,7 @@
                                                      pc:LinearProgressBarAssistant.IsShowPercent="{TemplateBinding pc:LinearProgressBarAssistant.IsShowPercent}"
                                                      pc:LinearProgressBarAssistant.TextColor="{TemplateBinding pc:LinearProgressBarAssistant.TextColor}"
                                                      pc:WaveProgressBarAssistant.WaveStrokeThickness="{TemplateBinding pc:WaveProgressBarAssistant.WaveStrokeThickness}"
-                                                     Visibility="{TemplateBinding pc:ButtonAssist.IsShowProgress, Converter={toolkit:BooleanToVisibilityConverter}}"
+                                                     Visibility="{TemplateBinding pc:ButtonAssist.IsShowProgress, Converter={pt:BooleanToVisibilityConverter}}"
                                                      Style="{TemplateBinding pc:ButtonAssist.ProgressBarStyle}" />
                                         <ContentPresenter RecognizesAccessKey="True"
                                                           Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
@@ -87,7 +87,7 @@
                                    Focusable="False"
                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                   Visibility="{TemplateBinding common:ButtonBaseAttached.IsShowRipple, Converter={toolkit:BooleanToVisibilityConverter}}">
+                                   Visibility="{TemplateBinding common:ButtonBaseAttached.IsShowRipple, Converter={pt:BooleanToVisibilityConverter}}">
                             <pc:Ripple.Clip>
                                 <MultiBinding Converter="{common:BorderClipConverter}">
                                     <Binding ElementName="RootBorder" Path="ActualWidth" />
@@ -102,7 +102,7 @@
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(pc:ButtonAssist.IsShowProgress)}" Value="True" />
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(pc:ButtonAssist.ProgressValue), Converter={toolkit:ValueBetween0And100ToBooleanConverter}}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(pc:ButtonAssist.ProgressValue), Converter={pt:ValueBetween0And100ToBooleanConverter}}" Value="True" />
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.Setters>
                                 <Setter Property="IsEnabled" Value="False" />
