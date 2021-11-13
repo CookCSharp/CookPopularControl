@@ -2736,6 +2736,26 @@
             </summary>
             <remarks>用于代替Grid</remarks>
         </member>
+        <member name="T:CookPopularControl.Controls.UniformStackPanel">
+            <summary>
+            按照水平或垂直方向等分布局的面板
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.UniformStackPanel.IsUniformSpace">
+            <summary>
+            是否等间距
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.UniformStackPanel.IsUniformSpaceProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.UniformStackPanel.IsUniformSpace"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.UniformStackPanel.OrientationProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.UniformStackPanel.Orientation"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.PasswordBoxAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.PasswordBox"/>的附加属性类
@@ -3585,6 +3605,36 @@
         <member name="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent">
             <summary>
             <see cref="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

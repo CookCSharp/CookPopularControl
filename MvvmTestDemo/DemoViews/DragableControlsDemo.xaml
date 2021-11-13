@@ -28,7 +28,7 @@
                 <pc:VerticalPositionMonitor OrderChanged="StackPositionMonitor_OnOrderChanged" />
             </pc:DragableItemsControl.PositionMonitor>
             <pc:DragableItemsControl.ItemsOrganiser>
-                <pc:WrapOrganiser />
+                <pc:CanvasOrganiser />
             </pc:DragableItemsControl.ItemsOrganiser>
             <pc:DragableItemsControl.ItemContainerStyle>
                 <Style TargetType="{x:Type pc:DragableItem}">
