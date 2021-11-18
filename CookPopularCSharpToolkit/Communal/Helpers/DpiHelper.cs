@@ -1,26 +1,4 @@
-﻿
-/* 项目“CookPopularCSharpToolkit (net5.0-windows)”的未合并的更改
-在此之前:
-using CookPopularCSharpToolkit.Windows.Expression;
-using CookPopularCSharpToolkit.Windows.Interop;
-using CookPopularCSharpToolkit.Communal;
-在此之后:
-using CookPopularCSharpToolkit.Communal;
-using CookPopularCSharpToolkit.Windows.Expression;
-using CookPopularCSharpToolkit.Windows.Interop;
-*/
-
-/* 项目“CookPopularCSharpToolkit (net461)”的未合并的更改
-在此之前:
-using CookPopularCSharpToolkit.Windows.Expression;
-using CookPopularCSharpToolkit.Windows.Interop;
-using CookPopularCSharpToolkit.Communal;
-在此之后:
-using CookPopularCSharpToolkit.Communal;
-using CookPopularCSharpToolkit.Windows.Expression;
-using CookPopularCSharpToolkit.Windows.Interop;
-*/
-using CookPopularCSharpToolkit.Windows.Interop;
+﻿using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Windows;
 using System.Windows.Media;

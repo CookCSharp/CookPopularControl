@@ -50,5 +50,11 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty HeaderProperty =
             DependencyProperty.RegisterAttached("Header", typeof(object), typeof(RadioButtonAssistant), new PropertyMetadata(default(object)));
+
+
+        public static bool GetIsAlwaysShowHeader(DependencyObject obj) => (bool)obj.GetValue(IsAlwaysShowHeaderProperty);
+        public static void SetIsAlwaysShowHeader(DependencyObject obj, bool value) => obj.SetValue(IsAlwaysShowHeaderProperty, value);
+        public static readonly DependencyProperty IsAlwaysShowHeaderProperty =
+            DependencyProperty.RegisterAttached("IsAlwaysShowHeader", typeof(bool), typeof(RadioButtonAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
     }
 }

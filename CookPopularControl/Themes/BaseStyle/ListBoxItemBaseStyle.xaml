@@ -109,9 +109,8 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" TargetName="ItemCheckBox" />
-
                             <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(common:SelectorAttached.ItemsListBackground)}" TargetName="ItemBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(common:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemBorder" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

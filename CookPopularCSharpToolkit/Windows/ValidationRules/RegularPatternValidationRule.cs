@@ -25,6 +25,12 @@ namespace CookPopularCSharpToolkit.Windows
         /// </summary>
         public InputTextType? RegularPattern { get; set; }
 
+        /// <summary>
+        /// 自定义Pattern
+        /// </summary>
+        /// <remarks>当<see cref="RegularPattern"/>的值为<see cref="InputTextType.Other"/>时才有效</remarks>
+        public string CustomPattern { get; set; }
+
         public override ValidationResult ValidateBase(object value, CultureInfo cultureInfo)
         {
             if (RegularPattern is null) return ValidationResult.ValidResult;
@@ -32,9 +38,14 @@ namespace CookPopularCSharpToolkit.Windows
             if(ErrorMessage == "输入错误" || string.IsNullOrEmpty(ErrorMessage))
                 ErrorMessage = "Please input " + Enum.GetName(typeof(InputTextType), RegularPattern);
 
-            return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), RegularPattern.Value)
-                   ? ValidationResult.ValidResult
-                   : new ValidationResult(false, ErrorMessage);
+            if(RegularPattern == InputTextType.Other)
+                return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), CustomPattern)
+                       ? ValidationResult.ValidResult
+                       : new ValidationResult(false, ErrorMessage);
+            else
+                return RegularPatterns.Default.IsMatchRegularPattern((value ?? string.Empty).ToString(), RegularPattern.Value)
+                       ? ValidationResult.ValidResult
+                       : new ValidationResult(false, ErrorMessage);
         }
     }
 }

@@ -18,17 +18,16 @@ namespace CookPopularCSharpToolkit.Windows
         /// <summary>
         /// 是否有错误
         /// </summary>
-        public bool HasValidationError { get; }
+        public bool HasValidationError { get; set; }
     }
 
     /// <summary>
     /// 验证行为类
     /// </summary>
-    public class ValidationExceptionBehavior : Behavior<FrameworkElement>, IValidationExceptionHandle
+    public class ValidationExceptionBehavior : Behavior<FrameworkElement>
     {
         //错误计数器
         private int validationExceptionCount = 0;
-        public bool HasValidationError => validationExceptionCount > 0;
 
         protected override void OnAttached()
         {
@@ -54,7 +53,7 @@ namespace CookPopularCSharpToolkit.Windows
                 else if (e.Action == ValidationErrorEventAction.Removed)
                     validationExceptionCount--;
 
-                //handle.HasValidationError = validationExceptionCount != 0;
+                 handle.HasValidationError = validationExceptionCount > 0;
             }
             catch (Exception ex)
             {

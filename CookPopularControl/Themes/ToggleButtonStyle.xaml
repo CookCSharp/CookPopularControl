@@ -33,6 +33,11 @@
         <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
         <Setter Property="gif:AnimationBehavior.SourceStream" Value="{x:Null}" />
         <Setter Property="gif:AnimationBehavior.SourceUri" Value="{x:Null}" />
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="{x:Null}">
+                <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="ToggleButtonOutlineStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -156,6 +161,10 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ToggleButtonAssistant.OnCheckedGeometry)}" TargetName="PART_Icon" />
                             <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ToggleButtonAssistant.OnCheckedElement)}" TargetName="PART_Content" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter Property="pc:ToggleButtonAssistant.UnCheckedGeometry" Value="{x:Null}"/>
+                            <Setter Property="pc:ToggleButtonAssistant.OnCheckedElement" Value="{x:Null}"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

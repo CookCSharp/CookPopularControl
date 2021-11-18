@@ -89,8 +89,5 @@ namespace CookPopularCSharpToolkit.Windows.Interop
 
         [DllImport("User32")]
         internal static extern IntPtr GetTopWindow(IntPtr hWnd);
-
-        [DllImport("user32", EntryPoint = "SetWindowPos")]
-        internal static extern int SetWindowPos(IntPtr hwnd, int hwndInsertAfter, int x, int y, int cx, int cy, int wFlags);
     }
 }

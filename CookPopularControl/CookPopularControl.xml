@@ -2738,12 +2738,13 @@
         </member>
         <member name="T:CookPopularControl.Controls.UniformStackPanel">
             <summary>
-            按照水平或垂直方向等分布局的面板
+            按照水平或垂直方向等份布局的面板
             </summary>
         </member>
         <member name="P:CookPopularControl.Controls.UniformStackPanel.IsUniformSpace">
             <summary>
-            是否等间距
+            如果值为true,子项之间、子项与边界之间间距相等
+            如果为false，仅子项之间间距相等，子项与边界之间间距肯能不相等
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.UniformStackPanel.IsUniformSpaceProperty">
@@ -2755,6 +2756,18 @@
             <summary>
             提供<see cref="P:CookPopularControl.Controls.UniformStackPanel.Orientation"/>的依赖属性
             </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.UniformStackPanel.ItemsHorizontalAlignmentProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.UniformStackPanel.ItemsHorizontalAlignment"/>的依赖属性
+            </summary>
+            <remarks>当<see cref="P:CookPopularControl.Controls.UniformStackPanel.Orientation"/>为<see cref="F:System.Windows.Controls.Orientation.Vertical"/>使用</remarks>
+        </member>
+        <member name="F:CookPopularControl.Controls.UniformStackPanel.ItemsVerticalAlignmentProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.UniformStackPanel.ItemsVerticalAlignment"/>的依赖属性
+            </summary>
+            <remarks>当<see cref="P:CookPopularControl.Controls.UniformStackPanel.Orientation"/>为<see cref="F:System.Windows.Controls.Orientation.Horizontal"/>使用</remarks>
         </member>
         <member name="T:CookPopularControl.Controls.PasswordBoxAssistant">
             <summary>

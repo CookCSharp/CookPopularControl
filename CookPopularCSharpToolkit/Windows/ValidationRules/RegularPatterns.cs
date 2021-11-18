@@ -209,5 +209,6 @@ namespace CookPopularCSharpToolkit.Windows
         IDCard,
         Email,
         Url,
+        Other,//供大家自定义
     }
 }

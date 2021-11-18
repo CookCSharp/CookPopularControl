@@ -64,6 +64,7 @@
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="#E82323" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="IsShowTitle" Value="True" />
         <Setter Property="IsShowClientTitleBar" Value="True" />

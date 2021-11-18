@@ -14,7 +14,8 @@
                   mc:Ignorable="d"
                   Title="CookPopularControl"
                   Width="1000"
-                  Height="800"
+                  Height="600"
+                  WindowState="Normal"
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
@@ -52,7 +53,7 @@
     </pc:SideBarWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
-        <Grid Visibility="Collapsed">
+        <Grid Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -93,7 +94,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:PanelDemo Visibility="Visible" />
+        <view:PanelDemo Visibility="Collapsed" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"

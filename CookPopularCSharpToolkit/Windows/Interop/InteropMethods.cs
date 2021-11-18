@@ -475,6 +475,9 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [DllImport(InteropValues.ExternDll.Shell32, CallingConvention = CallingConvention.StdCall)]
         internal static extern uint SHAppBarMessage(int dwMessage, ref InteropValues.APPBARDATA pData);
 
+        [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern uint WaitForSingleObject(IntPtr hHandle, uint dwMilliseconds);
+
         #endregion
 
         internal class Gdip

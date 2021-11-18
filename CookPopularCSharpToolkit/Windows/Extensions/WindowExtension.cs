@@ -159,7 +159,7 @@ namespace CookPopularCSharpToolkit.Windows
                         _cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness] = true;
 
                         var frameSize = new Size(InteropMethods.GetSystemMetrics(InteropValues.SM.CXSIZEFRAME), InteropMethods.GetSystemMetrics(InteropValues.SM.CYSIZEFRAME));
-                        var frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, Screenshot.GetDpiX() / 96.0, Screenshot.GetDpiY() / 96.0);
+                        var frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, DpiHelper.DeviceDpiX / 96.0, DpiHelper.DeviceDpiY / 96.0);
 
                         _windowResizeBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height, frameSizeInDips.Width, frameSizeInDips.Height);
                     }

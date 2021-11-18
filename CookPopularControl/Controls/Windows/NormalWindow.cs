@@ -3,6 +3,8 @@ using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -247,6 +249,33 @@ namespace CookPopularControl.Windows
 
             if (Icon == null)
                 SetDefaultWindowIcon();
+
+            //解决窗口以最大化启动，还原窗口时居中显示
+            this.StateChanged += NormalWindow_StateChanged;
+        }
+
+        private void NormalWindow_StateChanged(object sender, EventArgs e)
+        {
+            //NativeMethods.GetWindowRect(new WindowInteropHelper(this).Handle, out var rect);
+            //int w = rect.Right - rect.Left;
+            //int h = rect.Bottom - rect.Top;
+            //int sw = InteropMethods.GetSystemMetrics(InteropValues.SM.CXSCREEN);
+            //int sh = InteropMethods.GetSystemMetrics(InteropValues.SM.CYSCREEN);
+
+            var dpiRatio = ScreenHelper.GetDpiRatio(this);
+            double width = Width * dpiRatio;
+            double height = Height * dpiRatio;
+            double workWidth = SystemParameters.WorkArea.Width * dpiRatio;
+            double workHeight = SystemParameters.WorkArea.Height * dpiRatio;
+            int x = (int)((workWidth - width) / 2);
+            int y = (int)((workHeight - height) / 2);
+            int w = (int)width;
+            int h = (int)height;
+
+            this.Hide();
+            NativeMethods.SetWindowPos(this.EnsureHandle(), IntPtr.Zero, x, y, w, h, NativeMethods.SWP.ASYNCWINDOWPOS);
+            this.Show();
+            this.StateChanged -= NormalWindow_StateChanged; //移除事件
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -277,8 +306,19 @@ namespace CookPopularControl.Windows
                     WmGetMinMaxInfo(hwnd, lparam);
                     Padding = WindowState == WindowState.Maximized ? WindowExtension.WindowMaximizedPadding : Padding;
                     break;
+                case InteropValues.WM_NCHITTEST:
+                    // for fixing #886
+                    // https://developercommunity.visualstudio.com/t/overflow-exception-in-windowchrome/167357
+                    try
+                    {
+                        _ = lparam.ToInt32();
+                    }
+                    catch (OverflowException)
+                    {
+                        handled = true;
+                    }
+                    break;
             }
-
             return IntPtr.Zero;
         }
 
