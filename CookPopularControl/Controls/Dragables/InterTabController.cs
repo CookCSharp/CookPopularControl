@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Interface;
-using CookPopularControl.Controls.Dragables.Core;
+﻿using CookPopularControl.Controls.Dragables;
 using System.Windows;
 
 

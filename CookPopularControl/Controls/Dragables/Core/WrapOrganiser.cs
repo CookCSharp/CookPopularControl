@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -12,7 +11,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-09-09 15:11:59
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class WrapOrganiser : IItemsOrganiser
     {

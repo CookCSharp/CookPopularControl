@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Interface;
-using System;
+﻿using System;
 using System.Windows;
 
 
@@ -10,7 +9,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:40:28
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class NewTabHost<TElement> : INewTabHost<TElement> where TElement : UIElement
     {

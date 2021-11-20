@@ -1,5 +1,4 @@
 ﻿using CookPopularControl.Communal.Data;
-using CookPopularControl.Communal.Interface;
 using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Linq;
@@ -14,7 +13,7 @@ using System.Windows.Threading;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:38:49
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class DefaultInterTabClient : IInterTabClient
     {

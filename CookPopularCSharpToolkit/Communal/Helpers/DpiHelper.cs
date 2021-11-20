@@ -18,6 +18,8 @@ namespace CookPopularCSharpToolkit.Communal
         private const double LogicalDpi = 96.0;
 
         [ThreadStatic]
+        private static Matrix _transformToDevice;
+        [ThreadStatic]
         private static Matrix _transformToDip;
 
         static DpiHelper()
@@ -61,11 +63,41 @@ namespace CookPopularCSharpToolkit.Communal
 
         public static double LogicalToDeviceUnitsScalingFactorY => TransformToDevice.Matrix.M22;
 
+        public static Point LogicalPixelsToDevice(Point logicalPoint, double dpiScaleX, double dpiScaleY)
+        {
+            _transformToDevice = Matrix.Identity;
+            _transformToDevice.Scale(dpiScaleX, dpiScaleY);
+            return _transformToDevice.Transform(logicalPoint);
+        }
+
         public static Point DevicePixelsToLogical(Point devicePoint, double dpiScaleX, double dpiScaleY)
         {
             _transformToDip = Matrix.Identity;
             _transformToDip.Scale(1d / dpiScaleX, 1d / dpiScaleY);
             return _transformToDip.Transform(devicePoint);
+        }
+
+        public static Rect LogicalRectToDevice(Rect logicalRectangle, double dpiScaleX, double dpiScaleY)
+        {
+            Point topLeft = LogicalPixelsToDevice(new Point(logicalRectangle.Left, logicalRectangle.Top), dpiScaleX, dpiScaleY);
+            Point bottomRight = LogicalPixelsToDevice(new Point(logicalRectangle.Right, logicalRectangle.Bottom), dpiScaleX, dpiScaleY);
+
+            return new Rect(topLeft, bottomRight);
+        }
+
+        public static Rect DeviceRectToLogical(Rect deviceRectangle, double dpiScaleX, double dpiScaleY)
+        {
+            Point topLeft = DevicePixelsToLogical(new Point(deviceRectangle.Left, deviceRectangle.Top), dpiScaleX, dpiScaleY);
+            Point bottomRight = DevicePixelsToLogical(new Point(deviceRectangle.Right, deviceRectangle.Bottom), dpiScaleX, dpiScaleY);
+
+            return new Rect(topLeft, bottomRight);
+        }
+
+        public static Size LogicalSizeToDevice(Size logicalSize, double dpiScaleX, double dpiScaleY)
+        {
+            Point pt = LogicalPixelsToDevice(new Point(logicalSize.Width, logicalSize.Height), dpiScaleX, dpiScaleY);
+
+            return new Size { Width = pt.X, Height = pt.Y };
         }
 
         public static Size DeviceSizeToLogical(Size deviceSize, double dpiScaleX, double dpiScaleY)
@@ -86,6 +118,14 @@ namespace CookPopularCSharpToolkit.Communal
             var result = deviceRect;
             result.Transform(TransformFromDevice.Matrix);
             return result;
+        }
+
+        public static Thickness LogicalThicknessToDevice(Thickness logicalThickness, double dpiScaleX, double dpiScaleY)
+        {
+            Point topLeft = LogicalPixelsToDevice(new Point(logicalThickness.Left, logicalThickness.Top), dpiScaleX, dpiScaleY);
+            Point bottomRight = LogicalPixelsToDevice(new Point(logicalThickness.Right, logicalThickness.Bottom), dpiScaleX, dpiScaleY);
+
+            return new Thickness(topLeft.X, topLeft.Y, bottomRight.X, bottomRight.Y);
         }
 
         public static double RoundLayoutValue(double value, double dpiScale)

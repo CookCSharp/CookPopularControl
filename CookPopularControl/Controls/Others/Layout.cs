@@ -1,8 +1,7 @@
 ﻿using CookPopularControl.Communal;
 using CookPopularControl.Communal.Data;
-using CookPopularControl.Communal.Interface;
 using CookPopularControl.Controls.Dragables;
-using CookPopularControl.Controls.Dragables.Core;
+using CookPopularControl.Controls.Dragables;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;

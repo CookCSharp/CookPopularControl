@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
-                    xmlns:dragCore="clr-namespace:CookPopularControl.Controls.Dragables.Core"
+                    xmlns:dragCore="clr-namespace:CookPopularControl.Controls.Dragables"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="InvisibleThumbStyle" TargetType="{x:Type Thumb}">
@@ -839,7 +839,7 @@
         <Setter Property="HeaderSuffixContent" Value="😂" />
         <Setter Property="ShowDefaultAddButton" Value="True" />
         <Setter Property="ShowDefaultCloseButton" Value="True" />
-        <Setter Property="NewItemFactory" Value="{x:Static dragCore:DefaultNewItemFactory.DefaultItemFactory}" />
+        <Setter Property="NewItemFactory" Value="{x:Static drag:DefaultNewItemFactory.DefaultItemFactory}" />
 
         <Setter Property="ItemContainerStyle" Value="{StaticResource StandardDragableTabItemHorizontalStyle}" />
         <Setter Property="Template">
@@ -963,7 +963,7 @@
             <Trigger Property="TabStripPlacement" Value="Left">
                 <Setter Property="HeaderItemsOrganiser">
                     <Setter.Value>
-                        <dragCore:VerticalOrganiser />
+                        <drag:VerticalOrganiser />
                     </Setter.Value>
                 </Setter>
                 <Setter Property="ItemContainerStyle" Value="{StaticResource StandardDragableTabItemVerticalStyle}" />

@@ -2,6 +2,7 @@
 using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;
 using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,6 +32,19 @@ namespace CookPopularControl.Windows
         private WindowStyle _preWindowStyle;
         private WindowState _preWindowState;
         private ResizeMode _preResizeMode;
+
+
+        /// <summary>
+        /// Represents a Windows icon, which is a small bitmap image that is used to represent an object
+        /// </summary>
+        public System.Drawing.Icon WindowIcon
+        {
+            get
+            {
+                WindowInteropHelper interopHelper = new WindowInteropHelper(this);
+                return System.Drawing.Icon.ExtractAssociatedIcon(System.Windows.Forms.Application.ExecutablePath);
+            }
+        }
 
 
         /// <summary>
@@ -168,9 +182,9 @@ namespace CookPopularControl.Windows
 
 
         /// <summary>
-        /// 窗体是否激活
+        /// NonClient是否激活
         /// </summary>
-        internal bool IsNonClientActive
+        public bool IsNonClientActive
         {
             get { return (bool)GetValue(IsNonClientActiveProperty); }
             set { SetValue(IsNonClientActiveProperty, ValueBoxes.BooleanBox(value)); }
@@ -178,7 +192,7 @@ namespace CookPopularControl.Windows
         /// <summary>
         /// 标识<see cref="IsNonClientActive"/>的依赖属性
         /// </summary>
-        internal static readonly DependencyProperty IsNonClientActiveProperty =
+        public static readonly DependencyProperty IsNonClientActiveProperty =
             DependencyProperty.Register("IsNonClientActive", typeof(bool), typeof(NormalWindow), new PropertyMetadata(ValueBoxes.FalseBox, OnIsNoneClientActiveChanged));
 
         private static void OnIsNoneClientActiveChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -186,14 +200,13 @@ namespace CookPopularControl.Windows
             if (d is NormalWindow window)
             {
                 IntPtr handle = window.EnsureHandle();
-                window.GetHwndSource()?.AddHook(new HwndSourceHook(window.WndProc));
+                window.GetHwndSource()?.AddHook(window.WndProc);
             }
         }
-
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             if (msg == InteropValues.WM_NCACTIVATE)
-                SetValue(IsNonClientActiveProperty, wParam != IntPtr.Zero);
+                SetValue(IsNonClientActiveProperty, wParam == new IntPtr(1));
 
             return IntPtr.Zero;
         }
@@ -237,21 +250,55 @@ namespace CookPopularControl.Windows
 
         public NormalWindow()
         {
-            CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand, (s, e) => WindowState = WindowState.Minimized));
-            CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand, (s, e) => WindowState = WindowState.Maximized));
-            CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, (s, e) => WindowState = WindowState.Normal));
+            CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand, (s, e) => { SystemCommands.MinimizeWindow(this); e.Handled = true; }));
+            CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand, (s, e) => { SystemCommands.MaximizeWindow(this); e.Handled = true; }));
+            CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, (s, e) => { SystemCommands.RestoreWindow(this); e.Handled = true; }));
             CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
-            CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, (s, e) =>
-            {
-                var point = WindowState == WindowState.Maximized ? new Point(0, ClientTitleBarHeight) : new Point(Left, Top + ClientTitleBarHeight);
-                SystemCommands.ShowSystemMenu(this, point);
-            }));
+            CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, (s, e) => ShowSystemMenu(e)));
 
-            if (Icon == null)
-                SetDefaultWindowIcon();
+            if (Icon == null) SetDefaultWindowIcon();
 
-            //解决窗口以最大化启动，还原窗口时居中显示
+            this.Loaded += (s, e) => SetWindowRound();
+
+            //解决窗口以最大化启动,点击还原窗口时居中显示           
             this.StateChanged += NormalWindow_StateChanged;
+        }
+
+        private void ShowSystemMenu(ExecutedRoutedEventArgs e)
+        {
+            Point point = this.PointToScreen(new Point(0, 0));
+            var dipScale = WindowParameters.DpiX / 96d;
+            if (this.WindowState == WindowState.Maximized)
+            {
+                //保证最大化时不改变标题高度
+                point.X += (SystemParameters.WindowNonClientFrameThickness.Left + WindowParameters.PaddedBorderThickness.Left) * dipScale;
+                point.Y += (SystemParameters.WindowNonClientFrameThickness.Top + WindowParameters.PaddedBorderThickness.Top +
+                            SystemParameters.WindowResizeBorderThickness.Top - this.BorderThickness.Top) * dipScale;
+            }
+            else
+            {
+                point.X += this.BorderThickness.Left * dipScale;
+                point.Y += SystemParameters.WindowNonClientFrameThickness.Top * dipScale;
+            }
+
+            CompositionTarget compositionTarget = PresentationSource.FromVisual(this).CompositionTarget;
+            SystemCommands.ShowSystemMenu(this, compositionTarget.TransformFromDevice.Transform(point));
+            e.Handled = true;
+        }
+
+        public void SetDefaultWindowIcon()
+        {
+            Icon = ImageBitmapExtension.ToImageSource(WindowIcon.ToBitmap());
+            //System.Drawing.Icon icon = new System.Drawing.Icon("ApplicationIcon.ico");
+            //InteropMethods.SendMessage(interopHelper.Handle, 0x80/*WM_SETICON*/, (IntPtr)1 /*ICON_LARGE*/, icon.Handle);
+        }
+
+        private void SetWindowRound()
+        {
+            IntPtr hWnd = this.EnsureHandle();
+            var attribute = InteropValues.DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
+            var preference = InteropValues.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+            InteropMethods.DwmSetWindowAttribute(hWnd, attribute, ref preference, sizeof(uint));
         }
 
         private void NormalWindow_StateChanged(object sender, EventArgs e)
@@ -272,6 +319,9 @@ namespace CookPopularControl.Windows
             int w = (int)width;
             int h = (int)height;
 
+            //var method3 = typeof(Window).GetMethod("SetupInitialState", BindingFlags.NonPublic | BindingFlags.Instance);
+            //method3.Invoke(this, new object[] { (workWidth - width) / 2, (workHeight - height) / 2, Width, Height });
+
             this.Hide();
             NativeMethods.SetWindowPos(this.EnsureHandle(), IntPtr.Zero, x, y, w, h, NativeMethods.SWP.ASYNCWINDOWPOS);
             this.Show();
@@ -280,7 +330,6 @@ namespace CookPopularControl.Windows
 
         protected override void OnSourceInitialized(EventArgs e)
         {
-            this.GetHwndSource()?.AddHook(HwndSourceHook);
             base.OnSourceInitialized(e);
 
             /*****
@@ -292,7 +341,11 @@ namespace CookPopularControl.Windows
              */
             //https://www.cnblogs.com/dino623/p/problems_of_WindowChrome.html
             if (SizeToContent == SizeToContent.WidthAndHeight && WindowChrome.GetWindowChrome(this) != null)
+            {
                 InvalidateMeasure();
+            }
+
+            this.GetHwndSource()?.AddHook(HwndSourceHook);
         }
 
         private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
@@ -300,11 +353,14 @@ namespace CookPopularControl.Windows
             switch (msg)
             {
                 case InteropValues.WM_WINDOWPOSCHANGED:
-                    Padding = WindowState == WindowState.Maximized ? WindowExtension.WindowMaximizedPadding : Padding;
+                    Padding = WindowState == WindowState.Maximized ? WindowParameters.WindowMaximizedPadding : Padding;
                     break;
                 case InteropValues.WM_GETMINMAXINFO:
                     WmGetMinMaxInfo(hwnd, lparam);
-                    Padding = WindowState == WindowState.Maximized ? WindowExtension.WindowMaximizedPadding : Padding;
+                    Padding = WindowState == WindowState.Maximized ? WindowParameters.WindowMaximizedPadding : Padding;
+                    break;
+                case InteropValues.WM_NCACTIVATE:
+                    SetValue(IsNonClientActiveProperty, wparam == new IntPtr(1));
                     break;
                 case InteropValues.WM_NCHITTEST:
                     // for fixing #886
@@ -359,17 +415,5 @@ namespace CookPopularControl.Windows
             base.OnDeactivated(e);
             SetValue(IsNonClientActiveProperty, false);
         }
-
-        private void SetDefaultWindowIcon()
-        {
-            WindowInteropHelper interopHelper = new WindowInteropHelper(this);
-            System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon(System.Windows.Forms.Application.ExecutablePath);
-            Icon = ImageBitmapExtension.ToImageSource(icon.ToBitmap());
-            //System.Drawing.Icon icon = new System.Drawing.Icon("ApplicationIcon.ico");
-            //SendMessage(interopHelper.Handle, 0x80/*WM_SETICON*/, (IntPtr)1 /*ICON_LARGE*/, icon.Handle);
-        }
-
-        [DllImport("user32.dll")]
-        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
     }
 }

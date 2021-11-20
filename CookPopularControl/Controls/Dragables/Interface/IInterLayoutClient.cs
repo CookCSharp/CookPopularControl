@@ -9,10 +9,10 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-12 08:55:14
  */
-namespace CookPopularControl.Communal.Interface
+namespace CookPopularControl.Controls.Dragables
 {
     /// <summary>
-    /// Implementors should provide a mechanism to provide a new host control which contains a new <see cref="TabablzControl"/>.
+    /// Implementors should provide a mechanism to provide a new host control which contains a new <see cref="DragableTabControl"/>.
     /// </summary>
     public interface IInterLayoutClient
     {

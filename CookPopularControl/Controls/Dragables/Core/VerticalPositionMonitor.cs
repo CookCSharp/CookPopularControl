@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-09-03 17:02:38
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class VerticalPositionMonitor : StackPositionMonitor
     {

@@ -18,7 +18,8 @@ namespace CookPopularCSharpToolkit.Windows.Interop
                 Kernel32 = "kernel32.dll",
                 Shell32 = "shell32.dll",
                 MsImg = "msimg32.dll",
-                NTdll = "ntdll.dll";
+                NTdll = "ntdll.dll",
+                Dwmapi ="dwmapi.dll";
         }
 
         internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
@@ -435,6 +436,7 @@ namespace CookPopularCSharpToolkit.Windows.Interop
             CYFOCUSBORDER = 84,
             TABLETPC = 86,
             MEDIACENTER = 87,
+            CXPADDEDBORDER = 92,
             REMOTESESSION = 0x1000,
             REMOTECONTROL = 0x2001
         }
@@ -1060,6 +1062,22 @@ namespace CookPopularCSharpToolkit.Windows.Interop
             ///     Displays the window.
             /// </summary>
             SWP_SHOWWINDOW = 0x0040
+        }
+
+        // The enum flag for DwmSetWindowAttribute's second parameter, which tells the function what attribute to set.
+        public enum DWMWINDOWATTRIBUTE
+        {
+            DWMWA_WINDOW_CORNER_PREFERENCE = 33
+        }
+
+        // The DWM_WINDOW_CORNER_PREFERENCE enum for DwmSetWindowAttribute's third parameter, which tells the function
+        // what value of the enum to set.
+        public enum DWM_WINDOW_CORNER_PREFERENCE
+        {
+            DWMWCP_DEFAULT = 0, //让系统决定是否对窗口采用圆角设置
+            DWMWCP_DONOTROUND = 1, //绝不对窗口采用圆角设置
+            DWMWCP_ROUND = 2, //适当时采用圆角设置
+            DWMWCP_ROUNDSMALL = 3  //适当时可采用半径较小的圆角设置
         }
     }
 }

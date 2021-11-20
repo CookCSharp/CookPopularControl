@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:13:31
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     internal class FloatTransfer
     {

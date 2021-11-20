@@ -9,7 +9,7 @@ using System;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-13 10:02:48
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     internal class DefaultNewItemFactory
     {

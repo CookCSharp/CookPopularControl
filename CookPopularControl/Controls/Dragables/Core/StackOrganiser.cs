@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Interface;
-using CookPopularCSharpToolkit.Communal;
+﻿using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ using System.Windows.Media.Animation;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 14:59:24
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public abstract class StackOrganiser : IItemsOrganiser
     {

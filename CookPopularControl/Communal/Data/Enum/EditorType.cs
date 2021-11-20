@@ -12,7 +12,7 @@ namespace CookPopularControl.Communal.Data
     public enum EditorType : byte
     {
         TextBox,
-        NumericUpDown,
+        //NumericUpDown,
         Other,
     }
 }

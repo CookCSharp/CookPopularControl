@@ -363,7 +363,7 @@
         </member>
         <member name="T:CookPopularControl.Communal.Data.LocationReportException">
             <summary>
-            提供<see cref="T:CookPopularControl.Controls.Dragables.Core.LocationReport"/>关于<see cref="T:System.Exception"/>
+            提供<see cref="T:CookPopularControl.Controls.Dragables.LocationReport"/>关于<see cref="T:System.Exception"/>
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Data.NotifyMessageInfo">
@@ -416,41 +416,6 @@
             <summary>
             消息关闭前触发的方法
             </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Interface.IInterLayoutClient">
-            <summary>
-            Implementors should provide a mechanism to provide a new host control which contains a new <see cref="!:TabablzControl"/>.
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Communal.Interface.IInterLayoutClient.GetNewHost(System.Object,CookPopularControl.Controls.Dragables.DragableTabControl)">
-            <summary>
-            Provide a new host control and tab into which will be placed into a newly created layout branch.
-            </summary>
-            <param name="partition">Provides the partition where the drag operation was initiated.</param>
-            <param name="source">The source control where a dragging operation was initiated.</param>
-            <returns></returns>
-        </member>
-        <member name="T:CookPopularControl.Communal.Interface.IInterTabClient">
-            <summary>
-            Implementors should provide mechanisms for providing new windows and closing old windows.
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Communal.Interface.IInterTabClient.GetNewHost(CookPopularControl.Communal.Interface.IInterTabClient,System.Object,CookPopularControl.Controls.Dragables.DragableTabControl)">
-            <summary>
-            Provide a new host window so a tab can be teared from an existing window into a new window.
-            </summary>
-            <param name="interTabClient"></param>
-            <param name="partition">Provides the partition where the drag operation was initiated.</param>
-            <param name="source">The source control where a dragging operation was initiated.</param>
-            <returns></returns>
-        </member>
-        <member name="M:CookPopularControl.Communal.Interface.IInterTabClient.TabEmptiedHandler(CookPopularControl.Controls.Dragables.DragableTabControl,System.Windows.Window)">
-            <summary>
-            Called when a tab has been emptied, and thus typically a window needs closing.
-            </summary>
-            <param name="tabControl"></param>
-            <param name="window"></param>
-            <returns></returns>
         </member>
         <member name="T:CookPopularControl.Communal.ViewModel.HeaderedItemViewModel">
             <summary>
@@ -1482,16 +1447,16 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.Core.AccessorExtension.Query(CookPopularControl.Controls.Layout)">
+        <member name="M:CookPopularControl.Controls.Dragables.AccessorExtension.Query(CookPopularControl.Controls.Layout)">
             <summary>
             Begin a query of layout content, returning an accessor for examining the children.
             </summary>
             <param name="layout"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.Core.AccessorExtension.Visit``1(CookPopularControl.Controls.Dragables.Core.LayoutAccessor,``0,System.Action{``0,CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{``0,CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{``0,System.Object})">
+        <member name="M:CookPopularControl.Controls.Dragables.AccessorExtension.Visit``1(CookPopularControl.Controls.Dragables.LayoutAccessor,``0,System.Action{``0,CookPopularControl.Controls.Dragables.BranchAccessor},System.Action{``0,CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{``0,System.Object})">
             <summary>
-            Helper method for <see cref="M:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.Visit(System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})"/> which allows a context to be passed through.
+            Helper method for <see cref="M:CookPopularControl.Controls.Dragables.LayoutAccessor.Visit(System.Action{CookPopularControl.Controls.Dragables.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})"/> which allows a context to be passed through.
             </summary>
             <typeparam name="TContext"></typeparam>
             <param name="layoutAccessor"></param>
@@ -1501,9 +1466,9 @@
             <param name="contentVisitor"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.Core.AccessorExtension.Visit``1(CookPopularControl.Controls.Dragables.Core.BranchAccessor,``0,CookPopularControl.Communal.Data.BranchItem,System.Action{``0,CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{``0,CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{``0,System.Object})">
+        <member name="M:CookPopularControl.Controls.Dragables.AccessorExtension.Visit``1(CookPopularControl.Controls.Dragables.BranchAccessor,``0,CookPopularControl.Communal.Data.BranchItem,System.Action{``0,CookPopularControl.Controls.Dragables.BranchAccessor},System.Action{``0,CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{``0,System.Object})">
             <summary>
-            Helper method for <see cref="M:CookPopularControl.Controls.Dragables.Core.BranchAccessor.Visit(CookPopularControl.Communal.Data.BranchItem,System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})"/> which allows a context to be passed through.
+            Helper method for <see cref="M:CookPopularControl.Controls.Dragables.BranchAccessor.Visit(CookPopularControl.Communal.Data.BranchItem,System.Action{CookPopularControl.Controls.Dragables.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})"/> which allows a context to be passed through.
             </summary>
             <typeparam name="TContext"></typeparam>
             <param name="branchAccessor"></param>
@@ -1514,7 +1479,7 @@
             <param name="contentVisitor"></param>
             <returns></returns>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.Core.BranchAccessor.Visit(CookPopularControl.Communal.Data.BranchItem,System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})">
+        <member name="M:CookPopularControl.Controls.Dragables.BranchAccessor.Visit(CookPopularControl.Communal.Data.BranchItem,System.Action{CookPopularControl.Controls.Dragables.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})">
             <summary>
             Visits the content of the first or second side of a branch, according to its content type.  No more than one of the provided <see cref="T:System.Action"/>
             callbacks will be called.  
@@ -1525,63 +1490,83 @@
             <param name="childContentVisitor"></param>
             <returns></returns>
         </member>
-        <member name="P:CookPopularControl.Controls.Dragables.Core.BranchResult.Branch">
+        <member name="P:CookPopularControl.Controls.Dragables.BranchResult.Branch">
             <summary>
             The new branch.
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Dragables.Core.BranchResult.TabablzControl">
+        <member name="P:CookPopularControl.Controls.Dragables.BranchResult.TabablzControl">
             <summary>
             The new tab control.
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dragables.Core.DefaultInterLayoutClient">
+        <member name="T:CookPopularControl.Controls.Dragables.DefaultInterLayoutClient">
             <summary>
-            Provides a simple implementation of <see cref="T:CookPopularControl.Communal.Interface.IInterLayoutClient"/>, but only really useful if 
+            Provides a simple implementation of <see cref="T:CookPopularControl.Controls.Dragables.IInterLayoutClient"/>, but only really useful if 
             <see cref="T:System.Windows.Controls.TabItem"/> instances are specified in XAML.  If you are binding via ItemsSource then
-            you most likely want to create your own implementation of <see cref="T:CookPopularControl.Communal.Interface.IInterLayoutClient"/>.
+            you most likely want to create your own implementation of <see cref="T:CookPopularControl.Controls.Dragables.IInterLayoutClient"/>.
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Dragables.Core.LayoutAccessor">
+        <member name="T:CookPopularControl.Controls.Dragables.LayoutAccessor">
             <summary>
-            Provides information about the <see cref="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.Layout"/> instance.
+            Provides information about the <see cref="P:CookPopularControl.Controls.Dragables.LayoutAccessor.Layout"/> instance.
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.BranchAccessor">
+        <member name="P:CookPopularControl.Controls.Dragables.LayoutAccessor.BranchAccessor">
             <summary>
-            <see cref="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.BranchAccessor"/> and <see cref="!:TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
+            <see cref="P:CookPopularControl.Controls.Dragables.LayoutAccessor.BranchAccessor"/> and <see cref="!:TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.DragableTabControl">
+        <member name="P:CookPopularControl.Controls.Dragables.LayoutAccessor.DragableTabControl">
             <summary>
-            <see cref="P:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.BranchAccessor"/> and <see cref="!:TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
+            <see cref="P:CookPopularControl.Controls.Dragables.LayoutAccessor.BranchAccessor"/> and <see cref="!:TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.Visit(System.Action{CookPopularControl.Controls.Dragables.Core.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})">
+        <member name="M:CookPopularControl.Controls.Dragables.LayoutAccessor.Visit(System.Action{CookPopularControl.Controls.Dragables.BranchAccessor},System.Action{CookPopularControl.Controls.Dragables.DragableTabControl},System.Action{System.Object})">
             <summary>
             Visits the content of the layout, according to its content type.  No more than one of the provided <see cref="T:System.Action"/>
             callbacks will be called.  
             </summary>        
         </member>
-        <member name="M:CookPopularControl.Controls.Dragables.Core.LayoutAccessor.TabablzControls">
+        <member name="M:CookPopularControl.Controls.Dragables.LayoutAccessor.TabablzControls">
             <summary>
             Gets all the Tabablz controls in a Layout, regardless of location.
             </summary>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.Dragables.Core.LocationReport">
+        <member name="T:CookPopularControl.Controls.Dragables.LocationReport">
             <summary>
             Provides information about where a tab control is withing a layout structure.
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Dragables.Core.LocationReport.ParentBranch">
+        <member name="P:CookPopularControl.Controls.Dragables.LocationReport.ParentBranch">
             <summary>
-            Gets the parent branch if this is a leaf. If the <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.TabablzControl"/> is directly under the <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.RootLayout"/> will be <c>null</c>.
+            Gets the parent branch if this is a leaf. If the <see cref="P:CookPopularControl.Controls.Dragables.LocationReport.TabablzControl"/> is directly under the <see cref="P:CookPopularControl.Controls.Dragables.LocationReport.RootLayout"/> will be <c>null</c>.
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.Dragables.Core.LocationReport.IsLeaf">
+        <member name="P:CookPopularControl.Controls.Dragables.LocationReport.IsLeaf">
             <summary>
-            Idicates if this is a leaf in a branch. <c>True</c> if <see cref="P:CookPopularControl.Controls.Dragables.Core.LocationReport.ParentBranch"/> is not null.
+            Idicates if this is a leaf in a branch. <c>True</c> if <see cref="P:CookPopularControl.Controls.Dragables.LocationReport.ParentBranch"/> is not null.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.PositionMonitor">
+            <summary>
+            Consumers can provide a position monitor to receive updates regarding the location of an item.    
+            </summary>
+            <remarks>
+            A <see cref="T:CookPopularControl.Controls.Dragables.PositionMonitor"/> can be used to listen to  changes 
+            instead of routed events, which can be easier in a MVVM scenario.
+            </remarks>
+        </member>
+        <member name="E:CookPopularControl.Controls.Dragables.PositionMonitor.LocationChanged">
+            <summary>
+            Raised when the X,Y coordinate of a <see cref="!:DragablzItem"/> changes.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.StackPositionMonitor">
+            <summary>
+            A linear position monitor simplifies the montoring of the order of items, where they are laid out
+            horizontally or vertically (typically via a <see cref="T:CookPopularControl.Controls.Dragables.StackOrganiser"/>.
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Dragables.AddLocationHint">
@@ -1904,30 +1889,45 @@
             <param name="data"></param>
             <returns></returns>
         </member>
+        <member name="T:CookPopularControl.Controls.Dragables.IInterLayoutClient">
+            <summary>
+            Implementors should provide a mechanism to provide a new host control which contains a new <see cref="T:CookPopularControl.Controls.Dragables.DragableTabControl"/>.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.IInterLayoutClient.GetNewHost(System.Object,CookPopularControl.Controls.Dragables.DragableTabControl)">
+            <summary>
+            Provide a new host control and tab into which will be placed into a newly created layout branch.
+            </summary>
+            <param name="partition">Provides the partition where the drag operation was initiated.</param>
+            <param name="source">The source control where a dragging operation was initiated.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CookPopularControl.Controls.Dragables.IInterTabClient">
+            <summary>
+            Implementors should provide mechanisms for providing new windows and closing old windows.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.IInterTabClient.GetNewHost(CookPopularControl.Controls.Dragables.IInterTabClient,System.Object,CookPopularControl.Controls.Dragables.DragableTabControl)">
+            <summary>
+            Provide a new host window so a tab can be teared from an existing window into a new window.
+            </summary>
+            <param name="interTabClient"></param>
+            <param name="partition">Provides the partition where the drag operation was initiated.</param>
+            <param name="source">The source control where a dragging operation was initiated.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.Dragables.IInterTabClient.TabEmptiedHandler(CookPopularControl.Controls.Dragables.DragableTabControl,System.Windows.Window)">
+            <summary>
+            Called when a tab has been emptied, and thus typically a window needs closing.
+            </summary>
+            <param name="tabControl"></param>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
         <member name="P:CookPopularControl.Controls.Dragables.InterTabController.Partition">
             <summary>
             The partition allows on or more tab environments in a single application.  Only tabs which have a tab controller
             with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.Dragables.PositionMonitor">
-            <summary>
-            Consumers can provide a position monitor to receive updates regarding the location of an item.    
-            </summary>
-            <remarks>
-            A <see cref="T:CookPopularControl.Controls.Dragables.PositionMonitor"/> can be used to listen to  changes 
-            instead of routed events, which can be easier in a MVVM scenario.
-            </remarks>
-        </member>
-        <member name="E:CookPopularControl.Controls.Dragables.PositionMonitor.LocationChanged">
-            <summary>
-            Raised when the X,Y coordinate of a <see cref="!:DragablzItem"/> changes.
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.Dragables.StackPositionMonitor">
-            <summary>
-            A linear position monitor simplifies the montoring of the order of items, where they are laid out
-            horizontally or vertically (typically via a <see cref="!:StackOrganiser"/>.
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.NumericUpDown">
@@ -3494,6 +3494,11 @@
             <see cref="T:CookPopularControl.Windows.NormalWindow"/>表示标准的窗体
             </summary>
         </member>
+        <member name="P:CookPopularControl.Windows.NormalWindow.WindowIcon">
+            <summary>
+            Represents a Windows icon, which is a small bitmap image that is used to represent an object
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarForeground">
             <summary>
             表示标题栏前置颜色
@@ -3567,7 +3572,7 @@
         </member>
         <member name="P:CookPopularControl.Windows.NormalWindow.IsNonClientActive">
             <summary>
-            窗体是否激活
+            NonClient是否激活
             </summary>
         </member>
         <member name="F:CookPopularControl.Windows.NormalWindow.IsNonClientActiveProperty">
@@ -3618,36 +3623,6 @@
         <member name="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent">
             <summary>
             <see cref="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

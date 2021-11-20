@@ -91,7 +91,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    
     <!--  SimpleComboBox  -->
     <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
@@ -235,7 +235,7 @@
                                     </Border.RenderTransform>
                                     <ScrollViewer x:Name="DropDownScorllViewer"
                                                   MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                                  Margin="0,0,0,5" SnapsToDevicePixels="True"
+                                                  Margin="0,0,0,0" SnapsToDevicePixels="True"
                                                   CacheMode="{DynamicResource DefaultBitmapCache}"
                                                   CanContentScroll="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
@@ -266,7 +266,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 
     <Style x:Key="MultiComboBoxItemStyle" TargetType="{x:Type ListBoxItem}">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
@@ -383,7 +382,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    
     <!--  MultiComboBox  -->
     <Style x:Key="MultiComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
@@ -480,7 +479,7 @@
                                              Width="{TemplateBinding Width}"
                                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                              BorderThickness="0"
-                                             Margin="0,0,0,5"
+                                             Margin="0,0,0,0"
                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                              pc:RippleAssist.IsDisabled="{TemplateBinding pc:RippleAssist.IsDisabled}"

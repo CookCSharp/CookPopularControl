@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -13,7 +12,7 @@ using System.Windows.Controls;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-12 12:48:12
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class CanvasOrganiser : IItemsOrganiser
     {

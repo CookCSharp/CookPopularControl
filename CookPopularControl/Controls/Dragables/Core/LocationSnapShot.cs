@@ -9,7 +9,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 15:51:22
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     internal class LocationSnapShot
     {

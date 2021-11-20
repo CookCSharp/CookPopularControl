@@ -12,7 +12,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-12 08:42:23
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class BranchAccessor
     {

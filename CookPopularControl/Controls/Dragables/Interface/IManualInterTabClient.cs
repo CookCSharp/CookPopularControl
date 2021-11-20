@@ -4,7 +4,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:50:32
  */
-namespace CookPopularControl.Communal.Interface
+namespace CookPopularControl.Controls.Dragables
 {
     public interface IManualInterTabClient : IInterTabClient
     {

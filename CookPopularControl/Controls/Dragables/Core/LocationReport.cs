@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 18:07:22
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     /// <summary>
     /// Provides information about where a tab control is withing a layout structure.

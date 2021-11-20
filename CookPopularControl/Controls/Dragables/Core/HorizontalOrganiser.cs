@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:19:10
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     public class HorizontalOrganiser : StackOrganiser
     {

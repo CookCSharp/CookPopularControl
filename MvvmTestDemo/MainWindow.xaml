@@ -14,7 +14,7 @@
                   mc:Ignorable="d"
                   Title="CookPopularControl"
                   Width="1000"
-                  Height="600"
+                  Height="800"
                   WindowState="Normal"
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"

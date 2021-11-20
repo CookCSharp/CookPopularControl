@@ -478,6 +478,10 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
         public static extern uint WaitForSingleObject(IntPtr hHandle, uint dwMilliseconds);
 
+        // Import dwmapi.dll and define DwmSetWindowAttribute in C# corresponding to the native function.
+        [DllImport(InteropValues.ExternDll.Dwmapi, CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern long DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DWMWINDOWATTRIBUTE attribute, ref InteropValues.DWM_WINDOW_CORNER_PREFERENCE pvAttribute, uint cbAttribute);
+
         #endregion
 
         internal class Gdip

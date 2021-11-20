@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Interface;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,7 +11,7 @@ using System.Windows.Data;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-12 08:57:34
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     /// <summary>
     /// Provides a simple implementation of <see cref="IInterLayoutClient"/>, but only really useful if 

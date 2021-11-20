@@ -64,8 +64,8 @@
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="#E82323" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="0" />
         <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="IsShowTitle" Value="True" />
         <Setter Property="IsShowClientTitleBar" Value="True" />
         <Setter Property="IsFullScreen" Value="False" />
@@ -77,7 +77,8 @@
             <Setter.Value>
                 <WindowChrome CornerRadius="0"
                               CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight}"
-                              GlassFrameThickness="1" NonClientFrameEdges="None" UseAeroCaptionButtons="True" />
+                              GlassFrameThickness="1" NonClientFrameEdges="None" ResizeBorderThickness="2"
+                              UseAeroCaptionButtons="False" />
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
@@ -90,7 +91,7 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}"
                                     SnapsToDevicePixels="True">
-                                <Grid>
+                                <Grid x:Name="RootGrid">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
                                         <RowDefinition />
@@ -113,6 +114,12 @@
                                                            Margin="5,0"
                                                            IsHitTestVisible="False" />
                                                     <behavior:Interaction.Triggers>
+                                                        <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                            <behavior:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                                                        </behavior:EventTrigger>
+                                                        <behavior:EventTrigger EventName="MouseRightButtonDown">
+                                                            <behavior:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                                                        </behavior:EventTrigger>
                                                         <behavior:EventTrigger EventName="MouseDoubleClick">
                                                             <behavior:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
                                                         </behavior:EventTrigger>
@@ -173,6 +180,9 @@
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
+                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid"/>
+                            <Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton" />
@@ -213,15 +223,16 @@
                             <Border x:Name="RootBorder"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}"
-                                    SnapsToDevicePixels="True">
-                                <Grid>
+                                    Background="{TemplateBinding Background}">
+                                <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
                                           Background="{TemplateBinding ClientTitleBarBackground}"
+                                          Margin="0,0,0,-1"
+                                          Panel.ZIndex="100"
                                           TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
                                           Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
                                         <Grid.ColumnDefinitions>
@@ -276,8 +287,8 @@
                                                     Style="{StaticResource WindowIconButtonStyle}" />
                                         </StackPanel>
                                     </Grid>
-                                    <AdornerDecorator Grid.Row="1">
-                                        <ContentPresenter ClipToBounds="True" />
+                                    <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                        <ContentPresenter ClipToBounds="True" KeyboardNavigation.TabNavigation="Cycle" />
                                     </AdornerDecorator>
                                     <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
                                                 Width="10" Height="10"
@@ -290,9 +301,16 @@
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter Property="IconWidth" Value="0" />
+                            <Setter Property="IconHeight" Value="0" />
+                        </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
+                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <!--<Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />
+                            <Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid" />-->
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton" />
@@ -340,7 +358,7 @@
                                         <behavior:InvokeCommandAction Command="{x:Static win:NoneTitleBarWindow.MoveWindowCommand}" />
                                     </behavior:EventTrigger>
                                 </behavior:Interaction.Triggers>
-                                <Grid>
+                                <Grid x:Name="RootGrid">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="0" />
                                         <RowDefinition />
@@ -392,6 +410,9 @@
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
+                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid"/>
+                            <Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton" />

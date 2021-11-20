@@ -9,7 +9,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:35:45
  */
-namespace CookPopularControl.Communal.Interface
+namespace CookPopularControl.Controls.Dragables
 {
     public interface INewTabHost<out TElement> where TElement : UIElement
     {

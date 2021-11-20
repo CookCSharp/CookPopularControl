@@ -10,7 +10,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-11 17:34:47
  */
-namespace CookPopularControl.Communal.Interface
+namespace CookPopularControl.Controls.Dragables
 {
     /// <summary>
     /// Implementors should provide mechanisms for providing new windows and closing old windows.

@@ -9,7 +9,7 @@ using System;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-12 08:36:09
  */
-namespace CookPopularControl.Controls.Dragables.Core
+namespace CookPopularControl.Controls.Dragables
 {
     internal static class Finder
     {
