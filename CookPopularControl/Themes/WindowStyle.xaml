@@ -254,8 +254,8 @@
                                                     common:FrameworkElementBaseAttached.IconWidth="14"
                                                     Command="{x:Static win:SideBarWindow.SettingCommand}"
                                                     Style="{StaticResource WindowIconButtonStyle}" />
-                                            <ContentPresenter Content="{TemplateBinding ClientTitleBarAdditionalContent}" Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True" />
                                         </StackPanel>
+                                        <ContentPresenter Grid.Column="1" Content="{TemplateBinding ClientTitleBarAdditionalContent}" WindowChrome.IsHitTestVisibleInChrome="True" />
                                         <TextBlock Grid.Column="1"
                                                    Text="{TemplateBinding Title}"
                                                    Foreground="{TemplateBinding ClientTitleBarForeground}"

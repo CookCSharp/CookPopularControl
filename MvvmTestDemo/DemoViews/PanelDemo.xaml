@@ -8,17 +8,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <pc:UniformStackPanel Background="Green" Orientation="Horizontal" IsUniformSpace="True" Height="300"
+        <pc:UniformStackPanel Background="Green" Orientation="Horizontal" UniformType="Every" Height="100"
                               ItemsVerticalAlignment="Stretch">
             <Button Width="100" Content="Chance2" Background="Red"/>
             <Button Width="100" Content="Chance1" Background="Red"/>
             <Button Width="100" Content="Chance3" Background="Red"/>
         </pc:UniformStackPanel>
-        <pc:UniformStackPanel Background="Purple" Orientation="Vertical" IsUniformSpace="True" Height="200"
+        <pc:UniformStackPanel Background="MediumTurquoise" Orientation="Vertical" UniformType="Every" Height="200"
                               ItemsHorizontalAlignment="Stretch" Margin="0,20">
-            <Button Width="200" Height="50" Content="Chance1" Background="Red"/>
-            <Button Width="200" Height="50" Content="Chance2" Background="Red"/>
-            <Button Width="200" Height="50" Content="Chance3" Background="Red"/>
+            <Button Width="200" Content="Chance1" Background="Red"/>
+            <Button Width="200" Content="Chance2" Background="Red"/>
+            <Button Width="200" Content="Chance3" Background="Red"/>
+        </pc:UniformStackPanel>
+        <pc:UniformStackPanel Background="Purple" Orientation="Vertical" UniformType="Item" Height="200"
+                              ItemsHorizontalAlignment="Stretch">
+            <Button Width="200" Content="Chance1" Background="Red"/>
+            <Button Width="200" Content="Chance2" Background="Red"/>
+            <Button Width="200" Content="Chance3" Background="Red"/>
         </pc:UniformStackPanel>
     </StackPanel>
 </UserControl>

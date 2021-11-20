@@ -1,4 +1,6 @@
 ﻿using CookPopularControl.Controls;
+using CookPopularControl.Themes.CookColors;
+using CookPopularCSharpToolkit.Communal;
 using MvvmTestDemo.Commumal;
 using MvvmTestDemo.UserControls;
 using Prism.Commands;
@@ -8,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
+using System.Windows.Media;
 
 
 
@@ -21,17 +24,36 @@ namespace MvvmTestDemo
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        public class ThemeModel
+        {
+            public Brush Brush
+            {
+                get; set;
+            }
+
+            public bool IsShow
+            {
+                get; set;
+            }
+        }
+
+        private static readonly Brush[] BrushLists = new Brush[8] { Brushes.DodgerBlue, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Aqua, Brushes.Blue, Brushes.Purple };
         private const string MainWindowBubbleMessageToken = "MainWindowToken";
-        private OverViewDemo OverView = new OverViewDemo();
-        private HashSet<string> DemoFiles;
+        private ThemeProvider _themeProvider;
+        private OverViewDemo _overView = new OverViewDemo();
+        private HashSet<string> _demoFiles;
+
 
         public ObservableCollection<string> ControlNamesList { get; set; }
+        public IList<ThemeModel> ThemeBrushs { get; set; }
+        public int SelectedThemeIndex { get; set; }
         public object ControlContent { get; set; }
         public int DemoViewsSelectedIndex { get; set; }
         public bool IsOpenNotifyIconSwitch { get; set; }
         public ICommand ShowSideBarCommand { get; set; }
         public ICommand SettingClickCommand { get; set; }
         public ICommand HomePageCommand { get; set; }
+        public ICommand SwitchAppThemeCommand { get; set; }
         public ICommand DemoViewsSelectedCommand { get; set; }
         public ICommand ViewSizeChangedCommand { get; set; }
 
@@ -39,31 +61,35 @@ namespace MvvmTestDemo
         {
             InitCommand();
 
-            DemoFiles = new HashSet<string>();
+            _themeProvider = new ThemeProvider();
+            _demoFiles = new HashSet<string>();
             ControlNamesList = new ObservableCollection<string>();
         }
 
         private void InitCommand()
         {
             ViewLoadedCommand = new DelegateCommand(OnLoaded);
+            ViewSizeChangedCommand = new DelegateCommand(ViewSizeChanged);
             WindowClosingCommand = new DelegateCommand(OnWindowClosing);
 
             ShowSideBarCommand = new DelegateCommand(OnShowSideBar);
             SettingClickCommand = new DelegateCommand(OnSettingClick);
             HomePageCommand = new DelegateCommand(OnHomePage);
+            SwitchAppThemeCommand = new DelegateCommand(OnSwitchAppTheme);
             DemoViewsSelectedCommand = new DelegateCommand(OnDemoViewsSelected);
-            ViewSizeChangedCommand = new DelegateCommand(ViewSizeChanged);
-        }
-
-        private void ViewSizeChanged()
-        {
 
         }
 
         private void OnLoaded()
         {
-            SetControlsList();
+            SetControlsList();         
+            GetThemes();
             OnHomePage();
+        }
+
+        private void ViewSizeChanged()
+        {
+
         }
 
         private void OnWindowClosing()
@@ -83,10 +109,10 @@ namespace MvvmTestDemo
 
             foreach (var file in demoFiles)
             {
-                DemoFiles.Add(file);
+                _demoFiles.Add(file);
             }
 
-            foreach (var file in DemoFiles)
+            foreach (var file in _demoFiles)
             {
                 var fileName = System.IO.Path.GetFileName(file);
                 ControlNamesList.Add(fileName.Replace("Demo.xaml", ""));
@@ -103,10 +129,18 @@ namespace MvvmTestDemo
             //CollectionViewSource.GetDefaultView(viewmodel);// 返回给定源的默认视图。
         }
 
-        private void OnDemoViewsSelected()
+        private void GetThemes()
         {
-            if (DemoViewsSelectedIndex >= 0)
-                ControlContent = ObjectFactory.ResolveIntance(ControlNamesList[DemoViewsSelectedIndex]);
+            ThemeBrushs = new List<ThemeModel>();
+            for (int i = 0; i < BrushLists.Length; i++)
+            {
+                ThemeBrushs.Add(new ThemeModel { Brush = BrushLists[i] });
+            }
+        }
+
+        private void OnShowSideBar()
+        {
+
         }
 
         private void OnSettingClick()
@@ -119,12 +153,22 @@ namespace MvvmTestDemo
         private void OnHomePage()
         {
             DemoViewsSelectedIndex = -1;
-            ControlContent = OverView;
+            ControlContent = _overView;
         }
 
-        private void OnShowSideBar()
+        private void OnSwitchAppTheme()
         {
+            var colorName = BrushLists[SelectedThemeIndex].ToColorFromBrush().GetColorName();
+            if (colorName == null)
+                colorName = "DodgerBlue";
 
+            _themeProvider.SetAppTheme(colorName, 2);
+        }
+
+        private void OnDemoViewsSelected()
+        {
+            if (DemoViewsSelectedIndex >= 0)
+                ControlContent = ObjectFactory.ResolveIntance(ControlNamesList[DemoViewsSelectedIndex]);
         }
     }
 }

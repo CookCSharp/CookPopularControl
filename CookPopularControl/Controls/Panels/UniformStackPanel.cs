@@ -29,16 +29,16 @@ namespace CookPopularControl.Controls
         /// 如果值为true,子项之间、子项与边界之间间距相等
         /// 如果为false，仅子项之间间距相等，子项与边界之间间距肯能不相等
         /// </summary>
-        public bool IsUniformSpace
+        public UniformType UniformType
         {
-            get { return (bool)GetValue(IsUniformSpaceProperty); }
-            set { SetValue(IsUniformSpaceProperty, value); }
+            get { return (UniformType)GetValue(UniformTypeProperty); }
+            set { SetValue(UniformTypeProperty, value); }
         }
         /// <summary>
-        /// 提供<see cref="IsUniformSpace"/>的依赖属性
+        /// 提供<see cref="UniformType"/>的依赖属性
         /// </summary>
-        public static readonly DependencyProperty IsUniformSpaceProperty =
-            DependencyProperty.Register("IsUniformSpace", typeof(bool), typeof(UniformStackPanel), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        public static readonly DependencyProperty UniformTypeProperty =
+            DependencyProperty.Register("UniformType", typeof(UniformType), typeof(UniformStackPanel), new FrameworkPropertyMetadata(default(UniformType), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
 
         public Orientation Orientation
@@ -121,7 +121,7 @@ namespace CookPopularControl.Controls
                 double childWidth, childHeight;
                 double locationX, locationY;
 
-                if (IsUniformSpace)
+                if (UniformType == UniformType.Every)
                 {
                     if (Orientation == Orientation.Horizontal)
                     {
@@ -184,5 +184,17 @@ namespace CookPopularControl.Controls
 
             return finalSize;
         }
+    }
+
+    public enum UniformType
+    {
+        /// <summary>
+        /// 每一项等间距
+        /// </summary>
+        Every,
+        /// <summary>
+        /// 只有子项等间距
+        /// </summary>
+        Item,
     }
 }

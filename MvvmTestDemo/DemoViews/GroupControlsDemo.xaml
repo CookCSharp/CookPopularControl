@@ -55,7 +55,7 @@
                            Margin="10,0" Padding="10,0,0,0"
                            HorizontalContentAlignment="Left"
                            pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"
-                           pc:FrameworkElementBaseAttached.IconWidth="15" EditorType="NumericUpDown"
+                           pc:FrameworkElementBaseAttached.IconWidth="15"
                            Style="{StaticResource EditingTagAddClearButtonStyle}" />
         </WrapPanel>
 

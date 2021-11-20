@@ -34,9 +34,12 @@
                         </Border>
                         <Button x:Name="PART_CloseButton" Grid.Column="1"
                                 Background="{TemplateBinding Background}"
+                                common:FrameworkElementBaseAttached.CornerRadius="0"
                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                 common:FrameworkElementBaseAttached.IconHeight="10"
                                 common:FrameworkElementBaseAttached.IconWidth="10"
+                                common:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource ButtonBaseMouseOverBackground}"
+                                common:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource ButtonBasePressBackground}"
                                 Visibility="{TemplateBinding pc:TabControlAssistant.IsAddClearButton, Converter={pt:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>

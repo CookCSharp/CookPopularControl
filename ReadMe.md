@@ -14,7 +14,7 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 ***
 
 ## 使用
-- Install-Package CookPopularControl -Version 1.0.1
+- Install-Package CookPopularControl -Version 1.0.1.1
 
 - 添加如下代码即可全部引用
     ```
@@ -28,8 +28,8 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
     </Application.Resources>
     ```
 
-- **OverViewer**
-    ![效果](MvvmTestDemo/Resources/Effect/Overview.png)
+- **Themes**
+    ![效果](MvvmTestDemo/Resources/Effect/Theme.gif)
 
 - **Animations**
     ![效果](MvvmTestDemo/Resources/Effect/Animations.gif)
@@ -148,6 +148,6 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 
 <img src="https://starchart.cc/chancezheng/CookPopularControl.svg" alt="Stargazers over time" style="max-width: 100%">
 
-## 🏆 Forkers
+<!-- ## 🏆 Forkers
 
-<img src="https://forkchart.cc/chancezheng/CookPopularControl.svg" alt="Fork over time" style="max-width: 100%">
+<img src="https://forkchart.cc/chancezheng/CookPopularControl.svg" alt="Fork over time" style="max-width: 100%"> -->
