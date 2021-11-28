@@ -38,7 +38,6 @@ namespace MvvmTestDemo.UserControls
                      {
                          //MessageDialog.ShowInfo($"Clicked the {isSure.ToString()}");
                          BubbleMessage.ShowInfo($"Clicked the {isSure}");
-                         return true;
                      }, token);
                     break;
                 case "ShowSuccessBubbleMessage":

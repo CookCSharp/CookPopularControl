@@ -13,11 +13,11 @@ using System.Windows.Interop;
 /*
  * Description：WpfScreenHelper 
  * Author： Chance_写代码的厨子
- * Company: NCATest
+ * Company: Chance
  * Create Time：2021-11-17 20:21:12
  * .NET Version: 4.6
  * CLR Version: 4.0.30319.42000
- * Copyright (c) NCATest 2021 All Rights Reserved.
+ * Copyright (c) Chance 2021 All Rights Reserved.
  */
 namespace CookPopularCSharpToolkit.Windows
 {

@@ -31,7 +31,7 @@ namespace CookPopularControl.Controls
     /// </remarks> 
     public sealed class BubbleMessage : NotifyMessageBase
     {
-        private const string ButtonsClose = "PART_ButtonsClose";
+        private const string ButtonGroup = "PART_ButtonGroup";
         private static DoubleAnimation showPopupAnimation;
         private static DoubleAnimation closePopupAnimation;
         private static NotifyMessageInfo _info;
@@ -98,7 +98,7 @@ namespace CookPopularControl.Controls
             Show(info, tokenParentPanel);
         }
 
-        public static void ShowQuestion(object message, Func<bool, bool> actionBeforeClose = null, string tokenParentPanel = default)
+        public static void ShowQuestion(object message, Action<bool> actionBeforeClose = null, string tokenParentPanel = default)
         {
             var info = new NotifyMessageInfo
             {
@@ -156,7 +156,7 @@ namespace CookPopularControl.Controls
 
                 notifyMessageBaseControl.Loaded += (s, e) =>
                 {
-                    var buttonGroup = notifyMessageBaseControl.Template.FindName(ButtonsClose, notifyMessageBaseControl) as Panel;
+                    var buttonGroup = notifyMessageBaseControl.Template.FindName(ButtonGroup, notifyMessageBaseControl) as Panel;
                     if (buttonGroup != null && isShowQuestion)
                         buttonGroup.Visibility = Visibility.Visible;
                 };

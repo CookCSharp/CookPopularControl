@@ -1,29 +1,29 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
+                    xmlns:ex="clr-namespace:CookPopularControl.Expression">
 
     <ControlTemplate x:Key="ColorPickerCircularRing">
         <pc:SimpleGrid x:Name="CustomColorGrid" Background="Transparent">
-            <pt:Arc Fill="{DynamicResource RedLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource RedLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="51.5" StartAngle="0" />
-            <pt:Arc Fill="{DynamicResource OrangeLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource OrangeLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="103" StartAngle="51.5" />
-            <pt:Arc Fill="{DynamicResource YellowLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource YellowLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="154.5" StartAngle="103" />
-            <pt:Arc Fill="{DynamicResource GreenLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource GreenLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="206" StartAngle="154.5" />
-            <pt:Arc Fill="{DynamicResource CyanLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource CyanLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="257.5" StartAngle="206" />
-            <pt:Arc Fill="{DynamicResource BlueLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource BlueLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="309" StartAngle="257.5" />
-            <pt:Arc Fill="{DynamicResource PurpleLinearGradientBrush}"
+            <ex:Arc Fill="{DynamicResource PurpleLinearGradientBrush}"
                          Stretch="None"
                          ArcThickness="40" EndAngle="360" StartAngle="309" />
         </pc:SimpleGrid>

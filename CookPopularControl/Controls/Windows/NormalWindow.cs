@@ -245,7 +245,7 @@ namespace CookPopularControl.Windows
 
         static NormalWindow()
         {
-            StyleProperty.OverrideMetadata(typeof(NormalWindow), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>("DefaultNormalWindowStyle")));
+            StyleProperty.OverrideMetadata(typeof(NormalWindow), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>("NormalWindowStyle")));
         }
 
         public NormalWindow()
@@ -258,10 +258,7 @@ namespace CookPopularControl.Windows
 
             if (Icon == null) SetDefaultWindowIcon();
 
-            this.Loaded += (s, e) => SetWindowRound();
-
-            //解决窗口以最大化启动,点击还原窗口时居中显示           
-            this.StateChanged += NormalWindow_StateChanged;
+            //this.Loaded += (s, e) => SetWindowRound();
         }
 
         private void ShowSystemMenu(ExecutedRoutedEventArgs e)
@@ -293,6 +290,9 @@ namespace CookPopularControl.Windows
             //InteropMethods.SendMessage(interopHelper.Handle, 0x80/*WM_SETICON*/, (IntPtr)1 /*ICON_LARGE*/, icon.Handle);
         }
 
+        /// <summary>
+        /// shezhiWindow圆角
+        /// </summary>
         private void SetWindowRound()
         {
             IntPtr hWnd = this.EnsureHandle();
@@ -301,7 +301,33 @@ namespace CookPopularControl.Windows
             InteropMethods.DwmSetWindowAttribute(hWnd, attribute, ref preference, sizeof(uint));
         }
 
-        private void NormalWindow_StateChanged(object sender, EventArgs e)
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+
+            /*****
+             * 设置了SizeToContent="WidthAndHeight"时Window需要计算ClientArea的尺寸然后再确定Window的尺寸，
+             * 但使用WindowChrome自定义Window时程序以为整个ControlTempalte的内容都是ClientArea，
+             * 把它当作了ClientArea的尺寸，再加上non-client的尺寸就得出了错误的Window尺寸。
+             * ControleTemplate的内容没办法遮住整个WindowChrome的内容，于是就出现了这些黑色的区域
+             * 所以我们需要重新计算一次
+             */
+            //https://www.cnblogs.com/dino623/p/problems_of_WindowChrome.html
+            if (SizeToContent == SizeToContent.WidthAndHeight && WindowChrome.GetWindowChrome(this) != null)
+            {
+                InvalidateMeasure();
+            }
+
+            if(this.WindowState == WindowState.Maximized)
+            {
+                //解决窗口以最大化启动,点击还原窗口时居中显示
+                this.SizeChanged += NormalWindow_SizeChanged;             
+            }
+
+            this.GetHwndSource()?.AddHook(HwndSourceHook);
+        }
+
+        private void NormalWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             //NativeMethods.GetWindowRect(new WindowInteropHelper(this).Handle, out var rect);
             //int w = rect.Right - rect.Left;
@@ -325,27 +351,8 @@ namespace CookPopularControl.Windows
             this.Hide();
             NativeMethods.SetWindowPos(this.EnsureHandle(), IntPtr.Zero, x, y, w, h, NativeMethods.SWP.ASYNCWINDOWPOS);
             this.Show();
-            this.StateChanged -= NormalWindow_StateChanged; //移除事件
-        }
 
-        protected override void OnSourceInitialized(EventArgs e)
-        {
-            base.OnSourceInitialized(e);
-
-            /*****
-             * 设置了SizeToContent="WidthAndHeight"时Window需要计算ClientArea的尺寸然后再确定Window的尺寸，
-             * 但使用WindowChrome自定义Window时程序以为整个ControlTempalte的内容都是ClientArea，
-             * 把它当作了ClientArea的尺寸，再加上non-client的尺寸就得出了错误的Window尺寸。
-             * ControleTemplate的内容没办法遮住整个WindowChrome的内容，于是就出现了这些黑色的区域
-             * 所以我们需要重新计算一次
-             */
-            //https://www.cnblogs.com/dino623/p/problems_of_WindowChrome.html
-            if (SizeToContent == SizeToContent.WidthAndHeight && WindowChrome.GetWindowChrome(this) != null)
-            {
-                InvalidateMeasure();
-            }
-
-            this.GetHwndSource()?.AddHook(HwndSourceHook);
+            this.SizeChanged -= NormalWindow_SizeChanged;
         }
 
         private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)

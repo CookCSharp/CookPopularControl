@@ -25,8 +25,7 @@ namespace CookPopularControl.Windows
 
         static SideBarWindow()
         {
-            //DefaultStyleKeyProperty.OverrideMetadata(typeof(SideBarWindow), new FrameworkPropertyMetadata(typeof(SideBarWindow)));
-            StyleProperty.AddOwner(typeof(SideBarWindow), new FrameworkPropertyMetadata(default, (s, e) => ResourceHelper.GetResource<Style>("SideBarWindowStyle")));
+            StyleProperty.OverrideMetadata(typeof(SideBarWindow), new FrameworkPropertyMetadata(default, (s, e) => ResourceHelper.GetResource<Style>("SideBarWindowStyle")));
             CommandManager.RegisterClassCommandBinding(typeof(SideBarWindow), new CommandBinding(SidebarPopupCommand, Executed));
             CommandManager.RegisterClassCommandBinding(typeof(SideBarWindow), new CommandBinding(SettingCommand, Executed));
             CommandManager.RegisterClassCommandBinding(typeof(SideBarWindow), new CommandBinding(MoveWindowCommand, Executed));

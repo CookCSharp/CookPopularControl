@@ -21,5 +21,4 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit.Communal")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit.Windows")]
-[assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit.Windows.Expression")]
 [assembly: XmlnsDefinition("https://Chance.CookPopularCSharpToolkit/2021/xaml", "CookPopularCSharpToolkit.Windows.Transitions")]

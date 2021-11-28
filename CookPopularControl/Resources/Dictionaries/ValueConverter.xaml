@@ -20,12 +20,7 @@
     <common:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter" />
 
 
-    <pt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    <pt:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
-    <pt:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter" />
-    <pt:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter" />
-    <pt:BooleanAllToVisibilityConverter x:Key="BooleanAllToVisibilityConverter" />
-    <pt:NullOrEmptyToVisibilityConverter x:Key="NullOrEmptyToVisibilityConverter" />
+    <!--ToBoolean-->
     <pt:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter" />
     <pt:EmptyOrNullToBooleanConverter x:Key="EmptyOrNullToBooleanConverter" />
     <pt:EnumToBooleanConverter x:Key="EnumToBooleanConverter"/>
@@ -33,17 +28,35 @@
     <pt:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter" />
     <pt:ValueLessThanTargetValueToBooleanConverter x:Key="ValueLessThanTargetValueToBooleanConverter" />
     <pt:ValueMoreThanTargetValueToBooleanConverter x:Key="ValueMoreThanTargetValueToBooleanConverter" />
-    <pt:ValueTranslateToDoubleConverter x:Key="ValueTranslateToDoubleConverter" />
-    <pt:TranslateToCenterDoubleConverter x:Key="TranslateToCenterDoubleConverter" />
-    <pt:DoubleToStringConverter x:Key="DoubleToStringConverter" />
-    <pt:DoubleToTimeSpanConverter x:Key="DoubleToTimeSpanConverter" />
-    <pt:BorderClipToGeometryConverter x:Key="BorderClipToGeometryConverter" />
-    <pt:BorderCircularClipToGeometryConverter x:Key="BorderCircularClipToGeometryConverter" />
-    <pt:ClipCircularToGeometryConverter x:Key="ClipCircularToGeometryConverter" />
-    <pt:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
-    <pt:ThicknessToThicknessConverter x:Key="ThicknessToThicknessConverter" />
+    <!--ToCornerRadius-->
     <pt:DoubleToCornerRadiusConverter x:Key="DoubleToCornerRadiusConverter" />
     <pt:CornerRadiusToCornerRadiusConverter x:Key="CornerRadiusToCornerRadiusConverter" />
     <pt:BorderCircularToCornerRadiusConverter x:Key="BorderCircularToCornerRadiusConverter" />
+    <!--ToDouble-->
+    <pt:ValueTranslateToDoubleConverter x:Key="ValueTranslateToDoubleConverter" />
+    <pt:TranslateToCenterDoubleConverter x:Key="TranslateToCenterDoubleConverter" />
+    <!--ToGeometry-->
+    <pt:BorderClipToGeometryConverter x:Key="BorderClipToGeometryConverter" />
+    <pt:BorderCircularClipToGeometryConverter x:Key="BorderCircularClipToGeometryConverter" />
+    <pt:ClipCircularToGeometryConverter x:Key="ClipCircularToGeometryConverter" />
+    <!--ToInt-->
+    <pt:EnumToIntConverter x:Key="EnumToIntConverter" />
+    <!--ToOrientation-->
+    <pt:BooleanToHorizontalOrientationConverter x:Key="BooleanToHorizontalOrientationConverter"/>
+    <pt:BooleanToVerticalOrientationConverter x:Key="BooleanToVerticalOrientationConverter"/>
+    <!--ToString-->
+    <pt:DoubleToStringConverter x:Key="DoubleToStringConverter" />
+    <!--ToThickness-->
+    <pt:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
+    <pt:ThicknessToThicknessConverter x:Key="ThicknessToThicknessConverter" />
+    <!--ToTimeSpan-->
+    <pt:DoubleToTimeSpanConverter x:Key="DoubleToTimeSpanConverter" />
+    <!--ToVisibility-->
+    <pt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <pt:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
+    <pt:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter" />
+    <pt:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter" />
+    <pt:BooleanAllToVisibilityConverter x:Key="BooleanAllToVisibilityConverter" />
+    <pt:NullOrEmptyToVisibilityConverter x:Key="NullOrEmptyToVisibilityConverter" />
 
 </ResourceDictionary>

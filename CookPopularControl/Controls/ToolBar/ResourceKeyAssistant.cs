@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-09-28 16:31:21
  */
-namespace CookPopularControl.Controls.ToolBar
+namespace CookPopularControl.Controls
 {
     public static class ResourceKeyAssistant
     {

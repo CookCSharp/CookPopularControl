@@ -59,7 +59,7 @@
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
     </Style>
 
-    <Style x:Key="DefaultNormalWindowStyle" TargetType="{x:Type win:NormalWindow}">
+    <Style x:Key="NormalWindowStyle" TargetType="{x:Type win:NormalWindow}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="#E82323" />
@@ -213,7 +213,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SideBarWindowStyle" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource DefaultNormalWindowStyle}">
+    <Style x:Key="SideBarWindowStyle" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource NormalWindowStyle}">
         <Setter Property="ClientTitleBarAdditionalContent" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -341,7 +341,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NoneTitleBarWindowStyle" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource DefaultNormalWindowStyle}">
+    <Style x:Key="NoneTitleBarWindowStyle" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource NormalWindowStyle}">
         <Setter Property="IsShowClientTitleBar" Value="False" />
         <Setter Property="Template">
             <Setter.Value>

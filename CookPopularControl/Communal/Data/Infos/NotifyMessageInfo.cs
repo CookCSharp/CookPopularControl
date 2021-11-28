@@ -61,6 +61,6 @@ namespace CookPopularControl.Communal.Data
         /// <summary>
         /// 消息关闭前触发的方法
         /// </summary>
-        public Func<bool, bool> ActionBeforeClose { get; set; }
+        public Action<bool> ActionBeforeClose { get; set; }
     }
 }

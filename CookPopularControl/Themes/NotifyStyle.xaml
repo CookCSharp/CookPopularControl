@@ -44,15 +44,15 @@
                 <ControlTemplate TargetType="{x:Type pc:BubbleMessage}">
                     <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{DynamicResource DefaultBitmapCache}">
                         <Grid Margin="{TemplateBinding Padding}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition x:Name="closeWidth" Width="50" />
                             </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
                             <Border Grid.RowSpan="2" Grid.ColumnSpan="3"
                                     Background="{TemplateBinding Background}"
                                     CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
@@ -64,12 +64,12 @@
                                   Fill="{TemplateBinding pc:BubbleMessage.BubbleMessageIconBrush}"
                                   Stretch="Uniform" />
                             <ContentPresenter Grid.Column="1"
+                                              Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                               ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              ContentSource="Content" />
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <Button x:Name="CloseButton" Grid.Column="2"
                                     Foreground="{TemplateBinding Foreground}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
@@ -77,16 +77,17 @@
                                     common:FrameworkElementBaseAttached.IconWidth="14"
                                     Command="{x:Static pc:NotifyMessageBase.CloseNotifyMessageCommand}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}" />
-                            <UniformGrid x:Name="PART_ButtonsClose" Grid.Row="1" Grid.Column="1"
+                            <UniformGrid x:Name="PART_ButtonGroup" Grid.Row="1" Grid.Column="1"
                                          Grid.ColumnSpan="2" Columns="2"
-                                         Height="20"
                                          Visibility="Collapsed">
-                                <Button Content="取消"
+                                <Button Height="26"
+                                        Content="取消"
                                         Foreground="Red"
                                         HorizontalAlignment="Stretch"
                                         Command="{x:Static pc:BubbleMessage.CancelNotifyMessageCommand}"
                                         Style="{DynamicResource ButtonTransparentStyle}" />
-                                <Button Content="确定"
+                                <Button Height="26"
+                                        Content="确定"
                                         Foreground="Red"
                                         HorizontalAlignment="Stretch"
                                         Command="{x:Static pc:BubbleMessage.ConfirmNotifyMessageCommand}"

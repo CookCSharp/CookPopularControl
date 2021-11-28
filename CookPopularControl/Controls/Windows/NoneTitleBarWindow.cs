@@ -21,8 +21,7 @@ namespace CookPopularControl.Windows
 
         static NoneTitleBarWindow()
         {
-            //DefaultStyleKeyProperty.OverrideMetadata(typeof(NoneTitleBarWindow), new FrameworkPropertyMetadata(typeof(NoneTitleBarWindow)));
-            StyleProperty.AddOwner(typeof(NoneTitleBarWindow), new FrameworkPropertyMetadata(default, (s, e) => ResourceHelper.GetResource<Style>("NoneTitleBarWindowStyle")));
+            StyleProperty.OverrideMetadata(typeof(NoneTitleBarWindow), new FrameworkPropertyMetadata(default, (s, e) => ResourceHelper.GetResource<Style>("NoneTitleBarWindowStyle")));
             CommandManager.RegisterClassCommandBinding(typeof(NoneTitleBarWindow), new CommandBinding(MoveWindowCommand, Executed));
         }
 
