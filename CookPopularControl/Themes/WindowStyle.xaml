@@ -76,9 +76,8 @@
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CornerRadius="0"
-                              CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight}"
-                              GlassFrameThickness="1" NonClientFrameEdges="None" ResizeBorderThickness="2"
-                              UseAeroCaptionButtons="False" />
+                              CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              GlassFrameThickness="0,0,0,1" ResizeBorderThickness="2" UseAeroCaptionButtons="False" />
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
@@ -181,6 +180,7 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.ChromeThickness}" TargetName="RootGrid"/>-->
                             <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid"/>
                             <Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
                         </Trigger>
@@ -309,8 +309,9 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
-                            <!--<Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />
-                            <Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid" />-->
+                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.ChromeThickness}" TargetName="RootGrid"/>-->
+                            <!--<Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
+                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid" />-->
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton" />
@@ -411,6 +412,7 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.ChromeThickness}" TargetName="RootGrid"/>-->
                             <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid"/>
                             <Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
                         </Trigger>

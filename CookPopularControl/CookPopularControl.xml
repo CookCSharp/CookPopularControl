@@ -209,13 +209,13 @@
             文本清除按钮
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Data.Args.RoutedPropertySingleEventArgs`1">
+        <member name="T:CookPopularControl.Communal.Data.RoutedPropertySingleEventArgs`1">
             <summary>
             表示单个项变化的路由信息和事件数据
             </summary>
             <typeparam name="TSingle"></typeparam>
         </member>
-        <member name="M:CookPopularControl.Communal.Data.Args.RoutedPropertySingleEventArgs`1.InvokeEventHandler(System.Delegate,System.Object)">
+        <member name="M:CookPopularControl.Communal.Data.RoutedPropertySingleEventArgs`1.InvokeEventHandler(System.Delegate,System.Object)">
             <summary>
             This method is used to perform the proper type casting in order to
             call the type-safe RoutedPropertySingleEventHandler delegate for the IsCheckedChangedEvent event.
@@ -2779,6 +2779,162 @@
             只有子项等间距
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.VirtualPanel">
+            <summary>
+            Provides a framework for <see cref="T:System.Windows.Controls.Panel"/> elements that virtualize their child data collection. This is an abstract class.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.VirtualPanel.IsVirtualizingProperty">
+            <summary>
+            Identifies the <see cref="P:CookPopularControl.Controls.VirtualPanel.IsVirtualizing"/> property.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.OnIsVirtualizingChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the event that occurs when the value of the <see cref="P:CookPopularControl.Controls.VirtualPanel.IsVirtualizing"/> dependency property has changed.
+            </summary>
+            <param name="d">The dependency object on which the dependency property has changed.</param>
+            <param name="e">The event args containing the old and new values of the dependency property.</param>
+        </member>
+        <member name="P:CookPopularControl.Controls.VirtualPanel.IsVirtualizing">
+            <summary>
+            Gets or sets a value that indicates that this <see cref="T:CookPopularControl.Controls.VirtualPanel"/> is virtualizing its child collection.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.VirtualPanel.RealizationPriorityProperty">
+            <summary>
+            Identifies the <see cref="P:CookPopularControl.Controls.VirtualPanel.RealizationPriority"/> property.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.VirtualPanel.RealizationPriority">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Threading.DispatcherPriority"/> of the realization pass for this <see cref="T:CookPopularControl.Controls.VirtualPanel"/>.
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.VirtualPanel.IndexForItemContainerProperty">
+            <summary>
+            This is an attached property that the panel sets on each container (generated or direct) to point back to the index of the item.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.VirtualPanel.RealizeOperation">
+            <summary>
+            Holds the latest queued realization operation.
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.VirtualPanel.ItemsOwner">
+            <summary>
+            Returns the <see cref="T:System.Windows.Controls.ItemsControl"/> that this panel hosts items for.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.IndexFromContainer(System.Windows.UIElement)">
+            <summary>
+            Returns the index to an item that corresponds to the specified, generated <see cref="T:System.Windows.UIElement"/>. 
+            </summary>
+            <param name="container">The <see cref="T:System.Windows.UIElement"/> that corresponds to the item index to be returned.</param>
+            <returns>An <see cref="T:System.Int32"/> index to an item that corresponds to the specified <see cref="T:System.Windows.UIElement"/> if it was generated and hosted by this panel; otherwise, <c>-1</c>.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.ItemFromContainer(System.Windows.UIElement)">
+            <summary>
+            Returns the item that corresponds to the specified, generated <see cref="T:System.Windows.UIElement"/>. 
+            </summary>
+            <param name="container">The <see cref="T:System.Windows.UIElement"/> that corresponds to the item to be returned.</param>
+            <returns>An <see cref="T:System.Object"/> that is the item which corresponds to the specified <see cref="T:System.Windows.UIElement"/> if it was generated and hosted by this panel; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.ContainerFromIndex(System.Int32)">
+            <summary>
+            Returns the <see cref="T:System.Windows.UIElement"/> corresponding to the item at the given index within the item collection if it has been realized.
+            </summary>
+            <param name="itemIndex">The index of the desired item. </param>
+            <returns>The element corresponding to the item at the given index within the item collection or returns <c>null</c> if the item is not realized.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.ContainerFromItem(System.Object)">
+            <summary>
+            Returns the <see cref="T:System.Windows.UIElement"/> corresponding to the given item if it has been realized.
+            </summary>
+            <param name="item">The <see cref="T:System.Object"/> item to find the <see cref="T:System.Windows.UIElement"/> for.</param>
+            <returns>A <see cref="T:System.Windows.UIElement"/> that corresponds to the given item. Returns <c>null</c> if the item does not belong to the item collection, or if a <see cref="T:System.Windows.UIElement"/> has not been generated for it.</returns>
+            <remarks>Use caution when calling this method as it does a linear search for the item.  Consider calling <see cref="M:CookPopularControl.Controls.VirtualPanel.ContainerFromIndex(System.Int32)"/> instead.</remarks>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.InvalidateReality">
+            <summary>
+            Invalidates the realization state of all items being hosted by this panel. After the invalidation, the panel will have its reality updated, which will occur asynchronously unless subsequently forced by <see cref="M:CookPopularControl.Controls.VirtualPanel.UpdateReality"/>. 
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.UpdateReality">
+            <summary>
+            Ensures that all items being hosted by this panel are properly realized or virtualized.
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.RealizeCore(System.Object)">
+            <summary>
+            Manages calls to <see cref="M:CookPopularControl.Controls.VirtualPanel.RealizeOverride(System.Collections.IEnumerable,System.Object)"/>.
+            </summary>
+            <param name="state">A custom state object left over from a previous call to <see cref="M:CookPopularControl.Controls.VirtualPanel.RealizeCore(System.Object)"/> if additional processing was needed.</param>
+            <returns>A custom state object if additional processing is needed; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.RealizeOverride(System.Collections.IEnumerable,System.Object)">
+            <summary>
+            When overridden in a derived class, realizes and/or virtualizes items, optionally deferring additional realization.
+            </summary>
+            <param name="items">The current items being hosted by this panel.</param>
+            <param name="state">A custom state object left over from a previous call to <see cref="M:CookPopularControl.Controls.VirtualPanel.RealizeOverride(System.Collections.IEnumerable,System.Object)"/> if additional processing was needed.</param>
+            <returns>Implementations may optionally defer additional processing by return a non-<c>null</c> object, which will then be passed to a future call to <see cref="M:CookPopularControl.Controls.VirtualPanel.RealizeOverride(System.Collections.IEnumerable,System.Object)"/>.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.OnIsItemsHostChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Indicates that the <see cref="P:System.Windows.Controls.Panel.IsItemsHost"/> property value has changed.
+            </summary>
+            <param name="oldIsItemsHost">The old property value.</param>
+            <param name="newIsItemsHost">The new property value.</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.OnIsVirtualizingChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Indicates that the <see cref="P:CookPopularControl.Controls.VirtualPanel.IsVirtualizing"/> property value has changed.
+            </summary>
+            <param name="oldIsVirtualizing">The old property value.</param>
+            <param name="newIsVirtualizing">The new property value.</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.OnItemsChanged(System.Object,System.Windows.Controls.Primitives.ItemsChangedEventArgs)">
+            <summary>
+            Maintains event handlers when the items source has changed.
+            </summary>
+            <param name="sender">The <see cref="T:System.Object"/> that raised the event.</param>
+            <param name="args">Provides data for the <see cref="E:System.Windows.Controls.ItemContainerGenerator.ItemsChanged"/> event.</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.OnItemsChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Called when the <see cref="P:System.Windows.Controls.ItemsControl.Items"/> collection that is associated with the <see cref="T:System.Windows.Controls.ItemsControl"/> for this <see cref="T:System.Windows.Controls.Panel"/> changes.
+            </summary>
+            <param name="sender">The <see cref="T:System.Object"/> that raised the event.</param>
+            <param name="args">Provides data for the ItemsChangedEvent.</param>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.RealizeItem(System.Int32)">
+            <summary>
+            Realizes an item container for the item with the given index.
+            </summary>
+            <param name="itemIndex">The index of the item.</param>
+            <returns>The child that was created and added to the internal children.</returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.VirtualPanel.VirtualizeItem(System.Int32)">
+            <summary>
+            Removes an item container for the item with the given index.
+            </summary>
+            <param name="itemIndex">The index of the item.</param>
+            <returns><c>true</c> if the child had been previously realized and was now removed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:CookPopularControl.Controls.VirtualPanel.VirtualItemsList">
+            <summary>
+            Returns a list which represents a subset of the elements in the source list. 
+            </summary>
+            <remarks>
+            This list is used in NotifyCollectionChangedEventArgs because we might be dealing with
+            virtualized lists that raise events for items changing when the items haven't been
+            loaded into memory yet.  If the client needs to inspect the item, then they can index
+            into this list and it will retrieve it from the original source, but if they don't need
+            to inspect the item then we spare the cost of the lookup and retrieval.
+            </remarks>
+        </member>
         <member name="T:CookPopularControl.Controls.PasswordBoxAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.PasswordBox"/>的附加属性类
@@ -3448,9 +3604,9 @@
         </member>
         <member name="T:CookPopularControl.Windows.MessageDialog">
             <summary>
-            消息框
+            模态消息框
             </summary>
-            <remarks>模态的</remarks>
+            <remarks>与系统控件<see cref="T:System.Windows.MessageBox"/>类似</remarks>
         </member>
         <member name="P:CookPopularControl.Windows.MessageDialog.Message">
             <summary>
@@ -3643,6 +3799,98 @@
         <member name="T:CookPopularControl.Windows.ToastMessage">
             <summary>
             表示类似Android的Toast消息框
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessage.ToastMessageIcon">
+            <summary>
+            <see cref="T:CookPopularControl.Windows.ToastMessage"/>的消息图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.ToastMessage.ToastMessageIconProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Windows.ToastMessage.ToastMessageIcon"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessage.ToastMessageIconBrush">
+            <summary>
+            <see cref="T:CookPopularControl.Windows.ToastMessage"/>的消息图标画刷
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.ToastMessage.ToastMessageIconBrushProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Windows.ToastMessage.ToastMessageIconBrush"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Windows.ToastMessage.ShowWarning(System.Object)">
+            <summary>
+            显示<see cref="T:CookPopularControl.Windows.ToastMessage"/>
+            </summary>
+            <param name="content">内容</param>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.MessageIcon">
+            <summary>
+            消息图标
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.MessageIconBrush">
+            <summary>
+            消息图标颜色
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.ShowType">
+            <summary>
+            动画显示类型
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.IsShowCloseButton">
+            <summary>
+            是否显示关闭按钮
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.IsAutoClose">
+            <summary>
+            消息是否自动关闭
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.Duration">
+            <summary>
+            消息持续时间
+            </summary>
+            <remarks>单位:s</remarks>
+        </member>
+        <member name="P:CookPopularControl.Windows.ToastMessageInfo.ActionBeforeClose">
+            <summary>
+            消息关闭前触发的方法
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Windows.ToastMessageShowType">
+            <summary>
+            <see cref="T:CookPopularControl.Windows.ToastMessage"/>动画显示类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.ToastMessageShowType.None">
+            <summary>
+            无动画显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.ToastMessageShowType.Fade">
+            <summary>
+            渐变动画显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.ToastMessageShowType.Scroll">
+            <summary>
+            缩放动画显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.ToastMessageShowType.Rotate">
+            <summary>
+            旋转动画显示
             </summary>
         </member>
         <member name="T:CookPopularControl.Expression.Callout">

@@ -102,8 +102,9 @@ namespace CookPopularControl.Windows
         private static Thickness GetPaddedBorderThickness()
         {
             var dpiX = DpiHelper.DeviceDpiX;
+            var dpiY = DpiHelper.DeviceDpiY;
             var paddedBorder = NativeMethods.GetSystemMetrics(NativeMethods.SM_CXPADDEDBORDER);
-            var frameSizeInDpis = DeviceSizeToLogical(new Size(paddedBorder, paddedBorder), dpiX / 96.0, dpiX / 96.0);
+            var frameSizeInDpis = DeviceSizeToLogical(new Size(paddedBorder, paddedBorder), dpiX / 96.0, dpiY / 96.0);
 
             return new Thickness(frameSizeInDpis.X, frameSizeInDpis.Y, frameSizeInDpis.X, frameSizeInDpis.Y);
         }

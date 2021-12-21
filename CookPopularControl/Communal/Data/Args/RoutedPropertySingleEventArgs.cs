@@ -9,7 +9,7 @@ using System.Windows;
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-11 17:05:09
  */
-namespace CookPopularControl.Communal.Data.Args
+namespace CookPopularControl.Communal.Data
 {
     public delegate void RoutedPropertySingleEventHandler<TSingle>(object sender, RoutedPropertySingleEventArgs<TSingle> e);
 

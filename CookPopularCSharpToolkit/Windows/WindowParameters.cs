@@ -84,6 +84,17 @@ namespace CookPopularCSharpToolkit.Windows
             }
         }
 
+        public static Thickness ChromeThickness
+        {
+            get
+            {
+                var w = (SystemParameters.MaximizedPrimaryScreenWidth - SystemParameters.WorkArea.Width) / 2;
+                var h = (SystemParameters.MaximizedPrimaryScreenHeight - SystemParameters.WorkArea.Height) / 2;
+
+                return new Thickness(w, h, w, h);
+            }
+        }
+
 
         /// <summary>
         /// Get DpiX

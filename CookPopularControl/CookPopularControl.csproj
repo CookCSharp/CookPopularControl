@@ -10,10 +10,6 @@
         <ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-
-        <!--<Version>1.0.3-alpha1</Version>
-        <AssemblyVersion>1.0.1</AssemblyVersion>
-        <FileVersion>1.0.1</FileVersion>-->
     </PropertyGroup>
 
     <!--创建 snupkg 文件-->

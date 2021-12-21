@@ -1,4 +1,7 @@
-﻿using CookPopularControl.Controls.Windows.Printers;
+﻿using CookPopularControl.Communal.Data;
+using CookPopularControl.Controls;
+using CookPopularControl.Controls.Windows.Printers;
+using CookPopularCSharpToolkit.Windows;
 using MvvmTestDemo.DemoDragables;
 using MvvmTestDemo.Windows;
 using System;
@@ -25,9 +28,18 @@ namespace MvvmTestDemo.DemoViews
                 "PrintPreviewWindow" => Show<PrintPreviewWindow>(),
                 "DragableWindows" => Show<QuickStartWindow>(),
                 "NoneTitleBarWindow" => Show<NoneWindow>(),
+                "ToastMessage" => ShowToast(),
                 _ => throw new NotImplementedException(),
             };
         }
+
+        private object ShowToast()
+        {
+            CookPopularControl.Windows.ToastMessage.ShowWarning("123123123");
+            return null;
+        }
+
+
 
         private object Show<T>() where T : Window, new()
         {

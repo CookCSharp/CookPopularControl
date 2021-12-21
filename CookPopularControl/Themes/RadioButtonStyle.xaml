@@ -83,29 +83,36 @@
 
     <Style x:Key="RadioButtonCustomIconStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource CheckGeometry}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="15" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Border Background="Transparent">
-                        <DockPanel>
+                    <DockPanel>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                             <Path x:Name="PART_Path"
-                                  Width="15" Height="15"
-                                  Data="{TemplateBinding common:FrameworkElementBaseAttached.IconGeometry}"
+                                  Width="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                  Height="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                   Fill="{TemplateBinding pc:RadioButtonAssistant.CheckedBrush}"
-                                  Stretch="Uniform"
-                                  Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsChecked,Converter={pt:BooleanToVisibilityConverter}}" />
-                            <ContentPresenter Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                              RecognizesAccessKey="True"
-                                              Margin="{TemplateBinding Padding}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        </DockPanel>
-                    </Border>
+                                  Stretch="Uniform" />
+                        </Border>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                          RecognizesAccessKey="True"
+                                          Margin="{TemplateBinding Padding}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </DockPanel>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(common:FrameworkElementBaseAttached.IconGeometry)}" TargetName="PART_Path" />
+                        </Trigger>
                         <Trigger Property="pc:RadioButtonAssistant.IsAlwaysShowHeader" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="PART_Path" />
                         </Trigger>
@@ -123,23 +130,27 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Border Background="Transparent">
-                        <DockPanel>
-                            <ContentPresenter x:Name="PART_Custom" 
-                                              Content="{TemplateBinding pc:RadioButtonAssistant.Header}"
-                                              Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=IsChecked,Converter={pt:BooleanToVisibilityConverter}}" />
-                            <ContentPresenter Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                              RecognizesAccessKey="True"
-                                              Margin="{TemplateBinding Padding}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        </DockPanel>
-                    </Border>
+                    <DockPanel>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
+                            <ContentPresenter x:Name="PART_Custom" Content="{x:Null}" />
+                        </Border>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                          RecognizesAccessKey="True"
+                                          Margin="{TemplateBinding Padding}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </DockPanel>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:RadioButtonAssistant.Header)}" TargetName="PART_Custom" />
+                        </Trigger>
                         <Trigger Property="pc:RadioButtonAssistant.IsAlwaysShowHeader" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="PART_Custom" />
                         </Trigger>

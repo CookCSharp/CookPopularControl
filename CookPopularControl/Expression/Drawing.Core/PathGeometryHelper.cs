@@ -88,7 +88,7 @@ namespace CookPopularControl.Expression
         public static bool SyncPolylineGeometry(ref Geometry geometry, IList<Point> points, bool isClosed)
         {
             bool flag = false;
-            PathGeometry pathGeometry = geometry as PathGeometry;
+            PathGeometry? pathGeometry = geometry as PathGeometry;
             PathFigure figure;
             if (pathGeometry == null || pathGeometry.Figures.Count != 1 || (figure = pathGeometry.Figures[0]) == null)
             {

@@ -16,18 +16,18 @@ namespace CookPopularCSharpToolkit.Windows
         /// 显示元素
         /// </summary>
         /// <param name="element"></param>
-        public static void Show(this UIElement element) => element.Visibility = Visibility.Visible;
+        public static void ToVisible(this UIElement element) => element.Visibility = Visibility.Visible;
 
         /// <summary>
         /// 不显示元素，但保留空间
         /// </summary>
         /// <param name="element"></param>
-        public static void Hide(this UIElement element) => element.Visibility = Visibility.Hidden;
+        public static void ToHide(this UIElement element) => element.Visibility = Visibility.Hidden;
 
         /// <summary>
         /// 不显示元素，且不保留空间
         /// </summary>
         /// <param name="element"></param>
-        public static void Collapse(this UIElement element) => element.Visibility = Visibility.Collapsed;
+        public static void ToCollapse(this UIElement element) => element.Visibility = Visibility.Collapsed;
     }
 }

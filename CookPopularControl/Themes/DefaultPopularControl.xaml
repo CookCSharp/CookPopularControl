@@ -15,8 +15,6 @@
 
         <!--  WPF Original Control  -->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
@@ -49,6 +47,9 @@
 
         <!--  Extension Control  -->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToastMessageStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
@@ -69,7 +70,8 @@
     <Style x:Key="{x:Type win:NormalWindow}" TargetType="{x:Type win:NormalWindow}" BasedOn="{StaticResource NormalWindowStyle}" />
     <Style x:Key="{x:Type win:SideBarWindow}" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource SideBarWindowStyle}" />
     <Style x:Key="{x:Type win:NoneTitleBarWindow}" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource NoneTitleBarWindowStyle}" />
-    <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource DefaultMessageDialogStyle}" />
+    <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource MessageDialogStyle}" />
+    <Style x:Key="{x:Type win:ToastMessage}" TargetType="{x:Type win:ToastMessage}" BasedOn="{StaticResource ToastMessageStyle}" />
     <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}" />
     <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
 

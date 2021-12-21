@@ -258,7 +258,7 @@ namespace CookPopularControl.Windows
 
             if (Icon == null) SetDefaultWindowIcon();
 
-            //this.Loaded += (s, e) => SetWindowRound();
+            this.Loaded += NormalWindow_Loaded;
         }
 
         private void ShowSystemMenu(ExecutedRoutedEventArgs e)
@@ -288,6 +288,21 @@ namespace CookPopularControl.Windows
             Icon = ImageBitmapExtension.ToImageSource(WindowIcon.ToBitmap());
             //System.Drawing.Icon icon = new System.Drawing.Icon("ApplicationIcon.ico");
             //InteropMethods.SendMessage(interopHelper.Handle, 0x80/*WM_SETICON*/, (IntPtr)1 /*ICON_LARGE*/, icon.Handle);
+        }
+
+        private void NormalWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var workWidth = SystemParameters.WorkArea.Width;
+            var workHeight = SystemParameters.WorkArea.Height;
+            if(Width > workWidth || Height > workHeight)
+            {
+                Width = workWidth * 0.8;
+                Height = workHeight * 0.8;
+                Left = (workWidth - Width) / 2;
+                Top = (workHeight - Height) / 2;
+            }
+
+            //SetWindowRound();
         }
 
         /// <summary>
@@ -365,9 +380,6 @@ namespace CookPopularControl.Windows
                 case InteropValues.WM_GETMINMAXINFO:
                     WmGetMinMaxInfo(hwnd, lparam);
                     Padding = WindowState == WindowState.Maximized ? WindowParameters.WindowMaximizedPadding : Padding;
-                    break;
-                case InteropValues.WM_NCACTIVATE:
-                    SetValue(IsNonClientActiveProperty, wparam == new IntPtr(1));
                     break;
                 case InteropValues.WM_NCHITTEST:
                     // for fixing #886

@@ -25,8 +25,8 @@ namespace CookPopularCSharpToolkit.Windows
         {
             var dpiX = DpiHelper.DeviceDpiX;
             var dpiY = DpiHelper.DeviceDpiY;
-            int width = (int)(element.ActualWidth * dpiX / 88);
-            int height = (int)(element.ActualHeight * dpiX / 96);
+            int width = (int)(element.ActualWidth * DpiHelper.GetScaleX());
+            int height = (int)(element.ActualHeight * DpiHelper.GetScaleX());
             var bitmapSource = new RenderTargetBitmap(width, height, dpiX, dpiY, PixelFormats.Default);
             bitmapSource.Render(element);
 

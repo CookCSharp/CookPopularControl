@@ -25,8 +25,8 @@ namespace CookPopularCSharpToolkit.Windows
     {
         private static class NativeMethods
         {
-            internal const int LOGPIXELSX = 0x58;
-            internal const int LOGPIXELSY = 0x5A;
+            //internal const int LOGPIXELSX = 0x58;
+            //internal const int LOGPIXELSY = 0x5A;
 
             internal const int DESKTOPVERTRES = 0x75;
             internal const int DESKTOPHORZRES = 0x76;
@@ -47,39 +47,39 @@ namespace CookPopularCSharpToolkit.Windows
             internal static extern int BitBlt(IntPtr destDC, int destX, int destY, int width, int height, IntPtr srcDC, int srcX, int srcY, CopyPixelOperation copyPixelOperation);
         }
 
-        /// <summary>
-        /// 获取屏幕 PDI 缩放系数。
-        /// </summary>
-        /// <returns></returns>
-        public static double GetScale() => GetDpiX() / 96.0;
+        ///// <summary>
+        ///// 获取屏幕 PDI 缩放系数。
+        ///// </summary>
+        ///// <returns></returns>
+        //public static double GetScale() => GetDpiX() / 96.0;
 
-        /// <summary>
-        /// 获取屏幕的每英寸水平逻辑像素数（DPI）。
-        /// </summary>
-        /// <returns>返回屏幕的每英寸水平逻辑像素数（DPI）。</returns>
-        public static int GetDpiX()
-        {
-            var screenDC = NativeMethods.GetDC(IntPtr.Zero);
-            var dpiX = NativeMethods.GetDeviceCaps(screenDC, NativeMethods.LOGPIXELSX);
+        ///// <summary>
+        ///// 获取屏幕的每英寸水平逻辑像素数（DPI）。
+        ///// </summary>
+        ///// <returns>返回屏幕的每英寸水平逻辑像素数（DPI）。</returns>
+        //public static int GetDpiX()
+        //{
+        //    var screenDC = NativeMethods.GetDC(IntPtr.Zero);
+        //    var dpiX = NativeMethods.GetDeviceCaps(screenDC, NativeMethods.LOGPIXELSX);
 
-            _ = NativeMethods.ReleaseDC(IntPtr.Zero, screenDC);
+        //    _ = NativeMethods.ReleaseDC(IntPtr.Zero, screenDC);
 
-            return dpiX;
-        }
+        //    return dpiX;
+        //}
 
-        /// <summary>
-        /// 获取屏幕的每英寸垂直逻辑像素数（DPI）。
-        /// </summary>
-        /// <returns>返回屏幕的每英寸垂直逻辑像素数（DPI）。</returns>
-        public static int GetDpiY()
-        {
-            var screenDC = NativeMethods.GetDC(IntPtr.Zero);
-            var dpiY = NativeMethods.GetDeviceCaps(screenDC, NativeMethods.LOGPIXELSY);
+        ///// <summary>
+        ///// 获取屏幕的每英寸垂直逻辑像素数（DPI）。
+        ///// </summary>
+        ///// <returns>返回屏幕的每英寸垂直逻辑像素数（DPI）。</returns>
+        //public static int GetDpiY()
+        //{
+        //    var screenDC = NativeMethods.GetDC(IntPtr.Zero);
+        //    var dpiY = NativeMethods.GetDeviceCaps(screenDC, NativeMethods.LOGPIXELSY);
 
-            _ = NativeMethods.ReleaseDC(IntPtr.Zero, screenDC);
+        //    _ = NativeMethods.ReleaseDC(IntPtr.Zero, screenDC);
 
-            return dpiY;
-        }
+        //    return dpiY;
+        //}
 
         /// <summary>
         /// 捕获屏幕快照。

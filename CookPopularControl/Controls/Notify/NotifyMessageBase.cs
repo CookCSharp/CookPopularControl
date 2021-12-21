@@ -104,7 +104,7 @@ namespace CookPopularControl.Controls
 
         protected static DispatcherTimer IntervalMultiSeconds(ref DispatcherTimer timer, double second, Action action)
         {
-            timer = new DispatcherTimer();
+            timer = new DispatcherTimer(DispatcherPriority.Normal);
             timer.Interval = TimeSpan.FromSeconds(second);
             timer.Tick += delegate { action(); };
             return timer;

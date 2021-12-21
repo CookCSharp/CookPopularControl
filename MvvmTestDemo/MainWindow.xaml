@@ -13,8 +13,6 @@
                   xmlns:useCtl="clr-namespace:MvvmTestDemo.UserControls"
                   mc:Ignorable="d"
                   Title="CookPopularControl"
-                  Width="1000"
-                  Height="800"
                   WindowState="Normal"
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"
@@ -101,7 +99,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:PanelDemo Visibility="Collapsed" />
+        <view:WindowsDemo Visibility="Collapsed" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"

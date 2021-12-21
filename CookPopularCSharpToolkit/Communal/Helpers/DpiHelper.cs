@@ -16,6 +16,8 @@ namespace CookPopularCSharpToolkit.Communal
     public static class DpiHelper
     {
         private const double LogicalDpi = 96.0;
+        private const int LOGPIXELSX = 0x58;
+        private const int LOGPIXELSY = 0x5A;
 
         [ThreadStatic]
         private static Matrix _transformToDevice;
@@ -41,6 +43,8 @@ namespace CookPopularCSharpToolkit.Communal
                 DeviceDpiY = LogicalDpi;
             }
 
+            _ = InteropMethods.ReleaseDC(IntPtr.Zero, dC);
+
             var identity = Matrix.Identity;
             var identity2 = Matrix.Identity;
             identity.Scale(DeviceDpiX / LogicalDpi, DeviceDpiY / LogicalDpi);
@@ -62,6 +66,46 @@ namespace CookPopularCSharpToolkit.Communal
         public static double LogicalToDeviceUnitsScalingFactorX => TransformToDevice.Matrix.M11;
 
         public static double LogicalToDeviceUnitsScalingFactorY => TransformToDevice.Matrix.M22;
+
+        /// <summary>
+        /// 获取屏幕水平Dpi缩放系数
+        /// </summary>
+        /// <returns></returns>
+        public static double GetScaleX() => GetDeviceDpiX() / LogicalDpi;
+        
+        /// <summary>
+        /// 获取屏幕垂直Dpi缩放系数
+        /// </summary>
+        /// <returns></returns>
+        public static double GetScaleY() => GetDeviceDpiY() / LogicalDpi;
+
+        /// <summary>
+        /// 获取屏幕的每英寸水平逻辑像素数（DPI）。
+        /// </summary>
+        /// <returns>返回屏幕的每英寸水平逻辑像素数（DPI）。</returns>
+        public static int GetDeviceDpiX()
+        {
+            var screenDC = InteropMethods.GetDC(IntPtr.Zero);
+            var dpiX = InteropMethods.GetDeviceCaps(screenDC, LOGPIXELSX);
+
+            _ = InteropMethods.ReleaseDC(IntPtr.Zero, screenDC);
+
+            return dpiX;
+        }
+
+        /// <summary>
+        /// 获取屏幕的每英寸垂直逻辑像素数（DPI）。
+        /// </summary>
+        /// <returns>返回屏幕的每英寸垂直逻辑像素数（DPI）。</returns>
+        public static int GetDeviceDpiY()
+        {
+            var screenDC = InteropMethods.GetDC(IntPtr.Zero);
+            var dpiY = InteropMethods.GetDeviceCaps(screenDC, LOGPIXELSY);
+
+            _ = InteropMethods.ReleaseDC(IntPtr.Zero, screenDC);
+
+            return dpiY;
+        }
 
         public static Point LogicalPixelsToDevice(Point logicalPoint, double dpiScaleX, double dpiScaleY)
         {

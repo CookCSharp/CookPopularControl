@@ -22,9 +22,9 @@ using OriginButton = System.Windows.Controls.Button;
 namespace CookPopularControl.Windows
 {
     /// <summary>
-    /// 消息框
+    /// 模态消息框
     /// </summary>
-    /// <remarks>模态的</remarks>
+    /// <remarks>与系统控件<see cref="MessageBox"/>类似</remarks>
     [TemplatePart(Name = ButtonsPanel, Type = typeof(Panel))]
     public class MessageDialog : NormalWindow
     {

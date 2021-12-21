@@ -3,7 +3,6 @@
     <PropertyGroup>
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
-        <TargetFrameworks>net46;net461;net5.0-windows</TargetFrameworks>
 
 		<Version>1.0.1.1-dev-20211113</Version>
         <PackageIcon>CSharp.png</PackageIcon>

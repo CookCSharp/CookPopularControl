@@ -1,4 +1,4 @@
-﻿using CookPopularControl.Communal.Data.Args;
+﻿using CookPopularControl.Communal.Data;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System.ComponentModel;

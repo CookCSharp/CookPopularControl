@@ -115,7 +115,7 @@ namespace CookPopularControl.Controls
 
         private void StartTimer()
         {
-            _timerClose = new DispatcherTimer();
+            _timerClose = new DispatcherTimer(DispatcherPriority.Normal, Dispatcher);
             _timerClose.Interval = TimeSpan.FromSeconds(_waitTime);
             _timerClose.Tick += (s, e) =>
             {
