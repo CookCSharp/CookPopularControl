@@ -1,4 +1,5 @@
 ﻿using CookPopularCSharpToolkit.Communal;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -20,6 +21,9 @@ namespace MvvmTestDemo
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            SplashScreen ss = new SplashScreen("Resources/Gif/cook.gif");
+            ss.Show(true, true);
+
             base.OnStartup(e);
 
             //DynamicGeneratorDll.ILCreateSumAndSaveAsDll();

@@ -17,7 +17,8 @@
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
-                  WindowStartupLocation="CenterScreen">
+                  WindowStartupLocation="CenterScreen"
+                  Height="800">
 
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />

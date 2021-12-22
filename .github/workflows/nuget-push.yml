@@ -2,9 +2,11 @@ name: Nuget Publish
  
 on:
   push:
-    branches: [ chance_dev ]
-  pull_request:
-    branches: [ chance_dev ]
+    tags:
+    - '*'
+  #   branches: [ chance_dev ]
+  # pull_request:
+  #   branches: [ chance_dev ]
  
 jobs:
   build: 
