@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookPopularCSharpToolkit.Windows.Interop;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -37,8 +38,8 @@ namespace CookPopularCSharpToolkit.Windows
             [DllImport("user32.dll")]
             internal static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-            [DllImport("gdi32.dll")]
-            internal static extern bool DeleteObject(IntPtr hObject);
+            //[DllImport("gdi32.dll")]
+            //internal static extern bool DeleteObject(IntPtr hObject);
 
             [DllImport("gdi32.dll")]
             internal static extern int GetDeviceCaps(IntPtr hDC, int nIndex);
@@ -162,7 +163,7 @@ namespace CookPopularCSharpToolkit.Windows
             }
             finally
             {
-                NativeMethods.DeleteObject(hBitmap);
+                InteropMethods.DeleteObject(hBitmap);
             }
 
             return source;

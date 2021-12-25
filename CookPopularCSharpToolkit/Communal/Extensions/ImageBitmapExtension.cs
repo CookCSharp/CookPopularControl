@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookPopularCSharpToolkit.Windows.Interop;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -23,9 +24,6 @@ namespace CookPopularCSharpToolkit.Communal
     /// </summary>
     public static class ImageBitmapExtension
     {
-        [DllImport("Gdi32.dll")]
-        private static extern bool DeleteObject(IntPtr intPtr);
-
         /// <summary>
         /// Bitmap to ImageSource
         /// </summary>
@@ -41,7 +39,7 @@ namespace CookPopularCSharpToolkit.Communal
             }
             finally
             {
-                DeleteObject(intPtr);
+                InteropMethods.DeleteObject(intPtr);
             }
         }
 

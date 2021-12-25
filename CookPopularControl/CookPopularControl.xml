@@ -2960,6 +2960,30 @@
             <see cref="F:CookPopularControl.Controls.PasswordBoxAssistant.IsTriggerProperty"/>表示是否触发PasswordChanged事件
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.Gif">
+            <summary>
+            GIF动画
+            </summary>
+            <remarks>
+            https://github.com/XamlAnimatedGif/XamlAnimatedGif
+            </remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Gif.GifSource">
+            <summary>
+            Gif的路径
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Gif.GifSourceProperty">
+            <summary>
+            表示<see cref="P:CookPopularControl.Controls.Gif.GifSource"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.Gif.GetBitmapSource">
+            <summary>
+            BitmapSource用于显示System.drawing.bitmap中的图像的帧
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CookPopularControl.Controls.ExtendPopup">
             <summary>
             提供<see cref="T:System.Windows.Controls.Primitives.Popup"/>的扩展控件

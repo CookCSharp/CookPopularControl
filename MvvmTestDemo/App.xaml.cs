@@ -21,8 +21,8 @@ namespace MvvmTestDemo
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            SplashScreen ss = new SplashScreen("Resources/Gif/cook.gif");
-            ss.Show(true, true);
+            //SplashScreen ss = new SplashScreen("Resources/Gif/cook.gif");
+            //ss.Show(true, true);
 
             base.OnStartup(e);
 
