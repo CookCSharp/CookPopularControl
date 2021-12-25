@@ -22,6 +22,13 @@ namespace CookPopularControl.Controls
     {
         private static readonly Style DefaultProgressBarStyle = ResourceHelper.GetResource<Style>("LinearProgressBarBaseStyle");
 
+
+        public static bool GetIsAutoStart(DependencyObject obj) => (bool)obj.GetValue(IsAutoStartProperty);
+        public static void SetIsAutoStart(DependencyObject obj, bool value) => obj.SetValue(IsAutoStartProperty, ValueBoxes.BooleanBox(value));
+        public static readonly DependencyProperty IsAutoStartProperty =
+            DependencyProperty.RegisterAttached("IsAutoStart", typeof(bool), typeof(ButtonAssist), new PropertyMetadata(ValueBoxes.FalseBox));
+
+
         public static Uri GetGifSource(DependencyObject obj) => (Uri)obj.GetValue(GifSourceProperty);
         public static void SetGifSource(DependencyObject obj, Uri value) => obj.SetValue(GifSourceProperty, value);
         public static readonly DependencyProperty GifSourceProperty =

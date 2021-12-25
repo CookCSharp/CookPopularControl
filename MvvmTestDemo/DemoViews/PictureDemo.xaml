@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     
     <Grid>
-        <pc:Gif GifSource="./Resources/Gif/cook.gif"/>
+        <pc:Gif IsAutoStart="True" GifSource="./Resources/Gif/cook.gif"/>
     </Grid>
     
 </UserControl>

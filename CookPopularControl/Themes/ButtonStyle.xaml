@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
-                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
@@ -24,16 +23,13 @@
         <Setter Property="pc:ButtonAssist.ImageSource" Value="{x:Null}" />
         <Setter Property="pc:ButtonAssist.ImageWidth" Value="0" />
         <Setter Property="pc:ButtonAssist.ImageHeight" Value="0" />
-        <Setter Property="pc:ButtonAssist.GifStream" Value="{x:Null}" />
+        <Setter Property="pc:ButtonAssist.IsAutoStart" Value="False" />
+        <!--<Setter Property="pc:ButtonAssist.GifStream" Value="{x:Null}" />-->
         <Setter Property="pc:ButtonAssist.GifSource" Value="{x:Null}" />
         <Setter Property="pc:ButtonAssist.IsShowProgress" Value="False" />
         <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{x:Null}" />
         <Setter Property="pc:ButtonAssist.ProgressValue" Value="0" />
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{DynamicResource DefaultProgressBarStyle}" />
-        <Setter Property="gif:AnimationBehavior.AutoStart" Value="True" />
-        <Setter Property="gif:AnimationBehavior.RepeatBehavior" Value="0x" />
-        <Setter Property="gif:AnimationBehavior.SourceStream" Value="{x:Null}" />
-        <Setter Property="gif:AnimationBehavior.SourceUri" Value="{x:Null}" />
     </Style>
     <Style x:Key="ButtonOutlineStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />

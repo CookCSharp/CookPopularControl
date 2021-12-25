@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
-                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
@@ -91,7 +90,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!--  SimpleComboBox  -->
     <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
@@ -333,8 +332,13 @@
                                        Height="{Binding ElementName=ItemGrid, Path=Height}"
                                        Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.ImageSource}"
                                        common:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.IsPreviewImage)}"
-                                       gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GifSource}"
                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Image}" />
+                                <pc:Gif x:Name="ItemGif"
+                                        Width="{Binding ElementName=ItemGrid, Path=Width}"
+                                        Height="{Binding ElementName=ItemGrid, Path=Height}"
+                                        common:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.IsPreviewImage)}"
+                                        GifSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GifSource}"
+                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Gif}" />
                             </Grid>
                             <Popup x:Name="Popup_PreviewImage"
                                    AllowsTransparency="True" Placement="Right" PopupAnimation="Slide">
@@ -382,7 +386,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!--  MultiComboBox  -->
     <Style x:Key="MultiComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />

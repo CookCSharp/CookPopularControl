@@ -2962,11 +2962,21 @@
         </member>
         <member name="T:CookPopularControl.Controls.Gif">
             <summary>
-            GIF动画
+            GIF动画控件
             </summary>
             <remarks>
             https://github.com/XamlAnimatedGif/XamlAnimatedGif
             </remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.Gif.IsAutoStart">
+            <summary>
+            是否自动启动
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Gif.IsAutoStartProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Gif.IsAutoStart"/>的依赖属性
+            </summary>
         </member>
         <member name="P:CookPopularControl.Controls.Gif.GifSource">
             <summary>
@@ -2976,6 +2986,16 @@
         <member name="F:CookPopularControl.Controls.Gif.GifSourceProperty">
             <summary>
             表示<see cref="P:CookPopularControl.Controls.Gif.GifSource"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.Gif.GifStream">
+            <summary>
+            Gif的流
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.Gif.GifStreamProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.Gif.GifStream"/>的依赖属性
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.Gif.GetBitmapSource">

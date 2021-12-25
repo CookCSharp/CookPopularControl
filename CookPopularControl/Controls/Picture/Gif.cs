@@ -1,4 +1,5 @@
-﻿using CookPopularCSharpToolkit.Windows.Interop;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows.Interop;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -28,15 +29,47 @@ using System.Windows.Threading;
 namespace CookPopularControl.Controls
 {
     /// <summary>
-    /// GIF动画
+    /// GIF动画控件
     /// </summary>
     /// <remarks>
     /// https://github.com/XamlAnimatedGif/XamlAnimatedGif
     /// </remarks>
     public class Gif : System.Windows.Controls.Image
     {
-        private Bitmap _gifBitmap; 
-        private BitmapSource _bitmapSource;
+        private Bitmap _gifBitmap; //Gif图
+        private BitmapSource _bitmapSource; //Gif图的每一帧
+        private bool _isStartGif;
+        private bool _isSetParameters;
+
+
+
+        /// <summary>
+        /// 是否自动启动
+        /// </summary>
+        public bool IsAutoStart
+        {
+            get => (bool)GetValue(IsAutoStartProperty);
+            set => SetValue(IsAutoStartProperty, ValueBoxes.BooleanBox(value));
+        }
+        /// <summary>
+        /// 提供<see cref="IsAutoStart"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsAutoStartProperty =
+            DependencyProperty.Register("IsAutoStart", typeof(bool), typeof(Gif), new PropertyMetadata(ValueBoxes.FalseBox, OnIsAutoStartPropertyChanged));
+
+        private static void OnIsAutoStartPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Gif gif)
+            {
+                var isStart = (bool)e.NewValue;
+
+                if (isStart && (gif.GifSource != null || gif.GifStream != null))
+                    gif.StartAnimate();
+                else
+                    gif.StopAnimate();
+            }
+        }
+
 
         /// <summary>
         /// Gif的路径
@@ -50,27 +83,71 @@ namespace CookPopularControl.Controls
         /// 表示<see cref="GifSource"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty GifSourceProperty =
-            DependencyProperty.Register("GifSource", typeof(Uri), typeof(Gif), new UIPropertyMetadata(default(Uri), GifSourcePropertyChanged));
-        protected static void GifSourcePropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+            DependencyProperty.Register("GifSource", typeof(Uri), typeof(Gif), new UIPropertyMetadata(default(Uri), OnGifSourcePropertyChanged));
+       
+        protected static void OnGifSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (obj is Gif gif)
+            if (d is Gif gif)
             {
                 gif.GifSource = e.NewValue as Uri;
                 var stream = Application.GetResourceStream(gif.GifSource).Stream;
-                gif._gifBitmap = new Bitmap(stream);
-                gif._bitmapSource = gif.GetBitmapSource();
-                gif.Source = gif._bitmapSource;
-                gif.StartAnimate();
+                gif.SetGifParameters(gif, stream);
+
+                if (gif.IsAutoStart && !gif._isStartGif)
+                    gif.StartAnimate();
+
+                gif.GifStream = stream;
             }
         }
 
+
+        /// <summary>
+        /// Gif的流
+        /// </summary>
+        public Stream GifStream
+        {
+            get => (Stream)GetValue(GifStreamProperty);
+            set => SetValue(GifStreamProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="GifStream"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty GifStreamProperty =
+            DependencyProperty.Register("GifStream", typeof(Stream), typeof(Gif), new PropertyMetadata(default(Stream), OnGifStreamPropertyChanged));
+
+        private static void OnGifStreamPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Gif gif)
+            {
+                gif.GifStream = e.NewValue as Stream;
+                gif.SetGifParameters(gif, gif.GifStream);
+
+                if (gif.IsAutoStart && !gif._isStartGif)
+                    gif.StartAnimate();
+            }
+        }
+
+        private void SetGifParameters(Gif gif, Stream stream)
+        {
+            if (!gif._isSetParameters)
+            {
+                gif._gifBitmap = new Bitmap(stream);
+                gif._bitmapSource = gif.GetBitmapSource();
+                gif.Source = gif._bitmapSource;
+            }
+            _isSetParameters = true;
+        }
+
+
         public void StartAnimate()
         {
+            _isStartGif = true;
             ImageAnimator.Animate(this._gifBitmap, this.OnFrameChanged);
         }
 
         public void StopAnimate()
         {
+            _isStartGif = false;
             ImageAnimator.StopAnimate(this._gifBitmap, this.OnFrameChanged);
         }
 
@@ -78,7 +155,7 @@ namespace CookPopularControl.Controls
         {
             Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
             {
-                ImageAnimator.UpdateFrames(); 
+                ImageAnimator.UpdateFrames();
                 if (this._bitmapSource != null)
                 {
                     this._bitmapSource.Freeze();

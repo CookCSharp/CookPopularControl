@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
-                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
@@ -43,16 +42,20 @@
                                           SnapsToDevicePixels="True"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                    <Image x:Name="PART_Image_Gif"
+                                    <Image x:Name="PART_Image"
                                            DockPanel.Dock="{TemplateBinding common:FrameworkElementBaseAttached.IconDirection}"
                                            Width="{TemplateBinding pc:ButtonAssist.ImageWidth}"
                                            Height="{TemplateBinding pc:ButtonAssist.ImageHeight}"
                                            Source="{TemplateBinding pc:ButtonAssist.ImageSource}"
-                                           Stretch="Uniform"
-                                           gif:AnimationBehavior.AutoStart="{TemplateBinding gif:AnimationBehavior.AutoStart}"
-                                           gif:AnimationBehavior.RepeatBehavior="{TemplateBinding gif:AnimationBehavior.RepeatBehavior}"
-                                           gif:AnimationBehavior.SourceStream="{TemplateBinding pc:ButtonAssist.GifStream}"
-                                           gif:AnimationBehavior.SourceUri="{TemplateBinding pc:ButtonAssist.GifSource}" />
+                                           Stretch="Uniform" />
+                                    <pc:Gif x:Name="PART_Gif"
+                                            DockPanel.Dock="{TemplateBinding common:FrameworkElementBaseAttached.IconDirection}"
+                                            Width="{TemplateBinding pc:ButtonAssist.ImageWidth}"
+                                            Height="{TemplateBinding pc:ButtonAssist.ImageHeight}"
+                                            Stretch="Uniform"
+                                            GifSource="{TemplateBinding pc:ButtonAssist.GifSource}"
+                                            GifStream="{TemplateBinding pc:ButtonAssist.GifStream}"
+                                            IsAutoStart="{TemplateBinding pc:ButtonAssist.IsAutoStart}" />
                                     <Grid x:Name="ContentGrid">
                                         <ProgressBar x:Name="PART_Progress"
                                                      Width="{TemplateBinding Width}"

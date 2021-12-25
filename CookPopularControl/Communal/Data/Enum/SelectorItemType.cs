@@ -26,5 +26,6 @@ namespace CookPopularControl.Communal.Data
         /// </summary>
         Icon,
         Image,
+        Gif,
     }
 }
