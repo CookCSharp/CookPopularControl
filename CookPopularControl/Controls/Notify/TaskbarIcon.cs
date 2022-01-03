@@ -21,7 +21,7 @@ namespace CookPopularControl.Controls
     /// <summary>
     /// 任务栏图标
     /// </summary>
-    public class TaskbarIcon : Hardcodet.Wpf.TaskbarNotification.TaskbarIcon
+    public class TaskbarIcon : TrayIcon
     {
         private static List<Window> PrepareWindows = new List<Window>();
         private DispatcherTimer timer;
@@ -38,10 +38,11 @@ namespace CookPopularControl.Controls
                 win.Loaded += (s, e) => PrepareWindows.Remove(win);
                 win.Closing += (s, e) =>
                 {
-                    e.Cancel = true;
                     win.Hide();
                     if (!PrepareWindows.Contains(win))
                         PrepareWindows.Add(win);
+
+                    e.Cancel = true;
                 };
             }
 
@@ -92,7 +93,10 @@ namespace CookPopularControl.Controls
                 }
             }
             else if (e.Command == ExitApplicationCommand)
+            {
                 Environment.Exit(0);
+                taskbarIcon.Dispose();
+            }
         }
 
 

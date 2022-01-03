@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:win="clr-namespace:CookPopularControl.Windows"
                     xmlns:dialogBox="clr-namespace:CookPopularControl.DialogBox"
-                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables">
+                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:win="clr-namespace:CookPopularControl.Windows">
 
     <ResourceDictionary.MergedDictionaries>
         <!--  Other Resource Dictionaries  -->
@@ -73,75 +73,77 @@
     <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource MessageDialogStyle}" />
     <Style x:Key="{x:Type win:ToastMessage}" TargetType="{x:Type win:ToastMessage}" BasedOn="{StaticResource ToastMessageStyle}" />
     <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}" />
-    <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
 
 
-    <Style x:Key="{x:Type ResizeGrip}" TargetType="{x:Type ResizeGrip}" BasedOn="{StaticResource DefaultResizeGripStyle}" />
-    <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
+    
     <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}" />
-    <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
+    <Style x:Key="{x:Type Calendar}" TargetType="{x:Type Calendar}" BasedOn="{StaticResource DefaultCalendarStyle}" />
     <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
-    <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}" />
-    <Style x:Key="{x:Type PasswordBox}" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource DefaultPasswordBoxStyle}" />
-    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}" />
-    <Style x:Key="{x:Type GroupBox}" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource DefaultGroupBoxStyle}" />
     <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}" />
-    <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBarStyle}" />
-    <Style x:Key="{x:Type ScrollViewer}" TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
-    <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}" BasedOn="{StaticResource DefaultSliderStyle}" />
+    <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource DefaultContextMenuStyle}" />
+    <Style x:Key="{x:Type DataGrid}" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DefaultDataGridStyle}" />
+    <Style x:Key="{x:Type DatePicker}" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DefaultDatePickerStyle}" />
+    <Style x:Key="{x:Type Expander}" TargetType="{x:Type Expander}" BasedOn="{StaticResource DefaultExpanderStyle}" />
+    <Style x:Key="{x:Type GroupBox}" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource DefaultGroupBoxStyle}" />
+    <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}" />
     <Style x:Key="{x:Type ListBox}" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}" />
     <Style x:Key="{x:Type ListView}" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListViewStyle}" />
-    <Style x:Key="{x:Type DataGrid}" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DefaultDataGridStyle}" />
-    <Style x:Key="{x:Type Calendar}" TargetType="{x:Type Calendar}" BasedOn="{StaticResource DefaultCalendarStyle}" />
-    <Style x:Key="{x:Type DatePicker}" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DefaultDatePickerStyle}" />
-    <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource DefaultContextMenuStyle}" />
     <Style x:Key="{x:Type MenuItem}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}" />
     <Style x:Key="{x:Type Menu}" TargetType="{x:Type Menu}" BasedOn="{StaticResource DefaultMenuStyle}" />
-    <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource DefaultTabControlStyle}" />
-    <Style x:Key="{x:Type Expander}" TargetType="{x:Type Expander}" BasedOn="{StaticResource DefaultExpanderStyle}" />
-    <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}" />
+    <Style x:Key="{x:Type PasswordBox}" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource DefaultPasswordBoxStyle}" />
+    <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}" />
+    <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
+    <Style x:Key="{x:Type ResizeGrip}" TargetType="{x:Type ResizeGrip}" BasedOn="{StaticResource DefaultResizeGripStyle}" />
+    <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBarStyle}" />
+    <Style x:Key="{x:Type ScrollViewer}" TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
     <Style x:Key="{x:Type Separator}" TargetType="{x:Type Separator}" BasedOn="{StaticResource {x:Static MenuItem.SeparatorStyleKey}}" />
-    <Style x:Key="{x:Type TreeView}" TargetType="{x:Type TreeView}" BasedOn="{StaticResource DefaultTreeViewStyle}" />
+    <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}" BasedOn="{StaticResource DefaultSliderStyle}" />
+    <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource DefaultTabControlStyle}" />
+    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}" />
+    <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
     <Style x:Key="{x:Type ToolBar}" TargetType="{x:Type ToolBar}" BasedOn="{StaticResource DefaultToolBarStyle}" />
     <Style x:Key="{x:Type ToolBarTray}" TargetType="{x:Type ToolBarTray}" BasedOn="{StaticResource DefaultToolBarTrayStyle}" />
+    <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource DefaultToolTipStyle}" />
+    <Style x:Key="{x:Type TreeView}" TargetType="{x:Type TreeView}" BasedOn="{StaticResource DefaultTreeViewStyle}" />
 
 
+
+    <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}" />
     <Style x:Key="{x:Type pc:AnimationPath}" TargetType="{x:Type pc:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}" />
+    <Style x:Key="{x:Type pc:Badge}" TargetType="{x:Type pc:Badge}" BasedOn="{StaticResource DefaultBadgeStyle}" />
+    <Style x:Key="{x:Type pc:BraceletLoading}" TargetType="{x:Type pc:BraceletLoading}" BasedOn="{StaticResource BraceletLoadingStyle}" />
+    <Style x:Key="{x:Type pc:BubbleMessage}" TargetType="{x:Type pc:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}" />
+    <Style x:Key="{x:Type pc:CarouselView}" TargetType="{x:Type pc:CarouselView}" BasedOn="{StaticResource DefaultCarouselViewStyle}" />
+    <Style x:Key="{x:Type pc:CharacterLoading}" TargetType="{x:Type pc:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}" />
+    <Style x:Key="{x:Type pc:CircleMenu}" TargetType="{x:Type pc:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}" />
+    <Style x:Key="{x:Type pc:Clock}" TargetType="{x:Type pc:Clock}" BasedOn="{StaticResource DefaultClockStyle}" />
+    <Style x:Key="{x:Type pc:ColorPicker}" TargetType="{x:Type pc:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}" />
     <Style x:Key="{x:Type pc:DotCircleLoading}" TargetType="{x:Type pc:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}" />
     <Style x:Key="{x:Type pc:DotLineLoading}" TargetType="{x:Type pc:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}" />
     <Style x:Key="{x:Type pc:DotPendulumLoading}" TargetType="{x:Type pc:DotPendulumLoading}" BasedOn="{StaticResource DefaultDotPendulumLoadingStyle}" />
     <Style x:Key="{x:Type pc:DotOpacityLoading}" TargetType="{x:Type pc:DotOpacityLoading}" BasedOn="{StaticResource DefaultDotOpacityLoadingStyle}" />
+    <Style x:Key="{x:Type pc:EditingTag}" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultEditingTagStyle}" />
+    <Style x:Key="{x:Type pc:GroupLabel}" TargetType="{x:Type pc:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}" />
+    <Style x:Key="{x:Type pc:Layout}" TargetType="{x:Type pc:Layout}" BasedOn="{StaticResource DefaultLayoutStyle}" />
+    <Style x:Key="{x:Type pc:MediaPlayer}" TargetType="{x:Type pc:MediaPlayer}" BasedOn="{StaticResource DefaultMediaPlayerStyle}" />
+    <Style x:Key="{x:Type pc:NumericUpDown}" TargetType="{x:Type pc:NumericUpDown}" BasedOn="{StaticResource DefaultNumericUpDownStyle}" />
+    <Style x:Key="{x:Type pc:PlaneLoading}" TargetType="{x:Type pc:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}" />
+    <Style x:Key="{x:Type pc:PopupMenu}" TargetType="{x:Type pc:PopupMenu}" BasedOn="{StaticResource PopupMenuStyle}" />
+    <Style x:Key="{x:Type pc:PopupMessage}" TargetType="{x:Type pc:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}" />
+    <Style x:Key="{x:Type pc:QRCodeControl}" TargetType="{x:Type pc:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}" />
+    <Style x:Key="{x:Type pc:RaindropLoading}" TargetType="{x:Type pc:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}" />
     <Style x:Key="{x:Type pc:RecCircleLoading}" TargetType="{x:Type pc:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}" />
     <Style x:Key="{x:Type pc:RecColumnLoading}" TargetType="{x:Type pc:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}" />
     <Style x:Key="{x:Type pc:RecGridLoading}" TargetType="{x:Type pc:RecGridLoading}" BasedOn="{StaticResource DefaultRecGridLoadingStyle}" />
-    <Style x:Key="{x:Type pc:RaindropLoading}" TargetType="{x:Type pc:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}" />
-    <Style x:Key="{x:Type pc:CharacterLoading}" TargetType="{x:Type pc:CharacterLoading}" BasedOn="{StaticResource CharacterLoadingStyle}" />
-    <Style x:Key="{x:Type pc:BraceletLoading}" TargetType="{x:Type pc:BraceletLoading}" BasedOn="{StaticResource BraceletLoadingStyle}" />
-    <Style x:Key="{x:Type pc:PlaneLoading}" TargetType="{x:Type pc:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}" />
+    <Style x:Key="{x:Type pc:SearchControl}" TargetType="{x:Type pc:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}" />
+    <Style x:Key="{x:Type pc:Star}" TargetType="{x:Type pc:Star}" BasedOn="{StaticResource DefaultStarStyle}" />
+    <Style x:Key="{x:Type pc:Swiper}" TargetType="{x:Type pc:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}" />
     <Style x:Key="{x:Type pc:SwitchControl}" TargetType="{x:Type pc:SwitchControl}" BasedOn="{StaticResource DefaultSwitchControlStyle}" />
     <Style x:Key="{x:Type pc:TextPath}" TargetType="{x:Type pc:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}" />
-    <Style x:Key="{x:Type pc:NumericUpDown}" TargetType="{x:Type pc:NumericUpDown}" BasedOn="{StaticResource DefaultNumericUpDownStyle}" />
-    <Style x:Key="{x:Type pc:QRCodeControl}" TargetType="{x:Type pc:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}" />
-    <Style x:Key="{x:Type pc:CircleMenu}" TargetType="{x:Type pc:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}" />
-    <Style x:Key="{x:Type pc:PopupMenu}" TargetType="{x:Type pc:PopupMenu}" BasedOn="{StaticResource PopupMenuStyle}" />
-    <Style x:Key="{x:Type pc:Swiper}" TargetType="{x:Type pc:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}" />
-    <Style x:Key="{x:Type pc:CarouselView}" TargetType="{x:Type pc:CarouselView}" BasedOn="{StaticResource DefaultCarouselViewStyle}" />
-    <Style x:Key="{x:Type pc:MediaPlayer}" TargetType="{x:Type pc:MediaPlayer}" BasedOn="{StaticResource DefaultMediaPlayerStyle}" />
-    <Style x:Key="{x:Type pc:Star}" TargetType="{x:Type pc:Star}" BasedOn="{StaticResource DefaultStarStyle}" />
-    <Style x:Key="{x:Type pc:GroupLabel}" TargetType="{x:Type pc:GroupLabel}" BasedOn="{StaticResource DefaultGroupLabelStyle}" />
-    <Style x:Key="{x:Type pc:BubbleMessage}" TargetType="{x:Type pc:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}" />
-    <Style x:Key="{x:Type pc:PopupMessage}" TargetType="{x:Type pc:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}" />
-    <Style x:Key="{x:Type pc:ColorPicker}" TargetType="{x:Type pc:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}" />
-    <Style x:Key="{x:Type pc:Clock}" TargetType="{x:Type pc:Clock}" BasedOn="{StaticResource DefaultClockStyle}" />
     <Style x:Key="{x:Type pc:TimePicker}" TargetType="{x:Type pc:TimePicker}" BasedOn="{StaticResource DefaultTimePickerStyle}" />
 
 
-    <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}" />
-    <Style x:Key="{x:Type pc:Badge}" TargetType="{x:Type pc:Badge}" BasedOn="{StaticResource DefaultBadgeStyle}" />
-    <Style x:Key="{x:Type pc:Layout}" TargetType="{x:Type pc:Layout}" BasedOn="{StaticResource DefaultLayoutStyle}" />
-    <Style x:Key="{x:Type pc:SearchControl}" TargetType="{x:Type pc:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}" />
-    <Style x:Key="{x:Type pc:EditingTag}" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultEditingTagStyle}" />
-
+    
     <Style x:Key="{x:Type drag:Branch}" TargetType="{x:Type drag:Branch}" BasedOn="{StaticResource DefaultBranchStyle}" />
     <Style x:Key="{x:Type drag:DropZone}" TargetType="{x:Type drag:DropZone}" BasedOn="{StaticResource DefaultDropZoneStyle}" />
     <Style x:Key="{x:Type drag:DragableTabControl}" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DefaultDragableTabControlStyle}" />

@@ -8,16 +8,16 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
                   xmlns:prism="http://prismlibrary.com/"
-                  xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
                   xmlns:useCtl="clr-namespace:MvvmTestDemo.UserControls"
+                  xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
                   mc:Ignorable="d"
                   Title="CookPopularControl"
-                  WindowState="Normal"
+                  Height="800"
                   d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
                   WindowStartupLocation="CenterScreen"
-                  Height="800">
+                  WindowState="Normal">
 
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
@@ -43,16 +43,16 @@
     </behavior:Interaction.Triggers>
 
     <pc:SideBarWindow.ClientTitleBarAdditionalContent>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
             <Button ToolTip="主页"
                     pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource HomePageGeometry}"
                     pc:FrameworkElementBaseAttached.IconHeight="18" pc:FrameworkElementBaseAttached.IconWidth="18"
                     Command="{Binding HomePageCommand}"
                     Style="{StaticResource WindowIconButtonStyle}" />
-            <ToggleButton x:Name="themeTb" ToolTip="主题"      
-                          pc:FrameworkElementBaseAttached.IconWidth="16"
-                          pc:FrameworkElementBaseAttached.IconHeight="16"
-                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ThemeGeometry}"                          
+            <ToggleButton x:Name="themeTb"
+                          ToolTip="主题"
+                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource ThemeGeometry}"
+                          pc:FrameworkElementBaseAttached.IconHeight="16" pc:FrameworkElementBaseAttached.IconWidth="16"
                           Style="{StaticResource WindowIconToggleButtonStyle}" />
         </StackPanel>
     </pc:SideBarWindow.ClientTitleBarAdditionalContent>
@@ -108,24 +108,28 @@
             <StackPanel HorizontalAlignment="Right" pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken" />
         </ScrollViewer>
 
-        <pc:ExtendPopup IsOpen="{Binding ElementName=themeTb,Path=IsChecked}" StaysOpen="False"
-                        Placement="Left" PlacementTarget="{Binding ElementName=themeTb}"
-                        HorizontalOffset="10" VerticalOffset="30" AllowsTransparency="True">
-            <Border Margin="5" Width="160" Height="180" Background="White" Effect="{StaticResource ShadowEffectDepth0}">
-                <ListView ItemsSource="{Binding ThemeBrushs}" 
-                          SelectedIndex="{Binding SelectedThemeIndex}"
+        <pc:ExtendPopup AllowsTransparency="True" HorizontalOffset="10"
+                        IsOpen="{Binding ElementName=themeTb, Path=IsChecked}"
+                        Placement="Left"
+                        PlacementTarget="{Binding ElementName=themeTb}"
+                        StaysOpen="False" VerticalOffset="30">
+            <Border Width="160" Height="180"
+                    Background="White"
+                    Margin="5"
+                    Effect="{StaticResource ShadowEffectDepth0}">
+                <ListView pc:ScrollBarAssistant.HorizontalScrollBarHeight="0" pc:ScrollBarAssistant.VerticalScrollBarWidth="0"
+                          ItemsSource="{Binding ThemeBrushs}"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                          pc:ScrollBarAssistant.VerticalScrollBarWidth="0"
-                          pc:ScrollBarAssistant.HorizontalScrollBarHeight="0">
+                          SelectedIndex="{Binding SelectedThemeIndex}">
                     <behavior:Interaction.Triggers>
                         <behavior:EventTrigger EventName="SelectionChanged">
-                            <behavior:InvokeCommandAction Command="{Binding SwitchAppThemeCommand}"/>
+                            <behavior:InvokeCommandAction Command="{Binding SwitchAppThemeCommand}" />
                         </behavior:EventTrigger>
                     </behavior:Interaction.Triggers>
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel/>
+                            <WrapPanel />
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemContainerStyle>
@@ -135,22 +139,32 @@
                                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
                                         <ControlTemplate.Resources>
                                             <Storyboard x:Key="StartStoryboard">
-                                                <DoubleAnimation Storyboard.TargetName="rec" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
-                                                                 Duration="0:0:0.25" To="1.1"/>
-                                                <DoubleAnimation Storyboard.TargetName="rec" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
-                                                                 Duration="0:0:0.25" To="1.1"/>
+                                                <DoubleAnimation Storyboard.TargetName="rec"
+                                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                                                 To="1.1" Duration="0:0:0.25" />
+                                                <DoubleAnimation Storyboard.TargetName="rec"
+                                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                                                 To="1.1" Duration="0:0:0.25" />
                                             </Storyboard>
                                         </ControlTemplate.Resources>
                                         <pc:Badge Margin="10,10,0,10" Direction="RightBottom" IsShowBadge="{TemplateBinding IsSelected}">
                                             <pc:Badge.Element>
-                                                <Border Width="16" Height="16" CornerRadius="8" Background="Red">
-                                                    <Path Width="12" Height="12" Data="{StaticResource CheckGeometry}" Fill="White" Stretch="Uniform"/>
+                                                <Border Width="16" Height="16"
+                                                        Background="Red"
+                                                        CornerRadius="8">
+                                                    <Path Width="12" Height="12"
+                                                          Data="{StaticResource CheckGeometry}"
+                                                          Fill="White"
+                                                          Stretch="Uniform" />
                                                 </Border>
                                             </pc:Badge.Element>
-                                            <Rectangle x:Name="rec" Width="40" Height="40" Fill="{Binding Brush}" RenderTransformOrigin="0.5,0.5">
+                                            <Rectangle x:Name="rec"
+                                                       Width="40" Height="40"
+                                                       Fill="{Binding Brush}"
+                                                       RenderTransformOrigin="0.5,0.5">
                                                 <Rectangle.RenderTransform>
                                                     <TransformGroup>
-                                                        <ScaleTransform/>
+                                                        <ScaleTransform />
                                                     </TransformGroup>
                                                 </Rectangle.RenderTransform>
                                             </Rectangle>
@@ -158,10 +172,10 @@
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Trigger.EnterActions>
-                                                    <BeginStoryboard x:Name="BeginStoryboard" Storyboard="{StaticResource StartStoryboard}"/>
+                                                    <BeginStoryboard x:Name="BeginStoryboard" Storyboard="{StaticResource StartStoryboard}" />
                                                 </Trigger.EnterActions>
                                                 <Trigger.ExitActions>
-                                                    <RemoveStoryboard BeginStoryboardName="BeginStoryboard"/>
+                                                    <RemoveStoryboard BeginStoryboardName="BeginStoryboard" />
                                                 </Trigger.ExitActions>
                                             </Trigger>
                                         </ControlTemplate.Triggers>

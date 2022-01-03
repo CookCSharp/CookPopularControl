@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Windows;
 using PropertyChanged;
+using System;
 
 namespace MvvmTestDemo
 {
@@ -12,12 +13,6 @@ namespace MvvmTestDemo
         public MainWindow()
         {
             InitializeComponent();
-
-            //this.Closing += (s, e) =>
-            //{
-            //    if (!IsOpenNotifyIconSwitch)
-            //        Environment.Exit(0);
-            //};
         }
     }
 }

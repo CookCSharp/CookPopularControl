@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 
 
 
@@ -72,6 +73,23 @@ namespace CookPopularCSharpToolkit.Communal
                     return icon;
                 }
             }
+        }
+
+        public static Icon ToIcon(this ImageSource imageSource)
+        {
+            if (imageSource == null) return null;
+
+            Uri uri = new Uri(imageSource.ToString());
+            StreamResourceInfo streamInfo = Application.GetResourceStream(uri);
+
+            if (streamInfo == null)
+            {
+                string msg = "The supplied image source '{0}' could not be resolved.";
+                msg = string.Format(msg, imageSource);
+                throw new ArgumentException(msg);
+            }
+
+            return new Icon(streamInfo.Stream);
         }
 
         /// <summary>

@@ -134,8 +134,8 @@ namespace CookPopularCSharpToolkit.Windows
             [DllImport("user32.dll", SetLastError = true)]
             internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
-            [DllImport("user32.dll")]
-            internal static extern bool SetForegroundWindow(IntPtr hWnd);
+            //[DllImport("user32.dll")]
+            //internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
             [DllImport("user32.dll", SetLastError = true)]
             internal static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
@@ -237,7 +237,7 @@ namespace CookPopularCSharpToolkit.Windows
         {
             try
             {
-                return NativeMethods.SetForegroundWindow(window.EnsureHandle());
+                return InteropMethods.SetForegroundWindow(window.EnsureHandle());
             }
             catch (Exception)
             {

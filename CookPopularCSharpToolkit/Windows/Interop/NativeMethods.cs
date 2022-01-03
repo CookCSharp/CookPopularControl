@@ -56,8 +56,8 @@ namespace CookPopularCSharpToolkit.Windows.Interop
 
         internal const int WS_EX_NOACTIVATE = 0x08000000;
 
-        [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool DestroyWindow(IntPtr hWnd);
+        //[DllImport("user32.dll", SetLastError = true)]
+        //internal static extern bool DestroyWindow(IntPtr hWnd);
 
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
@@ -84,8 +84,8 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern IntPtr GetForegroundWindow();
 
-        [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool SetForegroundWindow(IntPtr hWnd);
+        //[DllImport("user32.dll", SetLastError = true)]
+        //internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
         [DllImport("User32")]
         internal static extern IntPtr GetTopWindow(IntPtr hWnd);

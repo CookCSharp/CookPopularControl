@@ -94,8 +94,8 @@ namespace MvvmTestDemo
 
         private void OnWindowClosing()
         {
-            if (!IsOpenNotifyIconSwitch)
-                Environment.Exit(0);
+            //if (!IsOpenNotifyIconSwitch)
+            //    Environment.Exit(0);
         }
 
         private void SetControlsList()

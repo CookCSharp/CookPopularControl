@@ -41,3 +41,12 @@ dotnet_diagnostic.CS8632.severity = none
 
 # CS8604: 可能的 null 引用参数。
 dotnet_diagnostic.CS8604.severity = none
+
+# CS3003: 类型不符合 CLS
+dotnet_diagnostic.CS3003.severity = none
+
+# CS3009: 基类型不符合 CLS
+dotnet_diagnostic.CS3009.severity = none
+
+# CS3001: 参数类型不符合 CLS
+dotnet_diagnostic.CS3001.severity = none

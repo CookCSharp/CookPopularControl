@@ -21,9 +21,9 @@ namespace CookPopularCSharpToolkit.Windows.Interop
 
         internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
 
-        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
+        [DllImport(InteropValues.ExternDll.User32, EntryPoint = "RegisterWindowMessageW", CharSet = CharSet.Auto)]
         [ResourceExposure(ResourceScope.None)]
-        internal static extern int RegisterWindowMessage(string msg);
+        internal static extern uint RegisterWindowMessage([MarshalAs(UnmanagedType.LPWStr)] string msg);
 
         [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
         internal static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, out InteropValues.TBBUTTON lpBuffer,
@@ -170,6 +170,9 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [DllImport(InteropValues.ExternDll.Kernel32, EntryPoint = "CloseHandle", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool IntCloseHandle(HandleRef handle);
 
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern int GetDoubleClickTime();
+
         [SecurityCritical]
         [SuppressUnmanagedCodeSecurity]
         [DllImport(InteropValues.ExternDll.Gdi32, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto,
@@ -234,11 +237,13 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [SecurityCritical]
         [SuppressUnmanagedCodeSecurity]
         [DllImport(InteropValues.ExternDll.Shell32, CharSet = CharSet.Auto, BestFitMapping = false, ThrowOnUnmappableChar = true)]
-        internal static extern int ExtractIconEx(string szExeFileName, int nIconIndex, out IconHandle phiconLarge,
-            out IconHandle phiconSmall, int nIcons);
+        internal static extern int ExtractIconEx(string szExeFileName, int nIconIndex, out IconHandle phiconLarge, out IconHandle phiconSmall, int nIcons);
 
         [DllImport(InteropValues.ExternDll.Shell32, CharSet = CharSet.Auto)]
-        internal static extern int Shell_NotifyIcon(int message, InteropValues.NOTIFYICONDATA pnid);
+        internal static extern bool Shell_NotifyIcon(int message, [In] ref InteropValues.NOTIFYICONDATA pnid);
+
+        [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
+        internal static extern bool GetPhysicalCursorPos(ref InteropValues.POINT lpPoint);
 
         [SecurityCritical]
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
@@ -263,7 +268,7 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         internal static extern short RegisterClass(InteropValues.WNDCLASS4ICON wc);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
-        internal static extern IntPtr DefWindowProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+        internal static extern IntPtr DefWindowProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
         [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
         internal static extern bool SetForegroundWindow(IntPtr hWnd);
