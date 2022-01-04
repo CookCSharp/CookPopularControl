@@ -4,7 +4,7 @@
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
 
-		<Version>1.0.1.1-dev-20211113</Version>
+		<!--<Version>1.0.1.1-dev-20211113</Version>-->
         <PackageIcon>CSharp.png</PackageIcon>
         <PackageTags>c#,csharp,toolkit,</PackageTags>
         <Description>基于.NetFramework4.6.1和.Net5.0的C#工具方法</Description>

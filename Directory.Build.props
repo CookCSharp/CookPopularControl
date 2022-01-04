@@ -18,13 +18,15 @@
 	<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 
+
+	<Version>1.0.2-dev-20220104</Version>
 	<!--CookPopularControl Nuget包说明配置 $(MSBuildToolsPath)-->
 	<PackageId>$(MSBuildProjectName)</PackageId>
 	<Authors>写代码的厨子</Authors>
 	<Company>写代码的厨子</Company>
 	<Product>$(MSBuildProjectName)</Product>
 	<Title>$(MSBuildProjectName)</Title>
-	<Description>基于.NetFramework4.6.1和.Net5.0 WPF控件库</Description>
+	<Description>兼容.NetFramework与.NetCore/.Net的WPF控件库</Description>
 	<Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>
 	<PackageTags>xaml,wpf,ui,controls,windows,desktop,cookpopularcontrol,library</PackageTags>
 	<RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
