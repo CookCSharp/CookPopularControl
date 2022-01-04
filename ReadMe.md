@@ -12,14 +12,15 @@
 [![Github stars](https://img.shields.io/github/stars/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl) [![Github forks](https://img.shields.io/github/forks/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl)
 
 ## **介绍**
-CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中参考了一些资料，目前提供了近70款左右的控件，还在更新中，感兴趣的可以持续关注下，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题，谢谢！
+CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工具库，提供大量的公共方法）是兼容.NetFramework与.NetCore/.Net，其中参考了一些资料，CookPopularControl目前提供了近70款左右的控件，持续更新，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题。
 ***
 
 ## **代码检测**
 [![效果](https://sonarcloud.io/api/project_badges/quality_gate?project=campaigns-auxiliary-service)](https://sonarcloud.io/project/configuration?analysisMode=GitHubActions&id=chancezheng_CookPopularControl)
 
 ## **使用**
-- Install-Package CookPopularControl -Version 1.0.1.1
+- Install-Package CookPopularControl -Version 1.0.1.1-dev-20211109
+- Install-Package CookPopularCSharpToolkit --version 1.0.1.1-dev-20211113
 
 - 添加如下代码即可全部引用
     ```
@@ -109,7 +110,7 @@ CookPopularControl是支持.NetFramework4.6.1与.Net5.0的WPF控件库，其中�
 - **ProgressBar**
     ![效果](MvvmTestDemo/Resources/Effect/ProgressBar.gif)
 
-- **QRCode**
+- **QRCode/BarCode**
     ![效果](MvvmTestDemo/Resources/Effect/QRCode.gif)
 
 - **RadioButton**
