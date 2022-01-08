@@ -18,61 +18,116 @@
             <Setter Property="Content" Value="ContentWithIconButton" />
             <Setter Property="pc:FrameworkElementBaseAttached.IconGeometry" Value="{StaticResource SuccessGeometry}" />
         </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="LineHeight" Value="30" />
+            <Setter Property="Padding" Value="0,10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
     </UserControl.Resources>
 
     <ScrollViewer>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30" />
-                <ColumnDefinition Width="600" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Expander Header="First" ExpandDirection="Down">
-                    <StackPanel Margin="8">
-                        <TextBlock Text="First" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Second" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Third" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fifth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Sixth" Foreground="White" Background="Transparent" />
+            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                <Expander Header="Down" ExpandDirection="Down" Width="400">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="Second" Margin="0,30" ExpandDirection="Up">
-                    <StackPanel Margin="8">
-                        <TextBlock Text="First" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Second" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Third" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fifth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Sixth" Foreground="White" Background="Transparent" />
+                <Expander Header="CustomDown" ExpandDirection="Down" Width="400" Margin="0,30"
+                          pc:ExpanderAssistant.ExpanderHeaderHeight="60"   
+                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
+                          pc:FrameworkElementBaseAttached.IconWidth="30"
+                          pc:FrameworkElementBaseAttached.IconHeight="30" 
+                          Style="{StaticResource CustomExpanderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Up" ExpandDirection="Up" Width="400">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
+                    </StackPanel>
+                </Expander>
+                <Expander Header="CustomUp" ExpandDirection="Up" Width="400" Margin="0,30"
+                          pc:ExpanderAssistant.ExpanderHeaderHeight="60" 
+                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
+                          pc:FrameworkElementBaseAttached.IconWidth="30"
+                          pc:FrameworkElementBaseAttached.IconHeight="30" 
+                          Style="{StaticResource CustomExpanderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
             </StackPanel>
-            <StackPanel Grid.Column="2" Margin="30,0" Orientation="Horizontal">
-                <Expander Header="Third" ExpandDirection="Left">
-                    <StackPanel Margin="8">
-                        <TextBlock Text="First" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Second" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Third" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fifth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Sixth" Foreground="White" Background="Transparent" />
+            <StackPanel Grid.Column="1" Margin="30" Orientation="Horizontal">
+                <Expander Header="Left" ExpandDirection="Left" Height="400">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-
-                <Expander Header="Fourth"
-                          BorderBrush="Yellow" BorderThickness="2"
-                          Foreground="Red" Background="Green"
-                          Margin="30,0"
-                          ExpandDirection="Right">
-                    <StackPanel Margin="8">
-                        <TextBlock Text="First" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Second" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Third" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fourth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Fifth" Foreground="White" Background="Transparent" />
-                        <TextBlock Text="Sixth" Foreground="White" Background="Transparent" />
+                <Expander Header="CustomLeft" ExpandDirection="Left" Height="400" Margin="30,0"
+                          pc:ExpanderAssistant.ExpanderHeaderWidth="60"
+                          Style="{StaticResource CustomExpanderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Right" ExpandDirection="Right" Height="400"  >
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
+                    </StackPanel>
+                </Expander>
+                <Expander Header="CustomRight" ExpandDirection="Right" Height="400" Margin="30,0"
+                          pc:ExpanderAssistant.ExpanderHeaderWidth="60"
+                          Style="{StaticResource CustomExpanderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="First" />
+                        <TextBlock Text="Second" />
+                        <TextBlock Text="Third" />
+                        <TextBlock Text="Fourth" />
+                        <TextBlock Text="Fifth" />
+                        <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
             </StackPanel>
