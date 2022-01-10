@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Communal.Data;
+using CookPopularCSharpToolkit.Communal;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,9 +22,13 @@ namespace CookPopularControl.Controls
     [DefaultProperty("Content")]
     [DefaultEvent("ContentChanged")]
     [Localizability(LocalizationCategory.Text)]
+    [TemplatePart(Name = ElementSearchContent, Type = typeof(TextBox))]
     public class SearchBar : Control
     {
         public static readonly ICommand SearchCommand = new RoutedCommand(nameof(SearchCommand), typeof(SearchBar));
+        private const string ElementSearchContent = "PART_SearchContent";
+        private TextBox _searchText;
+
 
         /// <summary>
         /// 搜索内容
@@ -48,8 +53,24 @@ namespace CookPopularControl.Controls
             }
         }
 
+
+        /// <summary>
+        /// 是否开启自动查询
+        /// </summary>
+        public bool IsAutoSearch
+        {
+            get => (bool)GetValue(IsAutoSearchProperty);
+            set => SetValue(IsAutoSearchProperty, ValueBoxes.BooleanBox(value));
+        }
+        /// <summary>
+        /// 提供<see cref="IsAutoSearch"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsAutoSearchProperty =
+            DependencyProperty.Register("IsAutoSearch", typeof(bool), typeof(SearchBar), new PropertyMetadata(ValueBoxes.TrueBox));
+
+
         [Description("点击搜索按钮时发生")]
-        public event RoutedEventHandler StartSearch
+        public event RoutedPropertySingleEventHandler<string> StartSearch
         {
             add { this.AddHandler(StartSearchEvent, value); }
             remove { this.RemoveHandler(StartSearchEvent, value); }
@@ -58,7 +79,7 @@ namespace CookPopularControl.Controls
         /// <see cref="StartSearchEvent"/>标识搜索事件 
         /// </summary>
         public static readonly RoutedEvent StartSearchEvent =
-            EventManager.RegisterRoutedEvent("StartSearch", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(SearchBar));
+            EventManager.RegisterRoutedEvent("StartSearch", RoutingStrategy.Bubble, typeof(RoutedPropertySingleEventHandler<string>), typeof(SearchBar));
 
         protected virtual void OnStartSearch(string content)
         {
@@ -89,6 +110,25 @@ namespace CookPopularControl.Controls
             {
                 OnStartSearch((Content ?? string.Empty).ToString());
             }, (s, e) => e.CanExecute = true));
+        }
+
+        public override void OnApplyTemplate()
+        {
+            if (_searchText != null)
+                _searchText.TextChanged -= _searchText_TextChanged;
+
+            base.OnApplyTemplate();
+
+            _searchText = GetTemplateChild(ElementSearchContent) as TextBox;
+
+            if (_searchText != null)
+                _searchText.TextChanged += _searchText_TextChanged;
+        }
+
+        private void _searchText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (IsAutoSearch)
+                OnStartSearch((Content ?? string.Empty).ToString());
         }
     }
 }

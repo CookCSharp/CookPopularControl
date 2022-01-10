@@ -27,21 +27,22 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" Background="Transparent"
+                            <TextBox x:Name="PART_SearchContent" Grid.Column="0"
                                      Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      BorderThickness="0"
+                                     Background="Transparent"
                                      common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                      common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                      common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                      common:TextElementAttached.IsAddClearButton="{TemplateBinding common:TextElementAttached.IsAddClearButton}"
                                      common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}" />
                             <Button Grid.Column="1"
+                                    Command="{x:Static pc:SearchBar.SearchCommand}"
                                     Margin="5,0"
                                     ToolTip="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SearchGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="15"
                                     common:FrameworkElementBaseAttached.IconWidth="15"
-                                    Command="{x:Static pc:SearchBar.SearchCommand}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}" />
                         </Grid>
                     </Border>
