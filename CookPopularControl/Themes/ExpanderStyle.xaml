@@ -9,7 +9,7 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="{DynamicResource LightBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="20" />
@@ -127,7 +127,7 @@
                                           common:ButtonBaseAttached.IsShowRipple="True"
                                           common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                           common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}">
+                                          Style="{DynamicResource ToggleButtonIconStyle}">
                                 <ToggleButton.Content>
                                     <ContentPresenter Content="{TemplateBinding Header}"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -310,30 +310,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Expander}">
                     <ControlTemplate.Resources>
-                        <Storyboard x:Key="ScaleXStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
-                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
-                                             To="1" Duration="0" />
-                        </Storyboard>
-                        <Storyboard x:Key="ScaleYStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
-                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
-                                             To="1" Duration="0" />
-                        </Storyboard>
                         <Storyboard x:Key="AngleStoryboard">
                             <DoubleAnimation Storyboard.TargetName="ExpanderButtonRotateTransform"
                                              Storyboard.TargetProperty="(RotateTransform.Angle)"
                                              From="0" To="-90" Duration="0" />
                         </Storyboard>
 
-                        <Storyboard x:Key="ExpandedStoryboard">
-                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
-                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
-                                             From="0" To="1" Duration="0:0:0.2">
-                                <DoubleAnimation.EasingFunction>
-                                    <CubicEase EasingMode="EaseInOut" />
-                                </DoubleAnimation.EasingFunction>
-                            </DoubleAnimation>
+                        <Storyboard x:Key="ExpandedDownStoryboard">
                             <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
                                              Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
                                              From="0" To="1" Duration="0:0:0.2">
@@ -342,7 +325,45 @@
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
                         </Storyboard>
-                        <Storyboard x:Key="CollapsedStoryboard">
+                        <Storyboard x:Key="CollapsedDownStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                                             From="1" To="0" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+
+                        <Storyboard x:Key="ExpandedUpStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                                             From="0" To="1" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Key="CollapsedUpStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                                             From="1" To="0" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+
+                        <Storyboard x:Key="ExpandedLeftStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                                             From="0" To="1" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Key="CollapsedLeftStoryboard">
                             <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
                                              Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              From="1" To="0" Duration="0:0:0.2">
@@ -350,8 +371,20 @@
                                     <CubicEase EasingMode="EaseInOut" />
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
+                        </Storyboard>
+
+                        <Storyboard x:Key="ExpandedRightStoryboard">
                             <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
-                                             Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                                             From="0" To="1" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Key="CollapsedRightStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="ContentPresenterScaleTransform"
+                                             Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
                                              From="1" To="0" Duration="0:0:0.2">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut" />
@@ -376,7 +409,7 @@
                                           common:ButtonBaseAttached.IsShowRipple="True"
                                           common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                           common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}">
+                                          Style="{DynamicResource ToggleButtonIconStyle}">
                                 <ToggleButton.Content>
                                     <ContentPresenter Content="{TemplateBinding Header}"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -398,7 +431,7 @@
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                                 <ContentPresenter.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform x:Name="ContentPresenterScaleTransform" ScaleX="1" ScaleY="1" />
+                                        <ScaleTransform x:Name="ContentPresenterScaleTransform" />
                                     </TransformGroup>
                                 </ContentPresenter.LayoutTransform>
                             </ContentPresenter>
@@ -426,9 +459,6 @@
                             <Setter Property="VerticalContentAlignment" Value="Center" TargetName="ExpanderButton" />
                             <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" TargetName="ExpanderButton" />
                             <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" TargetName="ExpanderButton" />
-                            <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource ScaleXStoryboard}" />
-                            </Trigger.EnterActions>
                         </Trigger>
                         <Trigger Property="ExpandDirection" Value="Up">
                             <Setter Property="DockPanel.Dock" Value="Bottom" TargetName="ExpanderButton" />
@@ -441,9 +471,6 @@
                             <Setter Property="VerticalContentAlignment" Value="Center" TargetName="ExpanderButton" />
                             <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource UpTriangleGeometry}" TargetName="ExpanderButton" />
                             <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" TargetName="ExpanderButton" />
-                            <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource ScaleXStoryboard}" />
-                            </Trigger.EnterActions>
                         </Trigger>
                         <Trigger Property="ExpandDirection" Value="Left">
                             <Setter Property="DockPanel.Dock" Value="Right" TargetName="ExpanderButton" />
@@ -458,11 +485,9 @@
                             <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Top" TargetName="ExpanderButton" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="AngleStoryboardLeft" Storyboard="{StaticResource AngleStoryboard}" />
-                                <BeginStoryboard x:Name="ScaleYStoryboardLeft" Storyboard="{StaticResource ScaleYStoryboard}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
                                 <RemoveStoryboard BeginStoryboardName="AngleStoryboardLeft" />
-                                <RemoveStoryboard BeginStoryboardName="ScaleYStoryboardLeft" />
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="ExpandDirection" Value="Right">
@@ -478,28 +503,119 @@
                             <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Top" TargetName="ExpanderButton" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="AngleStoryboardRight" Storyboard="{StaticResource AngleStoryboard}" />
-                                <BeginStoryboard x:Name="ScaleYStoryboardRight" Storyboard="{StaticResource ScaleYStoryboard}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
                                 <RemoveStoryboard BeginStoryboardName="AngleStoryboardRight" />
-                                <RemoveStoryboard BeginStoryboardName="ScaleYStoryboardRight" />
                             </Trigger.ExitActions>
                         </Trigger>
 
-                        <Trigger Property="IsExpanded" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="ExpandedStoryboard" Storyboard="{StaticResource ExpandedStoryboard}" />
-                                <RemoveStoryboard BeginStoryboardName="CollapsedStoryboard" />
-                            </Trigger.EnterActions>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Down" />
+                                <Condition Property="IsExpanded" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedTrueDownStoryboard" Storyboard="{StaticResource ExpandedDownStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedTrueDownStoryboard" />
+                            </MultiTrigger.ExitActions>
                             <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.ExpandedGeometry)}" TargetName="ExpanderButton" />
-                        </Trigger>
-                        <Trigger Property="IsExpanded" Value="False">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="CollapsedStoryboard" Storyboard="{StaticResource CollapsedStoryboard}" />
-                                <RemoveStoryboard BeginStoryboardName="ExpandedStoryboard" />
-                            </Trigger.EnterActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Down" />
+                                <Condition Property="IsExpanded" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedFalseDownStoryboard" Storyboard="{StaticResource CollapsedDownStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedFalseDownStoryboard" />
+                            </MultiTrigger.ExitActions>
                             <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.CollapsedGeometry)}" TargetName="ExpanderButton" />
-                        </Trigger>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Up" />
+                                <Condition Property="IsExpanded" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedTrueUpStoryboard" Storyboard="{StaticResource ExpandedUpStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedTrueUpStoryboard" />
+                            </MultiTrigger.ExitActions>
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.ExpandedGeometry)}" TargetName="ExpanderButton" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Up" />
+                                <Condition Property="IsExpanded" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedFalseUpStoryboard" Storyboard="{StaticResource CollapsedUpStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedFalseUpStoryboard" />
+                            </MultiTrigger.ExitActions>
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.CollapsedGeometry)}" TargetName="ExpanderButton" />
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Left" />
+                                <Condition Property="IsExpanded" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedTrueLeftStoryboard" Storyboard="{StaticResource ExpandedLeftStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedTrueLeftStoryboard" />
+                            </MultiTrigger.ExitActions>
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.ExpandedGeometry)}" TargetName="ExpanderButton" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Left" />
+                                <Condition Property="IsExpanded" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedFalseLeftStoryboard" Storyboard="{StaticResource CollapsedLeftStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedFalseLeftStoryboard" />
+                            </MultiTrigger.ExitActions>
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.CollapsedGeometry)}" TargetName="ExpanderButton" />
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Right" />
+                                <Condition Property="IsExpanded" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedTrueRightStoryboard" Storyboard="{StaticResource ExpandedRightStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedTrueRightStoryboard" />
+                            </MultiTrigger.ExitActions>
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.ExpandedGeometry)}" TargetName="ExpanderButton" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ExpandDirection" Value="Right" />
+                                <Condition Property="IsExpanded" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandedFalseRightStoryboard" Storyboard="{StaticResource CollapsedRightStoryboard}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="ExpandedFalseRightStoryboard" />
+                            </MultiTrigger.ExitActions>
+                            <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ExpanderAssistant.CollapsedGeometry)}" TargetName="ExpanderButton" />
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

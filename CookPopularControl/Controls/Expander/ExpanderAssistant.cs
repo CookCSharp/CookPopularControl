@@ -23,15 +23,6 @@ namespace CookPopularControl.Controls
 {
     public class ExpanderAssistant
     {
-        public static double GetExpanderHeaderHeight(DependencyObject obj) => (double)obj.GetValue(ExpanderHeaderHeightProperty);
-        public static void SetExpanderHeaderHeight(DependencyObject obj, double value) => obj.SetValue(ExpanderHeaderHeightProperty, value);
-        /// <summary>
-        /// 表示当<see cref="ExpandDirection.Down"/>或者<see cref="ExpandDirection.Up"/>时<see cref="Expander"/>的标头高度附加属性
-        /// </summary>
-        public static readonly DependencyProperty ExpanderHeaderHeightProperty =
-            DependencyProperty.RegisterAttached("ExpanderHeaderHeight", typeof(double), typeof(ExpanderAssistant), new PropertyMetadata(ValueBoxes.Double30Box));
-
-
         public static double GetExpanderHeaderWidth(DependencyObject obj) => (double)obj.GetValue(ExpanderHeaderWidthProperty);
         public static void SetExpanderHeaderWidth(DependencyObject obj, double value) => obj.SetValue(ExpanderHeaderWidthProperty, value);
         /// <summary>
@@ -39,6 +30,15 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty ExpanderHeaderWidthProperty =
             DependencyProperty.RegisterAttached("ExpanderHeaderWidth", typeof(double), typeof(ExpanderAssistant), new PropertyMetadata(ValueBoxes.Double30Box));
+
+
+        public static double GetExpanderHeaderHeight(DependencyObject obj) => (double)obj.GetValue(ExpanderHeaderHeightProperty);
+        public static void SetExpanderHeaderHeight(DependencyObject obj, double value) => obj.SetValue(ExpanderHeaderHeightProperty, value);
+        /// <summary>
+        /// 表示当<see cref="ExpandDirection.Down"/>或者<see cref="ExpandDirection.Up"/>时<see cref="Expander"/>的标头高度附加属性
+        /// </summary>
+        public static readonly DependencyProperty ExpanderHeaderHeightProperty =
+            DependencyProperty.RegisterAttached("ExpanderHeaderHeight", typeof(double), typeof(ExpanderAssistant), new PropertyMetadata(ValueBoxes.Double30Box));
 
 
         public static Brush GetExpanderHeaderBackground(DependencyObject obj) => (Brush)obj.GetValue(ExpanderHeaderBackgroundProperty);
