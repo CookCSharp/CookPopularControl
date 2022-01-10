@@ -14,11 +14,11 @@ using System.Windows.Media;
 /*
  * Description：TrayIcon 
  * Author： Chance(a cook of write code)
- * Company: NCATest
+ * Company: CookCSharp
  * Create Time：2022-01-01 22:02:34
  * .NET Version: 4.6
  * CLR Version: 4.0.30319.42000
- * Copyright (c) NCATest 2022 All Rights Reserved.
+ * Copyright (c) CookCSharp 2022 All Rights Reserved.
  */
 namespace CookPopularControl.Controls
 {

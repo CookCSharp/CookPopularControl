@@ -19,14 +19,14 @@ namespace MvvmTestDemo.DemoViews
             InitializeComponent();
         }
 
-        private void SearchControl_StartSearch(object sender, RoutedEventArgs e)
+        private void SearchBar_StartSearch(object sender, RoutedEventArgs e)
         {
             //StreamResourceInfo sri = Application.GetResourceStream(new Uri("/Resources/Cursors/myCursor.cur", UriKind.Relative));
-            //(sender as SearchControl).Cursor = new Cursor(sri.Stream);
-            (sender as SearchControl).Cursor = CursorHelper.ConvertToCursor(customCursor, new Point(0.5, 0.5));
+            //(sender as SearchBar).Cursor = new Cursor(sri.Stream);
+            (sender as SearchBar).Cursor = CursorHelper.ConvertToCursor(customCursor, new Point(0.5, 0.5));
         }
 
-        private void SearchControl_ContentChanged(object sender, TextChangedEventArgs e)
+        private void SearchBar_ContentChanged(object sender, TextChangedEventArgs e)
         {
 
         }

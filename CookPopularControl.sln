@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30709.132
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookPopularControl", "CookPopularControl\CookPopularControl.csproj", "{7CC74B8F-F92B-4A8F-A741-FAC93B514AE5}"
 EndProject
@@ -9,13 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
+		nuget.config = nuget.config
 		Settings.XamlStyler = Settings.XamlStyler
 		Version.props = Version.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmTestDemo", "MvvmTestDemo\MvvmTestDemo.csproj", "{D832B078-7825-4D6C-8EF9-78E04EB2296B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookPopularCSharpToolkit", "CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj", "{C577F66C-168A-40FF-89B2-F699DF1D8A1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookPopularCSharpToolkit", "CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj", "{C577F66C-168A-40FF-89B2-F699DF1D8A1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
@@ -27,9 +30,20 @@ namespace CookPopularControl.Communal.ViewModel
         {
             if (!EqualityComparer<T>.Default.Equals(item, value))
             {
+                VerifyProperty(propertyName);
+
                 item = value;
                 OnPropertyChanged(propertyName);
             }
+        }
+
+        [Conditional("DEBUG")]
+        private void VerifyProperty(string propertyName)
+        {
+            var type = this.GetType();
+            var propertyInfo = type.GetTypeInfo().GetDeclaredProperty(propertyName);
+
+            Debug.Assert(propertyInfo != null, string.Format(CultureInfo.InvariantCulture, "{0} is not a property of {1}", propertyName, type.FullName));
         }
     }
 

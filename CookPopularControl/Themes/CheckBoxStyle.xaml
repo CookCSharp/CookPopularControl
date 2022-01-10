@@ -7,18 +7,12 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/CheckBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-
     <Style x:Key="DefaultCheckBoxStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBoxBaseStyle}">
         <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="pc:CheckBoxAssistant.FillThickness" Value="1" />
         <Setter Property="pc:CheckBoxAssistant.FillType" Value="Check" />
         <Setter Property="pc:CheckBoxAssistant.FillSize" Value="30" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="1" />
-    </Style>
-
-    <Style x:Key="DefaultSwitchControlStyle" TargetType="{x:Type pc:SwitchControl}" BasedOn="{StaticResource SwitchControlBaseStyle}">
-        <Setter Property="SwicthCloseBackground" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="SwitchOpenBackground" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
 
 </ResourceDictionary>

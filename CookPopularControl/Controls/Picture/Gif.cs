@@ -20,11 +20,11 @@ using System.Windows.Threading;
 /*
  * Description：Gif 
  * Author： Chance(a cook of write code)
- * Company: NCATest
+ * Company: CookCSharp
  * Create Time：2021-12-24 21:05:57
  * .NET Version: 4.6
  * CLR Version: 4.0.30319.42000
- * Copyright (c) NCATest 2021 All Rights Reserved.
+ * Copyright (c) CookCSharp 2021 All Rights Reserved.
  */
 namespace CookPopularControl.Controls
 {

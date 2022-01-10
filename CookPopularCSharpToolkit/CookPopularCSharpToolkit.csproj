@@ -7,7 +7,7 @@
 		<!--<Version>1.0.1.1-dev-20211113</Version>-->
         <PackageIcon>CSharp.png</PackageIcon>
         <PackageTags>c#,csharp,toolkit,</PackageTags>
-        <Description>基于.NetFramework4.6.1和.Net5.0的C#工具方法</Description>
+        <Description>兼容.NetFramework与.NetCore/.Net的工具方法</Description>
         <!--<Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>-->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -26,8 +26,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="log4net" Version="2.0.13" />
-      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.37" />
+      <PackageReference Include="log4net" Version="2.0.14" />
+      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
       <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0-preview.1.21102.12" />
       <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
       <PackageReference Include="System.ValueTuple" Version="4.5.0" />

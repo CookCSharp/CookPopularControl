@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:dialogBox="clr-namespace:CookPopularControl.DialogBox"
+                    xmlns:dialog="clr-namespace:CookPopularControl.DialogBox"
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:win="clr-namespace:CookPopularControl.Windows">
@@ -14,53 +14,57 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/SystemConstValue.xaml" />
 
         <!--  WPF Original Control  -->
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BorderStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RadioButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CheckBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ProgressBarStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PasswordBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DataGridStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DateTimePickerStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/GroupBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LabelStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListViewStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MenuStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PasswordBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ProgressBarStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RadioButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollBarStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollViewerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SliderStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListViewStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DataGridStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DateTimePickerStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MenuStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TabControlStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ExpanderStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LabelStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BorderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ThumbStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TreeViewStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolBarStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToolTipStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
 
         <!--  Template  -->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/OtherControlTemplate.xaml" />
 
         <!--  Extension Control  -->
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToastMessageStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NumericUpDownStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CarouselViewStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MediaPlayerStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NotifyStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ColorPickerStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DialogBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/LoadingStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MediaPlayerStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/MessageDialogStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NotifyStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NumericUpDownStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PropertyGridStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SearchBarStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwitchControlStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToastMessageStyle.xaml" />
+
 
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/OtherControlsStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DragableControlsStyle.xaml" />
@@ -72,10 +76,9 @@
     <Style x:Key="{x:Type win:NoneTitleBarWindow}" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource NoneTitleBarWindowStyle}" />
     <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource MessageDialogStyle}" />
     <Style x:Key="{x:Type win:ToastMessage}" TargetType="{x:Type win:ToastMessage}" BasedOn="{StaticResource ToastMessageStyle}" />
-    <Style x:Key="{x:Type dialogBox:DialogBox}" TargetType="{x:Type dialogBox:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}" />
+    <Style x:Key="{x:Type dialog:DialogBox}" TargetType="{x:Type dialog:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}" />
 
-
-    
+  
     <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}" />
     <Style x:Key="{x:Type Calendar}" TargetType="{x:Type Calendar}" BasedOn="{StaticResource DefaultCalendarStyle}" />
     <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
@@ -107,7 +110,6 @@
     <Style x:Key="{x:Type TreeView}" TargetType="{x:Type TreeView}" BasedOn="{StaticResource DefaultTreeViewStyle}" />
 
 
-
     <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}" />
     <Style x:Key="{x:Type pc:AnimationPath}" TargetType="{x:Type pc:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}" />
     <Style x:Key="{x:Type pc:Badge}" TargetType="{x:Type pc:Badge}" BasedOn="{StaticResource DefaultBadgeStyle}" />
@@ -130,12 +132,13 @@
     <Style x:Key="{x:Type pc:PlaneLoading}" TargetType="{x:Type pc:PlaneLoading}" BasedOn="{StaticResource PlaneLoadingStyle}" />
     <Style x:Key="{x:Type pc:PopupMenu}" TargetType="{x:Type pc:PopupMenu}" BasedOn="{StaticResource PopupMenuStyle}" />
     <Style x:Key="{x:Type pc:PopupMessage}" TargetType="{x:Type pc:PopupMessage}" BasedOn="{StaticResource PopupMessageStyle}" />
+    <Style x:Key="{x:Type pc:PropertyGrid}" TargetType="{x:Type pc:PropertyGrid}" BasedOn="{StaticResource PropertyGridStyle}" />
     <Style x:Key="{x:Type pc:QRCodeControl}" TargetType="{x:Type pc:QRCodeControl}" BasedOn="{StaticResource DefaultQRCodeControlStyle}" />
     <Style x:Key="{x:Type pc:RaindropLoading}" TargetType="{x:Type pc:RaindropLoading}" BasedOn="{StaticResource RaindropLoadingStyle}" />
     <Style x:Key="{x:Type pc:RecCircleLoading}" TargetType="{x:Type pc:RecCircleLoading}" BasedOn="{StaticResource DefaultRecCircleLoadingStyle}" />
     <Style x:Key="{x:Type pc:RecColumnLoading}" TargetType="{x:Type pc:RecColumnLoading}" BasedOn="{StaticResource DefaultRecColumnLoadingStyle}" />
     <Style x:Key="{x:Type pc:RecGridLoading}" TargetType="{x:Type pc:RecGridLoading}" BasedOn="{StaticResource DefaultRecGridLoadingStyle}" />
-    <Style x:Key="{x:Type pc:SearchControl}" TargetType="{x:Type pc:SearchControl}" BasedOn="{StaticResource DefaultSearchControlStyle}" />
+    <Style x:Key="{x:Type pc:SearchBar}" TargetType="{x:Type pc:SearchBar}" BasedOn="{StaticResource DefaultSearchBarStyle}" />
     <Style x:Key="{x:Type pc:Star}" TargetType="{x:Type pc:Star}" BasedOn="{StaticResource DefaultStarStyle}" />
     <Style x:Key="{x:Type pc:Swiper}" TargetType="{x:Type pc:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}" />
     <Style x:Key="{x:Type pc:SwitchControl}" TargetType="{x:Type pc:SwitchControl}" BasedOn="{StaticResource DefaultSwitchControlStyle}" />
@@ -143,7 +146,6 @@
     <Style x:Key="{x:Type pc:TimePicker}" TargetType="{x:Type pc:TimePicker}" BasedOn="{StaticResource DefaultTimePickerStyle}" />
 
 
-    
     <Style x:Key="{x:Type drag:Branch}" TargetType="{x:Type drag:Branch}" BasedOn="{StaticResource DefaultBranchStyle}" />
     <Style x:Key="{x:Type drag:DropZone}" TargetType="{x:Type drag:DropZone}" BasedOn="{StaticResource DefaultDropZoneStyle}" />
     <Style x:Key="{x:Type drag:DragableTabControl}" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DefaultDragableTabControlStyle}" />

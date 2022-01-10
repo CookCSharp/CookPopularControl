@@ -170,6 +170,21 @@
             <param name="start">起始位置</param>
             <param name="length">长度</param>
         </member>
+        <member name="T:CookPopularControl.Communal.ControlCommands">
+            <summary>
+            统一所有控件中所用到的命令(方便管理)
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.ControlCommands.SortByCategoryCommand">
+            <summary>
+            按照类别排序
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Communal.ControlCommands.SortByNameCommand">
+            <summary>
+            按照名称排序
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.ShowDefaultCloseButtonConverter">
             <summary>
             <see cref="T:System.Windows.Controls.TabControl"/>标题面板大小转换器
@@ -442,7 +457,7 @@
             播放速度列表
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.Adorner.AdornerBase">
+        <member name="T:CookPopularControl.Controls.AdornerBase">
             <summary>
             将装饰器绑定到元素的基类
             </summary>
@@ -1098,6 +1113,26 @@
             <see cref="F:CookPopularControl.Controls.RadioButtonAssistant.HeaderProperty"/>标识可填充的任意元素
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.SwitchControl">
+            <summary>
+            表示开关控件
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchContent">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchOpenBackground">
+            <summary>
+            打开的背景颜色
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.SwitchControl.SwicthCloseBackground">
+            <summary>
+            关闭的背景颜色
+            </summary>
+        </member>
         <member name="F:CookPopularControl.Controls.ToggleButtonAssistant.UnCheckedGeometryProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.ToggleButtonAssistant.OnCheckedElementProperty"/>表示未选中时的图标
@@ -1166,26 +1201,6 @@
         <member name="F:CookPopularControl.Controls.CheckBoxAssistant.FillSizeProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.CheckBoxAssistant.FillTypeProperty"/>提供填充大小的附加属性
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.SwitchControl">
-            <summary>
-            表示开关控件
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchContent">
-            <summary>
-            文本
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchOpenBackground">
-            <summary>
-            打开的背景颜色
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.SwitchControl.SwicthCloseBackground">
-            <summary>
-            关闭的背景颜色
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.ColorPicker">
@@ -1930,6 +1945,31 @@
             with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.ExpanderAssistant.ExpanderHeaderWidthProperty">
+            <summary>
+            表示当<see cref="F:System.Windows.Controls.ExpandDirection.Left"/>或者<see cref="F:System.Windows.Controls.ExpandDirection.Right"/>时<see cref="T:System.Windows.Controls.Expander"/>的标头宽度附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ExpanderAssistant.ExpanderHeaderHeightProperty">
+            <summary>
+            表示当<see cref="F:System.Windows.Controls.ExpandDirection.Down"/>或者<see cref="F:System.Windows.Controls.ExpandDirection.Up"/>时<see cref="T:System.Windows.Controls.Expander"/>的标头高度附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ExpanderAssistant.ExpanderHeaderBackgroundProperty">
+            <summary>
+            表示<see cref="P:System.Windows.Controls.HeaderedContentControl.Header"/>的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ExpanderAssistant.ExpandedGeometryProperty">
+            <summary>
+            当<see cref="P:System.Windows.Controls.Expander.IsExpanded"/>为<c>True</c>时图标附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ExpanderAssistant.CollapsedGeometryProperty">
+            <summary>
+            当<see cref="P:System.Windows.Controls.Expander.IsExpanded"/>为<c>False</c>时图标附加属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.NumericUpDown">
             <summary>
             表示显示数值的 Windows 数字显示框（也称作 up-down 控件）。
@@ -2018,6 +2058,36 @@
         <member name="F:CookPopularControl.Controls.NumericUpDownAssistant.UpDownButtonBrushProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.NumericUpDownAssistant.UpDownButtonBrushProperty"/>表示UpDownButton的填充颜色
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.SearchBar">
+            <summary>
+            搜索框
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.SearchBar.Content">
+            <summary>
+            搜索内容
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.SearchBar.ContentProperty">
+            <summary>
+            标识<see cref="P:CookPopularControl.Controls.SearchBar.Content"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.SearchBar.IsAutoSearch">
+            <summary>
+            是否开启自动查询
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.SearchBar.IsAutoSearchProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.SearchBar.IsAutoSearch"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.SearchBar.StartSearchEvent">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.SearchBar.StartSearchEvent"/>标识搜索事件 
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.TextPath">
@@ -4670,26 +4740,6 @@
         <member name="M:CookPopularControl.Controls.Layout.OnApplyTemplate">
             <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.</summary>
         </member>
-        <member name="T:CookPopularControl.Controls.SearchControl">
-            <summary>
-            搜索框
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.SearchControl.Content">
-            <summary>
-            搜索内容
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.SearchControl.ContentProperty">
-            <summary>
-            标识<see cref="P:CookPopularControl.Controls.SearchControl.Content"/>的依赖属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.SearchControl.StartSearchEvent">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.SearchControl.StartSearchEvent"/>标识搜索事件 
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Controls.AnimationPanel">
             <summary>
             标识动画面板布局的抽象基类
@@ -5135,6 +5185,177 @@
         <member name="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveHeightProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.WaveProgressBarAssistant.WaveHeightProperty"/>表示波纹的高度
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.PropertyItemEditorType">
+            <summary>
+            指定元素类型
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.PropertyGrid">
+            <summary>
+            属性表格
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyGrid.SelectedObject">
+            <summary>
+            当前选中的项
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyGrid.SelectedObjectProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyGrid.SelectedObject"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyGrid.PropertyTitle">
+            <summary>
+            选中项的标题
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyGrid.PropertyTitleProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyGrid.PropertyTitle"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyGrid.PropertyDescription">
+            <summary>
+            选中项的描述
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyGrid.PropertyDescriptionProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyGrid.PropertyDescription"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyGrid.PropertyTitleWidth">
+            <summary>
+            属性标题默认宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyGrid.PropertyTitleWidthProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyGrid.PropertyTitleWidth"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.PropertyItem">
+            <summary>
+            表示<see cref="T:CookPopularControl.Controls.PropertyGrid"/>中一个子项
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.PropertySource">
+            <summary>
+            属性绑定源
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.IsBrowsable">
+            <summary>
+            指定某一属性或事件是否应在“属性窗口中显示”
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.IsBrowsableProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.IsBrowsable"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.IsReadOnly">
+            <summary>
+            指定该属性是只读属性还是读/写属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.IsReadOnlyProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.IsReadOnly"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.Category">
+            <summary>
+            指定当属性或事件显示再一个设置为“按分类顺序”模式的<see cref="T:CookPopularControl.Controls.PropertyGrid"/>控件中时，
+            用于对属性或事件分组的类别名称
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.CategoryProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.Category"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.Description">
+            <summary>
+            指定属性或事件的描述
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.DescriptionProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.Description"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.DisplayName">
+            <summary>
+            指定属性、事件或不采用任何参数的公共void方法的显示名称
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.DisplayNameProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.DisplayName"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.PropertyType">
+            <summary>
+            指定属性类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.PropertyTypeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.PropertyType"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.PropertyName">
+            <summary>
+            指定属性名
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.PropertyNameProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.PropertyName"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.Value">
+            <summary>
+            属性值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.ValueProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.Value"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.DefaultValue">
+            <summary>
+            属性默认值
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.DefaultValueProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.DefaultValue"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.Element">
+            <summary>
+            承接属性的元素
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.ElementProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.Element"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.PropertyItem.EditorFactory">
+            <summary>
+            属性编辑器工厂
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.PropertyItem.EditorFactoryProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.PropertyItem.EditorFactory"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.QRCodeControl">
@@ -7677,6 +7898,36 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

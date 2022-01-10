@@ -8,11 +8,11 @@ using System.ComponentModel;
 /*
  * Description：CollectionDeepObserver<T>
  * Author： Chance(a cook of write code)
- * Company: NCATest
+ * Company: CookCSharp
  * Create Time：2021-12-11 21:18:13
  * .NET Version: 4.6
  * CLR Version: 4.0.30319.42000
- * Copyright (c) NCATest 2021 All Rights Reserved.
+ * Copyright (c) CookCSharp 2021 All Rights Reserved.
  */
 namespace CookPopularCSharpToolkit.Communal.Collections
 {

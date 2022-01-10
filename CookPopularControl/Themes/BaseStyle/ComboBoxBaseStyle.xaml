@@ -107,7 +107,6 @@
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="{x:Type ComboBoxItem}">
@@ -208,9 +207,9 @@
                                         </MultiBinding>
                                     </Button.Visibility>
                                 </Button>
-                                <ToggleButton Margin="8,0" Focusable="False"
+                                <ToggleButton IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Margin="8,0" Focusable="False"
                                               HorizontalAlignment="Right"
-                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                               Visibility="{TemplateBinding pc:ComboBoxAssistant.IsShowDropDownButton, Converter={pt:BooleanToVisibilityConverter}}"
                                               Style="{StaticResource DropDownToggleButtonStyle}" />
                             </WrapPanel>
@@ -266,6 +265,7 @@
         </Setter>
     </Style>
 
+
     <Style x:Key="MultiComboBoxItemStyle" TargetType="{x:Type ListBoxItem}">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualWidth}" />
@@ -302,9 +302,9 @@
                                           Width="{Binding ElementName=ItemGrid, Path=Width}"
                                           Height="{Binding ElementName=ItemGrid, Path=Height}"
                                           Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.CheckBoxContent)}"
+                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsSelected}"
                                           Focusable="True"
                                           common:SelectorAttached.IsCheckBoxChecked="True"
-                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsSelected}"
                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=CheckBox}" />
                                 <Button x:Name="ItemButton"
                                         Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
@@ -455,9 +455,9 @@
                                         </MultiBinding>
                                     </Button.Visibility>
                                 </Button>
-                                <ToggleButton Margin="8,0" Focusable="False"
+                                <ToggleButton IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Margin="8,0" Focusable="False"
                                               HorizontalAlignment="Right"
-                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                               Style="{StaticResource DropDownToggleButtonStyle}" />
                             </WrapPanel>
                             <Popup x:Name="PART_Popup"

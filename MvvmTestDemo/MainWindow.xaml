@@ -58,7 +58,7 @@
     </pc:SideBarWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
-        <Grid Visibility="Visible">
+        <Grid Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -99,7 +99,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:WindowsDemo Visibility="Collapsed" />
+        <view:PropertyGridDemo Visibility="Visible" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"

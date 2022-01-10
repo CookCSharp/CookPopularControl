@@ -39,8 +39,6 @@ namespace CookPopularControl.Controls
         public SwitchControl()
         {
             _translate = new TranslateTransform();
-            this.Loaded += SwitchControl_Loaded;
-            //this.SizeChanged += SwitchControl_SizeChanged;
         }
 
         public override void OnApplyTemplate()
@@ -51,21 +49,10 @@ namespace CookPopularControl.Controls
             _borderCheckFlag.RenderTransform = _translate;
             _sliderw = this.Width - this.Height;
             FrameworkElementBaseAttached.SetCornerRadius(this, new CornerRadius(this.Height / 2));
-        }
 
-        private void SwitchControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-
-        }
-
-        private void SwitchControl_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            _sliderw = this.Width - this.Height;
-            FrameworkElementBaseAttached.SetCornerRadius(this, new CornerRadius(this.Height / 2));
             if (this.IsChecked == true)
             {
-                OnChecked(e);
+                OnChecked(new RoutedEventArgs());
             }
         }
 
@@ -106,8 +93,6 @@ namespace CookPopularControl.Controls
         //选中
         protected override void OnChecked(RoutedEventArgs e)
         {
-            base.OnChecked(e);
-
             if (_translate == null) return;
             if (double.IsNaN(_sliderw)) return;
 
@@ -122,8 +107,6 @@ namespace CookPopularControl.Controls
         //未选中
         protected override void OnUnchecked(RoutedEventArgs e)
         {
-            base.OnUnchecked(e);
-
             if (_translate == null) return;
             if(double.IsNaN(_sliderw)) return;
 

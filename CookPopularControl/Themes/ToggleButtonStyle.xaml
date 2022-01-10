@@ -8,7 +8,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
+    <Style x:Key="DefaultToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ButtonBaseStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:FrameworkElementBaseAttached.ShadowEffect" Value="{x:Null}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="0" />
@@ -83,6 +83,23 @@
                 <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
             </Trigger>
         </Style.Triggers>
+    </Style>
+    <Style x:Key="ToggleButtonCheckedIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonIconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="ToggleButtonOutlineCheckedIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonCheckedIconStyle}">
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
     </Style>
 
 

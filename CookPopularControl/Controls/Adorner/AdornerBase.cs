@@ -11,7 +11,7 @@ using OriginAdorner = System.Windows.Documents.Adorner;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-12 11:13:11
  */
-namespace CookPopularControl.Controls.Adorner
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 将装饰器绑定到元素的基类

@@ -4,7 +4,7 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
-    <Style x:Key="DefaultButtonBaseStyle" TargetType="{x:Type ButtonBase}">
+    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="Height" Value="{DynamicResource DefaultButtonHeight}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />

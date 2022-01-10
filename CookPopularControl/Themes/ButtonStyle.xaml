@@ -9,7 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonBaseStyle}">
+    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:FrameworkElementBaseAttached.ShadowEffect" Value="{x:Null}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="0" />

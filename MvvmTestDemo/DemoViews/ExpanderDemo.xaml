@@ -21,9 +21,9 @@
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Height" Value="30" />
             <Setter Property="LineHeight" Value="30" />
-            <Setter Property="Padding" Value="0,10" />
+            <Setter Property="Padding" Value="0,6" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryThemeBrush}" />
         </Style>
     </UserControl.Resources>
 
@@ -49,6 +49,8 @@
                           pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
                           pc:FrameworkElementBaseAttached.IconWidth="30"
                           pc:FrameworkElementBaseAttached.IconHeight="30" 
+                          pc:ExpanderAssistant.ExpandedGeometry="{StaticResource MinusNoCircleGeometry}"
+                          pc:ExpanderAssistant.CollapsedGeometry="{StaticResource PlusNoCircleGeometry}"
                           Style="{StaticResource CustomExpanderStyle}">
                     <StackPanel>
                         <TextBlock Text="First" />
@@ -71,7 +73,6 @@
                 </Expander>
                 <Expander Header="CustomUp" ExpandDirection="Up" Width="400" Margin="0,30"
                           pc:ExpanderAssistant.ExpanderHeaderHeight="60" 
-                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
                           pc:FrameworkElementBaseAttached.IconWidth="30"
                           pc:FrameworkElementBaseAttached.IconHeight="30" 
                           Style="{StaticResource CustomExpanderStyle}">
@@ -87,7 +88,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="30" Orientation="Horizontal">
                 <Expander Header="Left" ExpandDirection="Left" Height="400">
-                    <StackPanel>
+                    <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
                         <TextBlock Text="Third" />
@@ -98,8 +99,12 @@
                 </Expander>
                 <Expander Header="CustomLeft" ExpandDirection="Left" Height="400" Margin="30,0"
                           pc:ExpanderAssistant.ExpanderHeaderWidth="60"
+                          pc:FrameworkElementBaseAttached.IconWidth="30"
+                          pc:FrameworkElementBaseAttached.IconHeight="30" 
+                          pc:ExpanderAssistant.ExpandedGeometry="{StaticResource MinusNoCircleGeometry}"
+                          pc:ExpanderAssistant.CollapsedGeometry="{StaticResource PlusNoCircleGeometry}"
                           Style="{StaticResource CustomExpanderStyle}">
-                    <StackPanel>
+                    <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
                         <TextBlock Text="Third" />
@@ -108,8 +113,8 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="Right" ExpandDirection="Right" Height="400"  >
-                    <StackPanel>
+                <Expander Header="Right" ExpandDirection="Right" Height="400">
+                    <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
                         <TextBlock Text="Third" />
@@ -120,8 +125,10 @@
                 </Expander>
                 <Expander Header="CustomRight" ExpandDirection="Right" Height="400" Margin="30,0"
                           pc:ExpanderAssistant.ExpanderHeaderWidth="60"
+                          pc:FrameworkElementBaseAttached.IconWidth="30"
+                          pc:FrameworkElementBaseAttached.IconHeight="30" 
                           Style="{StaticResource CustomExpanderStyle}">
-                    <StackPanel>
+                    <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
                         <TextBlock Text="Third" />

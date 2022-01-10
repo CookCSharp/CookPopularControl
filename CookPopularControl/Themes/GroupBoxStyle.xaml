@@ -17,9 +17,9 @@
                 <ControlTemplate TargetType="{x:Type GroupBox}">
                     <Grid x:Name="RootGrid">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="4" />
+                            <RowDefinition Height="1" />
                             <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
-                            <RowDefinition Height="4" />
+                            <RowDefinition Height="1" />
                             <RowDefinition Height="{Binding ElementName=PART_Header, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
@@ -40,7 +40,7 @@
                                               ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                               ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
                                               RecognizesAccessKey="True"
-                                              Margin="6,4" />
+                                              Margin="4,0" />
                         </Border>
                         <ContentPresenter Grid.Row="4"
                                           Content="{TemplateBinding Content}"

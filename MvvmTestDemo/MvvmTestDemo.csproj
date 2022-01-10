@@ -52,6 +52,7 @@
         <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
         <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
         <PackageReference Include="ZXing.Net" Version="0.16.6" />
     </ItemGroup>
 

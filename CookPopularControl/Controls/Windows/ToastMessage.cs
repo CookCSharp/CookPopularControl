@@ -15,11 +15,11 @@ using System.Windows.Threading;
 /*
  * Description：ToastMessage 
  * Author： Chance(a cook of write code)
- * Company: NCATest
+ * Company: CookCSharp
  * Create Time：2021-11-25 17:32:33
  * .NET Version: 4.6
  * CLR Version: 4.0.30319.42000
- * Copyright (c) NCATest 2021 All Rights Reserved.
+ * Copyright (c) CookCSharp 2021 All Rights Reserved.
  */
 namespace CookPopularControl.Windows
 {
