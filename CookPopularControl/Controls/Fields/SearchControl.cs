@@ -21,9 +21,9 @@ namespace CookPopularControl.Controls
     [DefaultProperty("Content")]
     [DefaultEvent("ContentChanged")]
     [Localizability(LocalizationCategory.Text)]
-    public class SearchControl : Control
+    public class SearchBar : Control
     {
-        public static readonly ICommand SearchCommand = new RoutedCommand(nameof(SearchCommand), typeof(SearchControl));
+        public static readonly ICommand SearchCommand = new RoutedCommand(nameof(SearchCommand), typeof(SearchBar));
 
         /// <summary>
         /// 搜索内容
@@ -37,12 +37,12 @@ namespace CookPopularControl.Controls
         /// 标识<see cref="Content"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(object), typeof(SearchControl),
+            DependencyProperty.Register("Content", typeof(object), typeof(SearchBar),
                 new PropertyMetadata(default(object), OnContentChanged));
 
         private static void OnContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is SearchControl search)
+            if (d is SearchBar search)
             {
                 search.OnContentChanged();
             }
@@ -58,7 +58,7 @@ namespace CookPopularControl.Controls
         /// <see cref="StartSearchEvent"/>标识搜索事件 
         /// </summary>
         public static readonly RoutedEvent StartSearchEvent =
-            EventManager.RegisterRoutedEvent("StartSearch", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(SearchControl));
+            EventManager.RegisterRoutedEvent("StartSearch", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(SearchBar));
 
         protected virtual void OnStartSearch(string content)
         {
@@ -74,7 +74,7 @@ namespace CookPopularControl.Controls
             remove { this.RemoveHandler(ContentChangedEvent, value); }
         }
         public static readonly RoutedEvent ContentChangedEvent =
-            EventManager.RegisterRoutedEvent("ContentChanged", RoutingStrategy.Bubble, typeof(TextChangedEventHandler), typeof(SearchControl));
+            EventManager.RegisterRoutedEvent("ContentChanged", RoutingStrategy.Bubble, typeof(TextChangedEventHandler), typeof(SearchBar));
 
         protected virtual void OnContentChanged()
         {
@@ -83,7 +83,7 @@ namespace CookPopularControl.Controls
         }
 
 
-        public SearchControl()
+        public SearchBar()
         {
             CommandBindings.Add(new CommandBinding(SearchCommand, (s, e) =>
             {
