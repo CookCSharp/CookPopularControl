@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
@@ -19,11 +20,11 @@ namespace CookPopularControl.Controls
     /// 表示开关控件
     /// </summary>
     [TemplatePart(Name = "PART_CheckFlag", Type = typeof(Border))]
-    public class SwitchControl : System.Windows.Controls.CheckBox
+    public class SwitchControl : ToggleButton
     {
-        private double sliderw; //滑动距离
-        private Border borderCheckFlag; //滑动的控件
-        private TranslateTransform translate; //位移变换
+        private double _sliderw; //滑动距离
+        private Border _borderCheckFlag; //滑动的控件
+        private TranslateTransform _translate; //位移变换
 
         static SwitchControl()
         {
@@ -37,24 +38,30 @@ namespace CookPopularControl.Controls
 
         public SwitchControl()
         {
+            _translate = new TranslateTransform();
             this.Loaded += SwitchControl_Loaded;
+            //this.SizeChanged += SwitchControl_SizeChanged;
+        }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _borderCheckFlag = GetTemplateChild("PART_CheckFlag") as Border;
+            _borderCheckFlag.RenderTransform = _translate;
+            _sliderw = this.Width - this.Height;
+            FrameworkElementBaseAttached.SetCornerRadius(this, new CornerRadius(this.Height / 2));
         }
 
         private void SwitchControl_Loaded(object sender, RoutedEventArgs e)
         {
-            sliderw = this.Width - this.Height;
-            FrameworkElementBaseAttached.SetCornerRadius(this, new CornerRadius(this.Height / 2));
 
-            borderCheckFlag = GetTemplateChild("PART_CheckFlag") as Border;
-            translate = new TranslateTransform();
-            borderCheckFlag.RenderTransform = translate;
 
-            this.SizeChanged += SwitchControl_SizeChanged;
         }
 
         private void SwitchControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            sliderw = this.Width - this.Height;
+            _sliderw = this.Width - this.Height;
             FrameworkElementBaseAttached.SetCornerRadius(this, new CornerRadius(this.Height / 2));
             if (this.IsChecked == true)
             {
@@ -99,23 +106,33 @@ namespace CookPopularControl.Controls
         //选中
         protected override void OnChecked(RoutedEventArgs e)
         {
+            base.OnChecked(e);
+
+            if (_translate == null) return;
+            if (double.IsNaN(_sliderw)) return;
+
             DoubleAnimation doubleAnimation = new DoubleAnimation();
             Duration duration = new Duration(TimeSpan.FromMilliseconds(200));
-            translate.X = 0;
-            doubleAnimation.To = sliderw;
+            _translate.X = 0;
+            doubleAnimation.To = _sliderw;
             doubleAnimation.Duration = duration;
-            translate.BeginAnimation(TranslateTransform.XProperty, doubleAnimation);
+            _translate.BeginAnimation(TranslateTransform.XProperty, doubleAnimation);
         }
 
         //未选中
         protected override void OnUnchecked(RoutedEventArgs e)
         {
+            base.OnUnchecked(e);
+
+            if (_translate == null) return;
+            if(double.IsNaN(_sliderw)) return;
+
             DoubleAnimation doubleAnimation = new DoubleAnimation();
             Duration duration = new Duration(TimeSpan.FromMilliseconds(200));
-            translate.X = sliderw;
+            _translate.X = _sliderw;
             doubleAnimation.To = 0;
             doubleAnimation.Duration = duration;
-            translate.BeginAnimation(TranslateTransform.XProperty, doubleAnimation);
+            _translate.BeginAnimation(TranslateTransform.XProperty, doubleAnimation);
         }
     }
 }

@@ -6,7 +6,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="CheckBoxBaseStyle" TargetType="{x:Type CheckBox}">
@@ -114,64 +114,6 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="Transparent" TargetName="FillGrid" />
                         </MultiTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="SwitchControlBaseStyle" TargetType="{x:Type pc:SwitchControl}">
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="SwitchContent" Value="OFF" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type pc:SwitchControl}">
-                    <BulletDecorator Background="Transparent" SnapsToDevicePixels="True">
-                        <BulletDecorator.Bullet>
-                            <Border x:Name="ForegroundPanel"
-                                    Width="{TemplateBinding Width}"
-                                    Height="{TemplateBinding Height}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding SwicthCloseBackground}"
-                                    CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
-                                <Canvas Background="Transparent">
-                                    <Border x:Name="PART_CheckFlag"
-                                            Width="{TemplateBinding Height}"
-                                            Height="{TemplateBinding Height}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
-                                            Effect="{TemplateBinding common:FrameworkElementBaseAttached.ShadowEffect}">
-                                        <TextBlock Text="{TemplateBinding SwitchContent}"
-                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                    </Border>
-                                </Canvas>
-                            </Border>
-                        </BulletDecorator.Bullet>
-                    </BulletDecorator>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="HasContent" Value="true">
-                            <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual}" />
-                            <Setter Property="Padding" Value="4,0,0,0" />
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=SwitchOpenBackground}" TargetName="ForegroundPanel" />
-                            <Setter Property="SwitchContent" Value="ON" />
-                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
