@@ -60,21 +60,21 @@
                                         Width="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         Height="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
+                                        Command="{x:Static pc:NumericUpDown.PlusCommand}"
                                         Focusable="False"
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                        Command="{x:Static pc:NumericUpDown.PlusCommand}"
                                         Style="{DynamicResource ButtonTransparentIconStyle}" />
                                 <Button x:Name="PART_SubtractButton"
                                         Width="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         Height="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
+                                        Command="{x:Static pc:NumericUpDown.SubtractCommand}"
                                         Focusable="False"
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                        Command="{x:Static pc:NumericUpDown.SubtractCommand}"
                                         Style="{DynamicResource ButtonTransparentIconStyle}" />
                             </UniformGrid>
                         </Grid>
