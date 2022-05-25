@@ -49,7 +49,7 @@ namespace CookPopularCSharpToolkit.Windows
         }
 
         /// <summary>
-        ///     去掉对 <paramref name="element" /> 的点击时间的监听
+        /// 去掉对 <paramref name="element" /> 的点击时间的监听
         /// </summary>
         /// <param name="element"></param>
         /// <param name="clickEventHandler">点击的事件</param>

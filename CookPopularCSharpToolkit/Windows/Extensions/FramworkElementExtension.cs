@@ -25,8 +25,13 @@ namespace CookPopularCSharpToolkit.Windows
         {
             var dpiX = DpiHelper.DeviceDpiX;
             var dpiY = DpiHelper.DeviceDpiY;
-            int width = (int)(element.ActualWidth * DpiHelper.GetScaleX());
-            int height = (int)(element.ActualHeight * DpiHelper.GetScaleX());
+
+            double elementWidth = 0;
+            double elementHeight = 0;
+            CheckElementSide(ref elementWidth, ref elementHeight);
+
+            int width = (int)(elementWidth * DpiHelper.GetScaleX());
+            int height = (int)(elementHeight * DpiHelper.GetScaleX());
             var bitmapSource = new RenderTargetBitmap(width, height, dpiX, dpiY, PixelFormats.Default);
             bitmapSource.Render(element);
 
@@ -52,6 +57,23 @@ namespace CookPopularCSharpToolkit.Windows
                     for (int x = 0; x < width; x++)
                         bitmap.SetPixel(x, y, System.Drawing.Color.FromArgb(pixels[y * width + x]));
                 bitmap.Save(fileName);
+            }
+
+            void CheckElementSide(ref double elementWidth, ref double elementHeight)
+            {
+                if (!double.IsNaN(element.ActualWidth))
+                    elementWidth = element.ActualWidth;
+                else if (element.Width.CompareTo(0) > 0)
+                    elementWidth = element.Width;
+                else
+                    elementWidth = 100;
+
+                if (!double.IsNaN(element.ActualHeight))
+                    elementHeight = element.ActualHeight;
+                else if (element.Height.CompareTo(0) > 0)
+                    elementHeight = element.Height;
+                else
+                    elementHeight = 100;
             }
         }
     }
