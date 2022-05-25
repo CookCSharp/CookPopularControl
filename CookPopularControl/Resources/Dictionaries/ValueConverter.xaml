@@ -8,7 +8,6 @@
     <common:ArcCircularSizeConverter x:Key="ArcCircularSizeConverter" />
     <common:ArcEllipseSizeConverter x:Key="ArcEllipseSizeConverter" />
     <common:BorderClipConverter x:Key="BorderClipConverter" />
-    <common:CheckBoxFillTypeToVisibilityConverter x:Key="CheckBoxFillTypeToVisibilityConverter" />
     <common:EditorTypeToVisibilityConverter x:Key="EditorTypeToVisibilityConverter" />
     <common:ProgressBarValueToTranslateTransformY x:Key="ProgressBarValueToTranslateTransformY" />
     <common:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter" />
@@ -35,6 +34,7 @@
     <!--ToDouble-->
     <pt:ValueTranslateToDoubleConverter x:Key="ValueTranslateToDoubleConverter" />
     <pt:TranslateToCenterDoubleConverter x:Key="TranslateToCenterDoubleConverter" />
+    <pt:HalfOfDifferenceTranslateToDoubleConverter x:Key="HalfOfDifferenceTranslateToDoubleConverter" />
     <!--ToGeometry-->
     <pt:BorderClipToGeometryConverter x:Key="BorderClipToGeometryConverter" />
     <pt:BorderCircularClipToGeometryConverter x:Key="BorderCircularClipToGeometryConverter" />

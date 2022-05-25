@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularCSharpToolkit.Communal;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,11 +16,46 @@ using System.Windows.Media;
 namespace CookPopularControl.Controls
 {
     /// <summary>
+    /// <![CDATA[CheckBox.IsChecked=Null]]>时填充类型
+    /// </summary>
+    public enum NullFillType
+    {
+        ///// <summary>
+        ///// ✔
+        ///// </summary>
+        //Check,
+        /// <summary>
+        /// ■
+        /// </summary>
+        Rectangle,
+        /// <summary>
+        /// ➖
+        /// </summary>
+        Line
+    }
+
+    /// <summary>
     /// <see cref="System.Windows.Controls.CheckBox"/>的附加基类
     /// </summary>
     [TemplatePart(Name = "PART_Border", Type = typeof(Border))]
     public class CheckBoxAssistant
     {
+        public static double GetBoxSize(DependencyObject obj) => (double)obj.GetValue(BoxSizeProperty);
+        public static void SetBoxSize(DependencyObject obj, double value) => obj.SetValue(BoxSizeProperty, value);
+        /// <summary>
+        /// <see cref="BoxSizeProperty"/>提供选中框大小的附加属性
+        /// </summary>
+        public static readonly DependencyProperty BoxSizeProperty =
+            DependencyProperty.RegisterAttached("BoxSize", typeof(double), typeof(CheckBoxAssistant), new PropertyMetadata(OnBoxSizeChanged));
+
+        private static void OnBoxSizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var element = d as FrameworkElement;
+            if (element == null) return;
+            var maxSize = element.Height;
+            SetBoxSize(element, (double)e.NewValue > maxSize ? maxSize : (double)e.NewValue);
+        }
+
         public static Brush GetFillBrush(DependencyObject obj) => (Brush)obj.GetValue(FillBrushProperty);
         public static void SetFillBrush(DependencyObject obj, Brush value) => obj.SetValue(FillBrushProperty, value);
         /// <summary>
@@ -28,37 +64,12 @@ namespace CookPopularControl.Controls
         public static readonly DependencyProperty FillBrushProperty =
             DependencyProperty.RegisterAttached("FillBrush", typeof(Brush), typeof(CheckBoxAssistant), new PropertyMetadata(default(Brush)));
 
-        public static double GetFillThickness(DependencyObject obj) => (double)obj.GetValue(FillThicknessProperty);
-        public static void SetFillThickness(DependencyObject obj, double value) => obj.SetValue(FillThicknessProperty, value);
+        public static NullFillType GetNullFillType(DependencyObject obj) => (NullFillType)obj.GetValue(NullFillTypeProperty);
+        public static void SetNullFillType(DependencyObject obj, NullFillType value) => obj.SetValue(NullFillTypeProperty, value);
         /// <summary>
-        /// <see cref="FillThicknessProperty"/>提供填充线条的厚度
+        /// <see cref="NullFillTypeProperty"/>提供<![CDATA[CheckBox.IsChecked=Null]]>时填充类型(■，✔,➖)的附加属性
         /// </summary>
-        public static readonly DependencyProperty FillThicknessProperty =
-            DependencyProperty.RegisterAttached("FillThickness", typeof(double), typeof(CheckBoxAssistant), new PropertyMetadata(ValueBoxes.Double1Box));
-
-        public static FillType GetFillType(DependencyObject obj) => (FillType)obj.GetValue(FillTypeProperty);
-        public static void SetFillType(DependencyObject obj, FillType value) => obj.SetValue(FillTypeProperty, value);
-        /// <summary>
-        /// <see cref="FillTypeProperty"/>提供填充类型(■，✔,➖)的附加属性
-        /// </summary>
-        public static readonly DependencyProperty FillTypeProperty =
-            DependencyProperty.RegisterAttached("FillType", typeof(FillType), typeof(CheckBoxAssistant), new PropertyMetadata(default(FillType)));
-
-        public static double GetFillSize(DependencyObject obj) => (double)obj.GetValue(FillSizeProperty);
-        public static void SetFillSize(DependencyObject obj, double value) => obj.SetValue(FillSizeProperty, value);
-        /// <summary>
-        /// <see cref="FillTypeProperty"/>提供填充大小的附加属性
-        /// </summary>
-        public static readonly DependencyProperty FillSizeProperty =
-            DependencyProperty.RegisterAttached("FillSize", typeof(double), typeof(CheckBoxAssistant),
-                new FrameworkPropertyMetadata(ValueBoxes.Double30Box, FrameworkPropertyMetadataOptions.Inherits, OnFillSizeChanged));
-
-        private static void OnFillSizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var element = d as FrameworkElement;
-            if (element == null) return;
-            var maxSize = element.Height;
-            SetFillSize(element, (double)e.NewValue > maxSize ? maxSize : (double)e.NewValue);
-        }
+        public static readonly DependencyProperty NullFillTypeProperty =
+            DependencyProperty.RegisterAttached("NullFillType", typeof(NullFillType), typeof(CheckBoxAssistant), new PropertyMetadata(default(NullFillType)));
     }
 }

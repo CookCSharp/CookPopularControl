@@ -8,36 +8,33 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <CheckBox Width="220" Height="60"
-                          Content="LineCheckBox"
-                          FontSize="20"
-                          Padding="10,0,0,0" ToolTip="LineCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
-                          pc:CheckBoxAssistant.FillSize="50" pc:CheckBoxAssistant.FillThickness="5"
-                          pc:CheckBoxAssistant.FillType="Line" />
-            <CheckBox Width="230" Height="30"
-                          Content="RectangleCheckBox"
-                          FontSize="20"
-                          Margin="30,0" Padding="10,0,0,0" ToolTip="RectangleCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryThemeBrush}"
-                          pc:CheckBoxAssistant.FillSize="15" pc:CheckBoxAssistant.FillType="Rectangle" />
-            <CheckBox Width="200" Height="30"
-                          Content="CheckCheckBox"
-                          Background="Red"
-                          FontSize="20"
-                          Padding="10,0,0,0" ToolTip="CheckCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
-                          pc:CheckBoxAssistant.FillSize="25" pc:CheckBoxAssistant.FillThickness="1"
-                          pc:CheckBoxAssistant.FillType="Check" />
-            <CheckBox Width="220" Height="60"
-                          Content="LineCheckBox"
-                          FontSize="20"
-                          Margin="0,20" Padding="10,0,0,0" ToolTip="LineCheckBox"
-                          pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
-                          pc:CheckBoxAssistant.FillSize="50" pc:CheckBoxAssistant.FillThickness="5"
-                          pc:CheckBoxAssistant.FillType="Line" IsEnabled="False" />
-        </WrapPanel>
-    </ScrollViewer>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <CheckBox Content="CheckedFalseCheckBox" FontSize="20" ToolTip="CheckedFalseCheckBox" />
+        <CheckBox Content="CheckedTrueCheckBox"
+                  IsChecked="True" Margin="0,20"
+                  FontSize="20"
+                  ToolTip="CheckedTrueCheckBox" />
+        <CheckBox Height="100"
+                  Content="CheckedNullLineCheckBox"
+                  FontSize="20"
+                  ToolTip="CheckedNullLineCheckBox"
+                  pc:CheckBoxAssistant.BoxSize="50"
+                  Style="{StaticResource CheckBoxCheckedNullLineStyle}" />
+        <CheckBox Height="100" Margin="0,20"
+                  Content="CheckedNullRectangleCheckBox"
+                  IsChecked="{x:Null}"
+                  FontSize="20"
+                  ToolTip="CheckedNullRectangleCheckBox"
+                  pc:CheckBoxAssistant.BoxSize="100"
+                  Style="{StaticResource CheckBoxCheckedNullRectangleStyle}" />
+
+        <CheckBox Height="100" Margin="0,20" IsEnabled="False"
+                  Content="CheckedNullRectangleCheckBox"
+                  IsChecked="{x:Null}"
+                  FontSize="20"
+                  ToolTip="CheckedNullRectangleCheckBox"
+                  pc:CheckBoxAssistant.BoxSize="100"
+                  Style="{StaticResource CheckBoxCheckedNullRectangleStyle}" />
+    </StackPanel>
+
 </UserControl>

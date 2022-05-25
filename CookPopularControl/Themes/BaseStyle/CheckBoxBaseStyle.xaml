@@ -6,20 +6,19 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
-        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ButtonBaseStyle.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="CheckBoxBaseStyle" TargetType="{x:Type CheckBox}">
-        <Setter Property="Height" Value="24" />
+        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
         <Setter Property="MinHeight" Value="10" />
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Padding" Value="5,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CheckBox}">
@@ -39,49 +38,45 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Grid>
+                    <Grid Background="Transparent">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Border x:Name="PART_Border"
-                                Width="{TemplateBinding Height}"
-                                Height="{TemplateBinding Height}"
+                                Width="{TemplateBinding pc:CheckBoxAssistant.BoxSize}"
+                                Height="{TemplateBinding pc:CheckBoxAssistant.BoxSize}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="Transparent"
                                 CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
-                            <Grid x:Name="FillGrid" Background="{TemplateBinding Background}">
-                                <Rectangle Width="{TemplateBinding pc:CheckBoxAssistant.FillSize}"
-                                           Height="{TemplateBinding pc:CheckBoxAssistant.FillThickness}"
-                                           Fill="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
-                                           Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={common:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Line}" />
-                                <Rectangle Width="{TemplateBinding pc:CheckBoxAssistant.FillSize}"
-                                           Height="{TemplateBinding pc:CheckBoxAssistant.FillSize}"
-                                           Fill="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
-                                           Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={common:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Rectangle}" />
-                                <Path Data="{DynamicResource CheckGeometry}"
+                            <Border x:Name="PathBorder" Background="{TemplateBinding Background}" Visibility="Collapsed">
+                                <Path x:Name="PART_PATH"
+                                      Data="{DynamicResource CheckGeometry}"
                                       Fill="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
-                                      Stretch="Uniform"
-                                      Stroke="{TemplateBinding pc:CheckBoxAssistant.FillBrush}"
-                                      StrokeThickness="{TemplateBinding pc:CheckBoxAssistant.FillThickness}"
-                                      Visibility="{TemplateBinding pc:CheckBoxAssistant.FillType, Converter={common:CheckBoxFillTypeToVisibilityConverter}, ConverterParameter=Check}" />
-                            </Grid>
+                                      Stretch="Uniform" />
+                            </Border>
                         </Border>
                         <Canvas>
                             <Ellipse x:Name="InteractionEllipse"
-                                     Width="{Binding ElementName=PART_Border, Path=ActualWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.8}"
-                                     Height="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=1.8}"
+                                     Width="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=2}"
+                                     Height="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=2}"
                                      Fill="#66000000"
                                      Opacity="0"
-                                     HorizontalAlignment="Center" VerticalAlignment="Center"
                                      IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5">
                                 <Ellipse.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform />
                                         <SkewTransform />
                                         <RotateTransform />
-                                        <TranslateTransform X="{Binding ElementName=PART_Border, Path=ActualWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=-0.4}" Y="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=-0.4}" />
+                                        <TranslateTransform X="{Binding ElementName=PART_Border, Path=ActualHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=-0.5}">
+                                            <TranslateTransform.Y>
+                                                <MultiBinding Converter="{pt:HalfOfDifferenceTranslateToDoubleConverter}" Mode="OneWay">
+                                                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
+                                                    <Binding ElementName="InteractionEllipse" Path="ActualHeight" />
+                                                </MultiBinding>
+                                            </TranslateTransform.Y>
+                                        </TranslateTransform>
                                     </TransformGroup>
                                 </Ellipse.RenderTransform>
                             </Ellipse>
@@ -102,18 +97,35 @@
                             <Setter Property="Padding" Value="4,2,0,0" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="FillGrid" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathBorder" />
                         </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_Border" />
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="PathBorder" />
+                            <Setter Property="Data" Value="{DynamicResource CheckGeometry}" TargetName="PART_PATH" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsChecked" Value="True" />
-                                <Condition Property="pc:CheckBoxAssistant.FillType" Value="Rectangle" />
+                                <Condition Property="IsChecked" Value="{x:Null}" />
+                                <Condition Property="pc:CheckBoxAssistant.NullFillType" Value="Line" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="Transparent" TargetName="FillGrid" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="PathBorder" />
+                            <Setter Property="Data" Value="{DynamicResource LineGeometry}" TargetName="PART_PATH" />
                         </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="{x:Null}" />
+                                <Condition Property="pc:CheckBoxAssistant.NullFillType" Value="Rectangle" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="PathBorder" />
+                            <Setter Property="Background" Value="Transparent" TargetName="PathBorder" />
+                            <Setter Property="Data" Value="{DynamicResource RectangleGeometry}" TargetName="PART_PATH" />
+                            <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:CheckBoxAssistant.BoxSize), Converter={pt:DoubleToThicknessConverter}, ConverterParameter=0.2}" TargetName="PART_PATH" />
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_Border" />
+                            <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{DynamicResource UnEnabledBrush}" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

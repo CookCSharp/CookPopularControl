@@ -50,7 +50,7 @@ CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工
     ![效果](MvvmTestDemo/Resources/Effect/CarouselView.gif)
 
 - **CheckBox**
-    ![效果](MvvmTestDemo/Resources/Effect/CheckBox.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/CheckBox.png)
 
 - **ComboBox**
     ![效果](MvvmTestDemo/Resources/Effect/ComboBox.gif)
