@@ -14,7 +14,11 @@ namespace MvvmTestDemo.DemoModels
     {
         public string Header { get; set; }
 
+        public int HeaderIndex { get; set; }
+
         public int Level { get; set; }
+
+        public TreeViewModel? Root { get; set; }
 
         public ObservableCollection<TreeViewModel> Children { get; set; }
     }

@@ -22,7 +22,7 @@ namespace MvvmTestDemo.DemoViewModels
         public DelegateCommand<RoutedPropertyChangedEventArgs<object>> TreeViewSelectedItemCommand => new DelegateCommand<RoutedPropertyChangedEventArgs<object>>(OnTreeViewSelectedItemChanged);
         public DelegateCommand TreeViewDoubleClickCommand => new DelegateCommand(OnTreeViewDoubleClick);
         public DelegateCommand TreeViewItemExpandedCommand => new DelegateCommand(OnTreeViewItemExpanded);
-        public DelegateCommand<RoutedEventArgs> TreeViewItemSelectedItemCommand => new DelegateCommand<RoutedEventArgs>(OnTreeViewItemSelectedItemChanged);
+        public DelegateCommand<RoutedEventArgs> TreeViewItemSelectedCommand => new DelegateCommand<RoutedEventArgs>(OnTreeViewItemSelectedChanged);
 
         public TreeViewDemoViewModel()
         {
@@ -37,8 +37,10 @@ namespace MvvmTestDemo.DemoViewModels
                 TreeViewDemoItems.Add(new TreeViewModel
                 {
                     Header = $"Chance{i}",
+                    HeaderIndex = i - 1,
                     Level = 1,
-                });
+                    Root = null,
+                }) ;
             }
 
 
@@ -50,7 +52,9 @@ namespace MvvmTestDemo.DemoViewModels
                     TreeViewDemoItems[i - 1].Children.Add(new TreeViewModel
                     {
                         Header = $"Chance{j}",
+                        HeaderIndex = j - 1,
                         Level = 2,
+                        Root = TreeViewDemoItems[i - 1],
                     });
                 }
             }
@@ -65,7 +69,9 @@ namespace MvvmTestDemo.DemoViewModels
                         TreeViewDemoItems[i - 1].Children[j - 1].Children.Add(new TreeViewModel
                         {
                             Header = $"Chance{h}",
+                            HeaderIndex = h - 1,
                             Level = 3,
+                            Root = TreeViewDemoItems[i - 1].Children[j - 1],
                         });
                     }
                 }
@@ -78,22 +84,22 @@ namespace MvvmTestDemo.DemoViewModels
             var item = treeView.SelectedItem;
             var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(treeView.Items.CurrentItem) as TreeViewItem;
 
-            System.Diagnostics.Debug.WriteLine("111");
+            System.Diagnostics.Debug.WriteLine("SelectedItem");
         }
 
         private void OnTreeViewDoubleClick()
         {
-            System.Diagnostics.Debug.WriteLine("222");
+            System.Diagnostics.Debug.WriteLine("DoubleClick");
         }
 
         private void OnTreeViewItemExpanded()
         {
-
+            System.Diagnostics.Debug.WriteLine("Expanded");
         }
 
-        private void OnTreeViewItemSelectedItemChanged(RoutedEventArgs e)
+        private void OnTreeViewItemSelectedChanged(RoutedEventArgs e)
         {
-
+            System.Diagnostics.Debug.WriteLine("ItemSelected");
         }
     }
 }

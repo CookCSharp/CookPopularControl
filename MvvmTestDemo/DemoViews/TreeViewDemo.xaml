@@ -20,8 +20,8 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Grid.Column="0"
-                  Width="200" Height="300"
+        <TreeView Grid.Column="0" 
+                  Width="200" Height="300" 
                   ItemsSource="{Binding TreeViewDemoItems}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
@@ -39,14 +39,14 @@
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
             <behavior:Interaction.Triggers>
+                <behavior:EventTrigger EventName="SelectedItemChanged">
+                    <behavior:InvokeCommandAction Command="{Binding TreeViewSelectedItemCommand}" PassEventArgsToCommand="True" />
+                </behavior:EventTrigger>
                 <behavior:EventTrigger EventName="TreeView.TreeViewItem.Expanded">
                     <behavior:InvokeCommandAction Command="{Binding TreeViewItemExpandedCommand}" />
                 </behavior:EventTrigger>
                 <behavior:EventTrigger EventName="TreeView.TreeViewItem.Selected">
-                    <behavior:InvokeCommandAction Command="{Binding TreeViewItemSelectedItemCommand}" PassEventArgsToCommand="True" />
-                </behavior:EventTrigger>
-                <behavior:EventTrigger EventName="SelectedItemChanged">
-                    <behavior:InvokeCommandAction Command="{Binding TreeViewSelectedItemCommand}" PassEventArgsToCommand="True" />
+                    <behavior:InvokeCommandAction Command="{Binding TreeViewItemSelectedCommand}" PassEventArgsToCommand="True" />
                 </behavior:EventTrigger>
                 <behavior:EventTrigger EventName="MouseDoubleClick">
                     <behavior:InvokeCommandAction Command="{Binding TreeViewDoubleClickCommand}" />
