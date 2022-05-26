@@ -19,7 +19,7 @@
                     <Grid x:Name="PART_Root" KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="0"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -32,14 +32,14 @@
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               ContentSource="Header" />
                         </Border>
-                        <Button x:Name="PART_CloseButton" Grid.Column="1"
+                        <Button x:Name="PART_CloseButton" Grid.Column="1" Width="30"
                                 Background="{TemplateBinding Background}"
+                                common:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource ButtonBaseMouseOverBackground}"
+                                common:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource ButtonBasePressBackground}"
                                 common:FrameworkElementBaseAttached.CornerRadius="0"
                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                 common:FrameworkElementBaseAttached.IconHeight="10"
                                 common:FrameworkElementBaseAttached.IconWidth="10"
-                                common:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource ButtonBaseMouseOverBackground}"
-                                common:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource ButtonBasePressBackground}"
                                 Visibility="{TemplateBinding pc:TabControlAssistant.IsAddClearButton, Converter={pt:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>

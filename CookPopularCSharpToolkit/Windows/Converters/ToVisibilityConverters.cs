@@ -103,6 +103,51 @@ namespace CookPopularCSharpToolkit.Windows
         }
     }
 
+    /// <summary>
+    /// Null to Visibility.Hidden
+    /// False to Visibility.Collapsed
+    /// True to Visibility.Visible
+    /// </summary>
+    [MarkupExtensionReturnType(typeof(Visibility))]
+    [Localizability(LocalizationCategory.NeverLocalize)]
+    public class BooleanNullToVisibilityConverter : MarkupExtensionBase, IValueConverter
+    {
+        /// <summary>
+        /// Convert bool or Nullable&lt;bool&gt; to Visibility
+        /// </summary>
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if(value is bool?)
+            {
+                bool? tmp = (bool?)value;
+                if(!tmp.HasValue)
+                    return Visibility.Hidden;
+                else
+                    return tmp.Value ? Visibility.Visible : Visibility.Collapsed;
+            }
+
+            return Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Convert Visibility to boolean
+        /// </summary>
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is Visibility)
+            {
+                if ((Visibility)value == Visibility.Hidden)
+                    return null;
+                else if ((Visibility)value == Visibility.Visible)
+                    return true;
+                else
+                    return false;
+            }
+
+            return false;
+        }
+    }
+
     [MarkupExtensionReturnType(typeof(Visibility))]
     [Localizability(LocalizationCategory.NeverLocalize)]
     public class EqualityToVisibilityConverter : MarkupExtensionBase, IValueConverter

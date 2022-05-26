@@ -41,7 +41,19 @@ namespace CookPopularCSharpToolkit.Communal
 
         public static readonly object TrueBox = true;
         public static readonly object FalseBox = false;
+        public static readonly object NullBox = null;
         public static object BooleanBox(this bool value) => value ? TrueBox : FalseBox;
+        public static object BooleanNullBox(this bool? value)
+        {
+            if (value.HasValue)
+            {
+                return value.Value ? TrueBox : FalseBox;
+            }
+            else
+            {
+                return NullBox;
+            }
+        }
 
         public static readonly object InterMinus1Box = -1;
         public static readonly object Inter0Box = 0;

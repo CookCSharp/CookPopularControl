@@ -30,7 +30,7 @@ namespace CookPopularControl.Controls
         /// <see cref="IsAddClearButtonProperty"/>标识是否增加删除按钮
         /// </summary>
         public static readonly DependencyProperty IsAddClearButtonProperty =
-            DependencyProperty.RegisterAttached("IsAddClearButton", typeof(bool), typeof(TabControlAssistant), new PropertyMetadata(ValueBoxes.FalseBox, OnIsAddClearButtonChanged));
+            DependencyProperty.RegisterAttached("IsAddClearButton", typeof(bool), typeof(TabControlAssistant), new PropertyMetadata(ValueBoxes.TrueBox, OnIsAddClearButtonChanged));
 
         private static void OnIsAddClearButtonChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

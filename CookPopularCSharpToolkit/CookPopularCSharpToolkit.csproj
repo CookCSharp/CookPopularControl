@@ -7,8 +7,8 @@
         <PackageIcon>CSharp.png</PackageIcon>
         <PackageTags>c#,csharp,toolkit,</PackageTags>
         <Description>兼容.NetFramework与.NetCore/.Net的工具方法</Description>
-        <!--<Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>-->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <RepositoryUrl>https://gitee.com/cook-csharp/CookPopularControl</RepositoryUrl>
         <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>

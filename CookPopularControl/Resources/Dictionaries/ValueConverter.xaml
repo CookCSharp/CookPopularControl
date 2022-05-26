@@ -54,6 +54,7 @@
     <!--ToVisibility-->
     <pt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <pt:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
+    <pt:BooleanNullToVisibilityConverter x:Key="BooleanNullToVisibilityConverter" />
     <pt:VisibilityToVisibilityReConverter x:Key="VisibilityToVisibilityReConverter" />
     <pt:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter" />
     <pt:BooleanAllToVisibilityConverter x:Key="BooleanAllToVisibilityConverter" />
