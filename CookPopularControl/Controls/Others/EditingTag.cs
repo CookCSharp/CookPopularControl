@@ -7,12 +7,22 @@ using System.Windows.Controls;
 
 /*
  * Copyright (c) 2021 All Rights Reserved.
- * Description：Tag
+ * Description：EditingTag
  * Author： Chance_写代码的厨子
  * Create Time：2021-06-08 09:04:09
  */
 namespace CookPopularControl.Controls
 {
+    /// <summary>
+    /// 可编辑标签元素的类型
+    /// </summary>
+    public enum EditorType : byte
+    {
+        TextBox,
+        NumericUpDown,
+        Other,
+    }
+
     /// <summary>
     /// 可编辑标签
     /// </summary>
@@ -20,25 +30,25 @@ namespace CookPopularControl.Controls
     [TemplatePart(Name = ElementFrameworkElement, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
     [TemplatePart(Name = ElementNumericUpDown, Type = typeof(NumericUpDown))]
-    public class EditingTag : Control
+    public class EditingTag : HeaderedContentControl
     {
         private const string ElementFrameworkElement = "PART_Content";
         private const string ElementTextBox = "PART_TextBox";
         private const string ElementNumericUpDown = "PART_NumericUpDown";
-
-        /// <summary>
-        /// 标签头
-        /// </summary>
-        public object Header
-        {
-            get { return GetValue(HeaderProperty); }
-            set { SetValue(HeaderProperty, value); }
-        }
-        /// <summary>
-        /// 表示<see cref="Header"/>的依赖属性
-        /// </summary>
-        public static readonly DependencyProperty HeaderProperty =
-            DependencyProperty.Register("Header", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
+        
+        ///// <summary>
+        ///// 标签头
+        ///// </summary>
+        //public object Header
+        //{
+        //    get { return GetValue(HeaderProperty); }
+        //    set { SetValue(HeaderProperty, value); }
+        //}
+        ///// <summary>
+        ///// 表示<see cref="Header"/>的依赖属性
+        ///// </summary>
+        //public static readonly DependencyProperty HeaderProperty =
+        //    DependencyProperty.Register("Header", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
 
 
         /// <summary>
@@ -101,19 +111,19 @@ namespace CookPopularControl.Controls
             DependencyProperty.Register("EditorType", typeof(EditorType), typeof(EditingTag), new PropertyMetadata(default(EditorType), OnPropertiesChanged));
 
 
-        /// <summary>
-        /// 标签内容
-        /// </summary>
-        public object Content
-        {
-            get { return GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
-        }
-        /// <summary>
-        /// 表示<see cref="Content"/>的依赖属性
-        /// </summary>
-        public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
+        ///// <summary>
+        ///// 标签内容
+        ///// </summary>
+        //public object Content
+        //{
+        //    get { return GetValue(ContentProperty); }
+        //    set { SetValue(ContentProperty, value); }
+        //}
+        ///// <summary>
+        ///// 表示<see cref="Content"/>的依赖属性
+        ///// </summary>
+        //public static readonly DependencyProperty ContentProperty =
+        //    DependencyProperty.Register("Content", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
 
 
         /// <summary>

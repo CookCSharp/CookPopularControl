@@ -34,7 +34,7 @@
                             <ContentPresenter x:Name="PART_Content"
                                               Content="{TemplateBinding Content}"
                                               RecognizesAccessKey="True"
-                                              Margin="8,0"
+                                              Margin="{TemplateBinding Padding}"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />

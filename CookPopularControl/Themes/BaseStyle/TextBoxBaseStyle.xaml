@@ -4,7 +4,7 @@
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
-        <Setter Property="Height" Value="{DynamicResource DefaultTextElementHeight}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DefaultTextElementHeight}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
         <Setter Property="Padding" Value="6,0,0,0" />
