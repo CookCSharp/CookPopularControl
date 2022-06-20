@@ -59,6 +59,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PropertyGridStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/QRCodeControlStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SearchBarStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ShapeStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwitchControlStyle.xaml" />
@@ -120,6 +121,7 @@
     <Style x:Key="{x:Type pc:CircleMenu}" TargetType="{x:Type pc:CircleMenu}" BasedOn="{StaticResource CircleMenuStyle}" />
     <Style x:Key="{x:Type pc:Clock}" TargetType="{x:Type pc:Clock}" BasedOn="{StaticResource DefaultClockStyle}" />
     <Style x:Key="{x:Type pc:ColorPicker}" TargetType="{x:Type pc:ColorPicker}" BasedOn="{StaticResource DefaultColorPickerStyle}" />
+    <Style x:Key="{x:Type pc:DivideLine}" TargetType="{x:Type pc:DivideLine}" BasedOn="{StaticResource DefaultDivideLineStyle}" />
     <Style x:Key="{x:Type pc:DotCircleLoading}" TargetType="{x:Type pc:DotCircleLoading}" BasedOn="{StaticResource DefaultDotCircleLoadingStyle}" />
     <Style x:Key="{x:Type pc:DotLineLoading}" TargetType="{x:Type pc:DotLineLoading}" BasedOn="{StaticResource DefaultDotLineLoadingStyle}" />
     <Style x:Key="{x:Type pc:DotPendulumLoading}" TargetType="{x:Type pc:DotPendulumLoading}" BasedOn="{StaticResource DefaultDotPendulumLoadingStyle}" />
