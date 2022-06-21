@@ -1464,6 +1464,39 @@
             当<see cref="P:System.Windows.Controls.Expander.IsExpanded"/>为<c>False</c>时图标附加属性
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.AutoGroupingText">
+            <summary>
+            文本自动分组
+            </summary>
+            <remarks>
+            将文本按照某个符号自动分组
+            </remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.AutoGroupingText.Symbol">
+            <summary>
+            标头后所带符号,形如"Title:"
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.AutoGroupingText.SymbolProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.AutoGroupingText.Symbol"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.AutoGroupingText.Text">
+            <summary>
+            文本，格式形如"Title1:Content1 Title2:Content2"
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.AutoGroupingText.TextProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.AutoGroupingText.Text"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.AutoGroupingText.HeaderWidthProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.AutoGroupingText.HeaderWidth"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.NumericUpDown">
             <summary>
             表示显示数值的 Windows 数字显示框（也称作 up-down 控件）。
@@ -5514,6 +5547,11 @@
         <member name="F:CookPopularControl.Controls.SmoothScrollViewer.VerticalOffsetProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.SmoothScrollViewer.VerticalOffset"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.DivideLine">
+            <summary>
+            分割线
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.DivideLine.StrokeProperty">

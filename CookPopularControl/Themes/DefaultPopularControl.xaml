@@ -47,6 +47,7 @@
 
         <!--  Extension Control  -->
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AnimationPathStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/AutoGroupingTextStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/RippleStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CarouselViewStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ColorPickerStyle.xaml" />
@@ -113,6 +114,7 @@
 
     <Style x:Key="{x:Type pc:Alertor}" TargetType="{x:Type pc:Alertor}" BasedOn="{StaticResource DefaultAlertorStyle}" />
     <Style x:Key="{x:Type pc:AnimationPath}" TargetType="{x:Type pc:AnimationPath}" BasedOn="{StaticResource DefaultAnimationPathStyle}" />
+    <Style x:Key="{x:Type pc:AutoGroupingText}" TargetType="{x:Type pc:AutoGroupingText}" BasedOn="{StaticResource DefaultAutoGroupingTextStyle}" />
     <Style x:Key="{x:Type pc:Badge}" TargetType="{x:Type pc:Badge}" BasedOn="{StaticResource DefaultBadgeStyle}" />
     <Style x:Key="{x:Type pc:BraceletLoading}" TargetType="{x:Type pc:BraceletLoading}" BasedOn="{StaticResource BraceletLoadingStyle}" />
     <Style x:Key="{x:Type pc:BubbleMessage}" TargetType="{x:Type pc:BubbleMessage}" BasedOn="{StaticResource BubbleMessageStyle}" />
