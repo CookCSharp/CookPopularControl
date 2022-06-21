@@ -17,6 +17,7 @@
     <common:StringToPlaySpeedConverter x:Key="StringToPlaySpeedConverter" />
     <common:TabControlHeaderSizeConverter x:Key="TabControlHeaderSizeConverter" />
     <common:TextFieldClearButtonVisibilityConverter x:Key="TextFieldClearButtonVisibilityConverter" />
+    <common:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter" />
 
 
     <!--ToBoolean-->

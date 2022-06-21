@@ -12,7 +12,8 @@
     <sys:Double x:Key="FirstTitleFontSize">20</sys:Double>
     <sys:Double x:Key="SecondTitleFontSize">18</sys:Double>
     <sys:Double x:Key="ThirdTitleFontSize">16</sys:Double>
-    <sys:Double x:Key="DefaultFontSize">14</sys:Double>
+    <sys:Double x:Key="FourthTitleFontSize">14</sys:Double>
+    <sys:Double x:Key="DefaultFontSize">12</sys:Double>
 
     <sys:Double x:Key="Double20Value">20</sys:Double>
     <sys:Double x:Key="Double26Value">26</sys:Double>

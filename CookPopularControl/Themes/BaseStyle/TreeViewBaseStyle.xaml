@@ -4,6 +4,10 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style x:Key="TreeViewExpandCollapseToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
@@ -44,15 +48,20 @@
     </Style>
 
     <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="MinHeight" Value="26" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="2,0,0,0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <ControlTemplate.Resources>
+                        <Color x:Key="TreeViewItemNormalColor">#00000000</Color>
+                    </ControlTemplate.Resources>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -60,10 +69,13 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="{TemplateBinding MinHeight}" />
                             <RowDefinition Height="Auto" />
-                            <RowDefinition />
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                        <!--  只选中Header与后面的部分  -->
+                        <!--<StackPanel x:Name="panel" Grid.Row="0" Grid.Column="0"
+                                    Background="{TemplateBinding Background}"
+                                    Orientation="Horizontal">
                             <ToggleButton x:Name="Expander"
                                           Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                           Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
@@ -79,20 +91,72 @@
                                   Stretch="Uniform"
                                   Margin="0,0,3,0"
                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={pt:BooleanToVisibilityConverter}}" />
+
                         </StackPanel>
-                        <Border x:Name="Bd" Grid.Row="0" Grid.Column="1"
+                        <Border x:Name="Bd" Grid.Column="1"
+                                Grid.ColumnSpan="2"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
-                                Margin="0,2"
-                                Padding="{TemplateBinding Padding}"
-                                VerticalAlignment="Center">
-                            <ContentPresenter x:Name="PART_Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" ContentSource="Header" />
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter x:Name="PART_Header"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="Center"
+                                              ContentSource="Header" />
+                        </Border>-->
+
+                        <!--  整个TreeViewItem行选中  -->
+                        <Border x:Name="Bd" Grid.Row="0"
+                                Grid.ColumnSpan="3"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <StackPanel Background="{TemplateBinding Background}" Margin="{Binding Converter={common:TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}" Orientation="Horizontal">
+                                <ToggleButton x:Name="Expander"
+                                              Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                              Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                              IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Margin="0,0,3,0"
+                                              ClickMode="Press"
+                                              Style="{StaticResource TreeViewExpandCollapseToggleButtonStyle}" />
+                                <Path x:Name="PART_HeaderIcon"
+                                      Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                      Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                      Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconHasItems)}"
+                                      Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconFill)}"
+                                      Stretch="Uniform"
+                                      Margin="0,0,3,0"
+                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={pt:BooleanToVisibilityConverter}}" />
+                                <ContentPresenter x:Name="PART_Header"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="Center"
+                                                  ContentSource="Header" />
+                            </StackPanel>
                         </Border>
                         <ItemsPresenter x:Name="ItemsHost" Grid.Row="1" Grid.Column="1"
                                         Grid.ColumnSpan="2"
                                         Visibility="Collapsed" />
-                        <VisualStateManager.VisualStateGroups>
+                        <!--<VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <DiscreteObjectKeyFrame Value="{StaticResource TreeViewItemNormalColor}" KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <DiscreteObjectKeyFrame Value="{DynamicResource ButtonBaseMouseOverColor}" KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Header" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame Value="{DynamicResource AssistantForegroundColor}" KeyTime="0" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
                             <VisualStateGroup x:Name="SelectionStates">
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
@@ -108,7 +172,7 @@
                                 <VisualState x:Name="SelectedInactive">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame Value="{DynamicResource ButtonBaseMouseOverColor}" KeyTime="0" />
+                                            <EasingColorKeyFrame Value="{DynamicResource ButtonBasePressColor}" KeyTime="0" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Header" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame Value="{DynamicResource AssistantForegroundColor}" KeyTime="0" />
@@ -126,9 +190,35 @@
                                 </VisualState>
                                 <VisualState x:Name="Collapsed" />
                             </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
+                        </VisualStateManager.VisualStateGroups>-->
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="Bd">
+                            <Setter Property="Background" Value="{x:Static SystemColors.ControlLightBrush}" TargetName="Bd" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" TargetName="Bd" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="ItemsHost" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource ButtonBasePressBackground}" TargetName="Bd" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="true" />
+                                <Condition Property="IsSelectionActive" Value="false" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="Bd" />
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                        </MultiTrigger>
                         <Trigger Property="HasItems" Value="false">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="Expander" />
                             <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconNoItems)}" TargetName="PART_HeaderIcon" />
@@ -147,6 +237,9 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="MinHeight" Value="20" TargetName="PART_Header" />
                         </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -157,10 +250,14 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
         <Setter Property="Effect" Value="{DynamicResource ComboxBoxShadow}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -170,13 +267,38 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
-                        <ScrollViewer Padding="5" Focusable="False" CanContentScroll="False">
+                        <ScrollViewer x:Name="scrollviewer"
+                                      Padding="{TemplateBinding Padding}"
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                      Focusable="false"
+                                      CanContentScroll="False"
+                                      HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <ItemsPresenter />
                         </ScrollViewer>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="Border" />
+                        </Trigger>
+                        <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+                            <Setter Property="CanContentScroll" Value="true" TargetName="scrollviewer" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

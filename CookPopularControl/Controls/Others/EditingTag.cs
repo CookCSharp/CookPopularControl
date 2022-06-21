@@ -19,6 +19,7 @@ namespace CookPopularControl.Controls
     public enum EditorType : byte
     {
         TextBox,
+        TextBlock,
         NumericUpDown,
         Other,
     }
@@ -35,20 +36,15 @@ namespace CookPopularControl.Controls
         private const string ElementFrameworkElement = "PART_Content";
         private const string ElementTextBox = "PART_TextBox";
         private const string ElementNumericUpDown = "PART_NumericUpDown";
-        
-        ///// <summary>
-        ///// 标签头
-        ///// </summary>
-        //public object Header
-        //{
-        //    get { return GetValue(HeaderProperty); }
-        //    set { SetValue(HeaderProperty, value); }
-        //}
-        ///// <summary>
-        ///// 表示<see cref="Header"/>的依赖属性
-        ///// </summary>
-        //public static readonly DependencyProperty HeaderProperty =
-        //    DependencyProperty.Register("Header", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
+
+
+        private bool IsInDesignMode
+        {
+            get
+            {
+                return (bool)DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue;
+            }
+        }
 
 
         /// <summary>
@@ -109,22 +105,6 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty EditorTypeProperty =
             DependencyProperty.Register("EditorType", typeof(EditorType), typeof(EditingTag), new PropertyMetadata(default(EditorType), OnPropertiesChanged));
-
-
-        ///// <summary>
-        ///// 标签内容
-        ///// </summary>
-        //public object Content
-        //{
-        //    get { return GetValue(ContentProperty); }
-        //    set { SetValue(ContentProperty, value); }
-        //}
-        ///// <summary>
-        ///// 表示<see cref="Content"/>的依赖属性
-        ///// </summary>
-        //public static readonly DependencyProperty ContentProperty =
-        //    DependencyProperty.Register("Content", typeof(object), typeof(EditingTag), new PropertyMetadata(default(object), OnPropertiesChanged));
-
 
         /// <summary>
         /// 标签头与内容间距
