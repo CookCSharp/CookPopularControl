@@ -21,9 +21,11 @@
 
     <Color x:Key="BlockColor">#554A4A4A</Color>
     <Color x:Key="UnEnabledColor">#D3D3D3</Color>
+    <!--<Color x:Key="{x:Static SystemColors.GrayTextColorKey}"/>-->
     <Color x:Key="LightColor">#F8F9FA</Color>
     <SolidColorBrush x:Key="BlockBrush" Color="{StaticResource BlockColor}" />
     <SolidColorBrush x:Key="UnEnabledBrush" Color="{StaticResource UnEnabledColor}" />
+    <!--<SolidColorBrush x:Key="UnEnabledBrush" Color="{x:Static SystemColors.GrayTextColor}" />-->
     <SolidColorBrush x:Key="LightBrush" Color="{StaticResource LightColor}" />
 
     <Color x:Key="MessageDialogSuccessColor">#32AA32</Color>

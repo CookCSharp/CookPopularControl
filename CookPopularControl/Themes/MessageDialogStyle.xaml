@@ -11,12 +11,12 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="MessageDialogTextBlockStyle" TargetType="{x:Type TextBlock}">
+    <!--<Style x:Key="MessageDialogTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="Microsoft YaHei" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="FontStretch" Value="Normal" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-    </Style>
+    </Style>-->
 
     <Style x:Key="MessageDialogSelectedButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="MinWidth" Value="60" />
@@ -59,19 +59,18 @@
                                         <TextBlock Text="{TemplateBinding Title}"
                                                    Foreground="{TemplateBinding ClientTitleBarForeground}"
                                                    Margin="8,0"
-                                                   VerticalAlignment="Center"
-                                                   Style="{StaticResource MessageDialogTextBlockStyle}" />
-                                        <Button ToolTip="关闭"
+                                                   VerticalAlignment="Center" />
+                                        <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                                ToolTip="关闭"
                                                 HorizontalAlignment="Right" VerticalAlignment="Center"
                                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                                Command="{x:Static SystemCommands.CloseWindowCommand}"
                                                 Cursor="Arrow" WindowChrome.IsHitTestVisibleInChrome="True"
                                                 Style="{StaticResource WindowIconButtonStyle}" />
                                     </pc:SimpleGrid>
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60" />
                                             <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="4*" />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <RowDefinition />
@@ -83,11 +82,9 @@
                                               Fill="{TemplateBinding ImageBrush}"
                                               Stretch="Uniform"
                                               Visibility="{TemplateBinding IsShowImage, Converter={pt:BooleanToVisibilityConverter}}" />
-                                        <ScrollViewer Grid.Row="0" Grid.Column="1">
-                                            <TextBlock Text="{TemplateBinding Message}"
-                                                       VerticalAlignment="Center"
-                                                       TextWrapping="Wrap"
-                                                       Style="{StaticResource MessageDialogTextBlockStyle}" />
+                                        <ScrollViewer Grid.Row="0" Grid.Column="1" Padding="6"
+                                                      HorizontalScrollBarVisibility="Disabled">
+                                            <TextBlock Text="{TemplateBinding Message}" VerticalAlignment="Center" TextWrapping="Wrap" />
                                         </ScrollViewer>
                                         <StackPanel x:Name="PART_Panel" Grid.Row="1" Grid.Column="0"
                                                     Grid.ColumnSpan="2"

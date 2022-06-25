@@ -3,7 +3,7 @@
                     xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/DragableControlsBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/DragableControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultDragableTabControlStyle" TargetType="{x:Type drag:DragableTabControl}" BasedOn="{StaticResource DragableTabControlBaseStyle}" />

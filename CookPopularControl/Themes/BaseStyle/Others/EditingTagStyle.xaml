@@ -5,7 +5,7 @@
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlsBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultAttachedIconControlBaseStyle}">
@@ -23,7 +23,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:EditingTag}">
-                    <Border x:Name="RootBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" SnapsToDevicePixels="True">
+                    <Border x:Name="RootBorder"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                            SnapsToDevicePixels="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="{TemplateBinding HeaderWidth}" />
@@ -48,6 +51,11 @@
                                      common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                      Visibility="{TemplateBinding EditorType, Converter={common:EditorTypeToVisibilityConverter}, ConverterParameter=TextBox}"
                                      Style="{DynamicResource DefaultTextBoxStyle}" />
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       Visibility="{TemplateBinding EditorType, Converter={common:EditorTypeToVisibilityConverter}, ConverterParameter=TextBlock}" />
                             <pc:NumericUpDown x:Name="PART_NumericUpDown" Grid.Column="1"
                                               Height="{TemplateBinding Height}"
                                               BorderBrush="{TemplateBinding BorderBrush}"

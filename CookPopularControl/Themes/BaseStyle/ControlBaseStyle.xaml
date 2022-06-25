@@ -26,7 +26,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ControlBaseStyle" TargetType="Control">
+    <Style x:Key="ControlBaseStyle" TargetType="{x:Type Control}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />

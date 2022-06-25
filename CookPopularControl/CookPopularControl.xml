@@ -817,7 +817,7 @@
         </member>
         <member name="F:CookPopularControl.Controls.ColorPicker.SelectedBrushChangedEvent">
             <summary>
-            <see cref="!:SelectedColorChangedEvent"/>标识颜色选择事件
+            <see cref="F:CookPopularControl.Controls.ColorPicker.SelectedBrushChangedEvent"/>标识颜色选择事件
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.HslColor">
@@ -1480,6 +1480,11 @@
         <member name="F:CookPopularControl.Controls.AutoGroupingText.SymbolProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.AutoGroupingText.Symbol"/>的依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.AutoGroupingText.SplitSymbolProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.AutoGroupingText.SplitSymbol"/>的依赖属性
             </summary>
         </member>
         <member name="P:CookPopularControl.Controls.AutoGroupingText.Text">
@@ -7916,36 +7921,6 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>
