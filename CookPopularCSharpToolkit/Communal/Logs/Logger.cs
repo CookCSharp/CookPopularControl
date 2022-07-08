@@ -1,8 +1,10 @@
 ﻿using log4net;
+using log4net.Config;
 using System;
+using System.IO;
 using System.Reflection;
 
-namespace CSharp.Communal.Logger
+namespace CookPopularCSharpToolkit.Communal
 {
     /// Copyright (c) 2020 All Rights Reserved.
     /// Description：Log4net日志 
@@ -15,18 +17,32 @@ namespace CSharp.Communal.Logger
     /// 如果没有定义LEVEL的值，则缺省为DEBUG
     /// </summary>
     /// <remarks>基于log4net的日志方法</remarks>
-    public sealed class Log4Net
+    public sealed class Logger
     {
-        static Log4Net()
+        private static readonly Assembly assembly = Assembly.GetEntryAssembly();
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly string DefaultConfigureFile = Assembly.GetExecutingAssembly().GetName().Name + ".log4net.config";
+
+
+        public static void ConfigureDefault(string configureFile = null)
         {
-            //要使用这个方法配置log4net，您必须指定log4net.config
-            log4net.Config.XmlConfigurator.Configure();
-            ////否则
-            //log4net.Config.XmlConfigurator.Configure(new Uri(AppDomain.CurrentDomain.BaseDirectory + "log4net.config"));
+            if (string.IsNullOrEmpty(configureFile))
+                configureFile = DefaultConfigureFile;
+
+            //读取配置文件
+            Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(configureFile);
+            XmlConfigurator.Configure(stream);
         }
 
-        private static readonly Assembly assembly = Assembly.GetEntryAssembly();
-        private static readonly ILog log = LogManager.GetLogger("LoggerObject");
+        public static void SetLog4ConfigFile(string fileName)
+        {
+            XmlConfigurator.Configure(new FileInfo(fileName));
+        }
+
+        public static void SetLog4ConfigFile(Stream stream)
+        {
+            XmlConfigurator.Configure(stream);
+        }
 
         public static void Fatal(object message)
         {

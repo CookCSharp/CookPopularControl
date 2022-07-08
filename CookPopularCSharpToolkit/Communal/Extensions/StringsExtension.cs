@@ -208,16 +208,25 @@ namespace CookPopularCSharpToolkit.Communal
         }
 
         /// <summary>
+        /// 打开文件夹或文件
+        /// </summary>
+        /// <param name="fileName"></param>
+        public static void ToOpenFolder(this string fileName)
+        {
+            Process.Start(new ProcessStartInfo("explorer", fileName) { CreateNoWindow = true });
+        }
+
+        /// <summary>
         /// 将字符串转为ASCII，并用16进制表示
         /// </summary>
-        /// <param name="str">目标字符串</param>
+        /// <param name="asciiStr">目标字符串</param>
         /// <returns>由以连字符分隔的十六进制对构成的字符串，其中每一对表示 value 中对应的元素；例如“7F-2C-4A”。</returns>
         public static string ToAsciiFromString(this string asciiStr) => BitConverter.ToString(Encoding.Default.GetBytes(asciiStr)).Replace("-", "");
 
         /// <summary>
         /// 将16进制字符串还原成ASCII
         /// </summary>
-        /// <param name="str">目标字符串</param>
+        /// <param name="asciiStr">目标字符串</param>
         /// <returns>初始字符串</returns>
         public static string ToOriginFromHexString(this string asciiStr)
         {

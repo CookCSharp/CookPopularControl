@@ -14,7 +14,7 @@ using System.ComponentModel;
  * CLR Version: 4.0.30319.42000
  * Copyright (c) CookCSharp 2021 All Rights Reserved.
  */
-namespace CookPopularCSharpToolkit.Communal.Collections
+namespace CookPopularCSharpToolkit.Communal
 {
     /// <summary>
     /// A helper class that tracks both, <see cref="INotifyCollectionChanged.CollectionChanged"/> and 
