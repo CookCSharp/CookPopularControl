@@ -112,27 +112,48 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}">
-                            <StackPanel Background="{TemplateBinding Background}" Margin="{Binding Converter={common:TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}" Orientation="Horizontal">
-                                <ToggleButton x:Name="Expander"
-                                              Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
-                                              Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
-                                              IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
-                                              Margin="0,0,3,0"
-                                              ClickMode="Press"
-                                              Style="{StaticResource TreeViewExpandCollapseToggleButtonStyle}" />
-                                <Path x:Name="PART_HeaderIcon"
+                            <Grid Margin="{Binding Converter={common:TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="8" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <ToggleButton x:Name="Expander"
+                                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                                  IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                                  Margin="0,0,3,0"
+                                                  ClickMode="Press"
+                                                  Style="{StaticResource TreeViewExpandCollapseToggleButtonStyle}" />
+                                    <Path x:Name="PART_HeaderIcon"
+                                          Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
+                                          Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconHasItems)}"
+                                          Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconFill)}"
+                                          Stretch="Uniform"
+                                          Margin="0,0,3,0"
+                                          Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={pt:BooleanToVisibilityConverter}}"/>
+                                    <ContentPresenter x:Name="PART_Header"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="Center"
+                                                      ContentSource="Header" />
+                                </StackPanel>
+                                <Path x:Name="PART_SelectedIcon" Grid.Column="2"
                                       Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                       Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
-                                      Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconHasItems)}"
+                                      Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.SelectedIcon)}"
                                       Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconFill)}"
                                       Stretch="Uniform"
-                                      Margin="0,0,3,0"
-                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.IsShowHeaderIcon), Converter={pt:BooleanToVisibilityConverter}}" />
-                                <ContentPresenter x:Name="PART_Header"
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="Center"
-                                                  ContentSource="Header" />
-                            </StackPanel>
+                                      Margin="0,0,8,0" >
+                                    <Path.Visibility>
+                                        <MultiBinding Converter="{pt:BooleanAllToVisibilityConverter}">
+                                            <Binding Path="IsSelected" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="(pc:TreeViewAssistant.IsShowSelectedIcon)" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=TreeView}" />
+                                        </MultiBinding>
+                                    </Path.Visibility>
+                                </Path>
+                            </Grid>
                         </Border>
                         <ItemsPresenter x:Name="ItemsHost" Grid.Row="1" Grid.Column="1"
                                         Grid.ColumnSpan="2"

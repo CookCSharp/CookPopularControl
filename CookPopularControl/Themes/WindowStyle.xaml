@@ -175,10 +175,10 @@
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="Icon" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Icon}" Value="{x:Null}">
                             <Setter Property="IconWidth" Value="0" />
                             <Setter Property="IconHeight" Value="0" />
-                        </Trigger>
+                        </DataTrigger>
                         <Trigger Property="IsActive" Value="False">
                             <Setter Property="Opacity" Value="0.8" TargetName="NonClientContentPresenter" />
                             <Setter Property="Opacity" Value="0.8" TargetName="ButtonPanel" />
@@ -316,10 +316,10 @@
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="Icon" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Icon}" Value="{x:Null}">
                             <Setter Property="IconWidth" Value="0" />
                             <Setter Property="IconHeight" Value="0" />
-                        </Trigger>
+                        </DataTrigger>
                         <Trigger Property="IsActive" Value="False">
                             <Setter Property="Opacity" Value="0.8" TargetName="NonClientContentPresenter" />
                             <Setter Property="Opacity" Value="0.8" TargetName="ButtonPanel" />

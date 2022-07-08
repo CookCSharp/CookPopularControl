@@ -11,5 +11,5 @@
         <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
     </Style>
-    
+
 </ResourceDictionary>

@@ -63,11 +63,29 @@ namespace CookPopularControl.Controls
 
 
         public static bool GetIsShowHeaderIcon(DependencyObject obj) => (bool)obj.GetValue(IsShowHeaderIconProperty);
-        public static void SetIsShowHeaderIcon(DependencyObject obj, bool value) => obj.SetValue(IsShowHeaderIconProperty, value);
+        public static void SetIsShowHeaderIcon(DependencyObject obj, bool value) => obj.SetValue(IsShowHeaderIconProperty, ValueBoxes.BooleanBox(value));
         /// <summary>
         /// <see cref="IsShowHeaderIconProperty"/>标识<see cref="System.Windows.Controls.TreeView"/>是否显示标题头
         /// </summary>
         public static readonly DependencyProperty IsShowHeaderIconProperty =
             DependencyProperty.RegisterAttached("IsShowHeaderIcon", typeof(bool), typeof(TreeViewAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
+
+
+        public static Geometry GetSelectedIcon(DependencyObject obj) => (Geometry)obj.GetValue(SelectedIconProperty);
+        public static void SetSelectedIcon(DependencyObject obj, Geometry value) => obj.SetValue(SelectedIconProperty, value);
+        /// <summary>
+        /// <see cref="SelectedIconProperty"/>标识<see cref="System.Windows.Controls.TreeView"/>选中时的图标
+        /// </summary>
+        public static readonly DependencyProperty SelectedIconProperty =
+            DependencyProperty.RegisterAttached("SelectedIcon", typeof(Geometry), typeof(TreeViewAssistant), new PropertyMetadata(Geometry.Empty));
+
+
+        public static bool GetIsShowSelectedIcon(DependencyObject obj) => (bool)obj.GetValue(IsShowSelectedIconProperty);
+        public static void SetIsShowSelectedIcon(DependencyObject obj, bool value) => obj.SetValue(IsShowSelectedIconProperty, ValueBoxes.BooleanBox(value));
+        /// <summary>
+        /// <see cref="IsShowSelectedIconProperty"/>标识<see cref="System.Windows.Controls.TreeView"/>是否显示选中时的图标
+        /// </summary>
+        public static readonly DependencyProperty IsShowSelectedIconProperty =
+            DependencyProperty.RegisterAttached("IsShowSelectedIcon", typeof(bool), typeof(TreeViewAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
     }
 }

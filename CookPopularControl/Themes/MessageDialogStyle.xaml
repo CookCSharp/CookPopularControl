@@ -11,12 +11,12 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/WindowStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--<Style x:Key="MessageDialogTextBlockStyle" TargetType="{x:Type TextBlock}">
+    <Style x:Key="MessageDialogTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="Microsoft YaHei" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="FontStretch" Value="Normal" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-    </Style>-->
+    </Style>
 
     <Style x:Key="MessageDialogSelectedButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="MinWidth" Value="60" />
@@ -41,6 +41,7 @@
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="ShowInTaskbar" Value="False" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:MessageDialog}">
@@ -59,7 +60,8 @@
                                         <TextBlock Text="{TemplateBinding Title}"
                                                    Foreground="{TemplateBinding ClientTitleBarForeground}"
                                                    Margin="8,0"
-                                                   VerticalAlignment="Center" />
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource MessageDialogTextBlockStyle}" />
                                         <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
                                                 ToolTip="关闭"
                                                 HorizontalAlignment="Right" VerticalAlignment="Center"
@@ -82,9 +84,13 @@
                                               Fill="{TemplateBinding ImageBrush}"
                                               Stretch="Uniform"
                                               Visibility="{TemplateBinding IsShowImage, Converter={pt:BooleanToVisibilityConverter}}" />
-                                        <ScrollViewer Grid.Row="0" Grid.Column="1" Padding="6"
+                                        <ScrollViewer Grid.Row="0" Grid.Column="1"
+                                                      Padding="6"
                                                       HorizontalScrollBarVisibility="Disabled">
-                                            <TextBlock Text="{TemplateBinding Message}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                            <TextBlock Text="{TemplateBinding Message}"
+                                                       VerticalAlignment="Center"
+                                                       TextWrapping="Wrap"
+                                                       Style="{StaticResource MessageDialogTextBlockStyle}" />
                                         </ScrollViewer>
                                         <StackPanel x:Name="PART_Panel" Grid.Row="1" Grid.Column="0"
                                                     Grid.ColumnSpan="2"

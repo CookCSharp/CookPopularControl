@@ -199,7 +199,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ListViewGridViewItem" TargetType="{x:Type ListViewItem}">
+    <Style x:Key="ListViewGridViewItemStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
@@ -258,7 +258,7 @@
     </Style>
 
     <Style x:Key="ListViewGirdViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewGridViewItem}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewGridViewItemStyle}" />
         <Setter Property="common:DataGridViewAttached.ColumnHeaderHeight" Value="30" />
         <Setter Property="common:DataGridViewAttached.ColumnHeaderPadding" Value="4,0,0,0" />
         <Setter Property="pc:ListViewAssistant.ListViewItemPadding" Value="0" />

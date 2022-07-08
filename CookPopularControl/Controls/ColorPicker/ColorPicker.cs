@@ -414,7 +414,7 @@ namespace CookPopularControl.Controls
             remove { this.RemoveHandler(SelectedBrushChangedEvent, value); }
         }
         /// <summary>
-        /// <see cref="SelectedColorChangedEvent"/>标识颜色选择事件
+        /// <see cref="SelectedBrushChangedEvent"/>标识颜色选择事件
         /// </summary>
         public static readonly RoutedEvent SelectedBrushChangedEvent =
             EventManager.RegisterRoutedEvent("SelectedBrushChanged", RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<Brush>), typeof(ColorPicker));

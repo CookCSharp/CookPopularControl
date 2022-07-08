@@ -20,8 +20,11 @@ using System.Windows.Shapes;
  */
 namespace CookPopularControl.Controls
 {
+    /// <summary>
+    /// 分割线
+    /// </summary>
     public class DivideLine : ContentControl
-    {   
+    {
         public Brush Stroke
         {
             get => (Brush)GetValue(StrokeProperty);
@@ -30,8 +33,8 @@ namespace CookPopularControl.Controls
         /// <summary>
         /// 提供<see cref="Stroke"/>的依赖属性
         /// </summary>
-        public static readonly DependencyProperty StrokeProperty =  
-            DependencyProperty.Register("Stroke", typeof(Brush), typeof(DivideLine), new PropertyMetadata(default(Brush)));
+        public static readonly DependencyProperty StrokeProperty =
+            DependencyProperty.Register("Stroke", typeof(Brush), typeof(DivideLine), new PropertyMetadata(SystemColors.GrayTextBrush));
 
 
         public double StrokeThickness
