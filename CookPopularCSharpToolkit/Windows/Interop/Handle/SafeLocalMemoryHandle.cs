@@ -32,13 +32,11 @@ namespace CookPopularCSharpToolkit.Windows.Interop
             base.SetHandle(preexistingHandle);
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success),
-         DllImport("Kernel32", CharSet = CharSet.Auto, SetLastError = true)]
-        private extern static IntPtr LocalFree(IntPtr handle);
+
 
         protected override bool ReleaseHandle()
         {
-            return LocalFree(base.handle) == IntPtr.Zero;
+            return InteropMethods.LocalFree(base.handle) == IntPtr.Zero;
         }
     }
 }

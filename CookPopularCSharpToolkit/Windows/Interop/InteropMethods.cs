@@ -481,11 +481,17 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         internal static extern uint SHAppBarMessage(int dwMessage, ref InteropValues.APPBARDATA pData);
 
         [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern uint WaitForSingleObject(IntPtr hHandle, uint dwMilliseconds);
+        internal static extern uint WaitForSingleObject(IntPtr hHandle, uint dwMilliseconds);
 
         // Import dwmapi.dll and define DwmSetWindowAttribute in C# corresponding to the native function.
         [DllImport(InteropValues.ExternDll.Dwmapi, CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern long DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DWMWINDOWATTRIBUTE attribute, ref InteropValues.DWM_WINDOW_CORNER_PREFERENCE pvAttribute, uint cbAttribute);
+        internal static extern long DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DWMWINDOWATTRIBUTE attribute, ref InteropValues.DWM_WINDOW_CORNER_PREFERENCE pvAttribute, uint cbAttribute);
+
+        [DllImport(InteropValues.ExternDll.Shell32, EntryPoint = "CommandLineToArgvW", CharSet = CharSet.Unicode)]
+        internal static extern IntPtr CommandLineToArgvW([MarshalAs(UnmanagedType.LPWStr)] string cmdLine, out int numArgs);
+
+        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success), DllImport(InteropValues.ExternDll.Kernel32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal extern static IntPtr LocalFree(IntPtr handle);
 
         #endregion
 

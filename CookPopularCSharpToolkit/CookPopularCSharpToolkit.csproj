@@ -1,52 +1,57 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <UseWPF>true</UseWPF>
-        <UseWindowsForms>true</UseWindowsForms>
+  <PropertyGroup>
+	<!--<TargetFrameworks Condition="$(BuildingForNet6)">$(TargetFrameworks);net6.0-ios;net6.0-maccatalyst;net6.0-tvos;net6.0-macos;net6.0-android</TargetFrameworks>-->
+	<DefineConstants>$(DefineConstants);COOK</DefineConstants>
+	<UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+	<PackageIcon>CSharp.png</PackageIcon>
+	<PackageTags>c#,csharp,toolkit,</PackageTags>
+	<Description>兼容.NetFramework与.NetCore/.Net的工具方法</Description>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<RepositoryUrl>https://gitee.com/cook-csharp/CookPopularControl</RepositoryUrl>
+	<PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
+  </PropertyGroup>
 
-        <PackageIcon>CSharp.png</PackageIcon>
-        <PackageTags>c#,csharp,toolkit,</PackageTags>
-        <Description>兼容.NetFramework与.NetCore/.Net的工具方法</Description>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <RepositoryUrl>https://gitee.com/cook-csharp/CookPopularControl</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
-    </PropertyGroup>
+  <!--创建 snupkg 文件-->
+  <PropertyGroup>
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
 
-    <!--创建 snupkg 文件-->
-    <PropertyGroup>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
+	<DefineConstants>TRACE;NOTINCONTROL;</DefineConstants>
+  </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
-      <DefineConstants>TRACE;NOTINCONTROL;</DefineConstants>
-    </PropertyGroup>
+  <ItemGroup>
+	<None Remove="log4net.config" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <None Remove="log4net.config" />
-    </ItemGroup>
+  <ItemGroup>
+	<EmbeddedResource Include="log4net.config">
+	  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	</EmbeddedResource>
+  </ItemGroup>
 
-    <ItemGroup>
-      <EmbeddedResource Include="log4net.config">
-        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      </EmbeddedResource>
-    </ItemGroup>
+  <ItemGroup>
+	<PackageReference Include="log4net" Version="2.0.14" />
+	<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+	<PackageReference Include="System.ComponentModel.Composition" Version="6.0.0-preview.1.21102.12" />
+	<PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+	<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="log4net" Version="2.0.14" />
-      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-      <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0-preview.1.21102.12" />
-      <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-      <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-    </ItemGroup>
+  <ItemGroup>
+	<None Include="CSharp.png">
+	  <Pack>True</Pack>
+	  <PackagePath></PackagePath>
+	</None>
+  </ItemGroup>
 
-    <ItemGroup>
-      <None Include="CSharp.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
-    </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+	<Reference Include="System.Runtime.Remoting" />
+  </ItemGroup>
 
 </Project>

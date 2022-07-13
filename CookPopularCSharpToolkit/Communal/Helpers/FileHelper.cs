@@ -64,7 +64,7 @@ namespace CookPopularCSharpToolkit.Communal
         /// <param name="sourceFolder">删除的目标文件夹路径</param>
         /// <param name="isSourceFolderDelete">是否删除目标文件夹本身</param>
         /// <param name="exceptFolder">除开集合文件夹与文件</param>
-        /// <remarks><see cref="SourceFolder"/>目标文件夹也被删除</remarks>
+        /// <remarks>目标文件夹也被删除</remarks>
         public static void FileDeletes(string sourceFolder, bool isSourceFolderDelete = true, params string[] exceptFolder)
         {
             if (originFilesPath != null) originFilesPath.Clear();
