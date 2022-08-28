@@ -25,9 +25,13 @@ namespace CookPopularControl.Controls
     /// </summary>
     public class UniformStackPanel : Panel
     {
+        ///// <summary>
+        ///// 如果值为true,子项之间、子项与边界之间间距相等
+        ///// 如果为false，仅子项之间间距相等，子项与边界之间间距可能不相等
+        ///// </summary>
+        
         /// <summary>
-        /// 如果值为true,子项之间、子项与边界之间间距相等
-        /// 如果为false，仅子项之间间距相等，子项与边界之间间距肯能不相等
+        /// 子项对齐方式
         /// </summary>
         public UniformType UniformType
         {

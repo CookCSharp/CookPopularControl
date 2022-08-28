@@ -8,7 +8,7 @@
 	<!--<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Platform)</BaseIntermediateOutputPath>-->
 	<IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
 	<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
-	<TargetFrameworks>net46;net461;netcoreapp3.1;net5.0-windows</TargetFrameworks>
+	<TargetFrameworks>net46;net461;netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
 	<Platforms>AnyCPU;x64;x86</Platforms>
 	<LangVersion>9.0</LangVersion>
 	<!--指示编译器是否应为相同的输入产生相同的程序集-->
@@ -18,8 +18,6 @@
 	<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 
-
-	<Version>1.0.2-dev-20220104</Version>
 	<!--CookPopularControl Nuget包说明配置 $(MSBuildToolsPath)-->
 	<PackageId>$(MSBuildProjectName)</PackageId>
 	<Authors>写代码的厨子</Authors>
@@ -27,7 +25,7 @@
 	<Product>$(MSBuildProjectName)</Product>
 	<Title>$(MSBuildProjectName)</Title>
 	<Description>兼容.NetFramework与.NetCore/.Net的WPF控件库</Description>
-	<Copyright>Copyright © $(MSBuildProjectName) 2021</Copyright>
+	<Copyright>Copyright © $(MSBuildProjectName) 2019-2022</Copyright>
 	<PackageTags>xaml,wpf,ui,controls,windows,desktop,cookpopularcontrol,library</PackageTags>
 	<RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>

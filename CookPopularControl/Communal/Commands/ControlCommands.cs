@@ -32,5 +32,10 @@ namespace CookPopularControl.Communal
         /// 按照名称排序
         /// </summary>
         public static ICommand SortByNameCommand { get; } = new RoutedCommand(nameof(SortByNameCommand), typeof(ControlCommands));
+
+        public static ICommand ConfirmCommand { get; } = new RoutedCommand(nameof(ConfirmCommand), typeof(ControlCommands));
+        public static ICommand YesCommand { get; } = new RoutedCommand(nameof(YesCommand), typeof(ControlCommands));
+        public static ICommand NoCommand { get; } = new RoutedCommand(nameof(NoCommand), typeof(ControlCommands));
+        public static ICommand CancelCommand { get; } = new RoutedCommand(nameof(CancelCommand), typeof(ControlCommands));
     }
 }

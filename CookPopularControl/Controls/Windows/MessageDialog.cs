@@ -1,4 +1,5 @@
-﻿using CookPopularCSharpToolkit.Communal;
+﻿using CookPopularControl.Communal;
+using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using CookPopularCSharpToolkit.Windows.Interop;
 using System;
@@ -35,11 +36,7 @@ namespace CookPopularControl.Windows
         private MessageBoxResult currentMessageBoxResult;
         private Panel currentPanel;
         private IntPtr _lastActiveWindowIntPtr;
-
-        public static ICommand ConfirmCommand = new RoutedCommand(nameof(ConfirmCommand), typeof(MessageDialog));
-        public static ICommand YesCommand = new RoutedCommand(nameof(YesCommand), typeof(MessageDialog));
-        public static ICommand NoCommand = new RoutedCommand(nameof(NoCommand), typeof(MessageDialog));
-        public static ICommand CancelCommand = new RoutedCommand(nameof(CancelCommand), typeof(MessageDialog));
+        
 
         /// <summary>
         /// <see cref="MessageDialog"/>消息内容
@@ -88,22 +85,22 @@ namespace CookPopularControl.Windows
 
         public MessageDialog()
         {
-            CommandBindings.Add(new CommandBinding(ConfirmCommand, Executed, (s, e) => e.CanExecute = true));
-            CommandBindings.Add(new CommandBinding(YesCommand, Executed, (s, e) => e.CanExecute = true));
-            CommandBindings.Add(new CommandBinding(NoCommand, Executed, (s, e) => e.CanExecute = true));
-            CommandBindings.Add(new CommandBinding(CancelCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(ControlCommands.ConfirmCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(ControlCommands.YesCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(ControlCommands.NoCommand, Executed, (s, e) => e.CanExecute = true));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CancelCommand, Executed, (s, e) => e.CanExecute = true));
             InputMethod.SetIsInputMethodEnabled(this, false); //屏蔽输入法
         }
 
         private static void Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if (e.Command == ConfirmCommand)
+            if (e.Command == ControlCommands.ConfirmCommand)
                 CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.OK;
-            else if (e.Command == YesCommand)
+            else if (e.Command == ControlCommands.YesCommand)
                 CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.Yes;
-            else if (e.Command == NoCommand)
+            else if (e.Command == ControlCommands.NoCommand)
                 CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.No;
-            else if (e.Command == CancelCommand)
+            else if (e.Command == ControlCommands.CancelCommand)
                 CurrentMessageDialog.currentMessageBoxResult = MessageBoxResult.Cancel;
 
             CurrentMessageDialog.Close();
@@ -358,7 +355,7 @@ namespace CookPopularControl.Windows
                     {
                         IsDefault = true,
                         Content = "确定(_Y)", //下划线是为了可以使用快捷键(Y)
-                        Command = ConfirmCommand,
+                        Command = ControlCommands.ConfirmCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogSelectedButtonStyle"),
                     };
                     listButton.Add(btn_OK_1);
@@ -369,14 +366,14 @@ namespace CookPopularControl.Windows
                     {
                         IsDefault = true,
                         Content = "确定(_Y)",
-                        Command = ConfirmCommand,
+                        Command = ControlCommands.ConfirmCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogSelectedButtonStyle"),
                     };
                     var btn_Cancel_1 = new OriginButton()
                     {
                         IsCancel = true,
                         Content = "取消(_C)",
-                        Command = CancelCommand,
+                        Command = ControlCommands.CancelCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogUnSelectedButtonStyle"),
                     };
                     listButton.Add(btn_OK_2);
@@ -389,14 +386,14 @@ namespace CookPopularControl.Windows
                     {
                         IsDefault = true,
                         Content = "是(_Y)",
-                        Command = YesCommand,
+                        Command = ControlCommands.YesCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogSelectedButtonStyle"),
                     };
                     var btn_No_1 = new OriginButton()
                     {
                         IsCancel = true,
                         Content = "否(_N)",
-                        Command = NoCommand,
+                        Command = ControlCommands.NoCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogUnSelectedButtonStyle"),
                     };
                     listButton.Add(btn_Yes_1);
@@ -409,20 +406,20 @@ namespace CookPopularControl.Windows
                     {
                         IsDefault = true,
                         Content = "是(_Y)",
-                        Command = YesCommand,
+                        Command = ControlCommands.YesCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogSelectedButtonStyle"),
                     };
                     var btn_No_2 = new OriginButton()
                     {
                         Content = "否(_N)",
-                        Command = NoCommand,
+                        Command = ControlCommands.NoCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogUnSelectedButtonStyle"),
                     };
                     var btn_Cancel_2 = new OriginButton()
                     {
                         IsCancel = true,
                         Content = "取消(_C)",
-                        Command = CancelCommand,
+                        Command = ControlCommands.CancelCommand,
                         Style = ResourceHelper.GetResource<Style>("MessageDialogUnSelectedButtonStyle"),
                     };
                     listButton.Add(btn_Yes_2);

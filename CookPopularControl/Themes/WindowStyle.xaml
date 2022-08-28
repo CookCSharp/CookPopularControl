@@ -478,12 +478,12 @@
 
     <Style x:Key="FixedSizeWindowStyle" TargetType="{x:Type Window}">
         <!--  或 ResizeMode="NoResize"  -->
-        <Setter Property="ResizeMode" Value="CanResize" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <!--  或设置为其他较大的正数  -->
-                <WindowChrome GlassFrameThickness="-1" />
+                <WindowChrome GlassFrameThickness="-1" CaptionHeight="30"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
@@ -491,7 +491,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
-                    <Border Background="Transparent" Padding="10">
+                    <Border Background="Transparent" Padding="2">
                         <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" Effect="{DynamicResource ShadowEffectDepth0}">
                             <ContentPresenter ClipToBounds="True" />
                         </Border>

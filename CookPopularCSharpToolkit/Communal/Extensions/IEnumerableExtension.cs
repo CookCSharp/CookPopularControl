@@ -538,7 +538,7 @@ namespace CookPopularCSharpToolkit.Communal
             {
                 resultStr += item + insertsymbol;
             }
-            return resultStr.Remove(resultStr.Length - 1);
+            return resultStr.Remove(resultStr.Length - insertsymbol.Length);
         }
     }
 }
