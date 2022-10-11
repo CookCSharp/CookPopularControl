@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Controls;
 using CookPopularControl.Themes.CookColors;
+using CookPopularControl.Windows;
 using CookPopularCSharpToolkit.Communal;
 using MvvmTestDemo.Commumal;
 using MvvmTestDemo.UserControls;
@@ -77,12 +78,11 @@ namespace MvvmTestDemo
             HomePageCommand = new DelegateCommand(OnHomePage);
             SwitchAppThemeCommand = new DelegateCommand(OnSwitchAppTheme);
             DemoViewsSelectedCommand = new DelegateCommand(OnDemoViewsSelected);
-
         }
 
         private void OnLoaded()
         {
-            SetControlsList();         
+            SetControlsList();
             GetThemes();
             OnHomePage();
         }
@@ -105,7 +105,8 @@ namespace MvvmTestDemo
 
             var basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.FullName;
-            var demoFiles = Directory.GetFiles(demoPath + "\\MvvmTestDemo\\DemoViews", "*.xaml").ToList();
+            var demoFiles = Directory.GetFiles(@"D:\WPFSourceCode\CookPopularControl\MvvmTestDemo\DemoViews", "*.xaml").ToList();
+            //var demoFiles = Directory.GetFiles(demoPath + "\\MvvmTestDemo\\DemoViews", "*.xaml").ToList();
 
             foreach (var file in demoFiles)
             {

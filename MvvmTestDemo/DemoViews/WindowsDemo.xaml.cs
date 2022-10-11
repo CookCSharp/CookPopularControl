@@ -28,6 +28,7 @@ namespace MvvmTestDemo.DemoViews
                 "PrintPreviewWindow" => Show<PrintPreviewWindow>(),
                 "DragableWindows" => Show<QuickStartWindow>(),
                 "NoneTitleBarWindow" => Show<NoneWindow>(),
+                "FixedSizeWindow" => Show<FixedSizeWindow>(),
                 "ToastMessage" => ShowToast(),
                 _ => throw new NotImplementedException(),
             };

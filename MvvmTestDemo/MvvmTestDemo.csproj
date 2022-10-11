@@ -1,99 +1,122 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-    <PropertyGroup>
-        <OutputType>WinExe</OutputType>
-        <TargetFrameworks>net461;net5.0-windows</TargetFrameworks>
-        <UseWPF>true</UseWPF>
-        <UseWindowsForms>true</UseWindowsForms>
-        <LangVersion>9.0</LangVersion>
-        <ApplicationIcon>CookCSharp.ico</ApplicationIcon>
-        <UserSecretsId>95f624a1-62e9-4f3e-9fd6-a95f38aeea9a</UserSecretsId>
-        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	<OutputPath />
+	<IntermediateOutputPath />
+	<TargetFrameworks>net461;net5.0-windows</TargetFrameworks>
+	<UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+	<LangVersion>9.0</LangVersion>
+	<ApplicationIcon>CookCSharp.ico</ApplicationIcon>
+	<UserSecretsId>95f624a1-62e9-4f3e-9fd6-a95f38aeea9a</UserSecretsId>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    <!--剪裁应用-->
-    <!--<PropertyGroup>
+  <!--剪裁应用-->
+  <!--<PropertyGroup>
         <PublishTrimmed>true</PublishTrimmed>
         <TrimMode>link</TrimMode>
         <SuppressTrimAnalysisWarnings>false</SuppressTrimAnalysisWarnings>
     </PropertyGroup>-->
 
-    <ItemGroup>
-      <Compile Remove="DemosViewViewModel\**" />
-      <EmbeddedResource Remove="DemosViewViewModel\**" />
-      <None Remove="DemosViewViewModel\**" />
-      <Page Remove="DemosViewViewModel\**" />
-    </ItemGroup>
+  <ItemGroup>
+	<Compile Remove="DemosViewViewModel\**" />
+	<EmbeddedResource Remove="DemosViewViewModel\**" />
+	<None Remove="DemosViewViewModel\**" />
+	<Page Remove="DemosViewViewModel\**" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <None Remove="Resources\CarouselViewImages\1.jpg" />
-        <None Remove="Resources\CarouselViewImages\2.jpg" />
-        <None Remove="Resources\CarouselViewImages\3.jpg" />
-        <None Remove="Resources\CarouselViewImages\4.jpg" />
-        <None Remove="Resources\CarouselViewImages\5.jpg" />
-        <None Remove="Resources\CarouselViewImages\6.jpg" />
-        <None Remove="Resources\CarouselViewImages\7.jpg" />
-        <None Remove="Resources\CarouselViewImages\8.jpg" />
-        <None Remove="Resources\CarouselViewImages\9.jpg" />
-        <None Remove="Resources\Gif\C.png" />
-        <None Remove="Resources\Gif\cook.gif" />
-        <None Remove="Resources\Gif\CookCSharp.ico" />
-        <None Remove="Resources\Gif\programmer.gif" />
-        <None Remove="Resources\Gif\timg.jpg" />
-        <None Remove="Resources\Gif\tomcat.jpg" />
-    </ItemGroup>
+  <ItemGroup>
+	<None Remove="obfuscar.xml" />
+	<None Remove="Resources\CarouselViewImages\1.jpg" />
+	<None Remove="Resources\CarouselViewImages\2.jpg" />
+	<None Remove="Resources\CarouselViewImages\3.jpg" />
+	<None Remove="Resources\CarouselViewImages\4.jpg" />
+	<None Remove="Resources\CarouselViewImages\5.jpg" />
+	<None Remove="Resources\CarouselViewImages\6.jpg" />
+	<None Remove="Resources\CarouselViewImages\7.jpg" />
+	<None Remove="Resources\CarouselViewImages\8.jpg" />
+	<None Remove="Resources\CarouselViewImages\9.jpg" />
+	<None Remove="Resources\Gif\C.png" />
+	<None Remove="Resources\Gif\cook.gif" />
+	<None Remove="Resources\Gif\CookCSharp.ico" />
+	<None Remove="Resources\Gif\programmer.gif" />
+	<None Remove="Resources\Gif\timg.jpg" />
+	<None Remove="Resources\Gif\tomcat.jpg" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="DocumentFormat.OpenXml" Version="2.14.0" />
-        <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
-        <PackageReference Include="Prism.Unity" Version="8.1.97" />
-        <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
-        <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
-        <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
-        <PackageReference Include="ZXing.Net" Version="0.16.6" />
-    </ItemGroup>
+  <ItemGroup>
+    <Content Include="Obfuscar.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\CookPopularControl\CookPopularControl.csproj" />
-        <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+	<PackageReference Include="DocumentFormat.OpenXml" Version="2.14.0" />
+	<PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+	<PackageReference Include="Obfuscar" Version="2.2.33">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Prism.Unity" Version="8.1.97" />
+	<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+	<PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
+	<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+	<PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+	<PackageReference Include="ZXing.Net" Version="0.16.6" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <Resource Include="Resources\CarouselViewImages\1.jpg" />
-        <Resource Include="Resources\CarouselViewImages\2.jpg" />
-        <Resource Include="Resources\CarouselViewImages\3.jpg" />
-        <Resource Include="Resources\CarouselViewImages\4.jpg" />
-        <Resource Include="Resources\CarouselViewImages\5.jpg" />
-        <Resource Include="Resources\CarouselViewImages\6.jpg" />
-        <Resource Include="Resources\CarouselViewImages\7.jpg" />
-        <Resource Include="Resources\CarouselViewImages\8.jpg" />
-        <Resource Include="Resources\CarouselViewImages\9.jpg" />
-        <Resource Include="Resources\Gif\C.png" />
-        <Resource Include="Resources\Gif\cook.gif" />
-        <Resource Include="Resources\Gif\CookCSharp.ico" />
-        <Resource Include="Resources\Gif\programmer.gif" />
-        <Resource Include="Resources\Gif\timg.jpg" />
-        <Resource Include="Resources\Gif\tomcat.jpg" />
-    </ItemGroup>
+  <ItemGroup>
+	<Resource Include="Resources\CarouselViewImages\1.jpg" />
+	<Resource Include="Resources\CarouselViewImages\2.jpg" />
+	<Resource Include="Resources\CarouselViewImages\3.jpg" />
+	<Resource Include="Resources\CarouselViewImages\4.jpg" />
+	<Resource Include="Resources\CarouselViewImages\5.jpg" />
+	<Resource Include="Resources\CarouselViewImages\6.jpg" />
+	<Resource Include="Resources\CarouselViewImages\7.jpg" />
+	<Resource Include="Resources\CarouselViewImages\8.jpg" />
+	<Resource Include="Resources\CarouselViewImages\9.jpg" />
+	<Resource Include="Resources\Gif\C.png" />
+	<Resource Include="Resources\Gif\cook.gif" />
+	<Resource Include="Resources\Gif\CookCSharp.ico" />
+	<Resource Include="Resources\Gif\programmer.gif" />
+	<Resource Include="Resources\Gif\timg.jpg" />
+	<Resource Include="Resources\Gif\tomcat.jpg" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Resources\Effect\" />
-    </ItemGroup>
+  <ItemGroup>
+	<Folder Include="Resources\Effect\" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <Compile Update="Windows\Printers\PrintPreviewWindow.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CookPopularControl\CookPopularControl.csproj" />
+    <ProjectReference Include="..\CookPopularCSharpToolkit\CookPopularCSharpToolkit.csproj" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <Page Update="Windows\Printers\PrintPreviewWindow.xaml">
-        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
-    </ItemGroup>
+  <ItemGroup>
+	<Compile Update="Windows\Printers\PrintPreviewWindow.xaml.cs">
+	  <SubType>Code</SubType>
+	</Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+	<Page Update="Windows\Printers\PrintPreviewWindow.xaml">
+	  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	  <SubType>Designer</SubType>
+	</Page>
+  </ItemGroup>
+
+  <!--构建完成之后，自动调用-->
+  <!--Condition="$(TargetFramework.Contains('-windows'))"-->
+  <!--<Target Name="ObfuscarTask" AfterTargets="AfterBuild" Condition="$(TargetFramework.StartsWith('net5')) or $(TargetFramework.StartsWith('net6'))">
+	<PropertyGroup>
+	  <ObfuscateCommand>$(Obfuscar) $(ProjectDir)Obfuscar.xml</ObfuscateCommand>
+	</PropertyGroup>
+	<Exec WorkingDirectory="$(OutputPath)" Command="$(ObfuscateCommand)" />
+  </Target>-->
+  <!--<Copy SourceFiles="$(TargetDir)MyAssembly.dll" DestinationFolder="$(MonoAndroidIntermediateAssetsDir)" />-->
 
 </Project>

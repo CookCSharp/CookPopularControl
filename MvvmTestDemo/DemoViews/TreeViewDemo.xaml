@@ -17,24 +17,16 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TreeView Grid.Column="0" 
-                  Width="200" Height="300" 
+        <TreeView Grid.Column="0"
+                  pc:TreeViewAssistant.IsShowSelectedIcon="True"
+                  Width="200" Height="300"
                   ItemsSource="{Binding TreeViewDemoItems}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <HierarchicalDataTemplate.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                            <HierarchicalDataTemplate.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Header}" />
-                                </DataTemplate>
-                            </HierarchicalDataTemplate.ItemTemplate>
-                            <TextBlock Text="{Binding Header}" />
-                        </HierarchicalDataTemplate>
-                    </HierarchicalDataTemplate.ItemTemplate>
                     <TextBlock Text="{Binding Header}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
@@ -53,23 +45,18 @@
                 </behavior:EventTrigger>
             </behavior:Interaction.Triggers>
         </TreeView>
-        <TreeView Grid.Column="1"
+        <GridSplitter Grid.Column="1"
+                      Width="10"
+                      ResizeBehavior="PreviousAndNext" ResizeDirection="Auto" />
+        <TreeView Grid.Column="2"
                   Width="200" Height="300"
                   ItemsSource="{Binding TreeViewDemoItems}"
                   Style="{StaticResource TreeViewShowHeaderIconStyle}">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <HierarchicalDataTemplate.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                            <HierarchicalDataTemplate.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Header}" />
-                                </DataTemplate>
-                            </HierarchicalDataTemplate.ItemTemplate>
-                            <TextBlock Text="{Binding Header}" />
-                        </HierarchicalDataTemplate>
-                    </HierarchicalDataTemplate.ItemTemplate>
-                    <TextBlock Text="{Binding Header}" />
+                <HierarchicalDataTemplate DataType="{x:Type TreeViewItem}" ItemsSource="{Binding Children}">
+                    <Grid>
+                        <TextBlock Text="{Binding Header}" />
+                    </Grid>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>

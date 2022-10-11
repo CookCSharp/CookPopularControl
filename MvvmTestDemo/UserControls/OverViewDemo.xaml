@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:MvvmTestDemo.UserControls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              xmlns:prism="http://prismlibrary.com/"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              xmlns:vm="clr-namespace:MvvmTestDemo.DemoViewModels"
              mc:Ignorable="d"
              d:DataContext="{Binding Source={d:DesignInstance Type=vm:OverViewDemoViewModel}}"
@@ -68,12 +68,12 @@
                             pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
                             Style="{StaticResource ButtonContentWithGifStyle}" />
                     <Button Width="50" Height="50"
+                            Command="{Binding ProgressButtonCommand}"
                             FontSize="14"
                             ToolTip="CircularProgressButton"
                             pc:ButtonAssist.ProgressBarBrush="Yellow"
                             pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
                             pc:FrameworkElementBaseAttached.CornerRadius="25"
-                            Command="{Binding ProgressButtonCommand}"
                             Style="{StaticResource ButtonCircularProgressStyle}" />
                     <ToggleButton Height="40"
                                   Content="ToggleButtonDoubbleIcon"
@@ -100,8 +100,7 @@
                               FontSize="20"
                               Padding="10,0,0,0" ToolTip="CheckCheckBox"
                               pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
-                              pc:CheckBoxAssistant.FillSize="25" pc:CheckBoxAssistant.FillThickness="1"
-                              pc:CheckBoxAssistant.FillType="Check" />
+                              pc:CheckBoxAssistant.NullFillType="Line" />
                 </WrapPanel>
             </GroupBox>
             <GroupBox Grid.Row="1"

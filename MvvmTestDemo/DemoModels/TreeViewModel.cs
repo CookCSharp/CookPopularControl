@@ -22,4 +22,17 @@ namespace MvvmTestDemo.DemoModels
 
         public ObservableCollection<TreeViewModel> Children { get; set; }
     }
+
+    public class TreeViewModelStandard
+    {
+        public string Header { get; set; }
+
+        public int Level { get; set; }
+
+        public int ParentLevel { get; set; }
+
+        public bool IsParent { get; set; }
+
+        public ObservableCollection<TreeViewModelStandard> Children { get; set; }
+    }
 }

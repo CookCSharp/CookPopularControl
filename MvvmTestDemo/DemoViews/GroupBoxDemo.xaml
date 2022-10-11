@@ -10,12 +10,22 @@
              d:DesignHeight="450"
              d:DesignWidth="1000">
 
-    <ScrollViewer>
+    <ScrollViewer Padding="10,0">
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <GroupBox Width="300" Height="400"
+                      Header="写代码的厨子"
+                      Foreground="{StaticResource AssistantThemeBrush}"
+                      pc:GroupBoxAssistant.HeaderBackground="#F0F0F0"
+                      pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left">
+                <Border Background="Green">
+                    <Button Width="200" Height="40" Content="DefaultGroupBox" />
+                </Border>
+            </GroupBox>
             <GroupBox Width="300" Height="400"
                       BorderBrush="Red" BorderThickness="4"
                       Foreground="{StaticResource AssistantThemeBrush}"
                       FontSize="20"
+                      Margin="30,0"
                       pc:GroupBoxAssistant.HeaderBackground="#F0F0F0"
                       pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left">
                 <GroupBox.Header>
@@ -27,14 +37,13 @@
             </GroupBox>
             <GroupBox Width="300" Height="400"
                       Header="写代码的厨子"
-                      Margin="30,0"
                       Style="{DynamicResource CustomHeaderGroupBoxStyle}">
                 <Button Width="250" Height="40" Content="CustomHeaderGroupBox" />
             </GroupBox>
             <GroupBox Width="300" Height="400"
                       Header="写代码的厨子"
                       Foreground="#FFFFFF"
-                      Margin="0,0"
+                      Margin="30,0"
                       pc:FrameworkElementBaseAttached.CornerRadius="0"
                       pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
                       pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth3}"

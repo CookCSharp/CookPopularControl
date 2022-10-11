@@ -33,6 +33,10 @@
         <Button Width="200" Height="34"
                 Content="ShowMessageDialogCustom"
                 Click="Button_Click" />
+        <Button Width="200" Height="34"
+                Content="Test"
+                Margin="30,0"
+                Click="ButtonTest_Click" />
     </WrapPanel>
 
 </UserControl>

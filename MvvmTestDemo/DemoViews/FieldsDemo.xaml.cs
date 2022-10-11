@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using CookPopularControl.Controls;
+using CookPopularCSharpToolkit.Communal;
+using Prism.Commands;
 using PropertyChanged;
 using System;
 using System.Windows;
@@ -18,6 +20,8 @@ namespace MvvmTestDemo.DemoViews
 
         public double NumericValue { get; set; }
 
+        public string AutoText { get; set; } = "Cook:写代码的厨子&";
+
         public DelegateCommand<object> Sure123Command => new Lazy<DelegateCommand<object>>(() => new DelegateCommand<object>(OnSure123)).Value;
 
         private void OnSure123(object obj)
@@ -33,6 +37,14 @@ namespace MvvmTestDemo.DemoViews
         private void NumericUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             var s = num5.Value;
+        }
+
+        private int index = 1;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AutoText += $"Title{index}:Chance{index}&";
+            index++;
+            //AutoText = "Title1:写代码的厨子 Title2:Chance Title3:Cook";
         }
     }
 }

@@ -7,10 +7,8 @@
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
-             d:DesignHeight="450"
+             d:DesignHeight="650"
              d:DesignWidth="800">
-
-    <!--  xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"  -->
 
     <Grid>
         <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -18,8 +16,8 @@
             <WrapPanel Margin="0,50,0,0" HorizontalAlignment="Center">
                 <Button Width="100" Height="35"
                         Content="切换状态"
-                        Click="StateExchange_Click"
-                        IsEnabled="{Binding ElementName=control, Path=IsChecked, Converter={pt:BooleanToReBooleanConverter}}" />
+                        IsEnabled="{Binding ElementName=control, Path=IsChecked, Converter={pt:BooleanToReBooleanConverter}}"
+                        Click="StateExchange_Click" />
                 <ToggleButton x:Name="control"
                               Width="100" Height="35"
                               Content="停止"
@@ -36,6 +34,74 @@
                 </pc:Badge.Element>
                 <Button Width="200" Height="35" Content="123" />
             </pc:Badge>
+            <pc:DivideLine Content="写代码的厨子"
+                           Background="Yellow"
+                           Margin="0,20,0,0"
+                           StrokeThickness="1" />
+            <pc:DivideLine Content="写代码的厨子"
+                           Background="Yellow"
+                           Margin="0,20,0,0"
+                           HorizontalContentAlignment="Center"
+                           StrokeThickness="1" />
+            <pc:DivideLine Content="写代码的厨子"
+                           Background="Yellow"
+                           Margin="0,20,0,0"
+                           HorizontalContentAlignment="Right"
+                           StrokeThickness="1" />
+
+            <TextBlock Text="EditingTag:"
+                       FontSize="20" FontWeight="DemiBold"
+                       Margin="0,8" />
+            <WrapPanel>
+                <pc:EditingTag Content="写代码的厨子" Header="Chance:" Style="{StaticResource DefaultEditingTagStyle}" />
+                <pc:EditingTag Width="200"
+                               Content="写代码的厨子" Header="Chance:"
+                               Margin="10,0"
+                               pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"
+                               pc:FrameworkElementBaseAttached.IconWidth="15"
+                               Style="{StaticResource EditingTagAddClearButtonStyle}" />
+                <pc:EditingTag Content="写代码的厨子" Header="Chance:"
+                               EditorType="TextBlock"
+                               Style="{StaticResource DefaultEditingTagStyle}" />
+                <pc:EditingTag Width="200"
+                               Content="2" Header="Chance:"
+                               EditorType="NumericUpDown"
+                               Style="{StaticResource DefaultEditingTagStyle}" />
+                <pc:EditingTag Width="200"
+                               Content="写代码的厨子" Header="Chance:"
+                               Margin="10,0" Padding="10,0,0,0"
+                               HorizontalContentAlignment="Left"
+                               pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"
+                               pc:FrameworkElementBaseAttached.IconWidth="15" EditorType="NumericUpDown"
+                               Style="{StaticResource EditingTagAddClearButtonStyle}" />
+            </WrapPanel>
+
+            <TextBlock Text="SearchBar:"
+                       FontSize="20" FontWeight="DemiBold"
+                       Margin="0,8" />
+            <WrapPanel>
+                <pc:SearchBar Width="200" Height="35"
+                              ContentChanged="SearchBar_ContentChanged" StartSearch="SearchBar_StartSearch" />
+                <pc:SearchBar Width="200" Height="35"
+                              Margin="20,0"
+                              ContentChanged="SearchBar_ContentChanged" StartSearch="SearchBar_StartSearch"
+                              Style="{StaticResource SearchBarAddClearButtonStyle}" />
+                <pc:SearchBar Width="200" Height="35"
+                              ContentChanged="SearchBar_ContentChanged" StartSearch="SearchBar_StartSearch"
+                              Style="{StaticResource SearchBarAddClearButtonStyle}">
+                    <pc:SearchBar.Content>
+                        <Binding Mode="TwoWay" Path="SearchContent" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <pt:RegularPatternValidationRule RegularPattern="Chinese" ValidatesOnTargetUpdated="True" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </pc:SearchBar.Content>
+                </pc:SearchBar>
+                <pc:SearchBar Width="200" Height="35"
+                              IsEnabled="False"
+                              Margin="0,20"
+                              ContentChanged="SearchBar_ContentChanged" StartSearch="SearchBar_StartSearch" />
+            </WrapPanel>
         </StackPanel>
 
         <Viewport3D Width="300" Height="300"

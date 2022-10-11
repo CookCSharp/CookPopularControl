@@ -1,6 +1,7 @@
 ﻿using MvvmTestDemo.DemoModels;
 using Prism.Commands;
 using Prism.Mvvm;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,7 @@ namespace MvvmTestDemo.DemoViewModels
 {
     public class TreeViewDemoViewModel : BindableBase
     {
-        public ObservableCollection<TreeViewModel> TreeViewDemoItems { get; set; }
+        public ObservableCollection<TreeViewModelStandard> TreeViewDemoItems { get; set; }
 
         public DelegateCommand<RoutedPropertyChangedEventArgs<object>> TreeViewSelectedItemCommand => new DelegateCommand<RoutedPropertyChangedEventArgs<object>>(OnTreeViewSelectedItemChanged);
         public DelegateCommand TreeViewDoubleClickCommand => new DelegateCommand(OnTreeViewDoubleClick);
@@ -31,51 +32,85 @@ namespace MvvmTestDemo.DemoViewModels
 
         private void InitData()
         {
-            TreeViewDemoItems = new ObservableCollection<TreeViewModel>();
-            for (int i = 1; i < 6; i++)
+            var models = new List<TreeViewModelStandard>();
+            for (int i = 0; i < 5; i++)
             {
-                TreeViewDemoItems.Add(new TreeViewModel
-                {
-                    Header = $"Chance{i}",
-                    HeaderIndex = i - 1,
-                    Level = 1,
-                    Root = null,
-                }) ;
+                models.Add(new TreeViewModelStandard { Header = $"Chance{i + 1}", Level = 1, ParentLevel = 0, IsParent = true });
+                models.Add(new TreeViewModelStandard { Header = $"Chance{i + 1}", Level = 2, ParentLevel = 1, IsParent = false });
+                models.Add(new TreeViewModelStandard { Header = $"Chance{i + 1}", Level = 3, ParentLevel = 2, IsParent = false });
             }
 
-
-            for (int i = 1; i < 6; i++)
+            TreeViewDemoItems = new ObservableCollection<TreeViewModelStandard>();
+            foreach (var model in models)
             {
-                TreeViewDemoItems[i - 1].Children = new ObservableCollection<TreeViewModel>();
-                for (int j = 1; j < 6; j++)
+                model.Children = new ObservableCollection<TreeViewModelStandard>();
+                model.Children.AddRange(FindChild(model));
+
+                if (model.ParentLevel == 0) //判断是否为根节点
                 {
-                    TreeViewDemoItems[i - 1].Children.Add(new TreeViewModel
-                    {
-                        Header = $"Chance{j}",
-                        HeaderIndex = j - 1,
-                        Level = 2,
-                        Root = TreeViewDemoItems[i - 1],
-                    });
+                    TreeViewDemoItems.Add(model); 
                 }
             }
 
-            for (int i = 1; i < 6; i++)
+            IEnumerable<TreeViewModelStandard> FindChild(TreeViewModelStandard node)
             {
-                for (int j = 1; j < 6; j++)
+                foreach (var model in models)
                 {
-                    TreeViewDemoItems[i - 1].Children[j - 1].Children = new ObservableCollection<TreeViewModel>();
-                    for (int h = 1; h < 6; h++)
-                    {
-                        TreeViewDemoItems[i - 1].Children[j - 1].Children.Add(new TreeViewModel
-                        {
-                            Header = $"Chance{h}",
-                            HeaderIndex = h - 1,
-                            Level = 3,
-                            Root = TreeViewDemoItems[i - 1].Children[j - 1],
-                        });
-                    }
+                    if(model.ParentLevel == node.Level)
+                        yield return model;
                 }
+
+                yield break;
             }
+        }
+
+        private void InitData1()
+        {
+            //TreeViewDemoItems = new ObservableCollection<TreeViewModel>();
+            //for (int i = 1; i < 6; i++)
+            //{
+            //    TreeViewDemoItems.Add(new TreeViewModel
+            //    {
+            //        Header = $"Chance{i}",
+            //        HeaderIndex = i - 1,
+            //        Level = 1,
+            //        Root = null,
+            //    }) ;
+            //}
+
+
+            //for (int i = 1; i < 6; i++)
+            //{
+            //    TreeViewDemoItems[i - 1].Children = new ObservableCollection<TreeViewModel>();
+            //    for (int j = 1; j < 6; j++)
+            //    {
+            //        TreeViewDemoItems[i - 1].Children.Add(new TreeViewModel
+            //        {
+            //            Header = $"Chance{j}",
+            //            HeaderIndex = j - 1,
+            //            Level = 2,
+            //            Root = TreeViewDemoItems[i - 1],
+            //        });
+            //    }
+            //}
+
+            //for (int i = 1; i < 6; i++)
+            //{
+            //    for (int j = 1; j < 6; j++)
+            //    {
+            //        TreeViewDemoItems[i - 1].Children[j - 1].Children = new ObservableCollection<TreeViewModel>();
+            //        for (int h = 1; h < 6; h++)
+            //        {
+            //            TreeViewDemoItems[i - 1].Children[j - 1].Children.Add(new TreeViewModel
+            //            {
+            //                Header = $"Chance{h}",
+            //                HeaderIndex = h - 1,
+            //                Level = 3,
+            //                Root = TreeViewDemoItems[i - 1].Children[j - 1],
+            //            });
+            //        }
+            //    }
+            //}
         }
 
         private void OnTreeViewSelectedItemChanged(RoutedPropertyChangedEventArgs<object> e)

@@ -43,6 +43,18 @@ namespace MvvmTestDemo.DemoViews
                 btn.Content = "停止";
         }
 
+        private void SearchBar_StartSearch(object sender, RoutedPropertySingleEventArgs<string> e)
+        {
+            //StreamResourceInfo sri = Application.GetResourceStream(new Uri("/Resources/Cursors/myCursor.cur", UriKind.Relative));
+            //(sender as SearchBar).Cursor = new Cursor(sri.Stream);
+            //(sender as SearchBar).Cursor = CursorHelper.ConvertToCursor(customCursor, new Point(0.5, 0.5));
+        }
+
+        private void SearchBar_ContentChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
 
         private Point3D _point3DCenter;
         public void MeasureModel(ModelVisual3D model)
