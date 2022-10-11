@@ -34,7 +34,7 @@ jobs:
       
     - name: Add to github package
       run: |
-        nuget sources add -name github -Source https://nuget.pkg.github.com/ORGANIZATION_NAME/index.json -Username ORGANIZATION_NAME -Password ${{ secrets.GITHUBACCESSTOKEN }}    
+        nuget sources add -name github -Source https://nuget.pkg.github.com/CookCSharp/index.json -Username CookCSharp -Password ${{ secrets.GITHUBACCESSTOKEN }}    
         
     - name: Publish package to nuget
       run: |
