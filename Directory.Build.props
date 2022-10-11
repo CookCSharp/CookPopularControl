@@ -7,7 +7,7 @@
 	<UseWindowsForms>true</UseWindowsForms>
 	<LangVersion>latest</LangVersion>
 	<OutputPath>$(SolutionDir)Output\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
-	<PackageOutputPath>$(OutputPath)</PackageOutputPath>
+	<PackageOutputPath>$(SolutionDir)Output\bin\$(Configuration)</PackageOutputPath>
 	<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 	<!--<IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>-->
 	<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
