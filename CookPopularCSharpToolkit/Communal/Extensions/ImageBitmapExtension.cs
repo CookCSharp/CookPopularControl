@@ -64,9 +64,9 @@ namespace CookPopularCSharpToolkit.Communal
             }
         }
 
-        public static Icon ToIcon(this Bitmap bitmap, System.Drawing.Size size)
+        public static Icon ToIcon(this Bitmap bitmap, System.Drawing.Size? size)
         {
-            using (Bitmap iconBm = new Bitmap(bitmap, size))
+            using (Bitmap iconBm = size.HasValue ? new Bitmap(bitmap, size.Value) : new Bitmap(bitmap))
             {
                 using (Icon icon = Icon.FromHandle(iconBm.GetHicon()))
                 {
@@ -75,30 +75,13 @@ namespace CookPopularCSharpToolkit.Communal
             }
         }
 
-        public static Icon ToIcon(this ImageSource imageSource)
-        {
-            if (imageSource == null) return null;
-
-            Uri uri = new Uri(imageSource.ToString());
-            StreamResourceInfo streamInfo = Application.GetResourceStream(uri);
-
-            if (streamInfo == null)
-            {
-                string msg = "The supplied image source '{0}' could not be resolved.";
-                msg = string.Format(msg, imageSource);
-                throw new ArgumentException(msg);
-            }
-
-            return new Icon(streamInfo.Stream);
-        }
-
         /// <summary>
         /// 转换Image为Icon
         /// </summary>
         /// <param name="image">要转换为图标的Image对象</param>
         /// <param name="nullTonull">当image为null时是否返回null。false则抛空引用异常</param>
         /// <exception cref="ArgumentNullException" />
-        public static Icon ToIcon(this System.Drawing.Image image, bool nullTonull = false)
+        public static Icon ToIcon(this Image image, bool nullTonull = false)
         {
             if (image == null)
             {
@@ -136,21 +119,35 @@ namespace CookPopularCSharpToolkit.Communal
             }
         }
 
-        public static void SaveAsIconFile(this Bitmap bitmap, System.Drawing.Size size, string saveFilePath)
+        public static Icon ToIcon(this ImageSource imageSource)
         {
-            using (Bitmap iconBm = new Bitmap(bitmap, size))
+            if (imageSource == null) return null;
+
+            Uri uri = new Uri(imageSource.ToString());
+            StreamResourceInfo streamInfo = Application.GetResourceStream(uri);
+
+            if (streamInfo == null)
             {
-                using (Icon icon = bitmap.ToIcon(true))
+                string msg = "The supplied image source '{0}' could not be resolved.";
+                msg = string.Format(msg, imageSource);
+                throw new ArgumentException(msg);
+            }
+
+            return new Icon(streamInfo.Stream);
+        }
+
+        public static void SaveAsIconFile(this Bitmap bitmap, string saveFilePath, System.Drawing.Size? size)
+        {
+            using (Icon icon = size.HasValue ? bitmap.ToIcon(size) : bitmap.ToIcon())
+            {
+                using (Stream stream = new FileStream(saveFilePath, FileMode.Create))
                 {
-                    using (Stream stream = new FileStream(saveFilePath, FileMode.Create))
-                    {
-                        icon.Save(stream);
-                    }
+                    icon.Save(stream);
                 }
             }
         }
 
-        public static byte[] ToBytesStreamFromBitmap(int width, int height, int channel, Bitmap img)
+        public static byte[] ToBytesStreamFromBitmap(this Bitmap img, int width, int height, int channel)
         {
             byte[] bytes = new byte[width * height * channel];
 
