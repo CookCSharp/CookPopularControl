@@ -29,6 +29,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/PasswordBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ProgressBarStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RadioButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/RichTextBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollBarStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollViewerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SliderStyle.xaml" />
@@ -100,6 +101,7 @@
     <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}" />
     <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
     <Style x:Key="{x:Type ResizeGrip}" TargetType="{x:Type ResizeGrip}" BasedOn="{StaticResource DefaultResizeGripStyle}" />
+    <Style x:Key="{x:Type RichTextBox}" TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource DefaultRichTextBoxStyle}" />
     <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBarStyle}" />
     <Style x:Key="{x:Type ScrollViewer}" TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
     <Style x:Key="{x:Type Separator}" TargetType="{x:Type Separator}" BasedOn="{StaticResource {x:Static MenuItem.SeparatorStyleKey}}" />

@@ -76,7 +76,7 @@
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CornerRadius="0"
-                              CaptionHeight="{Binding RelativeSource={RelativeSource AncestorType=win:NormalWindow}, Path=ClientTitleBarHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              CaptionHeight="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type win:NormalWindow}}, Path=ClientTitleBarHeight}"
                               GlassFrameThickness="-1" ResizeBorderThickness="2" UseAeroCaptionButtons="False" />
             </Setter.Value>
         </Setter>
@@ -175,7 +175,7 @@
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Icon}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Icon}" Value="{x:Null}">
                             <Setter Property="IconWidth" Value="0" />
                             <Setter Property="IconHeight" Value="0" />
                         </DataTrigger>
@@ -316,7 +316,7 @@
                         </win:ChromeWindowClient>
                     </AdornerDecorator>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=Icon}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Icon}" Value="{x:Null}">
                             <Setter Property="IconWidth" Value="0" />
                             <Setter Property="IconHeight" Value="0" />
                         </DataTrigger>
@@ -328,9 +328,6 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
-                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.ChromeThickness}" TargetName="RootGrid"/>-->
-                            <!--<Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
-                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid" />-->
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton" />
@@ -437,9 +434,6 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
                             <Setter Property="Visibility" Value="Collapsed" TargetName="MaximizedButton" />
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
-                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.ChromeThickness}" TargetName="RootGrid"/>-->
-                            <!--<Setter Property="Margin" Value="{x:Static pt:WindowParameters.PaddedBorderThickness}" TargetName="RootGrid"/>
-                            <Setter Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" TargetName="RootBorder" />-->
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="NormalButton" />
@@ -483,7 +477,7 @@
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <!--  或设置为其他较大的正数  -->
-                <WindowChrome GlassFrameThickness="-1" CaptionHeight="30"/>
+                <WindowChrome CaptionHeight="30" GlassFrameThickness="-1" />
             </Setter.Value>
         </Setter>
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />

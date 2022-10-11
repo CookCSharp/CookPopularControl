@@ -11,12 +11,16 @@
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:FrameworkElementBaseAttached.ShadowEffect" Value="{x:Null}" />
         <Setter Property="pc:LinearProgressBarAssistant.IsShowIcon" Value="False" />
-        <Setter Property="pc:LinearProgressBarAssistant.IconSize" Value="30" />
+        <Setter Property="pc:LinearProgressBarAssistant.IconSize" Value="20" />
         <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="True" />
         <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
     </Style>
     <Style x:Key="AirFanLinearProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}">
         <Setter Property="pc:LinearProgressBarAssistant.IsShowIcon" Value="True" />
+    </Style>
+
+    <Style x:Key="ProgressBarStripeStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource ProgressBarStripeBaseStyle}">
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
     </Style>
 
     <Style x:Key="CircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarBaseStyle}">

@@ -9,13 +9,13 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="LinearProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="IsIndeterminate" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="IsIndeterminate" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
@@ -44,7 +44,7 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}"
-                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}">
+                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}">
                                 <Grid x:Name="IconGrid" Visibility="{TemplateBinding pc:LinearProgressBarAssistant.IsShowIcon, Converter={pt:BooleanToVisibilityConverter}}">
                                     <Path Width="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Height="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
@@ -90,19 +90,19 @@
                                             <TranslateTransform />
                                         </TransformGroup>
                                     </Grid.RenderTransform>
-                                    <Border Background="{TemplateBinding Foreground}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}">
+                                    <Border Background="{TemplateBinding Foreground}" CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}">
                                         <Viewbox Margin="{TemplateBinding Padding}"
                                                  SnapsToDevicePixels="True"
                                                  HorizontalAlignment="Left"
                                                  StretchDirection="DownOnly">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Value, StringFormat={}{0:F0}%}"
-                                                           Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(pc:LinearProgressBarAssistant.TextColor)}"
+                                                           Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:LinearProgressBarAssistant.TextColor)}"
                                                            FontSize="{TemplateBinding FontSize}"
                                                            SnapsToDevicePixels="True"
                                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                                            RenderTransformOrigin="0.5,0.5"
-                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={pt:BooleanToVisibilityConverter}}">
+                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={pt:BooleanToVisibilityConverter}}">
                                                     <TextBlock.RenderTransform>
                                                         <TransformGroup>
                                                             <ScaleTransform ScaleX="-1" ScaleY="1" />
@@ -167,6 +167,93 @@
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ProgressBarStripeBaseStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="IsIndeterminate" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="True" Effect="{TemplateBinding common:FrameworkElementBaseAttached.ShadowEffect}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}" />
+                        <Border x:Name="PART_Track" />
+                        <AdornerDecorator x:Name="PART_Indicator" HorizontalAlignment="Left">
+                            <Border x:Name="Animation"
+                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}"
+                                    RenderTransformOrigin="0.5,0.5"
+                                    Visibility="Hidden">
+                                <Border.Background>
+                                    <DrawingBrush TileMode="Tile" Viewport="0,0,20,20" ViewportUnits="Absolute">
+                                        <DrawingBrush.Transform>
+                                            <TranslateTransform x:Name="animTranslate" />
+                                        </DrawingBrush.Transform>
+                                        <DrawingBrush.Drawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Brush>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" SpreadMethod="Repeat">
+                                                        <LinearGradientBrush.RelativeTransform>
+                                                            <ScaleTransform ScaleX="0.5" ScaleY="0.5" />
+                                                        </LinearGradientBrush.RelativeTransform>
+                                                        <GradientStop Offset="0" Color="Transparent" />
+                                                        <GradientStop Offset="0.5" Color="Transparent" />
+                                                        <GradientStop Offset="0.5" Color="{Binding Foreground, Converter={x:Static pt:BrushToColorConverter.Instance}, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                                        <GradientStop Offset="1" Color="{Binding Foreground, Converter={x:Static pt:BrushToColorConverter.Instance}, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                                    </LinearGradientBrush>
+                                                </GeometryDrawing.Brush>
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry Rect="0,0,20,20" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingBrush.Drawing>
+                                    </DrawingBrush>
+                                </Border.Background>
+                            </Border>
+                        </AdornerDecorator>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Determinate" />
+                                <VisualState x:Name="Indeterminate">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="Visibility" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="animTranslate" Storyboard.TargetProperty="X"
+                                                         From="0" To="100" Duration="0:0:1"
+                                                         RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsIndeterminate" Value="True" />
+                                <Condition Property="Orientation" Value="Vertical" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

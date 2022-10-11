@@ -28,6 +28,8 @@
     <pt:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter" />
     <pt:ValueLessThanTargetValueToBooleanConverter x:Key="ValueLessThanTargetValueToBooleanConverter" />
     <pt:ValueMoreThanTargetValueToBooleanConverter x:Key="ValueMoreThanTargetValueToBooleanConverter" />
+    <!--ToBrushOrColor-->
+    <pt:BrushToColorConverter x:Key="BrushToColorConverter" />
     <!--ToCornerRadius-->
     <pt:DoubleToCornerRadiusConverter x:Key="DoubleToCornerRadiusConverter" />
     <pt:CornerRadiusToCornerRadiusConverter x:Key="CornerRadiusToCornerRadiusConverter" />
