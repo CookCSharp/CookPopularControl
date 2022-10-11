@@ -1,16 +1,20 @@
 <Project>
   <Import Project="Version.props" />
   <PropertyGroup>
-	<!--统一所有项目输出目录-->
-	<!--$(Platform)-->
-	<OutputPath>$(SolutionDir)Output\bin\$(Configuration)</OutputPath>
-	<PackageOutputPath>$(OutputPath)</PackageOutputPath>
-	<!--<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Platform)</BaseIntermediateOutputPath>-->
-	<IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
-	<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
 	<TargetFrameworks>net46;net461;netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
 	<Platforms>AnyCPU;x64;x86</Platforms>
-	<LangVersion>9.0</LangVersion>
+	<UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+	<LangVersion>latest</LangVersion>
+	<OutputPath>$(SolutionDir)Output\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
+	<PackageOutputPath>$(OutputPath)</PackageOutputPath>
+	<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+	<!--<IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>-->
+	<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
+	<!--设定语言-->
+	<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+	<!--不生成ReferenceAssembly，即ref文件夹-->
+	<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 	<!--指示编译器是否应为相同的输入产生相同的程序集-->
 	<Deterministic>true</Deterministic>
 	<WarningLevel>4</WarningLevel>
@@ -29,7 +33,7 @@
 	<PackageTags>xaml,wpf,ui,controls,windows,desktop,cookpopularcontrol,library</PackageTags>
 	<RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>
-	<PackageReleaseNotes>预发行版</PackageReleaseNotes>
+	<PackageReleaseNotes>兼容.NetFramework与.NetCore/.Net的WPF控件库</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -37,6 +41,16 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	<OutputPath>$(SolutionDir)Output\bin\Release</OutputPath>
+	<OutputPath>$(SolutionDir)Output\bin\Release\$(MSBuildProjectName)</OutputPath>
+	<DebugType>none</DebugType>
+	<DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
+  
+  <Target Name="RemoveWpfTempFolder" AfterTargets="Build">
+	<ItemGroup>
+	  <WpfTempDirectories Include="$([System.IO.Directory]::GetDirectories(&quot;$(MSBuildThisFileDirectory)Output\bin\$(Configuration)&quot;,&quot;$(MSBuildProjectName)_*_wpftmp&quot;))" />
+	</ItemGroup>
+	<RemoveDir Directories="@(WpfTempDirectories)" />
+  </Target>
+  
 </Project>
