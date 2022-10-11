@@ -5,10 +5,10 @@
 	<!--<OutputPath />-->
 	<!--<BaseIntermediateOutputPath />-->
 	<!--<IntermediateOutputPath />-->
-	<TargetFrameworks>net461;net5.0-windows</TargetFrameworks>
+	<TargetFrameworks>net6.0-windows</TargetFrameworks>
 	<UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
-	<LangVersion>9.0</LangVersion>
+	<LangVersion>latest</LangVersion>
 	<ApplicationIcon>CookCSharp.ico</ApplicationIcon>
 	<UserSecretsId>95f624a1-62e9-4f3e-9fd6-a95f38aeea9a</UserSecretsId>
 	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
