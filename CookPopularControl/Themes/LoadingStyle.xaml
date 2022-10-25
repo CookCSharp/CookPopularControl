@@ -7,7 +7,7 @@
     <Style x:Key="{x:Type pc:DotLoadingBase}" TargetType="{x:Type pc:DotLoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="IsDotRunning" Value="True" />
         <Setter Property="DotCount" Value="6" />
         <Setter Property="DotInterval" Value="8" />
@@ -69,11 +69,11 @@
     </Style>
 
     <Style x:Key="DefaultDotOpacityLoadingStyle" TargetType="{x:Type pc:DotOpacityLoading}" BasedOn="{StaticResource {x:Type pc:DotLoadingBase}}">
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=DotDiameter}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="DotDelayTime" Value="120" />
         <Setter Property="DotDuration" Value="0:0:1" />
-        <Setter Property="Width" Value="120" />
-        <Setter Property="Height" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=DotDiameter}" />
     </Style>
 
 
@@ -82,8 +82,8 @@
     <Style x:Key="{x:Type pc:RecLoadingBase}" TargetType="{x:Type pc:RecLoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="IsRecRunning" Value="True" />
         <Setter Property="RecWidth" Value="30" />
@@ -148,7 +148,7 @@
     <Style x:Key="{x:Type pc:LoadingBase}" TargetType="{x:Type pc:LoadingBase}">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="IsRunning" Value="True" />
         <Setter Property="RunSpeed" Value="1" />
         <Setter Property="Duration" Value="0:0:2" />
@@ -171,23 +171,23 @@
         <Setter Property="DotCount" Value="3" />
         <Setter Property="Duration" Value="0:0:0.6" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Width" Value="200" />
+        <Setter Property="Width" Value="Auto" />
         <Setter Property="FontSize" Value="22" />
         <Setter Property="CharacterContent" Value="Loading" />
     </Style>
 
     <Style x:Key="BraceletLoadingStyle" TargetType="{x:Type pc:BraceletLoading}" BasedOn="{StaticResource {x:Type pc:LoadingBase}}">
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1.5" />
     </Style>
 
     <Style x:Key="PlaneLoadingStyle" TargetType="{x:Type pc:PlaneLoading}" BasedOn="{StaticResource {x:Type pc:LoadingBase}}">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
         <Setter Property="FontSize" Value="15" />
         <Setter Property="PlaneText" Value="Loading..." />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1.5" />
-        <Setter Property="Width" Value="200" />
-        <Setter Property="Height" Value="200" />
     </Style>
 
 </ResourceDictionary>

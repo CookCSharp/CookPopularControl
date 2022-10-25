@@ -2,14 +2,23 @@
              x:Class="CookPopularControl.Controls.MediaView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:common="clr-namespace:CookPopularControl.Communal"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="clr-namespace:CookPopularControl.Controls"
-             xmlns:common="clr-namespace:CookPopularControl.Communal"
              xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
     <Grid x:Name="ParentGrid"
           Background="Transparent"
@@ -45,7 +54,6 @@
             </Grid.RowDefinitions>
             <Slider x:Name="playSlider" Grid.Row="0"
                     Width="{Binding TemplatedParent}"
-                    Foreground="{DynamicResource PrimaryThemeBrush}"
                     common:ThumbAttached.ThumbHeight="13" common:ThumbAttached.ThumbWidth="13" Cursor="Hand"
                     PreviewMouseLeftButtonDown="playSlider_PreviewMouseLeftButtonDown"
                     PreviewMouseLeftButtonUp="playSlider_PreviewMouseLeftButtonUp"
@@ -53,71 +61,57 @@
             <pc:SimpleGrid Grid.Row="1">
                 <StackPanel Margin="10,0" VerticalAlignment="Center" Orientation="Horizontal">
                     <Button x:Name="last"
-                            Foreground="{DynamicResource PrimaryThemeBrush}"
                             ToolTip="上一集"
                             common:FrameworkElementBaseAttached.IconGeometry="{StaticResource LastEpisodeGeometry}"
                             Click="Last_Click"
-                            Style="{DynamicResource ButtonTransparentIconStyle}" />
+                            Style="{StaticResource ButtonTransparentIconStyle}" />
                     <ToggleButton x:Name="play_pause"
-                                  ToolTip="播放"
+                                  IsChecked="False"
+                                  Margin="5,0" ToolTip="播放"
                                   pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource PauseGeometry}"
                                   pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource PlayGeometry}"
-                                  Click="PlayPause_Control" IsChecked="False"
-                                  Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}" />
+                                  Click="PlayPause_Control"
+                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
                     <Button x:Name="stop"
-                            Foreground="{DynamicResource PrimaryThemeBrush}"
                             ToolTip="重放"
                             common:FrameworkElementBaseAttached.IconGeometry="{StaticResource RestartGeometry}"
                             Click="Restart_Click"
-                            Style="{DynamicResource ButtonTransparentIconStyle}" />
+                            Style="{StaticResource ButtonTransparentIconStyle}" />
                     <Button x:Name="next"
-                            Foreground="{DynamicResource PrimaryThemeBrush}"
-                            ToolTip="下一集"
+                            Margin="5,0" ToolTip="下一集"
                             common:FrameworkElementBaseAttached.IconGeometry="{StaticResource NextEpisodeGeometry}"
                             Click="Next_Click"
-                            Style="{DynamicResource ButtonTransparentIconStyle}" />
+                            Style="{StaticResource ButtonTransparentIconStyle}" />
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock x:Name="currentTime"
-                               Text="{Binding ElementName=playSlider, Path=Value, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}"
-                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                               FontSize="16" />
-                    <TextBlock Text="/"
-                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                               FontSize="16"
-                               Margin="5,0,5,0" />
-                    <TextBlock x:Name="totalTime"
-                               Text="{Binding ElementName=playSlider, Path=Maximum, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}"
-                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                               FontSize="16" />
+                    <TextBlock x:Name="currentTime" Text="{Binding ElementName=playSlider, Path=Value, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}" FontSize="16" />
+                    <TextBlock Text="/" FontSize="16" Margin="5,0,5,0" />
+                    <TextBlock x:Name="totalTime" Text="{Binding ElementName=playSlider, Path=Maximum, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}" FontSize="16" />
                 </StackPanel>
                 <StackPanel Margin="10,0"
                             HorizontalAlignment="Right" VerticalAlignment="Center"
                             Orientation="Horizontal">
                     <ToggleButton x:Name="volume"
                                   Width="30"
-                                  Foreground="{DynamicResource PrimaryThemeBrush}"
                                   ToolTip="音量"
                                   pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource VolumeOffGeometry}"
                                   pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource VolumeMediumGeometry}"
                                   Click="Volume_Click" MouseEnter="volume_MouseEnter" MouseLeave="volume_MouseLeave"
-                                  Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}" />
+                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
                     <TextBlock x:Name="playSpeed"
                                Width="40"
                                Text="{Binding ElementName=speedSlider, Path=SelectedItem, Converter={common:StringToPlaySpeedConverter}}"
-                               Foreground="{DynamicResource PrimaryThemeBrush}"
                                Margin="10,0" ToolTip="倍速"
                                VerticalAlignment="Center"
                                MouseEnter="playSpeed_MouseEnter" MouseLeave="playSpeed_MouseLeave" TextAlignment="Center" />
                     <ToggleButton x:Name="fullScreent"
-                                  Foreground="{DynamicResource PrimaryThemeBrush}"
                                   ToolTip="全屏"
                                   common:FrameworkElementBaseAttached.IconHeight="22"
                                   common:FrameworkElementBaseAttached.IconWidth="22"
                                   pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource ExitFullScreenGeometry}"
                                   pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource FullScreenGeometry}"
                                   Click="FullScreent_Click"
-                                  Style="{DynamicResource ToggleButtonDoubbleTransparentIconStyle}" />
+                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
 
                 </StackPanel>
             </pc:SimpleGrid>
@@ -177,12 +171,12 @@
             <pc:SimpleGrid Cursor="Arrow">
                 <Image Source="/CookPopularControl;component/Resources/Images/MediaPlayerBackground.png" Stretch="Uniform" />
                 <ToggleButton Width="60" Height="60"
+                              IsChecked="{Binding ElementName=play_pause, Path=IsChecked, Mode=TwoWay}"
                               common:ButtonBaseAttached.IsShowRipple="False"
                               common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource PlayGeometry}"
                               common:FrameworkElementBaseAttached.IconHeight="60"
                               common:FrameworkElementBaseAttached.IconWidth="60" Click="PlayPause_Control"
-                              IsChecked="{Binding ElementName=play_pause, Path=IsChecked, Mode=TwoWay}"
-                              Style="{DynamicResource ToggleButtonTransparentIconStyle}" />
+                              Style="{StaticResource ToggleButtonTransparentIconStyle}" />
             </pc:SimpleGrid>
         </Border>
     </Grid>

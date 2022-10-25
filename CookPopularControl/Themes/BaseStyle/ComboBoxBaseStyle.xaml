@@ -5,13 +5,12 @@
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ListBoxItemBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  下拉按钮  -->
     <Style x:Key="DropDownToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Cursor" Value="Hand" />
-        <!--<Setter Property="ToolTip" Value="点击展开" />-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -91,23 +90,23 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ComnoBoxItemStyle" TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource ListBoxItemStyle}">
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Width}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Height}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Foreground}" />
+    </Style>
+
     <!--  SimpleComboBox  -->
-    <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
-        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-        <Setter Property="Padding" Value="8,0,0,0" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ItemContainerStyle">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ComnoBoxItemStyle}" />
+        <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
+        <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
+        <!--<Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="{x:Type ComboBoxItem}">
                     <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
@@ -134,7 +133,6 @@
                                 </pc:SimpleGrid>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                                         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemGrid" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
@@ -143,7 +141,7 @@
                     </Setter>
                 </Style>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
 
         <Setter Property="Template">
             <Setter.Value>
@@ -181,17 +179,20 @@
                                        TextAlignment="Left" />
                             <TextBox x:Name="PART_EditableTextBox"
                                      Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay}"
-                                     Background="Purple"
                                      Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      IsHitTestVisible="{TemplateBinding IsEditable}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      Style="{StaticResource ComboBoxEditableTextBox}" />
-                            <WrapPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
+                                              Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              IsHitTestVisible="False" />
+                            <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button x:Name="PART_ClearButton"
-                                        BorderThickness="0"
-                                        Foreground="{DynamicResource PrimaryThemeBrush}"
+                                        Foreground="{TemplateBinding pc:ComboBoxAssistant.DropDownButtonFill}"
                                         Background="Transparent"
                                         Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                         ToolTip="Clear"
@@ -208,8 +209,7 @@
                                     </Button.Visibility>
                                 </Button>
                                 <ToggleButton IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                              Margin="8,0" Focusable="False"
-                                              HorizontalAlignment="Right"
+                                              Margin="6,0" Focusable="False"
                                               Visibility="{TemplateBinding pc:ComboBoxAssistant.IsShowDropDownButton, Converter={pt:BooleanToVisibilityConverter}}"
                                               Style="{StaticResource DropDownToggleButtonStyle}" />
                             </WrapPanel>
@@ -265,132 +265,9 @@
         </Setter>
     </Style>
 
-
-    <Style x:Key="MultiComboBoxItemStyle" TargetType="{x:Type ListBoxItem}">
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualWidth}" />
-        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualHeight}" />
-        <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border x:Name="ItemBorder" BorderBrush="Transparent" Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.ItemsListBackground)}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="7*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <pc:Ripple ContentTemplate="{TemplateBinding ContentTemplate}"
-                                       ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                       Padding="{TemplateBinding Padding}"
-                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       Focusable="False"
-                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}" />
-                            <TextBlock x:Name="ItemContent" Grid.Column="0"
-                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
-                                       Padding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Padding}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <Grid x:Name="ItemGrid" Grid.Column="1"
-                                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.ItemControlWidth)}"
-                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.ItemControlHeight)}"
-                                  Margin="10,0"
-                                  HorizontalAlignment="Center">
-                                <CheckBox x:Name="ItemCheckBox"
-                                          Width="{Binding ElementName=ItemGrid, Path=Width}"
-                                          Height="{Binding ElementName=ItemGrid, Path=Height}"
-                                          Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.CheckBoxContent)}"
-                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsSelected}"
-                                          Focusable="True"
-                                          common:SelectorAttached.IsCheckBoxChecked="True"
-                                          Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=CheckBox}" />
-                                <Button x:Name="ItemButton"
-                                        Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
-                                        Height="{Binding ElementName=ItemGrid, Path=ActualHeight}"
-                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.ButtonContent)}"
-                                        Focusable="True" ToolTip="Delete"
-                                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                                        common:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource AssistantForegroundBrush}"
-                                        common:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource AssistantForegroundBrush}"
-                                        common:FrameworkElementBaseAttached.CornerRadius="2"
-                                        common:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.IsButtonDeleteItem)}"
-                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Button}" />
-                                <!--  Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(common:FrameworkElementBaseAttached.IconGeometry)}"  -->
-                                <Path x:Name="ItemIcon"
-                                      Width="{Binding ElementName=ItemGrid, Path=Width}"
-                                      Height="{Binding ElementName=ItemGrid, Path=Height}"
-                                      Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GeometryData}"
-                                      Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.IconFill)}"
-                                      Stretch="Uniform"
-                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Icon}" />
-                                <!--  Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(common:SelectorAttached.ImageSource)}"  -->
-                                <!--  gif:AnimationBehavior.SourceUri="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(common:SelectorAttached.GifSource)}"  -->
-                                <Image x:Name="ItemImageGif"
-                                       Width="{Binding ElementName=ItemGrid, Path=Width}"
-                                       Height="{Binding ElementName=ItemGrid, Path=Height}"
-                                       Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.ImageSource}"
-                                       common:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.IsPreviewImage)}"
-                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Image}" />
-                                <pc:Gif x:Name="ItemGif"
-                                        Width="{Binding ElementName=ItemGrid, Path=Width}"
-                                        Height="{Binding ElementName=ItemGrid, Path=Height}"
-                                        common:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.IsPreviewImage)}"
-                                        GifSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GifSource}"
-                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Gif}" />
-                            </Grid>
-                            <Popup x:Name="Popup_PreviewImage"
-                                   AllowsTransparency="True" Placement="Right" PopupAnimation="Slide">
-                                <Image Width="300" Height="300" Source="{Binding ElementName=ItemImageGif, Path=Source}" />
-                            </Popup>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType)}" Value="Icon">
-                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}" TargetName="ItemContent" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.SelectorItemType)}" Value="Image">
-                            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}" TargetName="ItemContent" />
-                        </DataTrigger>
-                        <!--  鼠标仅在Image之上时触发  -->
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True" SourceName="ItemImageGif" />
-                                <Condition Property="common:SelectorAttached.IsPreviewImage" Value="True" SourceName="ItemImageGif" />
-                            </MultiTrigger.Conditions>
-                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage" />
-                        </MultiTrigger>
-                        <!--  鼠标在整个ListBoxItem之上时触发  -->
-                        <!--<MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True" />
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ComboBox},Path=(common:SelectorAttached.IsPreviewImage)}" Value="True"/>
-                            </MultiDataTrigger.Conditions>
-                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
-                        </MultiDataTrigger>-->
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" TargetName="ItemCheckBox" />
-                            <Setter Property="Background" Value="{DynamicResource AssistantForegroundBrush}" TargetName="ItemButton" />
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" TargetName="ItemButton" />
-                            <Setter Property="Fill" Value="{DynamicResource AssistantForegroundBrush}" TargetName="ItemIcon" />
-
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemBorder" />
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="True" SourceName="ItemCheckBox">
-                            <Setter Property="BorderThickness" Value="3" TargetName="ItemCheckBox" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <!--  MultiComboBox  -->
     <Style x:Key="MultiComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
-        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="pc:RippleAssist.IsDisabled" Value="True" />
+        <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -434,12 +311,10 @@
                                      IsHitTestVisible="{TemplateBinding IsEditable}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      Style="{StaticResource ComboBoxEditableTextBox}" />
-                            <WrapPanel Grid.Column="1"
-                                       HorizontalAlignment="Right" VerticalAlignment="Center"
-                                       Orientation="Horizontal">
+                            <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button x:Name="PART_ClearButton"
                                         BorderThickness="0"
-                                        Foreground="{DynamicResource PrimaryThemeBrush}"
+                                        Foreground="{TemplateBinding pc:ComboBoxAssistant.DropDownButtonFill}"
                                         Background="Transparent"
                                         Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                         ToolTip="Clear"
@@ -456,8 +331,7 @@
                                     </Button.Visibility>
                                 </Button>
                                 <ToggleButton IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                              Margin="8,0" Focusable="False"
-                                              HorizontalAlignment="Right"
+                                              Margin="6,0" Focusable="False"
                                               Style="{StaticResource DropDownToggleButtonStyle}" />
                             </WrapPanel>
                             <Popup x:Name="PART_Popup"
@@ -483,11 +357,18 @@
                                              Width="{TemplateBinding Width}"
                                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                              BorderThickness="0"
-                                             Margin="0,0,0,0"
                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                             common:SelectorAttached.ButtonContent="{TemplateBinding common:SelectorAttached.ButtonContent}"
+                                             common:SelectorAttached.CheckBoxContent="{TemplateBinding common:SelectorAttached.CheckBoxContent}"
+                                             common:SelectorAttached.IconFill="{TemplateBinding common:SelectorAttached.IconFill}"
+                                             common:SelectorAttached.IsButtonDeleteItem="{TemplateBinding common:SelectorAttached.IsButtonDeleteItem}"
+                                             common:SelectorAttached.IsPreviewImage="{TemplateBinding common:SelectorAttached.IsPreviewImage}"
+                                             common:SelectorAttached.ItemControlHeight="{TemplateBinding common:SelectorAttached.ItemControlHeight}"
+                                             common:SelectorAttached.ItemControlWidth="{TemplateBinding common:SelectorAttached.ItemControlWidth}"
+                                             common:SelectorAttached.SelectorItemType="{TemplateBinding common:SelectorAttached.SelectorItemType}"
+                                             pc:RippleAssist.Feedback="{DynamicResource RippleFeedback}"
                                              pc:RippleAssist.IsDisabled="{TemplateBinding pc:RippleAssist.IsDisabled}"
-                                             ItemContainerStyle="{StaticResource MultiComboBoxItemStyle}"
                                              ItemTemplate="{TemplateBinding ItemTemplate}"
                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Extended" />
                                 </Border>
@@ -515,6 +396,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 
 </ResourceDictionary>

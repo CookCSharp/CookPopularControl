@@ -13,7 +13,7 @@
         <Setter Property="pc:LinearProgressBarAssistant.IsShowIcon" Value="False" />
         <Setter Property="pc:LinearProgressBarAssistant.IconSize" Value="20" />
         <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
     <Style x:Key="AirFanLinearProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource DefaultProgressBarStyle}">
         <Setter Property="pc:LinearProgressBarAssistant.IsShowIcon" Value="True" />
@@ -36,15 +36,15 @@
         <Setter Property="Value" Value="0" />
     </Style>
 
-    <Style x:Key="WaveProgressBarShowPercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarBaseStyle}">
+    <Style x:Key="WaveProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarBaseStyle}">
         <Setter Property="pc:WaveProgressBarAssistant.IsStartWave" Value="True" />
         <Setter Property="pc:WaveProgressBarAssistant.WaveHeight" Value="30" />
         <Setter Property="pc:WaveProgressBarAssistant.WaveStroke" Value="{DynamicResource BorderBrush}" />
         <Setter Property="pc:WaveProgressBarAssistant.WaveStrokeThickness" Value="2" />
         <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="True" />
-        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
-    <Style x:Key="WaveProgressBarHidePercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarShowPercentStyle}">
+    <Style x:Key="WaveProgressBarHidePercentStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarStyle}">
         <Setter Property="pc:LinearProgressBarAssistant.IsShowPercent" Value="False" />
     </Style>
 

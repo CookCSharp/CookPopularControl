@@ -28,16 +28,24 @@
 
     <Style x:Key="ControlBaseStyle" TargetType="{x:Type Control}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
     </Style>
 
-    <Style x:Key="DefaultAttachedIconControlBaseStyle" TargetType="{x:Type Control}">
-        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
-        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="15" />
-        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="5" />
-        <Setter Property="common:TextElementAttached.PlaceHolder" Value="{x:Null}" />
-        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="False" />
+    <Style x:Key="SingleControlBaseStyle" TargetType="{x:Type Control}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
+    </Style>
+
+    <Style x:Key="InputControlBaseStyle" TargetType="{x:Type Control}" BasedOn="{StaticResource SingleControlBaseStyle}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Padding" Value="6,0,0,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
+        <Setter Property="ContextMenu" Value="{DynamicResource DefaultContextMenu}" />
     </Style>
 
 </ResourceDictionary>

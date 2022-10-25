@@ -36,7 +36,7 @@ namespace CookPopularControl.Controls
         private const int HourDegree = 30; //360/12=30
         private const int MinuteSecondDegree = 6; //30/5=6
         private const int ClockLineLength = 70; //(150 - 5 * 2) / 2 = 70，时钟的长度为150，厚度为5，故得出标准长度为70
-        private static readonly Brush ThemeBrush = ResourceHelper.GetResource<Brush>("PrimaryThemeBrush");
+        private static readonly Brush ThemeBrush = ResourceHelper.GetResource<Brush>("PrimaryForegroundBrush");
         private static readonly Brush AssistantBrush = ResourceHelper.GetResource<Brush>("AssistantThemeBrush");
         private static readonly Brush UnabledBrush = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
 
@@ -156,8 +156,8 @@ namespace CookPopularControl.Controls
 
             //添加时针，分针，秒针
             _ellipse = new Ellipse() { Width = 12, Height = 12, Fill = AssistantBrush };
-            _recHour = new Rectangle() { Width = 4, Height = 40, Fill = AssistantBrush, VerticalAlignment = VerticalAlignment.Top, RenderTransformOrigin = new Point(0.5, 1), Margin = new Thickness(0, 30, 0, 0), ToolTip = "时针" };
-            _recMinute = new Rectangle() { Width = 3, Height = 55, Fill = AssistantBrush, VerticalAlignment = VerticalAlignment.Top, RenderTransformOrigin = new Point(0.5, 1), Margin = new Thickness(0, 15, 0, 0), ToolTip = "分针" };
+            _recHour = new Rectangle() { Width = 4, Height = 30, Fill = AssistantBrush, VerticalAlignment = VerticalAlignment.Top, RenderTransformOrigin = new Point(0.5, 1), Margin = new Thickness(0, 40, 0, 0), ToolTip = "时针" };
+            _recMinute = new Rectangle() { Width = 3, Height = 50, Fill = AssistantBrush, VerticalAlignment = VerticalAlignment.Top, RenderTransformOrigin = new Point(0.5, 1), Margin = new Thickness(0, 20, 0, 0), ToolTip = "分针" };
             _recSecond = new Rectangle() { Width = 2, Height = 70, Fill = AssistantBrush, VerticalAlignment = VerticalAlignment.Top, RenderTransformOrigin = new Point(0.5, 1), IsEnabled = false, ToolTip = "秒针" };
             _ticksGrid.Children.Add(_ellipse);
             _ticksGrid.Children.Add(_recHour);

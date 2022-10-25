@@ -7,6 +7,7 @@
                     xmlns:win="clr-namespace:CookPopularControl.Windows">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -59,9 +60,8 @@
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
     </Style>
 
-    <Style x:Key="NormalWindowStyle" TargetType="{x:Type win:NormalWindow}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+    <Style x:Key="NormalWindowStyle" TargetType="{x:Type win:NormalWindow}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="#E82323" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="UseLayoutRounding" Value="True" />
@@ -71,8 +71,8 @@
         <Setter Property="IsFullScreen" Value="False" />
         <Setter Property="ClientTitleBarAdditionalContent" Value="{x:Null}" />
         <Setter Property="ClientTitleBarHeight" Value="{DynamicResource Double30Value}" />
-        <Setter Property="ClientTitleBarForeground" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="ClientTitleBarBackground" Value="{DynamicResource AssistantBackgroundBrush}" />
+        <Setter Property="ClientTitleBarForeground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="ClientTitleBarBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CornerRadius="0"

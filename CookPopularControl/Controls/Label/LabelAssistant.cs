@@ -1,14 +1,16 @@
-﻿using CookPopularCSharpToolkit.Communal;
-using System.Windows;
-using System.Windows.Controls;
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：LabelAssistant
  * Author： Chance_写代码的厨子
  * Create Time：2021-05-11 09:00:57
  */
+
+
+using CookPopularCSharpToolkit.Communal;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
 namespace CookPopularControl.Controls
 {
     /// <summary>
@@ -23,6 +25,12 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty HeaderProperty =
             DependencyProperty.RegisterAttached("Header", typeof(object), typeof(LabelAssistant), new PropertyMetadata(default(object)));
+
+
+        public static Brush GetHeaderBackground(DependencyObject obj) => (Brush)obj.GetValue(HeaderBackgroundProperty);
+        public static void SetHeaderBackground(DependencyObject obj, Brush value) => obj.SetValue(HeaderBackgroundProperty, value);
+        public static readonly DependencyProperty HeaderBackgroundProperty =
+            DependencyProperty.RegisterAttached("HeaderBackground", typeof(Brush), typeof(LabelAssistant), new PropertyMetadata(default(Brush)));
 
 
         public static DataTemplate GetHeaderTemplate(DependencyObject obj) => (DataTemplate)obj.GetValue(HeaderTemplateProperty);

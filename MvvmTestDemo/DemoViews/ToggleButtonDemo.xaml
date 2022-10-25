@@ -13,11 +13,11 @@
         <ToggleButton Content="DefaultToggleButton" />
 
         <ToggleButton Content="ToggleButtonContentWithIcon"
-                      Margin="0,30"
+                      Margin="0,20"
                       pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
-                      Style="{StaticResource ToggleButtonContentWithIconStyle}" />
+                      Style="{StaticResource ToggleButtonWithIconStyle}" />
         <ToggleButton pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}" Style="{StaticResource ToggleButtonTransparentIconStyle}" />
-        <ToggleButton Margin="0,30" pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}" Style="{StaticResource ToggleButtonNoMouseOverTransparentIconStyle}" />
+        <ToggleButton Margin="0,20" pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}" Style="{StaticResource ToggleButtonNoMouseOverTransparentIconStyle}" />
 
         <ToggleButton Content="ToggleButtonContentWithDoubbleIcon"
                       pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource AirFanGeometry}"
@@ -43,7 +43,7 @@
                       Style="{StaticResource ToggleButtonNoMouseOverTransparentDoubbleIconStyle}" />
 
         <ToggleButton Width="100" Height="100"
-                      Content="Flip"
+                      Content="Flip" 
                       Style="{StaticResource ToggleButtonFlipStyle}">
             <pc:ToggleButtonAssistant.OnCheckedElement>
                 <TextBlock Text="Chance" />

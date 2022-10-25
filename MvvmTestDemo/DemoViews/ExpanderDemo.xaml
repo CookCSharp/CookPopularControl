@@ -10,7 +10,7 @@
              d:DesignWidth="800">
 
     <UserControl.Resources>
-        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithIconStyle}">
+        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonWithIconStyle}">
             <Setter Property="Width" Value="600" />
             <Setter Property="Height" Value="60" />
             <Setter Property="FontSize" Value="20" />
@@ -23,7 +23,6 @@
             <Setter Property="LineHeight" Value="30" />
             <Setter Property="Padding" Value="0,6" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="{StaticResource PrimaryThemeBrush}" />
         </Style>
     </UserControl.Resources>
 
@@ -34,7 +33,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <Expander Header="Down" ExpandDirection="Down" Width="400">
+                <Expander Width="400" Header="Down" ExpandDirection="Down">
                     <StackPanel>
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
@@ -44,13 +43,15 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="CustomDown" ExpandDirection="Down" Width="400" Margin="0,30"
-                          pc:ExpanderAssistant.ExpanderHeaderHeight="60"   
-                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
-                          pc:FrameworkElementBaseAttached.IconWidth="30"
-                          pc:FrameworkElementBaseAttached.IconHeight="30" 
-                          pc:ExpanderAssistant.ExpandedGeometry="{StaticResource MinusNoCircleGeometry}"
+                <Expander Width="400"
+                          Header="CustomDown"
+                          Margin="0,30"
                           pc:ExpanderAssistant.CollapsedGeometry="{StaticResource PlusNoCircleGeometry}"
+                          pc:ExpanderAssistant.ExpandedGeometry="{StaticResource MinusNoCircleGeometry}"
+                          pc:ExpanderAssistant.ExpanderHeaderHeight="60"
+                          pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource PlusGeometry}"
+                          pc:FrameworkElementBaseAttached.IconHeight="30" pc:FrameworkElementBaseAttached.IconWidth="30"
+                          ExpandDirection="Down"
                           Style="{StaticResource CustomExpanderStyle}">
                     <StackPanel>
                         <TextBlock Text="First" />
@@ -61,7 +62,7 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="Up" ExpandDirection="Up" Width="400">
+                <Expander Width="400" Header="Up" ExpandDirection="Up">
                     <StackPanel>
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
@@ -71,10 +72,11 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="CustomUp" ExpandDirection="Up" Width="400" Margin="0,30"
-                          pc:ExpanderAssistant.ExpanderHeaderHeight="60" 
-                          pc:FrameworkElementBaseAttached.IconWidth="30"
-                          pc:FrameworkElementBaseAttached.IconHeight="30" 
+                <Expander Width="400"
+                          Header="CustomUp"
+                          Margin="0,30"
+                          pc:ExpanderAssistant.ExpanderHeaderHeight="60" pc:FrameworkElementBaseAttached.IconHeight="30"
+                          pc:FrameworkElementBaseAttached.IconWidth="30" ExpandDirection="Up"
                           Style="{StaticResource CustomExpanderStyle}">
                     <StackPanel>
                         <TextBlock Text="First" />
@@ -87,7 +89,7 @@
                 </Expander>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="30" Orientation="Horizontal">
-                <Expander Header="Left" ExpandDirection="Left" Height="400">
+                <Expander Height="400" Header="Left" ExpandDirection="Left">
                     <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
@@ -97,12 +99,13 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="CustomLeft" ExpandDirection="Left" Height="400" Margin="30,0"
-                          pc:ExpanderAssistant.ExpanderHeaderWidth="60"
-                          pc:FrameworkElementBaseAttached.IconWidth="30"
-                          pc:FrameworkElementBaseAttached.IconHeight="30" 
-                          pc:ExpanderAssistant.ExpandedGeometry="{StaticResource MinusNoCircleGeometry}"
+                <Expander Height="400"
+                          Header="CustomLeft"
+                          Margin="30,0"
                           pc:ExpanderAssistant.CollapsedGeometry="{StaticResource PlusNoCircleGeometry}"
+                          pc:ExpanderAssistant.ExpandedGeometry="{StaticResource MinusNoCircleGeometry}"
+                          pc:ExpanderAssistant.ExpanderHeaderWidth="60" pc:FrameworkElementBaseAttached.IconHeight="30"
+                          pc:FrameworkElementBaseAttached.IconWidth="30" ExpandDirection="Left"
                           Style="{StaticResource CustomExpanderStyle}">
                     <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
@@ -113,7 +116,7 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="Right" ExpandDirection="Right" Height="400">
+                <Expander Height="400" Header="Right" ExpandDirection="Right">
                     <StackPanel Margin="8,0">
                         <TextBlock Text="First" />
                         <TextBlock Text="Second" />
@@ -123,10 +126,11 @@
                         <TextBlock Text="Sixth" />
                     </StackPanel>
                 </Expander>
-                <Expander Header="CustomRight" ExpandDirection="Right" Height="400" Margin="30,0"
-                          pc:ExpanderAssistant.ExpanderHeaderWidth="60"
-                          pc:FrameworkElementBaseAttached.IconWidth="30"
-                          pc:FrameworkElementBaseAttached.IconHeight="30" 
+                <Expander Height="400"
+                          Header="CustomRight"
+                          Margin="30,0"
+                          pc:ExpanderAssistant.ExpanderHeaderWidth="60" pc:FrameworkElementBaseAttached.IconHeight="30"
+                          pc:FrameworkElementBaseAttached.IconWidth="30" ExpandDirection="Right"
                           Style="{StaticResource CustomExpanderStyle}">
                     <StackPanel Margin="8,0">
                         <TextBlock Text="First" />

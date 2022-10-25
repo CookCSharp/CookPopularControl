@@ -17,6 +17,8 @@ namespace MvvmTestDemo.DemoViews
         private int index = 1;
         private List<AlertorState> alertorStates = new List<AlertorState>() { AlertorState.Normal, AlertorState.Success, AlertorState.Warning, AlertorState.Error, AlertorState.Fatal };
 
+        public string SearchContent { get; set; }
+
         public OtherControlsDemo()
         {
             InitializeComponent();

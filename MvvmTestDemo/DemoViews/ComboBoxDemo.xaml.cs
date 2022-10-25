@@ -36,9 +36,9 @@ namespace MvvmTestDemo.DemoViews
             IconLists = new ObservableCollection<SelectorItem>();
             ImageLists = new ObservableCollection<SelectorItem>();
 
-            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["EyeGeometry"] as Geometry, Content = "第一个Iccon" });
-            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LockGeometry"] as Geometry, Content = "第二个Iccon" });
-            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LeafGeometry"] as Geometry, Content = "第三个Iccon" });
+            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["EyeGeometry"] as Geometry, Content = "第一个Icon" });
+            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LockGeometry"] as Geometry, Content = "第二个Icon" });
+            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LeafGeometry"] as Geometry, Content = "第三个Icon" });
 
             //var source1 = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "tomcat.jpg", UriKind.Absolute));
             var source1 = new BitmapImage(new Uri("/MvvmTestDemo;component/Resources/Gif/tomcat.jpg", UriKind.Relative));

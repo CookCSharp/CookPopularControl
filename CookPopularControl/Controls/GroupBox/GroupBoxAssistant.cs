@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CookPopularCSharpToolkit.Communal;
+using System.Windows;
 using System.Windows.Media;
 
 
@@ -15,6 +16,12 @@ namespace CookPopularControl.Controls
     /// </summary>
     public class GroupBoxAssistant
     {
+        public static double GetHeaderHeight(DependencyObject obj) => (double)obj.GetValue(HeaderHeightProperty);
+        public static void SetHeaderHeight(DependencyObject obj, double value) => obj.SetValue(HeaderHeightProperty, value);
+        public static readonly DependencyProperty HeaderHeightProperty =
+            DependencyProperty.RegisterAttached("HeaderHeight", typeof(double), typeof(GroupBoxAssistant), new PropertyMetadata(ValueBoxes.Double30Box));
+
+
         public static HorizontalAlignment GetHeaderHorizontalAlignment(DependencyObject obj) => (HorizontalAlignment)obj.GetValue(HeaderHorizontalAlignmentProperty);
         public static void SetHeaderHorizontalAlignment(DependencyObject obj, HorizontalAlignment value) => obj.SetValue(HeaderHorizontalAlignmentProperty, value);
         /// <summary>

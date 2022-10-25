@@ -11,7 +11,7 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-    <pc:SimpleGrid Width="{StaticResource DemosViewViewDefaultWidth}">
+    <pc:SimpleGrid Width="{StaticResource DemoViewsDefaultWidth}">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Width="200" Height="34"
                        Text="NotifyIcon:"
@@ -47,22 +47,22 @@
                                Foreground="Red"
                                FontSize="16" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:SwitchControl Width="100" Height="35"
+                    <pc:SwitchButton Width="100" Height="35"
                                       Background="Red"
                                       Margin="10,0"
                                       Click="Button_Click_1" SwicthCloseBackground="LightBlue"
-                                      Style="{StaticResource DefaultSwitchControlStyle}" />
+                                      Style="{StaticResource DefaultSwitchButtonStyle}" />
                 </StackPanel>
                 <StackPanel Margin="20" Orientation="Horizontal">
                     <TextBlock Text="开启系统托盘菜单闪烁"
                                Foreground="Red"
                                FontSize="16" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
-                    <pc:SwitchControl Width="100" Height="35"
+                    <pc:SwitchButton Width="100" Height="35"
                                       Background="Red"
                                       Margin="10,0"
                                       Click="Button_Click_2" SwicthCloseBackground="LightBlue"
-                                      Style="{StaticResource DefaultSwitchControlStyle}" />
+                                      Style="{StaticResource DefaultSwitchButtonStyle}" />
                 </StackPanel>
             </StackPanel>
 

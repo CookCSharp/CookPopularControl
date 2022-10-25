@@ -3,18 +3,23 @@
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
-    <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
-        <Setter Property="MinHeight" Value="{DynamicResource DefaultTextElementHeight}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="Padding" Value="6,0,0,0" />
-        <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="TextBoxBaseBaseStyle" TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource InputControlBaseStyle}">
+        <Setter Property="MinHeight" Value="22" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
                     <Border x:Name="RootBorder"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -29,9 +34,9 @@
                                           Background="Transparent"
                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                           Focusable="False"
-                                          HorizontalScrollBarVisibility="Hidden"
+                                          HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                           UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
-                                          VerticalScrollBarVisibility="Hidden" />
+                                          VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" />
                             <TextBlock x:Name="PART_PlaceHolder"
                                        Text="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                        Foreground="{TemplateBinding common:TextElementAttached.PlaceHolderBrush}"
@@ -41,15 +46,14 @@
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <Button x:Name="PART_ClearButton" Grid.Column="1"
-                                    BorderThickness="0"
-                                    Foreground="{DynamicResource PrimaryThemeBrush}"
-                                    Background="Transparent"
-                                    Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Margin="0,0,6,0"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                    common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                     common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                     Effect="{x:Null}"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}">
+                                    Style="{StaticResource ButtonTransparentIconStyle}">
                                 <Button.Visibility>
                                     <MultiBinding Converter="{common:TextFieldClearButtonVisibilityConverter}">
                                         <Binding Path="(common:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
@@ -64,17 +68,19 @@
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder" />
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPressBackground}" />
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
                             <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={pt:DoubleToThicknessConverter}, ConverterParameter=1.5}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <Setter Property="Opacity" Value="0.7" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-                            <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="common:TextElementAttached.PlaceHolder" Value="{x:Null}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

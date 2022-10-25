@@ -44,8 +44,7 @@
     </Style>
 
 
-    <Style x:Key="ToolBarHorizontalOverflowToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource AssistantBackgroundBrush}" />
+    <Style x:Key="ToolBarHorizontalOverflowToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="MinHeight" Value="0" />
         <Setter Property="MinWidth" Value="0" />
         <Setter Property="Template">
@@ -71,7 +70,6 @@
     </Style>
 
     <Style x:Key="ToolBarVerticalOverflowToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource AssistantBackgroundBrush}" />
         <Setter Property="MinHeight" Value="0" />
         <Setter Property="MinWidth" Value="0" />
         <Setter Property="Template">
@@ -139,8 +137,8 @@
     </Style>
 
     <Style x:Key="DefaultToolBarStyle" TargetType="{x:Type ToolBar}">
-        <Setter Property="Background" Value="{DynamicResource AssistantBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Padding" Value="6" />
         <Setter Property="MinHeight" Value="40" />
@@ -156,9 +154,9 @@
                         <Grid x:Name="OverflowGrid" DockPanel.Dock="Right" HorizontalAlignment="Right">
                             <ToggleButton x:Name="OverflowButton"
                                           Foreground="{TemplateBinding Foreground}"
+                                          IsChecked="{Binding IsOverflowOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                           ClickMode="Press"
                                           FocusVisualStyle="{x:Null}"
-                                          IsChecked="{Binding IsOverflowOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                           Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={pt:BooleanToVisibilityConverter}}"
                                           Style="{StaticResource ToolBarHorizontalOverflowToggleButtonStyle}" />
                             <Popup x:Name="OverflowPopup"

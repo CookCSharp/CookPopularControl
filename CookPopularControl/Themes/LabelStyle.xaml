@@ -4,15 +4,17 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
-    <Style x:Key="DefaultLabelStyle" TargetType="{x:Type Label}">
-        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource LinearThemeBrush}" />
-        <Setter Property="Padding" Value="8,0" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultLabelStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource SingleControlBaseStyle}">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
         <Setter Property="pc:BorderAssistant.IsCircular" Value="False" />
+        <Setter Property="pc:LabelAssistant.HeaderBackground" Value="White" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Label}">
@@ -23,7 +25,10 @@
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
                             SnapsToDevicePixels="True">
                         <StackPanel Orientation="Horizontal">
-                            <Border x:Name="HeaderBorder" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Style="{DynamicResource BorderCircularClipStyle}">
+                            <Border x:Name="HeaderBorder"
+                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                    Background="{TemplateBinding pc:LabelAssistant.HeaderBackground}"
+                                    Style="{DynamicResource BorderCircularClipStyle}">
                                 <ContentPresenter Content="{TemplateBinding pc:LabelAssistant.Header}"
                                                   ContentTemplate="{TemplateBinding pc:LabelAssistant.HeaderTemplate}"
                                                   ContentStringFormat="{TemplateBinding pc:LabelAssistant.HeaderStringFormat}"
@@ -67,14 +72,14 @@
                         <StackPanel Orientation="Horizontal">
                             <Border x:Name="HeaderBorder"
                                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                                    Background="{DynamicResource PrimaryThemeBrush}"
+                                    Background="{TemplateBinding pc:LabelAssistant.HeaderBackground}"
                                     Style="{DynamicResource BorderCircularClipStyle}">
                                 <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Header}"
                                                   ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemTemplate}"
                                                   ContentStringFormat="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemStringFormat}"
                                                   ContentTemplateSelector="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemTemplateSelector}"
                                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                  TextElement.Foreground="{DynamicResource AssistantForegroundBrush}" />
+                                                  TextElement.Foreground="{TemplateBinding Foreground}" />
                             </Border>
                             <ContentPresenter x:Name="PART_Content"
                                               Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}"
@@ -84,13 +89,14 @@
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <Button x:Name="PART_CloseButton"
-                                    Width="17" Height="17"
+                                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type pc:GroupLabel}}, Path=(common:FrameworkElementBaseAttached.IconWidth)}"
+                                    Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type pc:GroupLabel}}, Path=(common:FrameworkElementBaseAttached.IconHeight)}"
                                     Foreground="{TemplateBinding Foreground}"
+                                    Command="{x:Static pc:GroupLabel.CloseCommand}"
                                     Margin="8,0" Opacity="0.4" Focusable="False"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="15"
                                     common:FrameworkElementBaseAttached.IconWidth="15"
-                                    Command="{x:Static pc:GroupLabel.CloseCommand}"
                                     Visibility="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=HasCloseButton, Converter={pt:BooleanToVisibilityConverter}}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}" />
                         </StackPanel>
@@ -103,7 +109,7 @@
                             <Setter Property="Opacity" Value="0.6" TargetName="PART_CloseButton" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource ControlMouseOverBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -111,15 +117,16 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultGroupLabelStyle" TargetType="{x:Type pc:GroupLabel}">
+    <Style x:Key="DefaultGroupLabelStyle" TargetType="{x:Type pc:GroupLabel}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="HasCloseButton" Value="True" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource GroupLabelItemStyle}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="Padding" Value="5" />
-        <Setter Property="HasCloseButton" Value="True" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="16" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="16" />
         <Setter Property="pc:LabelAssistant.CornerRadius" Value="5" />
         <Setter Property="ItemsPanel">
             <Setter.Value>

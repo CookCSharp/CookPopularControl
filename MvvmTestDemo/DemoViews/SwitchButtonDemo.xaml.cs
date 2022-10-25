@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MvvmTestDemo.DemoViews
 {
     /// <summary>
-    /// SwitchControlDemo.xaml 的交互逻辑
+    /// SwitchButtonDemo.xaml 的交互逻辑
     /// </summary>
-    public partial class SwitchControlDemo : UserControl
+    public partial class SwitchButtonDemo : UserControl
     {
-        public SwitchControlDemo()
+        public SwitchButtonDemo()
         {
             InitializeComponent();
         }

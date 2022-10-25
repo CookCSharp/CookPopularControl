@@ -9,42 +9,40 @@
              d:DesignWidth="1000">
 
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <pc:DotCircleLoading Margin="20,0" Style="{StaticResource DefaultDotCircleLoadingStyle}" />
+        <StackPanel Width="{StaticResource DemoViewsDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel HorizontalAlignment="Center">
+                <pc:DotCircleLoading Style="{StaticResource DefaultDotCircleLoadingStyle}" />
                 <pc:DotCircleLoading Margin="20,0" Style="{StaticResource DotFullCircleLoadingStyle}" />
-                <pc:DotCircleLoading Margin="20,0" Style="{StaticResource DotCircleLoadingRunAsConstantStyle}" />
+                <pc:DotCircleLoading Margin="0,0" Style="{StaticResource DotCircleLoadingRunAsConstantStyle}" />
                 <pc:DotCircleLoading Margin="20,0" Style="{StaticResource DotFullCircleLoadingRunAsConstantStyle}" />
-                <pc:DotOpacityLoading Margin="20,0" Style="{StaticResource DefaultDotOpacityLoadingStyle}" />
+                <pc:DotOpacityLoading Margin="0,0" Style="{StaticResource DefaultDotOpacityLoadingStyle}" />
                 <pc:RaindropLoading Margin="20,0" Style="{StaticResource RaindropLoadingStyle}" />
             </WrapPanel>
-            <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <pc:DotLineLoading Width="900" Style="{StaticResource DefaultDotLineLoadingStyle}" />
-                <pc:DotLineLoading Width="900" Margin="0,20" Style="{StaticResource DotLineLoadingRunAsContantStyle}" />
+            <StackPanel Margin="0,20" HorizontalAlignment="Center">
+                <pc:DotLineLoading Width="800" Style="{StaticResource DefaultDotLineLoadingStyle}" />
+                <pc:DotLineLoading Width="800" Margin="0,20" Style="{StaticResource DotLineLoadingRunAsContantStyle}" />
             </StackPanel>
-            <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <pc:DotPendulumLoading Margin="20,0" Style="{StaticResource DefaultDotPendulumLoadingStyle}" />
+            <WrapPanel HorizontalAlignment="Center">
+                <pc:DotPendulumLoading Style="{StaticResource DefaultDotPendulumLoadingStyle}" />
                 <pc:DotPendulumLoading Margin="20,0"
                                        pc:DotPendulumLoading.PendulumSlipDistance="50" pc:DotPendulumLoading.PendulumSwingAngle="0"
                                        Style="{StaticResource DefaultDotPendulumLoadingStyle}" />
                 <pc:DotPendulumLoading Margin="20,0" Style="{StaticResource DotPendulumLoadingRunAsContantStyle}" />
-                <pc:DotPendulumLoading Margin="20,0"
-                                       pc:DotPendulumLoading.PendulumSlipDistance="50" pc:DotPendulumLoading.PendulumSwingAngle="0"
-                                       Style="{StaticResource DotPendulumLoadingRunAsContantStyle}" />
+                <pc:DotPendulumLoading pc:DotPendulumLoading.PendulumSlipDistance="50" pc:DotPendulumLoading.PendulumSwingAngle="0" Style="{StaticResource DotPendulumLoadingRunAsContantStyle}" />
             </WrapPanel>
-            <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <pc:RecCircleLoading Margin="10,0" Style="{StaticResource DefaultRecCircleLoadingStyle}" />
-                <pc:RecCircleLoading Margin="10,0" Style="{StaticResource OpacityCycleRecCircleLoadingStyle}" />
-                <pc:RecCircleLoading Margin="10,0" Style="{StaticResource FullOpacityRecCircleLoadingStyle}" />
-                <pc:CharacterLoading Margin="10,0" Style="{StaticResource CharacterLoadingStyle}" />
-                <pc:BraceletLoading Margin="10,0" Style="{StaticResource BraceletLoadingStyle}" />
-                <pc:PlaneLoading Margin="10,0" Style="{StaticResource PlaneLoadingStyle}" />
+            <WrapPanel Margin="0,20" HorizontalAlignment="Center">
+                <pc:RecCircleLoading Style="{StaticResource DefaultRecCircleLoadingStyle}" />
+                <pc:RecCircleLoading Margin="20,0" Style="{StaticResource OpacityCycleRecCircleLoadingStyle}" />
+                <pc:RecCircleLoading Style="{StaticResource FullOpacityRecCircleLoadingStyle}" />
+                <pc:CharacterLoading Margin="20,0" Style="{StaticResource CharacterLoadingStyle}" />
+                <pc:BraceletLoading Style="{StaticResource BraceletLoadingStyle}" />
+                <pc:PlaneLoading Margin="20,0" Style="{StaticResource PlaneLoadingStyle}" />
             </WrapPanel>
-            <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <pc:RecColumnLoading Margin="10,0" Style="{StaticResource DefaultRecColumnLoadingStyle}" />
-                <pc:RecColumnLoading Margin="10,0" Style="{StaticResource RecColumnLoadingStyle1}" />
-                <pc:RecColumnLoading Margin="10,0" Style="{StaticResource RecColumnLoadingStyle2}" />
-                <pc:RecGridLoading Margin="10,0" Style="{StaticResource DefaultRecGridLoadingStyle}" />
+            <WrapPanel HorizontalAlignment="Center">
+                <pc:RecColumnLoading Style="{StaticResource DefaultRecColumnLoadingStyle}" />
+                <pc:RecColumnLoading Margin="20,0" Style="{StaticResource RecColumnLoadingStyle1}" />
+                <pc:RecColumnLoading Style="{StaticResource RecColumnLoadingStyle2}" />
+                <pc:RecGridLoading Margin="20,0" Style="{StaticResource DefaultRecGridLoadingStyle}" />
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

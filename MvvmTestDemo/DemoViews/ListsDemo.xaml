@@ -11,8 +11,21 @@
              d:DesignWidth="800">
 
     <ScrollViewer>
-        <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <WrapPanel HorizontalAlignment="Center">
+        <Grid Width="{StaticResource DemoViewsDefaultWidth}" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="ListBox:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
                 <ListBox Width="300" Height="150"
                          SelectedIndex="0" SelectionMode="Single"
                          Style="{StaticResource DefaultListBoxStyle}">
@@ -21,34 +34,32 @@
                     <ListBoxItem Content="写代码的厨子" />
                 </ListBox>
                 <ListBox Width="300" Height="150"
-                         Margin="30,0"
-                         SelectionMode="Extended"
+                         Margin="20,0,0,0"
+                         SelectedIndex="0" SelectionMode="Extended"
                          Style="{StaticResource ListBoxCheckBoxStyle}">
                     <ListBoxItem Content="Chance" />
                     <ListBoxItem Content="Lori" />
                     <ListBoxItem Content="写代码的厨子" />
                 </ListBox>
-            </WrapPanel>
-            <WrapPanel Margin="0,30" HorizontalAlignment="Center">
                 <ListBox Width="300" Height="150"
-                         pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete"
+                         Margin="0,20,0,0"
+                         pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete" 
                          ItemsSource="{Binding Lists}"
-                         SelectionMode="Single"
+                         SelectedIndex="0" SelectionMode="Single"
                          Style="{StaticResource ListBoxButtonStyle}" />
                 <ListBox Width="300" Height="150"
-                         Margin="30,0"
+                         Margin="20,20,0,0"
                          ItemsSource="{Binding IconLists}"
-                         SelectionMode="Single"
+                         SelectedIndex="0" SelectionMode="Single"
                          Style="{StaticResource ListBoxIconStyle}" />
-            </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center">
                 <ListBox Width="300" Height="150"
+                         Margin="0,20,0,0"
                          pc:SelectorAttached.IsPreviewImage="True"
                          ItemsSource="{Binding ImageLists}"
-                         SelectionMode="Single"
+                         SelectedIndex="0" SelectionMode="Single"
                          Style="{StaticResource ListBoxImageStyle}" />
                 <ListView Width="300" Height="150"
-                          Margin="30,0" Padding="16,0,0,0"
+                          Margin="20,20,0,0"
                           SelectedIndex="0"
                           Style="{StaticResource DefaultListViewStyle}">
                     <ListViewItem Content="Lori" />
@@ -56,11 +67,16 @@
                     <ListViewItem Content="写代码的厨子" />
                 </ListView>
             </WrapPanel>
-            <WrapPanel Margin="0,30,0,0" HorizontalAlignment="Center">
-                <ListView Width="700" Height="200"
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="ListView:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <ListView Height="200"
                           HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
                           pc:SelectorAttached.ItemHeight="40"
                           ItemsSource="{Binding PersonInfos}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectedIndex="0"
                           Style="{StaticResource ListViewGirdViewStyle}">
                     <ListView.View>
                         <GridView>
@@ -90,8 +106,8 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-            </WrapPanel>
-        </StackPanel>
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 
 </UserControl>

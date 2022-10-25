@@ -4,10 +4,13 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style x:Key="ClockRadioButtonStyle" TargetType="{x:Type RadioButton}">
         <Setter Property="Width" Value="30" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -15,11 +18,7 @@
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!--<Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border"/>
-                        </Trigger>-->
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" TargetName="border" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -28,12 +27,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ClockBaseStyle" TargetType="{x:Type pc:Clock}">
+    <Style x:Key="ClockBaseStyle" TargetType="{x:Type pc:Clock}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="300" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="Background" Value="White" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:Clock}">
@@ -53,28 +51,24 @@
                                        HorizontalAlignment="Center" VerticalAlignment="Center" />
                             <Border Grid.Row="1"
                                     Width="150" Height="150"
-                                    BorderBrush="{DynamicResource PrimaryThemeBrush}"
+                                    BorderBrush="{TemplateBinding Foreground}"
                                     BorderThickness="5"
                                     CornerRadius="75">
                                 <pc:SimpleGrid x:Name="PART_Ticks" Background="Transparent">
                                     <TextBlock Text="12"
-                                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                                               FontSize="14" FontWeight="DemiBold"
+                                               FontWeight="DemiBold"
                                                Margin="0,10,0,0"
                                                HorizontalAlignment="Center" VerticalAlignment="Top" />
                                     <TextBlock Text="3"
-                                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                                               FontSize="14" FontWeight="DemiBold"
+                                               FontWeight="DemiBold"
                                                Margin="0,0,12,0"
                                                HorizontalAlignment="Right" VerticalAlignment="Center" />
                                     <TextBlock Text="6"
-                                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                                               FontSize="14" FontWeight="DemiBold"
+                                               FontWeight="DemiBold"
                                                Margin="0,0,0,10"
                                                HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                                     <TextBlock Text="9"
-                                               Foreground="{DynamicResource PrimaryThemeBrush}"
-                                               FontSize="14" FontWeight="DemiBold"
+                                               FontWeight="DemiBold"
                                                Margin="12,0,0,0"
                                                HorizontalAlignment="Left" VerticalAlignment="Center" />
                                 </pc:SimpleGrid>
@@ -82,17 +76,21 @@
                             <UniformGrid x:Name="PART_UniformGrid" Grid.Row="2" Columns="3">
                                 <RadioButton x:Name="PART_Am"
                                              Content="上午"
+                                             Foreground="{TemplateBinding Foreground}"
                                              IsChecked="True"
                                              Style="{StaticResource ClockRadioButtonStyle}" />
-                                <RadioButton x:Name="PART_Pm" Content="下午" Style="{StaticResource ClockRadioButtonStyle}" />
+                                <RadioButton x:Name="PART_Pm"
+                                             Content="下午"
+                                             Foreground="{TemplateBinding Foreground}"
+                                             Style="{StaticResource ClockRadioButtonStyle}" />
                                 <Button Width="30" Height="30"
                                         Content="重置"
-                                        common:FrameworkElementBaseAttached.CornerRadius="15"
-                                        Command="{x:Static pc:Clock.ResetCommand}" />
+                                        Command="{x:Static pc:Clock.ResetCommand}"
+                                        common:FrameworkElementBaseAttached.CornerRadius="15" />
                                 <Button Width="30" Height="30"
                                         Content="确定"
-                                        common:FrameworkElementBaseAttached.CornerRadius="15"
                                         Command="{x:Static pc:Clock.ConfirmCommand}"
+                                        common:FrameworkElementBaseAttached.CornerRadius="15"
                                         Visibility="{TemplateBinding pc:ClockAssistant.IsAddConfirmButton, Converter={pt:BooleanToVisibilityConverter}}" />
                             </UniformGrid>
                         </Grid>
@@ -102,19 +100,16 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TimePickerBaseStyle" TargetType="{x:Type pc:TimePicker}">
+    <Style x:Key="TimePickerBaseStyle" TargetType="{x:Type pc:TimePicker}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="Width" Value="200" />
-        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="pc:ClockAssistant.IsAddConfirmButton" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:TimePicker}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    <Border x:Name="RootBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}"
+                            Background="Transparent"
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -124,9 +119,18 @@
                             <TextBox x:Name="PART_TextBox" Grid.Column="0"
                                      Text="{TemplateBinding CurrentTime}"
                                      BorderThickness="0"
-                                     common:FrameworkElementBaseAttached.CornerRadius="2" common:TextElementAttached.PlaceHolder="请选择时间" />
+                                     Foreground="{TemplateBinding Foreground}"
+                                     Background="Transparent"
+                                     Padding="{TemplateBinding Padding}"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     common:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                                     common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}" />
                             <ToggleButton x:Name="PART_Button" Grid.Column="1"
+                                          Foreground="{TemplateBinding Foreground}"
                                           common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ClockGeometry}"
+                                          common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
+                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                           Style="{DynamicResource ToggleButtonTransparentIconStyle}" />
                             <Popup x:Name="PART_Popup"
                                    AllowsTransparency="True"
@@ -138,6 +142,18 @@
                             </Popup>
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" TargetName="RootBorder" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPressBackground}" TargetName="RootBorder" />
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" TargetName="RootBorder" />
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness, Converter={pt:ThicknessToThicknessConverter}, ConverterParameter=1.2}" TargetName="RootBorder" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -155,6 +155,8 @@ namespace CookPopularControl.Controls
             var swiper = d as Swiper;
             if (swiper != null && swiper.IsLoaded)
             {
+                if (swiper.lastButton == null || swiper.nextButton == null) return;
+
                 if (swiper.CurrentIndex.Equals(-1))
                     swiper.CurrentIndex = swiper.Items.Count - 1;
                 else if (swiper.CurrentIndex.Equals(swiper.Items.Count))

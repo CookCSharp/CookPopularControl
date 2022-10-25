@@ -27,7 +27,7 @@ namespace CookPopularControl.Controls
     public class Alertor : Control
     {
         private const string ElementAlarm = "PART_Alarm";
-        private static readonly List<string> colors = new List<string>() { ResourceHelper.GetResource<Color>("PrimaryThemeColor").ToString(), "#32AA32", "#FFA500", "#FF0000", "#800000" };
+        private static readonly List<string> colors = new List<string>() { ResourceHelper.GetResource<Color>("PrimaryForegroundColor").ToString(), "#32AA32", "#FFA500", "#FF0000", "#800000" };
 
         private Storyboard _storyboard;
         private Shape _alarm;

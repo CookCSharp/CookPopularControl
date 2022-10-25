@@ -76,7 +76,7 @@ namespace CookPopularControl.Controls
 
 
         public static bool GetIsShowDropDownButton(DependencyObject obj) => (bool)obj.GetValue(IsShowDropDownButtonProperty);
-        public static void SetIsShowDropDownButton(DependencyObject obj, bool value) => obj.SetValue(IsShowDropDownButtonProperty, value);
+        public static void SetIsShowDropDownButton(DependencyObject obj, bool value) => obj.SetValue(IsShowDropDownButtonProperty, ValueBoxes.BooleanBox(value));
         /// <summary>
         /// <see cref="IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
         /// </summary>

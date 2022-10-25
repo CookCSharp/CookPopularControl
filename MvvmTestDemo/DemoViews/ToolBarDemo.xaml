@@ -13,14 +13,14 @@
     </UserControl.Resources>
 
     <Grid>
-        <StackPanel>
-            <ToolBarTray Background="Pink">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ToolBarTray>
                 <ToolBar Header="Title">
-                    <CheckBox Margin="10,0,0,0" IsChecked="True" />
+                    <CheckBox IsChecked="True" Margin="10,0,0,0" />
                     <Separator Margin="10,0,0,0" />
                     <RadioButton Margin="10,0,0,0" />
                     <StackPanel Orientation="Horizontal">
-                        <RadioButton Margin="10,0,0,0" IsChecked="True" />
+                        <RadioButton IsChecked="True" Margin="10,0,0,0" />
                         <RadioButton Margin="10,0,0,0" />
                     </StackPanel>
                     <Button Content="Button" Margin="10,0,0,0" />
@@ -73,20 +73,20 @@
             </ToolBarTray>
 
 
-            <ToolBarTray Background="Pink" Margin="0,20" Orientation="Vertical">
+            <ToolBarTray Margin="0,20" Orientation="Vertical">
                 <ToolBar Header="Title">
-                    <CheckBox Margin="0,10,0,0" IsChecked="True" />
+                    <CheckBox IsChecked="True" Margin="0,10,0,0" />
                     <Separator Margin="0,10,0,0" Style="{StaticResource DefaultSeparatorStyle}" />
                     <RadioButton Margin="0,10,0,0" HorizontalAlignment="Center" />
                     <StackPanel HorizontalAlignment="Center">
-                        <RadioButton Margin="0,10,0,0" IsChecked="True" />
+                        <RadioButton IsChecked="True" Margin="0,10,0,0" />
                         <RadioButton Margin="0,10,0,0" />
                     </StackPanel>
                     <Button Content="Button" Margin="0,10,0,0" />
                     <Button Content="Button" Margin="0,10,0,0" />
                 </ToolBar>
                 <ToolBar Header="Title" Band="1">
-                    <CheckBox Margin="0,10,0,0" IsChecked="True" />
+                    <CheckBox IsChecked="True" Margin="0,10,0,0" />
                     <Separator Margin="0,10,0,0" Style="{StaticResource DefaultSeparatorStyle}" />
                     <RadioButton Margin="0,10,0,0" />
                     <StackPanel Margin="0,10,0,0" HorizontalAlignment="Center">

@@ -11,9 +11,7 @@
              d:DesignWidth="800"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-
+    <StackPanel Width="{StaticResource DemoViewsDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid x:Name="customCursor" Width="32" Height="32" />
     </StackPanel>
 

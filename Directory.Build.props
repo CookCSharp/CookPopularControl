@@ -37,7 +37,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	<OutputPath>$(SolutionDir)Output\bin\Debug</OutputPath>
+	<OutputPath>$(SolutionDir)Output\bin\Debug\$(MSBuildProjectName)</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

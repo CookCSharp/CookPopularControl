@@ -3,10 +3,10 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/SwitchControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/SwitchButtonBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultSwitchControlStyle" TargetType="{x:Type pc:SwitchControl}" BasedOn="{StaticResource SwitchControlBaseStyle}">
+    <Style x:Key="DefaultSwitchButtonStyle" TargetType="{x:Type pc:SwitchButton}" BasedOn="{StaticResource SwitchButtonBaseStyle}">
         <Setter Property="SwicthCloseBackground" Value="{DynamicResource LinearThemeBrush}" />
         <Setter Property="SwitchOpenBackground" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>

@@ -6,49 +6,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
-             Background="#F0F0F0"
              d:DesignHeight="450"
              d:DesignWidth="1000">
 
-    <ScrollViewer Padding="10,0">
+    <ScrollViewer Width="{StaticResource DemoViewsDefaultWidth}" HorizontalScrollBarVisibility="Disabled">
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GroupBox Width="300" Height="400"
+            <GroupBox Width="250" Height="300"
                       Header="写代码的厨子"
                       Foreground="{StaticResource AssistantThemeBrush}"
-                      pc:GroupBoxAssistant.HeaderBackground="#F0F0F0"
-                      pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left">
-                <Border Background="Green">
-                    <Button Width="200" Height="40" Content="DefaultGroupBox" />
+                      pc:GroupBoxAssistant.HeaderBackground="White" pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left">
+                <Border>
+                    <Button Width="120" Content="DefaultGroupBox" />
                 </Border>
             </GroupBox>
-            <GroupBox Width="300" Height="400"
-                      BorderBrush="Red" BorderThickness="4"
+            <GroupBox Width="250" Height="300"
+                      BorderBrush="DodgerBlue" BorderThickness="2"
                       Foreground="{StaticResource AssistantThemeBrush}"
                       FontSize="20"
                       Margin="30,0"
-                      pc:GroupBoxAssistant.HeaderBackground="#F0F0F0"
                       pc:GroupBoxAssistant.HeaderHorizontalAlignment="Left">
                 <GroupBox.Header>
-                    <Button Width="200" Height="40" Content="写代码的厨子" />
+                    <Button Width="120" Content="写代码的厨子" />
                 </GroupBox.Header>
-                <Border Background="Green">
-                    <Button Width="200" Height="40" Content="DefaultGroupBox" />
+                <Border>
+                    <Button Width="120" Content="DefaultGroupBox" />
                 </Border>
             </GroupBox>
-            <GroupBox Width="300" Height="400"
+            <GroupBox Width="250" Height="300"
                       Header="写代码的厨子"
-                      Style="{DynamicResource CustomHeaderGroupBoxStyle}">
-                <Button Width="250" Height="40" Content="CustomHeaderGroupBox" />
-            </GroupBox>
-            <GroupBox Width="300" Height="400"
-                      Header="写代码的厨子"
-                      Foreground="#FFFFFF"
-                      Margin="30,0"
-                      pc:FrameworkElementBaseAttached.CornerRadius="0"
+                      Margin="0,20,0,0"
                       pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
-                      pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth3}"
+                      pc:FrameworkElementBaseAttached.ShadowEffect="{x:Null}"
                       Style="{DynamicResource CustomHeaderGroupBoxStyle}">
-                <Grid Width="300" Height="350">
+                <Button Width="160" Content="CustomHeaderGroupBox" />
+            </GroupBox>
+            <GroupBox Width="250" Height="300"
+                      Header="写代码的厨子"
+                      Margin="30,20,0,0"
+                      pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource EyeGeometry}"
+                      Style="{DynamicResource CustomHeaderGroupBoxStyle}">
+                <Grid Width="150" Height="150">
                     <Image Source="../Resources/Gif/tomcat.jpg" Stretch="Uniform" />
                 </Grid>
             </GroupBox>

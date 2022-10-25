@@ -3,13 +3,14 @@
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
-    <Style x:Key="DefaultExpanderStyle" TargetType="{x:Type Expander}">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultExpanderStyle" TargetType="{x:Type Expander}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="MinWidth" Value="10" />
         <Setter Property="MinHeight" Value="10" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource LightBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{DynamicResource DownTriangleGeometry}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="20" />

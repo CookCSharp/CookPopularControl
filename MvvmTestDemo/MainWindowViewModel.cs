@@ -104,9 +104,8 @@ namespace MvvmTestDemo
             //new Window() { Content = "456456", Name = "test2" }.Show();
 
             var basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.FullName;
-            var demoFiles = Directory.GetFiles(@"D:\WPFSourceCode\CookPopularControl\MvvmTestDemo\DemoViews", "*.xaml").ToList();
-            //var demoFiles = Directory.GetFiles(demoPath + "\\MvvmTestDemo\\DemoViews", "*.xaml").ToList();
+            var demoPath = Directory.GetParent(basePath).Parent.Parent.Parent.Parent.Parent.FullName;
+            var demoFiles = Directory.GetFiles(demoPath + "\\MvvmTestDemo\\DemoViews", "*.xaml").ToList();
 
             foreach (var file in demoFiles)
             {

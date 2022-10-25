@@ -21,7 +21,7 @@
                         HorizontalAlignment="Center"
                         Click="Button_Click" />
                 <StackPanel Margin="100,0,0,0">
-                    <ProgressBar Width="500" Height="25"
+                    <ProgressBar Width="500" 
                                  Value="{Binding Value, Mode=OneWay}"
                                  Style="{StaticResource DefaultProgressBarStyle}" />
                     <ProgressBar Width="500" Height="25"
@@ -41,7 +41,7 @@
                                  Style="{StaticResource DefaultProgressBarStyle}" />
                 </StackPanel>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel Margin="10,0" HorizontalAlignment="Left" Orientation="Horizontal">
                 <ProgressBar Width="25" Height="500"
                              Value="{Binding Value, Mode=OneWay}"
                              Orientation="Vertical"
@@ -84,7 +84,7 @@
                                  FontSize="20"
                                  Value="{Binding Value}"
                                  Margin="0,20"
-                                 Style="{StaticResource WaveProgressBarShowPercentStyle}" />
+                                 Style="{StaticResource WaveProgressBarStyle}" />
                 </WrapPanel>
 
             </StackPanel>

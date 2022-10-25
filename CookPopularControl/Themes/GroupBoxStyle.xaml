@@ -4,14 +4,15 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
-    <Style x:Key="DefaultGroupBoxStyle" TargetType="{x:Type GroupBox}">
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultGroupBoxStyle" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Padding" Value="6" />
         <Setter Property="pc:GroupBoxAssistant.HeaderHorizontalAlignment" Value="Left" />
-        <Setter Property="pc:GroupBoxAssistant.HeaderBackground" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="pc:GroupBoxAssistant.HeaderBackground" Value="White" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GroupBox}">
@@ -58,17 +59,24 @@
     <Style x:Key="CustomHeaderGroupBoxStyle" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource DefaultGroupBoxStyle}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="FontSize" Value="{DynamicResource FirstTitleFontSize}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="pc:GroupBoxAssistant.HeaderHeight" Value="{DynamicResource DefaultControlHeight}" />
+        <Setter Property="pc:GroupBoxAssistant.HeaderBackground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="20" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="20" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconGeometry" Value="{x:Null}" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="common:FrameworkElementBaseAttached.ShadowEffect" Value="{DynamicResource ShadowEffectDepth0}" />
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <DockPanel Height="40" MaxHeight="80">
-                        <Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(common:FrameworkElementBaseAttached.IconGeometry)}"
+                    <DockPanel Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(pc:GroupBoxAssistant.HeaderHeight)}" MaxHeight="100">
+                        <Path Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(common:FrameworkElementBaseAttached.IconWidth)}"
+                              Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(common:FrameworkElementBaseAttached.IconHeight)}"
+                              Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=(common:FrameworkElementBaseAttached.IconGeometry)}"
                               Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=Foreground}"
                               Stretch="Uniform"
-                              Margin="10,8"
+                              Margin="8,0"
                               VerticalAlignment="Center"
                               Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GroupBox}, Path=Foreground}"
                               StrokeThickness="1" />
@@ -86,12 +94,13 @@
                     <Grid>
                         <Border BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="Transparent"
+                                Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" />
                         <DockPanel>
                             <Border DockPanel.Dock="Top"
-                                    Background="{TemplateBinding Background}"
+                                    Background="{TemplateBinding pc:GroupBoxAssistant.HeaderBackground}"
                                     CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                                    Margin="1"
                                     Effect="{TemplateBinding common:FrameworkElementBaseAttached.ShadowEffect}">
                                 <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   ContentStringFormat="{TemplateBinding HeaderStringFormat}"

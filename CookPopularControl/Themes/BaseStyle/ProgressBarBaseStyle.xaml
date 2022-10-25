@@ -5,13 +5,12 @@
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Resources/Dictionaries/ValueConverter.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="LinearProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+    <Style x:Key="LinearProgressBarBaseStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource SingleControlBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -49,10 +48,12 @@
                                     <Path Width="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Height="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Data="{DynamicResource AirFanGeometry}"
-                                          Fill="White"
+                                          Fill="{TemplateBinding Foreground}"
                                           Stretch="Uniform"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"
-                                          RenderTransformOrigin="0.5,0.5" Stroke="White" StrokeThickness="1">
+                                          RenderTransformOrigin="0.5,0.5"
+                                          Stroke="{TemplateBinding Foreground}"
+                                          StrokeThickness="1">
                                         <Path.RenderTransform>
                                             <RotateTransform x:Name="ariFan" />
                                         </Path.RenderTransform>
@@ -61,10 +62,12 @@
                                           Width="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Height="{TemplateBinding pc:LinearProgressBarAssistant.IconSize}"
                                           Data="{DynamicResource LeafGeometry}"
-                                          Fill="White"
+                                          Fill="{TemplateBinding Foreground}"
                                           Stretch="Uniform"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"
-                                          RenderTransformOrigin="0.5,0.5" Stroke="White" StrokeThickness="1"
+                                          RenderTransformOrigin="0.5,0.5"
+                                          Stroke="{TemplateBinding Foreground}"
+                                          StrokeThickness="1"
                                           Visibility="Collapsed">
                                         <Path.RenderTransform>
                                             <TransformGroup>
@@ -173,11 +176,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarStripeBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style x:Key="ProgressBarStripeBaseStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="IsIndeterminate" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
@@ -261,7 +260,7 @@
     </Style>
 
     <Style x:Key="CircularProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -409,7 +408,7 @@
     </Style>
 
     <Style x:Key="WaveProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />

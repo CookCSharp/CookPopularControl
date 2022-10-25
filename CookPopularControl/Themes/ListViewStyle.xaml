@@ -5,9 +5,7 @@
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollViewerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ListBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ListBoxItemBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}" TargetType="{x:Type ScrollViewer}">
@@ -165,11 +163,7 @@
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
                     </DockPanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
+                    <ControlTemplate.Triggers />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -198,6 +192,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}" />
 
     <Style x:Key="ListViewGridViewItemStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -228,16 +224,17 @@
                 <Setter Property="BorderThickness" Value="0" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsSelected" Value="True" />
                     <Condition Property="Selector.IsSelectionActive" Value="True" />
                 </MultiTrigger.Conditions>
-                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-                <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemsListBackground)}" />
+                <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -245,14 +242,13 @@
                     <Condition Property="IsMouseOver" Value="True" />
                     <Condition Property="Selector.IsSelectionActive" Value="True" />
                 </MultiTrigger.Conditions>
-                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
             </MultiTrigger>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.5" />
-            </Trigger>
             <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -270,20 +266,25 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
-                        <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
-                            <ItemsPresenter />
+                        <ScrollViewer Background="Transparent"
+                                      HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                      Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsGrouping" Value="True">
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsGrouping" Value="true" />
+                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false" />
+                            </MultiTrigger.Conditions>
                             <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
-                        </Trigger>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}" />
 
 </ResourceDictionary>

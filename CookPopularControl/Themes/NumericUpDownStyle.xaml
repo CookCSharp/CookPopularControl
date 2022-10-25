@@ -4,24 +4,21 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
-    <Style x:Key="DefaultNumericUpDownStyle" TargetType="{x:Type pc:NumericUpDown}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="8,0,0,0" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultNumericUpDownStyle" TargetType="{x:Type pc:NumericUpDown}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Value" Value="0" />
-        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="14" />
-        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="14" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="15" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="请输入数字" />
         <Setter Property="common:TextElementAttached.IsAddClearButton" Value="False" />
         <Setter Property="pc:NumericUpDownAssistant.UpDownButtonMargin" Value="5,0" />
-        <Setter Property="pc:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="pc:NumericUpDownAssistant.UpDownButtonBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:NumericUpDown}">
@@ -41,6 +38,7 @@
                                      Foreground="{TemplateBinding Foreground}"
                                      Background="Transparent"
                                      Padding="{TemplateBinding Padding}"
+                                     Focusable="{TemplateBinding Focusable}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      common:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
@@ -75,13 +73,16 @@
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}" />
+                                        Style="{StaticResource ButtonTransparentIconStyle}" />
                             </UniformGrid>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPressBackground}" />
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
@@ -92,7 +93,6 @@
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_PlusButton" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="PART_SubtractButton" />
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

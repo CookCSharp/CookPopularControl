@@ -7,6 +7,14 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultDataGridStyle" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DataGridBaseStyle}">
+        <Setter Property="pc:DataGridAssistant.IsEnableEditWithoutFocused" Value="True" />
+        <Setter Property="pc:DataGridAssistant.IsApplyDefaultStyle" Value="True" />
+        <Setter Property="pc:DataGridAssistant.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}" />
+        <Setter Property="pc:DataGridAssistant.TextColumnEditingStyle" Value="{StaticResource DataGridTextColumnEditingStyle}" />
+        <Setter Property="pc:DataGridAssistant.ComboBoxColumnStyle" Value="{StaticResource DataGridComboBoxColumnStyle}" />
+        <Setter Property="pc:DataGridAssistant.ComboBoxColumnEditingStyle" Value="{StaticResource DataGridComboBoxColumnEditingStyle}" />
+        <Setter Property="pc:DataGridAssistant.CheckBoxColumnStyle" Value="{StaticResource DataGridCheckBoxColumnStyle}" />
+        <Setter Property="pc:DataGridAssistant.CheckBoxColumnEditingStyle" Value="{StaticResource DataGridCheckBoxColumnStyle}" />
         <Setter Property="pc:DataGridAssistant.IsShowSerialNumber" Value="True" />
         <Setter Property="pc:DataGridAssistant.IsRegisterSelectAll" Value="True" />
     </Style>

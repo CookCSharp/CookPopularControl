@@ -3,7 +3,7 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultAlertorStyle" TargetType="{x:Type pc:Alertor}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
@@ -11,7 +11,7 @@
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="NormalAlarmStoryboard">
                             <ColorAnimation Storyboard.TargetName="PART_Alarm" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                            To="{DynamicResource PrimaryThemeColor}"
+                                            To="{DynamicResource PrimaryForegroundColor}"
                                             Duration="0:0:1" RepeatBehavior="Forever" />
                         </Storyboard>
                         <Storyboard x:Key="SuccessAlarmStoryboard">

@@ -27,8 +27,8 @@
                      StarValue="3.333" />
             <pc:Star Margin="0,10"
                      IsShowScore="False" Orientation="Horizontal" StarCount="5"
-                     StarIcon="{StaticResource StarGeometry}"
-                     StarValue="1.5" />
+                     StarIcon="{StaticResource EyeGeometry}"
+                     StarSize="40" StarValue="1.5" />
         </StackPanel>
         <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <pc:Star Orientation="Vertical" StarCount="5"
@@ -43,8 +43,8 @@
                      StarValue="3" />
             <pc:Star Margin="10,0"
                      IsShowScore="False" Orientation="Vertical" StarCount="5"
-                     StarIcon="{StaticResource StarGeometry}"
-                     StarValue="4.5" />
+                     StarIcon="{StaticResource EyeGeometry}"
+                     StarSize="40" StarValue="4.5" />
         </WrapPanel>
     </Grid>
 

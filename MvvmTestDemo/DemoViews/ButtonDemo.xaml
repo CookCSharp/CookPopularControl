@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-             xmlns:toolkit="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="450"
@@ -13,84 +13,117 @@
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <UserControl.Resources>
-        <Style x:Key="Demo.ButtonIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithIconStyle}">
-            <Setter Property="Width" Value="300" />
-            <Setter Property="Height" Value="60" />
-            <Setter Property="FontSize" Value="{StaticResource FirstTitleFontSize}" />
+        <Style x:Key="Demo.ButtonIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonWithIconStyle}">
+            <Setter Property="Width" Value="250" />
             <Setter Property="FontFamily" Value="{StaticResource RobotoFonts}" />
-            <Setter Property="Content" Value="ContentWithIconButton" />
+            <Setter Property="Content" Value="ButtonWithIcon" />
             <Setter Property="pc:FrameworkElementBaseAttached.IconGeometry" Value="{StaticResource SuccessGeometry}" />
         </Style>
-
+        <Style x:Key="Demo.CircularProgressBarStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarStyle}">
+            <Setter Property="pc:CircularProgressAssistant.ArcThickness" Value="5" />
+            <Setter Property="pc:LinearProgressBarAssistant.TextColor" Value="Purple" />
+        </Style>
     </UserControl.Resources>
 
     <ScrollViewer>
-        <StackPanel Width="{StaticResource DemoViewsDefaultWidth}" VerticalAlignment="Center">
-            <WrapPanel HorizontalAlignment="Center">
-                <Button Width="180" Height="60"
+        <Grid Width="{StaticResource DemoViewsDefaultWidth}" Margin="0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="80" />
+                <RowDefinition Height="Auto" MinHeight="50" />
+                <RowDefinition Height="Auto" MinHeight="180" />
+                <RowDefinition Height="Auto" MinHeight="120" />
+                <RowDefinition Height="Auto" MinHeight="180" />
+                <RowDefinition Height="Auto" MinHeight="80" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="DefaultButton:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+                <Button Width="100"
                         Content="DefaultButton"
-                        FontSize="20"
                         ToolTip="DefaultButton"
-                        pc:FrameworkElementBaseAttached.CornerRadius="5"
+                        Style="{StaticResource DefaultButtonStyle}" />
+                <Button Width="100"
+                        Content="OutlineButton"
+                        BorderThickness="1"
+                        Margin="10,0" ToolTip="OutlineButton"
+                        Style="{StaticResource ButtonOutlineStyle}" />
+                <Button Width="120"
+                        Content="TransparentButton"
+                        ToolTip="TransparentButton"
+                        Style="{StaticResource ButtonTransparentStyle}" />
+                <Button Width="200"
+                        Content="NoMouseOverTransparentButton"
+                        Margin="10,0" ToolTip="NoMouseOverTransparentButton"
+                        Style="{StaticResource ButtonNoMouseOverTransparentStyle}" />
+            </WrapPanel>
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="AnimationButton:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <Button Width="160"
+                        Content="ThicknessAnimationButton"
+                        ToolTip="ThicknessAnimationButton"
                         Style="{StaticResource DefaultButtonStyle}">
                     <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior BorderBrush="Purple" BorderThickness="3" AnimationType="OrderThickness" />
+                        <pc:ControlBorderBehavior BorderBrush="Purple" BorderThickness="1" AnimationType="Thickness" />
                     </behavior:Interaction.Behaviors>
                 </Button>
-                <Button Width="180" Height="60"
-                        Content="DefaultButton"
-                        BorderThickness="2"
-                        FontSize="20"
-                        Margin="10,0" ToolTip="OutlineButton"
-                        pc:FrameworkElementBaseAttached.CornerRadius="10"
-                        Style="{StaticResource ButtonOutlineStyle}">
+                <Button Width="200"
+                        Content="OrderThicknessAnimationButton"
+                        Margin="10,0" ToolTip="OrderThicknessAnimationButton"
+                        Style="{StaticResource DefaultButtonStyle}">
                     <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior AnimationType="Path" />
+                        <pc:ControlBorderBehavior BorderBrush="Purple" BorderThickness="1"
+                                                  Duration="0:0:2"
+                                                  AnimationType="OrderThickness" IsRetainBehavior="True" />
                     </behavior:Interaction.Behaviors>
                 </Button>
-                <Button Width="180" Height="60"
-                        Content="DefaultButton"
-                        FontSize="20"
-                        ToolTip="TransparentButton"
-                        Style="{StaticResource ButtonTransparentStyle}">
+                <Button Width="200"
+                        Content="PathAnimationButton"
+                        BorderBrush="Purple" BorderThickness="1"
+                        ToolTip="PathAnimationButton"
+                        pc:FrameworkElementBaseAttached.CornerRadius="2"
+                        Style="{StaticResource DefaultButtonStyle}">
                     <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior AnimationType="Path" />
-                    </behavior:Interaction.Behaviors>
-                </Button>
-                <Button Width="180" Height="60"
-                        Content="DefaultButton"
-                        FontSize="20"
-                        ToolTip="NoMouseOverTransparentButton"
-                        pc:FrameworkElementBaseAttached.CornerRadius="20"
-                        Style="{StaticResource ButtonNoMouseOverTransparentStyle}">
-                    <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior AnimationType="Path" />
+                        <pc:ControlBorderBehavior BorderThickness="2" AnimationType="Path" IsRetainBehavior="True" />
                     </behavior:Interaction.Behaviors>
                 </Button>
             </WrapPanel>
-
-            <WrapPanel Margin="0,30" HorizontalAlignment="Center">
-                <Button ToolTip="IconWithContentButtonLeft"
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="ButtonWithIcon:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                <Button ToolTip="ButtonWithIconLeft"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                         pc:FrameworkElementBaseAttached.CornerRadius="5"
                         pc:FrameworkElementBaseAttached.IconDirection="Left"
                         pc:FrameworkElementBaseAttached.IconMargin="8,0,0,0"
                         Style="{StaticResource Demo.ButtonIconStyle}" />
-                <Button Margin="10,0,0,0" ToolTip="IconWithContentButtonRight" Style="{StaticResource Demo.ButtonIconStyle}" />
-                <Button Margin="0,10,0,0" ToolTip="IconWithContentButtonTop"
+                <Button Margin="10,0,0,0" ToolTip="ButtonWithIconRight" Style="{StaticResource Demo.ButtonIconStyle}" />
+                <Button Height="50"
+                        Margin="0,10,0,0" ToolTip="ButtonWithIconTop"
                         pc:FrameworkElementBaseAttached.IconDirection="Top"
                         pc:FrameworkElementBaseAttached.IconMargin="0,4,0,0"
                         Style="{StaticResource Demo.ButtonIconStyle}" />
-                <Button Margin="10,10,0,0" ToolTip="IconWithContentButtonBottom"
+                <Button Height="50"
+                        Margin="10,10,0,0" ToolTip="ButtonWithIconBottom"
                         pc:FrameworkElementBaseAttached.IconDirection="Bottom"
                         pc:FrameworkElementBaseAttached.IconMargin="0,0,0,4"
                         Style="{StaticResource Demo.ButtonIconStyle}" />
-                <Button Foreground="Purple"
-                        Margin="0,10,0,0" ToolTip="IconButtonUnEnabled"
+                <Button IsEnabled="False"
+                        Margin="0,10,0,0" ToolTip="ButtonWithIconUnEnabled"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                        pc:FrameworkElementBaseAttached.CornerRadius="5" IsEnabled="False"
+                        pc:FrameworkElementBaseAttached.CornerRadius="5"
                         Style="{StaticResource Demo.ButtonIconStyle}" />
-                <Button Width="50" Height="50"
+                <Button Width="40" Height="40"
                         Margin="10,10,0,0" ToolTip="IconButton"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CloseCircleGeometry}"
                         Style="{StaticResource ButtonIconStyle}" />
@@ -102,54 +135,54 @@
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
                         Style="{StaticResource ButtonNoMouseOverTransparentIconStyle}" />
             </WrapPanel>
-
-            <WrapPanel HorizontalAlignment="Center">
-                <Button Width="300" Height="100" FontSize="16"
-                        Content="ContentWithGifButton"
-                        ToolTip="ContentWithGifButton"
-                        pc:ButtonAssist.IsAutoStart="True"
-                        pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
-                        pc:ButtonAssist.ImageHeight="50"
-                        pc:ButtonAssist.ImageWidth="50"
-                        Style="{StaticResource ButtonContentWithGifStyle}" />
-                <Button Width="300" Height="100"
-                        Margin="20,0" ToolTip="GifButton"
-                        pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
-                        pc:ButtonAssist.ImageHeight="100"
-                        pc:ButtonAssist.ImageWidth="100" 
-                        pc:ButtonAssist.IsAutoStart="True"
-                        Style="{StaticResource ButtonGifStyle}">
-                    <behavior:Interaction.Behaviors>
-                        <pc:ControlBorderBehavior AnimationType="Path" />
-                    </behavior:Interaction.Behaviors>
-                </Button>
-                <Button Width="300" Height="100" Background="DodgerBlue"
-                        Margin="0,10,0,0" ToolTip="GifTransparentButton"
-                        pc:ButtonAssist.IsAutoStart="True"
-                        pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif" 
-                        pc:ButtonAssist.ImageHeight="100"
-                        pc:ButtonAssist.ImageWidth="100" 
-                        pc:FrameworkElementBaseAttached.CornerRadius="20"
-                        Style="{StaticResource ButtonTransparentGifStyle}"/>
-                <Button Width="300" Height="100"
-                        Margin="20,10,0,0"
+            <TextBlock Grid.Row="3" Grid.Column="0"
+                       Text="ButtonWithImage:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+                <Button Width="150" Height="50"
+                        Content="ButtonWithImage"
+                        ToolTip="ButtonWithImage"
+                        pc:ButtonAssist.ImageSource="/Resources/Gif/tomcat.jpg"
+                        Style="{StaticResource ButtonWithImageStyle}" />
+                <Button Width="50" Height="50"
+                        Margin="10,0,0,0" ToolTip="ImageButton"
+                        pc:ButtonAssist.ImageHeight="40" pc:ButtonAssist.ImageSource="/Resources/Gif/C.png"
+                        pc:ButtonAssist.ImageWidth="40"
+                        Style="{StaticResource ButtonImageStyle}" />
+                <Button Width="50" Height="50"
+                        Margin="10,0,0,0" ToolTip="ImageTransparentButton"
+                        pc:ButtonAssist.ImageHeight="50" pc:ButtonAssist.ImageSource="/Resources/Gif/timg.jpg"
+                        pc:ButtonAssist.ImageWidth="50" pc:FrameworkElementBaseAttached.CornerRadius="8"
+                        Style="{StaticResource ButtonTransparentImageStyle}" />
+                <Button Width="50" Height="50"
+                        Margin="10,0,0,0" ToolTip="ImageTransparentButton"
+                        pc:ButtonAssist.ImageHeight="40" pc:ButtonAssist.ImageSource="/Resources/Gif/tomcat.jpg"
+                        pc:ButtonAssist.ImageWidth="40" pc:ButtonAssist.IsAutoStart="True"
+                        Style="{StaticResource ButtonNoMouseOverTransparentImageStyle}" />
+                <Button Width="100" Height="100"
+                        Margin="10,10,0,0"
                         HorizontalContentAlignment="Center"
-                        pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif" 
-                        pc:ButtonAssist.ImageWidth="300" 
-                        pc:ButtonAssist.ImageHeight="100"
-                        pc:FrameworkElementBaseAttached.CornerRadius="20"
+                        pc:ButtonAssist.ImageHeight="100" pc:ButtonAssist.ImageSource="/Resources/Gif/tomcat.jpg"
+                        pc:ButtonAssist.ImageWidth="100" pc:FrameworkElementBaseAttached.CornerRadius="10"
                         pc:RippleAssist.Feedback="White">
+                    <behavior:Interaction.Behaviors>
+                        <pc:ControlBorderBehavior BorderThickness="4" AnimationType="Path" IsRetainBehavior="True" />
+                    </behavior:Interaction.Behaviors>
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="Button">
                                         <pc:SimpleGrid>
-                                            <Border Width="{TemplateBinding pc:ButtonAssist.ImageWidth}" Height="{TemplateBinding pc:ButtonAssist.ImageHeight}" CornerRadius="{TemplateBinding pc:FrameworkElementBaseAttached.CornerRadius}">
+                                            <Border Width="{TemplateBinding pc:ButtonAssist.ImageWidth}"
+                                                    Height="{TemplateBinding pc:ButtonAssist.ImageHeight}"
+                                                    BorderBrush="Red" BorderThickness="2"
+                                                    CornerRadius="{TemplateBinding pc:FrameworkElementBaseAttached.CornerRadius}">
                                                 <Border.Background>
                                                     <VisualBrush>
                                                         <VisualBrush.Visual>
-                                                            <pc:Gif IsAutoStart="True" GifSource="{TemplateBinding pc:ButtonAssist.GifSource}" />
+                                                            <Image Source="{TemplateBinding pc:ButtonAssist.ImageSource}" Stretch="Uniform" />
                                                         </VisualBrush.Visual>
                                                     </VisualBrush>
                                                 </Border.Background>
@@ -162,7 +195,7 @@
                                                        Focusable="False"
                                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                       Visibility="{TemplateBinding pc:ButtonBaseAttached.IsShowRipple, Converter={toolkit:BooleanToVisibilityConverter}}">
+                                                       Visibility="{TemplateBinding pc:ButtonBaseAttached.IsShowRipple, Converter={pt:BooleanToVisibilityConverter}}">
                                                 <pc:Ripple.Clip>
                                                     <MultiBinding Converter="{pc:BorderClipConverter}">
                                                         <Binding ElementName="RootBorder" Path="ActualWidth" />
@@ -180,8 +213,92 @@
                     </Button.Style>
                 </Button>
             </WrapPanel>
-
-            <WrapPanel Margin="0,30" HorizontalAlignment="Center">
+            <TextBlock Grid.Row="4" Grid.Column="0"
+                       Text="ButtonWithGif:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">
+                <Button Width="150" Height="50"
+                        Content="ButtonWithGif"
+                        ToolTip="ButtonWithGif"
+                        pc:ButtonAssist.GifHeight="50" pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
+                        pc:ButtonAssist.GifWidth="50" pc:ButtonAssist.IsAutoStart="True"
+                        Style="{StaticResource ButtonWithGifStyle}" />
+                <Button Width="50" Height="50"
+                        Margin="10,0,0,0" ToolTip="GifButton"
+                        pc:ButtonAssist.GifHeight="50" pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
+                        pc:ButtonAssist.GifWidth="50" pc:ButtonAssist.IsAutoStart="True"
+                        Style="{StaticResource ButtonGifStyle}" />
+                <Button Width="50" Height="50"
+                        Margin="10,0,0,0" ToolTip="GifTransparentButton"
+                        pc:ButtonAssist.GifHeight="50" pc:ButtonAssist.GifSource="/Resources/Gif/cook.gif"
+                        pc:ButtonAssist.GifWidth="50" pc:ButtonAssist.IsAutoStart="True"
+                        pc:FrameworkElementBaseAttached.CornerRadius="8"
+                        Style="{StaticResource ButtonTransparentGifStyle}" />
+                <Button Width="50" Height="50"
+                        Margin="10,0,0,0" ToolTip="GifTransparentButton"
+                        pc:ButtonAssist.GifHeight="50" pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
+                        pc:ButtonAssist.GifWidth="50" pc:ButtonAssist.IsAutoStart="True"
+                        pc:FrameworkElementBaseAttached.CornerRadius="8"
+                        Style="{StaticResource ButtonNoMouseOverTransparentGifStyle}" />
+                <Button Width="300" Height="100"
+                        Margin="0,10,0,0"
+                        HorizontalContentAlignment="Center"
+                        pc:ButtonAssist.GifHeight="100" pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif"
+                        pc:ButtonAssist.GifWidth="300" pc:FrameworkElementBaseAttached.CornerRadius="5"
+                        pc:RippleAssist.Feedback="White">
+                    <behavior:Interaction.Behaviors>
+                        <pc:ControlBorderBehavior BorderThickness="4" AnimationType="Path" IsRetainBehavior="True" />
+                    </behavior:Interaction.Behaviors>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <pc:SimpleGrid>
+                                            <Border Width="{TemplateBinding pc:ButtonAssist.GifWidth}"
+                                                    Height="{TemplateBinding pc:ButtonAssist.GifHeight}"
+                                                    BorderBrush="Red" BorderThickness="2"
+                                                    CornerRadius="{TemplateBinding pc:FrameworkElementBaseAttached.CornerRadius}">
+                                                <Border.Background>
+                                                    <VisualBrush>
+                                                        <VisualBrush.Visual>
+                                                            <pc:Gif GifSource="{TemplateBinding pc:ButtonAssist.GifSource}" IsAutoStart="True" />
+                                                        </VisualBrush.Visual>
+                                                    </VisualBrush>
+                                                </Border.Background>
+                                            </Border>
+                                            <pc:Ripple ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                       ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                       ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                                       Padding="{TemplateBinding Padding}"
+                                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                       Focusable="False"
+                                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                       Visibility="{TemplateBinding pc:ButtonBaseAttached.IsShowRipple, Converter={pt:BooleanToVisibilityConverter}}">
+                                                <pc:Ripple.Clip>
+                                                    <MultiBinding Converter="{pc:BorderClipConverter}">
+                                                        <Binding ElementName="RootBorder" Path="ActualWidth" />
+                                                        <Binding ElementName="RootBorder" Path="ActualHeight" />
+                                                        <Binding ElementName="RootBorder" Path="CornerRadius" />
+                                                        <Binding ElementName="RootBorder" Path="BorderThickness" />
+                                                    </MultiBinding>
+                                                </pc:Ripple.Clip>
+                                            </pc:Ripple>
+                                        </pc:SimpleGrid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </WrapPanel>
+            <TextBlock Grid.Row="5" Grid.Column="0"
+                       Text="ButtonProcess:"
+                       FontSize="20" FontWeight="DemiBold"
+                       VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">
                 <Button Width="300" Height="60"
                         FontSize="20"
                         ToolTip="LinearProgressButton"
@@ -190,22 +307,23 @@
                         Click="Button_Click"
                         Style="{StaticResource ButtonLinearProgressStyle}" />
                 <Button Width="100" Height="100"
+                        Background="Transparent"
                         FontSize="20"
                         Margin="20,0" ToolTip="CircularProgressButton"
-                        pc:ButtonAssist.ProgressBarBrush="Red"
+                        pc:ButtonAssist.ProgressBarBrush="LimeGreen"
+                        pc:ButtonAssist.ProgressBarStyle="{StaticResource Demo.CircularProgressBarStyle}"
                         pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
-                        pc:CircularProgressAssistant.ArcThickness="5" pc:FrameworkElementBaseAttached.CornerRadius="50"
                         Click="Button_Click"
                         Style="{StaticResource ButtonCircularProgressStyle}" />
-                <Button Width="200" Height="200"
+                <Button Width="100" Height="100"
                         FontSize="20"
                         ToolTip="WaveProgressButton"
-                        pc:ButtonAssist.ProgressBarBrush="BlueViolet"
+                        pc:ButtonAssist.ProgressBarBrush="LimeGreen"
                         pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
                         pc:FrameworkElementBaseAttached.CornerRadius="100" Click="Button_Click"
                         Style="{StaticResource ButtonWaveProgressStyle}" />
             </WrapPanel>
-        </StackPanel>
+        </Grid>
     </ScrollViewer>
 
 </UserControl>

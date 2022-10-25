@@ -6,9 +6,11 @@
 
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CheckBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/TextBoxBaseStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ComboBoxBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/TextBoxBaseBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ValidationErrorBaseTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -21,10 +23,9 @@
                     <Border x:Name="ButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <pc:SimpleGrid>
                             <Button x:Name="SelectAllButton"
-                                    Width="26" Height="26"
                                     Foreground="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Foreground}"
-                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SelectAllGeometry}"
                                     Command="{x:Static DataGrid.SelectAllCommand}"
+                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SelectAllGeometry}"
                                     Style="{DynamicResource ButtonTransparentIconStyle}" />
                             <!--<Polygon x:Name="Arrow" Fill="{Binding RelativeSource={RelativeSource AncestorType=DataGrid},Path=Foreground}" Points="0,10 10,10 10,0"
                                      HorizontalAlignment="Right" VerticalAlignment="Bottom" Stretch="Uniform"/>-->
@@ -214,13 +215,13 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected}" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsMouseOver}" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=IsEditing}" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -253,16 +254,14 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}">
                         <pc:SimpleGrid>
-                            <Grid>
-                                <CheckBox x:Name="PART_RowCheckBox"
-                                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=RowHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.5}"
-                                          BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
-                                          Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
-                                          HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HorizontalContentAlignment}"
-                                          VerticalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=VerticalContentAlignment}"
-                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Path=IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            </Grid>
-
+                            <CheckBox x:Name="PART_RowCheckBox"
+                                      BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
+                                      Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
+                                      Background="{TemplateBinding Background}"
+                                      IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Path=IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HorizontalContentAlignment}"
+                                      VerticalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=VerticalContentAlignment}"
+                                      pc:CheckBoxAssistant.FillBrush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
                             <Control SnapsToDevicePixels="False" Template="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=ValidationErrorTemplate}" Visibility="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=(Validation.HasError), Converter={pt:BooleanToVisibilityConverter}}" />
                             <Thumb x:Name="PART_TopHeaderGripper" VerticalAlignment="Top" Style="{StaticResource DataGridRowHeaderGripperStyle}" />
                             <Thumb x:Name="PART_BottomHeaderGripper" VerticalAlignment="Bottom" Style="{StaticResource DataGridRowHeaderGripperStyle}" />
@@ -293,16 +292,16 @@
                             <Setter Property="BorderThickness" Value="0,0,1,1" TargetName="RowHeaderBorder" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=IsMouseOver}" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" TargetName="PART_RowCheckBox" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" TargetName="PART_RowCheckBox" />
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" TargetName="PART_RowCheckBox" />
+                            <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=BorderBrush}" TargetName="PART_RowCheckBox" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=IsSelected}" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" TargetName="PART_RowCheckBox" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" TargetName="PART_RowCheckBox" />
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" TargetName="PART_RowCheckBox" />
+                            <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=BorderBrush}" TargetName="PART_RowCheckBox" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=IsEditing}" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" TargetName="PART_RowCheckBox" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" TargetName="PART_RowCheckBox" />
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" TargetName="PART_RowCheckBox" />
+                            <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=BorderBrush}" TargetName="PART_RowCheckBox" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -326,7 +325,8 @@
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}" />
         <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=BorderBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="15,0" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="pc:DataGridAssistant.IsUseColumnHeaderSort" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
@@ -335,7 +335,27 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Padding="{TemplateBinding Padding}">
-                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HorizontalContentAlignment}" VerticalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=VerticalContentAlignment}" />
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ToggleButton x:Name="PART_Sort"
+                                              Width="15" Height="15"
+                                              Foreground="{TemplateBinding Foreground}"
+                                              IsChecked="{x:Null}"
+                                              common:FrameworkElementBaseAttached.IconHeight="7"
+                                              common:FrameworkElementBaseAttached.IconMargin="0"
+                                              common:FrameworkElementBaseAttached.IconWidth="14"
+                                              pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource TopTriangleGeometry}"
+                                              pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource BottomTriangleGeometry}"
+                                              IsHitTestVisible="False"
+                                              Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
+                                <ContentPresenter Grid.RowSpan="2"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HorizontalContentAlignment}"
+                                                  VerticalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=VerticalContentAlignment}" />
+                            </Grid>
                         </Border>
                         <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource DataGridColumnHeaderGripperStyle}" />
                         <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource DataGridColumnHeaderGripperStyle}" />
@@ -344,6 +364,20 @@
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=(pc:DataGridAssistant.IsShowThickness)}" Value="True">
                             <Setter Property="BorderThickness" Value="0,0,1,1" TargetName="ColumnHeaderBorder" />
                         </DataTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="CanUserSort" Value="True" />
+                                <Condition Property="IsChecked" Value="{x:Null}" SourceName="PART_Sort" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Sort" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="CanUserSort" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="ColumnHeaderBorder" />
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -354,54 +388,52 @@
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextAlignment" Value="Center" />
     </Style>
-    <Style x:Key="DataGridTextColumnEditingStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxBaseStyle}">
-        <Setter Property="Padding" Value="8,2" />
+    <Style x:Key="DataGridTextColumnEditingStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxBaseBaseStyle}">
+        <Setter Property="Padding" Value="6,0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
     </Style>
 
     <Style x:Key="DataGridComboBoxColumnStyle" TargetType="{x:Type ComboBox}">
-        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
-                    <TextBlock Text="{TemplateBinding Text}" IsHitTestVisible="False" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{TemplateBinding Text}"
+                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                               IsHitTestVisible="False" TextTrimming="CharacterEllipsis" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="DataGridComboBoxColumnEditingStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
-        <Setter Property="common:SelectorAttached.SelectorItemType" Value="Default" />
-        <Setter Property="common:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
-        <Setter Property="pc:ComboBoxAssistant.DropDownButtonFill" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="pc:ComboBoxAssistant.ComboBoxPopupListShadow" Value="{DynamicResource ComboxBoxShadow}" />
+    <Style x:Key="DataGridComboBoxColumnEditingStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
+        <Setter Property="pc:ComboBoxAssistant.DropDownButtonFill" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
     </Style>
 
     <Style x:Key="DataGridCheckBoxColumnStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultCheckBoxStyle}">
+        <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Foreground}" />
         <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Foreground}" />
         <Style.Triggers>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected}" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
+                <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Foreground}" />
             </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsMouseOver}" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
+                <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Foreground}" />
             </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, Path=IsEditing}" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource AssistantForegroundBrush}" />
+                <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Foreground}" />
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="DataGridBaseStyle" TargetType="{x:Type DataGrid}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="RowHeight" Value="50" />
-        <Setter Property="RowHeaderWidth" Value="80" />
+    <Style x:Key="DataGridBaseStyle" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="RowHeaderWidth" Value="50" />
         <Setter Property="ColumnHeaderHeight" Value="50" />
+        <Setter Property="RowHeight" Value="{DynamicResource DefaultControlHeight}" />
+        <Setter Property="ColumnWidth" Value="Auto" />
         <Setter Property="HorizontalGridLinesBrush" Value="Transparent" />
         <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -414,14 +446,6 @@
         <Setter Property="RowHeaderStyle" Value="{StaticResource DataGridRowHeaderStyle}" />
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource DataGridColumHeaderStyle}" />
         <Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}" />
-        <Setter Property="pc:DataGridAssistant.IsEnableEditWithoutFocused" Value="True" />
-        <Setter Property="pc:DataGridAssistant.IsApplyDefaultStyle" Value="True" />
-        <Setter Property="pc:DataGridAssistant.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}" />
-        <Setter Property="pc:DataGridAssistant.TextColumnEditingStyle" Value="{StaticResource DataGridTextColumnEditingStyle}" />
-        <Setter Property="pc:DataGridAssistant.ComboBoxColumnStyle" Value="{StaticResource DataGridComboBoxColumnEditingStyle}" />
-        <Setter Property="pc:DataGridAssistant.ComboBoxColumnEditingStyle" Value="{StaticResource DataGridComboBoxColumnEditingStyle}" />
-        <Setter Property="pc:DataGridAssistant.CheckBoxColumnStyle" Value="{StaticResource DataGridCheckBoxColumnStyle}" />
-        <Setter Property="pc:DataGridAssistant.CheckBoxColumnEditingStyle" Value="{StaticResource DataGridCheckBoxColumnStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGrid}">
@@ -483,8 +507,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="pc:DataGridAssistant.IsShowThickness" Value="True">
-                <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource PrimaryThemeBrush}" />
-                <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+                <Setter Property="HorizontalGridLinesBrush" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=BorderBrush}" />
+                <Setter Property="VerticalGridLinesBrush" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=BorderBrush}" />
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>

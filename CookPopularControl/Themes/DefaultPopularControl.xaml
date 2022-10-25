@@ -65,7 +65,7 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ShapeStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/StarredStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwiperStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwitchControlStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/SwitchButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextPathStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToastMessageStyle.xaml" />
 
@@ -149,7 +149,7 @@
     <Style x:Key="{x:Type pc:SearchBar}" TargetType="{x:Type pc:SearchBar}" BasedOn="{StaticResource DefaultSearchBarStyle}" />
     <Style x:Key="{x:Type pc:Star}" TargetType="{x:Type pc:Star}" BasedOn="{StaticResource DefaultStarStyle}" />
     <Style x:Key="{x:Type pc:Swiper}" TargetType="{x:Type pc:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}" />
-    <Style x:Key="{x:Type pc:SwitchControl}" TargetType="{x:Type pc:SwitchControl}" BasedOn="{StaticResource DefaultSwitchControlStyle}" />
+    <Style x:Key="{x:Type pc:SwitchButton}" TargetType="{x:Type pc:SwitchButton}" BasedOn="{StaticResource DefaultSwitchButtonStyle}" />
     <Style x:Key="{x:Type pc:TextPath}" TargetType="{x:Type pc:TextPath}" BasedOn="{StaticResource DefaultTextPathStyle}" />
     <Style x:Key="{x:Type pc:TimePicker}" TargetType="{x:Type pc:TimePicker}" BasedOn="{StaticResource DefaultTimePickerStyle}" />
 

@@ -15,7 +15,7 @@ namespace CookPopularControl.Controls.ThreeDimensional
     public partial class Alertor3D : UserControl
     {
         private Point3D _point3DCenter;
-        private static readonly List<string> colors = new List<string>() { ResourceHelper.GetResource<Color>("PrimaryThemeColor").ToString(), "#32AA32", "#FFA500", "#FF0000", "#500000" };
+        private static readonly List<string> colors = new List<string>() { ResourceHelper.GetResource<Color>("PrimaryForegroundColor").ToString(), "#32AA32", "#FFA500", "#FF0000", "#500000" };
 
 
         public Alertor3D()
@@ -93,7 +93,7 @@ namespace CookPopularControl.Controls.ThreeDimensional
         /// 提供<see cref="Color"/>的依赖属性
         /// </summary>
         internal static readonly DependencyProperty ColorProperty =
-            DependencyProperty.Register("Color", typeof(Color), typeof(Alertor3D), new PropertyMetadata(ResourceHelper.GetResource<Color>("PrimaryThemeColor")));
+            DependencyProperty.Register("Color", typeof(Color), typeof(Alertor3D), new PropertyMetadata(ResourceHelper.GetResource<Color>("PrimaryForegroundColor")));
 
 
         /// <summary>

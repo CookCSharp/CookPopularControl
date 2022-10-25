@@ -125,6 +125,7 @@ namespace CookPopularControl.Controls
         private static void RefreshChildren(AutoGroupingText ctl, string txt)
         {
             if (txt == null) return;
+            if (ctl._panel == null) return;
             ctl._panel.Children.Clear();
             var arrayContent = txt.Split(ctl.SplitSymbol);
             if (arrayContent.Length <= 0)

@@ -4,6 +4,7 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -33,7 +34,8 @@
                                           TextElement.Foreground="{TemplateBinding Foreground}" />
                         <Rectangle x:Name="CalendarButtonFocusVisual"
                                    IsHitTestVisible="false" RadiusX="1" RadiusY="1"
-                                   Stroke="{DynamicResource PrimaryThemeBrush}"
+                                   Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=BorderBrush}"
+                                   StrokeThickness="1"
                                    Visibility="Collapsed" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup Name="CommonStates">
@@ -118,7 +120,7 @@
         <Setter Property="MinHeight" Value="30" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=Foreground}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -134,7 +136,7 @@
                                    Opacity="0"
                                    RadiusX="1" RadiusY="1" />
                         <Rectangle x:Name="HighlightBackground"
-                                   Fill="{DynamicResource ButtonBaseMouseOverBackground}"
+                                   Fill="{DynamicResource ControlMouseOverBackground}"
                                    Opacity="0"
                                    RadiusX="1" RadiusY="1" />
                         <ContentPresenter x:Name="NormalText"
@@ -151,7 +153,7 @@
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HighlightBackground" Storyboard.TargetProperty="Opacity"
-                                                         To="0.5" Duration="0:0:0.2" />
+                                                         To="0.8" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Pressed" />
@@ -162,7 +164,7 @@
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="SelectedBackground" Storyboard.TargetProperty="Opacity"
-                                                         To="0.5" Duration="0:0:0.2" />
+                                                         To="0.7" Duration="0:0:0.2" />
                                         <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
                                                         Storyboard.TargetName="NormalText"
                                                         Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
@@ -244,8 +246,8 @@
               Cursor="Hand">
             <Path Width="10" Height="15"
                   Data="{DynamicResource LeftTriangleGeometry}"
-                  Fill="{DynamicResource AssistantForegroundBrush}"
-                  Stretch="Fill" />
+                  Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=Foreground}"
+                  Stretch="Uniform" />
         </Grid>
     </ControlTemplate>
     <ControlTemplate x:Key="NextButtonTemplate" TargetType="{x:Type Button}">
@@ -254,12 +256,13 @@
               Cursor="Hand">
             <Path Width="10" Height="15"
                   Data="{DynamicResource RightTriangleGeometry}"
-                  Fill="{DynamicResource AssistantForegroundBrush}"
-                  Stretch="Fill" />
+                  Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=Foreground}"
+                  Stretch="Uniform" />
         </Grid>
     </ControlTemplate>
 
     <Style x:Key="CalendarItemStyle" TargetType="{x:Type CalendarItem}">
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=Foreground}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=Background}" />
         <Setter Property="Margin" Value="0,3" />
@@ -297,7 +300,7 @@
                                         CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}"
                                         Margin="2" />
                                 <Button x:Name="PART_HeaderButton" Grid.Row="0" Grid.Column="0"
-                                        Foreground="{DynamicResource AssistantForegroundBrush}"
+                                        Foreground="{TemplateBinding Foreground}"
                                         Background="Transparent"
                                         FontSize="16" FontWeight="DemiBold"
                                         Focusable="False"
@@ -442,19 +445,16 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CalenderBaseStyle" TargetType="{x:Type Calendar}">
+    <Style x:Key="CalenderBaseStyle" TargetType="{x:Type Calendar}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Background" Value="White" />
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}" />
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}" />
         <Setter Property="CalendarItemStyle" Value="{StaticResource CalendarItemStyle}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="DodgerBlue" />
-        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Calendar}">
                     <AdornerDecorator CacheMode="{DynamicResource DefaultBitmapCache}" ClipToBounds="True" Effect="{DynamicResource ComboxBoxShadow}">
-                        <StackPanel x:Name="PART_Root" Width="234">
+                        <StackPanel x:Name="PART_Root" Width="236">
                             <CalendarItem x:Name="PART_CalendarItem"
                                           BorderBrush="{TemplateBinding BorderBrush}"
                                           BorderThickness="{TemplateBinding BorderThickness}"

@@ -1,4 +1,12 @@
-﻿using CookPopularControl.Communal;
+﻿/*
+ * Copyright (c) 2021 All Rights Reserved.
+ * Description：SwitchButton
+ * Author： Chance_写代码的厨子
+ * Create Time：2021-03-17 17:51:01
+ */
+
+
+using CookPopularControl.Communal;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,29 +14,21 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：SwitchControlAssistant
- * Author： Chance_写代码的厨子
- * Create Time：2021-03-17 17:51:01
- */
 namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示开关控件
     /// </summary>
     [TemplatePart(Name = "PART_CheckFlag", Type = typeof(Border))]
-    public class SwitchControl : ToggleButton
+    public class SwitchButton : ToggleButton
     {
         private double _sliderw; //滑动距离
         private Border _borderCheckFlag; //滑动的控件
         private TranslateTransform _translate; //位移变换
 
-        static SwitchControl()
+        static SwitchButton()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(SwitchControl), new FrameworkPropertyMetadata(typeof(SwitchControl), FrameworkPropertyMetadataOptions.None, new PropertyChangedCallback(OnValueChanged)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(SwitchButton), new FrameworkPropertyMetadata(typeof(SwitchButton), FrameworkPropertyMetadataOptions.None, new PropertyChangedCallback(OnValueChanged)));
         }
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -36,7 +36,7 @@ namespace CookPopularControl.Controls
             Console.WriteLine("写代码的厨子。。。");
         }
 
-        public SwitchControl()
+        public SwitchButton()
         {
             _translate = new TranslateTransform();
         }
@@ -65,7 +65,7 @@ namespace CookPopularControl.Controls
             set { SetValue(SwitchContentProperty, value); }
         }
         internal static readonly DependencyProperty SwitchContentProperty =
-            DependencyProperty.Register("SwitchContent", typeof(string), typeof(SwitchControl), new PropertyMetadata());
+            DependencyProperty.Register("SwitchContent", typeof(string), typeof(SwitchButton), new PropertyMetadata());
 
         /// <summary>
         /// 打开的背景颜色
@@ -76,7 +76,7 @@ namespace CookPopularControl.Controls
             set { SetValue(SwitchOpenBackgroundProperty, value); }
         }
         public static readonly DependencyProperty SwitchOpenBackgroundProperty =
-            DependencyProperty.Register("SwitchOpenBackground", typeof(Brush), typeof(SwitchControl), new PropertyMetadata());
+            DependencyProperty.Register("SwitchOpenBackground", typeof(Brush), typeof(SwitchButton), new PropertyMetadata());
 
         /// <summary>
         /// 关闭的背景颜色
@@ -87,7 +87,7 @@ namespace CookPopularControl.Controls
             set { SetValue(SwicthCloseBackgroundProperty, value); }
         }
         public static readonly DependencyProperty SwicthCloseBackgroundProperty =
-            DependencyProperty.Register("SwicthCloseBackground", typeof(Brush), typeof(SwitchControl), new PropertyMetadata());
+            DependencyProperty.Register("SwicthCloseBackground", typeof(Brush), typeof(SwitchButton), new PropertyMetadata());
 
 
         //选中

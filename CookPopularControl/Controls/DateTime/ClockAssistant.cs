@@ -35,12 +35,15 @@ namespace CookPopularControl.Controls
                 timePicker.Loaded += (s, e) =>
                 {
                     var clock = timePicker.Template.FindName(ElementClock, timePicker) as Clock;
-                    clock.Loaded += (s, e) =>
+                    if (clock != null)
                     {
-                        var uniformGrid = clock.Template.FindName(ElementUniformGrid, clock) as UniformGrid;
-                        if (uniformGrid != null)
-                            uniformGrid.Columns = 4;
-                    };
+                        clock.Loaded += (s, e) =>
+                        {
+                            var uniformGrid = clock.Template.FindName(ElementUniformGrid, clock) as UniformGrid;
+                            if (uniformGrid != null)
+                                uniformGrid.Columns = 4;
+                        };
+                    }
                 };
             }
         }

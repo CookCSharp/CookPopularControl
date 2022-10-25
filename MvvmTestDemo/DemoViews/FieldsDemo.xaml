@@ -16,20 +16,11 @@
         <StackPanel Width="{StaticResource DemoViewsDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="TextBox:"
                        FontSize="20" FontWeight="DemiBold"
-                       Margin="0,0,0,10" />
+                       Margin="0,10" />
             <WrapPanel>
-                <TextBox Width="300" Height="34"
-                         BorderThickness="1"
-                         Style="{StaticResource DefaultTextBoxStyle}" />
-                <TextBox Width="300" Height="34"
-                         BorderThickness="1"
-                         IsEnabled="False"
-                         Margin="20,0"
-                         Style="{StaticResource AddClearButtonTextBoxStyle}" />
-                <TextBox Width="300" Height="34"
-                         BorderThickness="1"
-                         Margin="0,20"
-                         Style="{StaticResource ValidationTextBoxStyle}">
+                <TextBox Width="150" Style="{StaticResource DefaultTextBoxStyle}" />
+                <TextBox Width="150" Margin="10,0" Style="{StaticResource AddClearButtonTextBoxStyle}" />
+                <TextBox Width="150" Style="{StaticResource ValidationTextBoxStyle}">
                     <TextBox.Text>
                         <Binding Mode="TwoWay" Path="TextContent1" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
@@ -38,10 +29,7 @@
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
-                <TextBox Width="300" Height="34"
-                         BorderThickness="1"
-                         Margin="20,0"
-                         Style="{StaticResource ValidationAddClearButtonTextBoxStyle}">
+                <TextBox Width="150" Margin="10,0" Style="{StaticResource ValidationAddClearButtonTextBoxStyle}">
                     <TextBox.Text>
                         <Binding Mode="TwoWay" NotifyOnTargetUpdated="True" NotifyOnValidationError="True"
                                  Path="TextContent2" UpdateSourceTrigger="PropertyChanged">
@@ -53,32 +41,44 @@
                 </TextBox>
             </WrapPanel>
 
-            <TextBlock Text="RichTextBox:"
-                       FontSize="20" FontWeight="DemiBold"
-                       Margin="0,0,0,10" />
-            <WrapPanel>
-                <RichTextBox Width="300" Height="300"
-                             BorderThickness="1"
-                             Style="{StaticResource DefaultRichTextBoxStyle}" />
-            </WrapPanel>
+            <UniformGrid Margin="0,20,0,10" Columns="2">
+                <StackPanel>
+                    <TextBlock Text="RichTextBox:" FontSize="20" FontWeight="DemiBold" />
+                    <WrapPanel>
+                        <RichTextBox Width="200" Height="200"
+                                     BorderThickness="1"
+                                     Style="{StaticResource DefaultRichTextBoxStyle}" />
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="AutoGroupingText:" FontSize="20" FontWeight="DemiBold" />
+                    <WrapPanel>
+                        <StackPanel Height="200" Orientation="Horizontal">
+                            <pc:AutoGroupingText Text="{Binding AutoText}"
+                                                 FontSize="16" FontWeight="Bold"
+                                                 HeaderWidth="80" ItemHeight="30" SplitSymbol="&amp;" />
+                            <Button Content="Add Text" Margin="20,0" Click="Button_Click" />
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </UniformGrid>
 
             <TextBlock Text="NumericUpDown:"
                        FontSize="20" FontWeight="DemiBold"
-                       Margin="0,30,0,10" />
+                       Margin="0,10" />
             <WrapPanel>
-                <pc:NumericUpDown Width="200" Height="34" Maximum="10" />
-                <pc:NumericUpDown Width="200" Height="34"
+                <pc:NumericUpDown Width="200" Minimum="0" Maximum="10" />
+                <pc:NumericUpDown Width="200"
                                   Maximum="20"
                                   Margin="20,0"
                                   Increment="0.5" IsShowUpDownButton="False" />
-                <pc:NumericUpDown Width="200" Height="34"
+                <pc:NumericUpDown Width="200"
                                   Maximum="10"
                                   Increment="0.5" ValueFormat="F4" />
-                <pc:NumericUpDown Width="200" Height="34"
-                                  Margin="0,20"
-                                  Style="{StaticResource NumericUpDownAddClearButtonStyle}" />
+                <pc:NumericUpDown Width="200" Margin="0,20" Style="{StaticResource NumericUpDownAddClearButtonStyle}" />
                 <pc:NumericUpDown x:Name="num5"
-                                  Width="200" Height="34"
+                                  Width="200"
                                   Minimum="0"
                                   Margin="20"
                                   ValueChanged="NumericUpDown_ValueChanged"
@@ -108,40 +108,27 @@
 
             <TextBlock Text="TextPath:"
                        FontSize="20" FontWeight="DemiBold"
-                       Margin="0,30,0,10" />
+                       Margin="0,10" />
             <WrapPanel>
-                <TextBlock Text="CookPopularControl"
-                           Foreground="DodgerBlue"
-                           FontSize="60" FontWeight="DemiBold" />
-                <pc:TextPath Width="380" Height="120" Text="写代码的厨子" />
-                <pc:TextPath Width="380" Height="120"
-                             Text="写代码的厨子"
+                <pc:TextPath Width="300" Height="100"
+                             Text="CookPopularControl"
                              Fill="Transparent"
-                             Margin="10,0" />
-                <pc:TextPath Width="380" Height="120"
+                             StrokeThickness="2" />
+                <pc:TextPath Width="300" Height="100"
+                             Text="写代码的厨子"
+                             Margin="10,0"
+                             Stroke="Red" StrokeThickness="2" />
+                <pc:TextPath Width="300" Height="100"
                              Text="Chance"
                              pc:TextPath.DrawingRec="0,0,20,20" pc:TextPath.FillImageSource="../Resources/Gif/tomcat.jpg"
                              Style="{StaticResource FillImageTextPathStyle}" />
-                <pc:TextPath Width="380" Height="120"
-                             Text="Chance"
+                <pc:TextPath Width="300" Height="100"
+                             Text="Lori"
                              Margin="10,0"
                              pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
                              pc:TextPath.DrawingRec="0,0,5,5" Stroke="Purple" StrokeThickness="2"
                              Style="{StaticResource FillIconTextPathStyle}" />
             </WrapPanel>
-
-            <TextBlock Text="AutoGroupingText:"
-                       FontSize="20" FontWeight="DemiBold"
-                       Margin="0,30,0,10" />
-            <WrapPanel>
-                <StackPanel Height="200" Orientation="Horizontal">
-                    <pc:AutoGroupingText Text="{Binding AutoText}"
-                                         FontSize="16" FontWeight="Bold"
-                                         HeaderWidth="100" ItemHeight="50" SplitSymbol="&amp;" />
-                    <Button Content="Add Text" Margin="20,0" Click="Button_Click" />
-                </StackPanel>
-            </WrapPanel>
-
         </StackPanel>
     </ScrollViewer>
 

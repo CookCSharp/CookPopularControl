@@ -5,12 +5,12 @@
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <Style x:Key="DefaultSwiperStyle" TargetType="{x:Type pc:Swiper}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="IsCyclePlay" Value="False" />
         <Setter Property="Duration" Value="0:0:0.5" />
         <Setter Property="IsShowIndicatorDots" Value="True" />
-        <Setter Property="IndicatorDotBrush" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="IndicatorActiveDotBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="IndicatorDotBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="IndicatorActiveDotBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:Swiper}">
@@ -27,15 +27,15 @@
                         </ContentPresenter>
                         <Button x:Name="PART_LastView"
                                 Foreground="{TemplateBinding Foreground}"
+                                Command="{x:Static pc:Swiper.LastViewCommand}"
                                 HorizontalAlignment="Left" VerticalAlignment="Center"
                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}"
-                                Command="{x:Static pc:Swiper.LastViewCommand}"
                                 Style="{DynamicResource ButtonTransparentIconStyle}" />
                         <Button x:Name="PART_NextView"
                                 Foreground="{TemplateBinding Foreground}"
+                                Command="{x:Static pc:Swiper.NextViewCommand}"
                                 HorizontalAlignment="Right" VerticalAlignment="Center"
                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}"
-                                Command="{x:Static pc:Swiper.NextViewCommand}"
                                 Style="{DynamicResource ButtonTransparentIconStyle}" />
                         <StackPanel x:Name="PART_Panel"
                                     HorizontalAlignment="Center" VerticalAlignment="Bottom"
@@ -63,7 +63,7 @@
 
     <Style x:Key="AutoPlaySwiperStyle" TargetType="{x:Type pc:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}">
         <Setter Property="IsAutoPlay" Value="True" />
-        <Setter Property="Interval" Value="1" />
+        <Setter Property="Interval" Value="2" />
     </Style>
 
     <Style x:Key="NoIndicatorDotsSwiperStyle" TargetType="{x:Type pc:Swiper}" BasedOn="{StaticResource DefaultSwiperStyle}">

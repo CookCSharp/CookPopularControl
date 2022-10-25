@@ -597,22 +597,22 @@
             <see cref="F:CookPopularControl.Controls.RadioButtonAssistant.HeaderProperty"/>标识可填充的任意元素
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.SwitchControl">
+        <member name="T:CookPopularControl.Controls.SwitchButton">
             <summary>
             表示开关控件
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchContent">
+        <member name="P:CookPopularControl.Controls.SwitchButton.SwitchContent">
             <summary>
             文本
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.SwitchControl.SwitchOpenBackground">
+        <member name="P:CookPopularControl.Controls.SwitchButton.SwitchOpenBackground">
             <summary>
             打开的背景颜色
             </summary>
         </member>
-        <member name="P:CookPopularControl.Controls.SwitchControl.SwicthCloseBackground">
+        <member name="P:CookPopularControl.Controls.SwitchButton.SwicthCloseBackground">
             <summary>
             关闭的背景颜色
             </summary>
@@ -7945,6 +7945,36 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

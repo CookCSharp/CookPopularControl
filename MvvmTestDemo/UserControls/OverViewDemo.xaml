@@ -18,7 +18,7 @@
     <UserControl.Resources>
         <vm:OverViewDemoViewModel x:Key="VMM" />
 
-        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonContentWithIconStyle}">
+        <Style x:Key="ButtonStyles" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonWithIconStyle}">
             <Setter Property="Width" Value="250" />
             <Setter Property="Height" Value="40" />
             <Setter Property="FontSize" Value="16" />
@@ -66,7 +66,7 @@
                             pc:ButtonAssist.GifSource="/Resources/Gif/programmer.gif" pc:ButtonAssist.ImageHeight="50"
                             pc:ButtonAssist.ImageWidth="50" pc:FrameworkElementBaseAttached.CornerRadius="5"
                             pc:FrameworkElementBaseAttached.IconMargin="0,0,10,0"
-                            Style="{StaticResource ButtonContentWithGifStyle}" />
+                            Style="{StaticResource ButtonWithGifStyle}" />
                     <Button Width="50" Height="50"
                             Command="{Binding ProgressButtonCommand}"
                             FontSize="14"

@@ -4,11 +4,11 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
-    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type ButtonBase}">
-        <Setter Property="Height" Value="{DynamicResource DefaultButtonHeight}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource SingleControlBaseStyle}">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
@@ -50,8 +50,8 @@
                                            Stretch="Uniform" />
                                     <pc:Gif x:Name="PART_Gif"
                                             DockPanel.Dock="{TemplateBinding common:FrameworkElementBaseAttached.IconDirection}"
-                                            Width="{TemplateBinding pc:ButtonAssist.ImageWidth}"
-                                            Height="{TemplateBinding pc:ButtonAssist.ImageHeight}"
+                                            Width="{TemplateBinding pc:ButtonAssist.GifWidth}"
+                                            Height="{TemplateBinding pc:ButtonAssist.GifHeight}"
                                             Stretch="Uniform"
                                             GifSource="{TemplateBinding pc:ButtonAssist.GifSource}"
                                             GifStream="{TemplateBinding pc:ButtonAssist.GifStream}"
@@ -67,17 +67,18 @@
                                                      Value="{TemplateBinding pc:ButtonAssist.ProgressValue}"
                                                      Margin="-1"
                                                      HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                     pc:CircularProgressAssistant.ArcThickness="{TemplateBinding pc:CircularProgressAssistant.ArcThickness}"
-                                                     pc:LinearProgressBarAssistant.IsShowPercent="{TemplateBinding pc:LinearProgressBarAssistant.IsShowPercent}"
-                                                     pc:LinearProgressBarAssistant.TextColor="{TemplateBinding pc:LinearProgressBarAssistant.TextColor}"
-                                                     pc:WaveProgressBarAssistant.WaveStrokeThickness="{TemplateBinding pc:WaveProgressBarAssistant.WaveStrokeThickness}"
                                                      Visibility="{TemplateBinding pc:ButtonAssist.IsShowProgress, Converter={pt:BooleanToVisibilityConverter}}"
                                                      Style="{TemplateBinding pc:ButtonAssist.ProgressBarStyle}" />
-                                        <ContentPresenter RecognizesAccessKey="True"
+                                        <ContentPresenter Content="{TemplateBinding Content}"
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                                          RecognizesAccessKey="True"
                                                           Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                          ContentSource="Content" />
                                     </Grid>
                                 </DockPanel>
                             </Border>
@@ -109,7 +110,6 @@
                             </MultiDataTrigger.Conditions>
                             <MultiDataTrigger.Setters>
                                 <Setter Property="IsEnabled" Value="False" />
-                                <!--<Setter Property="Foreground" Value="#22000000" TargetName="PART_Progress"/>-->
                             </MultiDataTrigger.Setters>
                         </MultiDataTrigger>
                         <MultiTrigger>
@@ -150,7 +150,6 @@
                             <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="BorderBrush" Value="{DynamicResource UnEnabledBrush}" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

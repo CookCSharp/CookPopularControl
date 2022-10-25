@@ -8,7 +8,7 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-    <WrapPanel Width="{StaticResource DemosViewViewDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <WrapPanel Width="{StaticResource DemoViewsDefaultWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button Width="200" Height="34"
                 Content="ShowMessageDialogSuccess"
                 Click="Button_Click" />

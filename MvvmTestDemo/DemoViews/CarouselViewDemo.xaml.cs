@@ -29,7 +29,7 @@ namespace MvvmTestDemo.DemoViews
 
         private void CarouselViewDemo_Loaded(object sender, RoutedEventArgs e)
         {
-            var path = Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.Parent.FullName + "\\MvvmTestDemo\\Resources\\CarouselViewImages";
+            var path = Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.Parent.Parent.FullName + "\\MvvmTestDemo\\Resources\\CarouselViewImages";
             ImageLists.Add(new ImageItemInfo { ImgUri = path + "\\1.jpg" });
             ImageLists.Add(new ImageItemInfo { ImgUri = path + "\\2.jpg" });
             ImageLists.Add(new ImageItemInfo { ImgUri = path + "\\3.jpg" });

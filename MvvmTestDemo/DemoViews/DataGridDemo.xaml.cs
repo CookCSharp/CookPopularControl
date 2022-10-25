@@ -30,8 +30,8 @@ namespace MvvmTestDemo.DemoViews
             Workers.Add(new Person { Name = "王五", Gender = "未知", Age = 22, IsWorkingOnIT = false, FavoriteMovie = "僵尸叔叔", Job = "实施", Department = "心电事业部" });
             Workers.Add(new Person { Name = "赵六", Gender = "男", Age = 38, IsWorkingOnIT = true, FavoriteMovie = "侏罗纪公园", Job = "数据挖掘", Department = "卒中事业部" });
             Workers.Add(new Person { Name = "朱七", Gender = "男", Age = 15, IsWorkingOnIT = true, FavoriteMovie = "速度与激情", Job = "测试", Department = "急救事业部" });
-            Workers.Add(new Person { Name = "牛八", Gender = "女", Age = 68, IsWorkingOnIT = false, FavoriteMovie = "侏罗纪公园", Job = "UI设计", Department = "试剂事业一部" });
-            Workers.Add(new Person { Name = "周九", Gender = "男", Age = 45, IsWorkingOnIT = false, FavoriteMovie = "速度与激情", Job = "机械设计", Department = "试剂事业二部" });
+            //Workers.Add(new Person { Name = "牛八", Gender = "女", Age = 68, IsWorkingOnIT = false, FavoriteMovie = "侏罗纪公园", Job = "UI设计", Department = "试剂事业一部" });
+            //Workers.Add(new Person { Name = "周九", Gender = "男", Age = 45, IsWorkingOnIT = false, FavoriteMovie = "速度与激情", Job = "机械设计", Department = "试剂事业二部" });
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

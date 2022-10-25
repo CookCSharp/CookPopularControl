@@ -21,82 +21,98 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
         <pt:BindingProxy x:Key="DataSource" Data="{Binding}" />
+        <Style x:Key="Demo.DataGridComboBoxColumnStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DataGridComboBoxColumnStyle}">
+            <Setter Property="MinWidth" Value="100" />
+        </Style>
+        <Style x:Key="Demo.DataGridComboBoxColumnEditingStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DataGridComboBoxColumnEditingStyle}">
+            <Setter Property="MinWidth" Value="100" />
+        </Style>
     </UserControl.Resources>
 
     <ScrollViewer>
-        <StackPanel Width="{StaticResource DemosViewViewDefaultWidth}">
-            <Button Width="100" Height="34"
-                    Content="添加"
-                    Margin="0,20"
-                    Click="Button_Click" />
-            <DataGrid Width="800" Height="400"
-                      BorderBrush="Green" BorderThickness="2"
-                      Foreground="Purple" Background="#F8F9FA"
-                      FontSize="16"
-                      AlternatingRowBackground="NavajoWhite" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
-                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
-                      ColumnHeaderHeight="50" IsReadOnly="False"
-                      ItemsSource="{Binding Workers}"
-                      RowBackground="FloralWhite" RowHeaderWidth="80" RowHeight="50"
-                      Style="{StaticResource DefaultDataGridStyle}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
-                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
-                    <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
-                    <DataGridComboBoxColumn Header="电影" ItemsSource="{x:Static local:DataGridDemo.Movies}" SelectedValueBinding="{Binding FavoriteMovie}" />
-                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
-                    <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <DataGrid Width="600" Height="400"
-                      FontSize="16"
-                      Margin="0,20"
-                      pc:DataGridAssistant.IsRegisterSelectAll="False" pc:DataGridAssistant.IsShowSerialNumber="False"
-                      pc:DataGridAssistant.IsShowThickness="True" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
-                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
-                      IsReadOnly="True"
-                      ItemsSource="{Binding Workers}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
-                    <DataGridComboBoxColumn Header="性别" SelectedValueBinding="{Binding Gender}" TextBinding="{Binding Gender}">
-                        <DataGridComboBoxColumn.ItemsSource>
-                            <core:ArrayList>
-                                <sys:String>男</sys:String>
-                                <sys:String>女</sys:String>
-                            </core:ArrayList>
-                        </DataGridComboBoxColumn.ItemsSource>
-                    </DataGridComboBoxColumn>
-                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
-                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
-                    <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <DataGrid Width="600" Height="500"
-                      BorderBrush="Green" BorderThickness="1"
-                      Foreground="Purple" Background="WhiteSmoke"
-                      AlternatingRowBackground="BlueViolet" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
-                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
-                      ColumnHeaderHeight="40" HorizontalGridLinesBrush="Red" IsEnabled="True"
-                      IsReadOnly="False"
-                      ItemsSource="{Binding Workers}"
-                      RowBackground="SandyBrown" RowHeaderWidth="80" RowHeight="50"
-                      VerticalGridLinesBrush="Yellow"
-                      Style="{x:Null}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
-                    <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
-                    <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
-                    <DataGridComboBoxColumn Width="150"
-                                            Header="电影"
-                                            ItemsSource="{Binding Source={StaticResource EnumSource}}"
-                                            SelectedValueBinding="{Binding Status}" />
-                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
-                    <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
+        <Grid Width="{StaticResource DemoViewsDefaultWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="添加" Click="Button_Click" />
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                <DataGrid Height="Auto"
+                          BorderBrush="Green" BorderThickness="2"
+                          Foreground="Purple"
+                          pc:DataGridAssistant.ComboBoxColumnEditingStyle="{StaticResource Demo.DataGridComboBoxColumnEditingStyle}"
+                          pc:DataGridAssistant.ComboBoxColumnStyle="{StaticResource Demo.DataGridComboBoxColumnStyle}"
+                          AlternatingRowBackground="NavajoWhite" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
+                          CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
+                          IsReadOnly="False"
+                          ItemsSource="{Binding Workers}"
+                          RowBackground="FloralWhite" RowHeight="40"
+                          Style="{StaticResource DefaultDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
+                        <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                        <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
+                        <DataGridComboBoxColumn Header="电影" ItemsSource="{x:Static local:DataGridDemo.Movies}" SelectedValueBinding="{Binding FavoriteMovie}" />
+                        <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
+                        <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid Height="Auto"
+                          Margin="0,20,0,0"
+                          pc:DataGridAssistant.IsRegisterSelectAll="True" pc:DataGridAssistant.IsShowSerialNumber="False"
+                          pc:DataGridAssistant.IsShowThickness="True" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
+                          CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
+                          ItemsSource="{Binding Workers}"
+                          RowHeight="40">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
+                        <DataGridComboBoxColumn Header="性别" SelectedValueBinding="{Binding Gender}" TextBinding="{Binding Gender}">
+                            <DataGridComboBoxColumn.ItemsSource>
+                                <core:ArrayList>
+                                    <sys:String>男</sys:String>
+                                    <sys:String>女</sys:String>
+                                    <sys:String>未知1</sys:String>
+                                </core:ArrayList>
+                            </DataGridComboBoxColumn.ItemsSource>
+                        </DataGridComboBoxColumn>
+                        <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                        <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
+                        <DataGridComboBoxColumn Header="电影" ItemsSource="{x:Static local:DataGridDemo.Movies}" SelectedValueBinding="{Binding FavoriteMovie}" />
+                        <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
+                        <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
+                        <DataGridComboBoxColumn Header="介绍" ItemsSource="{Binding Source={StaticResource EnumSource}}" SelectedValueBinding="{Binding Status}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!--<DataGrid Width="700" Height="400"
+                          BorderBrush="Green" BorderThickness="1"
+                          Foreground="Purple" Background="WhiteSmoke"
+                          IsEnabled="True"
+                          AlternatingRowBackground="BlueViolet" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
+                          CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
+                          ColumnHeaderHeight="40" HorizontalGridLinesBrush="Red" IsReadOnly="False"
+                          ItemsSource="{Binding Workers}"
+                          RowBackground="SandyBrown" RowHeaderWidth="80" RowHeight="50"
+                          VerticalGridLinesBrush="Yellow"
+                          Style="{x:Null}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
+                        <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                        <DataGridCheckBoxColumn Header="从事IT" Binding="{Binding IsWorkingOnIT}" />
+                        <DataGridComboBoxColumn Width="150"
+                                                Header="电影"
+                                                ItemsSource="{Binding Source={StaticResource EnumSource}}"
+                                                SelectedValueBinding="{Binding Status}" />
+                        <DataGridTextColumn Header="职位" Binding="{Binding Job}" />
+                        <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
+                    </DataGrid.Columns>
+                </DataGrid>-->
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 
 </UserControl>

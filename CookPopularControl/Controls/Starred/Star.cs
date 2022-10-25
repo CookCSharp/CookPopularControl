@@ -1,4 +1,12 @@
-﻿using CookPopularControl.Communal;
+﻿/*
+ * Copyright (c) 2021 All Rights Reserved.
+ * Description：Star
+ * Author： Chance_写代码的厨子
+ * Create Time：2021-05-10 10:51:27
+ */
+
+
+using CookPopularControl.Communal;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System.ComponentModel;
@@ -9,13 +17,6 @@ using System.Windows.Media;
 using OriginButton = System.Windows.Controls.Button;
 
 
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：Star
- * Author： Chance_写代码的厨子
- * Create Time：2021-05-10 10:51:27
- */
 namespace CookPopularControl.Controls
 {
     /// <summary>
@@ -205,7 +206,7 @@ namespace CookPopularControl.Controls
                 {
                     var btn = CreateGeometry(i);
                     var btn_Half = CreateGeometry(i);
-                    btn_Half.Width = StarSize * 1.1 / 2D;
+                    btn_Half.Width = StarSize * 1 / 2D;
                     btn_Half.HorizontalContentAlignment = HorizontalAlignment.Left;
                     if (i + step < StarValue)
                         btn.Foreground = Foreground;
@@ -221,8 +222,6 @@ namespace CookPopularControl.Controls
                     }
 
                     var simpleGrid = new SimpleGrid();
-                    simpleGrid.Width = btn.Width;
-                    simpleGrid.Height = btn.Height;
                     simpleGrid.Children.Add(btn);
                     simpleGrid.Children.Add(btn_Half);
                     btn_Half.HorizontalAlignment = HorizontalAlignment.Left;
@@ -269,6 +268,8 @@ namespace CookPopularControl.Controls
         private OriginButton CreateGeometry(int index)
         {
             OriginButton button = new OriginButton();
+            button.Width = StarSize;
+            button.Height = StarSize;
             button.Foreground = Foreground;
             button.BorderBrush = BorderBrush;
             button.BorderThickness = BorderThickness;
@@ -276,7 +277,6 @@ namespace CookPopularControl.Controls
             FrameworkElementBaseAttached.SetIconGeometry(button, StarIcon);
             FrameworkElementBaseAttached.SetIconWidth(button, StarSize);
             FrameworkElementBaseAttached.SetIconHeight(button, StarSize);
-
 
             if (panel.Orientation == Orientation.Horizontal)
                 button.Margin = new Thickness(5, 0, 5, 0);

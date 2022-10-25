@@ -2,7 +2,6 @@
 using CookPopularControl.Controls;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
-using CookPopularCSharpToolkit.Windows;
 using Microsoft.Xaml.Behaviors;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ using System.Windows.Shapes;
 
 /*
  * Copyright (c) 2021 All Rights Reserved.
- * Description：$Do something$ 
+ * Description：ControlBorderBehavior 
  * Author： Chance_写代码的厨子
  * Create Time：2021-02-20 17:49:53
  */
@@ -31,10 +30,10 @@ namespace CookPopularControl.Communal
         private Brush originBrush;
         private Thickness originThickness;
 
-        public double BorderThickness { get; set; } = 2D;
+        public double BorderThickness { get; set; } = 1D;
         public Brush BorderBrush { get; set; } = ResourceHelper.GetResource<SolidColorBrush>("BorderBrush");
         public Duration Duration { get; set; } = new Duration(TimeSpan.FromSeconds(1));
-        public bool IsRetainBehavior { get; set; } = true;
+        public bool IsRetainBehavior { get; set; }
         public ControlBorderAnimationType AnimationType { get; set; }
 
 
@@ -180,9 +179,9 @@ namespace CookPopularControl.Communal
                 Data = rectangleGeometry,
                 Flag = 1,
                 Duration = Duration,
-                Fill = Brushes.DodgerBlue,
-                //Stroke = BorderBrush,
-                //StrokeThickness = BorderThickness,
+                Fill = AssociatedObject.Background,
+                Stroke = BorderBrush,
+                StrokeThickness = BorderThickness,
             };
             animationPath.Completed += AnimationPath_Completed;
 
@@ -191,9 +190,9 @@ namespace CookPopularControl.Communal
                 Data = rectangleGeometry,
                 Flag = -1,
                 Duration = Duration,
-                Fill = Brushes.DodgerBlue,
-                //Stroke = BorderBrush,
-                //StrokeThickness = BorderThickness,
+                Fill = AssociatedObject.Background,
+                Stroke = BorderBrush,
+                StrokeThickness = BorderThickness,
             };
             animationPath2.Completed += AnimationPath_Completed;
 
@@ -201,11 +200,10 @@ namespace CookPopularControl.Communal
             panel.Children.Add(animationPath);
             panel.Children.Add(animationPath2);
 
-
             Rectangle rectangle = new Rectangle();
             VisualBrush visualBrush = new VisualBrush();
-            AssociatedObject.OpacityMask = visualBrush;
             visualBrush.Visual = panel;
+            AssociatedObject.OpacityMask = visualBrush;
         }
 
         private void AnimationPath_Completed(object sender, EventArgs e)
@@ -246,27 +244,9 @@ namespace CookPopularControl.Communal
                 DependencyProperty.Register("Duration", typeof(Duration), typeof(BorderAnimationPath),
                     new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(1)), OnPropertiesValueChanged));
 
-            //public new Brush Stroke
-            //{
-            //    get { return (Brush)GetValue(StrokeProperty); }
-            //    set { SetValue(StrokeProperty, value); }
-            //}
-            //public static new readonly DependencyProperty StrokeProperty =
-            //    DependencyProperty.Register("Stroke", typeof(Brush), typeof(BorderAnimationPath),
-            //        new FrameworkPropertyMetadata(Brushes.DodgerBlue, OnPropertiesValueChanged));
-
-            //public new double StrokeThickness
-            //{
-            //    get { return (double)GetValue(StrokeThicknessProperty); }
-            //    set { SetValue(StrokeThicknessProperty, value); }
-            //}
-            //public static new readonly DependencyProperty StrokeThicknessProperty =
-            //    DependencyProperty.Register("StrokeThickness", typeof(double), typeof(BorderAnimationPath),
-            //        new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnPropertiesValueChanged));
-
             private static void OnPropertiesValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
             {
-                (d as BorderAnimationPath)?.UpdateAnimationPath();
+                //(d as BorderAnimationPath)?.UpdateAnimationPath();
             }
 
 
@@ -332,7 +312,6 @@ namespace CookPopularControl.Communal
                 };
                 frames.KeyFrames.Add(frame1);
                 frames.KeyFrames.Add(frame2);
-
 
                 Storyboard.SetTarget(frames, this);
                 Storyboard.SetTargetProperty(frames, new PropertyPath(Shape.StrokeDashOffsetProperty));

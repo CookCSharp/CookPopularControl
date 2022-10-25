@@ -8,18 +8,21 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultAttachedIconControlBaseStyle}">
-        <Setter Property="Height" Value="{DynamicResource DefaultTextElementHeight}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource SingleControlBaseStyle}">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HeaderMargin" Value="0,0,6,0" />
         <Setter Property="HeaderHorizontalAlignment" Value="Right" />
         <Setter Property="HeaderVerticalAlignment" Value="Center" />
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="15" />
+        <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0,0,4,0" />
+        <Setter Property="common:TextElementAttached.PlaceHolder" Value="{x:Null}" />
+        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:EditingTag}">
@@ -41,6 +44,7 @@
                                      Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      BorderBrush="{TemplateBinding BorderBrush}"
                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                     Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                      common:FrameworkElementBaseAttached.CornerRadius="2"
@@ -53,6 +57,7 @@
                                      Style="{DynamicResource DefaultTextBoxStyle}" />
                             <TextBlock Grid.Column="1"
                                        Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       Padding="{TemplateBinding Padding}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                        TextAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        Visibility="{TemplateBinding EditorType, Converter={common:EditorTypeToVisibilityConverter}, ConverterParameter=TextBlock}" />
@@ -63,9 +68,10 @@
                                               Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               Minimum="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:EditingTagAssistant.NumericMinimum)}"
                                               Maximum="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:EditingTagAssistant.NumericMaximum)}"
+                                              Padding="{TemplateBinding Padding}"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              common:FrameworkElementBaseAttached.CornerRadius="2"
+                                              common:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
                                               common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                               common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                               common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
@@ -91,7 +97,6 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

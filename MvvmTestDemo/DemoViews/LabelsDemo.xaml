@@ -19,76 +19,82 @@
         <DataTemplate x:Key="HeaderIconTemplate" DataType="{x:Type Label}">
             <Path Width="20" Height="20"
                   Data="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Content.Header}"
-                  Fill="White"
+                  Fill="{StaticResource PrimaryForegroundBrush}"
                   Stretch="Uniform" />
         </DataTemplate>
         <Image x:Key="HeaderImage" Source="../Resources/Gif/tomcat.jpg" />
     </UserControl.Resources>
 
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="NormalLabel:"
-                           FontSize="20" FontWeight="DemiBold"
-                           VerticalAlignment="Center" />
-                <WrapPanel Margin="20,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label Content="写代码的厨子" pc:FrameworkElementBaseAttached.CornerRadius="20" />
-                    <Label Content="写代码的厨子" Margin="20,0" pc:LabelAssistant.Header="C" />
-                    <Label Content="写代码的厨子" pc:LabelAssistant.Header="{StaticResource HeaderImage}" />
-                    <Label Content="写代码的厨子"
-                           Margin="20,0"
-                           pc:LabelAssistant.Header="pack://application:,,,/MvvmTestDemo;component/Resources/Gif/tomcat.jpg"
-                           pc:LabelAssistant.HeaderTemplate="{StaticResource HeaderTemplate}" />
-                    <Label Content="写代码的厨子">
-                        <pc:LabelAssistant.Header>
-                            <Path Width="20" Height="20"
-                                  Data="{StaticResource StarGeometry}"
-                                  Fill="White"
-                                  Stretch="Uniform" />
-                        </pc:LabelAssistant.Header>
-                    </Label>
-                </WrapPanel>
-            </StackPanel>
-            <WrapPanel Margin="60,20">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="GroupLabel:"
-                               FontSize="20" FontWeight="DemiBold"
-                               VerticalAlignment="Center" />
-                    <pc:GroupLabel Width="290"
-                                   Margin="20,0" Padding="10"
-                                   pc:FrameworkElementBaseAttached.CornerRadius="10" ItemClosed="GroupLabel_ItemClosed"
-                                   ItemsSource="{Binding GroupLists}" />
-                </StackPanel>
-                <StackPanel Margin="32,0" Orientation="Horizontal">
-                    <TextBlock Text="GroupHeaderLabel:"
-                               FontSize="20" FontWeight="DemiBold"
-                               VerticalAlignment="Center" />
-                    <pc:GroupLabel Width="350"
-                                   Margin="20,0" Padding="10"
-                                   ItemsSource="{Binding GroupHeaderLists}" />
-                </StackPanel>
+        <Grid Width="{StaticResource DemoViewsDefaultWidth}" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="NormalLabel:"
+                       FontSize="20" FontWeight="DemiBold"
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <WrapPanel Grid.Row="0" Grid.Column="2">
+                <Label Content="写代码的厨子" pc:FrameworkElementBaseAttached.CornerRadius="5" />
+                <Label Content="写代码的厨子" Margin="10,0" pc:LabelAssistant.Header="C" />
+                <Label Content="写代码的厨子" pc:LabelAssistant.Header="{StaticResource HeaderImage}" />
+                <Label Content="写代码的厨子"
+                       Margin="10,0"
+                       pc:LabelAssistant.Header="pack://application:,,,/MvvmTestDemo;component/Resources/Gif/tomcat.jpg"
+                       pc:LabelAssistant.HeaderTemplate="{StaticResource HeaderTemplate}" />
+                <Label Content="写代码的厨子">
+                    <pc:LabelAssistant.Header>
+                        <Path Width="20" Height="20"
+                              Data="{StaticResource StarGeometry}"
+                              Fill="{StaticResource PrimaryForegroundBrush}"
+                              Stretch="Uniform" />
+                    </pc:LabelAssistant.Header>
+                </Label>
             </WrapPanel>
-            <WrapPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="GroupImageLabel:"
-                               FontSize="20" FontWeight="DemiBold"
-                               VerticalAlignment="Center" />
-                    <pc:GroupLabel Width="350"
-                                   Margin="20,0" Padding="10"
-                                   ItemTemplate="{StaticResource HeaderImageTemplate}"
-                                   ItemsSource="{Binding GroupImageLists}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="GroupIconLabel:"
-                               FontSize="20" FontWeight="DemiBold"
-                               VerticalAlignment="Center" />
-                    <pc:GroupLabel Width="350"
-                                   Margin="20,0" Padding="10"
-                                   ItemTemplate="{StaticResource HeaderIconTemplate}"
-                                   ItemsSource="{Binding GroupIconLists}" />
-                </StackPanel>
-            </WrapPanel>
-        </StackPanel>
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="GroupLabel:"
+                       FontSize="20" FontWeight="DemiBold"
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <pc:GroupLabel Grid.Row="2" Grid.Column="2"
+                           pc:FrameworkElementBaseAttached.CornerRadius="10" ItemClosed="GroupLabel_ItemClosed"
+                           ItemsSource="{Binding GroupLists}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="0"
+                       Text="GroupHeaderLabel:"
+                       FontSize="20" FontWeight="DemiBold"
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <pc:GroupLabel Grid.Row="4" Grid.Column="2" ItemsSource="{Binding GroupHeaderLists}" />
+
+            <TextBlock Grid.Row="6" Grid.Column="0"
+                       Text="GroupImageLabel:"
+                       FontSize="20" FontWeight="DemiBold"
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <pc:GroupLabel Grid.Row="6" Grid.Column="2"
+                           ItemTemplate="{StaticResource HeaderImageTemplate}"
+                           ItemsSource="{Binding GroupImageLists}" />
+
+            <TextBlock Grid.Row="8" Grid.Column="0"
+                       Text="GroupIconLabel:"
+                       FontSize="20" FontWeight="DemiBold"
+                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <pc:GroupLabel Grid.Row="8" Grid.Column="2"
+                           ItemTemplate="{StaticResource HeaderIconTemplate}"
+                           ItemsSource="{Binding GroupIconLists}" />
+        </Grid>
     </ScrollViewer>
 
 </UserControl>

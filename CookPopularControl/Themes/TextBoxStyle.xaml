@@ -4,10 +4,10 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/TextBoxBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/TextBoxBaseBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxBaseStyle}">
+    <Style x:Key="DefaultTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxBaseBaseStyle}">
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="请输入文本..." />
         <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
@@ -20,8 +20,9 @@
     <Style x:Key="AddClearButtonTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="2" />
         <Setter Property="common:TextElementAttached.IsAddClearButton" Value="True" />
-        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="20" />
-        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="20" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="15" />
+        <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
 
     <Style x:Key="ValidationAddClearButtonTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource AddClearButtonTextBoxStyle}">

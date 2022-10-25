@@ -13,15 +13,19 @@
              d:DesignWidth="800"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <pc:SimpleGrid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <TextBlock Text="{Binding State}"
                    FontSize="18" FontWeight="DemiBold"
-                   HorizontalAlignment="Center" VerticalAlignment="Top">
+                   HorizontalAlignment="Center">
             <TextBlock.Foreground>
                 <SolidColorBrush Color="{Binding Color}" />
             </TextBlock.Foreground>
         </TextBlock>
-        <Viewport3D RenderOptions.EdgeMode="Unspecified">
+        <Viewport3D Grid.Row="1" RenderOptions.EdgeMode="Unspecified">
             <Viewport3D.Camera>
                 <PerspectiveCamera x:Name="camera"
                                    FarPlaneDistance="102122.68952517369" FieldOfView="45" LookDirection="0,0,-34697.3945552662"
@@ -179,6 +183,6 @@
                 </ModelVisual3D>
             </Viewport3D.Children>
         </Viewport3D>
-    </pc:SimpleGrid>
+    </Grid>
 
 </UserControl>

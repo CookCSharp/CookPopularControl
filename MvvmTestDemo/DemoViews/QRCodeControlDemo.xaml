@@ -14,8 +14,7 @@
         <pc:QRCodeControl Width="200" Height="200"
                           Margin="30,0"
                           Duration="2"
-                          IsRefreshChanged="QRCodeControl_IsRefreshChanged" IsShowRefreshIcon="True"
-                          RefreshButtonFill="Purple" />
+                          IsRefreshChanged="QRCodeControl_IsRefreshChanged" IsShowRefreshIcon="True" />
         <pc:QRCodeControl Width="200" Height="200"
                           QrCodeContent="Chance" QrCodeIcon="../Resources/Gif/tomcat.jpg" QrCodeIconBorderWidth="10"
                           QrCodeIconSizePercent="10" QrCodePixelsPerModule="10" />
@@ -23,8 +22,7 @@
                           Margin="30,0"
                           Duration="2"
                           IsShowRefreshIcon="True" QrCodeContent="Chance" QrCodeIcon="../Resources/Gif/tomcat.jpg"
-                          QrCodeIconBorderWidth="10" QrCodeIconSizePercent="10" QrCodePixelsPerModule="10"
-                          RefreshButtonFill="Purple" />
+                          QrCodeIconBorderWidth="10" QrCodeIconSizePercent="10" QrCodePixelsPerModule="10" />
 
         <StackPanel Margin="0,30,0,0" HorizontalAlignment="Center">
             <Image x:Name="BarCodeImage" Stretch="None" StretchDirection="Both" />

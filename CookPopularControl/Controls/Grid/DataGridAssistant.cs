@@ -1,6 +1,7 @@
 ﻿using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,7 @@ namespace CookPopularControl.Controls
         private const string SelectAllButton = "PART_SelectAllButton";
         private const string RowHeader = "PART_DataGridRowHeader";
         private const string RowHeaderCheckBox = "PART_RowCheckBox";
+        private const string ColumnHeaderSortButton = "PART_Sort";
         private const string ElementText = nameof(ElementText);
         private const string ElementComboBox = nameof(ElementComboBox);
         private const string ElementCheckBox = nameof(ElementCheckBox);
@@ -115,6 +117,7 @@ namespace CookPopularControl.Controls
                 dataGrid.Loaded += (s, arg) =>
                 {
                     var scrollViewer = dataGrid.Template.FindName(ElementScrollViewer, dataGrid) as ScrollViewer;
+                    if (scrollViewer == null) return;
                     var selectedAllButton = scrollViewer.Template.FindName(SelectAllButton, scrollViewer) as System.Windows.Controls.Button;
 
                     /**
@@ -420,6 +423,50 @@ namespace CookPopularControl.Controls
                 ElementComboBox => (column as DataGridComboBoxColumn).EditingElementStyle = GetComboBoxColumnEditingStyle(dg),
                 _ => throw new NotImplementedException(),
             };
+        }
+
+        #endregion
+
+        #region IsUseColumnHeaderSort
+
+        internal static bool GetIsUseColumnHeaderSort(DependencyObject obj) => (bool)obj.GetValue(IsUseColumnHeaderSortProperty);
+        internal static void SetIsUseColumnHeaderSort(DependencyObject obj, bool value) => obj.SetValue(IsUseColumnHeaderSortProperty, value);
+        internal static readonly DependencyProperty IsUseColumnHeaderSortProperty =
+            DependencyProperty.RegisterAttached("IsUseColumnHeaderSort", typeof(bool), typeof(DataGridAssistant), new PropertyMetadata(ValueBoxes.FalseBox, OnIsUseColumnHeaderSortChanged));
+
+        private static void OnIsUseColumnHeaderSortChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is DataGridColumnHeader columnHeader)
+            {
+                columnHeader.Loaded += ColumnHeader_Loaded;
+            }
+        }
+
+        private static void ColumnHeader_Loaded(object sender, RoutedEventArgs e)
+        {
+            var columnHeader = sender as DataGridColumnHeader;
+            columnHeader.Click += ColumnHeader_Click;
+        }
+
+        private static IList<ToggleButton> toggleButtons = new List<ToggleButton>();
+        private static void ColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            var columnHeader = sender as DataGridColumnHeader;
+            var toggleButton = columnHeader.Template.FindName(ColumnHeaderSortButton, columnHeader) as ToggleButton;
+            if (!toggleButtons.Contains(toggleButton))
+            {
+                toggleButtons.Add(toggleButton);
+            }
+
+            if (toggleButton.IsChecked == null)
+            {
+                toggleButton.IsChecked = true;
+            }
+            else
+            {
+                toggleButton.IsChecked = !toggleButton.IsChecked;
+            }
+            toggleButtons.Except(toggleButton).ForEach(toggleButton => toggleButton.IsChecked = null);
         }
 
         #endregion

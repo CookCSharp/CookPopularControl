@@ -331,7 +331,7 @@
 
     <Style x:Key="SliderBaseStyle" TargetType="{x:Type Slider}">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="IsMoveToPointEnabled" Value="True" />
         <Setter Property="IsSnapToTickEnabled" Value="False" />

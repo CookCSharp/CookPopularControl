@@ -11,18 +11,16 @@
              d:DesignWidth="800">
 
     <ScrollViewer>
-        <Grid Width="{StaticResource DemoViewsDefaultWidth}">
+        <Grid Width="{StaticResource DemoViewsDefaultWidth}" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <DatePicker x:Name="FutureDatePicker"
-                            Width="300" Height="50"
-                            Margin="0,20"
+                            IsEnabled="True"
                             ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"
                             VerticalContentAlignment="Center"
-                            IsEnabled="True"
                             Style="{StaticResource DefaultDatePickerStyle}">
                     <DatePicker.SelectedDate>
                         <Binding Mode="TwoWay" Path="FutureValidatingDate" UpdateSourceTrigger="PropertyChanged">
@@ -32,22 +30,19 @@
                         </Binding>
                     </DatePicker.SelectedDate>
                 </DatePicker>
-                <DatePicker Width="300" Height="50"
-                            BorderThickness="0,0,0,1"
-                            Padding="0,0,0,0"
+                <DatePicker BorderThickness="0,0,0,1"
+                            Margin="0,20"
                             VerticalContentAlignment="Bottom"
                             pc:FrameworkElementBaseAttached.CornerRadius="0"
                             Style="{StaticResource DefaultDatePickerStyle}" />
-                <Calendar Width="300" Height="300"
-                          BorderBrush="DodgerBlue" BorderThickness="2"
-                          Foreground="#4A4A4A" Background="White"
-                          Margin="0,30"
+                <Calendar BorderBrush="DodgerBlue" BorderThickness="2"
                           IsEnabled="True"
                           Style="{StaticResource DefaultCalendarStyle}" />
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <pc:Clock Margin="0,20" />
                 <pc:TimePicker />
+                <pc:TimePicker BorderThickness="0,0,0,1" Margin="0,20" pc:FrameworkElementBaseAttached.CornerRadius="0" />
+                <pc:Clock />
             </StackPanel>
         </Grid>
     </ScrollViewer>

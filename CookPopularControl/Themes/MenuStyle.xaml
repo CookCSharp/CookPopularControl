@@ -32,7 +32,7 @@
         当创建带Separator的Menu时，该控件会自动应用由SeparatorStyleKey属性标识的 Style
     -->
     <Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="MinHeight" Value="1" />
         <Setter Property="SnapsToDevicePixels" Value="true" />
@@ -50,7 +50,7 @@
     </Style>
 
     <Style x:Key="DefaultSeparatorStyle" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="MinHeight" Value="1" />
         <Setter Property="SnapsToDevicePixels" Value="true" />
@@ -68,7 +68,7 @@
     </Style>
 
     <Style x:Key="VerticalSeparatorStyle" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="MinWidth" Value="1" />
         <Setter Property="SnapsToDevicePixels" Value="true" />

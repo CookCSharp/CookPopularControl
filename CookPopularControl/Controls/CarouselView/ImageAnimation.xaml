@@ -60,7 +60,7 @@
                         common:FrameworkElementBaseAttached.CornerRadius="20" />
                 <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Foreground="White" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Path=ImageTagName}" Margin="0,0,10,0"/>
-                    <pc:SwitchControl x:Name="WholeScene" SwitchContent="详情" Width="35" Height="35" Foreground="Gray" SwicthCloseBackground="White" SwitchOpenBackground="Gray"/>
+                    <pc:SwitchButton x:Name="WholeScene" SwitchContent="详情" Width="35" Height="35" Foreground="Gray" SwicthCloseBackground="White" SwitchOpenBackground="Gray"/>
                 </StackPanel>-->
             </Grid>
         </Border>

@@ -51,6 +51,8 @@
     <pt:DoubleToStringConverter x:Key="DoubleToStringConverter" />
     <!--ToThickness-->
     <pt:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
+    <pt:DoubleToLeftRightThicknessConverter x:Key="DoubleToLeftRightThicknessConverter" />
+    <pt:DoubleToTopBottomThicknessConverter x:Key="DoubleToTopBottomThicknessConverter" />
     <pt:ThicknessToThicknessConverter x:Key="ThicknessToThicknessConverter" />
     <!--ToTimeSpan-->
     <pt:DoubleToTimeSpanConverter x:Key="DoubleToTimeSpanConverter" />

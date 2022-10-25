@@ -4,7 +4,7 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultTextPathStyle" TargetType="{x:Type pc:TextPath}">
-        <Setter Property="Stroke" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="Stroke" Value="{DynamicResource BorderBrush}" />
         <Setter Property="StrokeThickness" Value="1" />
         <Setter Property="Fill" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Stretch" Value="Uniform" />

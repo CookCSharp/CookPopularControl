@@ -67,7 +67,7 @@
     </Style>
 
     <Style x:Key="PropertyGridStyle" TargetType="{x:Type pc:PropertyGrid}">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="PropertyTitleWidth" Value="150" />
         <Setter Property="Template">
@@ -91,14 +91,14 @@
                                                  common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CategoryGeometry}"
                                                  common:FrameworkElementBaseAttached.IconHeight="16"
                                                  common:FrameworkElementBaseAttached.IconWidth="16"
-                                                 Style="{DynamicResource ToggleButtonOutlineCheckedIconStyle}" />
+                                                 Style="{DynamicResource ToggleButtonOutlineStyle}" />
                                     <RadioButton Width="30" Height="30"
                                                  Command="{x:Static common:ControlCommands.SortByNameCommand}"
                                                  common:FrameworkElementBaseAttached.CornerRadius="0"
                                                  common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource AZGeometry}"
                                                  common:FrameworkElementBaseAttached.IconHeight="16"
                                                  common:FrameworkElementBaseAttached.IconWidth="16"
-                                                 Style="{DynamicResource ToggleButtonOutlineCheckedIconStyle}" />
+                                                 Style="{DynamicResource ToggleButtonOutlineStyle}" />
                                 </StackPanel>
                                 <pc:SearchBar x:Name="PART_SearchBar" Margin="10,0,0,0" />
                             </DockPanel>

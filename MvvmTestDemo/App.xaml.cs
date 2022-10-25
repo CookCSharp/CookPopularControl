@@ -27,7 +27,7 @@ namespace MvvmTestDemo
             //ss.Show(true, true);
 
             base.OnStartup(e);
-
+            var s = SystemColors.ControlColor;
             //DynamicGeneratorDll.ILCreateSumAndSaveAsDll();
             //DynamicGeneratorDll.ILCreateHexToColorAndSaveAsDll();
 

@@ -1,6 +1,7 @@
 ﻿using CookPopularCSharpToolkit.Windows;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 
 /*
@@ -16,10 +17,12 @@ namespace CookPopularControl.Controls
 {
     public class PropertySwitchEditor : PropertyItemEditorFactory
     {
-        public override FrameworkElement GetElement(PropertyItem propertyItem) => new SwitchControl
+        public override FrameworkElement GetElement(PropertyItem propertyItem) => new SwitchButton
         {
             IsEnabled = !propertyItem.IsReadOnly,
             HorizontalAlignment = HorizontalAlignment.Left,
+            SwicthCloseBackground = ResourceHelper.GetResource<Brush>("ControlMouseOverBackground"),
+            SwitchOpenBackground = ResourceHelper.GetResource<Brush>("ControlPressBackground"),
         };
 
         public override DependencyProperty GetDependencyProperty() => ToggleButton.IsCheckedProperty;

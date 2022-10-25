@@ -58,7 +58,7 @@
     </pc:SideBarWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
-        <Grid Visibility="Collapsed">
+        <Grid Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -80,7 +80,7 @@
                             <behavior:ControlStoryboardAction.Storyboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width"
-                                                     From="0" To="150" Duration="0:0:0.5" />
+                                                     From="0" To="200" Duration="0:0:0.5" />
                                 </Storyboard>
                             </behavior:ControlStoryboardAction.Storyboard>
                         </behavior:ControlStoryboardAction>
@@ -99,7 +99,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:ProgressBarDemo Visibility="Visible" />
+        <view:WindowsDemo Visibility="Collapsed" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"

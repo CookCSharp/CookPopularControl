@@ -11,11 +11,11 @@
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Default" />
         <Setter Property="common:SelectorAttached.ItemControlWidth" Value="20" />
         <Setter Property="common:SelectorAttached.ItemControlHeight" Value="20" />
-        <Setter Property="common:SelectorAttached.ItemHeight" Value="{Binding RelativeSource={RelativeSource Self}, Path=Width}" />
-        <Setter Property="common:SelectorAttached.ItemHeight" Value="32" />
+        <Setter Property="common:SelectorAttached.ItemWidth" Value="{Binding RelativeSource={RelativeSource Self}, Path=Width}" />
+        <Setter Property="common:SelectorAttached.ItemHeight" Value="{DynamicResource DefaultControlHeight}" />
         <Setter Property="common:SelectorAttached.ItemsListBackground" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ControlPressBackground}" />
     </Style>
 
     <Style x:Key="ListBoxCheckBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
@@ -30,7 +30,7 @@
 
     <Style x:Key="ListBoxIconStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Icon" />
-        <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
 
     <Style x:Key="ListBoxImageStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">

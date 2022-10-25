@@ -3,43 +3,48 @@
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style x:Key="DatePickerButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="20" />
-        <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DatePicker}}, Path=(common:FrameworkElementBaseAttached.IconWidth)}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DatePicker}}, Path=(common:FrameworkElementBaseAttached.IconHeight)}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DatePicker}}, Path=Foreground}" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}">
                         <Path x:Name="PathButton"
+                              Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
                               Data="{DynamicResource DateGeometry}"
-                              Fill="{DynamicResource PrimaryThemeBrush}"
+                              Fill="{TemplateBinding Foreground}"
                               Stretch="Fill" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Fill" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="PathButton" />
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource ControlMouseOverBackground}" TargetName="PathButton" />
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Fill" Value="{DynamicResource ButtonBasePressBackground}" TargetName="PathButton" />
-                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource ControlPressBackground}" TargetName="PathButton" />
+                        </Trigger>-->
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style x:Key="DatePickerBaseStyle" TargetType="{x:Type DatePicker}">
-        <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Focusable" Value="True" />
+    <Style x:Key="DatePickerBaseStyle" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource InputControlBaseStyle}">
+        <Setter Property="Width" Value="200" />
         <Setter Property="IsTodayHighlighted" Value="True" />
         <Setter Property="SelectedDateFormat" Value="Short" />
-        <Setter Property="Padding" Value="8,0,0,0" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="CalendarStyle" Value="{DynamicResource {x:Type Calendar}}" />
-        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DatePicker}">
@@ -47,25 +52,25 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
-                            Padding="{TemplateBinding Padding}">
-                        <Grid x:Name="PART_Root" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
+                        <Grid x:Name="PART_Root">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0"
+                                               BorderThickness="0"
                                                Foreground="{TemplateBinding Foreground}"
                                                Background="Transparent"
+                                               Padding="{TemplateBinding Padding}"
                                                Focusable="{TemplateBinding Focusable}"
-                                               common:TextElementAttached.PlaceHolder="请选择日期"
+                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                               common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                                Style="{DynamicResource DefaultTextBoxStyle}" />
                             <Button x:Name="PART_Button" Grid.Column="1"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    Margin="5,0" Focusable="False"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Style="{DynamicResource DatePickerButtonStyle}" />
+                                    Margin="0,0,6,0"
+                                    Style="{StaticResource DatePickerButtonStyle}" />
                             <Grid x:Name="PART_DisabledVisual" Grid.Column="0"
                                   Grid.ColumnSpan="2"
                                   Opacity="0.2"
@@ -101,6 +106,12 @@
                         </VisualStateManager.VisualStateGroups>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" TargetName="RootBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPressBackground}" TargetName="RootBorder"/>
+                        </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" TargetName="RootBorder" />
                             <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness, Converter={pt:ThicknessToThicknessConverter}, ConverterParameter=1.2}" TargetName="RootBorder" />

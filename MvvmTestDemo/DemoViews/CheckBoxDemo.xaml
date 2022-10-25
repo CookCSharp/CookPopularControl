@@ -9,31 +9,30 @@
              d:DesignWidth="800">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <CheckBox Content="CheckedFalseCheckBox" FontSize="20" ToolTip="CheckedFalseCheckBox" />
+        <CheckBox Content="CheckedFalseCheckBox" Background="Transparent" ToolTip="CheckedFalseCheckBox" />
         <CheckBox Content="CheckedTrueCheckBox"
-                  IsChecked="True" Margin="0,20"
-                  FontSize="20"
-                  ToolTip="CheckedTrueCheckBox" />
-        <CheckBox Height="100"
-                  Content="CheckedNullLineCheckBox"
-                  FontSize="20"
+                  Background="Transparent"
+                  IsChecked="True"
+                  Margin="0,20" ToolTip="CheckedTrueCheckBox"
+                  pc:CheckBoxAssistant.BoxSize="20" />
+        <CheckBox Content="CheckedNullLineCheckBox"
+                  Background="Transparent"
                   ToolTip="CheckedNullLineCheckBox"
-                  pc:CheckBoxAssistant.BoxSize="50"
+                  pc:CheckBoxAssistant.BoxSize="20"
                   Style="{StaticResource CheckBoxCheckedNullLineStyle}" />
-        <CheckBox Height="100" Margin="0,20"
+        <CheckBox Height="50"
                   Content="CheckedNullRectangleCheckBox"
-                  IsChecked="{x:Null}"
+                  Background="Transparent"
                   FontSize="20"
-                  ToolTip="CheckedNullRectangleCheckBox"
-                  pc:CheckBoxAssistant.BoxSize="100"
+                  Margin="0,20" ToolTip="CheckedNullRectangleCheckBox"
+                  pc:CheckBoxAssistant.BoxSize="50"
                   Style="{StaticResource CheckBoxCheckedNullRectangleStyle}" />
-
-        <CheckBox Height="100" Margin="0,20" IsEnabled="False"
+        <CheckBox Height="50"
                   Content="CheckedNullRectangleCheckBox"
-                  IsChecked="{x:Null}"
+                  IsEnabled="False"
                   FontSize="20"
                   ToolTip="CheckedNullRectangleCheckBox"
-                  pc:CheckBoxAssistant.BoxSize="100"
+                  pc:CheckBoxAssistant.BoxSize="50"
                   Style="{StaticResource CheckBoxCheckedNullRectangleStyle}" />
     </StackPanel>
 

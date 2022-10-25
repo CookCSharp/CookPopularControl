@@ -11,7 +11,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="RefreshButtonFill" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="20" />
@@ -45,12 +45,13 @@
                             <pc:SimpleGrid x:Name="RefreshGrid" Opacity="0">
                                 <Border Background="{DynamicResource UnEnabledBrush}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" Opacity="0.85" />
                                 <Button x:Name="RefreshButton"
+                                        Width="Auto" Height="Auto"
                                         Foreground="{TemplateBinding RefreshButtonFill}"
+                                        Command="{x:Static pc:QRCodeControl.RefreshQrCodeCommand}"
                                         common:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
                                         common:FrameworkElementBaseAttached.IconGeometry="{TemplateBinding common:FrameworkElementBaseAttached.IconGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                        Command="{x:Static pc:QRCodeControl.RefreshQrCodeCommand}"
                                         Style="{StaticResource ButtonTransparentIconStyle}" />
                             </pc:SimpleGrid>
                         </Grid>

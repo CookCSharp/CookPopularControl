@@ -20,13 +20,13 @@ namespace MvvmTestDemo.DemoViews
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //var switchCtl = sender as SwitchControl;
+            //var switchCtl = sender as SwitchButton;
             //if (switchCtl.IsChecked.Value)
             //    DefaultNotifyIcon.IsStartTaskbarFlash = true;
             //else
             //    DefaultNotifyIcon.IsStartTaskbarFlash = false;
 
-            var switchCtl = sender as SwitchControl;
+            var switchCtl = sender as SwitchButton;
             if (switchCtl.IsChecked.Value)
                 DefaultNotifyIcon.Visibility = Visibility.Visible;
             else
@@ -37,7 +37,7 @@ namespace MvvmTestDemo.DemoViews
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var switchCtl = sender as SwitchControl;
+            var switchCtl = sender as SwitchButton;
             if (switchCtl.IsChecked.Value)
                 DefaultNotifyIcon.IsStartTaskbarIconFlash = true;
             else

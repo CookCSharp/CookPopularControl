@@ -16,15 +16,15 @@
             <!--<Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
                 <Setter Property="Foreground" Value="Orange" />
                 <Setter Property="TextElement.Foreground" Value="Red" />
-            </Style>
-            <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="FontSize" Value="12" />
+            </Style>-->
+            <!--<Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
                 <Setter Property="Foreground" Value="Red" />
             </Style>
             <Style x:Key="{x:Type TextElement}" TargetType="{x:Type TextElement}">
                 <Setter Property="Foreground" Value="Red" />
             </Style>-->
 
-            <sys:Double x:Key="DemosViewViewDefaultWidth">800</sys:Double>
             <sys:Double x:Key="DemoViewsDefaultWidth">800</sys:Double>
         </ResourceDictionary>
     </Application.Resources>
