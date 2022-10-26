@@ -13,7 +13,7 @@
         <Setter Property="pc:TreeViewAssistant.ExpandButtonFill" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="pc:TreeViewAssistant.HeaderIconHasItems" Value="{DynamicResource FolderGeometry}" />
         <Setter Property="pc:TreeViewAssistant.HeaderIconNoItems" Value="{DynamicResource FileGeometry}" />
-        <Setter Property="pc:TreeViewAssistant.HeaderIconFill" Value="{x:Static SystemColors.GrayTextBrush}" />
+        <Setter Property="pc:TreeViewAssistant.HeaderIconFill" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="pc:TreeViewAssistant.IsShowHeaderIcon" Value="False" />
         <Setter Property="pc:TreeViewAssistant.IsShowSelectedIcon" Value="False" />
         <Setter Property="pc:TreeViewAssistant.SelectedIcon" Value="{DynamicResource SuccessGeometry}" />

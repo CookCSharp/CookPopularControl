@@ -11,8 +11,9 @@
 
     <Grid Width="600" Height="200"
           HorizontalAlignment="Center" VerticalAlignment="Center"
-          pc:GridLinesAssistant.GridLineBrush="Green" pc:GridLinesAssistant.GridLineThickness="2"
-          pc:GridLinesAssistant.ShowBorder="True" ShowGridLines="False">
+          pc:GridLinesAssistant.GridLineBrush="{StaticResource PrimaryThemeBrush}"
+          pc:GridLinesAssistant.GridLineThickness="2" pc:GridLinesAssistant.ShowBorder="True"
+          ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />

@@ -7,7 +7,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultTextBlockStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />-->
+        <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
     </Style>

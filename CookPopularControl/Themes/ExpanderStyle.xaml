@@ -159,8 +159,19 @@
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
-                                    <Storyboard Storyboard.TargetName="ExpanderButton" Storyboard.TargetProperty="(ButtonBase.Background).(SolidColorBrush.Color)" Duration="0:0:0.2">
-                                        <ColorAnimation To="{DynamicResource ControlMouseOverColor}" />
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="ExpanderButton"
+                                                        Storyboard.TargetProperty="(ButtonBase.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="ContentPresenter"
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="ExpanderButton"
+                                                        Storyboard.TargetProperty="(ButtonBase.Background).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource ControlMouseOverColor}"
+                                                        Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -441,8 +452,19 @@
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
-                                    <Storyboard Storyboard.TargetName="ExpanderButton" Storyboard.TargetProperty="(ButtonBase.Background).(SolidColorBrush.Color)" Duration="0:0:0.2">
-                                        <ColorAnimation To="{DynamicResource ControlMouseOverColor}" />
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="ExpanderButton"
+                                                        Storyboard.TargetProperty="(ButtonBase.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="ContentPresenter"
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="ExpanderButton"
+                                                        Storyboard.TargetProperty="(ButtonBase.Background).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource ControlMouseOverColor}"
+                                                        Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>

@@ -224,9 +224,11 @@
                 <Setter Property="BorderThickness" Value="0" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" />
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
             </Trigger>
             <MultiTrigger>

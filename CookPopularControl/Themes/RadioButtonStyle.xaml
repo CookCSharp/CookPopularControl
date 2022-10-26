@@ -14,7 +14,8 @@
         <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="pc:RadioButtonAssistant.CheckedBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="pc:RadioButtonAssistant.CircleDiameter" Value="20" />
+        <Setter Property="pc:RadioButtonAssistant.CheckedBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -78,7 +79,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="FillFullyRadioButtonStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}">
+    <Style x:Key="RadioButtonFillFullyStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}">
         <Setter Property="pc:RadioButtonAssistant.IsFillFully" Value="True" />
     </Style>
 
@@ -128,6 +129,7 @@
     </Style>
 
     <Style x:Key="RadioButtonCustomStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}">
+        <Setter Property="pc:RadioButtonAssistant.Header" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">

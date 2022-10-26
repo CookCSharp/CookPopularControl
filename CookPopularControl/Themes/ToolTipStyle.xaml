@@ -8,6 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultToolTipStyle" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HasDropShadow" Value="True" />
         <Setter Property="Placement" Value="Mouse" />

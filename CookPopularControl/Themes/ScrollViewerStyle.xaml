@@ -3,17 +3,27 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ScrollBarStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style x:Key="DefaultScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="False" />
+        <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
+        <Setter Property="pc:ScrollBarAssistant.VerticalScrollBarWidth" Value="0" />
+        <Setter Property="pc:ScrollBarAssistant.HorizontalScrollBarHeight" Value="0" />
+        <Setter Property="pc:ScrollBarAssistant.ScrollBarBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="pc:ScrollViewerAssistant.IsCornerShow" Value="False" />
         <Setter Property="pc:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
-        <Setter Property="pc:ScrollBarAssistant.IsScrollBarRepeatButton" Value="False" />
-        <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
@@ -32,25 +42,27 @@
                                                 CanContentScroll="{TemplateBinding CanContentScroll}"
                                                 CanHorizontallyScroll="False" CanVerticallyScroll="False" />
                         <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Row="0" Grid.Column="1"
-                                   Foreground="{TemplateBinding Foreground}"
+                                   Foreground="{TemplateBinding pc:ScrollBarAssistant.ScrollBarBrush}"
                                    Value="{TemplateBinding VerticalOffset}"
                                    Maximum="{TemplateBinding ScrollableHeight}"
-                                   pc:ScrollBarAssistant.IsScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsScrollBarRepeatButton}"
+                                   pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
                                    pc:ScrollBarAssistant.ThumbInsideMargin="{TemplateBinding pc:ScrollBarAssistant.ThumbInsideMargin}"
                                    AutomationProperties.AutomationId="VerticalScrollBar" Orientation="Vertical"
                                    ViewportSize="{TemplateBinding ViewportHeight}"
-                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                   Style="{StaticResource DefaultScrollBarStyle}" />
                         <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Row="1" Grid.Column="0"
-                                   Foreground="{TemplateBinding Foreground}"
+                                   Foreground="{TemplateBinding pc:ScrollBarAssistant.ScrollBarBrush}"
                                    Value="{TemplateBinding HorizontalOffset}"
                                    Maximum="{TemplateBinding ScrollableWidth}"
-                                   pc:ScrollBarAssistant.IsScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsScrollBarRepeatButton}"
+                                   pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
                                    pc:ScrollBarAssistant.ThumbInsideMargin="{TemplateBinding pc:ScrollBarAssistant.ThumbInsideMargin}"
                                    AutomationProperties.AutomationId="HorizontalScrollBar" Orientation="Horizontal"
                                    ViewportSize="{TemplateBinding ViewportWidth}"
-                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                   Style="{StaticResource DefaultScrollBarStyle}" />
                         <Rectangle x:Name="PART_Corner" Grid.Row="1" Grid.Column="1"
-                                   Fill="{TemplateBinding Foreground}"
+                                   Fill="{TemplateBinding pc:ScrollBarAssistant.ScrollBarBrush}"
                                    Opacity="0.8"
                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollViewerAssistant.IsCornerShow), Converter={pt:BooleanToVisibilityConverter}}" />
                     </Grid>

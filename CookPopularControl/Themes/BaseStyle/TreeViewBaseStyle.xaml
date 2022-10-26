@@ -49,9 +49,9 @@
 
     <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}">
         <Setter Property="MinHeight" Value="26" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
@@ -215,9 +215,11 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="Bd">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{DynamicResource ControlMouseOverBackground}" TargetName="Bd" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{DynamicResource ControlPressBackground}" TargetName="Bd" />
                         </Trigger>
                         <Trigger Property="IsExpanded" Value="True">
@@ -225,19 +227,27 @@
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False" />
+                                <Condition Property="IsSelected" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=Foreground}" />
+                        </MultiTrigger>
+                        <!--<MultiTrigger>
+                            <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="Bd" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="true" />
-                                <Condition Property="IsSelectionActive" Value="false" />
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="Bd" />
-                        </MultiTrigger>
-                        <Trigger Property="HasItems" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                        </MultiTrigger>-->
+                        <Trigger Property="HasItems" Value="False">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="Expander" />
                             <Setter Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.HeaderIconNoItems)}" TargetName="PART_HeaderIcon" />
                         </Trigger>
@@ -250,7 +260,7 @@
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="HasHeader" Value="false" />
+                                <Condition Property="HasHeader" Value="False" />
                                 <Condition Property="Height" Value="Auto" />
                             </MultiTrigger.Conditions>
                             <Setter Property="MinHeight" Value="20" TargetName="PART_Header" />
@@ -265,9 +275,10 @@
     </Style>
 
     <Style x:Key="TreeViewBaseStyle" TargetType="{x:Type TreeView}">
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />

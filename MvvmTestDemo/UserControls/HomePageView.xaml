@@ -27,14 +27,12 @@
 
         <TextBlock Grid.Row="3"
                    Text="Gitee地址："
-                   Foreground="{StaticResource PrimaryForegroundBrush}"
                    FontSize="18"
                    Style="{StaticResource SecondTitleTextBlockStyle}">
             <Hyperlink Command="{Binding SourceCodeHyperlinkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=NavigateUri}" NavigateUri="https://gitee.com/cook-csharp/CookPopularControl">https://gitee.com/cook-csharp/CookPopularControl</Hyperlink>
         </TextBlock>
         <TextBlock Grid.Row="4"
                    Text="Github地址："
-                   Foreground="{StaticResource PrimaryForegroundBrush}"
                    FontSize="18"
                    Margin="0,20"
                    Style="{StaticResource SecondTitleTextBlockStyle}">

@@ -5593,9 +5593,9 @@
             提供<see cref="T:System.Windows.Controls.Primitives.ScrollBar"/>的附加属性基类
             </summary>
         </member>
-        <member name="F:CookPopularControl.Controls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty">
+        <member name="F:CookPopularControl.Controls.ScrollBarAssistant.IsShowScrollBarRepeatButtonProperty">
             <summary>
-            <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.IsScrollBarRepeatButtonProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.RepeatButton"/>是否显示，默认True
+            <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.IsShowScrollBarRepeatButtonProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.RepeatButton"/>是否显示，默认True
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.ScrollBarAssistant.ThumbInsideMarginProperty">

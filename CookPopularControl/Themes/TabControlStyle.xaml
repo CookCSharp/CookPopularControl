@@ -10,7 +10,7 @@
     <Style x:Key="DefaultTabControlStyle" TargetType="{x:Type TabControl}" BasedOn="{StaticResource TabControlBaseStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
-        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlPressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="pc:TabControlAssistant.IsAddClearButton" Value="True" />
     </Style>
 

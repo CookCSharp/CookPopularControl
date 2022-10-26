@@ -20,7 +20,8 @@ namespace CookPopularControl.Controls
     /// </summary>
     public abstract class BlockBarBase : FrameworkElement
     {
-        private static readonly Brush BlockBrush = ResourceHelper.GetResource<Brush>("PrimaryThemeBrush");
+        private static readonly Brush BlockForegroundBrush = ResourceHelper.GetResource<Brush>("PrimaryThemeBrush");
+        private static readonly Brush BlockBackgroundBrush = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
 
         private Pen _borderPen;
         protected Pen BorderBen
@@ -29,7 +30,7 @@ namespace CookPopularControl.Controls
             {
                 if (_borderPen == null)
                 {
-                    Foreground = ResourceHelper.GetResource<Brush>("AssistantForegroundBrush");
+                    Foreground = BlockForegroundBrush;
                 }
 
                 if (_borderPen == null || _borderPen.Brush != Foreground || _borderPen.Thickness != Thickness.Left)
@@ -138,7 +139,7 @@ namespace CookPopularControl.Controls
             get { return (Brush)GetValue(ForegroundProperty); }
             set { SetValue(ForegroundProperty, value); }
         }
-        public static readonly DependencyProperty ForegroundProperty = Control.ForegroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(BlockBrush, FrameworkPropertyMetadataOptions.AffectsRender));
+        public static readonly DependencyProperty ForegroundProperty = Control.ForegroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(BlockForegroundBrush, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public Brush Background
@@ -146,7 +147,7 @@ namespace CookPopularControl.Controls
             get { return (Brush)GetValue(BackgroundProperty); }
             set { SetValue(BackgroundProperty, value); }
         }
-        public static readonly DependencyProperty BackgroundProperty = Control.BackgroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(BlockBrush, FrameworkPropertyMetadataOptions.AffectsRender));
+        public static readonly DependencyProperty BackgroundProperty = Control.BackgroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(BlockBackgroundBrush, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public Thickness Thickness

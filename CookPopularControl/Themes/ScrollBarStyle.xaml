@@ -92,7 +92,7 @@
                           Content="M 4 0 L 4 8 L 0 4 Z"
                           Command="{x:Static ScrollBar.LineLeftCommand}"
                           IsEnabled="{TemplateBinding IsMouseOver}"
-                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
+                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsShowScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
                           Style="{StaticResource ScrollBarLineButton}" />
             <Border Grid.Column="1"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -116,7 +116,7 @@
                           Content="M 0 0 L 4 4 L 0 8 Z"
                           Command="{x:Static ScrollBar.LineRightCommand}"
                           IsEnabled="{TemplateBinding IsMouseOver}"
-                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
+                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsShowScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
                           Style="{StaticResource ScrollBarLineButton}" />
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
@@ -147,7 +147,7 @@
                           Content="M 0 4 L 8 4 L 4 0 Z"
                           Command="{x:Static ScrollBar.LineUpCommand}"
                           IsEnabled="{TemplateBinding IsMouseOver}"
-                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
+                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsShowScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
                           Style="{StaticResource ScrollBarLineButton}" />
             <Border Grid.Row="1"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -171,7 +171,7 @@
                           Content="M 0 0 L 4 4 L 8 0 Z"
                           Command="{x:Static ScrollBar.LineDownCommand}"
                           IsEnabled="{TemplateBinding IsMouseOver}"
-                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
+                          Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.IsShowScrollBarRepeatButton), Converter={pt:BooleanToVisibilityConverter}}"
                           Style="{StaticResource ScrollBarLineButton}" />
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
@@ -192,14 +192,14 @@
     </ControlTemplate>
 
     <Style x:Key="DefaultScrollBarStyle" TargetType="{x:Type ScrollBar}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
-        <Setter Property="pc:ScrollBarAssistant.IsScrollBarRepeatButton" Value="True" />
+        <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="True" />
         <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
@@ -220,7 +220,7 @@
     </Style>
 
     <Style x:Key="NoRepeatButtonScrollBarStyle" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBarStyle}">
-        <Setter Property="pc:ScrollBarAssistant.IsScrollBarRepeatButton" Value="False" />
+        <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="False" />
     </Style>
 
     <Style x:Key="ThumbMarginScrollBarStyle" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBarStyle}">

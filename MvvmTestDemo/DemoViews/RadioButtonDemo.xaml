@@ -17,21 +17,20 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <RadioButton Content="Default" />
-        <RadioButton Content="Chance"
-                     Foreground="Purple" Background="Green"
-                     Margin="0,20" />
+        <RadioButton Content="Chance" Background="{StaticResource AssistantThemeBrush}" Margin="0,20" />
         <RadioButton Content="写代码的厨子" pc:RadioButtonAssistant.CircleDiameter="30" />
         <RadioButton Content="写代码的厨子"
                      Margin="0,20"
-                     pc:RadioButtonAssistant.CheckedBrush="Green" pc:RadioButtonAssistant.CircleDiameter="30"
-                     Style="{StaticResource FillFullyRadioButtonStyle}" />
+                     pc:RadioButtonAssistant.CheckedBrush="{StaticResource AssistantThemeBrush}"
+                     pc:RadioButtonAssistant.CircleDiameter="30"
+                     Style="{StaticResource RadioButtonFillFullyStyle}" />
         <StackPanel>
-            <RadioButton x:Name="aaa" Content="Default" Style="{StaticResource Demo.RadioButtonCustomStyle}" 
-                         Background="Red"
-                         pc:RadioButtonAssistant.IsAlwaysShowHeader="True"/>
+            <RadioButton x:Name="aaa"
+                         Content="Default"
+                         pc:RadioButtonAssistant.IsAlwaysShowHeader="True"
+                         Style="{StaticResource Demo.RadioButtonCustomStyle}" />
             <RadioButton x:Name="ddd"
                          Content="Chance"
-                         Foreground="Purple" Background="Green"
                          Margin="0,20"
                          Style="{StaticResource Demo.RadioButtonCustomStyle}" />
             <RadioButton x:Name="ccc" Content="Lori" Style="{StaticResource Demo.RadioButtonCustomStyle}" />

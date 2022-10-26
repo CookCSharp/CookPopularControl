@@ -11,11 +11,18 @@
     <SolidColorBrush x:Key="AssistantThemeBrush" Color="{StaticResource AssistantThemeColor}" />
 
     <Color x:Key="BorderBrushColor">#07B5B5</Color>
-    <Color x:Key="ButtonBaseMouseOverColor">#08E7E7</Color>
-    <Color x:Key="ButtonBasePressColor">#07B5B5</Color>
+    <Color x:Key="ControlMouseOverColor">#08E7E7</Color>
+    <Color x:Key="ControlPressColor">#07B5B5</Color>
     <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderBrushColor}" />
-    <SolidColorBrush x:Key="ButtonBaseMouseOverBackground" Color="{StaticResource ButtonBaseMouseOverColor}" />
-    <SolidColorBrush x:Key="ButtonBasePressBackground" Color="{StaticResource ButtonBasePressColor}" />
+    <SolidColorBrush x:Key="ControlMouseOverBackground" Color="{StaticResource ControlMouseOverColor}" />
+    <SolidColorBrush x:Key="ControlPressBackground" Color="{StaticResource ControlPressColor}" />
+
+    <Color x:Key="PrimaryForegroundColor">#4A4A4A</Color>
+    <Color x:Key="AssistantForegroundColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="{StaticResource PrimaryForegroundColor}" />
+    <SolidColorBrush x:Key="AssistantForegroundBrush" Color="{StaticResource AssistantForegroundColor}" />
+    
+    <SolidColorBrush x:Key="RippleFeedback" Color="{x:Static SystemColors.ControlColor}" />
 
     <Color x:Key="DataGridRowSelectedColor">#19F8F8</Color>
     <Color x:Key="DataGridRowMouseOverColor">#08E7E7</Color>

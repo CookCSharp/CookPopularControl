@@ -65,6 +65,11 @@
     <Style x:Key="ToggleButtonTransparentIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonNoMouseOverTransparentIconStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 
@@ -167,9 +172,11 @@
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
@@ -187,13 +194,17 @@
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="{DynamicResource Double20Value}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double20Value}" />
     </Style>
-    <Style x:Key="ToggleButtonTransparentDoubbleIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
-    </Style>
     <Style x:Key="ToggleButtonNoMouseOverTransparentDoubbleIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
         <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style x:Key="ToggleButtonTransparentDoubbleIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonNoMouseOverTransparentDoubbleIconStyle}">
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 
@@ -328,9 +339,11 @@
                     </Viewbox>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{DynamicResource ControlMouseOverBackground}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{DynamicResource ControlPressBackground}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">

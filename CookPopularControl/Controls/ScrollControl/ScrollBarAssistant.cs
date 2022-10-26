@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 
@@ -21,13 +22,13 @@ namespace CookPopularControl.Controls
     /// </summary>
     public class ScrollBarAssistant
     {
-        public static bool GetIsScrollBarRepeatButton(DependencyObject obj) => (bool)obj.GetValue(IsScrollBarRepeatButtonProperty);
-        public static void SetIsScrollBarRepeatButton(DependencyObject obj, bool value) => obj.SetValue(IsScrollBarRepeatButtonProperty, value);
+        public static bool GetIsShowScrollBarRepeatButton(DependencyObject obj) => (bool)obj.GetValue(IsShowScrollBarRepeatButtonProperty);
+        public static void SetIsShowScrollBarRepeatButton(DependencyObject obj, bool value) => obj.SetValue(IsShowScrollBarRepeatButtonProperty, value);
         /// <summary>
-        /// <see cref="IsScrollBarRepeatButtonProperty"/>标识<see cref="RepeatButton"/>是否显示，默认True
+        /// <see cref="IsShowScrollBarRepeatButtonProperty"/>标识<see cref="RepeatButton"/>是否显示，默认True
         /// </summary>
-        public static readonly DependencyProperty IsScrollBarRepeatButtonProperty =
-            DependencyProperty.RegisterAttached("IsScrollBarRepeatButton", typeof(bool), typeof(ScrollBarAssistant), new PropertyMetadata(ValueBoxes.TrueBox));
+        public static readonly DependencyProperty IsShowScrollBarRepeatButtonProperty =
+            DependencyProperty.RegisterAttached("IsShowScrollBarRepeatButton", typeof(bool), typeof(ScrollBarAssistant), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static Thickness GetThumbInsideMargin(DependencyObject obj) => (Thickness)obj.GetValue(ThumbInsideMarginProperty);
         public static void SetThumbInsideMargin(DependencyObject obj, Thickness value) => obj.SetValue(ThumbInsideMarginProperty, value);
@@ -36,6 +37,12 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty ThumbInsideMarginProperty =
             DependencyProperty.RegisterAttached("ThumbInsideMargin", typeof(Thickness), typeof(ScrollBarAssistant), new PropertyMetadata(default(Thickness)));
+
+
+        public static Brush GetScrollBarBrush(DependencyObject obj) => (Brush)obj.GetValue(ScrollBarBrushProperty);
+        public static void SetScrollBarBrush(DependencyObject obj, Brush value) => obj.SetValue(ScrollBarBrushProperty, value);
+        public static readonly DependencyProperty ScrollBarBrushProperty =
+            DependencyProperty.RegisterAttached("ScrollBarBrush", typeof(Brush), typeof(ScrollBarAssistant), new PropertyMetadata(default(Brush)));
 
 
         public static double GetVerticalScrollBarWidth(DependencyObject obj) => (double)obj.GetValue(VerticalScrollBarWidthProperty);

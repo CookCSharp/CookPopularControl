@@ -3,7 +3,7 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultDivideLineStyle" TargetType="{x:Type pc:DivideLine}">
-        <Setter Property="Stroke" Value="{x:Static SystemColors.GrayTextBrush}" />
+        <Setter Property="Stroke" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="StrokeThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

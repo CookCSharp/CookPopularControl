@@ -63,6 +63,11 @@
     <Style x:Key="ButtonTransparentIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentIconStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 
@@ -104,7 +109,7 @@
 
     <Style x:Key="ButtonLinearProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{StaticResource DefaultProgressBarStyle}" />
     </Style>
     <common:InternalStyle x:Key="CircularProgressBarButtonStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarStyle}">
@@ -112,7 +117,7 @@
     </common:InternalStyle>
     <Style x:Key="ButtonCircularProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonTransparentStyle}">
         <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{StaticResource CircularProgressBarButtonStyle}" />
     </Style>
     <common:InternalStyle x:Key="WaveProgressBarButtonStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarStyle}">
@@ -120,7 +125,7 @@
     </common:InternalStyle>
     <Style x:Key="ButtonWaveProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
-        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="pc:ButtonAssist.ProgressBarBrush" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{StaticResource WaveProgressBarButtonStyle}" />
     </Style>
 

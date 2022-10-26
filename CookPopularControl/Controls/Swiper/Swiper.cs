@@ -122,7 +122,7 @@ namespace CookPopularControl.Controls
             rb.Width = 20;
             rb.Height = 20;
             rb.BorderBrush = IndicatorDotBrush;
-            rb.Style = ResourceHelper.GetResource<Style>("FillFullyRadioButtonStyle");
+            rb.Style = ResourceHelper.GetResource<Style>("RadioButtonFillFullyStyle");
             rb.Margin = new Thickness(10, 0, 10, 0);
             rb.Checked += (s, e) =>
             {
