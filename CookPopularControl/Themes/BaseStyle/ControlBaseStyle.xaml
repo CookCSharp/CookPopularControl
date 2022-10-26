@@ -31,7 +31,7 @@
         <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
     </Style>
 

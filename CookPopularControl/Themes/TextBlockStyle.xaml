@@ -8,8 +8,22 @@
 
     <Style x:Key="DefaultTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+    </Style>
+
+    <Style x:Key="ThirdTitleTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextBlockStyle}">
+        <Setter Property="FontSize" Value="{DynamicResource ThirdTitleFontSize}" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="FontFamily" Value="{DynamicResource RobotoFonts}" />
+    </Style>
+
+    <Style x:Key="SecondTitleTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ThirdTitleTextBlockStyle}">
+        <Setter Property="FontSize" Value="{DynamicResource SecondTitleFontSize}" />
+    </Style>
+
+    <Style x:Key="FirstTitleTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ThirdTitleTextBlockStyle}">
+        <Setter Property="FontSize" Value="{DynamicResource FirstTitleFontSize}" />
     </Style>
 
 </ResourceDictionary>

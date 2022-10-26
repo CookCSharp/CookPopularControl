@@ -41,7 +41,7 @@ namespace MvvmTestDemo
         private static readonly Brush[] BrushLists = new Brush[8] { Brushes.DodgerBlue, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Aqua, Brushes.Blue, Brushes.Purple };
         private const string MainWindowBubbleMessageToken = "MainWindowToken";
         private ThemeProvider _themeProvider;
-        private OverViewDemo _overView = new OverViewDemo();
+        private HomePageView _overView = new HomePageView();
         private HashSet<string> _demoFiles;
 
 
