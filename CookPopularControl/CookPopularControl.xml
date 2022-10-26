@@ -50,6 +50,16 @@
             <see cref="F:CookPopularControl.Communal.FrameworkElementBaseAttached.StayDecimalPlaceProperty"/>标识保留几位小数
             </summary>
         </member>
+        <member name="F:CookPopularControl.Communal.FrameworkElementBaseAttached.ControlMouseOverBackgroundProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.FrameworkElementBaseAttached.ControlMouseOverBackgroundProperty"/>标识鼠标浮在控件上的背景色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.FrameworkElementBaseAttached.ControlPressBackgroundProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.FrameworkElementBaseAttached.ControlPressBackgroundProperty"/>标识鼠标焦点在控件上的背景色
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.SelectorAttached">
             <summary>
             提供具有Items子项控件的附加属性基类
@@ -520,6 +530,11 @@
         <member name="F:CookPopularControl.Controls.BlockBarBase.BlockMarginProperty">
             <summary>
             标识<see cref="P:CookPopularControl.Controls.BlockBarBase.BlockMargin"/>依赖属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.BlockBarBase.ThicknessProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.BlockBarBase.Thickness"/>的依赖属性
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.BlockBarCircle">
@@ -5636,6 +5651,11 @@
         <member name="F:CookPopularControl.Controls.SliderAssistant.IsShowValueProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.SliderAssistant.IsShowValueProperty"/>标识显示进度值的附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.SliderAssistant.TextColorProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.SliderAssistant.TextColorProperty"/>标识显示Value的字体颜色
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.SliderAssistant.SliderSelectionRangeFillProperty">

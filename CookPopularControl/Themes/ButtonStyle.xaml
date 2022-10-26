@@ -18,8 +18,8 @@
         <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" />
         <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0" />
         <Setter Property="common:ButtonBaseAttached.IsShowRipple" Value="True" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ControlPressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="pc:ButtonAssist.ImageSource" Value="{x:Null}" />
         <Setter Property="pc:ButtonAssist.ImageWidth" Value="0" />
         <Setter Property="pc:ButtonAssist.ImageHeight" Value="0" />
@@ -36,15 +36,15 @@
     <Style x:Key="ButtonOutlineStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ControlPressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
     </Style>
     <Style x:Key="ButtonNoMouseOverTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentStyle}">
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
 
 
@@ -61,8 +61,8 @@
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonTransparentIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentIconStyle}">
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
 
 
@@ -79,8 +79,8 @@
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonTransparentImageStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentImageStyle}">
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
 
 
@@ -97,8 +97,8 @@
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style x:Key="ButtonTransparentGifStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentGifStyle}">
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
 
 

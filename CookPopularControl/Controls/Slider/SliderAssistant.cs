@@ -18,12 +18,22 @@ namespace CookPopularControl.Controls
     public class SliderAssistant
     {
         public static bool GetIsShowValue(DependencyObject obj) => (bool)obj.GetValue(IsShowValueProperty);
-        public static void SetIsShowValue(DependencyObject obj, bool value) => obj.SetValue(IsShowValueProperty, value);
+        public static void SetIsShowValue(DependencyObject obj, bool value) => obj.SetValue(IsShowValueProperty, ValueBoxes.BooleanBox(value));
         /// <summary>
         /// <see cref="IsShowValueProperty"/>标识显示进度值的附加属性
         /// </summary>
         public static readonly DependencyProperty IsShowValueProperty =
             DependencyProperty.RegisterAttached("IsShowValue", typeof(bool), typeof(SliderAssistant), new PropertyMetadata(ValueBoxes.FalseBox));
+
+
+        public static Brush GetTextColor(DependencyObject obj) => (Brush)obj.GetValue(TextColorProperty);
+        public static void SetTextColor(DependencyObject obj, Brush value) => obj.SetValue(TextColorProperty, value);
+        /// <summary>
+        /// <see cref="TextColorProperty"/>标识显示Value的字体颜色
+        /// </summary>
+        public static readonly DependencyProperty TextColorProperty =
+            DependencyProperty.RegisterAttached("TextColor", typeof(Brush), typeof(SliderAssistant), new PropertyMetadata(default(Brush)));
+
 
         public static Brush GetSliderSelectionRangeFill(DependencyObject obj) => (Brush)obj.GetValue(SliderSelectionRangeFillProperty);
         public static void SetSliderSelectionRangeFill(DependencyObject obj, Brush value) => obj.SetValue(SliderSelectionRangeFillProperty, value);

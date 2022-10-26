@@ -12,8 +12,8 @@
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Default" />
         <Setter Property="common:SelectorAttached.ItemsListBackground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
-        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="pc:ComboBoxAssistant.IsClickDown" Value="True" />
@@ -37,8 +37,8 @@
         <Setter Property="common:SelectorAttached.ItemControlWidth" Value="24" />
         <Setter Property="common:SelectorAttached.ItemControlHeight" Value="24" />
         <Setter Property="common:SelectorAttached.ItemsListBackground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
-        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="请选择..." />
         <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="pc:ComboBoxAssistant.IsClickDown" Value="True" />

@@ -10,7 +10,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="LinearProgressBarBaseStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource SingleControlBaseStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource ControlPressBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -156,9 +157,6 @@
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="IconGrid" />
                         </MultiDataTrigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border" />
-                        </Trigger>
                         <Trigger Property="IsIndeterminate" Value="true">
                             <Setter Property="Width" Value="0.25*" TargetName="width1" />
                             <Setter Property="Width" Value="0.75*" TargetName="width2" />
@@ -170,6 +168,9 @@
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" TargetName="border" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -177,6 +178,9 @@
     </Style>
 
     <Style x:Key="ProgressBarStripeBaseStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource AssistantThemeBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="IsIndeterminate" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
@@ -259,10 +263,10 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CircularProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Foreground" Value="{DynamicResource ControlPressBackground}" />
+    <Style x:Key="CircularProgressBarBaseStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
@@ -407,11 +411,9 @@
         </Setter>
     </Style>
 
-    <Style x:Key="WaveProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Foreground" Value="{DynamicResource ControlPressBackground}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
-        <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+    <Style x:Key="WaveProgressBarBaseStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>

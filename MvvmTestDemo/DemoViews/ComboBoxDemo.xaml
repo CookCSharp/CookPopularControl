@@ -67,7 +67,7 @@
             </ComboBox>
             <ComboBox Width="200"
                       Margin="0,10"
-                      pc:ComboBoxAssistant.DropDownButtonFill="Green" SelectedIndex="0"
+                      pc:ComboBoxAssistant.DropDownButtonFill="Green" IsEditable="True" SelectedIndex="0"
                       Style="{StaticResource AddClearButtonComboBoxStyle}">
                 <ComboBoxItem Content="Chance" />
                 <ComboBoxItem Content="Lori" />
@@ -104,16 +104,17 @@
                       Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}" />
             <ComboBox Width="200"
                       Margin="0,10"
-                      pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete"
+                      pc:SelectorAttached.IsItemDelete="ComboBox_IsItemDelete" IsEditable="True"
                       ItemsSource="{Binding Lists}"
                       SelectedIndex="0"
                       Style="{StaticResource AddClearButtonMultiComboBoxButtonItemsStyle}" />
             <ComboBox Width="200"
-                      pc:SelectorAttached.IsPreviewImage="True"
+                      pc:SelectorAttached.IsPreviewImage="True" IsEditable="True"
                       ItemsSource="{Binding ImageLists}"
                       Style="{StaticResource AddClearButtonMultiComboBoxImageItemsStyle}" />
             <ComboBox Width="200"
                       Margin="0,10,0,0"
+                      IsEditable="True"
                       ItemsSource="{Binding IconLists}"
                       Style="{StaticResource AddClearButtonMultiComboBoxIconItemsStyle}" />
         </StackPanel>

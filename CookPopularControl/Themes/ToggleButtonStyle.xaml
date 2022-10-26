@@ -17,8 +17,8 @@
         <Setter Property="common:FrameworkElementBaseAttached.IconDirection" Value="Right" />
         <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0" />
         <Setter Property="common:ButtonBaseAttached.IsShowRipple" Value="True" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
         <Setter Property="pc:ButtonAssist.ImageSource" Value="{x:Null}" />
         <Setter Property="pc:ButtonAssist.ImageWidth" Value="0" />
         <Setter Property="pc:ButtonAssist.ImageHeight" Value="0" />
@@ -38,15 +38,15 @@
     <Style x:Key="ToggleButtonOutlineStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ControlPressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
     </Style>
     <Style x:Key="ToggleButtonNoMouseOverTransparentStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}">
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style x:Key="ToggleButtonTransparentStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonNoMouseOverTransparentStyle}">
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
 
 
@@ -63,8 +63,8 @@
         <Setter Property="Background" Value="Transparent" />
     </Style>
     <Style x:Key="ToggleButtonTransparentIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonNoMouseOverTransparentIconStyle}">
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
 
 
@@ -167,10 +167,10 @@
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="RootBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="RootBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" />
@@ -189,8 +189,8 @@
     </Style>
     <Style x:Key="ToggleButtonTransparentDoubbleIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="Transparent" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
     </Style>
     <Style x:Key="ToggleButtonNoMouseOverTransparentDoubbleIconStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDoubbleIconStyle}">
         <Setter Property="Background" Value="Transparent" />

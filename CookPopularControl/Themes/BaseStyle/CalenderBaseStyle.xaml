@@ -52,7 +52,7 @@
                                                         Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
                                         <ColorAnimation Storyboard.TargetName="TodayBackground"
                                                         Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                                        To="{DynamicResource ButtonBaseMouseOverColor}"
+                                                        To="{DynamicResource ControlMouseOverColor}"
                                                         Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>

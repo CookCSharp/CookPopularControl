@@ -16,7 +16,7 @@
             <RowDefinition Height="{Binding ElementName=win, Path=ClientTitleBarHeight}" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="{StaticResource AssistantBackgroundBrush}">
+        <Border Grid.Row="0">
             <Button Width="200"
                     Content="123"
                     Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True" />

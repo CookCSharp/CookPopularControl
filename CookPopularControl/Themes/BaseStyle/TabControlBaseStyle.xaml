@@ -39,8 +39,8 @@
                         <Button x:Name="PART_CloseButton" Grid.Column="1"
                                 Width="30"
                                 Background="{TemplateBinding Background}"
-                                common:ButtonBaseAttached.ButtonBaseMouseOverBackground="{DynamicResource ButtonBaseMouseOverBackground}"
-                                common:ButtonBaseAttached.ButtonBasePressBackground="{DynamicResource ButtonBasePressBackground}"
+                                common:FrameworkElementBaseAttached.ControlMouseOverBackground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabControl}},Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}"
+                                common:FrameworkElementBaseAttached.ControlPressBackground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabControl}},Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}"
                                 common:FrameworkElementBaseAttached.CornerRadius="0"
                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                 common:FrameworkElementBaseAttached.IconHeight="10"
@@ -49,10 +49,10 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonBasePressBackground}" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" />
                             <Setter Property="Panel.ZIndex" Value="100" />
                         </Trigger>
                     </ControlTemplate.Triggers>

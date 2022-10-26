@@ -13,6 +13,7 @@
         <Setter Property="common:ThumbAttached.ThumbBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="common:ThumbAttached.ThumbGeometryData" Value="{DynamicResource CircleGeometry}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="5" />
+        <Setter Property="pc:SliderAssistant.TextColor" Value="{DynamicResource AssistantForegroundBrush}" />
         <Setter Property="pc:SliderAssistant.SliderSelectionRangeFill" Value="{DynamicResource AssistantThemeBrush}" />
     </Style>
 

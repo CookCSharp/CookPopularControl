@@ -7,6 +7,7 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
+             Background="White"
              d:DesignHeight="450"
              d:DesignWidth="800">
 
@@ -14,45 +15,41 @@
         <WrapPanel>
             <StackPanel>
                 <Slider Width="300" Height="80"
-                        Foreground="Red" Background="#F0F0F0"
                         Minimum="0" Maximum="100"
                         LargeChange="1" Orientation="Horizontal" SmallChange="1"
                         TickFrequency="10" />
                 <Slider Width="300" Height="80"
-                        Background="#F0F0F0"
                         Value="73"
                         Minimum="0" Maximum="100"
                         Margin="0,20"
                         VerticalContentAlignment="Top"
                         IsDirectionReversed="True" Orientation="Horizontal" />
                 <Slider Width="300" Height="80"
-                        Background="#F0F0F0"
                         Value="25"
                         Minimum="0" Maximum="100"
                         Margin="0,20"
                         VerticalContentAlignment="Center"
-                        IsSelectionRangeEnabled="True" Orientation="Horizontal" SelectionEnd="60"
-                        SelectionStart="40" TickFrequency="10" TickPlacement="Both" />
+                        pc:ThumbAttached.ThumbHeight="80" pc:ThumbAttached.ThumbWidth="80" IsSelectionRangeEnabled="True"
+                        Orientation="Horizontal" SelectionEnd="60" SelectionStart="40"
+                        TickFrequency="10" TickPlacement="Both" />
                 <Slider Width="300" Height="80"
+                        IsEnabled="False"
                         Value="45"
                         Minimum="0" Maximum="100"
-                        IsEnabled="False" Orientation="Horizontal" />
+                        Orientation="Horizontal" />
             </StackPanel>
             <StackPanel Margin="50,0" Orientation="Horizontal">
                 <Slider Width="80" Height="300"
-                        Background="#F0F0F0"
                         Value="73"
                         Minimum="0" Maximum="100"
                         Orientation="Vertical" />
                 <Slider Width="80" Height="300"
-                        Background="#F0F0F0"
                         Value="73"
                         Minimum="0" Maximum="100"
                         Margin="20,0"
                         VerticalContentAlignment="Top"
                         IsDirectionReversed="True" Orientation="Vertical" />
                 <Slider Width="80" Height="300"
-                        Background="#F0F0F0"
                         Value="25"
                         Minimum="0" Maximum="100"
                         Margin="20,0"
@@ -60,9 +57,10 @@
                         IsSelectionRangeEnabled="True" Orientation="Vertical" SelectionEnd="60"
                         SelectionStart="40" TickFrequency="10" TickPlacement="Both" />
                 <Slider Width="80" Height="300"
+                        IsEnabled="False"
                         Value="45"
                         Minimum="0" Maximum="100"
-                        IsEnabled="False" Orientation="Vertical" />
+                        Orientation="Vertical" />
             </StackPanel>
         </WrapPanel>
         <WrapPanel>

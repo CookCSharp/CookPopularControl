@@ -480,7 +480,6 @@
                 <WindowChrome CaptionHeight="30" GlassFrameThickness="-1" />
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="5" />
         <Setter Property="Template">
             <Setter.Value>

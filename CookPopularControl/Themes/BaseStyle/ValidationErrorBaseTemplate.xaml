@@ -16,7 +16,7 @@
                     CornerRadius="2">
                 <TextBlock MaxWidth="250"
                            Text="{Binding [0].ErrorContent}"
-                           Foreground="{DynamicResource AssistantForegroundBrush}"
+                           Foreground="White"
                            Margin="10,5"
                            TextWrapping="Wrap" UseLayoutRounding="false" />
             </Border>

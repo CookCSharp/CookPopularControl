@@ -376,7 +376,7 @@
                                 <Condition Property="CanUserSort" Value="True" />
                                 <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="ColumnHeaderBorder" />
+                            <Setter Property="Background" Value="{DynamicResource ControlMouseOverBackground}" TargetName="ColumnHeaderBorder" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

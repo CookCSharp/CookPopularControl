@@ -24,15 +24,5 @@ namespace CookPopularControl.Communal
         /// </summary>
         public static readonly DependencyProperty IsShowRippleProperty =
             DependencyProperty.RegisterAttached("IsShowRipple", typeof(bool), typeof(ButtonBaseAttached), new PropertyMetadata(ValueBoxes.TrueBox));
-
-        public static Brush GetButtonBaseMouseOverBackground(DependencyObject obj) => (Brush)obj.GetValue(ButtonBaseMouseOverBackgroundProperty);
-        public static void SetButtonBaseMouseOverBackground(DependencyObject obj, Brush value) => obj.SetValue(ButtonBaseMouseOverBackgroundProperty, value);
-        public static readonly DependencyProperty ButtonBaseMouseOverBackgroundProperty =
-            DependencyProperty.RegisterAttached("ButtonBaseMouseOverBackground", typeof(Brush), typeof(ButtonBaseAttached), new PropertyMetadata());
-
-        public static Brush GetButtonBasePressBackground(DependencyObject obj) => (Brush)obj.GetValue(ButtonBasePressBackgroundProperty);
-        public static void SetButtonBasePressBackground(DependencyObject obj, Brush value) => obj.SetValue(ButtonBasePressBackgroundProperty, value);
-        public static readonly DependencyProperty ButtonBasePressBackgroundProperty =
-            DependencyProperty.RegisterAttached("ButtonBasePressBackground", typeof(Brush), typeof(ButtonBaseAttached), new PropertyMetadata());
     }
 }

@@ -99,7 +99,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:WindowsDemo Visibility="Collapsed" />
+        <view:ProgressBarDemo Visibility="Collapsed" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"

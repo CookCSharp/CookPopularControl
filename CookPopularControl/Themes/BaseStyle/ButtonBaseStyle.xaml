@@ -141,10 +141,10 @@
                             <Setter Property="VerticalAlignment" Value="Top" TargetName="ContentGrid" />
                         </MultiTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="RootBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="RootBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" />

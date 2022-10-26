@@ -29,11 +29,11 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollBar}, Path=(common:ButtonBaseAttached.ButtonBaseMouseOverBackground)}" TargetName="RepeatButtonBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollBar}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="RepeatButtonBorder" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <!--<Setter Property="pc:ScrollBarAssistant.IsExecuteCommand" Value="True" />-->
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollBar}, Path=(common:ButtonBaseAttached.ButtonBasePressBackground)}" TargetName="RepeatButtonBorder" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollBar}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="RepeatButtonBorder" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -201,8 +201,8 @@
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
         <Setter Property="pc:ScrollBarAssistant.IsScrollBarRepeatButton" Value="True" />
         <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="{DynamicResource ButtonBaseMouseOverBackground}" />
-        <Setter Property="common:ButtonBaseAttached.ButtonBasePressBackground" Value="{DynamicResource ButtonBasePressBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
                 <Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />

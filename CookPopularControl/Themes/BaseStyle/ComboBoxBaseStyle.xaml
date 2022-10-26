@@ -357,6 +357,7 @@
                                              Width="{TemplateBinding Width}"
                                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                              BorderThickness="0"
+                                             Background="{TemplateBinding Background}"
                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                              common:SelectorAttached.ButtonContent="{TemplateBinding common:SelectorAttached.ButtonContent}"

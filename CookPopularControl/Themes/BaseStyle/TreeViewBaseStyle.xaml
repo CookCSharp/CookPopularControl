@@ -170,7 +170,7 @@
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                            <DiscreteObjectKeyFrame Value="{DynamicResource ButtonBaseMouseOverColor}" KeyTime="0" />
+                                            <DiscreteObjectKeyFrame Value="{DynamicResource ControlMouseOverColor}" KeyTime="0" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Header" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame Value="{DynamicResource AssistantForegroundColor}" KeyTime="0" />
@@ -193,7 +193,7 @@
                                 <VisualState x:Name="SelectedInactive">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame Value="{DynamicResource ButtonBasePressColor}" KeyTime="0" />
+                                            <EasingColorKeyFrame Value="{DynamicResource ControlPressColor}" KeyTime="0" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Header" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame Value="{DynamicResource AssistantForegroundColor}" KeyTime="0" />
@@ -228,14 +228,14 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource ButtonBasePressBackground}" TargetName="Bd" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="Bd" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="true" />
                                 <Condition Property="IsSelectionActive" Value="false" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource ButtonBaseMouseOverBackground}" TargetName="Bd" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="Bd" />
                         </MultiTrigger>
                         <Trigger Property="HasItems" Value="false">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="Expander" />

@@ -99,7 +99,7 @@
                               Background="Red"
                               FontSize="20"
                               Padding="10,0,0,0" ToolTip="CheckCheckBox"
-                              pc:CheckBoxAssistant.FillBrush="{StaticResource PrimaryBackgroundBrush}"
+                              pc:CheckBoxAssistant.FillBrush="White"
                               pc:CheckBoxAssistant.NullFillType="Line" />
                 </WrapPanel>
             </GroupBox>

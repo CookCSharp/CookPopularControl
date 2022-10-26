@@ -37,7 +37,7 @@
                              Margin="10,0,0,0" />
                 </ToolBar>
                 <ToolBar Band="0">
-                    <Menu Background="{StaticResource AssistantBackgroundBrush}">
+                    <Menu>
                         <MenuItem Header="Repository">
                             <MenuItem Header="Date" Style="{StaticResource DefaultMenuItemStyle}">
                                 <MenuItem.Icon>

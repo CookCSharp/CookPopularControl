@@ -62,7 +62,7 @@
 
     <Style x:Key="FloatingDragableItemStyle" TargetType="{x:Type drag:DragableItem}">
         <Style.Setters>
-            <Setter Property="BorderBrush" Value="{StaticResource FieldBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="BorderThickness" Value="4" />
             <Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
             <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />
@@ -140,7 +140,7 @@
 
     <Style x:Key="ToolDragableItemStyle" TargetType="{x:Type drag:HeaderedDragableItem}">
         <Style.Setters>
-            <Setter Property="BorderBrush" Value="{DynamicResource FieldBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
             <Setter Property="BorderThickness" Value="4" />
             <Setter Property="Canvas.Left" Value="{Binding X, RelativeSource={RelativeSource Self}}" />
             <Setter Property="Canvas.Top" Value="{Binding Y, RelativeSource={RelativeSource Self}}" />

@@ -61,7 +61,6 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
                             <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

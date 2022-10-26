@@ -11,8 +11,8 @@
 
     <UserControl.Resources>
         <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource DefaultSliderStyle}">
-            <Setter Property="pc:ThumbAttached.ThumbWidth" Value="16" />
-            <Setter Property="pc:ThumbAttached.ThumbHeight" Value="16" />
+            <!--<Setter Property="pc:ThumbAttached.ThumbWidth" Value="16" />
+            <Setter Property="pc:ThumbAttached.ThumbHeight" Value="16" />-->
         </Style>
     </UserControl.Resources>
 
@@ -34,7 +34,6 @@
             <pc:BlockBarRect Grid.Row="0"
                              Grid.ColumnSpan="2"
                              Height="50"
-                             Foreground="Red" Background="#808000"
                              Value="{Binding ElementName=SliderValue, Path=Value}"
                              Margin="5"
                              BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
@@ -42,16 +41,14 @@
 
             <pc:BlockBarCircle Grid.Row="1"
                                Grid.ColumnSpan="2"
-                               Height="50"
-                               Foreground="Green" Background="#800080"
+                               Height="50" 
                                Value="{Binding ElementName=SliderValue, Path=Value}"
                                BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
                                BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}" />
 
             <pc:BlockBarImage Grid.Row="2"
                               Grid.ColumnSpan="2"
-                              Height="50"
-                              Foreground="Blue" Background="#008080"
+                              Height="50" 
                               ImageSource="../Resources/CarouselViewImages/1.jpg"
                               Value="{Binding ElementName=SliderValue, Path=Value}"
                               BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"

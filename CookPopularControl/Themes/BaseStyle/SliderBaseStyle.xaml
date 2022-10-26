@@ -66,7 +66,6 @@
                                 Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(common:ThumbAttached.ThumbHeight)}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="Transparent"
                                 Margin="-1">
                             <Grid x:Name="GeometryGrid">
                                 <!--<Path Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Slider},Path=(common:ThumbAttached.ThumbGeometryData)}"
@@ -99,7 +98,7 @@
                                     </Grid>
                                 </AdornerDecorator>
                                 <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Slider}, Path=Value}"
-                                           Foreground="{DynamicResource AssistantForegroundBrush}"
+                                           Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(pc:SliderAssistant.TextColor)}"
                                            Margin="8,0,8,8"
                                            VerticalAlignment="Center"
                                            TextAlignment="Center" />
@@ -137,7 +136,7 @@
                                     </Grid>
                                 </AdornerDecorator>
                                 <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Slider}, Path=Value}"
-                                           Foreground="{DynamicResource AssistantForegroundBrush}"
+                                           Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(pc:SliderAssistant.TextColor)}"
                                            Margin="8,0,14,0"
                                            HorizontalAlignment="Center" VerticalAlignment="Center"
                                            TextAlignment="Center" />
@@ -203,19 +202,19 @@
                          Placement="Bottom"
                          Visibility="Collapsed" />
                 <Border Grid.Row="1"
-                        Height="{TemplateBinding common:ThumbAttached.ThumbWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}"
+                        Height="{TemplateBinding common:ThumbAttached.ThumbHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}"
                         Background="{TemplateBinding Foreground}"
                         CornerRadius="4"
-                        Opacity="0.35" />
+                        Opacity="0.5" />
                 <Border x:Name="ValueBorder" Grid.Row="1"
                         Width="{Binding ElementName=PART_Track, Path=DecreaseRepeatButton.ActualWidth}"
-                        Height="{TemplateBinding common:ThumbAttached.ThumbWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}"
+                        Height="{TemplateBinding common:ThumbAttached.ThumbHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}"
                         Background="{TemplateBinding Foreground}"
                         CornerRadius="4,0,0,4"
                         HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <Canvas Grid.Row="1" Height="10" VerticalAlignment="Center">
+                <Canvas Grid.Row="1" Height="{TemplateBinding common:ThumbAttached.ThumbHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}" VerticalAlignment="Center">
                     <Border x:Name="PART_SelectionRange"
-                            Height="10"
+                            Height="{TemplateBinding common:ThumbAttached.ThumbHeight, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}"
                             Background="{TemplateBinding pc:SliderAssistant.SliderSelectionRangeFill}"
                             CornerRadius="4" />
                 </Canvas>
@@ -289,9 +288,9 @@
                         Background="{TemplateBinding Foreground}"
                         CornerRadius="0,0,4,4"
                         HorizontalAlignment="Center" VerticalAlignment="Bottom" />
-                <Canvas Grid.Column="1" Width="10" HorizontalAlignment="Center">
+                <Canvas Grid.Column="1" Width="{TemplateBinding common:ThumbAttached.ThumbWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}" HorizontalAlignment="Center">
                     <Border x:Name="PART_SelectionRange"
-                            Width="10"
+                            Width="{TemplateBinding common:ThumbAttached.ThumbWidth, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.25}"
                             Background="{TemplateBinding pc:SliderAssistant.SliderSelectionRangeFill}"
                             CornerRadius="4" />
                 </Canvas>
@@ -330,17 +329,17 @@
     </ControlTemplate>
 
     <Style x:Key="SliderBaseStyle" TargetType="{x:Type Slider}">
-        <Setter Property="Focusable" Value="False" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="IsMoveToPointEnabled" Value="True" />
         <Setter Property="IsSnapToTickEnabled" Value="False" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="UseLayoutRounding" Value="False" />
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="SnapsToDevicePixels" Value="False" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Horizontal">
                 <Setter Property="Template" Value="{StaticResource SliderHorizontal}" />
@@ -350,7 +349,6 @@
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource UnEnabledBrush}" />
-                <Setter Property="common:ThumbAttached.ThumbBackground" Value="{DynamicResource UnEnabledBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

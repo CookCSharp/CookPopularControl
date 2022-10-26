@@ -1,17 +1,18 @@
-﻿using CookPopularCSharpToolkit.Communal;
-using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-
-
-
-/*
+﻿/*
  * Copyright (c) 2021 All Rights Reserved.
  * Description：BlockBarBase
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-06 14:37:47
  */
+
+
+using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
 namespace CookPopularControl.Controls
 {
     /// <summary>
@@ -19,7 +20,27 @@ namespace CookPopularControl.Controls
     /// </summary>
     public abstract class BlockBarBase : FrameworkElement
     {
+        private static readonly Brush BlockBrush = ResourceHelper.GetResource<Brush>("PrimaryThemeBrush");
+
         private Pen _borderPen;
+        protected Pen BorderBen
+        {
+            get
+            {
+                if (_borderPen == null)
+                {
+                    Foreground = ResourceHelper.GetResource<Brush>("AssistantForegroundBrush");
+                }
+
+                if (_borderPen == null || _borderPen.Brush != Foreground || _borderPen.Thickness != Thickness.Left)
+                {
+                    _borderPen = new Pen(Foreground, Thickness.Left);
+                    _borderPen.Freeze();
+                }
+                return _borderPen;
+            }
+        }
+
 
         /// <summary>
         /// 块状数量
@@ -112,26 +133,12 @@ namespace CookPopularControl.Controls
         }
 
 
-        protected Pen BorderBen
-        {
-            get
-            {
-                if (_borderPen == null || _borderPen.Brush != Foreground)
-                {
-                    _borderPen = new Pen(Foreground, 4);
-                    _borderPen.Freeze();
-                }
-                return _borderPen;
-            }
-        }
-
-
         public Brush Foreground
         {
             get { return (Brush)GetValue(ForegroundProperty); }
             set { SetValue(ForegroundProperty, value); }
         }
-        public static readonly DependencyProperty ForegroundProperty = Control.ForegroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(Brushes.Navy, FrameworkPropertyMetadataOptions.AffectsRender));
+        public static readonly DependencyProperty ForegroundProperty = Control.ForegroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(BlockBrush, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         public Brush Background
@@ -139,7 +146,18 @@ namespace CookPopularControl.Controls
             get { return (Brush)GetValue(BackgroundProperty); }
             set { SetValue(BackgroundProperty, value); }
         }
-        public static readonly DependencyProperty BackgroundProperty = Control.BackgroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(Brushes.Transparent, FrameworkPropertyMetadataOptions.AffectsRender));
+        public static readonly DependencyProperty BackgroundProperty = Control.BackgroundProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(BlockBrush, FrameworkPropertyMetadataOptions.AffectsRender));
+
+
+        public Thickness Thickness
+        {
+            get => (Thickness)GetValue(ThicknessProperty);
+            set => SetValue(ThicknessProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="Thickness"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty ThicknessProperty = Control.BorderThicknessProperty.AddOwner(typeof(BlockBarBase), new FrameworkPropertyMetadata(new Thickness(3), FrameworkPropertyMetadataOptions.AffectsRender));
 
 
         static BlockBarBase()
@@ -151,12 +169,7 @@ namespace CookPopularControl.Controls
 
         protected virtual int GetThreshold(double value, int blockCount)
         {
-            //Contract.Requires<ArgumentOutOfRangeException>(value >= 0 && value <= 1);
-            //Contract.Requires<ArgumentOutOfRangeException>(blockCount > 0);
-
             int blockNumber = Math.Min((int)(value * (blockCount + 1)), blockCount);
-
-            //Debug.Assert(blockNumber <= blockCount && blockNumber >= 0);
 
             return blockNumber;
         }

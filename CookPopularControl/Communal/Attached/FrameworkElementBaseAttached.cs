@@ -64,5 +64,23 @@ namespace CookPopularControl.Communal
         /// </summary>
         public static readonly DependencyProperty StayDecimalPlaceProperty =
             DependencyProperty.RegisterAttached("StayDecimalPlace", typeof(int), typeof(FrameworkElementBaseAttached), new PropertyMetadata(ValueBoxes.Inter0Box));
+
+
+        public static Brush GetControlMouseOverBackground(DependencyObject obj) => (Brush)obj.GetValue(ControlMouseOverBackgroundProperty);
+        public static void SetControlMouseOverBackground(DependencyObject obj, Brush value) => obj.SetValue(ControlMouseOverBackgroundProperty, value);
+        /// <summary>
+        /// <see cref="ControlMouseOverBackgroundProperty"/>标识鼠标浮在控件上的背景色
+        /// </summary>
+        public static readonly DependencyProperty ControlMouseOverBackgroundProperty =
+            DependencyProperty.RegisterAttached("ControlMouseOverBackground", typeof(Brush), typeof(FrameworkElementBaseAttached), new PropertyMetadata(default(Brush)));
+
+
+        public static Brush GetControlPressBackground(DependencyObject obj) => (Brush)obj.GetValue(ControlPressBackgroundProperty);
+        public static void SetControlPressBackground(DependencyObject obj, Brush value) => obj.SetValue(ControlPressBackgroundProperty, value);
+        /// <summary>
+        /// <see cref="ControlPressBackgroundProperty"/>标识鼠标焦点在控件上的背景色
+        /// </summary>
+        public static readonly DependencyProperty ControlPressBackgroundProperty =
+            DependencyProperty.RegisterAttached("ControlPressBackground", typeof(Brush), typeof(FrameworkElementBaseAttached), new PropertyMetadata(default(Brush)));
     }
 }

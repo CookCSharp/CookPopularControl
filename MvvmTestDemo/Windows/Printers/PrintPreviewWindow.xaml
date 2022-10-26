@@ -45,7 +45,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
                 <Setter Property="pc:FrameworkElementBaseAttached.IconWidth" Value="20" />
                 <Setter Property="pc:FrameworkElementBaseAttached.IconHeight" Value="20" />
-                <Setter Property="pc:ButtonBaseAttached.ButtonBaseMouseOverBackground" Value="#E8E9EA" />
+                <Setter Property="pc:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="#E8E9EA" />
             </Style>
             <Style x:Key="DocumentViewerComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
                 <Setter Property="pc:SelectorAttached.ItemMouseOverBackground" Value="#F8F9FA" />

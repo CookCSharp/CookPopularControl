@@ -3,7 +3,7 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultAnimationPathStyle" TargetType="{x:Type pc:AnimationPath}">
-        <Setter Property="Stroke" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Stroke" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="StrokeThickness" Value="{DynamicResource Double20Value}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
