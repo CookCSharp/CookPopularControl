@@ -161,8 +161,7 @@ namespace CookPopularControl.Controls
         /// <see cref="IsShowSerialNumberProperty"/>是否显示排序
         /// </summary>
         public static readonly DependencyProperty IsShowSerialNumberProperty =
-            DependencyProperty.RegisterAttached("IsShowSerialNumber", typeof(bool), typeof(DataGridAssistant),
-                new PropertyMetadata(ValueBoxes.FalseBox, OnIsShowSerialNumberChanged));
+            DependencyProperty.RegisterAttached("IsShowSerialNumber", typeof(bool), typeof(DataGridAssistant), new PropertyMetadata(ValueBoxes.FalseBox, OnIsShowSerialNumberChanged));
 
         private static void OnIsShowSerialNumberChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

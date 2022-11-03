@@ -39,7 +39,8 @@
                                               Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              IsHitTestVisible="False" />
+                                              IsHitTestVisible="False"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
                             <pc:SimpleGrid x:Name="ItemGrid" Grid.Column="1"
                                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemControlWidth)}"
                                            Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemControlHeight)}"
@@ -52,6 +53,7 @@
                                           IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected, Mode=TwoWay}"
                                           Margin="{Binding ElementName=ItemGrid, Path=ActualHeight, Converter={pt:DoubleToLeftRightThicknessConverter}, ConverterParameter=0.15}"
                                           Padding="0" Focusable="False"
+                                          pc:CheckBoxAssistant.FillBrush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:CheckBoxAssistant.FillBrush)}"
                                           Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=CheckBox}" />
                                 <Button x:Name="ItemButton"
                                         Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
@@ -110,16 +112,16 @@
                         <!--<MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True" />
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=(common:SelectorAttached.IsPreviewImage)}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Selector},Path=(common:SelectorAttached.IsPreviewImage)}" Value="True"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
                         </MultiDataTrigger>-->
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemBorder" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemBorder" />
                         </Trigger>
                         <MultiTrigger>
@@ -137,7 +139,6 @@
     </Style>
 
     <Style x:Key="ListBoxBaseStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource ControlBaseStyle}">
-        <Setter Property="Background" Value="White" />
         <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
@@ -154,8 +155,8 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
-                        <ScrollViewer Background="Transparent"
-                                      Focusable="False"
+                        <ScrollViewer Foreground="{TemplateBinding Foreground}"
+                                      FontSize="{TemplateBinding FontSize}"
                                       pc:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding pc:ScrollBarAssistant.HorizontalScrollBarHeight}"
                                       pc:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding pc:ScrollBarAssistant.VerticalScrollBarWidth}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"

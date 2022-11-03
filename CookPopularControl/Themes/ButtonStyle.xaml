@@ -34,17 +34,29 @@
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{StaticResource DefaultProgressBarStyle}" />
     </Style>
     <Style x:Key="ButtonOutlineStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
     </Style>
     <Style x:Key="ButtonNoMouseOverTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="ButtonTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 
@@ -58,7 +70,13 @@
         <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="{DynamicResource Double20Value}" />
     </Style>
     <Style x:Key="ButtonNoMouseOverTransparentIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonIconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="ButtonTransparentIconStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonNoMouseOverTransparentIconStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="Transparent" />

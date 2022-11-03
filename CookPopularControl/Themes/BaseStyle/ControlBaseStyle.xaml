@@ -26,21 +26,26 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ControlBaseStyle" TargetType="{x:Type Control}">
+    <Style x:Key="FixedControlBaseStyle" TargetType="{x:Type Control}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
     </Style>
 
+    <Style x:Key="ControlBaseStyle" TargetType="{x:Type Control}" BasedOn="{StaticResource FixedControlBaseStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
+    </Style>
+
     <Style x:Key="SingleControlBaseStyle" TargetType="{x:Type Control}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
     </Style>
 
-    <Style x:Key="InputControlBaseStyle" TargetType="{x:Type Control}" BasedOn="{StaticResource SingleControlBaseStyle}">
-        <Setter Property="Background" Value="White" />
+    <Style x:Key="InputControlBaseStyle" TargetType="{x:Type Control}" BasedOn="{StaticResource FixedControlBaseStyle}">
+        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}" />
         <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

@@ -17,7 +17,8 @@
                   prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
                   WindowStartupLocation="CenterScreen"
-                  WindowState="Normal">
+                  WindowState="Normal"
+                  Style="{x:Null}">
 
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
@@ -42,7 +43,7 @@
         </behavior:EventTrigger>
     </behavior:Interaction.Triggers>
 
-    <pc:SideBarWindow.ClientTitleBarAdditionalContent>
+    <pc:NormalWindow.ClientTitleBarAdditionalContent>
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
             <Button Command="{Binding HomePageCommand}"
                     ToolTip="主页"
@@ -55,7 +56,7 @@
                           pc:FrameworkElementBaseAttached.IconHeight="16" pc:FrameworkElementBaseAttached.IconWidth="16"
                           Style="{StaticResource WindowIconToggleButtonStyle}" />
         </StackPanel>
-    </pc:SideBarWindow.ClientTitleBarAdditionalContent>
+    </pc:NormalWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
         <Grid Visibility="Visible">
@@ -64,8 +65,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ListBox x:Name="listBox" Grid.Column="0"
-                     Width="0"
-                     FontSize="14" FontWeight="Normal"
+                     Width="0" FontSize="14"
                      pc:FrameworkElementBaseAttached.CornerRadius="0" pc:ScrollBarAssistant.HorizontalScrollBarHeight="8"
                      pc:ScrollBarAssistant.VerticalScrollBarWidth="8"
                      ItemsSource="{Binding ControlNamesList}"
@@ -99,7 +99,7 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:ScrollViewerDemo Visibility="Collapsed" />
+        <view:TreeViewDemo Visibility="Collapsed" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"
@@ -113,7 +113,7 @@
                         Placement="Left"
                         PlacementTarget="{Binding ElementName=themeTb}"
                         StaysOpen="False" VerticalOffset="30">
-            <Border Width="160" Height="180"
+            <Border Width="210" Height="180"
                     Background="White"
                     Margin="5"
                     Effect="{StaticResource ShadowEffectDepth0}">

@@ -34,7 +34,7 @@
                                                   ContentStringFormat="{TemplateBinding pc:LabelAssistant.HeaderStringFormat}"
                                                   ContentTemplateSelector="{TemplateBinding pc:LabelAssistant.HeaderTemplateSelector}"
                                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                  TextElement.Foreground="{TemplateBinding Foreground}" />
+                                                  TextElement.Foreground="{DynamicResource PrimaryForegroundBrush}" />
                             </Border>
                             <ContentPresenter x:Name="PART_Content"
                                               Content="{TemplateBinding Content}"
@@ -42,7 +42,8 @@
                                               Margin="{TemplateBinding Padding}"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -79,7 +80,7 @@
                                                   ContentStringFormat="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemStringFormat}"
                                                   ContentTemplateSelector="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=ItemTemplateSelector}"
                                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                  TextElement.Foreground="{TemplateBinding Foreground}" />
+                                                  TextElement.Foreground="{DynamicResource PrimaryForegroundBrush}" />
                             </Border>
                             <ContentPresenter x:Name="PART_Content"
                                               Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}"

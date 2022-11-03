@@ -31,7 +31,9 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <ScrollViewer x:Name="PART_ContentHost"
+                                          Foreground="{TemplateBinding Foreground}"
                                           Background="Transparent"
+                                          FontSize="{TemplateBinding FontSize}"
                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                           Focusable="False"
                                           HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"

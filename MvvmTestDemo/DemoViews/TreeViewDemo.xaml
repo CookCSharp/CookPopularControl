@@ -22,8 +22,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TreeView Grid.Column="0"
-                  pc:TreeViewAssistant.IsShowSelectedIcon="True"
                   Width="200" Height="300"
+                  pc:TreeViewAssistant.IsShowSelectedIcon="True"
                   ItemsSource="{Binding TreeViewDemoItems}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">

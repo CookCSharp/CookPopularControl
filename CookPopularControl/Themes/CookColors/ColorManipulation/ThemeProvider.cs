@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookPopularControl.Communal.Data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,6 +10,8 @@ using System.Resources;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Baml2006;
+using System.Windows.Controls;
+using System.Xml.Linq;
 
 
 
@@ -18,13 +21,15 @@ using System.Windows.Baml2006;
  * Author： Chance_写代码的厨子
  * Create Time：2021-08-13 16:21:47
  */
-namespace CookPopularControl.Themes.CookColors
+namespace CookPopularControl.Themes
 {
     public class ThemeProvider
     {
         private static ResourceDictionary _lastInsertResourceDictionary;
         private const string Pattern = @"^themes\/cookcolors\/(?<colorname>[a-z]+)color\.baml$";
+
         public Dictionary<string, ResourceDictionary> Themes { get; }
+        public static event ThemeEventHandler<ResourceDictionary> ThemeChanged;
 
         public ThemeProvider() : this(Assembly.GetExecutingAssembly())
         {
@@ -89,6 +94,8 @@ namespace CookPopularControl.Themes.CookColors
                     Application.Current.Resources.MergedDictionaries.Remove(_lastInsertResourceDictionary);
                 Application.Current.Resources.MergedDictionaries.Insert(replaceResourceDictionaryIndex, Themes[key.ToLower()]);
                 _lastInsertResourceDictionary = Themes[key.ToLower()];
+
+                ThemeChanged?.Invoke(new Control(), new ThemeChangedArg<ResourceDictionary>(Themes[key.ToLower()]));
             }
         }
 

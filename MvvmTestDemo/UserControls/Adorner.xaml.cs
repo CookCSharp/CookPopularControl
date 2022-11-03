@@ -5,9 +5,9 @@ namespace MvvmTestDemo.UserControls
     /// <summary>
     /// AdornerDemo.xaml 的交互逻辑
     /// </summary>
-    public partial class AdornerDemo : UserControl
+    public partial class Adorner : UserControl
     {
-        public AdornerDemo()
+        public Adorner()
         {
             InitializeComponent();
         }

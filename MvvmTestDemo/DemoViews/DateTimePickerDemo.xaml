@@ -35,7 +35,7 @@
                             VerticalContentAlignment="Bottom"
                             pc:FrameworkElementBaseAttached.CornerRadius="0"
                             Style="{StaticResource DefaultDatePickerStyle}" />
-                <Calendar BorderBrush="DodgerBlue" BorderThickness="2"
+                <Calendar BorderBrush="Red" BorderThickness="2"
                           IsEnabled="True"
                           Style="{StaticResource DefaultCalendarStyle}" />
             </StackPanel>

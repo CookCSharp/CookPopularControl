@@ -21,7 +21,7 @@
         <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
         <Setter Property="pc:ScrollBarAssistant.VerticalScrollBarWidth" Value="0" />
         <Setter Property="pc:ScrollBarAssistant.HorizontalScrollBarHeight" Value="0" />
-        <Setter Property="pc:ScrollBarAssistant.ScrollBarBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="pc:ScrollBarAssistant.ScrollBarBrush" Value="{DynamicResource ScrollBarBrush}" />
         <Setter Property="pc:ScrollViewerAssistant.IsCornerShow" Value="False" />
         <Setter Property="pc:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
         <Setter Property="Template">

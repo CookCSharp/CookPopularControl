@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:common="clr-namespace:CookPopularControl.Communal">
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ListBoxItemBaseStyle.xaml" />
@@ -20,6 +21,7 @@
 
     <Style x:Key="ListBoxCheckBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="CheckBox" />
+        <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
 
     <Style x:Key="ListBoxButtonStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
@@ -30,7 +32,7 @@
 
     <Style x:Key="ListBoxIconStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Icon" />
-        <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
 
     <Style x:Key="ListBoxImageStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">

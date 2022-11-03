@@ -6,12 +6,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
+             Foreground="#2C2C2C"
              d:DesignHeight="450"
              d:DesignWidth="800">
 
     <Grid Width="600" Height="200"
           HorizontalAlignment="Center" VerticalAlignment="Center"
-          pc:GridLinesAssistant.GridLineBrush="{StaticResource PrimaryThemeBrush}"
+          pc:GridLinesAssistant.GridLineBrush="{DynamicResource PrimaryThemeBrush}"
           pc:GridLinesAssistant.GridLineThickness="2" pc:GridLinesAssistant.ShowBorder="True"
           ShowGridLines="False">
         <Grid.RowDefinitions>

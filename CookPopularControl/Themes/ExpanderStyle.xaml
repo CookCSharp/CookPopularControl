@@ -162,11 +162,11 @@
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetName="ExpanderButton"
                                                         Storyboard.TargetProperty="(ButtonBase.Foreground).(SolidColorBrush.Color)"
-                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        To="{DynamicResource ControlForegroundColor}"
                                                         Duration="0:0:0.2" />
                                         <ColorAnimation Storyboard.TargetName="ContentPresenter"
                                                         Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
-                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        To="{DynamicResource ControlForegroundColor}"
                                                         Duration="0:0:0.2" />
                                         <ColorAnimation Storyboard.TargetName="ExpanderButton"
                                                         Storyboard.TargetProperty="(ButtonBase.Background).(SolidColorBrush.Color)"
@@ -455,11 +455,11 @@
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetName="ExpanderButton"
                                                         Storyboard.TargetProperty="(ButtonBase.Foreground).(SolidColorBrush.Color)"
-                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        To="{DynamicResource ControlForegroundColor}"
                                                         Duration="0:0:0.2" />
                                         <ColorAnimation Storyboard.TargetName="ContentPresenter"
                                                         Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
-                                                        To="{DynamicResource AssistantForegroundColor}"
+                                                        To="{DynamicResource ControlForegroundColor}"
                                                         Duration="0:0:0.2" />
                                         <ColorAnimation Storyboard.TargetName="ExpanderButton"
                                                         Storyboard.TargetProperty="(ButtonBase.Background).(SolidColorBrush.Color)"

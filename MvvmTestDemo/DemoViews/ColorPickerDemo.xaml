@@ -12,9 +12,10 @@
              d:DesignWidth="800">
 
     <StackPanel VerticalAlignment="Center">
-        <pc:ColorPicker Background="#F9C8A0" />
+        <pc:ColorPicker />
         <Button Width="200" Height="35"
                 Content="OpenColorDialog"
+                Margin="0,20,0,0"
                 Click="Button_Click" />
     </StackPanel>
 

@@ -5,6 +5,7 @@
     <!--  **********以下保持不变***********  -->
 
     <SolidColorBrush x:Key="FieldBorderBrush" Color="{x:Static SystemColors.ActiveBorderColor}" />
+    <SolidColorBrush x:Key="ScrollBarBrush" Color="{x:Static SystemColors.ScrollBarColor}" />
     <SolidColorBrush x:Key="FieldPlaceHolderBrush" Color="#D3D3D3" />
     <SolidColorBrush x:Key="FieldValidationErrorBrush" Color="#FF1F1F" />
 

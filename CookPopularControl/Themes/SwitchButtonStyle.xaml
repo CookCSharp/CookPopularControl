@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultSwitchButtonStyle" TargetType="{x:Type pc:SwitchButton}" BasedOn="{StaticResource SwitchButtonBaseStyle}">
-        <Setter Property="SwicthCloseBackground" Value="{DynamicResource LinearThemeBrush}" />
+        <Setter Property="SwicthCloseBackground" Value="{DynamicResource UnEnabledDarkBrush}" />
         <Setter Property="SwitchOpenBackground" Value="{DynamicResource PrimaryThemeBrush}" />
     </Style>
 

@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Windows;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MvvmTestDemo.Windows
 {
@@ -15,7 +16,8 @@ namespace MvvmTestDemo.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            var bc = win.Template.FindName("RootBorder", win) as Border;
+            var ss = bc.Background;
         }
     }
 }

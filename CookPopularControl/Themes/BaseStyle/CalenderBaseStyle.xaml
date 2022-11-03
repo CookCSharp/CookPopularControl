@@ -47,9 +47,10 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="TodayBackground" Storyboard.TargetProperty="Opacity"
                                                          To="1" Duration="0:0:0.2" />
-                                        <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
-                                                        Storyboard.TargetName="NormalText"
-                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
+                                        <ColorAnimation Storyboard.TargetName="NormalText"
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource ControlForegroundColor}"
+                                                        Duration="0:0:0.2" />
                                         <ColorAnimation Storyboard.TargetName="TodayBackground"
                                                         Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
                                                         To="{DynamicResource ControlMouseOverColor}"
@@ -69,7 +70,7 @@
                                                          To="1" Duration="0:0:0.2" />
                                         <ColorAnimation Storyboard.TargetName="SelectedBackground"
                                                         Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                                        To="{DynamicResource PrimaryThemeColor}"
+                                                        To="{DynamicResource ControlForegroundColor}"
                                                         Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>
@@ -165,9 +166,10 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="SelectedBackground" Storyboard.TargetProperty="Opacity"
                                                          To="0.7" Duration="0:0:0.2" />
-                                        <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
-                                                        Storyboard.TargetName="NormalText"
-                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
+                                        <ColorAnimation Storyboard.TargetName="NormalText"
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource ControlForegroundColor}"
+                                                        Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -206,9 +208,10 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="TodayBackground" Storyboard.TargetProperty="Opacity"
                                                          To="1" Duration="0:0:0.2" />
-                                        <!--<ColorAnimation Duration="0:0:0.2" To="{DynamicResource AssistantForegroundColor}"
-                                                        Storyboard.TargetName="NormalText"
-                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"/>-->
+                                        <ColorAnimation Storyboard.TargetName="NormalText"
+                                                        Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                        To="{DynamicResource ControlForegroundColor}"
+                                                        Duration="0:0:0.2" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -226,6 +229,11 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsToday" Value="True">
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource ControlForegroundBrush}" TargetName="NormalText" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -445,8 +453,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CalenderBaseStyle" TargetType="{x:Type Calendar}" BasedOn="{StaticResource ControlBaseStyle}">
-        <Setter Property="Background" Value="White" />
+    <Style x:Key="CalenderBaseStyle" TargetType="{x:Type Calendar}" BasedOn="{StaticResource FixedControlBaseStyle}">
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}" />
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}" />
         <Setter Property="CalendarItemStyle" Value="{StaticResource CalendarItemStyle}" />

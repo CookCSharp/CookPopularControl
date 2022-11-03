@@ -53,14 +53,14 @@
                         BorderThickness="1"
                         Margin="10,0" ToolTip="OutlineButton"
                         Style="{StaticResource ButtonOutlineStyle}" />
-                <Button Width="120"
-                        Content="TransparentButton"
-                        ToolTip="TransparentButton"
-                        Style="{StaticResource ButtonTransparentStyle}" />
                 <Button Width="200"
                         Content="NoMouseOverTransparentButton"
-                        Margin="10,0" ToolTip="NoMouseOverTransparentButton"
+                        ToolTip="NoMouseOverTransparentButton"
                         Style="{StaticResource ButtonNoMouseOverTransparentStyle}" />
+                <Button Width="120"
+                        Content="TransparentButton"
+                        Margin="10,0" ToolTip="TransparentButton"
+                        Style="{StaticResource ButtonTransparentStyle}" />
             </WrapPanel>
             <TextBlock Grid.Row="1" Grid.Column="0"
                        Text="AnimationButton:"
@@ -127,14 +127,14 @@
                         Margin="10,10,0,0" ToolTip="IconButton"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource CloseCircleGeometry}"
                         Style="{StaticResource ButtonIconStyle}" />
-                <Button Width="40" Height="40" 
-                        Margin="10,10,0,0" ToolTip="IconTransparentButton"
-                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
-                        Style="{StaticResource ButtonTransparentIconStyle}" />
                 <Button Width="40" Height="40"
                         Margin="10,10,0,0" ToolTip="NoMouseOverIconTransparentButton"
                         pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
                         Style="{StaticResource ButtonNoMouseOverTransparentIconStyle}" />
+                <Button Width="40" Height="40"
+                        Margin="10,10,0,0" ToolTip="IconTransparentButton"
+                        pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource SuccessGeometry}"
+                        Style="{StaticResource ButtonTransparentIconStyle}" />
             </WrapPanel>
             <TextBlock Grid.Row="3" Grid.Column="0"
                        Text="ButtonWithImage:"
@@ -317,7 +317,7 @@
                 <Button Width="100" Height="100"
                         FontSize="20"
                         ToolTip="WaveProgressButton"
-                        pc:ButtonAssist.ProgressBarBrush="LimeGreen"
+                        pc:ButtonAssist.ProgressBarBrush="{DynamicResource PrimaryThemeBrush}"
                         pc:ButtonAssist.ProgressValue="{Binding Value, Mode=TwoWay}"
                         pc:FrameworkElementBaseAttached.CornerRadius="100" Click="Button_Click"
                         Style="{StaticResource ButtonWaveProgressStyle}" />

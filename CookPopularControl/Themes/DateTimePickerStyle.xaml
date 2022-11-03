@@ -11,7 +11,7 @@
 
     <Style x:Key="DefaultCalendarStyle" TargetType="{x:Type Calendar}" BasedOn="{StaticResource CalenderBaseStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
-        <Setter Property="pc:CalendarAssistant.TitleBackgroundBrush" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="pc:CalendarAssistant.TitleBackgroundBrush" Value="White" />
         <Setter Property="pc:CalendarAssistant.WeekForegroundBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
 

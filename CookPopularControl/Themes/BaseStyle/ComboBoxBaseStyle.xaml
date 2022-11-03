@@ -91,9 +91,9 @@
     </Style>
 
     <Style x:Key="ComnoBoxItemStyle" TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource ListBoxItemStyle}">
-        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Width}" />
-        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Height}" />
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Foreground}" />
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Width}" />
+        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Height}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Foreground}" />
     </Style>
 
     <!--  SimpleComboBox  -->
@@ -112,7 +112,7 @@
                     <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Foreground}" />
                     <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Height}" />
                     <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=Width}" />
-                    <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
+                    <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ComboBoxItem}">
@@ -186,7 +186,7 @@
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      Style="{StaticResource ComboBoxEditableTextBox}" />
                             <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
-                                              Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=Padding}"
+                                              Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               IsHitTestVisible="False" />
@@ -357,6 +357,7 @@
                                              Width="{TemplateBinding Width}"
                                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                              BorderThickness="0"
+                                             Foreground="{TemplateBinding Foreground}"
                                              Background="{TemplateBinding Background}"
                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -368,7 +369,7 @@
                                              common:SelectorAttached.ItemControlHeight="{TemplateBinding common:SelectorAttached.ItemControlHeight}"
                                              common:SelectorAttached.ItemControlWidth="{TemplateBinding common:SelectorAttached.ItemControlWidth}"
                                              common:SelectorAttached.SelectorItemType="{TemplateBinding common:SelectorAttached.SelectorItemType}"
-                                             pc:RippleAssist.Feedback="{DynamicResource RippleFeedback}"
+                                             pc:RippleAssist.Feedback="{TemplateBinding pc:RippleAssist.Feedback}"
                                              pc:RippleAssist.IsDisabled="{TemplateBinding pc:RippleAssist.IsDisabled}"
                                              ItemTemplate="{TemplateBinding ItemTemplate}"
                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Extended" />

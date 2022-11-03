@@ -21,7 +21,7 @@
                     Content="123"
                     Click="Button_Click" WindowChrome.IsHitTestVisibleInChrome="True" />
         </Border>
-        <Border Grid.Row="1" Background="Green" />
+        <Border Grid.Row="1" />
     </Grid>
 
 </pc:NoneTitleBarWindow>

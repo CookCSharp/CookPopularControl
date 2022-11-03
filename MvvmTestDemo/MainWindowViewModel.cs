@@ -1,5 +1,5 @@
 ﻿using CookPopularControl.Controls;
-using CookPopularControl.Themes.CookColors;
+using CookPopularControl.Themes;
 using CookPopularControl.Windows;
 using CookPopularCSharpToolkit.Communal;
 using MvvmTestDemo.Commumal;
@@ -12,7 +12,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media;
-
 
 
 /*
@@ -38,7 +37,7 @@ namespace MvvmTestDemo
             }
         }
 
-        private static readonly Brush[] BrushLists = new Brush[8] { Brushes.DodgerBlue, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Aqua, Brushes.Blue, Brushes.Purple };
+        private static readonly Brush[] BrushLists = new Brush[10] { Brushes.DodgerBlue, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Aqua, Brushes.Blue, Brushes.Purple, "#F0F0F0".ToBrush(), Brushes.Black };
         private const string MainWindowBubbleMessageToken = "MainWindowToken";
         private ThemeProvider _themeProvider;
         private HomePageView _overView = new HomePageView();
@@ -161,6 +160,10 @@ namespace MvvmTestDemo
             var colorName = BrushLists[SelectedThemeIndex].ToColorFromBrush().GetColorName();
             if (colorName == null)
                 colorName = "DodgerBlue";
+            else if (colorName == "WhiteSmoke")
+                colorName = "Light";
+            else if (colorName == "Black")
+                colorName = "Dark";
 
             _themeProvider.SetAppTheme(colorName, 2);
         }

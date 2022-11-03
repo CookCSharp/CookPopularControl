@@ -15,7 +15,7 @@
         <Setter Property="Effect" Value="{x:Null}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
+        <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -78,7 +78,8 @@
                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                          ContentSource="Content" />
+                                                          TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                          TextElement.Foreground="{TemplateBinding Foreground}" />
                                     </Grid>
                                 </DockPanel>
                             </Border>
@@ -141,11 +142,9 @@
                             <Setter Property="VerticalAlignment" Value="Top" TargetName="ContentGrid" />
                         </MultiTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AssistantForegroundBrush}" />
                             <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ButtonBase}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">

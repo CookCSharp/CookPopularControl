@@ -4,11 +4,12 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/NumericUpDownStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ColorPickerSliderRepeatButtonStyle" TargetType="RepeatButton">
+    <Style x:Key="ColorPickerSliderRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Focusable" Value="false" />
@@ -22,10 +23,10 @@
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="ColorPickerSliderThumbHorizontalTemplate" TargetType="Thumb">
+    <ControlTemplate x:Key="ColorPickerSliderThumbHorizontalTemplate" TargetType="{x:Type Thumb}">
         <Border Width="8" Height="24" Background="#888888" />
     </ControlTemplate>
-    <ControlTemplate x:Key="ColorPickerSliderHorizontal" TargetType="Slider">
+    <ControlTemplate x:Key="ColorPickerSliderHorizontal" TargetType="{x:Type Slider}">
         <pc:SimpleGrid>
             <Border MaxHeight="18" Background="{TemplateBinding Background}" />
             <Border MaxHeight="18" Background="{TemplateBinding Foreground}">
@@ -57,12 +58,11 @@
         </pc:SimpleGrid>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ColorPickerSliderThumbVerticalTemplate" TargetType="Thumb">
+    <ControlTemplate x:Key="ColorPickerSliderThumbVerticalTemplate" TargetType="{x:Type Thumb}">
         <Border Width="18" Height="18"
-                Background="#FFFFFF"
-                CornerRadius="9" />
+                Background="#FFFFFF" CornerRadius="9" />
     </ControlTemplate>
-    <ControlTemplate x:Key="ColorPickerSliderVertical" TargetType="Slider">
+    <ControlTemplate x:Key="ColorPickerSliderVertical" TargetType="{x:Type Slider}">
         <pc:SimpleGrid>
             <Border MaxWidth="18" Background="{TemplateBinding Background}" />
             <Border MaxWidth="18" Background="{TemplateBinding Foreground}">
@@ -94,7 +94,7 @@
         </pc:SimpleGrid>
     </ControlTemplate>
 
-    <Style x:Key="ColorPickerSlider" TargetType="Slider">
+    <Style x:Key="ColorPickerSlider" TargetType="{x:Type Slider}">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -161,17 +161,18 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <Style x:Key="DefaultColorPickerStyle" TargetType="{x:Type pc:ColorPicker}">
+    <Style x:Key="DefaultColorPickerStyle" TargetType="{x:Type pc:ColorPicker}" BasedOn="{StaticResource FixedControlBaseStyle}">
         <Setter Property="Width" Value="330" />
         <Setter Property="Height" Value="400" />
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Effect" Value="{DynamicResource ShadowEffectDepth0}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:ColorPicker}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
-                            SnapsToDevicePixels="True">
+                            SnapsToDevicePixels="True"
+                            Effect="{TemplateBinding Effect}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="150" />
@@ -206,8 +207,7 @@
                                     <Border Name="PART_BorderPicker"
                                             Width="12" Height="12"
                                             BorderBrush="#F8F9FA" BorderThickness="1"
-                                            Background="Transparent"
-                                            CornerRadius="6">
+                                            Background="Transparent" CornerRadius="6">
                                         <Border.Effect>
                                             <DropShadowEffect Opacity="0.4" ShadowDepth="0" />
                                         </Border.Effect>

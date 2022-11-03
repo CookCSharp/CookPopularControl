@@ -41,26 +41,28 @@
 
             <pc:BlockBarCircle Grid.Row="1"
                                Grid.ColumnSpan="2"
-                               Height="50" 
+                               Height="50"
                                Value="{Binding ElementName=SliderValue, Path=Value}"
                                BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
                                BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}" />
 
             <pc:BlockBarImage Grid.Row="2"
                               Grid.ColumnSpan="2"
-                              Height="50" 
+                              Height="50"
                               ImageSource="../Resources/CarouselViewImages/1.jpg"
                               Value="{Binding ElementName=SliderValue, Path=Value}"
                               BlockCount="{Binding ElementName=SliderBlockCount, Path=Value}"
                               BlockMargin="{Binding ElementName=SliderBlockMargin, Path=Value}" />
 
             <TextBlock Grid.Row="3" Grid.Column="0"
+                       Width="120"
                        Text="{Binding ElementName=SliderValue, Path=Value, StringFormat=Value:{0:F2}}"
                        VerticalAlignment="Center" />
             <Slider x:Name="SliderValue" Grid.Row="3" Grid.Column="1"
                     Minimum="0" Maximum="1" />
 
             <TextBlock Grid.Row="4" Grid.Column="0"
+                       Width="120"
                        Text="{Binding ElementName=SliderBlockCount, Path=Value, StringFormat=BlockCount:{0:F0}}"
                        VerticalAlignment="Center" />
             <Slider x:Name="SliderBlockCount" Grid.Row="4" Grid.Column="1"
@@ -68,6 +70,7 @@
                     Minimum="1" Maximum="20" />
 
             <TextBlock Grid.Row="5" Grid.Column="0"
+                       Width="120"
                        Text="{Binding ElementName=SliderBlockMargin, Path=Value, StringFormat=BlockMargin:{0:F0}}"
                        VerticalAlignment="Center" />
             <Slider Grid.Row="5" Grid.Column="1"

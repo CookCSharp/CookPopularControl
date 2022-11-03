@@ -21,14 +21,14 @@ namespace MvvmTestDemo.DemoViews
         private void ButtonDefault_Click(object sender, RoutedEventArgs e)
         {
             var win = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            var adornerDemo = new AdornerDemo { Width = win.ActualWidth, Height = win.ActualHeight };
+            var adornerDemo = new Adorner { Width = win.ActualWidth, Height = win.ActualHeight };
             dialogBox = DialogBox.Show(adornerDemo);
             dialogBox.MouseLeftButtonUp += (s, e) => dialogBox.Close();
         }
 
         private void ButtonInherit_Click(object sender, RoutedEventArgs e)
         {
-            dialogBox = DialogBox.Show<AdornerDemo>("DialogBoxContainer");
+            dialogBox = DialogBox.Show<Adorner>("DialogBoxContainer");
         }
     }
 }

@@ -4,6 +4,10 @@
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <ContextMenu x:Key="DefaultContextMenu">
         <MenuItem Command="Cut">
             <MenuItem.Icon>
@@ -89,7 +93,7 @@
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=MenuBase}, Path=Foreground}" />
         <Setter Property="Padding" Value="6,0" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="pc:RippleAssist.Feedback" Value="#FFFFFF" />
+        <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
@@ -124,7 +128,8 @@
                                                           Content="{TemplateBinding Icon}"
                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                          ContentSource="Icon" />
+                                                          ContentSource="Icon"
+                                                          TextElement.Foreground="{TemplateBinding Foreground}" />
                                     </Grid>
                                     <Grid x:Name="GlyphWrapper" Margin="10,0" Visibility="Collapsed">
                                         <Viewbox x:Name="GlyphPanel"
@@ -282,12 +287,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultMenuBaseStyle" TargetType="{x:Type MenuBase}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+    <Style x:Key="DefaultMenuBaseStyle" TargetType="{x:Type MenuBase}" BasedOn="{StaticResource SingleControlBaseStyle}">
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultMenuItemStyle}" />
-        <Setter Property="Height" Value="{DynamicResource Double30Value}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuBase}">
@@ -341,7 +345,8 @@
     <Style x:Key="CircleMenuStyle" TargetType="{x:Type pc:CircleMenu}">
         <Setter Property="Width" Value="50" />
         <Setter Property="Height" Value="50" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:CircleMenu}">
@@ -384,13 +389,14 @@
                         <ToggleButton x:Name="PART_PopupButton"
                                       Width="{TemplateBinding Width}"
                                       Height="{TemplateBinding Height}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                       common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding Height}"
                                       common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding Width}"
                                       pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
                                       pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
-                                      IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
-                                      Style="{DynamicResource ToggleButtonTransparentDoubbleIconStyle}" />
+                                      Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
                         <pc:ExtendPopup x:Name="PART_MenuItems"
                                         AllowsTransparency="True"
                                         IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
@@ -446,7 +452,8 @@
     <Style x:Key="PopupMenuStyle" TargetType="{x:Type pc:PopupMenu}">
         <Setter Property="Width" Value="50" />
         <Setter Property="Height" Value="50" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="PopupPosition" Value="LeftCenter" />
         <Setter Property="PopupAnimation" Value="Slide" />
         <Setter Property="Template">
@@ -458,12 +465,13 @@
                         <ToggleButton x:Name="PART_PopupButton"
                                       Width="{TemplateBinding Width}"
                                       Height="{TemplateBinding Height}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                       common:FrameworkElementBaseAttached.IconHeight="50"
                                       common:FrameworkElementBaseAttached.IconWidth="50"
                                       pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
                                       pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
-                                      IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
                                       Style="{DynamicResource ToggleButtonTransparentDoubbleIconStyle}" />
                         <pc:ExtendPopup x:Name="PART_MenuItems"
                                         AllowsTransparency="True"

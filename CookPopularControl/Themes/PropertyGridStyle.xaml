@@ -67,7 +67,7 @@
     </Style>
 
     <Style x:Key="PropertyGridStyle" TargetType="{x:Type pc:PropertyGrid}">
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="PropertyTitleWidth" Value="150" />
         <Setter Property="Template">

@@ -38,16 +38,17 @@
             </Grid.ColumnDefinitions>
             <Button Content="添加" Click="Button_Click" />
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                <!--
+                    AlternatingRowBackground="NavajoWhite"
+                    RowBackground="FloralWhite"
+                -->
                 <DataGrid Height="Auto"
-                          BorderBrush="Green" BorderThickness="2"
-                          Foreground="Purple"
                           pc:DataGridAssistant.ComboBoxColumnEditingStyle="{StaticResource Demo.DataGridComboBoxColumnEditingStyle}"
                           pc:DataGridAssistant.ComboBoxColumnStyle="{StaticResource Demo.DataGridComboBoxColumnStyle}"
-                          AlternatingRowBackground="NavajoWhite" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
-                          CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
-                          IsReadOnly="False"
+                          AreRowDetailsFrozen="False" AutoGenerateColumns="False" CanUserAddRows="False"
+                          CanUserDeleteRows="False" CanUserReorderColumns="True" IsReadOnly="False"
                           ItemsSource="{Binding Workers}"
-                          RowBackground="FloralWhite" RowHeight="40"
+                          RowHeight="40"
                           Style="{StaticResource DefaultDataGridStyle}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />

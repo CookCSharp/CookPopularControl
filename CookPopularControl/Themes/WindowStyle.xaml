@@ -71,7 +71,7 @@
         <Setter Property="IsFullScreen" Value="False" />
         <Setter Property="ClientTitleBarAdditionalContent" Value="{x:Null}" />
         <Setter Property="ClientTitleBarHeight" Value="{DynamicResource Double30Value}" />
-        <Setter Property="ClientTitleBarForeground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="ClientTitleBarForeground" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="ClientTitleBarBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>

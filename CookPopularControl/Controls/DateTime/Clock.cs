@@ -105,12 +105,13 @@ namespace CookPopularControl.Controls
 
         private void UpdateCurrentValue(int index)
         {
-            int.TryParse(CurrentTime.Substring(0, 2), out int hourValue);
-            if (index.Equals(0))
+            int.TryParse(CurrentTime.Split(':')[0], out int hourValue);
+
+            if (index == 0 && hourValue >= 12)
             {
                 _hourValue = hourValue - 12;
             }
-            else
+            else if (index == 1 && hourValue <= 12)
             {
                 _hourValue = hourValue + 12;
             }
@@ -214,7 +215,7 @@ namespace CookPopularControl.Controls
 
             if (_secondTimer == null)
             {
-                _secondTimer = new DispatcherTimer();
+                _secondTimer = new DispatcherTimer(DispatcherPriority.Normal);
                 _secondTimer.Interval = TimeSpan.FromSeconds(1);
                 _secondTimer.Tick += async (s, e) =>
                 {

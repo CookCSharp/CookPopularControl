@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:dialog="clr-namespace:CookPopularControl.DialogBox"
-                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls"
-                    xmlns:win="clr-namespace:CookPopularControl.Windows">
+                    xmlns:dialog="clr-namespace:CookPopularControl.DialogBox"
+                    xmlns:win="clr-namespace:CookPopularControl.Windows"
+                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables">
 
     <ResourceDictionary.MergedDictionaries>
         <!--  Other Resource Dictionaries  -->
@@ -74,15 +74,14 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DragableControlStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-
+    <Style x:Key="{x:Type dialog:DialogBox}" TargetType="{x:Type dialog:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}" />
     <Style x:Key="{x:Type win:NormalWindow}" TargetType="{x:Type win:NormalWindow}" BasedOn="{StaticResource NormalWindowStyle}" />
     <Style x:Key="{x:Type win:SideBarWindow}" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource SideBarWindowStyle}" />
     <Style x:Key="{x:Type win:NoneTitleBarWindow}" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource NoneTitleBarWindowStyle}" />
     <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource MessageDialogStyle}" />
     <Style x:Key="{x:Type win:ToastMessage}" TargetType="{x:Type win:ToastMessage}" BasedOn="{StaticResource ToastMessageStyle}" />
-    <Style x:Key="{x:Type dialog:DialogBox}" TargetType="{x:Type dialog:DialogBox}" BasedOn="{StaticResource DefaultDialogBoxStyle}" />
 
-  
+
     <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}" />
     <Style x:Key="{x:Type Calendar}" TargetType="{x:Type Calendar}" BasedOn="{StaticResource DefaultCalendarStyle}" />
     <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
@@ -107,7 +106,8 @@
     <Style x:Key="{x:Type Separator}" TargetType="{x:Type Separator}" BasedOn="{StaticResource {x:Static MenuItem.SeparatorStyleKey}}" />
     <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}" BasedOn="{StaticResource DefaultSliderStyle}" />
     <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource DefaultTabControlStyle}" />
-    <!--<Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextBlockStyle}" />-->
+    <!--<Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextBlockStyle}" />
+    <Style x:Key="{x:Type TextElement}" TargetType="{x:Type TextElement}" BasedOn="{StaticResource DefaultTextElementStyle}" />-->
     <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}" />
     <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
     <Style x:Key="{x:Type ToolBar}" TargetType="{x:Type ToolBar}" BasedOn="{StaticResource DefaultToolBarStyle}" />

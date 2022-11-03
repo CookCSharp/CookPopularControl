@@ -9,6 +9,7 @@
              xmlns:userCtl="clr-namespace:MvvmTestDemo.UserControls"
              xmlns:vm="clr-namespace:MvvmTestDemo.DemoViewModels"
              mc:Ignorable="d"
+             Foreground="#2C2C2C"
              d:DataContext="{Binding Source={d:DesignInstance Type=vm:AnimationDemoViewModel}}"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -35,10 +36,11 @@
                  VerticalAlignment="Center">
             <pc:AnimationPath Width="200" Height="200"
                               Data="{StaticResource ArchGeometry}"
+                              IsEnabled="True"
                               Stretch="Uniform"
-                              Duration="0:0:5"
-                              IsEnabled="True" />
+                              Duration="0:0:5" />
         </Viewbox>
+
         <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
@@ -50,7 +52,7 @@
             <DockPanel Grid.Row="0">
                 <TextBlock Width="150"
                            Text="{Binding ElementName=ItemSizeSlider, Path=Value, StringFormat=ItemSize:{0:F2}}"
-                           FontSize="16" FontWeight="DemiBold"
+                           FontSize="14" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="ItemSizeSlider"
                         Value="{Binding TilePanel.ItemWidth, ValidatesOnExceptions=true}"
@@ -60,7 +62,7 @@
             <DockPanel Grid.Row="1">
                 <TextBlock Width="150"
                            Text="{Binding ElementName=DampeningSlider, Path=Value, StringFormat=Dampening:{0:F2}}"
-                           FontSize="16" FontWeight="DemiBold"
+                           FontSize="14" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="DampeningSlider"
                         Value="{Binding TilePanel.Dampening, ValidatesOnExceptions=true}"
@@ -70,7 +72,7 @@
             <DockPanel Grid.Row="2">
                 <TextBlock Width="150"
                            Text="{Binding ElementName=AttractionSlider, Path=Value, StringFormat=Attraction:{0:F2}}"
-                           FontSize="16" FontWeight="DemiBold"
+                           FontSize="14" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="AttractionSlider"
                         Value="{Binding TilePanel.Attraction, ValidatesOnExceptions=true}"
@@ -80,7 +82,7 @@
             <DockPanel Grid.Row="3">
                 <TextBlock Width="150"
                            Text="{Binding ElementName=VariationSlider, Path=Value, StringFormat=Variation:{0:F2}}"
-                           FontSize="16" FontWeight="DemiBold"
+                           FontSize="14" FontWeight="DemiBold"
                            Margin="5,0" />
                 <Slider x:Name="VariationSlider"
                         Value="{Binding TilePanel.Variation, ValidatesOnDataErrors=True}"
@@ -104,7 +106,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
-        <userCtl:AnimationDemo Grid.Row="1" Grid.ColumnSpan="2" />
+        <userCtl:Animation Grid.Row="1" Grid.ColumnSpan="2" />
     </Grid>
 
 

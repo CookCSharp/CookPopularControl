@@ -8,9 +8,9 @@ namespace MvvmTestDemo.UserControls
     /// <summary>
     /// AnimationDemo.xaml 的交互逻辑
     /// </summary>
-    public partial class AnimationDemo : UserControl
+    public partial class Animation : UserControl
     {
-        public AnimationDemo()
+        public Animation()
         {
             InitializeComponent();
         }
