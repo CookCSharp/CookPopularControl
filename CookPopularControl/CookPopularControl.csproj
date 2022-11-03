@@ -42,6 +42,7 @@
 
   <ItemGroup>
 	<None Remove="CookPopularControl.xml" />
+	<None Remove="Resources\Dropper.cur" />
 	<None Remove="Resources\Fonts\Roboto\Roboto-Black.ttf" />
 	<None Remove="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf" />
 	<None Remove="Resources\Fonts\Roboto\Roboto-Bold.ttf" />
@@ -96,6 +97,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	<Resource Include="Resources\Dropper.cur" />
 	<Resource Include="Resources\Fonts\Roboto\Roboto-Black.ttf" />
 	<Resource Include="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf" />
 	<Resource Include="Resources\Fonts\Roboto\Roboto-Bold.ttf" />

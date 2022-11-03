@@ -8,6 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultToolTipStyle" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{DynamicResource AssistantThemeBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HasDropShadow" Value="True" />

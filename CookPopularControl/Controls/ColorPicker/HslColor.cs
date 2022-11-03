@@ -122,7 +122,7 @@ namespace CookPopularControl.Controls
         /// 获取鼠标点所在位置的颜色
         /// </summary>
         /// <returns></returns>
-        private Color GetPixelColor()
+        public static Color GetPixelColor()
         {
             InteropMethods.GetCursorPos(out var mousePoint);
             IntPtr hdc = InteropMethods.GetDC(IntPtr.Zero);

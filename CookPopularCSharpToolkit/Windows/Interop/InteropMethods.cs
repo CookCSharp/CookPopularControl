@@ -280,6 +280,7 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         internal static extern IntPtr GetModuleHandle(string lpModuleName);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]

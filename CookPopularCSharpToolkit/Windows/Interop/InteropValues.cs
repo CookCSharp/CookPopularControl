@@ -197,8 +197,9 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         internal struct MOUSEHOOKSTRUCT
         {
             public POINT pt;
-            public IntPtr hwnd;
-            public uint wHitTestCode;
+            public uint mouseData;
+            public uint flags;
+            public uint time;
             public IntPtr dwExtraInfo;
         }
 

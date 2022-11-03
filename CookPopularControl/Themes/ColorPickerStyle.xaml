@@ -24,7 +24,8 @@
     </Style>
 
     <ControlTemplate x:Key="ColorPickerSliderThumbHorizontalTemplate" TargetType="{x:Type Thumb}">
-        <Border Width="8" Height="24" Background="#888888" />
+        <Border Width="18" Height="18"
+                Background="#FFFFFF" CornerRadius="9" />
     </ControlTemplate>
     <ControlTemplate x:Key="ColorPickerSliderHorizontal" TargetType="{x:Type Slider}">
         <pc:SimpleGrid>
@@ -104,16 +105,6 @@
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
                 <Setter Property="Template" Value="{StaticResource ColorPickerSliderVertical}" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="ColorPickerToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonTransparentIconStyle}">
-        <Setter Property="IsChecked" Value="False" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Style.Triggers>
-            <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryThemeBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -231,14 +222,15 @@
                                     IsMoveToPointEnabled="True" IsSnapToTickEnabled="True" Orientation="Horizontal"
                                     TickFrequency="0.001"
                                     Style="{StaticResource ColorPickerSlider}" />
-                            <ToggleButton Grid.Row="1" Grid.Column="1"
+                            <ToggleButton x:Name="PART_ButtonPickup" Grid.Row="1" Grid.Column="1"
                                           ToolTip="颜色拾取"
                                           common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ColorPickerGeometry}"
                                           common:FrameworkElementBaseAttached.IconHeight="18"
                                           common:FrameworkElementBaseAttached.IconWidth="18"
-                                          Style="{StaticResource ColorPickerToggleButtonStyle}" />
+                                          Style="{StaticResource ToggleButtonTransparentIconStyle}" />
                             <StackPanel Grid.Row="2" Grid.Column="0"
                                         Grid.ColumnSpan="2"
+                                        HorizontalAlignment="Center"
                                         Orientation="Horizontal">
                                 <StackPanel VerticalAlignment="Center">
                                     <Rectangle Width="90" Height="90"

@@ -716,7 +716,9 @@
             <summary>
             颜色选择器
             </summary>
-            <remarks>参考<see cref="T:System.Windows.Forms.ColorDialog"/></remarks>
+            <remarks>
+            参考<see cref="T:System.Windows.Forms.ColorDialog"/>
+            </remarks>
         </member>
         <member name="F:CookPopularControl.Controls.ColorPicker.ColorPanelWidth">
             <summary>

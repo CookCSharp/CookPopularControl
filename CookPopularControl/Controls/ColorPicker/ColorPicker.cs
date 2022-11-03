@@ -5,8 +5,10 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Resources;
 
 
 
@@ -43,12 +45,15 @@ namespace CookPopularControl.Controls
     /// <summary>
     /// 颜色选择器
     /// </summary>
-    /// <remarks>参考<see cref="System.Windows.Forms.ColorDialog"/></remarks>
+    /// <remarks>
+    /// 参考<see cref="System.Windows.Forms.ColorDialog"/>
+    /// </remarks>
     [TemplatePart(Name = ElementColorPanel, Type = typeof(Border))]
     [TemplatePart(Name = ElementBorderPicker, Type = typeof(Border))]
     [TemplatePart(Name = ElementBorderDrag, Type = typeof(Border))]
-    [TemplatePart(Name = ElementSliderOpacity, Type = typeof(System.Windows.Controls.Slider))]
-    [TemplatePart(Name = ElementSliderColor, Type = typeof(System.Windows.Controls.Slider))]
+    [TemplatePart(Name = ElementSliderOpacity, Type = typeof(Slider))]
+    [TemplatePart(Name = ElementSliderColor, Type = typeof(Slider))]
+    [TemplatePart(Name = ElementButtonPickup, Type = typeof(ToggleButton))]
     public class ColorPicker : Control, IDisposable
     {
         private const string ElementColorPanel = "PART_ColorPanel";
@@ -56,6 +61,7 @@ namespace CookPopularControl.Controls
         private const string ElementBorderDrag = "PART_BorderDrag";
         private const string ElementSliderOpacity = "PART_SliderOpacity";
         private const string ElementSliderColor = "PART_SliderColor";
+        private const string ElementButtonPickup = "PART_ButtonPickup";
 
         /// <summary>
         ///     颜色选取面板宽度
@@ -70,8 +76,9 @@ namespace CookPopularControl.Controls
         private Border _colorPanel;
         private Border _borderPicker;
         private Border _borderDrag;
-        private System.Windows.Controls.Slider _sliderOpacity;
-        private System.Windows.Controls.Slider _sliderColor;
+        private Slider _sliderOpacity;
+        private Slider _sliderColor;
+        private ToggleButton _buttonPickup;
 
         /// <summary>
         /// 是否在拖动小球
@@ -92,6 +99,9 @@ namespace CookPopularControl.Controls
         private bool _surpressPropertyChanged;
 
         private bool disposedValue;
+
+        private HookFactory _hookFactory;
+        private MouseWatcher _mouseWatcher;
 
         /// <summary>
         /// 选中的颜色(包含透明度)
@@ -265,12 +275,17 @@ namespace CookPopularControl.Controls
         {
             if (_sliderOpacity != null)
             {
-                _sliderOpacity.ValueChanged -= _sliderOpacity_ValueChanged;
+                _sliderOpacity.ValueChanged -= SliderOpacity_ValueChanged;
             }
 
             if (_sliderColor != null)
             {
-                _sliderColor.ValueChanged -= _sliderColor_ValueChanged;
+                _sliderColor.ValueChanged -= SliderColor_ValueChanged;
+            }
+
+            if (_buttonPickup != null)
+            {
+                _buttonPickup.Click -= ButtonPickup_Click;
             }
 
             base.OnApplyTemplate();
@@ -278,8 +293,9 @@ namespace CookPopularControl.Controls
             _colorPanel = GetTemplateChild(ElementColorPanel) as Border;
             _borderDrag = GetTemplateChild(ElementBorderDrag) as Border;
             _borderPicker = GetTemplateChild(ElementBorderPicker) as Border;
-            _sliderOpacity = GetTemplateChild(ElementSliderOpacity) as System.Windows.Controls.Slider;
-            _sliderColor = GetTemplateChild(ElementSliderColor) as System.Windows.Controls.Slider;
+            _sliderOpacity = GetTemplateChild(ElementSliderOpacity) as Slider;
+            _sliderColor = GetTemplateChild(ElementSliderColor) as Slider;
+            _buttonPickup = GetTemplateChild(ElementButtonPickup) as ToggleButton;
 
             if (_borderDrag != null)
             {
@@ -302,12 +318,17 @@ namespace CookPopularControl.Controls
 
             if (_sliderOpacity != null)
             {
-                _sliderOpacity.ValueChanged += _sliderOpacity_ValueChanged;
+                _sliderOpacity.ValueChanged += SliderOpacity_ValueChanged;
             }
 
             if (_sliderColor != null)
             {
-                _sliderColor.ValueChanged += _sliderColor_ValueChanged;
+                _sliderColor.ValueChanged += SliderColor_ValueChanged;
+            }
+
+            if (_buttonPickup != null)
+            {
+                _buttonPickup.Click += ButtonPickup_Click;
             }
         }
 
@@ -354,11 +375,6 @@ namespace CookPopularControl.Controls
                 _borderPicker.RenderTransform = new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, p.X, p.Y);
             }
 
-            //var pointColor = GetPixelColor();
-            //var color = Color.FromArgb((byte)_sliderOpacity.Value, (byte)pointColor.R, (byte)pointColor.G, (byte)pointColor.B);
-            //SelectedBrush = new SolidColorBrush(color);
-            //SelectedBrushWithoutOpacity = new SolidColorBrush(pointColor);
-
             _pickerCurrentPosition.X = p.X / _colorPanel.ActualWidth;
             _pickerCurrentPosition.Y = p.Y / _colorPanel.ActualHeight;
 
@@ -372,13 +388,13 @@ namespace CookPopularControl.Controls
             UpdateHexColor(currentColor);
         }
 
-        private void _sliderOpacity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SliderOpacity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             var color = SelectedBrush.Color;
             SelectedBrush = new SolidColorBrush(Color.FromArgb((byte)_sliderOpacity.Value, color.R, color.G, color.B));
         }
 
-        private void _sliderColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SliderColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             var panelColor = HslColor.HSLToRGB(new HslColor(e.NewValue, 1, 1));
             ColorPanelBackground = new SolidColorBrush(panelColor);
@@ -388,6 +404,49 @@ namespace CookPopularControl.Controls
 
             UpdateRGBValues(SelectedBrush.Color);
             UpdateHexColor(SelectedBrush.Color);
+        }
+
+        private void ButtonPickup_Click(object sender, RoutedEventArgs e)
+        {
+            if (_hookFactory == null)
+            {
+                _hookFactory = new HookFactory();
+                _mouseWatcher = _hookFactory.GetMouseWatcher();
+            }
+
+            UpdatePickipColor(_buttonPickup.IsChecked!.Value);
+        }
+
+        private void UpdatePickipColor(bool isPickup)
+        {
+            StreamResourceInfo sri = Application.GetResourceStream(new Uri("pack://application:,,,/CookPopularControl;Component/Resources/Dropper.cur"));
+
+            if (isPickup)
+            {
+                Mouse.OverrideCursor = new Cursor(sri.Stream);
+
+                _mouseWatcher.Start();
+                _mouseWatcher.OnMouseInput += ColorPicker_OnMouseInput;
+            }
+            else
+            {
+                Mouse.OverrideCursor = Cursors.Arrow;
+
+                _mouseWatcher.Stop();
+                _mouseWatcher.OnMouseInput -= ColorPicker_OnMouseInput;
+                _hookFactory.Dispose();
+            }
+        }
+
+        private void ColorPicker_OnMouseInput(object sender, MouseHookEventArgs e)
+        {
+            Dispatcher.InvokeAsync(new Action(() =>
+            {
+                var pointColor = HslColor.GetPixelColor();
+                var color = Color.FromArgb((byte)_sliderOpacity.Value, (byte)pointColor.R, (byte)pointColor.G, (byte)pointColor.B);
+                SelectedBrush = new SolidColorBrush(color);
+                SelectedBrushWithoutOpacity = new SolidColorBrush(pointColor);
+            }));
         }
 
         private void UpdateRGBValues(Color color)
@@ -425,6 +484,17 @@ namespace CookPopularControl.Controls
             this.RaiseEvent(arg);
         }
 
+        // TODO: 仅当“Dispose(bool disposing)”拥有用于释放未托管资源的代码时才替代终结器
+        ~ColorPicker()
+        {
+            // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
+            Dispose(disposing: false);
+        }
+
+        public ColorPicker()
+        {
+
+        }
 
         protected virtual void Dispose(bool disposing)
         {
@@ -435,6 +505,7 @@ namespace CookPopularControl.Controls
                     // TODO: 释放托管状态(托管对象)
                     Dispatcher.BeginInvoke(new Action(() =>
                     {
+                        _hookFactory?.Dispose();
                         Window.GetWindow(this)?.Close();
                     }));
                 }
@@ -443,13 +514,6 @@ namespace CookPopularControl.Controls
                 // TODO: 将大型字段设置为 null
                 disposedValue = true;
             }
-        }
-
-        // TODO: 仅当“Dispose(bool disposing)”拥有用于释放未托管资源的代码时才替代终结器
-        ~ColorPicker()
-        {
-            // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
-            Dispose(disposing: false);
         }
 
         public void Dispose()

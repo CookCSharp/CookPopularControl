@@ -37,7 +37,7 @@ namespace MvvmTestDemo
             }
         }
 
-        private static readonly Brush[] BrushLists = new Brush[10] { Brushes.DodgerBlue, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Aqua, Brushes.Blue, Brushes.Purple, "#F0F0F0".ToBrush(), Brushes.Black };
+        private static readonly Brush[] BrushLists = new Brush[10] { Brushes.DodgerBlue, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Aqua, Brushes.Blue, Brushes.Purple, Brushes.WhiteSmoke, Brushes.Black };
         private const string MainWindowBubbleMessageToken = "MainWindowToken";
         private ThemeProvider _themeProvider;
         private HomePageView _overView = new HomePageView();
