@@ -12,23 +12,23 @@
 [![Github stars](https://img.shields.io/github/stars/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl) [![Github forks](https://img.shields.io/github/forks/chancezheng/CookPopularControl.svg?color=red&&logo=github)](https://github.com/chancezheng/CookPopularControl)
 
 ## **介绍**
-CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工具库，提供大量的公共方法）是兼容.NetFramework与.NetCore/.Net，其中参考了一些资料，CookPopularControl目前提供了近70款左右的控件，持续更新，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题。
+CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工具库，提供大量的公共方法）是兼容.NetFramework、.NetCore、.Net5.0/6.0，其中参考了一些资料，CookPopularControl目前提供了近80款左右的控件，持续更新，如果你的项目用到此库，不要忘记点个赞，有问题可加QQ群交流：658794308，欢迎大家参与开发和指出问题。
 ***
 
 ## **代码检测**
 [![效果](https://sonarcloud.io/api/project_badges/quality_gate?project=campaigns-auxiliary-service)](https://sonarcloud.io/project/configuration?analysisMode=GitHubActions&id=chancezheng_CookPopularControl)
 
 ## **使用**
-- Install-Package CookPopularControl -Version 1.0.1.1-dev-20211109
-- Install-Package CookPopularCSharpToolkit --version 1.0.1.1-dev-20211113
+- Install-Package CookPopularControl -Version 1.02
+- Install-Package CookPopularCSharpToolkit --version 1.02
 
 - 添加如下代码即可全部引用
     ```
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DefaultPopularControl.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DefaultPopularColor.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/DefaultPopularControl.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
@@ -51,6 +51,9 @@ CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工
 
 - **CheckBox**
     ![效果](MvvmTestDemo/Resources/Effect/CheckBox.png)
+
+- **ColorPicker**
+    ![效果](MvvmTestDemo/Resources/Effect/ColorPicker.png)
 
 - **ComboBox**
     ![效果](MvvmTestDemo/Resources/Effect/ComboBox.gif)
@@ -102,13 +105,17 @@ CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工
     ![效果](MvvmTestDemo/Resources/Effect/NotifyIcon.png)
 
 - **OtherControls**
-    ![效果](MvvmTestDemo/Resources/Effect/OtherControls.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/Alertor.gif)
+    ![效果](MvvmTestDemo/Resources/Effect/OtherControls.png)
 
 - **PasswordBox**
     ![效果](MvvmTestDemo/Resources/Effect/PasswordBox.gif)
 
 - **ProgressBar**
     ![效果](MvvmTestDemo/Resources/Effect/ProgressBar.gif)
+
+- **PropertyGrid**
+    ![效果](MvvmTestDemo/Resources/Effect/PropertyGrid.png)
 
 - **QRCode/BarCode**
     ![效果](MvvmTestDemo/Resources/Effect/QRCode.gif)
@@ -128,6 +135,9 @@ CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工
 - **Swiper**
     ![效果](MvvmTestDemo/Resources/Effect/Swiper.gif)
 
+- **SwitchButton**
+    ![效果](MvvmTestDemo/Resources/Effect/SwitchButton.png)
+
 - **TabControl**
     ![效果](MvvmTestDemo/Resources/Effect/TabControl.png)
 
@@ -136,6 +146,9 @@ CookPopularControl（WPF控件库）、CookPopularCSharpToolkit（C#的一个工
 
 - **ToggleButton**
     ![效果](MvvmTestDemo/Resources/Effect/ToggleButton.gif)
+
+- **ToolBar**
+    ![效果](MvvmTestDemo/Resources/Effect/ToolBar.png)
     
 - **TreeView**
     ![效果](MvvmTestDemo/Resources/Effect/TreeView.png)

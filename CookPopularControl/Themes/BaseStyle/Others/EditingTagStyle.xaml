@@ -8,15 +8,11 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource SingleControlBaseStyle}">
+    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="6,0,0,0" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HeaderMargin" Value="0,0,6,0" />
         <Setter Property="HeaderHorizontalAlignment" Value="Right" />
         <Setter Property="HeaderVerticalAlignment" Value="Center" />
-        <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
         <Setter Property="common:FrameworkElementBaseAttached.IconHeight" Value="15" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
@@ -39,7 +35,8 @@
                                               Content="{TemplateBinding Header}"
                                               Margin="{TemplateBinding HeaderMargin}"
                                               HorizontalAlignment="{TemplateBinding HeaderHorizontalAlignment}"
-                                              VerticalAlignment="{TemplateBinding HeaderVerticalAlignment}" />
+                                              VerticalAlignment="{TemplateBinding HeaderVerticalAlignment}"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
                             <TextBox x:Name="PART_TextBox" Grid.Column="1"
                                      Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      BorderBrush="{TemplateBinding BorderBrush}"

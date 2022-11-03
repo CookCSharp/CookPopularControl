@@ -9,21 +9,21 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
     <Grid>
-        <WrapPanel Margin="0,50" HorizontalAlignment="Center">
-            <pc:SwitchButton Width="100" Height="30" 
-                              Content="LineCheckBox"
-                              IsEnabled="False"
-                              FontSize="10"
-                              ToolTip="UnEnabled"
-                              pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth1}"
-                              Effect="{StaticResource ShadowEffectDepth1}" />
+        <WrapPanel Margin="0,50" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <pc:SwitchButton Width="100" Height="30"
+                             Content="LineCheckBox"
+                             IsEnabled="False"
+                             FontSize="10"
+                             ToolTip="UnEnabled"
+                             pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth1}"
+                             Effect="{StaticResource ShadowEffectDepth1}" />
             <pc:SwitchButton Width="200" Height="50"
-                              Content="LineCheckBox" IsChecked="True"
-                              IsEnabled="True"
-                              FontSize="20"
-                              Margin="20,0" ToolTip="IsEnabled"
-                              pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth1}"
-                              Effect="{StaticResource ShadowEffectDepth1}" />
+                             Content="LineCheckBox"
+                             IsChecked="True" IsEnabled="True"
+                             FontSize="20"
+                             Margin="20,0" ToolTip="IsEnabled"
+                             pc:FrameworkElementBaseAttached.ShadowEffect="{StaticResource ShadowEffectDepth1}"
+                             Effect="{StaticResource ShadowEffectDepth1}" />
         </WrapPanel>
     </Grid>
 </UserControl>

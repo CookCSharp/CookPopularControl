@@ -18,6 +18,7 @@
 
     <Style x:Key="{x:Static ToolBar.CheckBoxStyleKey}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource DefaultCheckBoxStyle}">
         <Setter Property="Margin" Value="8,0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToolBar}}, Path=Foreground}" />
     </Style>
     <Style x:Key="{x:Static ToolBar.ComboBoxStyleKey}" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBoxStyle}">
@@ -32,6 +33,7 @@
     </Style>-->
     <Style x:Key="{x:Static ToolBar.RadioButtonStyleKey}" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButtonStyle}">
         <Setter Property="Margin" Value="8,0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="pc:RadioButtonAssistant.CheckedBrush" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
     <Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="{x:Type Separator}" BasedOn="{StaticResource VerticalSeparatorStyle}">

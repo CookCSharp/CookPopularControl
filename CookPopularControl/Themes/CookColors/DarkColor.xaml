@@ -10,7 +10,7 @@
     <SolidColorBrush x:Key="PrimaryThemeBrush" Color="{StaticResource PrimaryThemeColor}" />
     <SolidColorBrush x:Key="AssistantThemeBrush" Color="{StaticResource AssistantThemeColor}" />
 
-    <Color x:Key="BorderBrushColor">#202020</Color>
+    <Color x:Key="BorderBrushColor">#606060</Color>
     <Color x:Key="ControlMouseOverColor">#606060</Color>
     <Color x:Key="ControlPressColor">#404040</Color>
     <SolidColorBrush x:Key="BorderBrush" Color="{x:Static SystemColors.ControlDarkColor}" />
