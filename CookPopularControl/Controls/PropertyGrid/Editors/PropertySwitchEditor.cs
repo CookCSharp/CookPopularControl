@@ -1,4 +1,6 @@
 ﻿using CookPopularCSharpToolkit.Windows;
+using System.ComponentModel;
+using System.Drawing.Imaging;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
@@ -17,13 +19,29 @@ namespace CookPopularControl.Controls
 {
     public class PropertySwitchEditor : PropertyItemEditorFactory
     {
-        public override FrameworkElement GetElement(PropertyItem propertyItem) => new SwitchButton
+        private static PropertyItem _propertyItem = new PropertyItem();
+        private SwitchButton _switchButton = new SwitchButton
         {
-            IsEnabled = !propertyItem.IsReadOnly,
+            IsEnabled = !_propertyItem.IsReadOnly,
             HorizontalAlignment = HorizontalAlignment.Left,
-            SwicthCloseBackground = ResourceHelper.GetResource<Brush>("ControlMouseOverBackground"),
+            SwicthCloseBackground = ResourceHelper.GetResource<Brush>("UnEnabledBrush"),
             SwitchOpenBackground = ResourceHelper.GetResource<Brush>("ControlPressBackground"),
         };
+
+        public PropertySwitchEditor()
+        {
+            Themes.ThemeProvider.ThemeChanged += (s, e) =>
+            {
+                _switchButton.SwitchOpenBackground = e.ThemeDictionary["ControlPressBackground"] as Brush;
+            };
+        }
+
+        public override FrameworkElement GetElement(PropertyItem propertyItem)
+        {
+            _propertyItem = propertyItem;
+
+            return _switchButton;
+        }
 
         public override DependencyProperty GetDependencyProperty() => ToggleButton.IsCheckedProperty;
     }

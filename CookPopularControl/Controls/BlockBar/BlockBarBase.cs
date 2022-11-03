@@ -6,9 +6,11 @@
  */
 
 
+using CookPopularControl.Communal.Data;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -23,22 +25,19 @@ namespace CookPopularControl.Controls
         private static readonly Brush BlockForegroundBrush = ResourceHelper.GetResource<Brush>("PrimaryThemeBrush");
         private static readonly Brush BlockBackgroundBrush = ResourceHelper.GetResource<Brush>("UnEnabledBrush");
 
-        private Pen _borderPen;
-        protected Pen BorderBen
-        {
-            get
-            {
-                if (_borderPen == null)
-                {
-                    Foreground = BlockForegroundBrush;
-                }
+        protected Pen BorderBen { get; private set; }
 
-                if (_borderPen == null || _borderPen.Brush != Foreground || _borderPen.Thickness != Thickness.Left)
-                {
-                    _borderPen = new Pen(Foreground, Thickness.Left);
-                    _borderPen.Freeze();
-                }
-                return _borderPen;
+        private void UpdateBorderPen()
+        {
+            if (BorderBen == null)
+            {
+                Foreground = BlockForegroundBrush;
+            }
+
+            if (BorderBen == null || BorderBen.Brush != Foreground || BorderBen.Thickness != Thickness.Left)
+            {
+                BorderBen = new Pen(Foreground, Thickness.Left);
+                BorderBen.Freeze();
             }
         }
 
@@ -166,6 +165,17 @@ namespace CookPopularControl.Controls
             BlockBarBase.MinHeightProperty.OverrideMetadata(typeof(BlockBarBase), new FrameworkPropertyMetadata((double)10));
             BlockBarBase.MinWidthProperty.OverrideMetadata(typeof(BlockBarBase), new FrameworkPropertyMetadata((double)10));
             BlockBarBase.ClipToBoundsProperty.OverrideMetadata(typeof(BlockBarBase), new FrameworkPropertyMetadata(true));
+        }
+
+        public BlockBarBase()
+        {           
+            UpdateBorderPen();
+
+            Themes.ThemeProvider.ThemeChanged += (s, e) =>
+            {
+                Foreground = e.ThemeDictionary["PrimaryThemeBrush"] as Brush;
+                UpdateBorderPen();
+            };
         }
 
         protected virtual int GetThreshold(double value, int blockCount)

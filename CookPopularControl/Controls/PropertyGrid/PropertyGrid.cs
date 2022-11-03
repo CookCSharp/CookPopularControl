@@ -3,7 +3,6 @@ using CookPopularControl.Communal.Data;
 using CookPopularControl.Expression;
 using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
-//using CookPopularCSharpToolkit.Communal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -167,6 +166,18 @@ namespace CookPopularControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategoryCommand, SortByCategory, (s, e) => e.CanExecute = true));
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByNameCommand, SortByName, (s, e) => e.CanExecute = true));
+
+            //Themes.ThemeProvider.ThemeChanged += (s, e) =>
+            //{
+            //    var propertyDescriptors = TypeDescriptor.GetProperties(SelectedObject.GetType())
+            //    .OfType<PropertyDescriptor>()
+            //    .Where(p => p.PropertyType == typeof(bool));
+            //    foreach (var propertyDescriptor in propertyDescriptors)
+            //    {
+            //        var switchButton = _propertySwitchEditor.GetElement(CreatePropertyItem(propertyDescriptor)) as SwitchButton;
+            //        switchButton.SwitchOpenBackground = e.ThemeDictionary["ControlPressBackground"] as Brush;
+            //    }
+            //};
         }
 
         public override void OnApplyTemplate()
@@ -206,7 +217,7 @@ namespace CookPopularControl.Controls
                 foreach (PropertyItem item in _dataView)
                 {
                     var isVisible = item.PropertyName.ToLower().Contains(searchContent) || item.DisplayName.ToLower().Contains(searchContent);
-                    if(isVisible)
+                    if (isVisible)
                         item.ToVisible();
                     else
                         item.ToCollapse();
