@@ -78,6 +78,21 @@ namespace CookPopularControl.Windows
 
 
         /// <summary>
+        /// 表示标题栏字体大小
+        /// </summary>
+        public double ClientTitleBarFontsize
+        {
+            get => (double)GetValue(ClientTitleBarFontsizeProperty);
+            set => SetValue(ClientTitleBarFontsizeProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="ClientTitleBarFontsize"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty ClientTitleBarFontsizeProperty =
+            DependencyProperty.Register("ClientTitleBarFontsize", typeof(double), typeof(NormalWindow), new PropertyMetadata(14D));
+
+
+        /// <summary>
         /// 标题栏附加内容
         /// </summary>
         /// <remarks>除了Window图标和Title以外的其它内容</remarks>

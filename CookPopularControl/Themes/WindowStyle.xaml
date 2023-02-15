@@ -73,6 +73,7 @@
         <Setter Property="ClientTitleBarHeight" Value="{DynamicResource Double30Value}" />
         <Setter Property="ClientTitleBarForeground" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="ClientTitleBarBackground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="ClientTitleBarFontsize" Value="14" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CornerRadius="0"
@@ -126,7 +127,7 @@
                                                 </Button>
                                                 <TextBlock Text="{TemplateBinding Title}"
                                                            Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                                           FontSize="14"
+                                                           FontSize="{TemplateBinding ClientTitleBarFontsize}"
                                                            VerticalAlignment="Center"
                                                            IsHitTestVisible="False"
                                                            Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
@@ -228,6 +229,8 @@
 
     <Style x:Key="SideBarWindowStyle" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource NormalWindowStyle}">
         <Setter Property="ClientTitleBarAdditionalContent" Value="{x:Null}" />
+        <Setter Property="IsShowSideBar" Value="True" />
+        <Setter Property="IsShowSetting" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:SideBarWindow}">
@@ -254,17 +257,19 @@
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
                                             <ToggleButton Command="{x:Static win:SideBarWindow.SidebarPopupCommand}"
-                                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsShowSideBar, Mode=TwoWay}"
+                                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsCheckedSideBar, Mode=TwoWay}"
                                                           ToolTip="功能"
                                                           pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                                           pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
                                                           pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource CatalogGeometry}"
+                                                          Visibility="{TemplateBinding IsShowSideBar, Converter={pt:BooleanToVisibilityConverter}}"
                                                           Style="{StaticResource WindowDoubbleIconToggleButtonStyle}" />
                                             <Button Command="{x:Static win:SideBarWindow.SettingCommand}"
                                                     ToolTip="设置"
                                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SettingGeometry}"
                                                     common:FrameworkElementBaseAttached.IconHeight="14"
                                                     common:FrameworkElementBaseAttached.IconWidth="14"
+                                                    Visibility="{TemplateBinding IsShowSetting, Converter={pt:BooleanToVisibilityConverter}}"
                                                     Style="{StaticResource WindowIconButtonStyle}" />
                                         </StackPanel>
                                         <ContentPresenter x:Name="NonClientContentPresenter" Grid.Column="1"
@@ -273,7 +278,7 @@
                                         <TextBlock Grid.Column="1"
                                                    Text="{TemplateBinding Title}"
                                                    Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                                   FontSize="18"
+                                                   FontSize="{TemplateBinding ClientTitleBarFontsize}"
                                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                                    IsHitTestVisible="False"
                                                    Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />

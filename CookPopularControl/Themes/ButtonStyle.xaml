@@ -39,6 +39,11 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="ButtonNoMouseOverTransparentStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
@@ -83,7 +88,7 @@
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="Transparent" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

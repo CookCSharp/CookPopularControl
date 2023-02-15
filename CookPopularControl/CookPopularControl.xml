@@ -6059,6 +6059,16 @@
             标识<see cref="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarBackground"/>的依赖属性
             </summary>
         </member>
+        <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarFontsize">
+            <summary>
+            表示标题栏字体大小
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.NormalWindow.ClientTitleBarFontsizeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarFontsize"/>的依赖属性
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Windows.NormalWindow.ClientTitleBarAdditionalContent">
             <summary>
             标题栏附加内容
@@ -6150,6 +6160,16 @@
             <see cref="T:CookPopularControl.Windows.SideBarWindow"/>表示具有侧边栏的窗体
             </summary>
         </member>
+        <member name="P:CookPopularControl.Windows.SideBarWindow.IsCheckedSideBar">
+            <summary>
+            是否点击了侧边栏
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.SideBarWindow.IsCheckedSideBarProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Windows.SideBarWindow.IsCheckedSideBar"/>的依赖属性
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Windows.SideBarWindow.IsShowSideBar">
             <summary>
             是否显示侧边栏
@@ -6158,6 +6178,16 @@
         <member name="F:CookPopularControl.Windows.SideBarWindow.IsShowSideBarProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Windows.SideBarWindow.IsShowSideBar"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Windows.SideBarWindow.IsShowSetting">
+            <summary>
+            是否显示设置按钮
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.SideBarWindow.IsShowSettingProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Windows.SideBarWindow.IsShowSetting"/>的依赖属性
             </summary>
         </member>
         <member name="F:CookPopularControl.Windows.SideBarWindow.IsShowSideBarChangedEvent">
@@ -7967,36 +7997,6 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

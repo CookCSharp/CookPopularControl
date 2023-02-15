@@ -26,8 +26,8 @@
     <SolidColorBrush x:Key="RippleFeedback" Color="{x:Static SystemColors.ControlColor}" />
 
     <Color x:Key="DataGirdCellFocusedColor">#004A4A4A</Color>
-    <Color x:Key="DataGridRowMouseOverColor">#E0E0E0</Color>
-    <Color x:Key="DataGridRowSelectedColor">#D0D0D0</Color>
-    <Color x:Key="DataGridRowMouseOverSelected">#C0C0C0</Color>
+    <Color x:Key="DataGridRowMouseOverColor">#C0C0C0</Color>
+    <Color x:Key="DataGridRowSelectedColor">#A0A0A0</Color>
+    <Color x:Key="DataGridRowMouseOverSelected">#909090</Color>
 
 </ResourceDictionary>

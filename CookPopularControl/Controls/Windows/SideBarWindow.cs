@@ -41,8 +41,7 @@ namespace CookPopularControl.Windows
                 }
                 else if (e.Command == SidebarPopupCommand)
                 {
-                    var s = window.IsShowSideBar;
-                    window.OnIsShowSideBarChanged(window.IsShowSideBar);
+                    window.OnIsShowSideBarChanged(window.IsCheckedSideBar);
                 }
                 else if (e.Command == SettingCommand)
                 {
@@ -50,6 +49,21 @@ namespace CookPopularControl.Windows
                 }
             }
         }
+                
+
+        /// <summary>
+        /// 是否点击了侧边栏
+        /// </summary>
+        internal bool IsCheckedSideBar
+        {
+            get => (bool)GetValue(IsCheckedSideBarProperty);
+            set => SetValue(IsCheckedSideBarProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="IsCheckedSideBar"/>的依赖属性
+        /// </summary>
+        internal static readonly DependencyProperty IsCheckedSideBarProperty =
+            DependencyProperty.Register("IsCheckedSideBar", typeof(bool), typeof(SideBarWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
 
         /// <summary>
@@ -66,6 +80,20 @@ namespace CookPopularControl.Windows
         public static readonly DependencyProperty IsShowSideBarProperty =
             DependencyProperty.Register("IsShowSideBar", typeof(bool), typeof(SideBarWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
+
+        /// <summary>
+        /// 是否显示设置按钮
+        /// </summary>
+        public bool IsShowSetting
+        {
+            get => (bool)GetValue(IsShowSettingProperty);
+            set => SetValue(IsShowSettingProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="IsShowSetting"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty IsShowSettingProperty =
+            DependencyProperty.Register("IsShowSetting", typeof(bool), typeof(SideBarWindow), new PropertyMetadata(ValueBoxes.TrueBox));
 
 
         public event RoutedPropertySingleEventHandler<bool> IsShowSideBarChanged

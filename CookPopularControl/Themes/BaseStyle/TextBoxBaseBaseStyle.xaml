@@ -48,6 +48,7 @@
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <Button x:Name="PART_ClearButton" Grid.Column="1"
+                                    Height="{TemplateBinding Height}"
                                     Foreground="{TemplateBinding Foreground}"
                                     Margin="0,0,6,0"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
