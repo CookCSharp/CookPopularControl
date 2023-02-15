@@ -21,6 +21,57 @@ using System.Threading.Tasks;
 
 namespace CookPopularCSharpToolkit.Communal
 {
+    internal class MouseHook
+    {
+        private const int WH_MOUSE_LL = 14;
+        private static IntPtr _hookId = IntPtr.Zero;
+
+        private readonly InteropValues.HookProc Proc;
+
+        internal MouseHook()
+        {
+            Proc = HookCallback;
+        }
+
+        internal event EventHandler<MouseHookEventArgs> MouseAction = delegate { };
+
+        internal void Start()
+        {
+            _hookId = SetHook(Proc);
+        }
+
+        internal void Stop()
+        {
+            InteropMethods.UnhookWindowsHookEx(_hookId);
+        }
+
+        private IntPtr SetHook(InteropValues.HookProc proc)
+        {
+            var hook = InteropMethods.SetWindowsHookEx(WH_MOUSE_LL, proc, InteropMethods.GetModuleHandle("user32"), 0);
+            if (hook == IntPtr.Zero)
+            {
+                throw new Win32Exception();
+            }
+
+            return hook;
+        }
+
+        private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
+        {
+            InteropValues.MOUSEHOOKSTRUCT hookStruct;
+            if (nCode < 0)
+            {
+                return InteropMethods.CallNextHookEx(_hookId, nCode, wParam, lParam);
+            }
+
+            hookStruct = (InteropValues.MOUSEHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
+
+            MouseAction.Invoke(null, new MouseHookEventArgs { MessageType = (MouseMessageType)wParam, Point = new IntPoint(hookStruct.pt.X, hookStruct.pt.Y), MouseData = hookStruct.mouseData });
+
+            return InteropMethods.CallNextHookEx(_hookId, nCode, wParam, lParam);
+        }
+    }
+
     public enum MouseMessageType
     {
         WM_LBUTTONDOWN = 0x0201,
@@ -55,64 +106,14 @@ namespace CookPopularCSharpToolkit.Communal
         public uint MouseData { get; set; }
     }
 
-    internal class MouseHook
-    {
-        private const int WH_MOUSE_LL = 14;
-        private static IntPtr _hookId = IntPtr.Zero;
-
-        private readonly InteropValues.HookProc Proc;
-
-        public MouseHook()
-        {
-            Proc = HookCallback;
-        }
-
-        public event EventHandler<MouseHookEventArgs> MouseAction = delegate { };
-
-        public void Start()
-        {
-            _hookId = SetHook(Proc);
-        }
-
-        public void Stop()
-        {
-            InteropMethods.UnhookWindowsHookEx(_hookId);
-        }
-
-        private static IntPtr SetHook(InteropValues.HookProc proc)
-        {
-            var hook = InteropMethods.SetWindowsHookEx(WH_MOUSE_LL, proc, InteropMethods.GetModuleHandle("user32"), 0);
-            if (hook == IntPtr.Zero)
-            {
-                throw new Win32Exception();
-            }
-
-            return hook;
-        }
-
-        private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
-        {
-            InteropValues.MOUSEHOOKSTRUCT hookStruct;
-            if (nCode < 0)
-            {
-                return InteropMethods.CallNextHookEx(_hookId, nCode, wParam, lParam);
-            }
-
-            hookStruct = (InteropValues.MOUSEHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
-
-            MouseAction.Invoke(null, new MouseHookEventArgs { MessageType = (MouseMessageType)wParam, Point = new IntPoint(hookStruct.pt.X, hookStruct.pt.Y), MouseData = hookStruct.mouseData });
-
-            return InteropMethods.CallNextHookEx(_hookId, nCode, wParam, lParam);
-        }
-    }
-
     public class MouseWatcher
     {
         private readonly object Accesslock = new object();
-        private MouseHook mouseHook;
+
         private readonly SyncFactory factory;
         private AsyncConcurrentQueue<object> mouseQueue;
         private CancellationTokenSource taskCancellationTokenSource;
+        private MouseHook mouseHook;
         private bool isRunning;
 
         public event EventHandler<MouseHookEventArgs> OnMouseInput;

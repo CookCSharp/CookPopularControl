@@ -26,20 +26,20 @@ namespace CookPopularCSharpToolkit.Communal
         //    return new ApplicationWatcher(syncFactory);
         //}
 
-        //public KeyboardWatcher GetKeyboardWatcher()
-        //{
-        //    return new KeyboardWatcher(syncFactory);
-        //}
+        public KeyboardWatcher GetKeyboardWatcher()
+        {
+            return new KeyboardWatcher(syncFactory);
+        }
 
         public MouseWatcher GetMouseWatcher()
         {
             return new MouseWatcher(syncFactory);
         }
 
-        //public ClipboardWatcher GetClipboardWatcher()
-        //{
-        //    return new ClipboardWatcher(syncFactory);
-        //}
+        public ClipboardWatcher GetClipboardWatcher()
+        {
+            return new ClipboardWatcher(syncFactory);
+        }
 
         //public PrintWatcher GetPrintWatcher()
         //{

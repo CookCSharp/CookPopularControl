@@ -27,7 +27,7 @@ namespace CookPopularCSharpToolkit.Communal
         {
             _ = string.Empty;
 
-            return GetClassFullName(new StackFrame(2, fNeedFileInfo: false));
+            return GetClassFullName(new StackFrame(2, false));
         }
 
         public static string GetClassFullName(StackFrame stackFrame)

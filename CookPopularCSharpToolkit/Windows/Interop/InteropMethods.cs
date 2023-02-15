@@ -494,7 +494,29 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success), DllImport(InteropValues.ExternDll.Kernel32, CharSet = CharSet.Auto, SetLastError = true)]
         internal extern static IntPtr LocalFree(IntPtr handle);
 
+        [DllImport(InteropValues.ExternDll.User32)]
+        internal static extern bool GetKeyboardState(byte[] lpKeyState);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, ExactSpelling = true)]
+        internal static extern IntPtr GetKeyboardLayout(uint dwLayout);
+
+        [DllImport(InteropValues.ExternDll.User32)]
+        internal static extern uint MapVirtualKeyEx(uint uCode, uint uMapType, IntPtr dwhkl);
+
+        [DllImport(InteropValues.ExternDll.User32)]
+        internal static extern int ToUnicodeEx(uint wVirtKey, uint wScanCode, byte[] lpKeyState, [Out][MarshalAs(UnmanagedType.LPWStr)] StringBuilder pwszBuff, int cchBuff, uint wFlags, IntPtr dwhkl);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
+        internal static extern IntPtr SetClipboardViewer(IntPtr hWnd);
+
+        /// <param name="hWndRemove">handle to window to remove</param>
+        /// <param name="hWndNewNext"> handle to next window</param>
+        /// <returns></returns>
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
+        internal static extern bool ChangeClipboardChain(IntPtr hWndRemove, IntPtr hWndNewNext);
+
         #endregion
+
 
         internal class Gdip
         {

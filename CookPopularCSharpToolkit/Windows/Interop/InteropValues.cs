@@ -452,6 +452,24 @@ namespace CookPopularCSharpToolkit.Windows.Interop
 
             NCMOUSELEAVE = 0x02A2,
 
+            DESTROYCLIPBOARD = 0x0307,
+            DRAWCLIPBOARD = 0x0308,
+            PAINTCLIPBOARD = 0x0309,
+            VSCROLLCLIPBOARD = 0x030A,
+            SIZECLIPBOARD = 0x030B,
+
+            ASKCBFORMATNAME = 0x030C,
+            CHANGECBCHAIN = 0x030D,
+            HSCROLLCLIPBOARD = 0x030E,
+            QUERYNEWPALETTE = 0x030F,
+            PALETTEISCHANGING = 0x0310,
+            PALETTECHANGED = 0x0311,
+            HOTKEY = 0x0312,
+            PRINT = 0x0317,
+            PRINTCLIENT = 0x0318,
+            APPCOMMAND = 0x0319,
+            THEMECHANGED = 0x031A,
+
             DWMCOMPOSITIONCHANGED = 0x031E,
             DWMNCRENDERINGCHANGED = 0x031F,
             DWMCOLORIZATIONCOLORCHANGED = 0x0320,
