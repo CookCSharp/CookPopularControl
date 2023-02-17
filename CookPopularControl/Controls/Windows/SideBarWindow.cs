@@ -54,7 +54,7 @@ namespace CookPopularControl.Windows
         /// <summary>
         /// 是否点击了侧边栏
         /// </summary>
-        internal bool IsCheckedSideBar
+        public bool IsCheckedSideBar
         {
             get => (bool)GetValue(IsCheckedSideBarProperty);
             set => SetValue(IsCheckedSideBarProperty, value);
@@ -62,7 +62,7 @@ namespace CookPopularControl.Windows
         /// <summary>
         /// 提供<see cref="IsCheckedSideBar"/>的依赖属性
         /// </summary>
-        internal static readonly DependencyProperty IsCheckedSideBarProperty =
+        public static readonly DependencyProperty IsCheckedSideBarProperty =
             DependencyProperty.Register("IsCheckedSideBar", typeof(bool), typeof(SideBarWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
 

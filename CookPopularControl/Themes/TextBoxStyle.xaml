@@ -11,6 +11,18 @@
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="请输入文本..." />
         <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
+        <Setter Property="pc:TextBoxBaseAssistant.EllipsisPlacement" Value="Left" />
+        <Setter Property="pc:TextBoxBaseAssistant.IsEllipsisEnabled" Value="True" />
+        <Setter Property="pc:TextBoxBaseAssistant.IsShowToolTip" Value="True" />
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="True" />
+                    <Condition Property="IsSelectionActive" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{StaticResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}" />
+            </MultiTrigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ValidationTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">

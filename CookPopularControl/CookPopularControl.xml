@@ -1654,6 +1654,31 @@
             <see cref="F:CookPopularControl.Controls.SearchBar.StartSearchEvent"/>标识搜索事件 
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.EllipsisPlacement">
+            <summary>
+            用于指定省略号所在位置的枚举，你可以换成中文，不影响使用。
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.TextBoxBaseAssistant">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.TextBox"/>的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.EllipsisPlacementProperty">
+            <summary>
+            省略号位置，左中右
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsEllipsisEnabledProperty">
+            <summary>
+            是否启用省略号，如果启用了，就会截断文字，显示省略号。当文本获取焦点时，暂时失效
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsShowToolTipProperty">
+            <summary>
+            是否启用提示.如果是true,那么当文本被截断后，在控件的ToolTip属性内添加整个文本的内容;如果是false，那么控件的提示保持不变.
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.TextPath">
             <summary>
             自定义绘制文本
@@ -7997,6 +8022,36 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

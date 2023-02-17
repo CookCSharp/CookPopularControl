@@ -258,14 +258,12 @@
                                         <StackPanel Grid.Column="0" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
                                             <ToggleButton Command="{x:Static win:SideBarWindow.SidebarPopupCommand}"
                                                           IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsCheckedSideBar, Mode=TwoWay}"
-                                                          ToolTip="功能"
                                                           pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                                           pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
                                                           pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource CatalogGeometry}"
                                                           Visibility="{TemplateBinding IsShowSideBar, Converter={pt:BooleanToVisibilityConverter}}"
                                                           Style="{StaticResource WindowDoubbleIconToggleButtonStyle}" />
                                             <Button Command="{x:Static win:SideBarWindow.SettingCommand}"
-                                                    ToolTip="设置"
                                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SettingGeometry}"
                                                     common:FrameworkElementBaseAttached.IconHeight="14"
                                                     common:FrameworkElementBaseAttached.IconWidth="14"

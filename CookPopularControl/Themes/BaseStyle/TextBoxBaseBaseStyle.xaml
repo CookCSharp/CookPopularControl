@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
@@ -11,11 +12,13 @@
     <Style x:Key="TextBoxBaseBaseStyle" TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="MinHeight" Value="22" />
         <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
@@ -42,11 +45,24 @@
                             <TextBlock x:Name="PART_PlaceHolder"
                                        Text="{TemplateBinding common:TextElementAttached.PlaceHolder}"
                                        Foreground="{TemplateBinding common:TextElementAttached.PlaceHolderBrush}"
-                                       Margin="2,0,0,0"
                                        Padding="{TemplateBinding Padding}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       TextTrimming="CharacterEllipsis"
+                                       Visibility="Collapsed" />
+                            <!--  添加Margin防止失去焦点时文本内容抖动  -->
+                            <TextBlock x:Name="PART_Ellipsis"
+                                       Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBox}, Path=Text}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Margin="2,1"
+                                       Padding="{TemplateBinding Padding}"
+                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                       ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       TextTrimming="CharacterEllipsis"
+                                       Visibility="Collapsed" />
                             <Button x:Name="PART_ClearButton" Grid.Column="1"
                                     Height="{TemplateBinding Height}"
                                     Foreground="{TemplateBinding Foreground}"
@@ -67,9 +83,20 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={pt:EmptyOrNullToBooleanConverter}}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_PlaceHolder" />
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={pt:EmptyOrNullToBooleanConverter}}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="PART_PlaceHolder" />
                         </DataTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False" />
+                                <Condition Property="pc:TextBoxBaseAssistant.IsEllipsisEnabled" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_ContentHost" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="PART_Ellipsis" />
+                        </MultiTrigger>
+                        <Trigger Property="pc:TextBoxBaseAssistant.IsShowToolTip" Value="False">
+                            <Setter Property="ToolTip" Value="{x:Null}" TargetName="PART_Ellipsis" />
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" />
                         </Trigger>
