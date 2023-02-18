@@ -15,13 +15,14 @@
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="CanContentScroll" Value="True" />
         <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="False" />
         <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
         <Setter Property="pc:ScrollBarAssistant.VerticalScrollBarWidth" Value="0" />
         <Setter Property="pc:ScrollBarAssistant.HorizontalScrollBarHeight" Value="0" />
-        <Setter Property="pc:ScrollBarAssistant.ScrollBarBrush" Value="{DynamicResource ScrollBarBrush}" />
+        <Setter Property="pc:ScrollBarAssistant.ScrollBarBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="pc:ScrollViewerAssistant.IsCornerShow" Value="False" />
         <Setter Property="pc:ScrollViewerAssistant.IsAutoHideScrollBar" Value="True" />
         <Setter Property="Template">
@@ -67,10 +68,10 @@
                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollViewerAssistant.IsCornerShow), Converter={pt:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True">
                             <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth)}" TargetName="col" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True">
                             <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight)}" TargetName="row" />
                         </DataTrigger>
 

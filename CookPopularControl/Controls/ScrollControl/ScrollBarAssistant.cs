@@ -41,6 +41,9 @@ namespace CookPopularControl.Controls
 
         public static Brush GetScrollBarBrush(DependencyObject obj) => (Brush)obj.GetValue(ScrollBarBrushProperty);
         public static void SetScrollBarBrush(DependencyObject obj, Brush value) => obj.SetValue(ScrollBarBrushProperty, value);
+        /// <summary>
+        /// <see cref="ScrollBarBrushProperty"/>标识<see cref="Thumb"/>的绘制颜色
+        /// </summary>
         public static readonly DependencyProperty ScrollBarBrushProperty =
             DependencyProperty.RegisterAttached("ScrollBarBrush", typeof(Brush), typeof(ScrollBarAssistant), new PropertyMetadata(default(Brush)));
 
@@ -57,11 +60,13 @@ namespace CookPopularControl.Controls
             DependencyProperty.RegisterAttached("HorizontalScrollBarHeight", typeof(double), typeof(ScrollBarAssistant), new PropertyMetadata(ValueBoxes.Double0Box));
 
 
-        public static bool GetIsExecuteCommand(DependencyObject obj) => (bool)obj.GetValue(IsExecuteCommandProperty);
-        public static void SetIsExecuteCommand(DependencyObject obj, bool value) => obj.SetValue(IsExecuteCommandProperty, value);
-        public static readonly DependencyProperty IsExecuteCommandProperty =
-            DependencyProperty.RegisterAttached("IsExecuteCommand", typeof(bool), typeof(ScrollBarAssistant),
-                new PropertyMetadata(ValueBoxes.FalseBox, Changed));
+        internal static bool GetIsExecuteCommand(DependencyObject obj) => (bool)obj.GetValue(IsExecuteCommandProperty);
+        internal static void SetIsExecuteCommand(DependencyObject obj, bool value) => obj.SetValue(IsExecuteCommandProperty, value);
+        /// <summary>
+        /// <see cref="IsExecuteCommandProperty"/>标识ScrollBarLineButton的持续执行
+        /// </summary>
+        internal static readonly DependencyProperty IsExecuteCommandProperty =
+            DependencyProperty.RegisterAttached("IsExecuteCommand", typeof(bool), typeof(ScrollBarAssistant), new PropertyMetadata(ValueBoxes.FalseBox, Changed));
 
         private static void Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

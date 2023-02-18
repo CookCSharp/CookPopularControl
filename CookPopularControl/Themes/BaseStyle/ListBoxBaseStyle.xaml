@@ -141,13 +141,14 @@
     <Style x:Key="ListBoxBaseStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
-        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
         <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
+        <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
@@ -157,20 +158,23 @@
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <ScrollViewer Foreground="{TemplateBinding Foreground}"
                                       FontSize="{TemplateBinding FontSize}"
+                                      Margin="0" Focusable="False"
                                       pc:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding pc:ScrollBarAssistant.HorizontalScrollBarHeight}"
+                                      pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
                                       pc:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding pc:ScrollBarAssistant.VerticalScrollBarWidth}"
+                                      CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <StackPanel SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />
                         </ScrollViewer>
                     </Border>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsGrouping" Value="true" />
-                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false" />
+                                <Condition Property="IsGrouping" Value="True" />
+                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

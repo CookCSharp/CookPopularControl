@@ -5630,6 +5630,16 @@
             <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.ThumbInsideMarginProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.Thumb"/>在<see cref="T:System.Windows.Controls.Primitives.Track"/>中移动时距离边界的位置
             </summary>
         </member>
+        <member name="F:CookPopularControl.Controls.ScrollBarAssistant.ScrollBarBrushProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.ScrollBarBrushProperty"/>标识<see cref="T:System.Windows.Controls.Primitives.Thumb"/>的绘制颜色
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ScrollBarAssistant.IsExecuteCommandProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ScrollBarAssistant.IsExecuteCommandProperty"/>标识ScrollBarLineButton的持续执行
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.ScrollViewerAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.ScrollViewer"/>的附加属性基类
