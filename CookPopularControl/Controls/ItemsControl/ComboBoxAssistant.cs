@@ -1,8 +1,13 @@
 ﻿using CookPopularCSharpToolkit.Communal;
+using System.Globalization;
+using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using CookPopularCSharpToolkit.Windows;
 
 
 
@@ -14,6 +19,27 @@ using System.Windows.Media.Effects;
  */
 namespace CookPopularControl.Controls
 {
+    [MarkupExtensionReturnType(typeof(Visibility))]
+    [ValueConversion(typeof(EditorType), typeof(Visibility))]
+    public class ComboBoxItemPaddingConverter : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is Thickness thickness && int.TryParse(parameter?.ToString(), out int param))
+            {
+                return new Thickness(thickness.Left + param, thickness.Top, thickness.Right, thickness.Bottom);
+            }
+
+            return value;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
     /// <summary>
     /// 表示<see cref="System.Windows.Controls.ComboBox"/>的附加属性帮助类
     /// </summary>

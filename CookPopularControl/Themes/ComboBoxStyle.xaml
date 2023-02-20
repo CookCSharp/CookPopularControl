@@ -11,6 +11,8 @@
     <Style x:Key="DefaultComboBoxStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxBaseStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Default" />
+        <Setter Property="common:SelectorAttached.ItemWidth" Value="{Binding RelativeSource={RelativeSource Self}, Path=Width}" />
+        <Setter Property="common:SelectorAttached.ItemHeight" Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="common:SelectorAttached.ItemsListBackground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
         <Setter Property="common:SelectorAttached.ItemMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
         <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ControlPressBackground}" />

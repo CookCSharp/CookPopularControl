@@ -885,31 +885,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:CookPopularControl.Controls.ComboBoxAssistant">
-            <summary>
-            表示<see cref="T:System.Windows.Controls.ComboBox"/>的附加属性帮助类
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.DropDownButtonFillProperty">
-            <summary>
-            标识<see cref="F:CookPopularControl.Controls.ComboBoxAssistant.DropDownButtonFillProperty"/>提供下拉按钮的背景色附加属性
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.IsClickDownProperty">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.ComboBoxPopupListShadowProperty">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty">
-            <summary>
-            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Controls.CalendarAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.Calendar"/>的附加属性基类
@@ -3833,6 +3808,31 @@
         <member name="F:CookPopularControl.Controls.BalloonFlags.RespectQuietTime">
             <summary>
             Windows 7 and later.
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ComboBoxAssistant">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.ComboBox"/>的附加属性帮助类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.DropDownButtonFillProperty">
+            <summary>
+            标识<see cref="F:CookPopularControl.Controls.ComboBoxAssistant.DropDownButtonFillProperty"/>提供下拉按钮的背景色附加属性
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.IsClickDownProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsClickDownProperty"/>标识点击<see cref="T:System.Windows.Controls.ComboBox"/>显示下拉列表
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.ComboBoxPopupListShadowProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.ComboBoxPopupListShadowProperty"/>标识下拉列表阴影效果 
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.TreeViewAssistant">
