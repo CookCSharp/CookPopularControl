@@ -22,10 +22,34 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 //using System.Runtime.Remoting.Contexts;
 using System.Windows.Media;
-
+using System.Windows.Markup;
+using System.Windows.Data;
+using CookPopularCSharpToolkit.Windows;
+using System.Globalization;
 
 namespace CookPopularControl.Controls
 {
+    [MarkupExtensionReturnType(typeof(Visibility))]
+    [ValueConversion(typeof(EditorType), typeof(Visibility))]
+    public class TextBlockEllipsisPaddingConverter : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is Thickness thickness && int.TryParse(parameter?.ToString(), out int param))
+            {
+                return new Thickness(thickness.Left + param, thickness.Top + 1, thickness.Right, thickness.Bottom);
+            }
+
+            return value;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
     /// <summary>
     /// 用于指定省略号所在位置的枚举，你可以换成中文，不影响使用。
     /// </summary>
