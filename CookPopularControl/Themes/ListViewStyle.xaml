@@ -26,8 +26,8 @@
                             <ScrollViewer DockPanel.Dock="Top"
                                           Background="Transparent"
                                           Focusable="false"
-                                          pc:ScrollViewerAssistant.SyncHorizontalOffset="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HorizontalOffset, Mode=OneWay}"
-                                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                          pc:ScrollViewerAssistant.SyncHorizontalOffset="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HorizontalOffset, Mode=OneWay}">
                                 <Border BorderBrush="{DynamicResource PrimaryThemeBrush}" BorderThickness="0,0,0,1">
                                     <StackPanel Orientation="Horizontal">
                                         <GridViewHeaderRowPresenter x:Name="PART_GridViewHeaderRowPresenter"
@@ -53,15 +53,15 @@
                         <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Row="0" Grid.Column="1"
                                    Value="{TemplateBinding VerticalOffset}"
                                    Maximum="{TemplateBinding ScrollableHeight}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
                                    AutomationProperties.AutomationId="VerticalScrollBar" Orientation="Vertical"
-                                   ViewportSize="{TemplateBinding ViewportHeight}"
-                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                                   ViewportSize="{TemplateBinding ViewportHeight}" />
                         <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Row="1" Grid.Column="0"
                                    Value="{TemplateBinding HorizontalOffset}"
                                    Maximum="{TemplateBinding ScrollableWidth}"
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
                                    AutomationProperties.AutomationId="HorizontalScrollBar" Orientation="Horizontal"
-                                   ViewportSize="{TemplateBinding ViewportWidth}"
-                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
+                                   ViewportSize="{TemplateBinding ViewportWidth}" />
                         <Rectangle x:Name="PART_Corner" Grid.Row="1" Grid.Column="1"
                                    Fill="{TemplateBinding Foreground}"
                                    Opacity="0.8"
@@ -269,9 +269,9 @@
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <ScrollViewer Background="Transparent"
+                                      Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
-                                      Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <StackPanel SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />
                         </ScrollViewer>
                     </Border>

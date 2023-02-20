@@ -48,11 +48,11 @@
                                         Width="Auto" Height="Auto"
                                         Foreground="{TemplateBinding RefreshButtonFill}"
                                         Command="{x:Static pc:QRCodeControl.RefreshQrCodeCommand}"
+                                        Style="{StaticResource ButtonTransparentIconStyle}"
                                         common:FrameworkElementBaseAttached.CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
                                         common:FrameworkElementBaseAttached.IconGeometry="{TemplateBinding common:FrameworkElementBaseAttached.IconGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                        Style="{StaticResource ButtonTransparentIconStyle}" />
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}" />
                             </pc:SimpleGrid>
                         </Grid>
                     </Border>

@@ -39,13 +39,13 @@
                         <Button x:Name="PART_CloseButton" Grid.Column="1"
                                 Width="30"
                                 Background="{TemplateBinding Background}"
-                                common:FrameworkElementBaseAttached.ControlMouseOverBackground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabControl}},Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}"
-                                common:FrameworkElementBaseAttached.ControlPressBackground="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabControl}},Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}"
+                                Visibility="{TemplateBinding pc:TabControlAssistant.IsAddClearButton, Converter={pt:BooleanToVisibilityConverter}}"
+                                common:FrameworkElementBaseAttached.ControlMouseOverBackground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlMouseOverBackground)}"
+                                common:FrameworkElementBaseAttached.ControlPressBackground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(common:FrameworkElementBaseAttached.ControlPressBackground)}"
                                 common:FrameworkElementBaseAttached.CornerRadius="0"
                                 common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                 common:FrameworkElementBaseAttached.IconHeight="10"
-                                common:FrameworkElementBaseAttached.IconWidth="10"
-                                Visibility="{TemplateBinding pc:TabControlAssistant.IsAddClearButton, Converter={pt:BooleanToVisibilityConverter}}" />
+                                common:FrameworkElementBaseAttached.IconWidth="10" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

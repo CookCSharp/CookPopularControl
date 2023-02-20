@@ -95,11 +95,11 @@
                                     Foreground="{TemplateBinding Foreground}"
                                     Command="{x:Static pc:GroupLabel.CloseCommand}"
                                     Margin="8,0" Opacity="0.4" Focusable="False"
+                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=HasCloseButton, Converter={pt:BooleanToVisibilityConverter}}"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="15"
-                                    common:FrameworkElementBaseAttached.IconWidth="15"
-                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=pc:GroupLabel}, Path=HasCloseButton, Converter={pt:BooleanToVisibilityConverter}}"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}" />
+                                    common:FrameworkElementBaseAttached.IconWidth="15" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>

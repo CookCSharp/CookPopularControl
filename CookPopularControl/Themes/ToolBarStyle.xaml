@@ -160,10 +160,10 @@
                             <ToggleButton x:Name="OverflowButton"
                                           Foreground="{TemplateBinding Foreground}"
                                           IsChecked="{Binding IsOverflowOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                          ClickMode="Press"
-                                          FocusVisualStyle="{x:Null}"
                                           Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={pt:BooleanToVisibilityConverter}}"
-                                          Style="{StaticResource ToolBarHorizontalOverflowToggleButtonStyle}" />
+                                          Style="{StaticResource ToolBarHorizontalOverflowToggleButtonStyle}"
+                                          ClickMode="Press"
+                                          FocusVisualStyle="{x:Null}" />
                             <Popup x:Name="OverflowPopup"
                                    Margin="1" Focusable="false"
                                    AllowsTransparency="true"

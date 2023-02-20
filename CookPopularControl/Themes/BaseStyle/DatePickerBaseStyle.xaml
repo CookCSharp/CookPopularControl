@@ -66,8 +66,8 @@
                                                Focusable="{TemplateBinding Focusable}"
                                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                               common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
-                                               Style="{DynamicResource DefaultTextBoxStyle}" />
+                                               Style="{DynamicResource DefaultTextBoxStyle}"
+                                               common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}" />
                             <Button x:Name="PART_Button" Grid.Column="1"
                                     Margin="0,0,6,0"
                                     Style="{StaticResource DatePickerButtonStyle}" />
@@ -107,10 +107,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" TargetName="RootBorder"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPressBackground}" TargetName="RootBorder"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPressBackground}" TargetName="RootBorder" />
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" TargetName="RootBorder" />

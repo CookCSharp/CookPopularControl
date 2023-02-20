@@ -123,8 +123,8 @@
                                                   Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                                   IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
                                                   Margin="0,0,3,0"
-                                                  ClickMode="Press"
-                                                  Style="{StaticResource TreeViewExpandCollapseToggleButtonStyle}" />
+                                                  Style="{StaticResource TreeViewExpandCollapseToggleButtonStyle}"
+                                                  ClickMode="Press" />
                                     <Path x:Name="PART_HeaderIcon"
                                           Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"
                                           Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TreeView}, Path=(pc:TreeViewAssistant.ExpandButtonSize)}"

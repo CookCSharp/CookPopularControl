@@ -54,34 +54,34 @@
             </Grid.RowDefinitions>
             <Slider x:Name="playSlider" Grid.Row="0"
                     Width="{Binding TemplatedParent}"
-                    common:ThumbAttached.ThumbHeight="13" common:ThumbAttached.ThumbWidth="13" Cursor="Hand"
-                    PreviewMouseLeftButtonDown="playSlider_PreviewMouseLeftButtonDown"
+                    Cursor="Hand" PreviewMouseLeftButtonDown="playSlider_PreviewMouseLeftButtonDown"
                     PreviewMouseLeftButtonUp="playSlider_PreviewMouseLeftButtonUp"
-                    Thumb.DragCompleted="playSlider_DragCompleted" Thumb.DragStarted="playSlider_DragStarted" />
+                    Thumb.DragCompleted="playSlider_DragCompleted" Thumb.DragStarted="playSlider_DragStarted"
+                    common:ThumbAttached.ThumbHeight="13" common:ThumbAttached.ThumbWidth="13" />
             <pc:SimpleGrid Grid.Row="1">
                 <StackPanel Margin="10,0" VerticalAlignment="Center" Orientation="Horizontal">
                     <Button x:Name="last"
                             ToolTip="上一集"
-                            common:FrameworkElementBaseAttached.IconGeometry="{StaticResource LastEpisodeGeometry}"
+                            Style="{StaticResource ButtonTransparentIconStyle}"
                             Click="Last_Click"
-                            Style="{StaticResource ButtonTransparentIconStyle}" />
+                            common:FrameworkElementBaseAttached.IconGeometry="{StaticResource LastEpisodeGeometry}" />
                     <ToggleButton x:Name="play_pause"
                                   IsChecked="False"
                                   Margin="5,0" ToolTip="播放"
-                                  pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource PauseGeometry}"
-                                  pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource PlayGeometry}"
+                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}"
                                   Click="PlayPause_Control"
-                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
+                                  pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource PauseGeometry}"
+                                  pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource PlayGeometry}" />
                     <Button x:Name="stop"
                             ToolTip="重放"
-                            common:FrameworkElementBaseAttached.IconGeometry="{StaticResource RestartGeometry}"
+                            Style="{StaticResource ButtonTransparentIconStyle}"
                             Click="Restart_Click"
-                            Style="{StaticResource ButtonTransparentIconStyle}" />
+                            common:FrameworkElementBaseAttached.IconGeometry="{StaticResource RestartGeometry}" />
                     <Button x:Name="next"
                             Margin="5,0" ToolTip="下一集"
-                            common:FrameworkElementBaseAttached.IconGeometry="{StaticResource NextEpisodeGeometry}"
+                            Style="{StaticResource ButtonTransparentIconStyle}"
                             Click="Next_Click"
-                            Style="{StaticResource ButtonTransparentIconStyle}" />
+                            common:FrameworkElementBaseAttached.IconGeometry="{StaticResource NextEpisodeGeometry}" />
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                     <TextBlock x:Name="currentTime" Text="{Binding ElementName=playSlider, Path=Value, Converter={pt:DoubleToTimeSpanConverter}, Mode=OneWay}" FontSize="16" />
@@ -94,10 +94,10 @@
                     <ToggleButton x:Name="volume"
                                   Width="30"
                                   ToolTip="音量"
-                                  pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource VolumeOffGeometry}"
-                                  pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource VolumeMediumGeometry}"
+                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}"
                                   Click="Volume_Click" MouseEnter="volume_MouseEnter" MouseLeave="volume_MouseLeave"
-                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
+                                  pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource VolumeOffGeometry}"
+                                  pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource VolumeMediumGeometry}" />
                     <TextBlock x:Name="playSpeed"
                                Width="40"
                                Text="{Binding ElementName=speedSlider, Path=SelectedItem, Converter={common:StringToPlaySpeedConverter}}"
@@ -106,12 +106,11 @@
                                MouseEnter="playSpeed_MouseEnter" MouseLeave="playSpeed_MouseLeave" TextAlignment="Center" />
                     <ToggleButton x:Name="fullScreent"
                                   ToolTip="全屏"
-                                  common:FrameworkElementBaseAttached.IconHeight="22"
+                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}"
+                                  Click="FullScreent_Click" common:FrameworkElementBaseAttached.IconHeight="22"
                                   common:FrameworkElementBaseAttached.IconWidth="22"
                                   pc:ToggleButtonAssistant.OnCheckedGeometry="{StaticResource ExitFullScreenGeometry}"
-                                  pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource FullScreenGeometry}"
-                                  Click="FullScreent_Click"
-                                  Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
+                                  pc:ToggleButtonAssistant.UnCheckedGeometry="{StaticResource FullScreenGeometry}" />
 
                 </StackPanel>
             </pc:SimpleGrid>
@@ -136,8 +135,8 @@
                                 Foreground="#FFFFFF"
                                 Value="0.5"
                                 Minimum="0" Maximum="1"
-                                common:ThumbAttached.ThumbHeight="13" common:ThumbAttached.ThumbWidth="13" Orientation="Vertical"
-                                SmallChange="1" ValueChanged="VolumeSlider_ValueChanged" />
+                                Orientation="Vertical" SmallChange="1" ValueChanged="VolumeSlider_ValueChanged"
+                                common:ThumbAttached.ThumbHeight="13" common:ThumbAttached.ThumbWidth="13" />
                     </StackPanel>
                 </Grid>
             </Popup>
@@ -172,11 +171,11 @@
                 <Image Source="/CookPopularControl;component/Resources/Images/MediaPlayerBackground.png" Stretch="Uniform" />
                 <ToggleButton Width="60" Height="60"
                               IsChecked="{Binding ElementName=play_pause, Path=IsChecked, Mode=TwoWay}"
-                              common:ButtonBaseAttached.IsShowRipple="False"
+                              Style="{StaticResource ToggleButtonTransparentIconStyle}"
+                              Click="PlayPause_Control" common:ButtonBaseAttached.IsShowRipple="False"
                               common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource PlayGeometry}"
                               common:FrameworkElementBaseAttached.IconHeight="60"
-                              common:FrameworkElementBaseAttached.IconWidth="60" Click="PlayPause_Control"
-                              Style="{StaticResource ToggleButtonTransparentIconStyle}" />
+                              common:FrameworkElementBaseAttached.IconWidth="60" />
             </pc:SimpleGrid>
         </Border>
     </Grid>

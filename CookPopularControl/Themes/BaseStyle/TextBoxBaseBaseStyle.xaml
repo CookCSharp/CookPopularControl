@@ -48,9 +48,9 @@
                                        Padding="{TemplateBinding Padding}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       Visibility="Collapsed"
                                        TextAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       TextTrimming="CharacterEllipsis"
-                                       Visibility="Collapsed" />
+                                       TextTrimming="CharacterEllipsis" />
                             <!--  添加Margin防止失去焦点时文本内容抖动  -->
                             <TextBlock x:Name="PART_Ellipsis"
                                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBox}, Path=Text}"
@@ -60,19 +60,19 @@
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                        ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       Visibility="Collapsed"
                                        TextAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       TextTrimming="CharacterEllipsis"
-                                       Visibility="Collapsed" />
+                                       TextTrimming="CharacterEllipsis" />
                             <Button x:Name="PART_ClearButton" Grid.Column="1"
                                     Height="{TemplateBinding Height}"
                                     Foreground="{TemplateBinding Foreground}"
                                     Margin="0,0,6,0"
+                                    Style="{StaticResource ButtonTransparentIconStyle}"
+                                    Effect="{x:Null}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                     common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
-                                    common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                    Effect="{x:Null}"
-                                    Style="{StaticResource ButtonTransparentIconStyle}">
+                                    common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}">
                                 <Button.Visibility>
                                     <MultiBinding Converter="{common:TextFieldClearButtonVisibilityConverter}">
                                         <Binding Path="(common:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />

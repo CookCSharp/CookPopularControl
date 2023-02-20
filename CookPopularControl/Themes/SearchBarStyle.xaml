@@ -41,10 +41,10 @@
                                     Command="{x:Static pc:SearchBar.SearchCommand}"
                                     Margin="5,0"
                                     ToolTip="{TemplateBinding common:TextElementAttached.PlaceHolder}"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SearchGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="15"
-                                    common:FrameworkElementBaseAttached.IconWidth="15"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}" />
+                                    common:FrameworkElementBaseAttached.IconWidth="15" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

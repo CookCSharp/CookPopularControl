@@ -11,7 +11,7 @@
     <Style x:Key="DefaultCheckBoxStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBoxBaseStyle}">
         <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="pc:CheckBoxAssistant.NullFillType" Value="Line" />
-        <Setter Property="pc:CheckBoxAssistant.BoxSize" Value="{Binding RelativeSource={RelativeSource Self},Path=Height,Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.7}" />
+        <Setter Property="pc:CheckBoxAssistant.BoxSize" Value="{Binding RelativeSource={RelativeSource Self}, Path=Height, Converter={pt:ValueTranslateToDoubleConverter}, ConverterParameter=0.7}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
     </Style>
 

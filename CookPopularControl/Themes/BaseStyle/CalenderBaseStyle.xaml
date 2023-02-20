@@ -33,10 +33,10 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           TextElement.Foreground="{TemplateBinding Foreground}" />
                         <Rectangle x:Name="CalendarButtonFocusVisual"
+                                   Visibility="Collapsed"
                                    IsHitTestVisible="false" RadiusX="1" RadiusY="1"
                                    Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Calendar}, Path=BorderBrush}"
-                                   StrokeThickness="1"
-                                   Visibility="Collapsed" />
+                                   StrokeThickness="1" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup Name="CommonStates">
                                 <VisualStateGroup.Transitions>
@@ -145,9 +145,9 @@
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           TextElement.Foreground="{TemplateBinding Foreground}" />
                         <Rectangle x:Name="DayButtonFocusVisual"
+                                   Visibility="Collapsed"
                                    IsHitTestVisible="false" RadiusX="1" RadiusY="1"
-                                   Stroke="{DynamicResource PrimaryThemeBrush}"
-                                   Visibility="Collapsed" />
+                                   Stroke="{DynamicResource PrimaryThemeBrush}" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -313,8 +313,8 @@
                                         FontSize="16" FontWeight="DemiBold"
                                         Focusable="False"
                                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                                        common:FrameworkElementBaseAttached.CornerRadius="0"
-                                        Style="{StaticResource ButtonTransparentStyle}">
+                                        Style="{StaticResource ButtonTransparentStyle}"
+                                        common:FrameworkElementBaseAttached.CornerRadius="0">
                                     <Button.RenderTransform>
                                         <TranslateTransform X="0" />
                                     </Button.RenderTransform>
@@ -382,9 +382,9 @@
                                    Fill="#A5FFFFFF"
                                    Stretch="Fill"
                                    Opacity="1"
+                                   Visibility="Collapsed"
                                    RadiusX="2" RadiusY="2" Stroke="#A5FFFFFF"
-                                   StrokeThickness="1"
-                                   Visibility="Collapsed" />
+                                   StrokeThickness="1" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />

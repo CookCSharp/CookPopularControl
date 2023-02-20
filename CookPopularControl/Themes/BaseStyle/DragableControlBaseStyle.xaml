@@ -773,18 +773,18 @@
                        Minimum="0"
                        Maximum="{TemplateBinding ScrollableHeight}"
                        Margin="0,1,0,0"
+                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
                        AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow"
-                       ViewportSize="{TemplateBinding ViewportHeight}"
-                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                       ViewportSize="{TemplateBinding ViewportHeight}" />
             <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Row="0" Grid.Column="1"
                        Width="36" Height="20"
                        Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
                        Minimum="0"
                        Maximum="{TemplateBinding ScrollableWidth}"
                        Margin="1,0,0,0"
+                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
                        AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Orientation="Horizontal"
-                       ViewportSize="{TemplateBinding ViewportWidth}"
-                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
+                       ViewportSize="{TemplateBinding ViewportWidth}" />
         </Grid>
     </ControlTemplate>
 
@@ -873,13 +873,13 @@
                                             ContentTemplateSelector="{TemplateBinding HeaderPrefixContentTemplateSelector}" />
                             <drag:DragableItemsControl x:Name="PART_HeaderItemsControl" Grid.Column="1"
                                                        Panel.ZIndex="1"
+                                                       Style="{StaticResource TabControlDragableItemsControlStyle}"
                                                        FixedItemCount="{TemplateBinding FixedHeaderCount}"
                                                        ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
                                                        ItemTemplate="{TemplateBinding HeaderItemTemplate}"
                                                        ItemsOrganiser="{TemplateBinding HeaderItemsOrganiser}"
                                                        ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Items}"
-                                                       KeyboardNavigation.TabIndex="1"
-                                                       Style="{StaticResource TabControlDragableItemsControlStyle}">
+                                                       KeyboardNavigation.TabIndex="1">
                                 <drag:DragableItemsControl.MaxWidth>
                                     <MultiBinding>
                                         <MultiBinding.Converter>
@@ -989,12 +989,12 @@
                                                     ContentTemplateSelector="{TemplateBinding HeaderPrefixContentTemplateSelector}" />
                                     <drag:DragableItemsControl x:Name="PART_HeaderItemsControl" Grid.Row="1"
                                                                Panel.ZIndex="1"
+                                                               Style="{StaticResource TabControlDragableItemsControlStyle}"
                                                                ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
                                                                ItemTemplate="{TemplateBinding HeaderItemTemplate}"
                                                                ItemsOrganiser="{TemplateBinding HeaderItemsOrganiser}"
                                                                ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Items}"
-                                                               KeyboardNavigation.TabIndex="1"
-                                                               Style="{StaticResource TabControlDragableItemsControlStyle}">
+                                                               KeyboardNavigation.TabIndex="1">
                                         <drag:DragableItemsControl.MaxHeight>
                                             <MultiBinding>
                                                 <MultiBinding.Converter>
@@ -1009,9 +1009,9 @@
                                         </drag:DragableItemsControl.MaxHeight>
                                     </drag:DragableItemsControl>
                                     <Button x:Name="DefaultAddButton" Grid.Row="2"
-                                            common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource PlusGeometry}"
                                             Command="{x:Static drag:DragableTabControl.AddItemCommand}"
-                                            Visibility="{TemplateBinding ShowDefaultAddButton, Converter={pt:BooleanToVisibilityConverter}}" />
+                                            Visibility="{TemplateBinding ShowDefaultAddButton, Converter={pt:BooleanToVisibilityConverter}}"
+                                            common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource PlusGeometry}" />
                                     <ContentControl x:Name="SuffixContentControl" Grid.Row="3"
                                                     Content="{TemplateBinding HeaderSuffixContent}"
                                                     ContentTemplate="{TemplateBinding HeaderSuffixContentStringFormat}"

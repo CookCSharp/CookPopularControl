@@ -72,25 +72,25 @@
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <Button x:Name="CloseButton" Grid.Column="2"
                                     Foreground="{TemplateBinding Foreground}"
+                                    Command="{x:Static pc:NotifyMessageBase.CloseNotifyMessageCommand}"
+                                    Style="{DynamicResource ButtonTransparentIconStyle}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="14"
-                                    common:FrameworkElementBaseAttached.IconWidth="14"
-                                    Command="{x:Static pc:NotifyMessageBase.CloseNotifyMessageCommand}"
-                                    Style="{DynamicResource ButtonTransparentIconStyle}" />
+                                    common:FrameworkElementBaseAttached.IconWidth="14" />
                             <UniformGrid x:Name="PART_ButtonGroup" Grid.Row="1" Grid.Column="1"
                                          Grid.ColumnSpan="2" Columns="2"
                                          Visibility="Collapsed">
                                 <Button Height="26"
                                         Content="取消"
                                         Foreground="Red"
-                                        HorizontalAlignment="Stretch"
                                         Command="{x:Static pc:BubbleMessage.CancelNotifyMessageCommand}"
+                                        HorizontalAlignment="Stretch"
                                         Style="{DynamicResource ButtonTransparentStyle}" />
                                 <Button Height="26"
                                         Content="确定"
                                         Foreground="Red"
-                                        HorizontalAlignment="Stretch"
                                         Command="{x:Static pc:BubbleMessage.ConfirmNotifyMessageCommand}"
+                                        HorizontalAlignment="Stretch"
                                         Style="{DynamicResource ButtonTransparentStyle}" />
                             </UniformGrid>
                         </Grid>
@@ -127,13 +127,13 @@
                         <pc:SimpleGrid>
                             <ContentPresenter Margin="{TemplateBinding Padding}" />
                             <Button Width="30" Height="30"
+                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
                                     Margin="5"
                                     HorizontalAlignment="Right" VerticalAlignment="Top"
+                                    Style="{DynamicResource ButtonNoMouseOverTransparentIconStyle}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="16"
-                                    common:FrameworkElementBaseAttached.IconWidth="16"
-                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                    Style="{DynamicResource ButtonNoMouseOverTransparentIconStyle}" />
+                                    common:FrameworkElementBaseAttached.IconWidth="16" />
                         </pc:SimpleGrid>
                     </Border>
                 </ControlTemplate>

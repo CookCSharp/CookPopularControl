@@ -3,17 +3,55 @@
                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
     <Color x:Key="ShadowEffectColor">#88000000</Color>
-    <SolidColorBrush x:Key="ShadowEffectBrush" po:Freeze="True" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ShadowEffectDepth0" po:Freeze="True" BlurRadius="5" Direction="270" Opacity="0.22" RenderingBias="Performance" ShadowDepth="0" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ShadowEffectDepth1" po:Freeze="True" BlurRadius="5" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="1" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ShadowEffectDepth2" po:Freeze="True" BlurRadius="8" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ShadowEffectDepth3" po:Freeze="True" BlurRadius="14" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="4.5" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ShadowEffectDepth4" po:Freeze="True" BlurRadius="25" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="8" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ShadowEffectDepth5" po:Freeze="True" BlurRadius="35" Direction="270" Opacity="0.42" RenderingBias="Performance" ShadowDepth="13" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="ComboxBoxShadow" po:Freeze="True" BlurRadius="5" Direction="270" Opacity="0.15" RenderingBias="Performance" ShadowDepth="2" Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="FieldShadowEffect" po:Freeze="True" BlurRadius="10" Direction="270" Opacity="0.4" RenderingBias="Performance" ShadowDepth="-10"  Color="{StaticResource ShadowEffectColor}" />
-    <DropShadowEffect x:Key="NotifyMessageShadowEffect" po:Freeze="True" BlurRadius="8" Direction="270" Opacity="0.2" RenderingBias="Performance" ShadowDepth="1.5" Color="{StaticResource ShadowEffectColor}" />
+    <SolidColorBrush x:Key="ShadowEffectBrush" Color="{StaticResource ShadowEffectColor}" po:Freeze="True" />
+    <DropShadowEffect x:Key="ShadowEffectDepth0"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.22"
+                      BlurRadius="5" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="0" po:Freeze="True" />
+    <DropShadowEffect x:Key="ShadowEffectDepth1"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.42"
+                      BlurRadius="5" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="1" po:Freeze="True" />
+    <DropShadowEffect x:Key="ShadowEffectDepth2"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.42"
+                      BlurRadius="8" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="1.5" po:Freeze="True" />
+    <DropShadowEffect x:Key="ShadowEffectDepth3"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.42"
+                      BlurRadius="14" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="4.5" po:Freeze="True" />
+    <DropShadowEffect x:Key="ShadowEffectDepth4"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.42"
+                      BlurRadius="25" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="8" po:Freeze="True" />
+    <DropShadowEffect x:Key="ShadowEffectDepth5"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.42"
+                      BlurRadius="35" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="13" po:Freeze="True" />
+    <DropShadowEffect x:Key="ComboxBoxShadow"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.15"
+                      BlurRadius="5" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="2" po:Freeze="True" />
+    <DropShadowEffect x:Key="FieldShadowEffect"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.4"
+                      BlurRadius="10" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="-10" po:Freeze="True" />
+    <DropShadowEffect x:Key="NotifyMessageShadowEffect"
+                      Color="{StaticResource ShadowEffectColor}"
+                      Opacity="0.2"
+                      BlurRadius="8" Direction="270" RenderingBias="Performance"
+                      ShadowDepth="1.5" po:Freeze="True" />
 
-    <BitmapCache x:Key="DefaultBitmapCache" EnableClearType="True" RenderAtScale="1" SnapsToDevicePixels="True" />
+    <BitmapCache x:Key="DefaultBitmapCache"
+                 SnapsToDevicePixels="True"
+                 EnableClearType="True" RenderAtScale="1" />
 
 </ResourceDictionary>

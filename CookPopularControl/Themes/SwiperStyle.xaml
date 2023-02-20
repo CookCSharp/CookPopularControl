@@ -29,18 +29,18 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 Command="{x:Static pc:Swiper.LastViewCommand}"
                                 HorizontalAlignment="Left" VerticalAlignment="Center"
-                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}"
-                                Style="{DynamicResource ButtonTransparentIconStyle}" />
+                                Style="{DynamicResource ButtonTransparentIconStyle}"
+                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource LeftGeometry}" />
                         <Button x:Name="PART_NextView"
                                 Foreground="{TemplateBinding Foreground}"
                                 Command="{x:Static pc:Swiper.NextViewCommand}"
                                 HorizontalAlignment="Right" VerticalAlignment="Center"
-                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}"
-                                Style="{DynamicResource ButtonTransparentIconStyle}" />
+                                Style="{DynamicResource ButtonTransparentIconStyle}"
+                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RightGeometry}" />
                         <StackPanel x:Name="PART_Panel"
                                     HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                                    Orientation="Horizontal"
-                                    Visibility="{TemplateBinding IsShowIndicatorDots, Converter={pt:BooleanToVisibilityConverter}}" />
+                                    Visibility="{TemplateBinding IsShowIndicatorDots, Converter={pt:BooleanToVisibilityConverter}}"
+                                    Orientation="Horizontal" />
                     </pc:SimpleGrid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False" SourceName="PART_LastView">

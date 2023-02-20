@@ -66,10 +66,10 @@
                                           Fill="{TemplateBinding Foreground}"
                                           Stretch="Uniform"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"
+                                          Visibility="Collapsed"
                                           RenderTransformOrigin="0.5,0.5"
                                           Stroke="{TemplateBinding Foreground}"
-                                          StrokeThickness="1"
-                                          Visibility="Collapsed">
+                                          StrokeThickness="1">
                                         <Path.RenderTransform>
                                             <TransformGroup>
                                                 <MatrixTransform x:Name="leafMatrix" />
@@ -105,8 +105,8 @@
                                                            FontSize="{TemplateBinding FontSize}"
                                                            SnapsToDevicePixels="True"
                                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                                           RenderTransformOrigin="0.5,0.5"
-                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={pt:BooleanToVisibilityConverter}}">
+                                                           Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:LinearProgressBarAssistant.IsShowPercent), Converter={pt:BooleanToVisibilityConverter}}"
+                                                           RenderTransformOrigin="0.5,0.5">
                                                     <TextBlock.RenderTransform>
                                                         <TransformGroup>
                                                             <ScaleTransform ScaleX="-1" ScaleY="1" />
@@ -194,8 +194,8 @@
                         <AdornerDecorator x:Name="PART_Indicator" HorizontalAlignment="Left">
                             <Border x:Name="Animation"
                                     CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(common:FrameworkElementBaseAttached.CornerRadius)}"
-                                    RenderTransformOrigin="0.5,0.5"
-                                    Visibility="Hidden">
+                                    Visibility="Hidden"
+                                    RenderTransformOrigin="0.5,0.5">
                                 <Border.Background>
                                     <DrawingBrush TileMode="Tile" Viewport="0,0,20,20" ViewportUnits="Absolute">
                                         <DrawingBrush.Transform>

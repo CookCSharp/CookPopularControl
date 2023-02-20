@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:dialog="clr-namespace:CookPopularControl.DialogBox"
-                    xmlns:win="clr-namespace:CookPopularControl.Windows"
-                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables">
+                    xmlns:drag="clr-namespace:CookPopularControl.Controls.Dragables"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
+                    xmlns:win="clr-namespace:CookPopularControl.Windows">
 
     <ResourceDictionary.MergedDictionaries>
         <!--  Other Resource Dictionaries  -->

@@ -213,21 +213,21 @@
                                     Background="{StaticResource ColorPickerOpacityBrush}"
                                     Value="{Binding ChannelA, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                     Minimum="0" Maximum="255"
+                                    Style="{StaticResource ColorPickerSlider}"
                                     IsMoveToPointEnabled="True" IsSnapToTickEnabled="True" Orientation="Vertical"
-                                    SmallChange="1"
-                                    Style="{StaticResource ColorPickerSlider}" />
+                                    SmallChange="1" />
                             <Slider x:Name="PART_SliderColor" Grid.Row="1" Grid.Column="0"
                                     Background="{StaticResource ColorPickerHorizontalLinearGradientBrush}"
                                     Minimum="0" Maximum="359"
+                                    Style="{StaticResource ColorPickerSlider}"
                                     IsMoveToPointEnabled="True" IsSnapToTickEnabled="True" Orientation="Horizontal"
-                                    TickFrequency="0.001"
-                                    Style="{StaticResource ColorPickerSlider}" />
+                                    TickFrequency="0.001" />
                             <ToggleButton x:Name="PART_ButtonPickup" Grid.Row="1" Grid.Column="1"
                                           ToolTip="颜色拾取"
+                                          Style="{StaticResource ToggleButtonTransparentIconStyle}"
                                           common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ColorPickerGeometry}"
                                           common:FrameworkElementBaseAttached.IconHeight="18"
-                                          common:FrameworkElementBaseAttached.IconWidth="18"
-                                          Style="{StaticResource ToggleButtonTransparentIconStyle}" />
+                                          common:FrameworkElementBaseAttached.IconWidth="18" />
                             <StackPanel Grid.Row="2" Grid.Column="0"
                                         Grid.ColumnSpan="2"
                                         HorizontalAlignment="Center"
@@ -252,10 +252,10 @@
                                     <TextBox Height="30" MaxWidth="80"
                                              Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HexColor, Mode=TwoWay}"
                                              Margin="0,10" Padding="4,0"
+                                             InputMethod.IsInputMethodEnabled="False" MaxLength="9"
                                              common:FrameworkElementBaseAttached.CornerRadius="0"
                                              common:TextElementAttached.PlaceHolder="{x:Null}"
-                                             pc:HexadecimalColorBehavior.RegularExpressionProperty="^[#+0-9|a-f|A-F]+$"
-                                             InputMethod.IsInputMethodEnabled="False" MaxLength="9" />
+                                             pc:HexadecimalColorBehavior.RegularExpressionProperty="^[#+0-9|a-f|A-F]+$" />
                                 </StackPanel>
                                 <StackPanel Margin="30,0">
                                     <StackPanel Orientation="Horizontal">

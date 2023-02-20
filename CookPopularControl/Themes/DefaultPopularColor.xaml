@@ -3,6 +3,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CookColors/LightColor.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/CookColors/DarkColor.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

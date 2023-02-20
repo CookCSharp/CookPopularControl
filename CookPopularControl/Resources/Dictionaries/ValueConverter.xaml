@@ -20,43 +20,43 @@
     <common:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter" />
 
 
-    <!--ToBoolean-->
+    <!--  ToBoolean  -->
     <pt:BooleanToReBooleanConverter x:Key="BooleanToReBooleanConverter" />
     <pt:EmptyOrNullToBooleanConverter x:Key="EmptyOrNullToBooleanConverter" />
-    <pt:EnumToBooleanConverter x:Key="EnumToBooleanConverter"/>
+    <pt:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
     <pt:ValueBetween0And100ToBooleanConverter x:Key="ValueBetween0And100ToBooleanConverter" />
     <pt:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter" />
     <pt:ValueLessThanTargetValueToBooleanConverter x:Key="ValueLessThanTargetValueToBooleanConverter" />
     <pt:ValueMoreThanTargetValueToBooleanConverter x:Key="ValueMoreThanTargetValueToBooleanConverter" />
-    <!--ToBrushOrColor-->
+    <!--  ToBrushOrColor  -->
     <pt:BrushToColorConverter x:Key="BrushToColorConverter" />
-    <!--ToCornerRadius-->
+    <!--  ToCornerRadius  -->
     <pt:DoubleToCornerRadiusConverter x:Key="DoubleToCornerRadiusConverter" />
     <pt:CornerRadiusToCornerRadiusConverter x:Key="CornerRadiusToCornerRadiusConverter" />
     <pt:BorderCircularToCornerRadiusConverter x:Key="BorderCircularToCornerRadiusConverter" />
-    <!--ToDouble-->
+    <!--  ToDouble  -->
     <pt:ValueTranslateToDoubleConverter x:Key="ValueTranslateToDoubleConverter" />
     <pt:TranslateToCenterDoubleConverter x:Key="TranslateToCenterDoubleConverter" />
     <pt:HalfOfDifferenceTranslateToDoubleConverter x:Key="HalfOfDifferenceTranslateToDoubleConverter" />
-    <!--ToGeometry-->
+    <!--  ToGeometry  -->
     <pt:BorderClipToGeometryConverter x:Key="BorderClipToGeometryConverter" />
     <pt:BorderCircularClipToGeometryConverter x:Key="BorderCircularClipToGeometryConverter" />
     <pt:ClipCircularToGeometryConverter x:Key="ClipCircularToGeometryConverter" />
-    <!--ToInt-->
+    <!--  ToInt  -->
     <pt:EnumToIntConverter x:Key="EnumToIntConverter" />
-    <!--ToOrientation-->
-    <pt:BooleanToHorizontalOrientationConverter x:Key="BooleanToHorizontalOrientationConverter"/>
-    <pt:BooleanToVerticalOrientationConverter x:Key="BooleanToVerticalOrientationConverter"/>
-    <!--ToString-->
+    <!--  ToOrientation  -->
+    <pt:BooleanToHorizontalOrientationConverter x:Key="BooleanToHorizontalOrientationConverter" />
+    <pt:BooleanToVerticalOrientationConverter x:Key="BooleanToVerticalOrientationConverter" />
+    <!--  ToString  -->
     <pt:DoubleToStringConverter x:Key="DoubleToStringConverter" />
-    <!--ToThickness-->
+    <!--  ToThickness  -->
     <pt:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
     <pt:DoubleToLeftRightThicknessConverter x:Key="DoubleToLeftRightThicknessConverter" />
     <pt:DoubleToTopBottomThicknessConverter x:Key="DoubleToTopBottomThicknessConverter" />
     <pt:ThicknessToThicknessConverter x:Key="ThicknessToThicknessConverter" />
-    <!--ToTimeSpan-->
+    <!--  ToTimeSpan  -->
     <pt:DoubleToTimeSpanConverter x:Key="DoubleToTimeSpanConverter" />
-    <!--ToVisibility-->
+    <!--  ToVisibility  -->
     <pt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <pt:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
     <pt:BooleanNullToVisibilityConverter x:Key="BooleanNullToVisibilityConverter" />

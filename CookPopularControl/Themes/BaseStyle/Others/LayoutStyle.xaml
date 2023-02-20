@@ -97,40 +97,40 @@
                             </Border>
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}"
                                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
-                                   drag:DragableItem.SizeGrip="Left" Cursor="SizeWE"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeWE" drag:DragableItem.SizeGrip="Left" />
                             <Thumb Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Top}"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                                   drag:DragableItem.SizeGrip="Top" Cursor="SizeNS"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNS" drag:DragableItem.SizeGrip="Top" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
-                                   drag:DragableItem.SizeGrip="Right" Cursor="SizeWE"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeWE" drag:DragableItem.SizeGrip="Right" />
                             <Thumb Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-                                   drag:DragableItem.SizeGrip="Bottom" Cursor="SizeNS"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNS" drag:DragableItem.SizeGrip="Bottom" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                                   drag:DragableItem.SizeGrip="TopLeft" Cursor="SizeNWSE"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNWSE" drag:DragableItem.SizeGrip="TopLeft" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Right" VerticalAlignment="Top"
-                                   drag:DragableItem.SizeGrip="TopRight" Cursor="SizeNESW"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNESW" drag:DragableItem.SizeGrip="TopRight" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                                   drag:DragableItem.SizeGrip="BottomRight" Cursor="SizeNWSE"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNWSE" drag:DragableItem.SizeGrip="BottomRight" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
                                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                                   drag:DragableItem.SizeGrip="BottomLeft" Cursor="SizeNESW"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNESW" drag:DragableItem.SizeGrip="BottomLeft" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -169,16 +169,16 @@
                                                Style="{StaticResource InvisibleThumbStyle}" />
                                         <DockPanel Margin="{TemplateBinding Control.Padding}">
                                             <Button DockPanel.Dock="Right"
-                                                    Margin="1,0,0,0"
                                                     Command="{x:Static pc:Layout.CloseFloatingItem}"
                                                     CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1,0,0,0"
                                                     Style="{StaticResource HideDisabledButtonStyle}">
                                                 <!--<themes:SystemCommandIcon Height="10" Width="10" SystemCommandType="CloseWindow" />-->
                                             </Button>
                                             <Button DockPanel.Dock="Right"
-                                                    Margin="1,0,0,0"
                                                     Command="{x:Static pc:Layout.UnfloatItemCommand}"
                                                     CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1,0,0,0"
                                                     Style="{StaticResource HideDisabledButtonStyle}">
                                                 <Path Width="12" Height="12"
                                                       Data="M 19 19 H 5 V 5 h 7 V 3 H 5 C 3.89 3 3 3.9 3 5 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 z M 14 3 v 2 h 3.59 L 7.76 14.83 9.17 16.24 19 6.41 V 10 h 2 V 3 h -7 z"
@@ -186,16 +186,16 @@
                                                       Stretch="UniformToFill" />
                                             </Button>
                                             <Button DockPanel.Dock="Right"
-                                                    Margin="1,0,0,0"
                                                     Command="{x:Static pc:Layout.MaximiseFloatingItem}"
                                                     CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1,0,0,0"
                                                     Style="{StaticResource HideDisabledButtonStyle}">
                                                 <!--<themes:SystemCommandIcon Height="10" Width="10" SystemCommandType="MaximizeWindow" />-->
                                             </Button>
                                             <Button DockPanel.Dock="Right"
-                                                    Margin="1,0,0,0"
                                                     Command="{x:Static pc:Layout.RestoreFloatingItem}"
                                                     CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Margin="1,0,0,0"
                                                     Style="{StaticResource HideDisabledButtonStyle}">
                                                 <!--<themes:SystemCommandIcon Height="10" Width="10" SystemCommandType="RestoreWindow" />-->
                                             </Button>
@@ -218,49 +218,49 @@
                                 </DockPanel>
                             </Border>
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
-                                   drag:DragableItem.SizeGrip="Left" Cursor="SizeWE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeWE" drag:DragableItem.SizeGrip="Left" />
                             <Thumb Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Top}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                                   drag:DragableItem.SizeGrip="Top" Cursor="SizeNS"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNS" drag:DragableItem.SizeGrip="Top" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Right" VerticalAlignment="Stretch"
-                                   drag:DragableItem.SizeGrip="Right" Cursor="SizeWE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeWE" drag:DragableItem.SizeGrip="Right" />
                             <Thumb Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-                                   drag:DragableItem.SizeGrip="Bottom" Cursor="SizeNS"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNS" drag:DragableItem.SizeGrip="Bottom" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                                   drag:DragableItem.SizeGrip="TopLeft" Cursor="SizeNWSE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNWSE" drag:DragableItem.SizeGrip="TopLeft" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Right" VerticalAlignment="Top"
-                                   drag:DragableItem.SizeGrip="TopRight" Cursor="SizeNESW"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNESW" drag:DragableItem.SizeGrip="TopRight" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
+                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
                                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                                   drag:DragableItem.SizeGrip="BottomRight" Cursor="SizeNWSE"
-                                   IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNWSE" drag:DragableItem.SizeGrip="BottomRight" />
                             <Thumb Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Right}"
                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Bottom}"
-                                   HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                                   drag:DragableItem.SizeGrip="BottomLeft" Cursor="SizeNESW"
                                    IsEnabled="{Binding Path=(pc:Layout.FloatingItemState), RelativeSource={RelativeSource TemplatedParent}, Converter={pt:EqualityToBooleanConverter}, ConverterParameter={x:Static WindowState.Normal}}"
-                                   Style="{StaticResource InvisibleThumbStyle}" />
+                                   HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                   Style="{StaticResource InvisibleThumbStyle}"
+                                   Cursor="SizeNESW" drag:DragableItem.SizeGrip="BottomLeft" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -294,20 +294,20 @@
                             <ContentPresenter x:Name="PART_FloatContentPresenter" Margin="{TemplateBinding FloatingItemsContainerMargin}" />
                             <drag:DropZone x:Name="PART_TopDropZone"
                                            HorizontalAlignment="Center" VerticalAlignment="Top"
-                                           Location="Top"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}"
+                                           Location="Top" />
                             <drag:DropZone x:Name="PART_RightDropZone"
                                            HorizontalAlignment="Right" VerticalAlignment="Center"
-                                           Location="Right"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}"
+                                           Location="Right" />
                             <drag:DropZone x:Name="PART_BottomDropZone"
                                            HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                                           Location="Bottom"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}"
+                                           Location="Bottom" />
                             <drag:DropZone x:Name="PART_LeftDropZone"
                                            HorizontalAlignment="Left" VerticalAlignment="Center"
-                                           Location="Left"
-                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}" />
+                                           Visibility="{TemplateBinding IsParticipatingInDrag, Converter={pt:BooleanToVisibilityConverter}}"
+                                           Location="Left" />
                             <drag:DropZone x:Name="PART_FloatDropZone"
                                            HorizontalAlignment="Center" VerticalAlignment="Center"
                                            Location="Floating">

@@ -92,8 +92,8 @@
                                 <Button Width="30" Height="30"
                                         Content="确定"
                                         Command="{x:Static pc:Clock.ConfirmCommand}"
-                                        common:FrameworkElementBaseAttached.CornerRadius="15"
-                                        Visibility="{TemplateBinding pc:ClockAssistant.IsAddConfirmButton, Converter={pt:BooleanToVisibilityConverter}}" />
+                                        Visibility="{TemplateBinding pc:ClockAssistant.IsAddConfirmButton, Converter={pt:BooleanToVisibilityConverter}}"
+                                        common:FrameworkElementBaseAttached.CornerRadius="15" />
                             </UniformGrid>
                         </Grid>
                     </Border>
@@ -130,17 +130,17 @@
                                      common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}" />
                             <ToggleButton x:Name="PART_Button" Grid.Column="1"
                                           Foreground="{TemplateBinding Foreground}"
+                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}"
                                           common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource ClockGeometry}"
                                           common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
-                                          Style="{DynamicResource ToggleButtonTransparentIconStyle}" />
+                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}" />
                             <Popup x:Name="PART_Popup"
                                    AllowsTransparency="True"
                                    IsOpen="{Binding ElementName=PART_Button, Path=IsChecked, Mode=TwoWay}"
                                    Placement="Bottom"
                                    PlacementTarget="{Binding ElementName=PART_TextBox}"
                                    StaysOpen="False" VerticalOffset="8">
-                                <pc:Clock x:Name="PART_Clock" pc:ClockAssistant.IsAddConfirmButton="{TemplateBinding pc:ClockAssistant.IsAddConfirmButton}" Effect="{DynamicResource FieldShadowEffect}" />
+                                <pc:Clock x:Name="PART_Clock" Effect="{DynamicResource FieldShadowEffect}" pc:ClockAssistant.IsAddConfirmButton="{TemplateBinding pc:ClockAssistant.IsAddConfirmButton}" />
                             </Popup>
                         </Grid>
                     </Border>

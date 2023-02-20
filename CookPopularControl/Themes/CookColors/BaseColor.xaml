@@ -6,6 +6,7 @@
 
     <SolidColorBrush x:Key="SystemBorderBrush" Color="{x:Static SystemColors.ActiveBorderColor}" />
     <SolidColorBrush x:Key="ScrollBarBrush" Color="{x:Static SystemColors.ScrollBarColor}" />
+    <SolidColorBrush x:Key="SystemBackgroundBursh" Color="{x:Static SystemColors.ControlLightLightColor}" />
     <SolidColorBrush x:Key="FieldPlaceHolderBrush" Color="#D3D3D3" />
     <SolidColorBrush x:Key="FieldValidationErrorBrush" Color="#FF1F1F" />
 
@@ -15,7 +16,7 @@
     <SolidColorBrush x:Key="UnEnabledBrush" Color="{StaticResource UnEnabledColor}" />
     <SolidColorBrush x:Key="UnEnabledDarkBrush" Color="{x:Static SystemColors.GrayTextColor}" />
     <SolidColorBrush x:Key="UnEnabledDarkDarkBrush" Color="{x:Static SystemColors.DesktopColor}" />
-    <!--给已知Key起别名，全局资源字典中不起作用-->
+    <!--  给已知Key起别名，全局资源字典中不起作用  -->
     <!--<StaticResourceExtension x:Key="UnEnabledDarkBrush" ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
     <StaticResourceExtension x:Key="UnEnabledDarkDarkBrush" ResourceKey="{x:Static SystemColors.DesktopBrushKey}" />-->
 
