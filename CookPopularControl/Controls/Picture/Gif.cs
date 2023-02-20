@@ -55,7 +55,7 @@ namespace CookPopularControl.Controls
         /// 提供<see cref="IsAutoStart"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty IsAutoStartProperty =
-            DependencyProperty.Register("IsAutoStart", typeof(bool), typeof(Gif), new PropertyMetadata(ValueBoxes.FalseBox, OnIsAutoStartPropertyChanged));
+            DependencyProperty.Register("IsAutoStart", typeof(bool), typeof(Gif), new PropertyMetadata(ValueBoxes.TrueBox, OnIsAutoStartPropertyChanged));
 
         private static void OnIsAutoStartPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -63,10 +63,22 @@ namespace CookPopularControl.Controls
             {
                 var isStart = (bool)e.NewValue;
 
-                if (isStart && (gif.GifSource != null || gif.GifStream != null))
-                    gif.StartAnimate();
+                if(gif.IsLoaded)
+                {
+                    ControlGif();
+                }
                 else
-                    gif.StopAnimate();
+                {
+                    gif.Loaded += (s, arg) => ControlGif();
+                }
+
+                void ControlGif()
+                {
+                    if (isStart && (gif.GifSource != null || gif.GifStream != null))
+                        gif.StartAnimate();
+                    else
+                        gif.StopAnimate();
+                }
             }
         }
 
@@ -84,7 +96,7 @@ namespace CookPopularControl.Controls
         /// </summary>
         public static readonly DependencyProperty GifSourceProperty =
             DependencyProperty.Register("GifSource", typeof(Uri), typeof(Gif), new UIPropertyMetadata(default(Uri), OnGifSourcePropertyChanged));
-       
+
         protected static void OnGifSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is Gif gif)
