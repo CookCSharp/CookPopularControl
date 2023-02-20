@@ -1,22 +1,29 @@
-﻿using CookPopularControl.Communal.Data;
+﻿/*
+ * Description：ListBoxAssistant 
+ * Author： Chance.Zheng
+ * Create Time: 2023-02-20 14:12:24
+ * .Net Version: 4.6
+ * CLR Version: 4.0.30319.42000
+ * Copyright (c) CookCSharp 2023 All Rights Reserved.
+ */
+
+
+using CookPopularControl.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-
-
-/*
- * Copyright (c) 2021 All Rights Reserved.
- * Description：SelectorItemTypeToVisibilityConverter
- * Author： Chance_写代码的厨子
- * Create Time：2021-03-24 13:44:45
- */
-namespace CookPopularControl.Communal
+namespace CookPopularControl.Controls
 {
     [MarkupExtensionReturnType(typeof(Visibility))]
+    [ValueConversion(typeof(SelectorItemType), typeof(Visibility))]
     public class SelectorItemTypeToVisibilityConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -32,5 +39,9 @@ namespace CookPopularControl.Communal
         {
             throw new NotImplementedException();
         }
+    }
+
+    public class ListBoxAssistant
+    {
     }
 }

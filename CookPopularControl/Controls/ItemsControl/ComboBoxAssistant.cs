@@ -8,6 +8,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using CookPopularCSharpToolkit.Windows;
+using System.Windows.Forms;
 
 
 
@@ -19,8 +20,8 @@ using CookPopularCSharpToolkit.Windows;
  */
 namespace CookPopularControl.Controls
 {
-    [MarkupExtensionReturnType(typeof(Visibility))]
-    [ValueConversion(typeof(EditorType), typeof(Visibility))]
+    [MarkupExtensionReturnType(typeof(Thickness))]
+    [ValueConversion(typeof(Thickness), typeof(Thickness))]
     public class ComboBoxItemPaddingConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

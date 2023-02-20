@@ -8,9 +8,60 @@
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <pc:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter" />
+
+
     <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemWidth)}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemHeight)}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <pc:SimpleGrid x:Name="ItemGrid">
+                        <pc:Ripple Background="Transparent"
+                                   ContentTemplate="{TemplateBinding ContentTemplate}"
+                                   ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                   Padding="{TemplateBinding Padding}"
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                   Focusable="False"
+                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Feedback="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.Feedback)}"
+                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}" />
+                        <ContentPresenter x:Name="ItemContent" Grid.Column="0"
+                                          Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          IsHitTestVisible="False"
+                                          TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </pc:SimpleGrid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemGrid" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemGrid" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemGrid" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MultiListBoxItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListBoxItemStyle}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -29,8 +80,8 @@
                                        Focusable="False"
                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}"
-                                       Feedback="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.Feedback)}" />
+                                       Feedback="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.Feedback)}"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}" />
                             <ContentPresenter x:Name="ItemContent" Grid.Column="0"
                                               Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -53,40 +104,38 @@
                                           IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected, Mode=TwoWay}"
                                           Margin="{Binding ElementName=ItemGrid, Path=ActualHeight, Converter={pt:DoubleToLeftRightThicknessConverter}, ConverterParameter=0.15}"
                                           Padding="0" Focusable="False"
-                                          Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=CheckBox}"
-                                          pc:CheckBoxAssistant.FillBrush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:CheckBoxAssistant.FillBrush)}" />
+                                          pc:CheckBoxAssistant.FillBrush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:CheckBoxAssistant.FillBrush)}"
+                                          Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={StaticResource SelectorItemTypeToVisibilityConverter}, ConverterParameter={x:Static common:SelectorItemType.CheckBox}}" />
                                 <Button x:Name="ItemButton"
                                         Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
                                         Height="{Binding ElementName=ItemGrid, Path=ActualHeight}"
                                         Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ButtonContent)}"
                                         Focusable="True"
-                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Button}"
                                         common:FrameworkElementBaseAttached.CornerRadius="2"
-                                        common:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.IsButtonDeleteItem)}" />
+                                        common:SelectorAttached.IsButtonDeleteItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.IsButtonDeleteItem)}"
+                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={StaticResource SelectorItemTypeToVisibilityConverter}, ConverterParameter={x:Static common:SelectorItemType.Button}}" />
                                 <Path x:Name="ItemIcon"
                                       Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
                                       Height="{Binding ElementName=ItemGrid, Path=ActualHeight}"
                                       Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GeometryData}"
                                       Fill="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.IconFill)}"
                                       Stretch="Uniform"
-                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Icon}" />
-                                <Image x:Name="ItemImage"
-                                       Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
-                                       Height="{Binding ElementName=ItemGrid, Path=ActualHeight}"
-                                       Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.ImageSource}"
-                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Image}"
-                                       common:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.IsPreviewImage)}" />
-                                <pc:Gif x:Name="ItemGif"
+                                      Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={StaticResource SelectorItemTypeToVisibilityConverter}, ConverterParameter={x:Static common:SelectorItemType.Icon}}" />
+                                <pc:Gif x:Name="ItemImageGif"
                                         Width="{Binding ElementName=ItemGrid, Path=ActualWidth}"
                                         Height="{Binding ElementName=ItemGrid, Path=ActualHeight}"
-                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={common:SelectorItemTypeToVisibilityConverter}, ConverterParameter=Gif}"
+                                        Source="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.ImageSource}"
                                         GifSource="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.GifSource}"
-                                        common:SelectorAttached.IsPreviewImage="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.IsPreviewImage)}" />
+                                        common:SelectorAttached.IsPreviewImageGif="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.IsPreviewImageGif)}"
+                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType), Converter={StaticResource SelectorItemTypeToVisibilityConverter}, ConverterParameter={x:Static common:SelectorItemType.ImageGif}}" />
                             </pc:SimpleGrid>
-                            <Popup x:Name="Popup_PreviewImage"
+                            <Popup x:Name="Popup_PreviewImageGif"
                                    AllowsTransparency="True" IsOpen="False" Placement="Right"
                                    PopupAnimation="Slide">
-                                <Image Width="300" Height="300" Source="{Binding ElementName=ItemImage, Path=Source}" />
+                                <pc:SimpleGrid>
+                                    <Image Width="300" Height="300" Source="{Binding ElementName=ItemImageGif, Path=Source}" />
+                                    <pc:Gif Width="300" Height="300" GifSource="{Binding ElementName=ItemImageGif, Path=GifSource}" />
+                                </pc:SimpleGrid>
                             </Popup>
                         </Grid>
                     </Border>
@@ -97,22 +146,22 @@
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType)}" Value="Icon">
                             <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}" TargetName="ItemContent" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType)}" Value="Image">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.SelectorItemType)}" Value="ImageGif">
                             <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content.Content}" TargetName="ItemContent" />
                         </DataTrigger>
-                        <!--  鼠标仅在Image之上时触发  -->
+                        <!--  鼠标仅在ImageGif之上时触发  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True" SourceName="ItemImage" />
-                                <Condition Property="common:SelectorAttached.IsPreviewImage" Value="True" SourceName="ItemImage" />
+                                <Condition Property="IsMouseOver" Value="True" SourceName="ItemImageGif" />
+                                <Condition Property="common:SelectorAttached.IsPreviewImageGif" Value="True" SourceName="ItemImageGif" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage" />
+                            <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImageGif" />
                         </MultiTrigger>
                         <!--  鼠标在整个ListBoxItem之上时触发  -->
                         <!--<MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True" />
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Selector},Path=(common:SelectorAttached.IsPreviewImage)}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Selector},Path=(common:SelectorAttached.IsPreviewImageGif)}" Value="True"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="IsOpen" Value="True" TargetName="Popup_PreviewImage"/>
                         </MultiDataTrigger>-->
@@ -144,7 +193,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
-        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
         <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />

@@ -75,13 +75,6 @@
         <Setter Property="common:SelectorAttached.IsButtonDeleteItem" Value="True" />
     </Style>
 
-    <Style x:Key="MultiComboBoxImageItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
-        <Setter Property="common:SelectorAttached.SelectorItemType" Value="Image" />
-    </Style>
-    <Style x:Key="AddClearButtonMultiComboBoxImageItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
-        <Setter Property="common:SelectorAttached.SelectorItemType" Value="Image" />
-    </Style>
-
     <Style x:Key="MultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Icon" />
         <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource PrimaryForegroundBrush}" />
@@ -89,6 +82,15 @@
     <Style x:Key="AddClearButtonMultiComboBoxIconItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Icon" />
         <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource PrimaryForegroundBrush}" />
+    </Style>
+
+    <Style x:Key="MultiComboBoxImageGifItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultMultiComboBoxStyle}">
+        <Setter Property="common:SelectorAttached.SelectorItemType" Value="ImageGif" />
+        <Setter Property="common:SelectorAttached.IsPreviewImageGif" Value="False" />
+    </Style>
+    <Style x:Key="AddClearButtonMultiComboBoxImageGifItemsStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource AddClearButtonMultiComboBoxStyle}">
+        <Setter Property="common:SelectorAttached.SelectorItemType" Value="ImageGif" />
+        <Setter Property="common:SelectorAttached.IsPreviewImageGif" Value="False" />
     </Style>
 
 </ResourceDictionary>

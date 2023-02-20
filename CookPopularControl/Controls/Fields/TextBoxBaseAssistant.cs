@@ -29,8 +29,8 @@ using System.Globalization;
 
 namespace CookPopularControl.Controls
 {
-    [MarkupExtensionReturnType(typeof(Visibility))]
-    [ValueConversion(typeof(EditorType), typeof(Visibility))]
+    [MarkupExtensionReturnType(typeof(Thickness))]
+    [ValueConversion(typeof(Thickness), typeof(Thickness))]
     public class TextBlockEllipsisPaddingConverter : MarkupExtensionBase, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

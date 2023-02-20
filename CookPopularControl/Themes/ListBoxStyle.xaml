@@ -19,24 +19,28 @@
         <Setter Property="common:SelectorAttached.ItemSelectedBackground" Value="{DynamicResource ControlPressBackground}" />
     </Style>
 
-    <Style x:Key="ListBoxCheckBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
+    <Style x:Key="MultiListBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource MultiListBoxItemStyle}" /> 
+    </Style>
+
+    <Style x:Key="ListBoxCheckBoxStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource MultiListBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="CheckBox" />
         <Setter Property="pc:CheckBoxAssistant.FillBrush" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
 
-    <Style x:Key="ListBoxButtonStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
+    <Style x:Key="ListBoxButtonStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource MultiListBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Button" />
         <Setter Property="common:SelectorAttached.ButtonContent" Value="❌" />
         <Setter Property="common:SelectorAttached.IsButtonDeleteItem" Value="True" />
     </Style>
 
-    <Style x:Key="ListBoxIconStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
+    <Style x:Key="ListBoxIconStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource MultiListBoxStyle}">
         <Setter Property="common:SelectorAttached.SelectorItemType" Value="Icon" />
         <Setter Property="common:SelectorAttached.IconFill" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
 
-    <Style x:Key="ListBoxImageStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource DefaultListBoxStyle}">
-        <Setter Property="common:SelectorAttached.SelectorItemType" Value="Image" />
+    <Style x:Key="ListBoxImageGifStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource MultiListBoxStyle}">
+        <Setter Property="common:SelectorAttached.SelectorItemType" Value="ImageGif" />
     </Style>
 
 </ResourceDictionary>

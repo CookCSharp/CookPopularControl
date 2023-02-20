@@ -66,7 +66,7 @@ namespace CookPopularControl.Communal
             {
                 RoutedEventHandler handler = (s, e) =>
                 {
-                    if (box is ComboBox comboBox && SelectorAttached.GetSelectorItemType(comboBox) != Data.SelectorItemType.Default)
+                    if (box is ComboBox comboBox && SelectorAttached.GetSelectorItemType(comboBox) != SelectorItemType.Default)
                     {
                         var listBox = comboBox.Template.FindName("PART_ListBox", comboBox) as ListBox;
                         listBox?.UnselectAll();

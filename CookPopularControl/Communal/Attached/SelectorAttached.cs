@@ -18,6 +18,28 @@ using System.Windows.Media;
 namespace CookPopularControl.Communal
 {
     /// <summary>
+    /// Selector子项类型
+    /// </summary>
+    /// <remarks>都是基于文本</remarks>
+    public enum SelectorItemType
+    {
+        /// <summary>
+        /// 只有文本
+        /// </summary>
+        Default,
+        /// <summary>
+        /// 包含CheckBox
+        /// </summary>
+        CheckBox,
+        Button,
+        /// <summary>
+        /// 包含IconGeometry
+        /// </summary>
+        Icon,
+        ImageGif,
+    }
+
+    /// <summary>
     /// 提供具有Items子项控件的附加属性基类
     /// </summary>
     /// <remarks>适用于ListBox, ListView，ComboBox</remarks>
@@ -278,13 +300,13 @@ namespace CookPopularControl.Communal
         public static readonly DependencyProperty GifSourceProperty =
             DependencyProperty.RegisterAttached("GifSource", typeof(Uri), typeof(SelectorAttached), new PropertyMetadata(default(Uri)));
 
-        public static bool GetIsPreviewImage(DependencyObject obj) => (bool)obj.GetValue(IsPreviewImageProperty);
-        public static void SetIsPreviewImage(DependencyObject obj, bool value) => obj.SetValue(IsPreviewImageProperty, ValueBoxes.BooleanBox(value));
+        public static bool GetIsPreviewImageGif(DependencyObject obj) => (bool)obj.GetValue(IsPreviewImageGifProperty);
+        public static void SetIsPreviewImageGif(DependencyObject obj, bool value) => obj.SetValue(IsPreviewImageGifProperty, ValueBoxes.BooleanBox(value));
         /// <summary>
-        /// <see cref="IsPreviewImageProperty"/>表示是否可以预览图片
+        /// <see cref="IsPreviewImageGifProperty"/>表示是否可以预览图片
         /// </summary>
-        public static readonly DependencyProperty IsPreviewImageProperty =
-            DependencyProperty.RegisterAttached("IsPreviewImage", typeof(bool), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsPreviewImageGifProperty =
+            DependencyProperty.RegisterAttached("IsPreviewImageGif", typeof(bool), typeof(SelectorAttached), new PropertyMetadata(ValueBoxes.FalseBox));
 
         #endregion
     }

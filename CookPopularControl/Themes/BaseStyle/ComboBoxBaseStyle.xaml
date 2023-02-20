@@ -7,6 +7,9 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ListBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
+    
+    <pc:ComboBoxItemPaddingConverter x:Key="ComboBoxItemPaddingConverter"/>
+
 
     <!--  下拉按钮  -->
     <Style x:Key="DropDownToggleButtonStyle" TargetType="{x:Type ToggleButton}">
@@ -91,7 +94,7 @@
     </Style>
 
     <Style x:Key="ComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource ListBoxItemStyle}">
-        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Padding, Converter={pc:ComboBoxItemPaddingConverter}, ConverterParameter=1}" />
+        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Padding, Converter={StaticResource ComboBoxItemPaddingConverter}, ConverterParameter=1}" />
     </Style>
 
 
@@ -367,7 +370,7 @@
                                              common:SelectorAttached.CheckBoxContent="{TemplateBinding common:SelectorAttached.CheckBoxContent}"
                                              common:SelectorAttached.IconFill="{TemplateBinding common:SelectorAttached.IconFill}"
                                              common:SelectorAttached.IsButtonDeleteItem="{TemplateBinding common:SelectorAttached.IsButtonDeleteItem}"
-                                             common:SelectorAttached.IsPreviewImage="{TemplateBinding common:SelectorAttached.IsPreviewImage}"
+                                             common:SelectorAttached.IsPreviewImageGif="{TemplateBinding common:SelectorAttached.IsPreviewImageGif}"
                                              common:SelectorAttached.ItemControlHeight="{TemplateBinding common:SelectorAttached.ItemControlHeight}"
                                              common:SelectorAttached.ItemControlWidth="{TemplateBinding common:SelectorAttached.ItemControlWidth}"
                                              common:SelectorAttached.SelectorItemType="{TemplateBinding common:SelectorAttached.SelectorItemType}"
@@ -375,8 +378,8 @@
                                              pc:RippleAssist.Feedback="{TemplateBinding pc:RippleAssist.Feedback}"
                                              pc:RippleAssist.IsDisabled="{TemplateBinding pc:RippleAssist.IsDisabled}">
                                         <ListBox.Resources>
-                                            <Style x:Key="MultiComboBoxListBoxItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListBoxItemStyle}">
-                                                <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Padding, Converter={pc:ComboBoxItemPaddingConverter}, ConverterParameter=2}" />
+                                            <Style x:Key="MultiComboBoxListBoxItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MultiListBoxItemStyle}">
+                                                <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Padding, Converter={StaticResource ComboBoxItemPaddingConverter}, ConverterParameter=2}" />
                                             </Style>
                                         </ListBox.Resources>
                                     </ListBox>

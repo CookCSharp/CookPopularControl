@@ -53,15 +53,15 @@
                         <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Row="0" Grid.Column="1"
                                    Value="{TemplateBinding VerticalOffset}"
                                    Maximum="{TemplateBinding ScrollableHeight}"
-                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
                                    AutomationProperties.AutomationId="VerticalScrollBar" Orientation="Vertical"
-                                   ViewportSize="{TemplateBinding ViewportHeight}" />
+                                   ViewportSize="{TemplateBinding ViewportHeight}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
                         <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Row="1" Grid.Column="0"
                                    Value="{TemplateBinding HorizontalOffset}"
                                    Maximum="{TemplateBinding ScrollableWidth}"
-                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
                                    AutomationProperties.AutomationId="HorizontalScrollBar" Orientation="Horizontal"
-                                   ViewportSize="{TemplateBinding ViewportWidth}" />
+                                   ViewportSize="{TemplateBinding ViewportWidth}"
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
                         <Rectangle x:Name="PART_Corner" Grid.Row="1" Grid.Column="1"
                                    Fill="{TemplateBinding Foreground}"
                                    Opacity="0.8"
@@ -174,7 +174,7 @@
                 <Setter Property="Opacity" Value="0.5" />
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="GridViewColumnHeader">
+                        <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                             <DockPanel Name="PART_FloatingHeaderCanvas">
                                 <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" />
                             </DockPanel>
@@ -186,7 +186,7 @@
                 <Setter Property="Opacity" Value="0.5" />
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="GridViewColumnHeader">
+                        <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                             <Canvas Name="PART_FloatingHeaderCanvas" />
                         </ControlTemplate>
                     </Setter.Value>
@@ -194,8 +194,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}" />
 
     <Style x:Key="ListViewGridViewItemStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -255,6 +253,8 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}" />
+
     <Style x:Key="ListViewGridViewStyle" TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListBoxStyle}">
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewGridViewItemStyle}" />
         <Setter Property="common:DataGridViewAttached.ColumnHeaderHeight" Value="30" />
@@ -269,9 +269,9 @@
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}">
                         <ScrollViewer Background="Transparent"
-                                      Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                      Style="{StaticResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
                             <StackPanel SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />
                         </ScrollViewer>
                     </Border>
