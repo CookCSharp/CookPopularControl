@@ -1,15 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
-                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-    <pc:TextBlockEllipsisPaddingConverter x:Key="TextBlockEllipsisPaddingConverter" />
 
     <Style x:Key="TextBoxBaseBaseStyle" TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="MinHeight" Value="22" />
@@ -49,31 +46,21 @@
                                        Foreground="{TemplateBinding common:TextElementAttached.PlaceHolderBrush}"
                                        Padding="{TemplateBinding Padding}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Visibility="Collapsed"
-                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       TextTrimming="CharacterEllipsis" />
-                            <!--  添加TextBlockEllipsisPaddingConverter防止失去焦点时文本内容抖动  -->
-                            <TextBlock x:Name="PART_Ellipsis" 
-                                       Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBox}, Path=Text}"
-                                       Foreground="{TemplateBinding Foreground}"
-                                       Padding="{TemplateBinding Padding, Converter={StaticResource TextBlockEllipsisPaddingConverter}, ConverterParameter=2}"
-                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                       ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Visibility="Collapsed"
-                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       TextTrimming="CharacterEllipsis" />
+                                       TextAlignment="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBox}, Path=TextAlignment}"
+                                       TextTrimming="CharacterEllipsis"
+                                       Visibility="Collapsed" />
                             <Button x:Name="PART_ClearButton" Grid.Column="1"
                                     Height="{TemplateBinding Height}"
                                     Foreground="{TemplateBinding Foreground}"
-                                    Margin="0,0,6,0"
-                                    Style="{StaticResource ButtonTransparentIconStyle}"
+                                    Margin="0,0,6,0" Focusable="False"
                                     Effect="{x:Null}"
                                     common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                     common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                     common:FrameworkElementBaseAttached.IconMargin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
-                                    common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}">
+                                    common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                    Style="{StaticResource ButtonTransparentIconStyle}">
                                 <Button.Visibility>
                                     <MultiBinding Converter="{common:TextFieldClearButtonVisibilityConverter}">
                                         <Binding Path="(common:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
@@ -87,17 +74,6 @@
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text, Converter={pt:EmptyOrNullToBooleanConverter}}" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="PART_PlaceHolder" />
                         </DataTrigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsFocused" Value="False" />
-                                <Condition Property="pc:TextBoxBaseAssistant.IsEllipsisEnabled" Value="True" />
-                            </MultiTrigger.Conditions>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_ContentHost" />
-                            <Setter Property="Visibility" Value="Visible" TargetName="PART_Ellipsis" />
-                        </MultiTrigger>
-                        <Trigger Property="pc:TextBoxBaseAssistant.IsShowToolTip" Value="False">
-                            <Setter Property="ToolTip" Value="{x:Null}" TargetName="PART_Ellipsis" />
-                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource ControlMouseOverBackground}" />
                         </Trigger>

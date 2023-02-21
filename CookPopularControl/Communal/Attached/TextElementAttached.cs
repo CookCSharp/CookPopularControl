@@ -1,6 +1,7 @@
 ﻿using CookPopularCSharpToolkit.Communal;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 
 
@@ -30,6 +31,7 @@ namespace CookPopularControl.Communal
         public static readonly DependencyProperty PlaceHolderProperty =
             DependencyProperty.RegisterAttached("PlaceHolder", typeof(string), typeof(TextElementAttached), new PropertyMetadata(default(string)));
 
+
         public static Brush GetPlaceHolderBrush(DependencyObject obj) => (Brush)obj.GetValue(PlaceHolderBrushProperty);
         public static void SetPlaceHolderBrush(DependencyObject obj, Brush value) => obj.SetValue(PlaceHolderBrushProperty, value);
         /// <summary>
@@ -37,6 +39,7 @@ namespace CookPopularControl.Communal
         /// </summary>
         public static readonly DependencyProperty PlaceHolderBrushProperty =
             DependencyProperty.RegisterAttached("PlaceHolderBrush", typeof(Brush), typeof(TextElementAttached), new PropertyMetadata(default(Brush)));
+
 
         public static bool GetIsAddClearButton(DependencyObject obj) => (bool)obj.GetValue(IsAddClearButtonProperty);
         public static void SetIsAddClearButton(DependencyObject obj, bool value) => obj.SetValue(IsAddClearButtonProperty, ValueBoxes.BooleanBox(value));
@@ -74,6 +77,8 @@ namespace CookPopularControl.Communal
                     (box as TextBox)?.SetCurrentValue(TextBox.TextProperty, null);
                     (box as ComboBox)?.SetCurrentValue(ComboBox.TextProperty, null);
                     if (box is PasswordBox pb) pb.Password = null;
+
+                    SetIsTextClear(box, true);
                 };
 
                 if (value)
@@ -82,5 +87,14 @@ namespace CookPopularControl.Communal
                     clearButton.Click -= handler;
             }
         }
+
+      
+        public static bool GetIsTextClear(DependencyObject obj) => (bool)obj.GetValue(IsTextClearProperty);
+        private static void SetIsTextClear(DependencyObject obj, bool value) => obj.SetValue(IsTextClearProperty, value);
+        /// <summary>
+        /// <see cref="IsTextClearProperty"/>表示是否清除了文本
+        /// </summary>
+        private static readonly DependencyProperty IsTextClearProperty =
+            DependencyProperty.RegisterAttached("IsTextClear", typeof(bool), typeof(TextElement), new PropertyMetadata(ValueBoxes.FalseBox));
     }
 }

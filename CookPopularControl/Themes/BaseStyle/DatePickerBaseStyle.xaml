@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:CookPopularControl.Communal"
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls"
                     xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml">
 
     <ResourceDictionary.MergedDictionaries>
@@ -66,8 +67,9 @@
                                                Focusable="{TemplateBinding Focusable}"
                                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                               Style="{DynamicResource DefaultTextBoxStyle}"
-                                               common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}" />
+                                               common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
+                                               pc:TextBoxBaseAssistant.IsTrimming="False"
+                                               Style="{DynamicResource DefaultTextBoxStyle}" />
                             <Button x:Name="PART_Button" Grid.Column="1"
                                     Margin="0,0,6,0"
                                     Style="{StaticResource DatePickerButtonStyle}" />

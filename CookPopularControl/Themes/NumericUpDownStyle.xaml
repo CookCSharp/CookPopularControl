@@ -49,7 +49,8 @@
                                      common:FrameworkElementBaseAttached.IconMargin="0"
                                      common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                      common:TextElementAttached.IsAddClearButton="{TemplateBinding common:TextElementAttached.IsAddClearButton}"
-                                     common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}" />
+                                     common:TextElementAttached.PlaceHolder="{TemplateBinding common:TextElementAttached.PlaceHolder}"
+                                     pc:TextBoxBaseAssistant.IsTrimming="False" />
                             <UniformGrid Grid.Column="1"
                                          Rows="2"
                                          Margin="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonMargin}"
@@ -60,20 +61,20 @@
                                         Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
                                         Command="{x:Static pc:NumericUpDown.PlusCommand}"
                                         Focusable="False"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource UpSingleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}" />
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}" />
                                 <Button x:Name="PART_SubtractButton"
                                         Width="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
                                         Height="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
                                         Foreground="{TemplateBinding pc:NumericUpDownAssistant.UpDownButtonBrush}"
                                         Command="{x:Static pc:NumericUpDown.SubtractCommand}"
                                         Focusable="False"
-                                        Style="{StaticResource ButtonTransparentIconStyle}"
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource DownSingleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}" />
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                        Style="{StaticResource ButtonTransparentIconStyle}" />
                             </UniformGrid>
                         </Grid>
                     </Border>
