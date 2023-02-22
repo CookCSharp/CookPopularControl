@@ -309,7 +309,7 @@ namespace CookPopularControl.Windows
         {
             var workWidth = SystemParameters.WorkArea.Width;
             var workHeight = SystemParameters.WorkArea.Height;
-            if(Width > workWidth || Height > workHeight)
+            if (Width > workWidth || Height > workHeight)
             {
                 Width = workWidth * 0.8;
                 Height = workHeight * 0.8;
@@ -348,10 +348,10 @@ namespace CookPopularControl.Windows
                 InvalidateMeasure();
             }
 
-            if(this.WindowState == WindowState.Maximized)
+            if (this.WindowState == WindowState.Maximized)
             {
                 //解决窗口以最大化启动,点击还原窗口时居中显示
-                this.SizeChanged += NormalWindow_SizeChanged;             
+                this.SizeChanged += NormalWindow_SizeChanged;
             }
 
             this.GetHwndSource()?.AddHook(HwndSourceHook);

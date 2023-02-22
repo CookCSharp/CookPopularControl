@@ -60,6 +60,27 @@
             <see cref="F:CookPopularControl.Communal.FrameworkElementBaseAttached.ControlPressBackgroundProperty"/>标识鼠标焦点在控件上的背景色
             </summary>
         </member>
+        <member name="T:CookPopularControl.Communal.SelectorItemType">
+            <summary>
+            Selector子项类型
+            </summary>
+            <remarks>都是基于文本</remarks>
+        </member>
+        <member name="F:CookPopularControl.Communal.SelectorItemType.Default">
+            <summary>
+            只有文本
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.SelectorItemType.CheckBox">
+            <summary>
+            包含CheckBox
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.SelectorItemType.Icon">
+            <summary>
+            包含IconGeometry
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Communal.SelectorAttached">
             <summary>
             提供具有Items子项控件的附加属性基类
@@ -126,9 +147,9 @@
             因为ComboBoxItem.Template中Path的绑定方式为Content.GeometryData
             *
         </member>
-        <member name="F:CookPopularControl.Communal.SelectorAttached.IsPreviewImageProperty">
+        <member name="F:CookPopularControl.Communal.SelectorAttached.IsPreviewImageGifProperty">
             <summary>
-            <see cref="F:CookPopularControl.Communal.SelectorAttached.IsPreviewImageProperty"/>表示是否可以预览图片
+            <see cref="F:CookPopularControl.Communal.SelectorAttached.IsPreviewImageGifProperty"/>表示是否可以预览图片
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.SelectorItem">
@@ -155,6 +176,11 @@
         <member name="F:CookPopularControl.Communal.TextElementAttached.IsAddClearButtonProperty">
             <summary>
             <see cref="F:CookPopularControl.Communal.TextElementAttached.IsAddClearButtonProperty"/>表示是否增加清除文本内容按钮
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Communal.TextElementAttached.IsTextClearProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Communal.TextElementAttached.IsTextClearProperty"/>表示是否清除了文本
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.ThumbAttached">
@@ -254,11 +280,6 @@
             警报器状态
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Data.BadgeDirection">
-            <summary>
-            <see cref="T:CookPopularControl.Controls.Badge"/>位置
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Communal.Data.ControlBorderAnimationType">
             <summary>
             表示<see cref="P:CookPopularControl.Communal.ControlBorderBehavior.AnimationType"/>枚举类型
@@ -323,27 +344,6 @@
             <summary>
             表示弹出控件的弹出位置；
             由两部分组成，水平+垂直，总共9个弹出方向
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Data.SelectorItemType">
-            <summary>
-            Selector子项类型
-            </summary>
-            <remarks>都是基于文本</remarks>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.SelectorItemType.Default">
-            <summary>
-            只有文本
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.SelectorItemType.CheckBox">
-            <summary>
-            包含CheckBox
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.Data.SelectorItemType.Icon">
-            <summary>
-            包含IconGeometry
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.Data.SizeGrip">
@@ -1631,22 +1631,27 @@
         </member>
         <member name="T:CookPopularControl.Controls.EllipsisPlacement">
             <summary>
-            用于指定省略号所在位置的枚举，你可以换成中文，不影响使用。
+            用于指定省略号所在位置的枚举
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.TextBoxBaseAssistant">
             <summary>
-            表示<see cref="T:System.Windows.Controls.TextBox"/>的附加属性类
+            表示<see cref="T:System.Windows.Controls.Primitives.TextBoxBase"/>的附加属性类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsGotFocusProperty">
+            <summary>
+            是否启用省略号，如果启用了，就会截断文字，显示省略号。当文本获取焦点时，暂时失效
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsTrimmingProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsTrimmingProperty"/>表示是否裁剪文本
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.EllipsisPlacementProperty">
             <summary>
-            省略号位置，左中右
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsEllipsisEnabledProperty">
-            <summary>
-            是否启用省略号，如果启用了，就会截断文字，显示省略号。当文本获取焦点时，暂时失效
+            <see cref="F:CookPopularControl.Controls.TextBoxBaseAssistant.EllipsisPlacementProperty"/>表示省略号位置，左中右
             </summary>
         </member>
         <member name="F:CookPopularControl.Controls.TextBoxBaseAssistant.IsShowToolTipProperty">
@@ -3835,6 +3840,11 @@
             <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.ListViewAssistant">
+            <summary>
+            <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.TreeViewAssistant">
             <summary>
             提供<see cref="T:System.Windows.Controls.TreeView"/>的附加属性帮助类
@@ -3924,11 +3934,6 @@
         <member name="F:CookPopularControl.Controls.LabelAssistant.HeaderStringFormatProperty">
             <summary>
             <see cref="F:CookPopularControl.Controls.LabelAssistant.HeaderStringFormatProperty"/>标识标签标头的数据模板选择器
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Controls.ListViewAssistant">
-            <summary>
-            <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.DotCircleLoading">
@@ -4658,9 +4663,14 @@
             <see cref="F:CookPopularControl.Controls.Alertor.StateChangedEvent"/>标识警报器状态变化时的事件
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.BadgeDirection">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.Badge"/>位置
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.Badge">
             <summary>
-            
+            表示带有标记的控件
             </summary>
         </member>
         <member name="P:CookPopularControl.Controls.Badge.Element">
@@ -8032,36 +8042,6 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

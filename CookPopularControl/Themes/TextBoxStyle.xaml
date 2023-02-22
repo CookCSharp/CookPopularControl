@@ -12,8 +12,8 @@
         <Setter Property="common:TextElementAttached.PlaceHolder" Value="请输入文本..." />
         <Setter Property="common:TextElementAttached.PlaceHolderBrush" Value="{DynamicResource FieldPlaceHolderBrush}" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="2" />
-        <Setter Property="pc:TextBoxBaseAssistant.IsEllipsisEnabled" Value="{Binding RelativeSource={RelativeSource Self},Path=IsFocused,Converter={pt:BooleanToReBooleanConverter}}" />
         <Setter Property="pc:TextBoxBaseAssistant.IsFirstChecked" Value="True" />
+        <Setter Property="pc:TextBoxBaseAssistant.IsGotFocus" Value="{Binding RelativeSource={RelativeSource Self},Path=IsFocused}" />
         <Setter Property="pc:TextBoxBaseAssistant.IsTrimming" Value="False" />
         <Setter Property="pc:TextBoxBaseAssistant.EllipsisPlacement" Value="Center" />
         <Setter Property="pc:TextBoxBaseAssistant.IsShowToolTip" Value="True" />

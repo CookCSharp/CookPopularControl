@@ -205,10 +205,10 @@
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
         <Setter Property="common:FrameworkElementBaseAttached.CornerRadius" Value="0" />
-        <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="True" />
-        <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlMouseOverBackground" Value="{DynamicResource ControlMouseOverBackground}" />
         <Setter Property="common:FrameworkElementBaseAttached.ControlPressBackground" Value="{DynamicResource ControlPressBackground}" />
+        <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="True" />
+        <Setter Property="pc:ScrollBarAssistant.ThumbInsideMargin" Value="0" />
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
                 <Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" />

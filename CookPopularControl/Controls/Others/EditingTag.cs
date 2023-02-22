@@ -1,8 +1,13 @@
 ﻿using CookPopularControl.Communal.Data;
 using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
+using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Markup;
 
 
 /*
@@ -13,10 +18,28 @@ using System.Windows.Controls;
  */
 namespace CookPopularControl.Controls
 {
+    [MarkupExtensionReturnType(typeof(Visibility))]
+    [ValueConversion(typeof(EditorType), typeof(Visibility))]
+    public class EditorTypeToVisibilityConverter : MarkupExtensionBase, IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value.Equals(parameter))
+                return Visibility.Visible;
+            else
+                return Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     /// <summary>
     /// 可编辑标签元素的类型
     /// </summary>
-    public enum EditorType : byte
+    public enum EditorType
     {
         TextBox,
         TextBlock,
@@ -31,6 +54,9 @@ namespace CookPopularControl.Controls
     [TemplatePart(Name = ElementFrameworkElement, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
     [TemplatePart(Name = ElementNumericUpDown, Type = typeof(NumericUpDown))]
+    [DefaultProperty("Content")]
+    [ContentProperty("Content")]
+    [Localizability(LocalizationCategory.None)]
     public class EditingTag : HeaderedContentControl
     {
         private const string ElementFrameworkElement = "PART_Content";

@@ -46,34 +46,52 @@
                                    Foreground="{TemplateBinding pc:ScrollBarAssistant.ScrollBarBrush}"
                                    Value="{TemplateBinding VerticalOffset}"
                                    Maximum="{TemplateBinding ScrollableHeight}"
-                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                                   Style="{StaticResource DefaultScrollBarStyle}"
                                    AutomationProperties.AutomationId="VerticalScrollBar" Orientation="Vertical"
                                    ViewportSize="{TemplateBinding ViewportHeight}"
                                    pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
-                                   pc:ScrollBarAssistant.ThumbInsideMargin="{TemplateBinding pc:ScrollBarAssistant.ThumbInsideMargin}" />
+                                   pc:ScrollBarAssistant.ThumbInsideMargin="{TemplateBinding pc:ScrollBarAssistant.ThumbInsideMargin}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                   Style="{StaticResource DefaultScrollBarStyle}" />
                         <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Row="1" Grid.Column="0"
                                    Foreground="{TemplateBinding pc:ScrollBarAssistant.ScrollBarBrush}"
                                    Value="{TemplateBinding HorizontalOffset}"
                                    Maximum="{TemplateBinding ScrollableWidth}"
-                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-                                   Style="{StaticResource DefaultScrollBarStyle}"
                                    AutomationProperties.AutomationId="HorizontalScrollBar" Orientation="Horizontal"
                                    ViewportSize="{TemplateBinding ViewportWidth}"
                                    pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
-                                   pc:ScrollBarAssistant.ThumbInsideMargin="{TemplateBinding pc:ScrollBarAssistant.ThumbInsideMargin}" />
+                                   pc:ScrollBarAssistant.ThumbInsideMargin="{TemplateBinding pc:ScrollBarAssistant.ThumbInsideMargin}"
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                   Style="{StaticResource DefaultScrollBarStyle}" />
                         <Rectangle x:Name="PART_Corner" Grid.Row="1" Grid.Column="1"
                                    Fill="{TemplateBinding pc:ScrollBarAssistant.ScrollBarBrush}"
                                    Opacity="0.8"
                                    Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollViewerAssistant.IsCornerShow), Converter={pt:BooleanToVisibilityConverter}}" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True">
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ComputedVerticalScrollBarVisibility}" Value="Visible" />
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth)}" TargetName="col" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True">
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ComputedHorizontalScrollBarVisibility}" Value="Visible" />
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight)}" TargetName="row" />
-                        </DataTrigger>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight), Converter={pt:ValueMoreThanTargetValueToBooleanConverter}, ConverterParameter=0}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ComputedHorizontalScrollBarVisibility}" Value="Visible" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ComputedVerticalScrollBarVisibility}" Value="Visible" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.VerticalScrollBarWidth)}" TargetName="col" />
+                            <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(pc:ScrollBarAssistant.HorizontalScrollBarHeight)}" TargetName="row" />
+                        </MultiDataTrigger>
 
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

@@ -10,15 +10,14 @@
 
     <pc:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter" />
 
-
     <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemWidth)}" />
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemHeight)}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <pc:SimpleGrid x:Name="ItemGrid">
-                        <pc:Ripple Background="Transparent"
+                    <pc:SimpleGrid x:Name="ItemContent" Background="{TemplateBinding Background}">
+                        <pc:Ripple Background="{TemplateBinding Background}"
                                    ContentTemplate="{TemplateBinding ContentTemplate}"
                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                    Padding="{TemplateBinding Padding}"
@@ -28,8 +27,7 @@
                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                    Feedback="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.Feedback)}"
                                    Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(pc:RippleAssist.IsDisabled), Converter={pt:BooleanToVisibilityReConverter}}" />
-                        <ContentPresenter x:Name="ItemContent" Grid.Column="0"
-                                          Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
+                        <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
@@ -42,18 +40,18 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" TargetName="ItemGrid" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemGrid" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" TargetName="ItemGrid" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Selector}}, Path=(common:SelectorAttached.ItemSelectedBackground)}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -189,12 +187,18 @@
 
     <Style x:Key="ListBoxBaseStyle" TargetType="{x:Type ListBox}" BasedOn="{StaticResource ControlBaseStyle}">
         <Setter Property="Background" Value="{DynamicResource SystemBackgroundBursh}" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="ScrollViewer.PanningRatio" Value="2" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+        <Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Item" />
+        <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling" />
         <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
         <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
         <Setter Property="pc:ScrollBarAssistant.IsShowScrollBarRepeatButton" Value="False" />
@@ -212,7 +216,8 @@
                                       pc:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding pc:ScrollBarAssistant.HorizontalScrollBarHeight}"
                                       pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
                                       pc:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding pc:ScrollBarAssistant.VerticalScrollBarWidth}">
-                            <StackPanel SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />
+                            <!--<StackPanel SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />-->
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>
                     <ControlTemplate.Triggers>

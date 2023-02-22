@@ -24,6 +24,7 @@ namespace CookPopularControl.Controls
     /// 警报器
     /// </summary>
     [TemplatePart(Name = ElementAlarm, Type = (typeof(Shape)))]
+    [Localizability(LocalizationCategory.None)]
     public class Alertor : Control
     {
         private const string ElementAlarm = "PART_Alarm";
@@ -145,6 +146,12 @@ namespace CookPopularControl.Controls
 
             _storyboard = new Storyboard();
             _alarm = GetTemplateChild(ElementAlarm) as Shape;
+
+            //this.Loaded += (s, e) =>
+            //{
+            //    var storyboard = this.FindResource("RotateAlarmStoryboard") as Storyboard;
+            //    storyboard.Begin();
+            //};
         }
     }
 }

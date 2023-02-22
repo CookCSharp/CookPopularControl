@@ -8,9 +8,7 @@
     <common:ArcCircularSizeConverter x:Key="ArcCircularSizeConverter" />
     <common:ArcEllipseSizeConverter x:Key="ArcEllipseSizeConverter" />
     <common:BorderClipConverter x:Key="BorderClipConverter" />
-    <common:EditorTypeToVisibilityConverter x:Key="EditorTypeToVisibilityConverter" />
     <common:ProgressBarValueToTranslateTransformY x:Key="ProgressBarValueToTranslateTransformY" />
-    <common:SelectorItemTypeToVisibilityConverter x:Key="SelectorItemTypeToVisibilityConverter" />
     <common:ShowDefaultCloseButtonConverter x:Key="ShowDefaultCloseButtonConverter" />
     <common:SliderValueLeftPositionXConverter x:Key="SliderValueLeftPositionXConverter" />
     <common:SliderValueLeftPositionYConverter x:Key="SliderValueLeftPositionYConverter" />

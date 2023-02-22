@@ -7,8 +7,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ListBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <pc:ComboBoxItemPaddingConverter x:Key="ComboBoxItemPaddingConverter"/>
+
+    <pc:ComboBoxItemPaddingConverter x:Key="ComboBoxItemPaddingConverter" />
 
 
     <!--  下拉按钮  -->
@@ -100,12 +100,12 @@
 
     <!--  SimpleComboBox  -->
     <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource InputControlBaseStyle}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItemStyle}" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItemStyle}" />
         <Setter Property="pc:RippleAssist.IsDisabled" Value="False" />
         <Setter Property="pc:RippleAssist.Feedback" Value="{DynamicResource RippleFeedback}" />
         <!--<Setter Property="ItemContainerStyle">
@@ -184,25 +184,20 @@
                                      Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                     Style="{StaticResource ComboBoxEditableTextBox}"
                                      IsHitTestVisible="{TemplateBinding IsEditable}"
-                                     IsReadOnly="{TemplateBinding IsReadOnly}" />
-                            <!--<ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}"
-                                              Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, Path=Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              IsHitTestVisible="False" />-->
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     Style="{StaticResource ComboBoxEditableTextBox}" />
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button x:Name="PART_ClearButton"
                                         Foreground="{TemplateBinding pc:ComboBoxAssistant.DropDownButtonFill}"
                                         Background="Transparent"
                                         Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                         Focusable="False" ToolTip="Clear"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
                                         Effect="{x:Null}"
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}">
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}">
                                     <Button.Visibility>
                                         <MultiBinding Converter="{common:TextFieldClearButtonVisibilityConverter}">
                                             <Binding Path="(common:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />
@@ -237,8 +232,8 @@
                                                   MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                   Background="Transparent"
                                                   CanContentScroll="True" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
-                                        <!--<ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>-->
+                                        <!--<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />-->
+                                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
                                 </Border>
                             </Popup>
@@ -310,9 +305,9 @@
                                      Padding="{TemplateBinding Padding}"
                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                     Style="{StaticResource ComboBoxEditableTextBox}"
                                      IsHitTestVisible="{TemplateBinding IsEditable}"
-                                     IsReadOnly="{TemplateBinding IsReadOnly}" />
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     Style="{StaticResource ComboBoxEditableTextBox}" />
                             <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button x:Name="PART_ClearButton"
                                         BorderThickness="0"
@@ -320,11 +315,11 @@
                                         Background="Transparent"
                                         Margin="{TemplateBinding common:FrameworkElementBaseAttached.IconMargin}"
                                         Focusable="False" ToolTip="Clear"
-                                        Style="{DynamicResource ButtonTransparentIconStyle}"
                                         Effect="{x:Null}"
                                         common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseCircleGeometry}"
                                         common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}">
+                                        common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                        Style="{DynamicResource ButtonTransparentIconStyle}">
                                     <Button.Visibility>
                                         <MultiBinding Converter="{common:TextFieldClearButtonVisibilityConverter}">
                                             <Binding Path="(common:TextElementAttached.IsAddClearButton)" RelativeSource="{RelativeSource Mode=TemplatedParent}" />

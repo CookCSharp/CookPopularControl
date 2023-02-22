@@ -16,7 +16,18 @@ using System.Windows.Media;
 namespace CookPopularControl.Controls
 {
     /// <summary>
-    /// 
+    /// <see cref="Badge"/>位置
+    /// </summary>
+    public enum BadgeDirection
+    {
+        LeftTop,
+        LeftBottom,
+        RightTop,
+        RightBottom
+    }
+
+    /// <summary>
+    /// 表示带有标记的控件
     /// </summary>
     public class Badge : ContentControl
     {

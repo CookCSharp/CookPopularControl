@@ -69,7 +69,7 @@ namespace CookPopularControl.Controls
                 }
                 else
                 {
-                    gif.Loaded += (s, arg) => ControlGif();
+                    gif.Loaded += (s, e) => ControlGif();
                 }
 
                 void ControlGif()

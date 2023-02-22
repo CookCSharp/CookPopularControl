@@ -28,8 +28,7 @@ namespace CookPopularControl.Controls
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var hasParam = Enum.TryParse<SelectorItemType>(parameter?.ToString(), out SelectorItemType itemType);
-            if (hasParam && ((SelectorItemType)value).Equals(itemType))
+            if (value.Equals(parameter))
                 return Visibility.Visible;
             else
                 return Visibility.Collapsed;

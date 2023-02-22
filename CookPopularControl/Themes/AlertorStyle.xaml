@@ -36,6 +36,10 @@
                                              Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
                                              To="360" Duration="0:0:2" RepeatBehavior="Forever" />
                         </Storyboard>
+                        <!--<Storyboard x:Key="RotateAlarmStoryboard">
+                            <DoubleAnimation Storyboard.TargetName="AlarmRotate" Storyboard.TargetProperty="Angle"
+                                             To="360" Duration="0:0:2" RepeatBehavior="Forever" />
+                        </Storyboard>-->
                     </ControlTemplate.Resources>
                     <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                         <Grid.RowDefinitions>
@@ -49,7 +53,7 @@
                               RenderTransformOrigin="0.5,0.5">
                             <Path.RenderTransform>
                                 <TransformGroup>
-                                    <RotateTransform Angle="0" />
+                                    <RotateTransform x:Name="AlarmRotate" Angle="0" />
                                 </TransformGroup>
                             </Path.RenderTransform>
                         </Path>
@@ -60,7 +64,7 @@
                                    HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger RoutedEvent="SizeChanged">
                             <BeginStoryboard Storyboard="{StaticResource RotateAlarmStoryboard}" />
                         </EventTrigger>
                     </ControlTemplate.Triggers>
