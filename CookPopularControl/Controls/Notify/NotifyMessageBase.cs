@@ -18,6 +18,23 @@ using System.Windows.Threading;
 namespace CookPopularControl.Controls
 {
     /// <summary>
+    /// 表示弹出控件的弹出位置；
+    /// 由两部分组成，水平+垂直，总共9个弹出方向
+    /// </summary>
+    public enum PopupPosition
+    {
+        LeftTop,
+        CenterTop,
+        RightTop,
+        LeftCenter,
+        AllCenter,
+        RightCenter,
+        LeftBottom,
+        CenterBottom,
+        RightBottom
+    }
+
+    /// <summary>
     /// 消息通知的基类
     /// </summary>
     public abstract class NotifyMessageBase : ContentControl
@@ -29,9 +46,8 @@ namespace CookPopularControl.Controls
             {
                 if ((bool)e.NewValue && s is Panel panel)
                 {
-                    DefaultRootMessagePanel = panel;
-                    DefaultRootMessagePanel.Unloaded += (s, e) => Unregister(DefaultRootMessagePanel);
-                    Register(panel);
+                    Register(panel, "DefaultBubbleMessagePanel");
+                    panel.Unloaded += (s, e) => Unregister(panel);
                 }
             }));
 
@@ -39,8 +55,7 @@ namespace CookPopularControl.Controls
         public static string GetParentElementToken(DependencyObject obj) => (string)obj.GetValue(ParentElementTokenProperty);
         public static void SetParentElementToken(DependencyObject obj, string value) => obj.SetValue(ParentElementTokenProperty, value);
         public static readonly DependencyProperty ParentElementTokenProperty =
-            DependencyProperty.RegisterAttached("ParentElementToken", typeof(string), typeof(NotifyMessageBase),
-                new PropertyMetadata(default(string), OnTokenChanged));
+            DependencyProperty.RegisterAttached("ParentElementToken", typeof(string), typeof(NotifyMessageBase), new PropertyMetadata(default(string), OnTokenChanged));
 
         private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -66,24 +81,25 @@ namespace CookPopularControl.Controls
             {
                 PanelDictionary.Remove(first.Key);
                 panel.ContextMenu = null;
-                //如果默认容器删除了，从字典表中拿出一个，如果都没有，说明一个消息容器也不存在了
-                DefaultRootMessagePanel = DefaultRootMessagePanel ?? PanelDictionary.FirstOrDefault().Value;
             }
         }
 
         private static void Register(Panel panel, string token = default)
         {
             var menuItem = new MenuItem();
-            menuItem.Header = "清空";
+            menuItem.Header = "Clear All";
             menuItem.Click += (s, e) => panel.Children.Clear();
             panel.ContextMenu = new ContextMenu
             {
                 Items = { menuItem },
             };
 
-            if (string.IsNullOrEmpty(token) || panel == null) return;
+            if (panel == null || string.IsNullOrEmpty(token)) return;
+
             PanelDictionary[token] = panel;
         }
+
+        protected static Panel GetDefaultMessagePanel() => PanelDictionary["DefaultBubbleMessagePanel"];
 
 
         internal static bool GetIsShowCloseButton(DependencyObject obj) => (bool)obj.GetValue(IsShowCloseButtonProperty);
@@ -93,14 +109,10 @@ namespace CookPopularControl.Controls
 
 
         protected const double AnimationTime = 0.5; //动画时间
-        protected static Panel DefaultRootMessagePanel; //消息容器
         protected static readonly Dictionary<string, Panel> PanelDictionary = new Dictionary<string, Panel>();
         public static readonly ICommand CloseNotifyMessageCommand = new RoutedCommand(nameof(CloseNotifyMessageCommand), typeof(NotifyMessageBase));
 
-        protected NotifyMessageBase()
-        {
-
-        }
+        protected NotifyMessageBase() { }
 
         protected static DispatcherTimer IntervalMultiSeconds(ref DispatcherTimer timer, double second, Action action)
         {

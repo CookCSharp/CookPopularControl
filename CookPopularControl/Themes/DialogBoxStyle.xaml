@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:pc="clr-namespace:CookPopularControl.DialogBox">
+                    xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <Style x:Key="DefaultDialogBoxStyle" TargetType="{x:Type pc:DialogBox}">
         <Setter Property="Focusable" Value="False" />

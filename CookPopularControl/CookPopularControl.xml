@@ -335,17 +335,6 @@
             钟摆
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.Data.PopupAnimationX">
-            <summary>
-            通知消息的弹出动画
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Data.PopupPosition">
-            <summary>
-            表示弹出控件的弹出位置；
-            由两部分组成，水平+垂直，总共9个弹出方向
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Communal.Data.SizeGrip">
             <summary>
             标识<see cref="!:DragableControls"/>的方位控制
@@ -364,57 +353,6 @@
         <member name="T:CookPopularControl.Communal.Data.LocationReportException">
             <summary>
             提供<see cref="T:CookPopularControl.Controls.Dragables.LocationReport"/>关于<see cref="T:System.Exception"/>
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Communal.Data.NotifyMessageInfo">
-            <summary>
-            通知消息附带的信息类
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.Content">
-            <summary>
-            消息内容
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.MessageIcon">
-            <summary>
-            消息图标
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.MessageIconBrush">
-            <summary>
-            消息图标颜色
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.PopupPosition">
-            <summary>
-            消息通知的弹出位置
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.PopupAnimation">
-            <summary>
-            消息在打开时如何显示动画
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.IsShowCloseButton">
-            <summary>
-            是否显示关闭按钮
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.IsAutoClose">
-            <summary>
-            消息是否自动关闭
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.Duration">
-            <summary>
-            消息持续时间
-            </summary>
-            <remarks>单位:s</remarks>
-        </member>
-        <member name="P:CookPopularControl.Communal.Data.NotifyMessageInfo.ActionBeforeClose">
-            <summary>
-            消息关闭前触发的方法
             </summary>
         </member>
         <member name="T:CookPopularControl.Communal.ViewModel.HeaderedItemViewModel">
@@ -940,6 +878,21 @@
         <member name="F:CookPopularControl.Controls.TimePicker.CurrentTimeProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.TimePicker.CurrentTime"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.DialogBox">
+            <summary>
+            对话窗口
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.DialogBox.MarkProperty">
+            <summary>
+            <see cref="F:CookPopularControl.Controls.DialogBox.MarkProperty"/>表示<see cref="T:CookPopularControl.Controls.DialogBox"/>的标识附加属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.DialogBoxContainer">
+            <summary>
+            承载对话框内容的对话容器
             </summary>
         </member>
         <member name="M:CookPopularControl.Controls.Dragables.Branch.GetFirstProportion">
@@ -4547,7 +4500,7 @@
             <summary>
             弹出方向
             </summary>
-            <remarks>共9个方向，详细看<see cref="T:CookPopularControl.Communal.Data.PopupPosition"/></remarks>
+            <remarks>共9个方向，详细看<see cref="!:CookPopularControl.Communal.Data.PopupPosition"/></remarks>
         </member>
         <member name="F:CookPopularControl.Controls.PopupMenu.PopupPositionProperty">
             <summary>
@@ -4565,6 +4518,57 @@
             标识<see cref="P:CookPopularControl.Controls.PopupMenu.PopupAnimation"/>的依赖属性
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.NotifyMessageInfo">
+            <summary>
+            通知消息附带的信息类
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.MessageIcon">
+            <summary>
+            消息图标
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.MessageIconBrush">
+            <summary>
+            消息图标颜色
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.PopupPosition">
+            <summary>
+            消息通知的弹出位置
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.PopupAnimation">
+            <summary>
+            消息在打开时如何显示动画
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.IsShowCloseButton">
+            <summary>
+            是否显示关闭按钮
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.IsAutoClose">
+            <summary>
+            消息是否自动关闭
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.Duration">
+            <summary>
+            消息持续时间
+            </summary>
+            <remarks>单位:s</remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.NotifyMessageInfo.ActionBeforeClose">
+            <summary>
+            消息关闭前触发的方法
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.BubbleMessage">
             <summary>
             气泡消息
@@ -4577,21 +4581,52 @@
             另外<see cref="T:System.Windows.Controls.Primitives.PopupAnimation"/>提供4中动画效果
             </remarks> 
         </member>
+        <member name="T:CookPopularControl.Controls.PopupPosition">
+            <summary>
+            表示弹出控件的弹出位置；
+            由两部分组成，水平+垂直，总共9个弹出方向
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.NotifyMessageBase">
             <summary>
             消息通知的基类
             </summary>
         </member>
-        <member name="T:CookPopularControl.Controls.PopupMessage">
+        <member name="T:CookPopularControl.Controls.PopupAnimationX">
             <summary>
-            弹出消息
+            通知消息的弹出动画
             </summary>
         </member>
-        <member name="M:CookPopularControl.Controls.PopupMessage.Show(System.Object,CookPopularControl.Communal.Data.PopupAnimationX,System.Boolean,System.Double)">
+        <member name="T:CookPopularControl.Controls.PopupMessage">
+            <summary>
+            含有内容的弹出框
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.PopupMessage.ShowClose(System.Object,CookPopularControl.Controls.PopupPosition,CookPopularControl.Controls.PopupAnimationX)">
+            <summary>
+            打开通知消息，5s后自动关闭
+            </summary>
+            <param name="content">内容</param>
+            <param name="position">弹出位置</param>
+            <param name="animation">动画类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.PopupMessage.ShowOpen(System.Object,CookPopularControl.Controls.PopupPosition,CookPopularControl.Controls.PopupAnimationX)">
+            <summary>
+            打开通知消息，保持不关闭
+            </summary>
+            <param name="content"></param>
+            <param name="position">弹出位置</param>
+            <param name="animation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CookPopularControl.Controls.PopupMessage.Show(System.Windows.Window,System.Object,CookPopularControl.Controls.PopupPosition,CookPopularControl.Controls.PopupAnimationX,System.Boolean,System.Double)">
             <summary>
             打开通知消息
             </summary>
+            <param name="owner">所有者</param>
             <param name="content">内容</param>
+            <param name="position">弹出位置</param>
             <param name="animation">动画类型</param>
             <param name="isStayOpen">是否一直打开消息</param>
             <param name="waitTime">自动关闭消息时保持打开的时间</param>
@@ -4620,6 +4655,103 @@
         <member name="F:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarIconFlashProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.TaskbarIcon.IsStartTaskbarIconFlash"/>的依赖属性
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ToastMessage">
+            <summary>
+            表示类似Android的Toast消息框
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessage.ToastMessageIcon">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.ToastMessage"/>的消息图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ToastMessage.ToastMessageIconProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ToastMessage.ToastMessageIcon"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessage.ToastMessageIconBrush">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.ToastMessage"/>的消息图标画刷
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ToastMessage.ToastMessageIconBrushProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.ToastMessage.ToastMessageIconBrush"/>的依赖属性
+            </summary>
+        </member>
+        <member name="M:CookPopularControl.Controls.ToastMessage.ShowWarning(System.Object)">
+            <summary>
+            显示<see cref="T:CookPopularControl.Controls.ToastMessage"/>
+            </summary>
+            <param name="content">内容</param>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.MessageIcon">
+            <summary>
+            消息图标
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.MessageIconBrush">
+            <summary>
+            消息图标颜色
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.ShowType">
+            <summary>
+            动画显示类型
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.IsShowCloseButton">
+            <summary>
+            是否显示关闭按钮
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.IsAutoClose">
+            <summary>
+            消息是否自动关闭
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.Duration">
+            <summary>
+            消息持续时间
+            </summary>
+            <remarks>单位:s</remarks>
+        </member>
+        <member name="P:CookPopularControl.Controls.ToastMessageInfo.ActionBeforeClose">
+            <summary>
+            消息关闭前触发的方法
+            </summary>
+        </member>
+        <member name="T:CookPopularControl.Controls.ToastMessageShowType">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.ToastMessage"/>动画显示类型
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ToastMessageShowType.None">
+            <summary>
+            无动画显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ToastMessageShowType.Fade">
+            <summary>
+            渐变动画显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ToastMessageShowType.Scroll">
+            <summary>
+            缩放动画显示
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ToastMessageShowType.Rotate">
+            <summary>
+            旋转动画显示
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.Alertor">
@@ -5996,21 +6128,6 @@
             提供<see cref="T:System.Windows.Controls.ToolTip"/>的背景色
             </summary>
         </member>
-        <member name="T:CookPopularControl.DialogBox.DialogBox">
-            <summary>
-            对话窗口
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.DialogBox.DialogBox.MarkProperty">
-            <summary>
-            <see cref="F:CookPopularControl.DialogBox.DialogBox.MarkProperty"/>表示<see cref="T:CookPopularControl.DialogBox.DialogBox"/>的标识附加属性
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.DialogBox.DialogBoxContainer">
-            <summary>
-            承载对话框内容的对话容器
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Windows.ChromeWindowClient">
             <summary>
             为 <see cref="T:CookPopularControl.Windows.NormalWindow"/> 提供客户端区域。无法继承此类。
@@ -6243,103 +6360,6 @@
         <member name="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent">
             <summary>
             <see cref="F:CookPopularControl.Windows.SideBarWindow.SettingClickEvent"/>标识设置按钮点击时事件
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Windows.ToastMessage">
-            <summary>
-            表示类似Android的Toast消息框
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessage.ToastMessageIcon">
-            <summary>
-            <see cref="T:CookPopularControl.Windows.ToastMessage"/>的消息图标
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Windows.ToastMessage.ToastMessageIconProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Windows.ToastMessage.ToastMessageIcon"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessage.ToastMessageIconBrush">
-            <summary>
-            <see cref="T:CookPopularControl.Windows.ToastMessage"/>的消息图标画刷
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Windows.ToastMessage.ToastMessageIconBrushProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Windows.ToastMessage.ToastMessageIconBrush"/>的依赖属性
-            </summary>
-        </member>
-        <member name="M:CookPopularControl.Windows.ToastMessage.ShowWarning(System.Object)">
-            <summary>
-            显示<see cref="T:CookPopularControl.Windows.ToastMessage"/>
-            </summary>
-            <param name="content">内容</param>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.Content">
-            <summary>
-            消息内容
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.MessageIcon">
-            <summary>
-            消息图标
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.MessageIconBrush">
-            <summary>
-            消息图标颜色
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.ShowType">
-            <summary>
-            动画显示类型
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.IsShowCloseButton">
-            <summary>
-            是否显示关闭按钮
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.IsAutoClose">
-            <summary>
-            消息是否自动关闭
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.Duration">
-            <summary>
-            消息持续时间
-            </summary>
-            <remarks>单位:s</remarks>
-        </member>
-        <member name="P:CookPopularControl.Windows.ToastMessageInfo.ActionBeforeClose">
-            <summary>
-            消息关闭前触发的方法
-            </summary>
-        </member>
-        <member name="T:CookPopularControl.Windows.ToastMessageShowType">
-            <summary>
-            <see cref="T:CookPopularControl.Windows.ToastMessage"/>动画显示类型
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Windows.ToastMessageShowType.None">
-            <summary>
-            无动画显示
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Windows.ToastMessageShowType.Fade">
-            <summary>
-            渐变动画显示
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Windows.ToastMessageShowType.Scroll">
-            <summary>
-            缩放动画显示
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Windows.ToastMessageShowType.Rotate">
-            <summary>
-            旋转动画显示
             </summary>
         </member>
         <member name="T:CookPopularControl.Expression.Callout">
@@ -8042,6 +8062,36 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

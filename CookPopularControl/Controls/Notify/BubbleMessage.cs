@@ -20,6 +20,58 @@ using System.Windows.Threading;
 namespace CookPopularControl.Controls
 {
     /// <summary>
+    /// 通知消息附带的信息类
+    /// </summary>
+    public class NotifyMessageInfo
+    {
+        /// <summary>
+        /// 消息内容
+        /// </summary>
+        public object Content { get; set; }
+
+        /// <summary>
+        /// 消息图标
+        /// </summary>
+        public Geometry MessageIcon { get; set; }
+
+        /// <summary>
+        /// 消息图标颜色
+        /// </summary>
+        public Brush MessageIconBrush { get; set; }
+
+        /// <summary>
+        /// 消息通知的弹出位置
+        /// </summary>
+        public PopupPosition PopupPosition { get; set; }
+
+        /// <summary>
+        /// 消息在打开时如何显示动画
+        /// </summary>
+        public PopupAnimation PopupAnimation { get; set; } = PopupAnimation.Slide;
+
+        /// <summary>
+        /// 是否显示关闭按钮
+        /// </summary>
+        public bool IsShowCloseButton { get; set; } = true;
+
+        /// <summary>
+        /// 消息是否自动关闭
+        /// </summary>
+        public bool IsAutoClose { get; set; } = true;
+
+        /// <summary>
+        /// 消息持续时间
+        /// </summary>
+        /// <remarks>单位:s</remarks>
+        public double Duration { get; set; } = 3;
+
+        /// <summary>
+        /// 消息关闭前触发的方法
+        /// </summary>
+        public Action<bool> ActionBeforeClose { get; set; }
+    }
+
+    /// <summary>
     /// 气泡消息
     /// </summary>
     /// <remarks>
@@ -49,6 +101,8 @@ namespace CookPopularControl.Controls
         public static readonly DependencyProperty BubbleMessageIconBrushProperty =
             DependencyProperty.RegisterAttached("BubbleMessageIconBrush", typeof(Brush), typeof(BubbleMessage), new PropertyMetadata(default(Brush)));
 
+
+        private BubbleMessage() { }
 
         public static void ShowInfo(object message, string tokenParentPanel = default)
         {
@@ -132,7 +186,7 @@ namespace CookPopularControl.Controls
                 Panel? rootMessagePanel;
                 if (string.IsNullOrEmpty(tokenParentPanel))
                 {
-                    rootMessagePanel = DefaultRootMessagePanel;
+                    rootMessagePanel = GetDefaultMessagePanel();
                 }
                 else
                 {
@@ -177,12 +231,11 @@ namespace CookPopularControl.Controls
                 }));
 
                 rootMessagePanel.Children.Insert(0, notifyMessageBaseControl);
-                SetPopupMode(rootMessagePanel, info.PopupAnimation, notifyMessageBaseControl);
+                ShowPopupMode(rootMessagePanel, info.PopupAnimation, notifyMessageBaseControl);
             });
         }
 
-
-        private static void SetPopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl notifyMessageBaseControl)
+        private static void ShowPopupMode(Panel rootMessagePanel, PopupAnimation mode, ContentControl notifyMessageBaseControl)
         {
             switch (mode)
             {

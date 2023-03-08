@@ -15,7 +15,7 @@ using System.Windows.Input;
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-12 13:55:42
  */
-namespace CookPopularControl.DialogBox
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 对话窗口

@@ -18,7 +18,7 @@ namespace CookPopularControl.Expression
     /// <summary>
     /// Extension methods that support non-geometry types.
     /// </summary>
-    internal static class CommonExtensions
+    public static class CommonExtensions
     {
         /// <summary>
         /// Allows the application of an action delegate (often a very simple lambda) against an entire sequence.
@@ -163,7 +163,7 @@ namespace CookPopularControl.Expression
         /// <summary>
         /// Makes a copy of obj and all it's public properties, including all collection properties.
         /// </summary>
-        internal static T DeepCopy<T>(this T obj) where T : class
+        public static T DeepCopy<T>(this T obj) where T : class
         {
             if (obj == null)
             {

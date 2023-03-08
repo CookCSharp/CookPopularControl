@@ -8,7 +8,7 @@
  * Author： Chance_写代码的厨子
  * Create Time：2021-04-12 15:37:55
  */
-namespace CookPopularControl.DialogBox
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 承载对话框内容的对话容器

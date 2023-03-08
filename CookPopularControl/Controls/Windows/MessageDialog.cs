@@ -36,7 +36,7 @@ namespace CookPopularControl.Windows
         private MessageBoxResult currentMessageBoxResult;
         private Panel currentPanel;
         private IntPtr _lastActiveWindowIntPtr;
-        
+
 
         /// <summary>
         /// <see cref="MessageDialog"/>消息内容
@@ -83,7 +83,7 @@ namespace CookPopularControl.Windows
             DependencyProperty.Register("IsShowImage", typeof(bool), typeof(MessageDialog), new PropertyMetadata(ValueBoxes.TrueBox));
 
 
-        public MessageDialog()
+        private MessageDialog()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.ConfirmCommand, Executed, (s, e) => e.CanExecute = true));
             CommandBindings.Add(new CommandBinding(ControlCommands.YesCommand, Executed, (s, e) => e.CanExecute = true));
@@ -331,7 +331,7 @@ namespace CookPopularControl.Windows
             if (!IsValidMessageBoxOptions(options))
                 throw new InvalidEnumArgumentException(nameof(options), (int)options, typeof(MessageBoxOptions));
 
-            var ownerWindow = WindowExtension.GetActiveWindow();
+            var ownerWindow = owner is null ? WindowExtension.GetActiveWindow() : owner;
             var hasWindow = ownerWindow is null;
 
             return new MessageDialog

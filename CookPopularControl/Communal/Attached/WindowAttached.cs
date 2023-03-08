@@ -96,7 +96,7 @@ namespace CookPopularControl.Communal
             }
         }
 
-        private static void Window_SourceInitialized(object sender, EventArgs e)
+        private static void Window_SourceInitialized(object? sender, EventArgs e)
         {
             if (sender is System.Windows.Window window)
             {

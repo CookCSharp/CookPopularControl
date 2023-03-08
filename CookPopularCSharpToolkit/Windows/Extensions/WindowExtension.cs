@@ -171,11 +171,11 @@ namespace CookPopularCSharpToolkit.Windows
 
             //改变窗体的样式
             int extendedStyle = NativeMethods.GetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE);
-            CookPopularCSharpToolkit.Windows.Interop.NativeMethods.SetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE, extendedStyle | NativeMethods.WS_EX_DLGMODALFRAME);
+            Interop.NativeMethods.SetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE, extendedStyle | NativeMethods.WS_EX_DLGMODALFRAME);
 
             //更新窗口的非客户区，以反映变化
-            CookPopularCSharpToolkit.Windows.Interop.NativeMethods.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, CookPopularCSharpToolkit.Windows.Interop.NativeMethods.SWP.NOMOVE |
-                  CookPopularCSharpToolkit.Windows.Interop.NativeMethods.SWP.NOSIZE | CookPopularCSharpToolkit.Windows.Interop.NativeMethods.SWP.NOZORDER | CookPopularCSharpToolkit.Windows.Interop.NativeMethods.SWP.FRAMECHANGED);
+            Interop.NativeMethods.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, Interop.NativeMethods.SWP.NOMOVE |
+                  Interop.NativeMethods.SWP.NOSIZE | Interop.NativeMethods.SWP.NOZORDER | Interop.NativeMethods.SWP.FRAMECHANGED);
         }
 
         /// <summary>

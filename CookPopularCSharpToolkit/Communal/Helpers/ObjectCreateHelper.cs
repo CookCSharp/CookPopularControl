@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Windows.Media;
 
 
 
@@ -49,6 +50,19 @@ namespace CookPopularCSharpToolkit.Communal
             {
                 return default;
             }
+        }
+
+        /// <summary>
+        /// <see cref="Activator"/>创建对象
+        /// </summary>
+        /// <param name="typeName">类的完全限定名(即包括命名空间),格式为:命名空间.类名</param>
+        /// <returns></returns>
+        public static object CreateInstanceInActivator(string typeName)
+        {
+            var type = Type.GetType(typeName);
+            var instance = type == null ? null : Activator.CreateInstance(type);
+
+            return instance;
         }
 
         /// <summary>

@@ -19,9 +19,9 @@ namespace CookPopularCSharpToolkit.Windows
     /// <remarks><see cref="Dispatcher"/>与<see cref="SynchronizationContext"/></remarks>
     public sealed class SynchronizationWithAsync
     {
-        public static void AppInvokeAsync(Action action)
+        public static DispatcherOperation AppInvokeAsync(Action action)
         {
-            Application.Current.Dispatcher.InvokeAsync(action, DispatcherPriority.Normal);
+            return Application.Current.Dispatcher.InvokeAsync(action, DispatcherPriority.Normal);
         }
 
         public static void AppInvoke(Action action)

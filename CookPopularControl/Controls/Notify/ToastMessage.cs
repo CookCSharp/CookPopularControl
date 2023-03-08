@@ -1,4 +1,5 @@
-﻿using CookPopularCSharpToolkit.Communal;
+﻿using CookPopularControl.Windows;
+using CookPopularCSharpToolkit.Communal;
 using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ using System.Windows.Threading;
  * CLR Version: 4.0.30319.42000
  * Copyright (c) CookCSharp 2021 All Rights Reserved.
  */
-namespace CookPopularControl.Windows
+namespace CookPopularControl.Controls
 {
     /// <summary>
     /// 表示类似Android的Toast消息框
