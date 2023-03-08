@@ -74,6 +74,7 @@
     <Style x:Key="{x:Type win:NormalWindow}" TargetType="{x:Type win:NormalWindow}" BasedOn="{StaticResource NormalWindowStyle}" />
     <Style x:Key="{x:Type win:SideBarWindow}" TargetType="{x:Type win:SideBarWindow}" BasedOn="{StaticResource SideBarWindowStyle}" />
     <Style x:Key="{x:Type win:NoneTitleBarWindow}" TargetType="{x:Type win:NoneTitleBarWindow}" BasedOn="{StaticResource NoneTitleBarWindowStyle}" />
+    <Style x:Key="{x:Type win:DialogWindow}" TargetType="{x:Type win:DialogWindow}" BasedOn="{StaticResource DialogWindowStyle}" />
     <Style x:Key="{x:Type win:MessageDialog}" TargetType="{x:Type win:MessageDialog}" BasedOn="{StaticResource MessageDialogStyle}" />
 
 

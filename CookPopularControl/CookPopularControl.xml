@@ -6138,6 +6138,16 @@
             初始化 <see cref="T:CookPopularControl.Windows.ChromeWindowClient" /> 类的新实例。
             </summary>
         </member>
+        <member name="P:CookPopularControl.Windows.DialogWindow.IsShowIcon">
+            <summary>
+            是否显示窗体Icon图标
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Windows.DialogWindow.IsShowIconProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Windows.DialogWindow.IsShowIcon"/>的依赖属性
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Windows.MessageDialog">
             <summary>
             模态消息框
@@ -6161,7 +6171,7 @@
         </member>
         <member name="P:CookPopularControl.Windows.MessageDialog.IsShowImage">
             <summary>
-            是否显示<see cref="T:CookPopularControl.Windows.MessageDialog"/>的图标
+            是否显示<see cref="T:CookPopularControl.Windows.MessageDialog"/>信息的类型图标
             </summary>
         </member>
         <member name="M:CookPopularControl.Windows.MessageDialog.Show(CookPopularControl.Windows.CustomMessageDialog)">

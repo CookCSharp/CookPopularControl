@@ -9,6 +9,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/BaseStyle/ControlBaseStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/TextBlockStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/CookPopularControl;component/Themes/ToggleButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -70,7 +71,7 @@
         <Setter Property="IsShowClientTitleBar" Value="True" />
         <Setter Property="IsFullScreen" Value="False" />
         <Setter Property="ClientTitleBarAdditionalContent" Value="{x:Null}" />
-        <Setter Property="ClientTitleBarHeight" Value="{DynamicResource Double30Value}" />
+        <Setter Property="ClientTitleBarHeight" Value="{StaticResource Double30Value}" />
         <Setter Property="ClientTitleBarForeground" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="ClientTitleBarBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="ClientTitleBarFontsize" Value="14" />
@@ -84,7 +85,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:NormalWindow}">
-                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{DynamicResource DefaultBitmapCache}">
+                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{StaticResource DefaultBitmapCache}">
                         <win:ChromeWindowClient>
                             <Border x:Name="RootBorder"
                                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -473,6 +474,73 @@
         </Setter>
     </Style>
 
+    <Style x:Key="DialogWindowStyle" TargetType="{x:Type win:DialogWindow}" BasedOn="{StaticResource NormalWindowStyle}">
+        <Setter Property="MinHeight" Value="172" />
+        <Setter Property="MinWidth" Value="335" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="ShowInTaskbar" Value="False" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CornerRadius="10" CaptionHeight="30" GlassFrameThickness="-1" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type win:DialogWindow}">
+                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{StaticResource DefaultBitmapCache}">
+                        <win:ChromeWindowClient>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
+                                        <RowDefinition />
+                                        <RowDefinition Height="40" />
+                                    </Grid.RowDefinitions>
+                                    <pc:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}">
+                                        <DockPanel HorizontalAlignment="Left">
+                                            <Image Width="20" Height="20"
+                                                   Source="{TemplateBinding Icon}"
+                                                   Stretch="Uniform"
+                                                   Margin="5,0,0,0"
+                                                   Visibility="{TemplateBinding IsShowIcon, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <TextBlock Text="{TemplateBinding Title}"
+                                                       Foreground="{TemplateBinding ClientTitleBarForeground}"
+                                                       Margin="8,0"
+                                                       VerticalAlignment="Center"
+                                                       Style="{StaticResource DefaultTextBlockStyle}" />
+                                        </DockPanel>
+                                        <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                                ToolTip="关闭"
+                                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                Cursor="Arrow" WindowChrome.IsHitTestVisibleInChrome="True"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                    </pc:SimpleGrid>
+                                    <ContentPresenter Grid.Row="1" ClipToBounds="True" />
+                                    <UniformGrid Grid.Row="2" Columns="2">
+                                        <Button Width="60" Height="26"
+                                                Content="取消(_C)"
+                                                Command="{x:Static common:ControlCommands.CancelCommand}"
+                                                HorizontalAlignment="Center"
+                                                Style="{StaticResource DefaultButtonStyle}" />
+                                        <Button Width="60" Height="26"
+                                                Content="确定(_Y)"
+                                                Command="{x:Static common:ControlCommands.ConfirmCommand}"
+                                                HorizontalAlignment="Center"
+                                                Style="{StaticResource DefaultButtonStyle}" />
+                                    </UniformGrid>
+                                </Grid>
+                            </Border>
+                        </win:ChromeWindowClient>
+                    </AdornerDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="FixedSizeWindowStyle" TargetType="{x:Type Window}">
         <!--  或 ResizeMode="NoResize"  -->
         <Setter Property="ResizeMode" Value="CanMinimize" />
@@ -487,8 +555,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
-                    <Border Background="Transparent" Padding="2" CacheMode="{StaticResource DefaultBitmapCache}">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" Effect="{DynamicResource ShadowEffectDepth0}">
+                    <Border Background="Transparent" Padding="3" CacheMode="{StaticResource DefaultBitmapCache}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" Effect="{DynamicResource NotifyMessageShadowEffect}">
                             <ContentPresenter ClipToBounds="True" />
                         </Border>
                     </Border>

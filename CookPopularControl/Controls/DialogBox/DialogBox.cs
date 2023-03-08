@@ -20,16 +20,14 @@ namespace CookPopularControl.Controls
     /// <summary>
     /// 对话窗口
     /// </summary>
-    public class DialogBox : ContentControl
+    public class DialogBox : ContentControl, IDialog
     {
         private AdornerContainer Container;
         private static readonly HashSet<FrameworkElement> DialogInstances = new HashSet<FrameworkElement>();
         public static readonly ICommand OpenDialogCommand = new RoutedCommand("OpenDialog", typeof(DialogBox));
         public static readonly ICommand CloseDialogCommand = new RoutedCommand("CloseDialog", typeof(DialogBox));
 
-
-        public bool IsOpen { get; private set; }
-
+        public bool IsClosed { get; private set; }
 
         public static string GetMark(DependencyObject obj) => (string)obj.GetValue(MarkProperty);
         public static void SetMark(DependencyObject obj, string value) => obj.SetValue(MarkProperty, value);
@@ -75,7 +73,7 @@ namespace CookPopularControl.Controls
             }
 
             DialogBox dialogBox;
-            dialogBox = new DialogBox { Content = content, IsOpen = true };
+            dialogBox = new DialogBox { Content = content, IsClosed = false };
             SetMark(dialogBox, mark);
 
             FrameworkElement element;
@@ -123,7 +121,7 @@ namespace CookPopularControl.Controls
                 var decorator = VisualTreeHelperExtension.GetVisualDescendants(element).OfType<AdornerDecorator>().FirstOrDefault();
                 if (decorator != null)
                 {
-                    IsOpen = false;
+                    IsClosed = true;
                     var layer = decorator.AdornerLayer;
                     layer?.Remove(Container);
                     DialogInstances.Remove(this);

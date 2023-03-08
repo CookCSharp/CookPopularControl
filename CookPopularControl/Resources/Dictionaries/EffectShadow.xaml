@@ -43,7 +43,7 @@
                       Color="{StaticResource ShadowEffectColor}"
                       Opacity="0.4"
                       BlurRadius="10" Direction="270" RenderingBias="Performance"
-                      ShadowDepth="-10" po:Freeze="True" />
+                      ShadowDepth="-5" po:Freeze="True" />
     <DropShadowEffect x:Key="NotifyMessageShadowEffect"
                       Color="{StaticResource ShadowEffectColor}"
                       Opacity="0.2"

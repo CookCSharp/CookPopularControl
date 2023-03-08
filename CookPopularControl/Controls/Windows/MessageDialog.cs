@@ -72,7 +72,7 @@ namespace CookPopularControl.Windows
             DependencyProperty.Register("ImageBrush", typeof(Brush), typeof(MessageDialog), new PropertyMetadata(default(Brush)));
 
         /// <summary>
-        /// 是否显示<see cref="MessageDialog"/>的图标
+        /// 是否显示<see cref="MessageDialog"/>信息的类型图标
         /// </summary>
         public bool IsShowImage
         {
@@ -83,7 +83,7 @@ namespace CookPopularControl.Windows
             DependencyProperty.Register("IsShowImage", typeof(bool), typeof(MessageDialog), new PropertyMetadata(ValueBoxes.TrueBox));
 
 
-        private MessageDialog()
+        protected MessageDialog()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.ConfirmCommand, Executed, (s, e) => e.CanExecute = true));
             CommandBindings.Add(new CommandBinding(ControlCommands.YesCommand, Executed, (s, e) => e.CanExecute = true));
