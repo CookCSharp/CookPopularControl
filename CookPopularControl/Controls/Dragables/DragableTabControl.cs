@@ -1003,7 +1003,7 @@ namespace CookPopularControl.Controls.Dragables
             }).Where(x => x.handle != IntPtr.Zero)
                 .ToDictionary(x => x.handle, x => x.window);
 
-            for (var hWnd = NativeMethods.GetTopWindow(IntPtr.Zero); hWnd != IntPtr.Zero; hWnd = InteropMethods.GetWindow(hWnd, GW_HWNDNEXT))
+            for (var hWnd = InteropMethods.GetTopWindow(IntPtr.Zero); hWnd != IntPtr.Zero; hWnd = InteropMethods.GetWindow(hWnd, GW_HWNDNEXT))
                 if (windowsByHandle.ContainsKey((hWnd)))
                     yield return windowsByHandle[hWnd];
         }

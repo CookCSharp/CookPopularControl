@@ -541,6 +541,7 @@
         </Setter>
     </Style>
 
+    <!--固定大小窗体，亦可做圆角窗体-->
     <Style x:Key="FixedSizeWindowStyle" TargetType="{x:Type Window}">
         <!--  或 ResizeMode="NoResize"  -->
         <Setter Property="ResizeMode" Value="CanMinimize" />

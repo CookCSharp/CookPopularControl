@@ -895,6 +895,11 @@
             承载对话框内容的对话容器
             </summary>
         </member>
+        <member name="P:CookPopularControl.Controls.IDialog.IsClosed">
+            <summary>
+            对话框是否关闭
+            </summary>
+        </member>
         <member name="M:CookPopularControl.Controls.Dragables.Branch.GetFirstProportion">
             <summary>
             Gets the proportional size of the first item, between 0 and 1, where 1 would represent the entire size of the branch.
@@ -6138,6 +6143,11 @@
             初始化 <see cref="T:CookPopularControl.Windows.ChromeWindowClient" /> 类的新实例。
             </summary>
         </member>
+        <member name="P:CookPopularControl.Windows.DialogWindow.IsConfirm">
+            <summary>
+            是否点击了确定，如果true，则将对话框的内容传至发起界面，false则不响应
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Windows.DialogWindow.IsShowIcon">
             <summary>
             是否显示窗体Icon图标
@@ -8072,36 +8082,6 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

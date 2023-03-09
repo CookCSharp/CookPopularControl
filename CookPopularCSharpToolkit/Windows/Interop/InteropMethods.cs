@@ -11,6 +11,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading;
 
+
 namespace CookPopularCSharpToolkit.Windows.Interop
 {
     internal class InteropMethods
@@ -68,11 +69,11 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         internal static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
         [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
-        internal static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass,
-            string lpszWindow);
+        internal static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
 
-        [DllImport(InteropValues.ExternDll.User32)]
-        internal static extern int GetWindowRect(IntPtr hwnd, out InteropValues.RECT lpRect);
+        [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetWindowRect(IntPtr hwnd, out InteropValues.RECT lpRect);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         internal static extern bool GetCursorPos(out InteropValues.POINT pt);
@@ -361,9 +362,9 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool IsZoomed(IntPtr hwnd);
 
-        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, ExactSpelling = true)]
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, int flags);
+        internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, InteropValues.WindowPositionFlags flags);
 
         internal static System.Windows.Point GetCursorPos()
         {
@@ -376,8 +377,8 @@ namespace CookPopularCSharpToolkit.Windows.Interop
             return result;
         }
 
-        [DllImport(InteropValues.ExternDll.User32)]
-        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
         internal static int GetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex) => GetWindowLong(hWnd, (int)nIndex);
 
@@ -514,6 +515,21 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         /// <returns></returns>
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         internal static extern bool ChangeClipboardChain(IntPtr hWndRemove, IntPtr hWndNewNext);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern bool FlashWindowEx(ref InteropValues.FLASHWINFO pwfi);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern IntPtr GetTopWindow(IntPtr hWnd);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern IntPtr SetFocus(IntPtr hWnd);
+
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern IntPtr GetFocus();
 
         #endregion
 

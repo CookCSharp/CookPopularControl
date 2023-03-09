@@ -5,9 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using static CookPopularCSharpToolkit.Windows.Interop.NativeMethods;
 using OriginPopup = System.Windows.Controls.Primitives.Popup;
-
 
 
 /*
@@ -192,9 +190,9 @@ namespace CookPopularControl.Controls
 
             isTop &= IsTopMost;
             var intPtr = handSource.Handle;
-            if (!NativeMethods.GetWindowRect(intPtr, out RECT rect)) return;
+            if (!InteropMethods.GetWindowRect(intPtr, out InteropValues.RECT rect)) return;
 
-            NativeMethods.SetWindowPos(intPtr, new IntPtr(isTop ? -1 : -2), rect.Left, rect.Top, (int)Width, (int)Height, SWP.TOPMOST);
+            InteropMethods.SetWindowPos(intPtr, new IntPtr(isTop ? -1 : -2), rect.Left, rect.Top, (int)Width, (int)Height, InteropValues.WindowPositionFlags.TOPMOST);
         }
     }
 }

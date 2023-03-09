@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
+
 
 namespace CookPopularCSharpToolkit.Windows.Interop
 {
@@ -19,7 +21,7 @@ namespace CookPopularCSharpToolkit.Windows.Interop
                 Shell32 = "shell32.dll",
                 MsImg = "msimg32.dll",
                 NTdll = "ntdll.dll",
-                Dwmapi ="dwmapi.dll";
+                Dwmapi = "dwmapi.dll";
         }
 
         internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
@@ -219,6 +221,7 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         }
 
         [Serializable, StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        [DebuggerDisplay("X:{Left}, Y:{Top}, Width:{Width}, Height:{Height}")]
         internal struct RECT
         {
             public int Left;
@@ -1113,6 +1116,7 @@ namespace CookPopularCSharpToolkit.Windows.Interop
         }
 
         [Flags]
+        [SuppressMessage("Design", "CA1069:不应复制枚举值", Justification = "<挂起>")]
         public enum WindowPositionFlags
         {
             /// <summary>
@@ -1197,7 +1201,9 @@ namespace CookPopularCSharpToolkit.Windows.Interop
             /// <summary>
             ///     Displays the window.
             /// </summary>
-            SWP_SHOWWINDOW = 0x0040
+            SWP_SHOWWINDOW = 0x0040,
+
+            TOPMOST = SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE | SWP_NOMOVE | SWP_NOREDRAW | SWP_NOSENDCHANGING,
         }
 
         // The enum flag for DwmSetWindowAttribute's second parameter, which tells the function what attribute to set.
@@ -1214,6 +1220,277 @@ namespace CookPopularCSharpToolkit.Windows.Interop
             DWMWCP_DONOTROUND = 1, //绝不对窗口采用圆角设置
             DWMWCP_ROUND = 2, //适当时采用圆角设置
             DWMWCP_ROUNDSMALL = 3  //适当时可采用半径较小的圆角设置
+        }
+
+        internal enum FlashType : uint
+        {
+            /// <summary>
+            /// 停止闪烁。
+            /// </summary>
+            FLASHW_STOP = 0,
+
+            /// <summary>
+            /// 只闪烁标题。
+            /// </summary>
+            FALSHW_CAPTION = 1,
+
+            /// <summary>
+            /// 只闪烁任务栏。
+            /// </summary>
+            FLASHW_TRAY = 2,
+
+            /// <summary>
+            /// 标题和任务栏同时闪烁。
+            /// </summary>
+            FLASHW_ALL = 3,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            FLASHW_PARAM1 = 4,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            FLASHW_PARAM2 = 12,
+
+            /// <summary>
+            /// 无条件闪烁任务栏直到发送停止标志或者窗口被激活，如果未激活，停止时高亮。
+            /// </summary>
+            FLASHW_TIMER = FLASHW_TRAY | FLASHW_PARAM1,
+
+            /// <summary>
+            /// 未激活时闪烁任务栏直到发送停止标志或者窗体被激活，停止后高亮。
+            /// </summary>
+            FLASHW_TIMERNOFG = FLASHW_TRAY | FLASHW_PARAM2,
+        }
+
+        /// <summary>
+        /// 包含系统应在指定时间内闪烁窗口次数和闪烁状态的信息
+        /// </summary>
+        internal struct FLASHWINFO
+        {
+            /// <summary>
+            /// 结构大小
+            /// </summary>
+            public uint cbSize;
+
+            /// <summary>
+            /// 要闪烁或停止的窗口句柄
+            /// </summary>
+            public IntPtr hwnd;
+
+            /// <summary>
+            /// 闪烁的类型
+            /// </summary>
+            public uint dwFlags;
+
+            /// <summary>
+            /// 闪烁窗口的次数
+            /// </summary>
+            public uint uCount;
+
+            /// <summary>
+            /// 窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
+            /// </summary>
+            public uint dwTimeout;
+        }
+
+        /// <summary>
+        /// 扩展的窗口风格
+        /// 这是 long 类型的，如果想要使用 int 类型请使用 <see cref="InteropValues.WindowExStyles"/> 类
+        /// </summary>
+        /// 代码：[Extended Window Styles (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx )
+        /// code from [Extended Window Styles (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx )
+        [Flags]
+        public enum ExtendedWindowStyles : long
+        {
+            /// <summary>
+            /// The window accepts drag-drop files
+            /// </summary>
+            WS_EX_ACCEPTFILES = 0x00000010L,
+
+            /// <summary>
+            /// Forces a top-level window onto the taskbar when the window is visible
+            /// </summary>
+            WS_EX_APPWINDOW = 0x00040000L,
+
+            /// <summary>
+            /// The window has a border with a sunken edge.
+            /// </summary>
+            WS_EX_CLIENTEDGE = 0x00000200L,
+
+            /// <summary>
+            /// Paints all descendants of a window in bottom-to-top painting order using double-buffering. For more information, see Remarks. This cannot be used if the window has a class style of either CS_OWNDC or CS_CLASSDC.Windows 2000:  This style is not supported.
+            /// </summary>
+            WS_EX_COMPOSITED = 0x02000000L,
+
+            /// <summary>
+            /// The title bar of the window includes a question mark. When the user clicks the question mark, the cursor changes to a question mark with a pointer. If the user then clicks a child window, the child receives a WM_HELP message. The child window should pass the message to the parent window procedure, which should call the WinHelp function using the HELP_WM_HELP command. The Help application displays a pop-up window that typically contains help for the child window.WS_EX_CONTEXTHELP cannot be used with the WS_MAXIMIZEBOX or WS_MINIMIZEBOX styles.
+            /// </summary>
+            WS_EX_CONTEXTHELP = 0x00000400L,
+
+            /// <summary>
+            /// The window itself contains child windows that should take part in dialog box navigation. If this style is specified, the dialog manager recurses into children of this window when performing navigation operations such as handling the TAB key, an arrow key, or a keyboard mnemonic.
+            /// </summary>
+            WS_EX_CONTROLPARENT = 0x00010000L,
+
+            /// <summary>
+            /// The window has a double border; the window can, optionally, be created with a title bar by specifying the WS_CAPTION style in the dwStyle parameter.
+            /// </summary>
+            WS_EX_DLGMODALFRAME = 0x00000001L,
+
+            /// <summary>
+            /// The window is a layered window. This style cannot be used if the window has a class style of either CS_OWNDC or CS_CLASSDC.Windows 8:  The WS_EX_LAYERED style is supported for top-level windows and child windows. Previous Windows versions support WS_EX_LAYERED only for top-level windows.
+            /// </summary>
+            WS_EX_LAYERED = 0x00080000,
+
+            /// <summary>
+            /// If the shell language is Hebrew, Arabic, or another language that supports reading order alignment, the horizontal origin of the window is on the right edge. Increasing horizontal values advance to the left.
+            /// </summary>
+            WS_EX_LAYOUTRTL = 0x00400000L,
+
+            /// <summary>
+            /// The window has generic left-aligned properties. This is the default.
+            /// </summary>
+            WS_EX_LEFT = 0x00000000L,
+
+            /// <summary>
+            /// If the shell language is Hebrew, Arabic, or another language that supports reading order alignment, the vertical scroll bar (if present) is to the left of the client area. For other languages, the style is ignored.
+            /// </summary>
+            WS_EX_LEFTSCROLLBAR = 0x00004000L,
+
+            /// <summary>
+            /// The window text is displayed using left-to-right reading-order properties. This is the default.
+            /// </summary>
+            WS_EX_LTRREADING = 0x00000000L,
+
+            /// <summary>
+            /// The window is a MDI child window.
+            /// </summary>
+            WS_EX_MDICHILD = 0x00000040L,
+
+            /// <summary>
+            /// A top-level window created with this style does not become the foreground window when the user clicks it. The system does not bring this window to the foreground when the user minimizes or closes the foreground window.To activate the window, use the SetActiveWindow or SetForegroundWindow function.The window does not appear on the taskbar by default. To force the window to appear on the taskbar, use the WS_EX_APPWINDOW style.
+            /// </summary>
+            WS_EX_NOACTIVATE = 0x08000000L,
+
+            /// <summary>
+            /// The window does not pass its window layout to its child windows.
+            /// </summary>
+            WS_EX_NOINHERITLAYOUT = 0x00100000L,
+
+            /// <summary>
+            /// The child window created with this style does not send the WM_PARENTNOTIFY message to its parent window when it is created or destroyed.
+            /// </summary>
+            WS_EX_NOPARENTNOTIFY = 0x00000004L,
+
+            /// <summary>
+            /// The window does not render to a redirection surface. This is for windows that do not have visible content or that use mechanisms other than surfaces to provide their visual.
+            /// </summary>
+            WS_EX_NOREDIRECTIONBITMAP = 0x00200000L,
+
+            /// <summary>
+            /// The window is an overlapped window.
+            /// </summary>
+            WS_EX_OVERLAPPEDWINDOW = (WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE),
+
+            /// <summary>
+            /// The window is palette window, which is a modeless dialog box that presents an array of commands.
+            /// </summary>
+            WS_EX_PALETTEWINDOW = (WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST),
+
+            /// <summary>
+            /// The window has generic "right-aligned" properties. This depends on the window class. This style has an effect only if the shell language is Hebrew, Arabic, or another language that supports reading-order alignment; otherwise, the style is ignored.Using the WS_EX_RIGHT style for static or edit controls has the same effect as using the SS_RIGHT or ES_RIGHT style, respectively. Using this style with button controls has the same effect as using BS_RIGHT and BS_RIGHTBUTTON styles.
+            /// </summary>
+            WS_EX_RIGHT = 0x00001000L,
+
+            /// <summary>
+            /// The vertical scroll bar (if present) is to the right of the client area. This is the default.
+            /// </summary>
+            WS_EX_RIGHTSCROLLBAR = 0x00000000L,
+
+            /// <summary>
+            /// If the shell language is Hebrew, Arabic, or another language that supports reading-order alignment, the window text is displayed using right-to-left reading-order properties. For other languages, the style is ignored.
+            /// </summary>
+            WS_EX_RTLREADING = 0x00002000L,
+
+            /// <summary>
+            /// The window has a three-dimensional border style intended to be used for items that do not accept user input.
+            /// </summary>
+            WS_EX_STATICEDGE = 0x00020000L,
+
+            /// <summary>
+            /// The window is intended to be used as a floating toolbar. A tool window has a title bar that is shorter than a normal title bar, and the window title is drawn using a smaller font. A tool window does not appear in the taskbar or in the dialog that appears when the user presses ALT+TAB. If a tool window has a system menu, its icon is not displayed on the title bar. However, you can display the system menu by right-clicking or by typing ALT+SPACE.
+            /// </summary>
+            WS_EX_TOOLWINDOW = 0x00000080L,
+
+            /// <summary>
+            /// The window should be placed above all non-topmost windows and should stay above them, even when the window is deactivated. To add or remove this style, use the SetWindowPos function.
+            /// </summary>
+            WS_EX_TOPMOST = 0x00000008L,
+
+            /// <summary>
+            /// The window should not be painted until siblings beneath the window (that were created by the same thread) have been painted. The window appears transparent because the bits of underlying sibling windows have already been painted.To achieve transparency without these restrictions, use the SetWindowRgn function.
+            /// </summary>
+            WS_EX_TRANSPARENT = 0x00000020L,
+
+            /// <summary>
+            /// The window has a border with a raised edge
+            /// </summary>
+            WS_EX_WINDOWEDGE = 0x00000100L
+        }
+
+
+#pragma warning disable CS0419 // cref 特性中有不明确的引用
+        /// <summary>
+        /// 用于在 <see cref="InteropMethods.GetWindowLong"/> 的 int index 传入
+        /// </summary>
+        /// 代码：[GetWindowLong function (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/ms633584(v=vs.85).aspx )
+        public enum GetWindowLongFields
+#pragma warning restore CS0419 // cref 特性中有不明确的引用
+        {
+            /// <summary>
+            /// 设定一个新的扩展风格
+            /// Retrieves the extended window styles
+            /// </summary>
+            GWL_EXSTYLE = -20,
+
+            /// <summary>
+            /// 设置一个新的应用程序实例句柄
+            /// Retrieves a handle to the application instance
+            /// </summary>
+            GWL_HINSTANCE = -6,
+
+            /// <summary>
+            /// 改变子窗口的父窗口
+            /// Retrieves a handle to the parent window, if any
+            /// </summary>
+            GWL_HWNDPARENT = -8,
+
+            /// <summary>
+            ///  设置一个新的窗口标识符
+            /// Retrieves the identifier of the window
+            /// </summary>
+            GWL_ID = -12,
+
+            /// <summary>
+            /// 设定一个新的窗口风格
+            /// Retrieves the window styles
+            /// </summary>
+            GWL_STYLE = -16,
+
+            /// <summary>
+            /// 设置与窗口有关的32位值。每个窗口均有一个由创建该窗口的应用程序使用的32位值
+            /// Retrieves the user data associated with the window. This data is intended for use by the application that created the window. Its value is initially zero
+            /// </summary>
+            GWL_USERDATA = -21,
+
+            /// <summary>
+            /// 为窗口设定一个新的处理函数
+            /// Retrieves the address of the window procedure, or a handle representing the address of the window procedure. You must use the CallWindowProc function to call the window procedure
+            /// </summary>
+            GWL_WNDPROC = -4,
         }
     }
 }

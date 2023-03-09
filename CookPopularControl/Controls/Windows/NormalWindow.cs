@@ -379,7 +379,7 @@ namespace CookPopularControl.Windows
             //method3.Invoke(this, new object[] { (workWidth - width) / 2, (workHeight - height) / 2, Width, Height });
 
             this.Hide();
-            NativeMethods.SetWindowPos(this.EnsureHandle(), IntPtr.Zero, x, y, w, h, NativeMethods.SWP.ASYNCWINDOWPOS);
+            InteropMethods.SetWindowPos(this.EnsureHandle(), IntPtr.Zero, x, y, w, h, InteropValues.WindowPositionFlags.SWP_ASYNCWINDOWPOS);
             this.Show();
 
             this.SizeChanged -= NormalWindow_SizeChanged;

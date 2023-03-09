@@ -22,127 +22,12 @@ namespace CookPopularCSharpToolkit.Windows
     [SuppressMessage("Security", "CA2153:不要捕获损坏状态异常", Justification = "<挂起>")]
     public static class WindowExtension
     {
-        internal static class NativeMethods
-        {
-            [Flags]
-            [SuppressMessage("Design", "CA1069:不应复制枚举值", Justification = "<挂起>")]
-            internal enum SWP : uint
-            {
-                NOSIZE = 0x0001,
-                NOMOVE = 0x0002,
-                NOZORDER = 0x0004,
-                NOREDRAW = 0x0008,
-                NOACTIVATE = 0x0010,
-                DRAWFRAME = 0x0020,
-                FRAMECHANGED = 0x0020,
-                SHOWWINDOW = 0x0040,
-                HIDEWINDOW = 0x0080,
-                NOCOPYBITS = 0x0100,
-                NOOWNERZORDER = 0x0200,
-                NOREPOSITION = 0x0200,
-                NOSENDCHANGING = 0x0400,
-                DEFERERASE = 0x2000,
-                ASYNCWINDOWPOS = 0x4000,
-            }
-
-            internal enum FlashType : uint
-            {
-                /// <summary>
-                /// 停止闪烁。
-                /// </summary>
-                FLASHW_STOP = 0,
-
-                /// <summary>
-                /// 只闪烁标题。
-                /// </summary>
-                FALSHW_CAPTION = 1,
-
-                /// <summary>
-                /// 只闪烁任务栏。
-                /// </summary>
-                FLASHW_TRAY = 2,
-
-                /// <summary>
-                /// 标题和任务栏同时闪烁。
-                /// </summary>
-                FLASHW_ALL = 3,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                FLASHW_PARAM1 = 4,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                FLASHW_PARAM2 = 12,
-
-                /// <summary>
-                /// 无条件闪烁任务栏直到发送停止标志或者窗口被激活，如果未激活，停止时高亮。
-                /// </summary>
-                FLASHW_TIMER = FLASHW_TRAY | FLASHW_PARAM1,
-
-                /// <summary>
-                /// 未激活时闪烁任务栏直到发送停止标志或者窗体被激活，停止后高亮。
-                /// </summary>
-                FLASHW_TIMERNOFG = FLASHW_TRAY | FLASHW_PARAM2,
-            }
-
-            /// <summary>
-            /// 包含系统应在指定时间内闪烁窗口次数和闪烁状态的信息
-            /// </summary>
-            internal struct FLASHWINFO
-            {
-                /// <summary>
-                /// 结构大小
-                /// </summary>
-                public uint cbSize;
-
-                /// <summary>
-                /// 要闪烁或停止的窗口句柄
-                /// </summary>
-                public IntPtr hwnd;
-
-                /// <summary>
-                /// 闪烁的类型
-                /// </summary>
-                public uint dwFlags;
-
-                /// <summary>
-                /// 闪烁窗口的次数
-                /// </summary>
-                public uint uCount;
-
-                /// <summary>
-                /// 窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
-                /// </summary>
-                public uint dwTimeout;
-            }
-
-            internal const int HWND_NOTOPMOST = -2;
-            internal const int HWND_TOPMOST = -1;
-            internal const int HWND_TOP = 0;
-            internal const int HWND_BOTTOM = 1;
-
-            internal const int GWL_EXSTYLE = -20;
-            internal const int WS_EX_DLGMODALFRAME = 0x0001;
-            internal const uint WS_EX_TOPMOST = 0x0008;
-
-            [DllImport("user32.dll")]
-            internal static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int X, int Y, int cx, int cy, SWP uFlags);
-
-            [DllImport("user32.dll", SetLastError = true)]
-            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-            //[DllImport("user32.dll")]
-            //internal static extern bool SetForegroundWindow(IntPtr hWnd);
-
-            [DllImport("user32.dll", SetLastError = true)]
-            internal static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
-
-            [DllImport("user32.dll")]
-            internal static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
-        }
+        internal const int HWND_NOTOPMOST = -2;
+        internal const int HWND_TOPMOST = -1;
+        internal const int HWND_TOP = 0;
+        internal const int HWND_BOTTOM = 1;
+        internal const int WS_EX_DLGMODALFRAME = 0x0001;
+        internal const uint WS_EX_TOPMOST = 0x0008;
 
         private static readonly Func<Window, bool> getDisposedValue = CreateGetFieldValueDelegate<Window, bool>("_disposed");
         private static readonly Func<Window, bool> getIsClosingValue = CreateGetFieldValueDelegate<Window, bool>("_isClosing");
@@ -153,7 +38,7 @@ namespace CookPopularCSharpToolkit.Windows
 
         public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.EnsureHandle());
 
-        public static void SwitchToThisWindow(this Window window) => NativeMethods.SwitchToThisWindow(window.EnsureHandle(), true);
+        public static void SwitchToThisWindow(this Window window) => InteropMethods.SwitchToThisWindow(window.EnsureHandle(), true);
 
         public static Window SetOwner(this Window window, IntPtr hWnd)
         {
@@ -170,12 +55,11 @@ namespace CookPopularCSharpToolkit.Windows
             IntPtr hwnd = new WindowInteropHelper(window).Handle;
 
             //改变窗体的样式
-            int extendedStyle = NativeMethods.GetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE);
-            Interop.NativeMethods.SetWindowLong(hwnd, NativeMethods.GWL_EXSTYLE, extendedStyle | NativeMethods.WS_EX_DLGMODALFRAME);
+            int extendedStyle = InteropMethods.GetWindowLong(hwnd, (int)InteropValues.GetWindowLongFields.GWL_EXSTYLE);
+            InteropMethods.SetWindowLong(hwnd, (int)InteropValues.GetWindowLongFields.GWL_EXSTYLE, new IntPtr(extendedStyle | WS_EX_DLGMODALFRAME));
 
             //更新窗口的非客户区，以反映变化
-            Interop.NativeMethods.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, Interop.NativeMethods.SWP.NOMOVE |
-                  Interop.NativeMethods.SWP.NOSIZE | Interop.NativeMethods.SWP.NOZORDER | Interop.NativeMethods.SWP.FRAMECHANGED);
+            InteropMethods.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, InteropValues.WindowPositionFlags.SWP_NOMOVE | InteropValues.WindowPositionFlags.SWP_NOSIZE | InteropValues.WindowPositionFlags.SWP_NOZORDER | InteropValues.WindowPositionFlags.SWP_FRAMECHANGED);
         }
 
         /// <summary>
@@ -246,6 +130,43 @@ namespace CookPopularCSharpToolkit.Windows
         }
 
         /// <summary>
+        /// 让窗口激活作为前台最上层窗口
+        /// </summary>
+        /// <param name="window"></param>
+        public static void SetWindowToForeground(Window window)
+        {
+            // [WPF 让窗口激活作为前台最上层窗口的方法 - lindexi - 博客园](https://www.cnblogs.com/lindexi/p/12749671.html)
+            var interopHelper = new WindowInteropHelper(window);
+            var thisWindowThreadId = InteropMethods.GetWindowThreadProcessId(interopHelper.Handle, out _);
+            var currentForegroundWindow = InteropMethods.GetForegroundWindow();
+            var currentForegroundWindowThreadId = InteropMethods.GetWindowThreadProcessId(currentForegroundWindow, out _);
+
+            // [c# - Bring a window to the front in WPF - Stack Overflow](https://stackoverflow.com/questions/257587/bring-a-window-to-the-front-in-wpf )
+            // [SetForegroundWindow的正确用法 - 子坞 - 博客园](https://www.cnblogs.com/ziwuge/archive/2012/01/06/2315342.html )
+            /*
+                 1.得到窗口句柄FindWindow 
+                2.切换键盘输入焦点AttachThreadInput 
+                3.显示窗口ShowWindow(有些窗口被最小化/隐藏了) 
+                4.更改窗口的Z Order，SetWindowPos使之最上，为了不影响后续窗口的Z Order,改完之后，再还原 
+                5.最后SetForegroundWindow 
+             */
+
+            InteropMethods.AttachThreadInput(currentForegroundWindowThreadId, thisWindowThreadId, true);
+
+            window.Show();
+            window.Activate();
+            // 去掉和其他线程的输入链接
+            InteropMethods.AttachThreadInput(currentForegroundWindowThreadId, thisWindowThreadId, false);
+
+            // 用于踢掉其他的在上层的窗口
+            if (window.Topmost != true)
+            {
+                window.Topmost = true;
+                window.Topmost = false;
+            }
+        }
+
+        /// <summary>
         /// 闪烁窗口的任务栏图标。
         /// </summary>
         /// <param name="window">一个 <see cref="Window" /> 对象。</param>
@@ -256,18 +177,18 @@ namespace CookPopularCSharpToolkit.Windows
         {
             try
             {
-                var fInfo = new NativeMethods.FLASHWINFO();
+                var fInfo = new InteropValues.FLASHWINFO();
 
                 fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
                 fInfo.hwnd = new WindowInteropHelper(window).EnsureHandle();
                 if (!IsStopFlash)
-                    fInfo.dwFlags = (uint)(NativeMethods.FlashType.FLASHW_ALL | NativeMethods.FlashType.FLASHW_TIMER);
+                    fInfo.dwFlags = (uint)(InteropValues.FlashType.FLASHW_ALL | InteropValues.FlashType.FLASHW_TIMER);
                 else
-                    fInfo.dwFlags = (uint)NativeMethods.FlashType.FLASHW_STOP;
+                    fInfo.dwFlags = (uint)InteropValues.FlashType.FLASHW_STOP;
                 fInfo.uCount = 3;
                 fInfo.dwTimeout = 0;
 
-                return NativeMethods.FlashWindowEx(ref fInfo);
+                return InteropMethods.FlashWindowEx(ref fInfo);
             }
             catch (Exception)
             {
@@ -345,13 +266,12 @@ namespace CookPopularCSharpToolkit.Windows
                 if (Debugger.IsAttached)
                     return true;
 #endif
-                const NativeMethods.SWP uFlags = NativeMethods.SWP.ASYNCWINDOWPOS | NativeMethods.SWP.NOSIZE | NativeMethods.SWP.NOMOVE | NativeMethods.SWP.NOREDRAW | NativeMethods.SWP.NOACTIVATE;
-
-                if (NativeMethods.SetWindowPos(hWnd, topmost ? NativeMethods.HWND_TOPMOST : NativeMethods.HWND_NOTOPMOST, 0, 0, 0, 0, uFlags))
+                const InteropValues.WindowPositionFlags uFlags = InteropValues.WindowPositionFlags.SWP_ASYNCWINDOWPOS | InteropValues.WindowPositionFlags.SWP_NOSIZE | InteropValues.WindowPositionFlags.SWP_NOMOVE | InteropValues.WindowPositionFlags.SWP_NOREDRAW | InteropValues.WindowPositionFlags.SWP_NOACTIVATE;
+                if (InteropMethods.SetWindowPos(hWnd, topmost ? new IntPtr(HWND_TOPMOST) : new IntPtr(HWND_NOTOPMOST), 0, 0, 0, 0, uFlags))
                 {
-                    var exStyleWithTopmost = NativeMethods.GetWindowLong(hWnd, NativeMethods.GWL_EXSTYLE) & NativeMethods.WS_EX_TOPMOST;
+                    var exStyleWithTopmost = InteropMethods.GetWindowLong(hWnd, (int)InteropValues.GetWindowLongFields.GWL_EXSTYLE) & WS_EX_TOPMOST;
 
-                    return topmost ? (exStyleWithTopmost == NativeMethods.WS_EX_TOPMOST) : (exStyleWithTopmost != NativeMethods.WS_EX_TOPMOST);
+                    return topmost ? (exStyleWithTopmost == WS_EX_TOPMOST) : (exStyleWithTopmost != WS_EX_TOPMOST);
                 }
 
                 return false;
