@@ -4,7 +4,10 @@ using CookPopularCSharpToolkit.Windows;
 using System;
 using System.ComponentModel;
 using System.Globalization;
+//using System.Runtime.Remoting.Messaging;
 using System.Windows;
+using System.Windows.Annotations;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -39,12 +42,18 @@ namespace CookPopularControl.Controls
     /// <summary>
     /// 可编辑标签元素的类型
     /// </summary>
-    public enum EditorType
+    internal enum EditorType
     {
         TextBox,
         TextBlock,
         NumericUpDown,
         Other,
+    }
+
+    public enum HeaderAligment
+    {
+        Left,
+        Top,
     }
 
     /// <summary>
@@ -74,6 +83,36 @@ namespace CookPopularControl.Controls
 
 
         /// <summary>
+        /// <see cref="EditingTag"/>内容类型，<see cref="EditorType"/>默认为<see cref="TextBox"/>
+        /// </summary>
+        internal EditorType EditorType
+        {
+            get { return (EditorType)GetValue(EditorTypeProperty); }
+            set { SetValue(EditorTypeProperty, value); }
+        }
+        /// <summary>
+        /// 提供<see cref="EditorType"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty EditorTypeProperty =
+            DependencyProperty.Register("EditorType", typeof(EditorType), typeof(EditingTag), new PropertyMetadata(default(EditorType), OnPropertiesChanged));
+
+
+        /// <summary>
+        /// 标头位置，上或者左
+        /// </summary>
+        public HeaderAligment Aligment
+        {
+            get => (HeaderAligment)GetValue(AligmentProperty);
+            set => SetValue(AligmentProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="Aligment"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty AligmentProperty =
+            DependencyProperty.Register("Aligment", typeof(HeaderAligment), typeof(EditingTag), new PropertyMetadata(default(HeaderAligment)));
+
+
+        /// <summary>
         /// 标签头的宽度
         /// </summary>
         public GridLength HeaderWidth
@@ -89,6 +128,21 @@ namespace CookPopularControl.Controls
 
 
         /// <summary>
+        /// 标签头的高度
+        /// </summary>
+        public GridLength HeaderHeight
+        {
+            get => (GridLength)GetValue(HeaderHeightProperty);
+            set => SetValue(HeaderHeightProperty, value);
+        }
+        /// <summary>
+        /// 提供<see cref="HeaderHeight"/>的依赖属性
+        /// </summary>
+        public static readonly DependencyProperty HeaderHeightProperty =
+            DependencyProperty.Register("HeaderHeight", typeof(GridLength), typeof(EditingTag), new PropertyMetadata(GridLength.Auto, OnPropertiesChanged));
+
+
+        /// <summary>
         /// 标签头的水平定位
         /// </summary>
         public HorizontalAlignment HeaderHorizontalAlignment
@@ -100,7 +154,7 @@ namespace CookPopularControl.Controls
         /// 提供<see cref="HeaderHorizontalAlignment"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderHorizontalAlignmentProperty =
-            DependencyProperty.Register("HeaderHorizontalAlignment", typeof(HorizontalAlignment), typeof(EditingTag), new PropertyMetadata(default(HorizontalAlignment), OnPropertiesChanged));
+            DependencyProperty.Register("HeaderHorizontalAlignment", typeof(HorizontalAlignment), typeof(EditingTag), new PropertyMetadata(HorizontalAlignment.Right, OnPropertiesChanged));
 
 
         /// <summary>
@@ -119,20 +173,6 @@ namespace CookPopularControl.Controls
 
 
         /// <summary>
-        /// <see cref="EditingTag"/>内容类型，<see cref="EditorType"/>默认为<see cref="TextBox"/>
-        /// </summary>
-        public EditorType EditorType
-        {
-            get { return (EditorType)GetValue(EditorTypeProperty); }
-            set { SetValue(EditorTypeProperty, value); }
-        }
-        /// <summary>
-        /// 提供<see cref="EditorType"/>的依赖属性
-        /// </summary>
-        public static readonly DependencyProperty EditorTypeProperty =
-            DependencyProperty.Register("EditorType", typeof(EditorType), typeof(EditingTag), new PropertyMetadata(default(EditorType), OnPropertiesChanged));
-
-        /// <summary>
         /// 标签头与内容间距
         /// </summary>
         public Thickness HeaderMargin
@@ -144,7 +184,7 @@ namespace CookPopularControl.Controls
         /// 表示<see cref="HeaderMargin"/>的依赖属性
         /// </summary>
         public static readonly DependencyProperty HeaderMarginProperty =
-            DependencyProperty.Register("HeaderMargin", typeof(Thickness), typeof(EditingTag), new PropertyMetadata(default(Thickness), OnPropertiesChanged));
+            DependencyProperty.Register("HeaderMargin", typeof(Thickness), typeof(EditingTag), new PropertyMetadata(new Thickness(0, 0, 6, 0), OnPropertiesChanged));
 
 
         private static void OnPropertiesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

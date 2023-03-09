@@ -10,7 +10,7 @@
 
     <pc:EditorTypeToVisibilityConverter x:Key="EditorTypeToVisibilityConverter" />
 
-    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource InputControlBaseStyle}">
+    <!--<Style x:Key="DefaultEditingTagStyle1" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource InputControlBaseStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HeaderMargin" Value="0,0,6,0" />
         <Setter Property="HeaderHorizontalAlignment" Value="Right" />
@@ -102,10 +102,80 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>-->
+
+    <!--<Style x:Key="EditingTagAddClearButtonStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultEditingTagStyle1}">
+        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="True" />
+    </Style>-->
+
+
+    <Style x:Key="DefaultEditingTagStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource ControlBaseStyle}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HeaderVerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type pc:EditingTag}">
+                    <Border x:Name="RootBorder"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{TemplateBinding HeaderHeight}" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{TemplateBinding HeaderWidth}" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="PART_Header"
+                                              Grid.RowSpan="2"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                              ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                                              Margin="{TemplateBinding HeaderMargin}"
+                                              HorizontalAlignment="{TemplateBinding HeaderHorizontalAlignment}"
+                                              VerticalAlignment="{TemplateBinding HeaderVerticalAlignment}"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
+                            <ContentPresenter x:Name="PART_Content" Grid.Column="1"
+                                              Grid.RowSpan="2"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Aligment" Value="Top">
+                            <Setter Property="Height" Value="Auto" />
+                            <Setter Property="HeaderMargin" Value="0,0,0,6" />
+                            <Setter Property="HeaderHorizontalAlignment" Value="Center" />
+                            <Setter Property="Grid.RowSpan" Value="1" TargetName="PART_Header" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" TargetName="PART_Header" />
+                            <Setter Property="Grid.Row" Value="1" TargetName="PART_Content" />
+                            <Setter Property="Grid.RowSpan" Value="1" TargetName="PART_Content" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" TargetName="PART_Content" />
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource FieldValidationErrorBrush}" />
+                            <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderThickness.Left, Converter={pt:DoubleToThicknessConverter}, ConverterParameter=1.5}" TargetName="RootBorder" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderThickness" Value="0" TargetName="RootBorder" />
+                            <Setter Property="Background" Value="{DynamicResource UnEnabledBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style x:Key="EditingTagAddClearButtonStyle" TargetType="{x:Type pc:EditingTag}" BasedOn="{StaticResource DefaultEditingTagStyle}">
-        <Setter Property="common:TextElementAttached.IsAddClearButton" Value="True" />
-    </Style>
 
 </ResourceDictionary>

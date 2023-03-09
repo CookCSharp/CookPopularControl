@@ -28,11 +28,11 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ValidationTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">
+    <Style x:Key="TextBoxValidationStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
     </Style>
 
-    <Style x:Key="AddClearButtonTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">
+    <Style x:Key="TextBoxAddClearButtonStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBoxStyle}">
         <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="2" />
         <Setter Property="common:TextElementAttached.IsAddClearButton" Value="True" />
         <Setter Property="common:FrameworkElementBaseAttached.IconWidth" Value="15" />
@@ -40,7 +40,7 @@
         <Setter Property="common:FrameworkElementBaseAttached.IconMargin" Value="0" />
     </Style>
 
-    <Style x:Key="ValidationAddClearButtonTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource AddClearButtonTextBoxStyle}">
+    <Style x:Key="TextBoxValidationAddClearButtonStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxAddClearButtonStyle}">
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource ValidationErrorBaseTemplate}" />
     </Style>
 

@@ -4846,6 +4846,26 @@
             </summary>
             <remarks>由两个<see cref="T:System.Windows.Controls.ContentControl"/>组合而成的标签控件</remarks>
         </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.EditorType">
+            <summary>
+            <see cref="T:CookPopularControl.Controls.EditingTag"/>内容类型，<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>默认为<see cref="T:System.Windows.Controls.TextBox"/>
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.EditorTypeProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.Aligment">
+            <summary>
+            标头位置，上或者左
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.AligmentProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.Aligment"/>的依赖属性
+            </summary>
+        </member>
         <member name="P:CookPopularControl.Controls.EditingTag.HeaderWidth">
             <summary>
             标签头的宽度
@@ -4854,6 +4874,16 @@
         <member name="F:CookPopularControl.Controls.EditingTag.HeaderWidthProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderWidth"/>的依赖属性
+            </summary>
+        </member>
+        <member name="P:CookPopularControl.Controls.EditingTag.HeaderHeight">
+            <summary>
+            标签头的高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.EditingTag.HeaderHeightProperty">
+            <summary>
+            提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderHeight"/>的依赖属性
             </summary>
         </member>
         <member name="P:CookPopularControl.Controls.EditingTag.HeaderHorizontalAlignment">
@@ -4874,16 +4904,6 @@
         <member name="F:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignmentProperty">
             <summary>
             提供<see cref="P:CookPopularControl.Controls.EditingTag.HeaderVerticalAlignment"/>的依赖属性
-            </summary>
-        </member>
-        <member name="P:CookPopularControl.Controls.EditingTag.EditorType">
-            <summary>
-            <see cref="T:CookPopularControl.Controls.EditingTag"/>内容类型，<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>默认为<see cref="T:System.Windows.Controls.TextBox"/>
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Controls.EditingTag.EditorTypeProperty">
-            <summary>
-            提供<see cref="P:CookPopularControl.Controls.EditingTag.EditorType"/>的依赖属性
             </summary>
         </member>
         <member name="P:CookPopularControl.Controls.EditingTag.HeaderMargin">
@@ -8082,6 +8102,36 @@
             Gets or sets the the distance between the center and the innermost point.
             </summary>
             <value>The distance between the center and the innermost point.</value>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>
