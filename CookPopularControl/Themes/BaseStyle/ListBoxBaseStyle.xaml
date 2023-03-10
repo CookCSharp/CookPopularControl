@@ -216,7 +216,7 @@
                                       pc:ScrollBarAssistant.HorizontalScrollBarHeight="{TemplateBinding pc:ScrollBarAssistant.HorizontalScrollBarHeight}"
                                       pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="{TemplateBinding pc:ScrollBarAssistant.IsShowScrollBarRepeatButton}"
                                       pc:ScrollBarAssistant.VerticalScrollBarWidth="{TemplateBinding pc:ScrollBarAssistant.VerticalScrollBarWidth}">
-                            <!--<StackPanel SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />-->
+                            <!--<StackPanel x:Name="ItemsPresenter" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" IsItemsHost="True" />-->
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>

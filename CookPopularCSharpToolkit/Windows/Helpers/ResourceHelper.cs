@@ -25,5 +25,19 @@ namespace CookPopularCSharpToolkit.Windows
 
             return default(TResource);
         }
+
+        /// <summary>
+        /// 根据Key获取资源
+        /// </summary>
+        /// <typeparam name="TResource"></typeparam>
+        /// <param name="resourceKey"></param>
+        /// <returns></returns>
+        public static TResource GetResource<TResource>(object resourceKey)
+        {
+            if (Application.Current.TryFindResource(resourceKey) is TResource resource)
+                return resource;
+
+            return default(TResource);
+        }
     }
 }

@@ -14,26 +14,6 @@
             <see cref="F:CookPopularControl.Communal.ButtonBaseAttached.IsShowRippleProperty"/>是否显示按钮点击的波纹效果
             </summary>
         </member>
-        <member name="T:CookPopularControl.Communal.DataGridViewAttached">
-            <summary>
-            提供<see cref="T:System.Windows.Controls.DataGrid"/>与<see cref="T:System.Windows.Controls.GridView"/>的附加属性基类
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.DataGridViewAttached.ColumnMinWidthProperty">
-            <summary>
-            <see cref="F:CookPopularControl.Communal.DataGridViewAttached.ColumnMinWidthProperty"/>标识列项最小宽度
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.DataGridViewAttached.ColumnHeaderHeightProperty">
-            <summary>
-            标识ColumnHeader的高度
-            </summary>
-        </member>
-        <member name="F:CookPopularControl.Communal.DataGridViewAttached.ColumnHeaderPaddingProperty">
-            <summary>
-            标识ColumnHeader的内容的内边距
-            </summary>
-        </member>
         <member name="T:CookPopularControl.Communal.FrameworkElementBaseAttached">
             <summary>
             提供WPF控件附加属性的基类
@@ -3798,9 +3778,40 @@
             <see cref="F:CookPopularControl.Controls.ComboBoxAssistant.IsShowDropDownButtonProperty"/>标识是否显示DropDownButton 
             </summary>
         </member>
+        <member name="T:CookPopularControl.Controls.GridViewColumnAssistant">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.GridViewColumn"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GridViewColumnAssistant.ColumnMinWidthProperty">
+            <summary>
+            标识<see cref="T:System.Windows.Controls.GridViewColumnHeader"/>列项最小宽度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.GridViewColumnAssistant.ColumnHeaderPaddingProperty">
+            <summary>
+            标识<see cref="T:System.Windows.Controls.GridViewColumnHeader"/>的内边距
+            暂时无效
+            </summary>
+        </member>
         <member name="T:CookPopularControl.Controls.ListViewAssistant">
             <summary>
-            <see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
+            表示<see cref="T:System.Windows.Controls.ListView"/>的附加属性基类
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ListViewAssistant.ColumnHeaderHeightProperty">
+            <summary>
+            标识<see cref="T:System.Windows.Controls.GridViewColumnHeader"/>的标头高度
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ListViewAssistant.IsColumnHeaderFontWeightProperty">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.GridViewColumnHeader"/>是否采用粗体
+            </summary>
+        </member>
+        <member name="F:CookPopularControl.Controls.ListViewAssistant.ListViewItemPaddingProperty">
+            <summary>
+            表示<see cref="T:System.Windows.Controls.ListViewItem"/>的内边距
             </summary>
         </member>
         <member name="T:CookPopularControl.Controls.TreeViewAssistant">

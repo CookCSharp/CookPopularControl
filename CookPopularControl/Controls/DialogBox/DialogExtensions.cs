@@ -93,15 +93,7 @@ namespace CookPopularControl.Controls
             {
                 try
                 {
-                    bool isExcute = false;
-                    if (dialog is Windows.DialogWindow win && win.IsConfirm)
-                        isExcute = true;
-                    else if (dialog is DialogBox dialogBox)
-                        isExcute = true;
-                    else
-                        isExcute = false;
-
-                    if (isExcute)
+                    if ((dialog is Windows.DialogWindow win && win.IsConfirm) || dialog is DialogBox)
                         tcs.TrySetResult(dialog.GetViewModel<IDialogResultable<TResult>>().Result);
                 }
                 catch (Exception e)
