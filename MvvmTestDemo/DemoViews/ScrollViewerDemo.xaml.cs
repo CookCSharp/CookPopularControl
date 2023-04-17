@@ -1,17 +1,24 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
+using PropertyChanged;
 
 namespace MvvmTestDemo.DemoViews
 {
     /// <summary>
     /// ScrollViewerDemo.xaml 的交互逻辑
     /// </summary>
+    [AddINotifyPropertyChangedInterface]
     public partial class ScrollViewerDemo : UserControl
     {
+        public ObservableCollection<string> ListStrings { get; set; }
+
         public ScrollViewerDemo()
         {
             InitializeComponent();
+            this.DataContext = this;
 
+            ListStrings = new ObservableCollection<string>();
             //scrollViewer2.ScrollChanged += ScrollViewer2_ScrollChanged;
         }
 
@@ -69,6 +76,19 @@ namespace MvvmTestDemo.DemoViews
 
                 System.Diagnostics.Debug.WriteLine("*************");
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 5000; i++)
+            {
+                ListStrings.Add("Chance" + i.ToString());
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ListStrings.Clear();
         }
     }
 }

@@ -38,7 +38,7 @@ namespace MvvmTestDemo.DemoViews
         private void StartOrStop_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as ToggleButton;
-            alertor.IsCancelAlarm = btn.IsChecked.Value;
+            alertor.IsCancelAlarm = btn.IsChecked!.Value;
             if (btn.IsChecked.Value)
                 btn.Content = "开始";
             else
@@ -112,6 +112,11 @@ namespace MvvmTestDemo.DemoViews
             Point3D position = matrix3D.Transform(point3D);
             camera.Position = position;
             camera.LookDirection = camera.LookDirection = _point3DCenter - position;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //var s = editingTag1.Content;
         }
     }
 }

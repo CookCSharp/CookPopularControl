@@ -11,46 +11,181 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <WrapPanel>
-            <ScrollBar Width="50" Height="100"
-                       BorderBrush="{StaticResource AssistantThemeBrush}"
-                       BorderThickness="1"
-                       Background="#F0F0F0"
+            <ScrollBar Width="50" Height="200"
                        Value="0"
                        Minimum="0" Maximum="100"
                        Orientation="Vertical"
                        Style="{StaticResource DefaultScrollBarStyle}" />
-            <ScrollBar Width="50" Height="100"
-                       BorderBrush="{StaticResource AssistantThemeBrush}"
-                       BorderThickness="1"
+            <ScrollBar Width="50" Height="200"
                        Background="#F0F0F0"
                        Value="0"
                        Minimum="0" Maximum="100"
                        Margin="30,0"
-                       pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="False"
-                       pc:ScrollBarAssistant.ThumbInsideMargin="0,5" Orientation="Vertical"
+                       Orientation="Vertical" pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="False"
+                       pc:ScrollBarAssistant.ThumbInsideMargin="0"
                        Style="{StaticResource ThumbMarginScrollBarStyle}" />
             <ScrollBar Width="300" Height="50"
-                       BorderBrush="{StaticResource AssistantThemeBrush}"
-                       BorderThickness="1"
                        Background="#F0F0F0"
                        Value="0"
                        Minimum="0" Maximum="100"
                        Orientation="Horizontal"
-                       Style="{StaticResource NoRepeatButtonScrollBarStyle}" />
+                       Style="{StaticResource DefaultScrollBarStyle}" />
             <ScrollBar Width="300" Height="50"
-                       BorderBrush="{StaticResource AssistantThemeBrush}"
-                       BorderThickness="1"
                        Background="#F0F0F0"
                        Value="0"
                        Minimum="0" Maximum="100"
                        Margin="20,0"
-                       pc:ScrollBarAssistant.ThumbInsideMargin="5" Orientation="Horizontal"
+                       Orientation="Horizontal" pc:ScrollBarAssistant.ThumbInsideMargin="5"
                        Style="{StaticResource NoRepeatButtonScrollBarStyle}" />
         </WrapPanel>
         <WrapPanel Margin="0,20" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ScrollViewer Width="200" Height="200"
-                          pc:ScrollViewerAssistant.IsAutoHideScrollBar="False" pc:ScrollViewerAssistant.IsCornerShow="True"
                           CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          pc:ScrollBarAssistant.HorizontalScrollBarHeight="0"
+                          pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="True"
+                          pc:ScrollBarAssistant.VerticalScrollBarWidth="0"
+                          pc:ScrollViewerAssistant.IsAutoHideScrollBar="False" pc:ScrollViewerAssistant.IsCornerShow="True"
+                          Style="{StaticResource DefaultScrollViewerStyle}">
+                <StackPanel>
+                    <TextBlock Text="111111111111111111111231231231231231233112" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                </StackPanel>
+            </ScrollViewer>
+            <ScrollViewer Width="200" Height="200"
+                          Margin="20,0"
+                          CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          pc:ScrollBarAssistant.HorizontalScrollBarHeight="0"
+                          pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="False"
+                          pc:ScrollBarAssistant.VerticalScrollBarWidth="0"
+                          pc:ScrollViewerAssistant.IsAutoHideScrollBar="False" pc:ScrollViewerAssistant.IsCornerShow="True"
+                          Style="{StaticResource DefaultScrollViewerStyle}">
+                <StackPanel>
+                    <TextBlock Text="111111111111111111111231231231231231233112" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                    <TextBlock Text="000" />
+                    <TextBlock Text="111" />
+                    <TextBlock Text="222" />
+                    <TextBlock Text="333" />
+                    <TextBlock Text="444" />
+                    <TextBlock Text="555" />
+                    <TextBlock Text="666" />
+                    <TextBlock Text="777" />
+                    <TextBlock Text="888" />
+                    <TextBlock Text="999" />
+                </StackPanel>
+            </ScrollViewer>
+            <ScrollViewer Width="200" Height="200"
+                          CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          pc:ScrollBarAssistant.HorizontalScrollBarHeight="10"
+                          pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="False"
+                          pc:ScrollBarAssistant.VerticalScrollBarWidth="10"
+                          pc:ScrollViewerAssistant.IsAutoHideScrollBar="False" pc:ScrollViewerAssistant.IsCornerShow="True"
                           Style="{StaticResource DefaultScrollViewerStyle}">
                 <StackPanel>
                     <TextBlock Text="111111111111111111111231231231231231233112" />
@@ -116,6 +251,35 @@
                 </StackPanel>
             </ScrollViewer>
         </WrapPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Button Width="50"
+                        Content="Add"
+                        Margin="0,0,20,0"
+                        Click="Button_Click_2" />
+                <Button Width="50"
+                        Content="Clear"
+                        Margin="0,20,20,0"
+                        Click="Button_Click_3" />
+            </StackPanel>
+            <ListView Width="300" MaxHeight="300"
+                      ItemsSource="{Binding ListStrings}"
+                      pc:ScrollBarAssistant.IsShowScrollBarRepeatButton="True" />
+            <ListBox Width="300" MaxHeight="300"
+                     Margin="20,0"
+                     ItemsSource="{Binding ListStrings}"
+                     pc:SelectorAttached.ItemHeight="30" />
+            <ListBox Width="300" Height="300"
+                     ItemsSource="{Binding ListStrings}"
+                     ScrollViewer.CanContentScroll="True" VirtualizingPanel.CacheLengthUnit="Pixel"
+                     VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel IsItemsHost="True" Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
     </StackPanel>
 
     <!--<pc:SmoothScrollViewer x:Name="scrollViewer1" Width="300" Height="200" Background="LightGray"

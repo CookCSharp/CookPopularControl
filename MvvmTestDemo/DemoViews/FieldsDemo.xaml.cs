@@ -1,10 +1,14 @@
 ﻿using CookPopularControl.Controls;
 using CookPopularCSharpToolkit.Communal;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using Microsoft.Win32;
 using Prism.Commands;
 using PropertyChanged;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace MvvmTestDemo.DemoViews
 {
@@ -36,7 +40,7 @@ namespace MvvmTestDemo.DemoViews
 
         private void NumericUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            var s = num5.Value;
+            //var s = num5.Value;
         }
 
         private int index = 1;
@@ -45,6 +49,15 @@ namespace MvvmTestDemo.DemoViews
             AutoText += $"Title{index}:Chance{index}&";
             index++;
             //AutoText = "Title1:写代码的厨子 Title2:Chance Title3:Cook";
+        }
+
+        private void Browser_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                txt.Text = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

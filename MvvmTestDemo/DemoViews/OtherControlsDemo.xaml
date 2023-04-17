@@ -7,9 +7,9 @@
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
              mc:Ignorable="d"
-             Foreground="#2C2C2C"
              d:DesignHeight="650"
              d:DesignWidth="800"
+             Foreground="#2C2C2C"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid>
@@ -18,7 +18,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="80" />
                 <RowDefinition Height="150" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="150" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -60,7 +60,9 @@
                                Fill="Red"
                                RadiusX="10" RadiusY="10" />
                 </pc:Badge.Element>
-                <Button Width="200" Height="35" Content="123" />
+                <Button Width="200" Height="35"
+                        Content="123"
+                        Click="Button_Click" />
             </pc:Badge>
 
             <TextBlock Grid.Row="2" Grid.Column="0"
@@ -90,20 +92,33 @@
                        VerticalAlignment="Center" />
             <WrapPanel Grid.Row="3" Grid.Column="1">
                 <pc:EditingTag Content="写代码的厨子" Header="Chance:" Style="{StaticResource DefaultEditingTagStyle}" />
-                <pc:EditingTag Width="200"
-                               Content="写代码的厨子" Header="Chance:"
+                <pc:EditingTag x:Name="editingTag1"
+                               Header="Chance:"
                                Margin="10,0"
-                               Style="{StaticResource EditingTagAddClearButtonStyle}" />
-                <pc:EditingTag Content="写代码的厨子" Header="Chance:"
-                               EditorType="TextBlock"
-                               Style="{StaticResource DefaultEditingTagStyle}" />
-                <pc:EditingTag Width="200"
-                               Content="写代码的厨子" Header="Chance:"
-                               Margin="0,10,0,0"
-                               HorizontalContentAlignment="Left"
-                               pc:FrameworkElementBaseAttached.IconHeight="15" pc:FrameworkElementBaseAttached.IconMargin="0,0,3,0"
-                               pc:FrameworkElementBaseAttached.IconWidth="15" EditorType="NumericUpDown"
-                               Style="{StaticResource EditingTagAddClearButtonStyle}" />
+                               Style="{StaticResource DefaultEditingTagStyle}">
+                    <pc:EditingTag.Content>
+                        <TextBox Text="Default" />
+                    </pc:EditingTag.Content>
+                </pc:EditingTag>
+                <pc:EditingTag Header="Chance:" HeaderWidth="100">
+                    <pc:EditingTag.Content>
+                        <TextBox Text="写代码的厨子" Style="{StaticResource TextBoxAddClearButtonStyle}" />
+                    </pc:EditingTag.Content>
+                </pc:EditingTag>
+                <pc:EditingTag Header="Chance:"
+                               Margin="0,35,0,0"
+                               HeaderHorizontalAlignment="Left" HeaderWidth="Auto">
+                    <pc:EditingTag.Content>
+                        <pc:NumericUpDown Width="200" Value="1" Style="{StaticResource DefaultNumericUpDownStyle}" />
+                    </pc:EditingTag.Content>
+                </pc:EditingTag>
+                <pc:EditingTag Header="Chance:"
+                               Margin="10,10,0,0"
+                               Aligment="Top" HeaderMargin="0,0,0,10">
+                    <pc:EditingTag.Content>
+                        <pc:NumericUpDown Width="200" Value="1" Style="{StaticResource NumericUpDownAddClearButtonStyle}" />
+                    </pc:EditingTag.Content>
+                </pc:EditingTag>
             </WrapPanel>
 
             <TextBlock Grid.Row="4" Grid.Column="0"

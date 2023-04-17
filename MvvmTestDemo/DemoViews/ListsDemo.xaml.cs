@@ -21,6 +21,8 @@ namespace MvvmTestDemo.DemoViews
 
         public ObservableCollection<SelectorItem> ImageLists { get; set; }
 
+        public ObservableCollection<SelectorItem> GifLists { get; set; }
+
         public ObservableCollection<PersonInfo> PersonInfos { get; set; }
 
         public ListsDemo()
@@ -36,10 +38,11 @@ namespace MvvmTestDemo.DemoViews
             Lists = new ObservableCollection<object>() { "Lori", "Chance", "写代码的厨子" };
             IconLists = new ObservableCollection<SelectorItem>();
             ImageLists = new ObservableCollection<SelectorItem>();
+            GifLists = new ObservableCollection<SelectorItem>();
 
-            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["EyeGeometry"] as Geometry, Content = "第一个Iccon" });
-            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LockGeometry"] as Geometry, Content = "第二个Iccon" });
-            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LeafGeometry"] as Geometry, Content = "第三个Iccon" });
+            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["EyeGeometry"] as Geometry, Content = "第一个Icon" });
+            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LockGeometry"] as Geometry, Content = "第二个Icon" });
+            IconLists.Add(new SelectorItem { GeometryData = App.Current.Resources["LeafGeometry"] as Geometry, Content = "第三个Icon" });
 
             var source1 = new BitmapImage(new Uri("/MvvmTestDemo;component/Resources/Gif/tomcat.jpg", UriKind.Relative));
             var source2 = new BitmapImage(new Uri("/MvvmTestDemo;component/Resources/Gif/programmer.gif", UriKind.Relative));
@@ -47,6 +50,13 @@ namespace MvvmTestDemo.DemoViews
             ImageLists.Add(new SelectorItem { ImageSource = source1, Content = "第一张图片" });
             ImageLists.Add(new SelectorItem { ImageSource = source2, Content = "第二张图片" });
             ImageLists.Add(new SelectorItem { ImageSource = source3, Content = "第三张图片" });
+
+            var uri1 = new Uri("/MvvmTestDemo;component/Resources/Gif/cook.gif", UriKind.Relative);
+            var uri2 = new Uri("/MvvmTestDemo;component/Resources/Gif/GifBitmapEncoder.gif", UriKind.Relative);
+            var uri3 = new Uri("/MvvmTestDemo;component/Resources/Gif/programmer.gif", UriKind.Relative);
+            GifLists.Add(new SelectorItem { GifSource = uri1, Content = "第一张Gif" });
+            GifLists.Add(new SelectorItem { GifSource = uri2, Content = "第二张Gif" });
+            GifLists.Add(new SelectorItem { GifSource = uri3, Content = "第三张Gif" });
 
             PersonInfos = new ObservableCollection<PersonInfo>();
             PersonInfos.Add(new PersonInfo { Name = "Lori", Age = 18, Description = "Teacher" });

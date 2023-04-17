@@ -11,14 +11,13 @@
                   xmlns:useCtl="clr-namespace:MvvmTestDemo.UserControls"
                   xmlns:view="clr-namespace:MvvmTestDemo.DemoViews"
                   mc:Ignorable="d"
+                  d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
                   Title="CookPopularControl"
                   Height="800"
-                  d:DataContext="{Binding Source={d:DesignInstance Type={x:Type local:MainWindowViewModel}}}"
-                  prism:ViewModelLocator.AutoWireViewModel="True"
                   ResizeMode="CanResizeWithGrip"
                   WindowStartupLocation="CenterScreen"
                   WindowState="Normal"
-                  Style="{x:Null}">
+                  prism:ViewModelLocator.AutoWireViewModel="True">
 
     <!--<pc:SideBarWindow.DataContext>
         <prism:ContainerProvider Type="{x:Type local:MainWindowViewModel}" />
@@ -59,38 +58,40 @@
     </pc:NormalWindow.ClientTitleBarAdditionalContent>
 
     <Grid>
-        <Grid Visibility="Visible">
+        <Grid Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ListBox x:Name="listBox" Grid.Column="0"
-                     Width="0" FontSize="14"
-                     pc:FrameworkElementBaseAttached.CornerRadius="0" pc:ScrollBarAssistant.HorizontalScrollBarHeight="8"
-                     pc:ScrollBarAssistant.VerticalScrollBarWidth="8"
+                     Width="0"
+                     FontSize="14"
                      ItemsSource="{Binding ControlNamesList}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                      SelectedIndex="{Binding DemoViewsSelectedIndex, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
-                     SelectionMode="Single">
+                     SelectionMode="Single" pc:FrameworkElementBaseAttached.CornerRadius="0"
+                     pc:ScrollBarAssistant.HorizontalScrollBarHeight="8" pc:ScrollBarAssistant.VerticalScrollBarWidth="8"
+                     pc:ScrollViewerAssistant.IsCornerShow="True">
                 <behavior:Interaction.Triggers>
                     <behavior:EventTrigger EventName="SelectionChanged">
                         <behavior:InvokeCommandAction Command="{Binding DemoViewsSelectedCommand}" />
                     </behavior:EventTrigger>
-                    <behavior:DataTrigger Binding="{Binding ElementName=DemoMainWindow, Path=IsShowSideBar}" Value="True">
+                    <behavior:DataTrigger Binding="{Binding ElementName=DemoMainWindow, Path=IsCheckedSideBar}" Value="True">
                         <behavior:ControlStoryboardAction ControlStoryboardOption="Play">
                             <behavior:ControlStoryboardAction.Storyboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width"
-                                                     From="0" To="200" Duration="0:0:0.5" />
+                                                     To="200" Duration="0:0:0.5" />
                                 </Storyboard>
                             </behavior:ControlStoryboardAction.Storyboard>
                         </behavior:ControlStoryboardAction>
                     </behavior:DataTrigger>
-                    <behavior:DataTrigger Binding="{Binding ElementName=DemoMainWindow, Path=IsShowSideBar}" Value="False">
+                    <behavior:DataTrigger Binding="{Binding ElementName=DemoMainWindow, Path=IsCheckedSideBar}" Value="False">
                         <behavior:ControlStoryboardAction ControlStoryboardOption="Play">
                             <behavior:ControlStoryboardAction.Storyboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetName="listBox" Storyboard.TargetProperty="Width"
-                                                     From="150" To="0" Duration="0:0:0.5" />
+                                                     To="0" Duration="0:0:0.5" />
                                 </Storyboard>
                             </behavior:ControlStoryboardAction.Storyboard>
                         </behavior:ControlStoryboardAction>
@@ -99,13 +100,13 @@
             </ListBox>
             <ContentControl Grid.Column="1" Content="{Binding ControlContent}" />
         </Grid>
-        <view:TreeViewDemo Visibility="Collapsed" />
+        <view:ListsDemo Visibility="Visible" />
 
         <!--  接收BubbleMessage的容器  -->
         <ScrollViewer Margin="0,10,10,10"
                       HorizontalAlignment="Right" VerticalAlignment="Top"
                       VerticalScrollBarVisibility="Hidden">
-            <StackPanel HorizontalAlignment="Right" pc:NotifyMessageBase.IsParentElement="True" pc:NotifyMessageBase.ParentElementToken="MainWindowToken" />
+            <StackPanel x:Name="Chance2" HorizontalAlignment="Right" pc:NotifyMessageBase.IsParentElement="True" />
         </ScrollViewer>
 
         <pc:ExtendPopup AllowsTransparency="True" HorizontalOffset="10"
@@ -117,11 +118,11 @@
                     Background="White"
                     Margin="5"
                     Effect="{StaticResource ShadowEffectDepth0}">
-                <ListView pc:ScrollBarAssistant.HorizontalScrollBarHeight="0" pc:ScrollBarAssistant.VerticalScrollBarWidth="0"
-                          ItemsSource="{Binding ThemeBrushs}"
+                <ListView ItemsSource="{Binding ThemeBrushs}"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                          SelectedIndex="{Binding SelectedThemeIndex}">
+                          SelectedIndex="{Binding SelectedThemeIndex}"
+                          pc:ScrollBarAssistant.HorizontalScrollBarHeight="0" pc:ScrollBarAssistant.VerticalScrollBarWidth="0">
                     <behavior:Interaction.Triggers>
                         <behavior:EventTrigger EventName="SelectionChanged">
                             <behavior:InvokeCommandAction Command="{Binding SwitchAppThemeCommand}" />

@@ -40,7 +40,7 @@ namespace MvvmTestDemo.DemoViews
             MessageDialog.ShowInfo("写代码的厨子_Info", "Chance");
             MessageDialog.ShowWarning("写代码的厨子_Waning", "Chance");
 
-            MessageBox.Show("123");
+            MessageBox.Show(CookPopularCSharpToolkit.Windows.WindowExtension.GetActiveWindow(), "123");
         }
     }
 }

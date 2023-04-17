@@ -7,11 +7,13 @@
         xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
         mc:Ignorable="d"
         Title="FixedSizeWindow"
-        Width="800"
+        Width="800" 
         Height="450" ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen" 
         Style="{StaticResource FixedSizeWindowStyle}">
 
-    <Grid />
+    <Grid>
+        <TextBlock Text="123123"/>
+    </Grid>
 
 </Window>

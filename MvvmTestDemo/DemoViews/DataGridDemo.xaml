@@ -112,6 +112,12 @@
                         <DataGridTextColumn Header="部门" Binding="{Binding Department}" />
                     </DataGrid.Columns>
                 </DataGrid>-->
+
+                <DataGrid x:Name="TestDataGrid"
+                          Width="300" Height="200"
+                          AutoGenerateColumns="False" CanUserAddRows="False"
+                          Style="{StaticResource DefaultDataGridStyle}" />
+                <!--ItemsSource="{Binding TestDatas}"-->
             </StackPanel>
         </Grid>
     </ScrollViewer>

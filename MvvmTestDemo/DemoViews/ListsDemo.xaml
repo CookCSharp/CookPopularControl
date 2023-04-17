@@ -43,9 +43,8 @@
                 </ListBox>
                 <ListBox Width="300" Height="150"
                          Margin="0,20,0,0"
-                         pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete" 
                          ItemsSource="{Binding Lists}"
-                         SelectedIndex="0" SelectionMode="Single"
+                         SelectedIndex="0" SelectionMode="Single" pc:SelectorAttached.IsItemDelete="ListBox_IsItemDelete"
                          Style="{StaticResource ListBoxButtonStyle}" />
                 <ListBox Width="300" Height="150"
                          Margin="20,20,0,0"
@@ -54,46 +53,40 @@
                          Style="{StaticResource ListBoxIconStyle}" />
                 <ListBox Width="300" Height="150"
                          Margin="0,20,0,0"
-                         pc:SelectorAttached.IsPreviewImage="True"
                          ItemsSource="{Binding ImageLists}"
-                         SelectedIndex="0" SelectionMode="Single"
-                         Style="{StaticResource ListBoxImageStyle}" />
-                <ListView Width="300" Height="150"
-                          Margin="20,20,0,0"
-                          SelectedIndex="0"
-                          Style="{StaticResource DefaultListViewStyle}">
-                    <ListViewItem Content="Lori" />
-                    <ListViewItem Content="Chance" />
-                    <ListViewItem Content="写代码的厨子" />
-                </ListView>
+                         SelectedIndex="0" SelectionMode="Single" pc:SelectorAttached.IsPreviewImageGif="True"
+                         Style="{StaticResource ListBoxImageGifStyle}" />
+                <ListBox Width="300" Height="150"
+                         Margin="20,20,0,0"
+                         ItemsSource="{Binding GifLists}"
+                         SelectedIndex="0" SelectionMode="Single" pc:SelectorAttached.IsPreviewImageGif="True"
+                         pc:SelectorAttached.ItemControlHeight="30" pc:SelectorAttached.ItemControlWidth="30"
+                         Style="{StaticResource ListBoxImageGifStyle}" />
             </WrapPanel>
             <TextBlock Grid.Row="2" Grid.Column="0"
                        Text="ListView:"
                        FontSize="20" FontWeight="DemiBold"
                        VerticalAlignment="Center" />
             <StackPanel Grid.Row="2" Grid.Column="1">
+                <!--<ListView Width="300" Height="150"
+                          Margin="20,20,0,0"
+                          Style="{StaticResource DefaultListViewStyle}"
+                          SelectedIndex="0">
+                    <ListViewItem Content="Lori" />
+                    <ListViewItem Content="Chance" />
+                    <ListViewItem Content="写代码的厨子" />
+                </ListView>-->
                 <ListView Height="200"
-                          HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
-                          pc:SelectorAttached.ItemHeight="40"
+                          HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
                           ItemsSource="{Binding PersonInfos}"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectedIndex="0"
-                          Style="{StaticResource ListViewGirdViewStyle}">
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          pc:ListViewAssistant.IsColumnHeaderFontWeight="True" pc:SelectorAttached.ItemHeight="30"
+                          Style="{StaticResource ListViewGridViewStyle}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Width="100" Header="Age" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}" />
                             <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
-                            <GridViewColumn Header="Options">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <ComboBox Width="100" Height="35">
-                                            <ComboBoxItem Content="Test1" />
-                                            <ComboBoxItem Content="Test2" />
-                                            <ComboBoxItem Content="Test3" />
-                                        </ComboBox>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
                             <GridViewColumn>
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -103,6 +96,19 @@
                                     </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                             </GridViewColumn>
+                            <!--<GridViewColumn Header="Options">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <ComboBox Height="20" VerticalAlignment="Top">
+                                                <ComboBoxItem Content="Test1" />
+                                                <ComboBoxItem Content="Test2" />
+                                                <ComboBoxItem Content="Test3" />
+                                            </ComboBox>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>-->
                         </GridView>
                     </ListView.View>
                 </ListView>

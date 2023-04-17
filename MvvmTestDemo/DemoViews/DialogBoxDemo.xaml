@@ -6,8 +6,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
              mc:Ignorable="d"
+             d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="450"
-             d:DesignWidth="800">
+             d:DesignWidth="800"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <StackPanel VerticalAlignment="Center">
         <Button Width="300" Height="40"
@@ -15,17 +17,21 @@
                 Click="ButtonDefault_Click" />
         <Button Width="300" Height="40"
                 Content="OpenDialogBoxInCommandParameter"
-                Margin="0,50"
-                Command="{x:Static pc:DialogBox.OpenDialogCommand}">
+                Command="{x:Static pc:DialogBox.OpenDialogCommand}"
+                Margin="0,20">
             <Button.CommandParameter>
                 <Button Width="200" Height="35"
                         Content="CloseDialogBox"
                         Command="{x:Static pc:DialogBox.CloseDialogCommand}" />
             </Button.CommandParameter>
         </Button>
+        <TextBox Width="300" Height="40"
+                 Text="{Binding Text}"
+                 Margin="0,20" />
 
         <Border Width="600" Height="500"
                 Background="#FF9C8844"
+                Margin="0,50,0,0"
                 pc:DialogBox.Mark="DialogBoxContainer">
             <pc:DialogBoxContainer>
                 <StackPanel>
@@ -33,7 +39,7 @@
                             Content="OpenDialogBoxInside"
                             Click="ButtonInherit_Click" />
                     <TextBox Width="300" Height="40"
-                             Text="12312331"
+                             Text="Chance"
                              Margin="0,20" />
                 </StackPanel>
             </pc:DialogBoxContainer>

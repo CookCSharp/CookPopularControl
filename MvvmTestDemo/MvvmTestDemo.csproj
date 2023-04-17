@@ -44,6 +44,7 @@
 	<None Remove="Resources\Gif\C.png" />
 	<None Remove="Resources\Gif\cook.gif" />
 	<None Remove="Resources\Gif\CookCSharp.ico" />
+	<None Remove="Resources\Gif\GifBitmapEncoder.gif" />
 	<None Remove="Resources\Gif\programmer.gif" />
 	<None Remove="Resources\Gif\timg.jpg" />
 	<None Remove="Resources\Gif\tomcat.jpg" />
@@ -83,6 +84,7 @@
 	<Resource Include="Resources\Gif\C.png" />
 	<Resource Include="Resources\Gif\cook.gif" />
 	<Resource Include="Resources\Gif\CookCSharp.ico" />
+	<Resource Include="Resources\Gif\GifBitmapEncoder.gif" />
 	<Resource Include="Resources\Gif\programmer.gif" />
 	<Resource Include="Resources\Gif\timg.jpg" />
 	<Resource Include="Resources\Gif\tomcat.jpg" />

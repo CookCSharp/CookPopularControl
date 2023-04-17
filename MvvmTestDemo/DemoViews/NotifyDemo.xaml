@@ -48,10 +48,10 @@
                                FontSize="16" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
                     <pc:SwitchButton Width="100" Height="35"
-                                      Background="Red"
-                                      Margin="10,0"
-                                      Click="Button_Click_1" SwicthCloseBackground="LightBlue"
-                                      Style="{StaticResource DefaultSwitchButtonStyle}" />
+                                     Background="Red"
+                                     Margin="10,0"
+                                     Click="Button_Click_1" SwicthCloseBackground="LightBlue"
+                                     Style="{StaticResource DefaultSwitchButtonStyle}" />
                 </StackPanel>
                 <StackPanel Margin="20" Orientation="Horizontal">
                     <TextBlock Text="开启系统托盘菜单闪烁"
@@ -59,10 +59,10 @@
                                FontSize="16" FontWeight="DemiBold"
                                VerticalAlignment="Center" />
                     <pc:SwitchButton Width="100" Height="35"
-                                      Background="Red"
-                                      Margin="10,0"
-                                      Click="Button_Click_2" SwicthCloseBackground="LightBlue"
-                                      Style="{StaticResource DefaultSwitchButtonStyle}" />
+                                     Background="Red"
+                                     Margin="10,0"
+                                     Click="Button_Click_2" SwicthCloseBackground="LightBlue"
+                                     Style="{StaticResource DefaultSwitchButtonStyle}" />
                 </StackPanel>
             </StackPanel>
 
@@ -118,19 +118,28 @@
                         Content="OpenPopupMessageFade"
                         Margin="10,0"
                         Click="OpenPopupMessage_Click" />
-                <Button x:Name="OpenPopupMessageHorizontalSlide"
-                        Width="220" Height="35"
-                        Content="OpenPopupMessageHorizontalSlide"
+                <Button x:Name="OpenPopupMessageLeftHorizontalSlide"
+                        Width="240" Height="35"
+                        Content="OpenPopupMessageLeftHorizontalSlide"
                         Click="OpenPopupMessage_Click" />
-                <Button x:Name="OpenPopupMessageVerticalSlide"
-                        Width="220" Height="35"
-                        Content="OpenPopupMessageVerticalSlide"
+                <Button x:Name="OpenPopupMessageRightHorizontalSlide"
+                        Width="250" Height="35"
+                        Content="OpenPopupMessageRightHorizontalSlide"
                         Margin="0,10"
+                        Click="OpenPopupMessage_Click" />
+                <Button x:Name="OpenPopupMessageTopVerticalSlide"
+                        Width="240" Height="35"
+                        Content="OpenPopupMessageTopVerticalSlide"
+                        Margin="10,0"
+                        Click="OpenPopupMessage_Click" />
+                <Button x:Name="OpenPopupMessageBottomVerticalSlide"
+                        Width="240" Height="35"
+                        Content="OpenPopupMessageBottomVerticalSlide"
                         Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageHVSlide"
                         Width="220" Height="35"
                         Content="OpenPopupMessageHVSlide"
-                        Margin="10,0"
+                        Margin="0,0,10,0"
                         Click="OpenPopupMessage_Click" />
                 <Button x:Name="OpenPopupMessageScroll"
                         Width="220" Height="35"
@@ -138,13 +147,6 @@
                         Click="OpenPopupMessage_Click" />
             </WrapPanel>
         </StackPanel>
-
-        <ScrollViewer Margin="0,10,10,10"
-                      HorizontalAlignment="Right" VerticalAlignment="Top"
-                      VerticalScrollBarVisibility="Hidden">
-            <StackPanel pc:NotifyMessageBase.IsParentElement="True" />
-        </ScrollViewer>
-
     </pc:SimpleGrid>
 
 </UserControl>

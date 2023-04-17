@@ -18,9 +18,31 @@
                        FontSize="20" FontWeight="DemiBold"
                        Margin="0,10" />
             <WrapPanel>
-                <TextBox Width="150" Style="{StaticResource DefaultTextBoxStyle}" />
-                <TextBox Width="150" Margin="10,0" Style="{StaticResource AddClearButtonTextBoxStyle}" />
-                <TextBox Width="150" Style="{StaticResource ValidationTextBoxStyle}">
+                <!--  我是123456789写代码的厨子我是算法地方士大夫  -->
+                <!--<TextBox Width="200"
+                         Text="D:\Users\chance.zheng\Desktop\Company\NCATestInstaller\Output\Publish"
+                         Margin="0,0,10,0"
+                         pc:TextBoxBaseAssistant.IsTrimming="True"
+                         pc:TextBoxBaseAssistant.EllipsisPlacement="Center" 
+                         pc:TextBoxBaseAssistant.IsShowToolTip="True"
+                         Style="{StaticResource DefaultTextBoxStyle}" />-->
+                <TextBox Width="200" x:Name="txt"
+                         Margin="0,0,10,0"
+                         pc:TextBoxBaseAssistant.IsTrimming="True"
+                         pc:TextBoxBaseAssistant.EllipsisPlacement="Center" 
+                         pc:TextBoxBaseAssistant.IsShowToolTip="True"
+                         Style="{StaticResource DefaultTextBoxStyle}" />
+                <TextBox Width="150" 
+                         Text="我是123456789写代码的厨子我是算法地方士大夫"
+                         pc:TextBoxBaseAssistant.IsTrimming="True"
+                         pc:TextBoxBaseAssistant.EllipsisPlacement="Center" 
+                         pc:TextBoxBaseAssistant.IsShowToolTip="False"
+                         Style="{StaticResource DefaultTextBoxStyle}" />
+                <TextBox Width="150"
+                         Margin="10,0"
+                         pc:TextBoxBaseAssistant.EllipsisPlacement="Center" pc:TextBoxBaseAssistant.IsTrimming="True"
+                         Style="{StaticResource TextBoxAddClearButtonStyle}" />
+                <TextBox Width="150" pc:TextBoxBaseAssistant.EllipsisPlacement="Center" Style="{StaticResource TextBoxValidationStyle}">
                     <TextBox.Text>
                         <Binding Mode="TwoWay" Path="TextContent1" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
@@ -29,7 +51,7 @@
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
-                <TextBox Width="150" Margin="10,0" Style="{StaticResource ValidationAddClearButtonTextBoxStyle}">
+                <TextBox Width="150" Margin="10,0" Style="{StaticResource TextBoxValidationAddClearButtonStyle}">
                     <TextBox.Text>
                         <Binding Mode="TwoWay" NotifyOnTargetUpdated="True" NotifyOnValidationError="True"
                                  Path="TextContent2" UpdateSourceTrigger="PropertyChanged">
@@ -39,9 +61,10 @@
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
+                <Button Content="Click" Click="Browser_Click"/>
             </WrapPanel>
 
-            <UniformGrid Margin="0,20,0,10" Columns="2">
+            <UniformGrid Columns="2" Margin="0,20,0,10">
                 <StackPanel>
                     <TextBlock Text="RichTextBox:" FontSize="20" FontWeight="DemiBold" />
                     <WrapPanel>
@@ -125,8 +148,9 @@
                 <pc:TextPath Width="300" Height="100"
                              Text="Lori"
                              Margin="10,0"
+                             Stroke="Purple" StrokeThickness="2"
                              pc:FrameworkElementBaseAttached.IconGeometry="{StaticResource LeafGeometry}"
-                             pc:TextPath.DrawingRec="0,0,5,5" Stroke="Purple" StrokeThickness="2"
+                             pc:TextPath.DrawingRec="0,0,5,5"
                              Style="{StaticResource FillIconTextPathStyle}" />
             </WrapPanel>
         </StackPanel>

@@ -1,5 +1,4 @@
-﻿using CookPopularControl.Communal.Data;
-using CookPopularControl.Controls;
+﻿using CookPopularControl.Controls;
 using MvvmTestDemo.UserControls;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,7 +26,7 @@ namespace MvvmTestDemo.DemoViews
             //    DefaultNotifyIcon.IsStartTaskbarFlash = false;
 
             var switchCtl = sender as SwitchButton;
-            if (switchCtl.IsChecked.Value)
+            if (switchCtl.IsChecked!.Value)
                 DefaultNotifyIcon.Visibility = Visibility.Visible;
             else
                 DefaultNotifyIcon.Visibility = Visibility.Collapsed;
@@ -38,7 +37,7 @@ namespace MvvmTestDemo.DemoViews
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             var switchCtl = sender as SwitchButton;
-            if (switchCtl.IsChecked.Value)
+            if (switchCtl.IsChecked!.Value)
                 DefaultNotifyIcon.IsStartTaskbarIconFlash = true;
             else
                 DefaultNotifyIcon.IsStartTaskbarIconFlash = false;
@@ -89,22 +88,92 @@ namespace MvvmTestDemo.DemoViews
             switch (btn.Name)
             {
                 case "OpenPopupMessageNone":
-                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.None);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.None);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.None); 
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.None); 
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.None); 
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.None); 
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.None);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.None);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.None);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.None);
                     break;
                 case "OpenPopupMessageFade":
-                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.Fade);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.Fade);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.Fade);
                     break;
-                case "OpenPopupMessageHorizontalSlide":
-                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.HorizontalSlide);
+                case "OpenPopupMessageLeftHorizontalSlide":
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.LeftHorizontalSlide);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.LeftHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.LeftHorizontalSlide);
                     break;
-                case "OpenPopupMessageVerticalSlide":
-                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.VerticalSlide);
+                case "OpenPopupMessageRightHorizontalSlide":
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.RightHorizontalSlide);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.RightHorizontalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.RightHorizontalSlide);
+                    break;
+                case "OpenPopupMessageTopVerticalSlide":
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.TopVerticalSlide);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.TopVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.TopVerticalSlide);
+                    break;
+                case "OpenPopupMessageBottomVerticalSlide":
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.BottomVerticalSlide);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.BottomVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.BottomVerticalSlide);
                     break;
                 case "OpenPopupMessageHVSlide":
-                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.HorizontalVerticalSlide);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.HorizontalVerticalSlide);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.HorizontalVerticalSlide);
                     break;
                 case "OpenPopupMessageScroll":
-                    PopupMessage.Show(new AnimationDemo(), PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftTop, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.Scroll);
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.Scroll);
+                    //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.Scroll);
                     break;
                 default:
                     break;
