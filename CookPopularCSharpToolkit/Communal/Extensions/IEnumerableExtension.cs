@@ -251,6 +251,17 @@ namespace CookPopularCSharpToolkit.Communal
             }
         }
 
+        public static async void ForEach<TSource>(this IEnumerable<TSource> source, Func<TSource, System.Threading.Tasks.Task> action)
+        {
+            Contract.Requires(source != null);
+            Contract.Requires(action != null);
+
+            foreach (TSource item in source)
+            {
+                await action(item);
+            }
+        }
+
         /// <summary>
         ///     Removes the last element from <paramref name="source"/>.
         /// </summary>

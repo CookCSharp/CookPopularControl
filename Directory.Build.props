@@ -29,7 +29,7 @@
 	<Product>$(MSBuildProjectName)</Product>
 	<Title>$(MSBuildProjectName)</Title>
 	<Description>兼容.NetFramework与.NetCore/.Net的WPF控件库</Description>
-	<Copyright>Copyright © $(MSBuildProjectName) 2019-2022</Copyright>
+	<Copyright>Copyright © $(MSBuildProjectName) 2019-2023</Copyright>
 	<PackageTags>xaml,wpf,ui,controls,windows,desktop,cookpopularcontrol,library</PackageTags>
 	<RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>

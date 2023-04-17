@@ -228,7 +228,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                <Setter Property="BorderThickness" Value="0,0,0,2" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}, Path=(common:SelectorAttached.ItemMouseOverBackground)}" />
@@ -266,6 +266,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewGridViewItemStyle}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="pc:ListViewAssistant.ColumnHeaderHeight" Value="30" />
         <Setter Property="pc:ListViewAssistant.ListViewItemPadding" Value="0" />
         <Setter Property="pc:ListViewAssistant.IsColumnHeaderFontWeight" Value="False" />

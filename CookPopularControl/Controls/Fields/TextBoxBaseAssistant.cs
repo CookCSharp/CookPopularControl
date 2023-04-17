@@ -285,7 +285,12 @@ namespace CookPopularControl.Controls
 
                     CheckShowToolTip();
 
-                    textBoxBase.TextChanged += (s, e) => CheckShowToolTip();
+                    textBoxBase.TextChanged += (s, e) =>
+                    {
+                        if (textBlock != null)
+                            textBlock.Text = (e.Source as TextBox).Text;
+                        CheckShowToolTip();
+                    };
                 }
 
                 void CheckShowToolTip()
