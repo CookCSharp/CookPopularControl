@@ -1,16 +1,25 @@
 <Project>
   <Import Project="Version.props" />
   <PropertyGroup>
-	<TargetFrameworks>net46;net461;netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
-	<Platforms>AnyCPU;x64;x86</Platforms>
+	<TargetFrameworks>net46;netcoreapp3.1;net6.0-windows</TargetFrameworks>
 	<UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <PlatformTarget>AnyCPU</PlatformTarget>
 	<LangVersion>latest</LangVersion>
-	<OutputPath>$(SolutionDir)Output\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
-	<PackageOutputPath>$(SolutionDir)Output\bin\$(Configuration)</PackageOutputPath>
+	<OutputPath>$(SolutionDir)Output\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>	
 	<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 	<!--<IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>-->
 	<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <!--是否将引用的nuget包复制到输出目录-->
+    <!--<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>-->
+    <!--是否生成.config文件-->
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <!--是否将Framework运行时输出-->
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>  
+    <!--<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>-->
 	<!--设定语言-->
 	<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
 	<!--不生成ReferenceAssembly，即ref文件夹-->
@@ -18,10 +27,8 @@
 	<!--指示编译器是否应为相同的输入产生相同的程序集-->
 	<Deterministic>true</Deterministic>
 	<WarningLevel>4</WarningLevel>
-	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-	<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 
+	
 	<!--CookPopularControl Nuget包说明配置 $(MSBuildToolsPath)-->
 	<PackageId>$(MSBuildProjectName)</PackageId>
 	<Authors>写代码的厨子</Authors>
@@ -30,6 +37,8 @@
 	<Title>$(MSBuildProjectName)</Title>
 	<Description>兼容.NetFramework与.NetCore/.Net的WPF控件库</Description>
 	<Copyright>Copyright © $(MSBuildProjectName) 2019-2023</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageOutputPath>$(SolutionDir)Output\bin\$(Configuration)</PackageOutputPath>
 	<PackageTags>xaml,wpf,ui,controls,windows,desktop,cookpopularcontrol,library</PackageTags>
 	<RepositoryUrl>https://gitee.com/cook-csharp/$(MSBuildProjectName)</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/chancezheng/CookPopularControl</PackageProjectUrl>

@@ -22,6 +22,7 @@ using System.Windows.Threading;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Ipc;
+using CookPopularCSharpToolkit.Windows.Interop;
 
 #endif
 
@@ -36,24 +37,6 @@ using System.Runtime.Remoting.Channels.Ipc;
  */
 namespace CookPopularCSharpToolkit.Windows
 {
-    /// <summary>
-    /// Signature for the StartupNextInstance event handler
-    /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
-    public delegate void StartupNextInstanceEventHandler(object sender, StartupNextInstanceEventArgs e);
-
-    /// <summary>
-    /// Signature for the Shutdown event handler
-    /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
-    public delegate void ShutdownEventHandler(object sender, EventArgs e);
-
-    /// <summary>
-    /// Signature for the UnhandledException event handler
-    /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
-    public delegate void UnhandledExceptionEventHandler(object sender, UnhandledExceptionEventArgs e);
-
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     public class StartupNextInstanceEventArgs : EventArgs
     {
@@ -107,102 +90,23 @@ namespace CookPopularCSharpToolkit.Windows
     }
 
     /// <summary>
-    /// 提供应用程序单例的帮助方法
+    /// Signature for the StartupNextInstance event handler
     /// </summary>
-    internal class AppInstanceManager
-    {
-#if NETFRAMEWORK
-        private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous;
-#elif NETCOREAPP3_1_OR_GREATER
-        private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous | PipeOptions.CurrentUserOnly;
-#endif
-        internal static bool TryCreatePipeServer(string pipeName, out NamedPipeServerStream pipeServer)
-        {
-            try
-            {
-                pipeServer = new NamedPipeServerStream(pipeName: pipeName, direction: PipeDirection.In, maxNumberOfServerInstances: 1, transmissionMode: PipeTransmissionMode.Byte, options: NamedPipeOptions);
-                return true;
-            }
-            catch (Exception)
-            {
-                pipeServer = null;
-                return false;
-            }
-        }
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
+    public delegate void StartupNextInstanceEventHandler(object sender, StartupNextInstanceEventArgs e);
 
-        internal async static Task WaitForClientConnectionsAsync(NamedPipeServerStream pipeServer, Action<string[]> callback, CancellationToken cancellationToken)
-        {
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                await pipeServer.WaitForConnectionAsync(cancellationToken).ConfigureAwait(false);
-                try
-                {
-                    var args = await ReadArgsAsync(pipeServer, cancellationToken).ConfigureAwait(false);
-                    if (args != null)
-                        callback(args);
-                }
-                finally
-                {
-                    pipeServer.Disconnect();
-                }
-            }
-        }
+    /// <summary>
+    /// Signature for the Shutdown event handler
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
+    public delegate void ShutdownEventHandler(object sender, EventArgs e);
 
-        internal async static Task SendSecondInstanceArgsAsync(string pipeName, string[] args, CancellationToken cancellationToken)
-        {
-            using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(serverName: ".", pipeName: pipeName, direction: PipeDirection.Out, options: NamedPipeOptions))
-            {
-                await pipeClient.ConnectAsync(cancellationToken).ConfigureAwait(false);
-                await WriteArgsAsync(pipeClient, args, cancellationToken).ConfigureAwait(false);
-            }
-        }
+    /// <summary>
+    /// Signature for the UnhandledException event handler
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
+    public delegate void UnhandledExceptionEventHandler(object sender, UnhandledExceptionEventArgs e);
 
-        private async static Task<string[]> ReadArgsAsync(NamedPipeServerStream pipeServer, CancellationToken cancellationToken)
-        {
-            const int bufferLength = 1024;
-            var buffer = new byte[1024];
-            using (MemoryStream stream = new MemoryStream())
-            {
-                while (true)
-                {
-#if NETFRAMEWORK
-                    var bytesRead = await pipeServer.ReadAsync(buffer, 0, bufferLength, cancellationToken).ConfigureAwait(false);
-#elif NETCOREAPP3_1_OR_GREATER
-                    var bytesRead = await pipeServer.ReadAsync(buffer.AsMemory(0, bufferLength), cancellationToken).ConfigureAwait(false);
-#endif
-                    if (bytesRead == 0)
-                        break;
-                    stream.Write(buffer, 0, bytesRead);
-                }
-                stream.Seek(0, SeekOrigin.Begin);
-                var serializer = new DataContractSerializer(typeof(string[]));
-                try
-                {
-                    return (string[])serializer.ReadObject(stream);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-            }
-        }
-
-        private async static Task WriteArgsAsync(NamedPipeClientStream pipeClient, string[] args, CancellationToken cancellationToken)
-        {
-            byte[] content;
-            using (MemoryStream stream = new MemoryStream())
-            {
-                var serializer = new DataContractSerializer(typeof(string[]));
-                serializer.WriteObject(stream, args);
-                content = stream.ToArray();
-            }
-#if NETFRAMEWORK
-            await pipeClient.WriteAsync(content, 0, content.Length, cancellationToken).ConfigureAwait(false);
-#elif NETCOREAPP3_1_OR_GREATER
-            await pipeClient.WriteAsync(content.AsMemory(0, content.Length), cancellationToken).ConfigureAwait(false);
-#endif
-        }
-    }
 
     /// <summary>
     /// Application base for WPF application model.
@@ -211,72 +115,122 @@ namespace CookPopularCSharpToolkit.Windows
     /// <remarks>
     /// This class replaces <see cref="Application"/>.
     /// </remarks>
-    public class WPFApplicationBase : Application
+    public class ApplicationBase : Application
     {
+        private class SingletonManagerHelper
+        {
+#if NETFRAMEWORK
+        private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous;
+#elif NETCOREAPP3_1_OR_GREATER
+            private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous | PipeOptions.CurrentUserOnly;
+#endif
+            public static bool TryCreatePipeServer(string pipeName, out NamedPipeServerStream pipeServer)
+            {
+                try
+                {
+                    pipeServer = new NamedPipeServerStream(pipeName: pipeName,
+                                                           direction: PipeDirection.In,
+                                                           maxNumberOfServerInstances: 1,
+                                                           transmissionMode: PipeTransmissionMode.Byte,
+                                                           options: NamedPipeOptions);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    pipeServer = null;
+                    return false;
+                }
+            }
+
+            private async static Task<string[]> ReadArgsAsync(NamedPipeServerStream pipeServer, CancellationToken cancellationToken)
+            {
+                const int bufferLength = 1024;
+                var buffer = new byte[bufferLength];
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    while (true)
+                    {
+#if NETFRAMEWORK
+                    var bytesRead = await pipeServer.ReadAsync(buffer, 0, bufferLength, cancellationToken).ConfigureAwait(false);
+#elif NETCOREAPP3_1_OR_GREATER
+                        var bytesRead = await pipeServer.ReadAsync(buffer.AsMemory(0, bufferLength), cancellationToken).ConfigureAwait(false);
+#endif
+                        if (bytesRead == 0) break;
+                        stream.Write(buffer, 0, bytesRead);
+                    }
+                    stream.Seek(0, SeekOrigin.Begin);
+                    var serializer = new DataContractSerializer(typeof(string[]));
+                    try
+                    {
+                        return (string[])serializer.ReadObject(stream);
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
+                }
+            }
+
+            public async static Task WaitForClientConnectionsAsync(NamedPipeServerStream pipeServer, Action<string[]> callback, CancellationToken cancellationToken)
+            {
+                do
+                {
+                    await pipeServer.WaitForConnectionAsync(cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var args = await ReadArgsAsync(pipeServer, cancellationToken).ConfigureAwait(false);
+                        if (args != null) callback(args);
+                    }
+                    finally
+                    {
+                        pipeServer.Disconnect();
+                    }
+                } while (!cancellationToken.IsCancellationRequested);
+            }
+
+            private async static Task WriteArgsAsync(NamedPipeClientStream pipeClient, string[] args, CancellationToken cancellationToken)
+            {
+                byte[] content;
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    var serializer = new DataContractSerializer(typeof(string[]));
+                    serializer.WriteObject(stream, args);
+                    content = stream.ToArray();
+                }
+#if NETFRAMEWORK
+            await pipeClient.WriteAsync(content, 0, content.Length, cancellationToken).ConfigureAwait(false);
+#elif NETCOREAPP3_1_OR_GREATER
+                await pipeClient.WriteAsync(content.AsMemory(0, content.Length), cancellationToken).ConfigureAwait(false);
+#endif
+            }
+
+            public async static Task SendSecondInstanceArgsAsync(string pipeName, string[] args, CancellationToken cancellationToken)
+            {
+                using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(serverName: ".",
+                                                                                    pipeName: pipeName,
+                                                                                    direction: PipeDirection.Out,
+                                                                                    options: NamedPipeOptions))
+                {
+                    await pipeClient.ConnectAsync(cancellationToken).ConfigureAwait(false);
+                    await WriteArgsAsync(pipeClient, args, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
         public event StartupNextInstanceEventHandler StartupNextInstance;
+        //How long a subsequent instance will wait for the original instance to get on its feet.
+        private const int SECOND_INSTANCE_TIMEOUT = 2500; // milliseconds.
+        private CancellationTokenSource _firstInstanceTokenSource;
 
         /// <summary>
         /// Indicates whether this application is singleton.
         /// </summary>
         public bool IsSingleInstance { get; set; }
 
-        //How long a subsequent instance will wait for the original instance to get on its feet.
-        private const int SECOND_INSTANCE_TIMEOUT = 2500; // milliseconds.
-        private CancellationTokenSource _firstInstanceTokenSource;
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            bool continueStartup = false;
-            RunImpl(e.Args, ref continueStartup);
-            if (continueStartup)
-                base.OnStartup(e);
-            else
-                Shutdown();
-        }
-
-        protected override void OnExit(ExitEventArgs e)
-        {
-            _firstInstanceTokenSource?.Cancel();
-            base.OnExit(e);
-        }
-
         /// <summary>
-        /// Entry point to kick off the App Startup/Shutdown Application model
-        /// </summary>
-        /// <param name="commandLine">The command line from Main()</param>
-        /// <param name="continueStartup"></param>
-        public void RunImpl(string[] commandLine, ref bool continueStartup)
-        {
-            if (!IsSingleInstance)
-            {
-                continueStartup = true;
-                return;
-            }
-            string ApplicationInstanceID = GetApplicationInstanceID(Assembly.GetCallingAssembly()); // Note: Must pass the calling assembly from here so we can get the running app.  Otherwise, can break single instance.
-            if (AppInstanceManager.TryCreatePipeServer(ApplicationInstanceID, out NamedPipeServerStream pipeServer))
-            {
-                // --- This is the first instance of a single-instance application to run.  
-                var tokenSource = new CancellationTokenSource();
-                _firstInstanceTokenSource = tokenSource;
-                var tsk = AppInstanceManager.WaitForClientConnectionsAsync(pipeServer, OnStartupNextInstanceMarshallingAdaptor, cancellationToken: tokenSource.Token);
-                continueStartup = true;
-            }
-            else
-            {
-                // --- This is the instance that subsequent instances will attach to.
-                var tokenSource = new CancellationTokenSource();
-                tokenSource.CancelAfter(SECOND_INSTANCE_TIMEOUT);
-                try
-                {
-                    var awaitable = AppInstanceManager.SendSecondInstanceArgsAsync(ApplicationInstanceID, commandLine, cancellationToken: tokenSource.Token).ConfigureAwait(false);
-                    awaitable.GetAwaiter().GetResult();
-                }
-                catch (Exception)
-                {
-                    throw new CantStartSingleInstanceException();
-                }
-            }
-        }
+        /// Generates the name for the remote singleton that we use to channel multiple instances to the same application model thread.
+        ///  </summary>
+        private static string GetApplicationInstanceID(Assembly Entry) => Entry.ManifestModule.ModuleVersionId.ToString();
 
         /// <summary>
         /// Extensibility point which raises the StartupNextInstance
@@ -285,7 +239,7 @@ namespace CookPopularCSharpToolkit.Windows
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         protected virtual void OnStartupNextInstance(StartupNextInstanceEventArgs eventArgs)
         {
-            StartupNextInstance(this, eventArgs);
+            StartupNextInstance?.Invoke(this, eventArgs);
             if (eventArgs.BringToForeground && MainWindow != null)
             {
                 if (MainWindow.Visibility != Visibility.Visible)
@@ -319,9 +273,58 @@ namespace CookPopularCSharpToolkit.Windows
         }
 
         /// <summary>
-        /// Generates the name for the remote singleton that we use to channel multiple instances to the same application model thread.
-        ///  </summary>
-        private static string GetApplicationInstanceID(Assembly Entry) => Entry.ManifestModule.ModuleVersionId.ToString();
+        /// Entry point to kick off the App Startup/Shutdown Application model
+        /// </summary>
+        /// <param name="commandLine">The command line from Main()</param>
+        /// <param name="continueStartup"></param>
+        public void RunImpl(string[] commandLine, ref bool continueStartup)
+        {
+            if (!IsSingleInstance)
+            {
+                continueStartup = true;
+                return;
+            }
+            string ApplicationInstanceID = GetApplicationInstanceID(Assembly.GetCallingAssembly()); // Note: Must pass the calling assembly from here so we can get the running app.  Otherwise, can break single instance.
+            if (SingletonManagerHelper.TryCreatePipeServer(ApplicationInstanceID, out NamedPipeServerStream pipeServer))
+            {
+                // --- This is the first instance of a single-instance application to run.  
+                var tokenSource = new CancellationTokenSource();
+                _firstInstanceTokenSource = tokenSource;
+                var tsk = SingletonManagerHelper.WaitForClientConnectionsAsync(pipeServer, OnStartupNextInstanceMarshallingAdaptor, cancellationToken: tokenSource.Token);
+                continueStartup = true;
+            }
+            else
+            {
+                // --- This is the instance that subsequent instances will attach to.
+                var tokenSource = new CancellationTokenSource();
+                tokenSource.CancelAfter(SECOND_INSTANCE_TIMEOUT);
+                try
+                {
+                    var awaitable = SingletonManagerHelper.SendSecondInstanceArgsAsync(ApplicationInstanceID, commandLine, cancellationToken: tokenSource.Token).ConfigureAwait(false);
+                    awaitable.GetAwaiter().GetResult();
+                }
+                catch (Exception)
+                {
+                    throw new CantStartSingleInstanceException();
+                }
+            }
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            bool continueStartup = false;
+            RunImpl(e.Args, ref continueStartup);
+            if (continueStartup)
+                base.OnStartup(e);
+            else
+                Shutdown();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            _firstInstanceTokenSource?.Cancel();
+            base.OnExit(e);
+        }
     }
 
 

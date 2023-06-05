@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
 	<!--预发行版以时间为后缀-->
-	<Version>1.0.2</Version>
+	<Version>1.0.2.1</Version>
 	<!--<Version>1.0.1.1-alpha02</Version>-->
   </PropertyGroup>
 </Project>

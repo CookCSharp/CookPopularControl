@@ -38,6 +38,8 @@ namespace CookPopularCSharpToolkit.Windows
 
         public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.EnsureHandle());
 
+        public static void SetForegroundWindow(this Window window) => InteropMethods.SetForegroundWindow(window.EnsureHandle());
+
         public static void SwitchToThisWindow(this Window window) => InteropMethods.SwitchToThisWindow(window.EnsureHandle(), true);
 
         public static Window SetOwner(this Window window, IntPtr hWnd)
