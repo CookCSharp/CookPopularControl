@@ -1,5 +1,7 @@
 [![Fork me on Gitee](CookPopularControl/Resources/Images/CookCSharp.png)](https://gitee.com/cook-csharp/CookPopularControl)
 
+# 此项目不再维护，请转到该地址[CookPopularUI](https://gitee.com/CookCSharp/CookPopularUI)
+
 # Welcome to CookPopularControl 
 
 [![Nuget Publish](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml/badge.svg)](https://github.com/chancezheng/CookPopularControl/actions/workflows/nuget-push.yml)
