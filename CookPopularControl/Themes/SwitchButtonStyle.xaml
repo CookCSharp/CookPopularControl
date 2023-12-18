@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:CookPopularControl.Communal"
                     xmlns:pc="clr-namespace:CookPopularControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
@@ -9,6 +10,7 @@
     <Style x:Key="DefaultSwitchButtonStyle" TargetType="{x:Type pc:SwitchButton}" BasedOn="{StaticResource SwitchButtonBaseStyle}">
         <Setter Property="SwicthCloseBackground" Value="{DynamicResource UnEnabledDarkBrush}" />
         <Setter Property="SwitchOpenBackground" Value="{DynamicResource PrimaryThemeBrush}" />
+        <Setter Property="common:FrameworkElementBaseAttached.ShadowEffect" Value="{StaticResource ShadowEffectDepth0}" />
     </Style>
 
 </ResourceDictionary>

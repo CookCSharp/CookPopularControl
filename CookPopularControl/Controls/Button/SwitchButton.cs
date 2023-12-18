@@ -7,6 +7,7 @@
 
 
 using CookPopularControl.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,7 +48,7 @@ namespace CookPopularControl.Controls
 
             _borderCheckFlag = GetTemplateChild("PART_CheckFlag") as Border;
             _borderCheckFlag.RenderTransform = _translate;
-            _sliderw = this.Width - this.Height;
+            _sliderw = this.Width - this.Height * 0.8 - 3 * 2;
             FrameworkElementBaseAttached.SetCornerRadius(this, new CornerRadius(this.Height / 2));
 
             if (this.IsChecked == true)
@@ -96,11 +97,7 @@ namespace CookPopularControl.Controls
             if (_translate == null) return;
             if (double.IsNaN(_sliderw)) return;
 
-            DoubleAnimation doubleAnimation = new DoubleAnimation();
-            Duration duration = new Duration(TimeSpan.FromMilliseconds(200));
-            _translate.X = 0;
-            doubleAnimation.To = _sliderw;
-            doubleAnimation.Duration = duration;
+            DoubleAnimation doubleAnimation = AnimationHelper.CreateDoubleAnimation(_sliderw, 100);
             _translate.BeginAnimation(TranslateTransform.XProperty, doubleAnimation);
         }
 
@@ -110,11 +107,7 @@ namespace CookPopularControl.Controls
             if (_translate == null) return;
             if(double.IsNaN(_sliderw)) return;
 
-            DoubleAnimation doubleAnimation = new DoubleAnimation();
-            Duration duration = new Duration(TimeSpan.FromMilliseconds(200));
-            _translate.X = _sliderw;
-            doubleAnimation.To = 0;
-            doubleAnimation.Duration = duration;
+            DoubleAnimation doubleAnimation = AnimationHelper.CreateDoubleAnimation(0, 200);
             _translate.BeginAnimation(TranslateTransform.XProperty, doubleAnimation);
         }
     }

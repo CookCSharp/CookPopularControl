@@ -1,4 +1,5 @@
-﻿using CookPopularCSharpToolkit.Windows;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Windows;
@@ -24,16 +25,18 @@ namespace CookPopularControl.Controls
         {
             IsEnabled = !_propertyItem.IsReadOnly,
             HorizontalAlignment = HorizontalAlignment.Left,
-            SwicthCloseBackground = ResourceHelper.GetResource<Brush>("UnEnabledBrush"),
-            SwitchOpenBackground = ResourceHelper.GetResource<Brush>("ControlPressBackground"),
+            SwicthCloseBackground = "#B0B0B0".ToBrush(),
+            SwitchOpenBackground = "#12BB12".ToBrush(),
+            //SwicthCloseBackground = ResourceHelper.GetResource<Brush>("UnEnabledDarkBrush"),
+            //SwitchOpenBackground = ResourceHelper.GetResource<Brush>("MessageDialogSuccessBrush"),
         };
 
         public PropertySwitchEditor()
         {
-            Themes.ThemeProvider.ThemeChanged += (s, e) =>
-            {
-                _switchButton.SwitchOpenBackground = e.ThemeDictionary["ControlPressBackground"] as Brush;
-            };
+            //Themes.ThemeProvider.ThemeChanged += (s, e) =>
+            //{
+            //    _switchButton.SwitchOpenBackground = e.ThemeDictionary["MessageDialogSuccessBrush"] as Brush;
+            //};
         }
 
         public override FrameworkElement GetElement(PropertyItem propertyItem)

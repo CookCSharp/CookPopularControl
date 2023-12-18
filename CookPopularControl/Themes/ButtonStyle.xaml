@@ -136,7 +136,7 @@
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{StaticResource DefaultProgressBarStyle}" />
     </Style>
     <common:InternalStyle x:Key="CircularProgressBarButtonStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CircularProgressBarStyle}">
-        <Setter Property="pc:CircularProgressAssistant.ArcThickness" Value="5" />
+        <Setter Property="pc:CircularProgressAssistant.ArcThickness" Value="15" />
     </common:InternalStyle>
     <Style x:Key="ButtonCircularProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonTransparentStyle}">
         <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />
@@ -144,7 +144,7 @@
         <Setter Property="pc:ButtonAssist.ProgressBarStyle" Value="{StaticResource CircularProgressBarButtonStyle}" />
     </Style>
     <common:InternalStyle x:Key="WaveProgressBarButtonStyle" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource WaveProgressBarStyle}">
-        <Setter Property="pc:WaveProgressBarAssistant.WaveStrokeThickness" Value="0" />
+        <Setter Property="pc:WaveProgressBarAssistant.WaveStrokeThickness" Value="10" />
     </common:InternalStyle>
     <Style x:Key="ButtonWaveProgressStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="pc:ButtonAssist.IsShowProgress" Value="True" />

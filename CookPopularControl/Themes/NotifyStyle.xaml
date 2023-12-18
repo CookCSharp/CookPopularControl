@@ -174,34 +174,32 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pc:ToastMessage}">
-                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{StaticResource DefaultBitmapCache}">
-                        <win:ChromeWindowClient>
-                            <Border x:Name="RootBorder"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}"
-                                    CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
-                                    Margin="5"
-                                    Effect="{StaticResource ShadowEffectDepth1}">
-                                <Grid Margin="10,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="60" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Path Grid.Column="0"
-                                          Width="30" Height="30"
-                                          Data="{TemplateBinding ToastMessageIcon}"
-                                          Fill="{TemplateBinding ToastMessageIconBrush}"
-                                          Stretch="Uniform" />
-                                    <ContentPresenter Grid.Column="1"
-                                                      Content="{TemplateBinding Content}"
-                                                      HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                      ClipToBounds="True"
-                                                      TextElement.Foreground="{TemplateBinding Foreground}" />
-                                </Grid>
-                            </Border>
-                        </win:ChromeWindowClient>
-                    </AdornerDecorator>
+                    <win:ChromeWindowClient>
+                        <Border x:Name="RootBorder"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}"
+                                Margin="5" SnapsToDevicePixels="True"
+                                Effect="{StaticResource NotifyMessageShadowEffect}">
+                            <Grid Margin="10,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0"
+                                      Width="30" Height="30"
+                                      Data="{TemplateBinding ToastMessageIcon}"
+                                      Fill="{TemplateBinding ToastMessageIconBrush}"
+                                      Stretch="Uniform" />
+                                <ContentPresenter Grid.Column="1"
+                                                  Content="{TemplateBinding Content}"
+                                                  HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                  ClipToBounds="True"
+                                                  TextElement.Foreground="{TemplateBinding Foreground}" />
+                            </Grid>
+                        </Border>
+                    </win:ChromeWindowClient>
                     <ControlTemplate.Triggers />
                 </ControlTemplate>
             </Setter.Value>

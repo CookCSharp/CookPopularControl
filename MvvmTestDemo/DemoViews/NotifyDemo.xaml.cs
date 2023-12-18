@@ -1,5 +1,6 @@
 ﻿using CookPopularControl.Controls;
 using MvvmTestDemo.UserControls;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -92,7 +93,7 @@ namespace MvvmTestDemo.DemoViews
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftCenter, PopupAnimationX.None); 
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.LeftBottom, PopupAnimationX.None); 
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterTop, PopupAnimationX.None); 
-                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.None); 
+                    PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.AllCenter, PopupAnimationX.None);
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.CenterBottom, PopupAnimationX.None);
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.None);
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.None);
@@ -174,6 +175,34 @@ namespace MvvmTestDemo.DemoViews
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightTop, PopupAnimationX.Scroll);
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightCenter, PopupAnimationX.Scroll);
                     //PopupMessage.ShowOpen(new AnimationDemo(), PopupPosition.RightBottom, PopupAnimationX.Scroll);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void OpenToastMessage_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            switch (btn.Name)
+            {
+                case "OpenInfoToastMessage":
+                    ToastMessage.ShowInfo("Info");
+                    break;
+                case "OpenWarningToastMessage":
+                    ToastMessage.ShowWarning("Warning");
+                    break;
+                case "OpenErrorToastMessage":
+                    ToastMessage.ShowError("Error");
+                    break;
+                case "OpenFatalToastMessage":
+                    ToastMessage.ShowFatal("Fatal");
+                    break;
+                case "OpenQuestionToastMessage":
+                    ToastMessage.ShowQuestion("Question");
+                    break;
+                case "OpenSuccessToastMessage":
+                    ToastMessage.ShowSuccess("Success");
                     break;
                 default:
                     break;

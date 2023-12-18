@@ -11,11 +11,11 @@
 	<BaseIntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 	<!--<IntermediateOutputPath>$(SolutionDir)Output\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>-->
 	<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <!--是否将引用的nuget包复制到输出目录-->
-    <!--<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>-->
-    <!--是否生成.config文件-->
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <!--是否将引用的nuget包复制到输出目录-->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <!--是否生成.config文件-->
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!--是否将Framework运行时输出-->
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>  
     <!--<RuntimeIdentifier>win-x64</RuntimeIdentifier>

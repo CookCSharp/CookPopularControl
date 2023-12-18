@@ -4,7 +4,7 @@
 	<UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
 	<OutputType>Library</OutputType>
-	<Nullable>enable</Nullable>
+	<Nullable>disable</Nullable>
 
 	<PackageIcon>WpfControl.png</PackageIcon>
 	<ApplicationIcon>Resources\Images\CookCSharp.ico</ApplicationIcon>

@@ -41,7 +41,7 @@ namespace CookPopularControl.Controls
         /// <summary>
         /// 弹出方向
         /// </summary>
-        /// <remarks>共9个方向，详细看<see cref="CookPopularControl.Communal.Data.PopupPosition"/></remarks>
+        /// <remarks>共9个方向，详细看<see cref="Controls.PopupPosition"/></remarks>
         public PopupPosition PopupPosition
         {
             get { return (PopupPosition)GetValue(PopupPositionProperty); }

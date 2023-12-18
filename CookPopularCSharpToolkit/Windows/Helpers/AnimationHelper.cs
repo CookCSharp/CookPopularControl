@@ -33,5 +33,14 @@ namespace CookPopularCSharpToolkit.Windows
 
             return animation;
         }
+
+        public static ObjectAnimationUsingKeyFrames CreateObjectAnimation(object value)
+        {
+            ObjectAnimationUsingKeyFrames objectAnimationUsingKeyFrames = new ObjectAnimationUsingKeyFrames();
+            DiscreteObjectKeyFrame discreteObjectKeyFrame = new DiscreteObjectKeyFrame() { Value = value, KeyTime = KeyTime.FromPercent(0) };
+            objectAnimationUsingKeyFrames.KeyFrames.Add(discreteObjectKeyFrame);
+
+            return objectAnimationUsingKeyFrames;
+        }
     }
 }

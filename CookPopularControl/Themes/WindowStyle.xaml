@@ -75,107 +75,105 @@
         <Setter Property="ClientTitleBarForeground" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="ClientTitleBarBackground" Value="{DynamicResource PrimaryThemeBrush}" />
         <Setter Property="ClientTitleBarFontsize" Value="14" />
-        <Setter Property="WindowChrome.WindowChrome">
+        <!--<Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CornerRadius="0"
                               CaptionHeight="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type win:NormalWindow}}, Path=ClientTitleBarHeight}"
                               GlassFrameThickness="-1" ResizeBorderThickness="2" UseAeroCaptionButtons="False" />
             </Setter.Value>
-        </Setter>
+        </Setter>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:NormalWindow}">
-                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{StaticResource DefaultBitmapCache}">
-                        <win:ChromeWindowClient>
-                            <Border x:Name="RootBorder"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}"
-                                    SnapsToDevicePixels="True">
-                                <Grid x:Name="RootGrid">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
-                                    <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
-                                          Background="{TemplateBinding ClientTitleBarBackground}"
-                                          TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                          Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <DockPanel Grid.Column="0">
-                                            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                                                <Button Command="{x:Static SystemCommands.ShowSystemMenuCommand}" WindowChrome.IsHitTestVisibleInChrome="True" Style="{DynamicResource ButtonTransparentStyle}">
-                                                    <Image Width="{TemplateBinding IconWidth}"
-                                                           Height="{TemplateBinding IconHeight}"
-                                                           Source="{TemplateBinding Icon}"
-                                                           Stretch="Uniform"
-                                                           Margin="5,0"
-                                                           IsHitTestVisible="False" />
-                                                    <behavior:Interaction.Triggers>
-                                                        <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                                            <behavior:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
-                                                        </behavior:EventTrigger>
-                                                        <behavior:EventTrigger EventName="MouseRightButtonDown">
-                                                            <behavior:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
-                                                        </behavior:EventTrigger>
-                                                        <behavior:EventTrigger EventName="MouseDoubleClick">
-                                                            <behavior:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
-                                                        </behavior:EventTrigger>
-                                                    </behavior:Interaction.Triggers>
-                                                </Button>
-                                                <TextBlock Text="{TemplateBinding Title}"
-                                                           Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                                           FontSize="{TemplateBinding ClientTitleBarFontsize}"
-                                                           VerticalAlignment="Center"
-                                                           IsHitTestVisible="False"
-                                                           Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
-                                            </StackPanel>
-                                            <ContentPresenter x:Name="NonClientContentPresenter"
-                                                              Content="{TemplateBinding ClientTitleBarAdditionalContent}"
-                                                              Margin="5,0"
-                                                              WindowChrome.IsHitTestVisibleInChrome="True" />
-                                        </DockPanel>
-                                        <StackPanel x:Name="ButtonPanel" Grid.Column="1"
-                                                    Orientation="Horizontal" UseLayoutRounding="True" WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <Button x:Name="MinimizedButton"
-                                                    Command="{x:Static SystemCommands.MinimizeWindowCommand}"
-                                                    ToolTip="最小化"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                            <Button x:Name="MaximizedButton"
-                                                    Command="{x:Static SystemCommands.MaximizeWindowCommand}"
-                                                    ToolTip="最大化"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                            <Button x:Name="NormalButton"
-                                                    Command="{x:Static SystemCommands.RestoreWindowCommand}"
-                                                    ToolTip="向下还原"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
-                                                    Visibility="Collapsed"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                            <Button x:Name="CloseButton"
-                                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                                    ToolTip="关闭"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
+                    <win:ChromeWindowClient>
+                        <Border x:Name="RootBorder"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+                            <Grid x:Name="RootGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
+                                      Background="{TemplateBinding ClientTitleBarBackground}"
+                                      TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
+                                      Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <DockPanel Grid.Column="0">
+                                        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                                            <Button Command="{x:Static SystemCommands.ShowSystemMenuCommand}" WindowChrome.IsHitTestVisibleInChrome="True" Style="{DynamicResource ButtonTransparentStyle}">
+                                                <Image Width="{TemplateBinding IconWidth}"
+                                                       Height="{TemplateBinding IconHeight}"
+                                                       Source="{TemplateBinding Icon}"
+                                                       Stretch="Uniform"
+                                                       Margin="5,0"
+                                                       IsHitTestVisible="False" />
+                                                <behavior:Interaction.Triggers>
+                                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <behavior:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                                                    </behavior:EventTrigger>
+                                                    <behavior:EventTrigger EventName="MouseRightButtonDown">
+                                                        <behavior:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                                                    </behavior:EventTrigger>
+                                                    <behavior:EventTrigger EventName="MouseDoubleClick">
+                                                        <behavior:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
+                                                    </behavior:EventTrigger>
+                                                </behavior:Interaction.Triggers>
+                                            </Button>
+                                            <TextBlock Text="{TemplateBinding Title}"
+                                                       Foreground="{TemplateBinding ClientTitleBarForeground}"
+                                                       FontSize="{TemplateBinding ClientTitleBarFontsize}"
+                                                       VerticalAlignment="Center"
+                                                       IsHitTestVisible="False"
+                                                       Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
                                         </StackPanel>
-                                    </Grid>
-                                    <AdornerDecorator Grid.Row="1">
-                                        <ContentPresenter ClipToBounds="True" />
-                                    </AdornerDecorator>
-                                    <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
-                                                Width="10" Height="10"
-                                                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                                                IsTabStop="False" WindowChrome.ResizeGripDirection="BottomRight"
+                                        <ContentPresenter x:Name="NonClientContentPresenter"
+                                                          Content="{TemplateBinding ClientTitleBarAdditionalContent}"
+                                                          Margin="5,0"
+                                                          WindowChrome.IsHitTestVisibleInChrome="True" />
+                                    </DockPanel>
+                                    <StackPanel x:Name="ButtonPanel" Grid.Column="1"
+                                                Orientation="Horizontal" UseLayoutRounding="True" WindowChrome.IsHitTestVisibleInChrome="True">
+                                        <Button x:Name="MinimizedButton"
+                                                Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                                                ToolTip="最小化"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                        <Button x:Name="MaximizedButton"
+                                                Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                                ToolTip="最大化"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                        <Button x:Name="NormalButton"
+                                                Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                                                ToolTip="向下还原"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
                                                 Visibility="Collapsed"
-                                                Style="{StaticResource DefaultResizeGripStyle}" />
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                        <Button x:Name="CloseButton"
+                                                Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                                ToolTip="关闭"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                    </StackPanel>
                                 </Grid>
-                            </Border>
-                        </win:ChromeWindowClient>
-                    </AdornerDecorator>
+                                <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                    <ContentPresenter ClipToBounds="True" />
+                                </AdornerDecorator>
+                                <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
+                                            Width="10" Height="10"
+                                            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                            IsTabStop="False" WindowChrome.ResizeGripDirection="BottomRight"
+                                            Visibility="Collapsed"
+                                            Style="{StaticResource DefaultResizeGripStyle}" />
+                            </Grid>
+                        </Border>
+                    </win:ChromeWindowClient>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Icon}" Value="{x:Null}">
                             <Setter Property="IconWidth" Value="0" />
@@ -235,90 +233,89 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:SideBarWindow}">
-                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{DynamicResource DefaultBitmapCache}">
-                        <win:ChromeWindowClient>
-                            <Border x:Name="RootBorder"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}">
-                                <Grid x:Name="RootGrid">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
-                                    <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
-                                          Background="{TemplateBinding ClientTitleBarBackground}"
-                                          Panel.ZIndex="100"
-                                          TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                          Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <StackPanel Grid.Column="0" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <ToggleButton Command="{x:Static win:SideBarWindow.SidebarPopupCommand}"
-                                                          IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsCheckedSideBar, Mode=TwoWay}"
-                                                          pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
-                                                          pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
-                                                          pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource CatalogGeometry}"
-                                                          Visibility="{TemplateBinding IsShowSideBar, Converter={pt:BooleanToVisibilityConverter}}"
-                                                          Style="{StaticResource WindowDoubbleIconToggleButtonStyle}" />
-                                            <Button Command="{x:Static win:SideBarWindow.SettingCommand}"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SettingGeometry}"
-                                                    common:FrameworkElementBaseAttached.IconHeight="14"
-                                                    common:FrameworkElementBaseAttached.IconWidth="14"
-                                                    Visibility="{TemplateBinding IsShowSetting, Converter={pt:BooleanToVisibilityConverter}}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                        </StackPanel>
-                                        <ContentPresenter x:Name="NonClientContentPresenter" Grid.Column="1"
-                                                          Content="{TemplateBinding ClientTitleBarAdditionalContent}"
-                                                          WindowChrome.IsHitTestVisibleInChrome="True" />
-                                        <TextBlock Grid.Column="1"
-                                                   Text="{TemplateBinding Title}"
-                                                   Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                                   FontSize="{TemplateBinding ClientTitleBarFontsize}"
-                                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                   IsHitTestVisible="False"
-                                                   Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
-                                        <StackPanel x:Name="ButtonPanel" Grid.Column="2"
-                                                    Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <Button x:Name="MinimizedButton"
-                                                    Command="{x:Static SystemCommands.MinimizeWindowCommand}"
-                                                    ToolTip="最小化"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                            <Button x:Name="MaximizedButton"
-                                                    Command="{x:Static SystemCommands.MaximizeWindowCommand}"
-                                                    ToolTip="最大化"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                            <Button x:Name="NormalButton"
-                                                    Command="{x:Static SystemCommands.RestoreWindowCommand}"
-                                                    ToolTip="向下还原"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
-                                                    Visibility="Collapsed"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                            <Button x:Name="CloseButton"
-                                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                                    ToolTip="关闭"
-                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                                    Style="{StaticResource WindowIconButtonStyle}" />
-                                        </StackPanel>
-                                    </Grid>
-                                    <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
-                                        <ContentPresenter ClipToBounds="True" KeyboardNavigation.TabNavigation="Cycle" />
-                                    </AdornerDecorator>
-                                    <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
-                                                Width="10" Height="10"
-                                                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                                                IsTabStop="False" WindowChrome.ResizeGripDirection="BottomRight"
+                    <win:ChromeWindowClient>
+                        <Border x:Name="RootBorder"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+                            <Grid x:Name="RootGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
+                                      Background="{TemplateBinding ClientTitleBarBackground}"
+                                      Panel.ZIndex="100"
+                                      TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}"
+                                      Visibility="{TemplateBinding IsShowClientTitleBar, Converter={pt:BooleanToVisibilityConverter}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
+                                        <ToggleButton Command="{x:Static win:SideBarWindow.SidebarPopupCommand}"
+                                                      IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsCheckedSideBar, Mode=TwoWay}"
+                                                      pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
+                                                      pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource LeftArrowGeometry}"
+                                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource CatalogGeometry}"
+                                                      Visibility="{TemplateBinding IsShowSideBar, Converter={pt:BooleanToVisibilityConverter}}"
+                                                      Style="{StaticResource WindowDoubbleIconToggleButtonStyle}" />
+                                        <Button Command="{x:Static win:SideBarWindow.SettingCommand}"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource SettingGeometry}"
+                                                common:FrameworkElementBaseAttached.IconHeight="14"
+                                                common:FrameworkElementBaseAttached.IconWidth="14"
+                                                Visibility="{TemplateBinding IsShowSetting, Converter={pt:BooleanToVisibilityConverter}}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                    </StackPanel>
+                                    <ContentPresenter x:Name="NonClientContentPresenter" Grid.Column="1"
+                                                      Content="{TemplateBinding ClientTitleBarAdditionalContent}"
+                                                      WindowChrome.IsHitTestVisibleInChrome="True" />
+                                    <TextBlock Grid.Column="1"
+                                               Text="{TemplateBinding Title}"
+                                               Foreground="{TemplateBinding ClientTitleBarForeground}"
+                                               FontSize="{TemplateBinding ClientTitleBarFontsize}"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               IsHitTestVisible="False"
+                                               Visibility="{TemplateBinding IsShowTitle, Converter={pt:BooleanToVisibilityConverter}}" />
+                                    <StackPanel x:Name="ButtonPanel" Grid.Column="2"
+                                                Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
+                                        <Button x:Name="MinimizedButton"
+                                                Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                                                ToolTip="最小化"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                        <Button x:Name="MaximizedButton"
+                                                Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                                ToolTip="最大化"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                        <Button x:Name="NormalButton"
+                                                Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                                                ToolTip="向下还原"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
                                                 Visibility="Collapsed"
-                                                Style="{StaticResource DefaultResizeGripStyle}" />
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                        <Button x:Name="CloseButton"
+                                                Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                                ToolTip="关闭"
+                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                                Style="{StaticResource WindowIconButtonStyle}" />
+                                    </StackPanel>
                                 </Grid>
-                            </Border>
-                        </win:ChromeWindowClient>
-                    </AdornerDecorator>
+                                <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                    <ContentPresenter ClipToBounds="True" KeyboardNavigation.TabNavigation="Cycle" />
+                                </AdornerDecorator>
+                                <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
+                                            Width="10" Height="10"
+                                            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                            IsTabStop="False" WindowChrome.ResizeGripDirection="BottomRight"
+                                            Visibility="Collapsed"
+                                            Style="{StaticResource DefaultResizeGripStyle}" />
+                            </Grid>
+                        </Border>
+                    </win:ChromeWindowClient>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Icon}" Value="{x:Null}">
                             <Setter Property="IconWidth" Value="0" />
@@ -373,66 +370,64 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:NoneTitleBarWindow}">
-                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{DynamicResource DefaultBitmapCache}">
-                        <win:ChromeWindowClient>
-                            <Border x:Name="RootBorder"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}"
-                                    SnapsToDevicePixels="True">
-                                <behavior:Interaction.Triggers>
-                                    <behavior:EventTrigger EventName="MouseLeftButtonDown">
-                                        <behavior:InvokeCommandAction Command="{x:Static win:NoneTitleBarWindow.MoveWindowCommand}" />
-                                    </behavior:EventTrigger>
-                                </behavior:Interaction.Triggers>
-                                <Grid x:Name="RootGrid">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="0" />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
-                                    <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
-                                          Background="{TemplateBinding ClientTitleBarBackground}"
-                                          TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}" />
-                                    <AdornerDecorator Grid.Row="1">
-                                        <pc:SimpleGrid>
-                                            <ContentPresenter ClipToBounds="True" />
-                                            <StackPanel Background="{TemplateBinding ClientTitleBarBackground}"
-                                                        HorizontalAlignment="Right" VerticalAlignment="Top"
-                                                        Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
-                                                <Button x:Name="MinimizedButton"
-                                                        Command="{x:Static SystemCommands.MinimizeWindowCommand}"
-                                                        ToolTip="最小化"
-                                                        common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
-                                                        Style="{StaticResource WindowIconButtonStyle}" />
-                                                <Button x:Name="MaximizedButton"
-                                                        Command="{x:Static SystemCommands.MaximizeWindowCommand}"
-                                                        ToolTip="最大化"
-                                                        common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
-                                                        Style="{StaticResource WindowIconButtonStyle}" />
-                                                <Button x:Name="NormalButton"
-                                                        Command="{x:Static SystemCommands.RestoreWindowCommand}"
-                                                        ToolTip="向下还原"
-                                                        common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
-                                                        Visibility="Collapsed"
-                                                        Style="{StaticResource WindowIconButtonStyle}" />
-                                                <Button x:Name="CloseButton"
-                                                        Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                                        ToolTip="关闭"
-                                                        common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                                        Style="{StaticResource WindowIconButtonStyle}" />
-                                            </StackPanel>
-                                        </pc:SimpleGrid>
-                                    </AdornerDecorator>
-                                    <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
-                                                Width="10" Height="10"
-                                                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                                                IsTabStop="False" WindowChrome.ResizeGripDirection="BottomRight"
-                                                Visibility="Collapsed"
-                                                Style="{StaticResource DefaultResizeGripStyle}" />
-                                </Grid>
-                            </Border>
-                        </win:ChromeWindowClient>
-                    </AdornerDecorator>
+                    <win:ChromeWindowClient>
+                        <Border x:Name="RootBorder"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+                            <behavior:Interaction.Triggers>
+                                <behavior:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behavior:InvokeCommandAction Command="{x:Static win:NoneTitleBarWindow.MoveWindowCommand}" />
+                                </behavior:EventTrigger>
+                            </behavior:Interaction.Triggers>
+                            <Grid x:Name="RootGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="PART_TitleBarArea" Grid.Row="0"
+                                      Background="{TemplateBinding ClientTitleBarBackground}"
+                                      TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}" />
+                                <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                    <pc:SimpleGrid>
+                                        <ContentPresenter ClipToBounds="True" />
+                                        <StackPanel Background="{TemplateBinding ClientTitleBarBackground}"
+                                                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                                                    Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
+                                            <Button x:Name="MinimizedButton"
+                                                    Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                                                    ToolTip="最小化"
+                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MinimizeGeometry}"
+                                                    Style="{StaticResource WindowIconButtonStyle}" />
+                                            <Button x:Name="MaximizedButton"
+                                                    Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                                    ToolTip="最大化"
+                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource MaximizeGeometry}"
+                                                    Style="{StaticResource WindowIconButtonStyle}" />
+                                            <Button x:Name="NormalButton"
+                                                    Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                                                    ToolTip="向下还原"
+                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource RestoreGeometry}"
+                                                    Visibility="Collapsed"
+                                                    Style="{StaticResource WindowIconButtonStyle}" />
+                                            <Button x:Name="CloseButton"
+                                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                                    ToolTip="关闭"
+                                                    common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                                    Style="{StaticResource WindowIconButtonStyle}" />
+                                        </StackPanel>
+                                    </pc:SimpleGrid>
+                                </AdornerDecorator>
+                                <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"
+                                            Width="10" Height="10"
+                                            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                            IsTabStop="False" WindowChrome.ResizeGripDirection="BottomRight"
+                                            Visibility="Collapsed"
+                                            Style="{StaticResource DefaultResizeGripStyle}" />
+                            </Grid>
+                        </Border>
+                    </win:ChromeWindowClient>
                     <ControlTemplate.Triggers>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter Property="Visibility" Value="Visible" TargetName="NormalButton" />
@@ -490,58 +485,61 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type win:DialogWindow}">
-                    <AdornerDecorator SnapsToDevicePixels="True" CacheMode="{StaticResource DefaultBitmapCache}">
-                        <win:ChromeWindowClient>
-                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
-                                        <RowDefinition />
-                                        <RowDefinition Height="40" />
-                                    </Grid.RowDefinitions>
-                                    <pc:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}">
-                                        <DockPanel HorizontalAlignment="Left">
-                                            <Image Width="20" Height="20"
-                                                   Source="{TemplateBinding Icon}"
-                                                   Stretch="Uniform"
-                                                   Margin="5,0,0,0"
-                                                   Visibility="{TemplateBinding IsShowIcon, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                            <TextBlock Text="{TemplateBinding Title}"
-                                                       Foreground="{TemplateBinding ClientTitleBarForeground}"
-                                                       Margin="8,0"
-                                                       VerticalAlignment="Center"
-                                                       Style="{StaticResource DefaultTextBlockStyle}" />
-                                        </DockPanel>
-                                        <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                                ToolTip="关闭"
-                                                HorizontalAlignment="Right" VerticalAlignment="Center"
-                                                Cursor="Arrow" WindowChrome.IsHitTestVisibleInChrome="True"
-                                                common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
-                                                Style="{StaticResource WindowIconButtonStyle}" />
-                                    </pc:SimpleGrid>
-                                    <ContentPresenter Grid.Row="1" ClipToBounds="True" />
-                                    <UniformGrid Grid.Row="2" Columns="2">
-                                        <Button Width="60" Height="26"
-                                                Content="取消(_C)"
-                                                Command="{x:Static common:ControlCommands.CancelCommand}"
-                                                HorizontalAlignment="Center"
-                                                Style="{StaticResource DefaultButtonStyle}" />
-                                        <Button Width="60" Height="26"
-                                                Content="确定(_Y)"
-                                                Command="{x:Static common:ControlCommands.ConfirmCommand}"
-                                                HorizontalAlignment="Center"
-                                                Style="{StaticResource DefaultButtonStyle}" />
-                                    </UniformGrid>
-                                </Grid>
-                            </Border>
-                        </win:ChromeWindowClient>
-                    </AdornerDecorator>
+                    <win:ChromeWindowClient>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ClientTitleBarHeight}" />
+                                    <RowDefinition />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <pc:SimpleGrid Grid.Row="0" Background="{TemplateBinding ClientTitleBarBackground}" TextElement.Foreground="{TemplateBinding ClientTitleBarForeground}">
+                                    <DockPanel HorizontalAlignment="Left">
+                                        <Image Width="20" Height="20"
+                                               Source="{TemplateBinding Icon}"
+                                               Stretch="Uniform"
+                                               Margin="5,0,0,0"
+                                               Visibility="{TemplateBinding IsShowIcon, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <TextBlock Text="{TemplateBinding Title}"
+                                                   Foreground="{TemplateBinding ClientTitleBarForeground}"
+                                                   Margin="8,0"
+                                                   VerticalAlignment="Center"
+                                                   Style="{StaticResource DefaultTextBlockStyle}" />
+                                    </DockPanel>
+                                    <Button Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                            ToolTip="关闭"
+                                            HorizontalAlignment="Right" VerticalAlignment="Center"
+                                            Cursor="Arrow" WindowChrome.IsHitTestVisibleInChrome="True"
+                                            common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CloseGeometry}"
+                                            Style="{StaticResource WindowIconButtonStyle}" />
+                                </pc:SimpleGrid>
+                                <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                    <ContentPresenter ClipToBounds="True" />
+                                </AdornerDecorator>
+                                <UniformGrid Grid.Row="2" Columns="2">
+                                    <Button Width="60" Height="26"
+                                            Content="取消(_C)"
+                                            Command="{x:Static common:ControlCommands.CancelCommand}"
+                                            HorizontalAlignment="Center"
+                                            Style="{StaticResource DefaultButtonStyle}" />
+                                    <Button Width="60" Height="26"
+                                            Content="确定(_Y)"
+                                            Command="{x:Static common:ControlCommands.ConfirmCommand}"
+                                            HorizontalAlignment="Center"
+                                            Style="{StaticResource DefaultButtonStyle}" />
+                                </UniformGrid>
+                            </Grid>
+                        </Border>
+                    </win:ChromeWindowClient>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!--固定大小窗体，亦可做圆角窗体-->
+    <!--  固定大小窗体，亦可做圆角窗体  -->
     <Style x:Key="FixedSizeWindowStyle" TargetType="{x:Type Window}">
         <!--  或 ResizeMode="NoResize"  -->
         <Setter Property="ResizeMode" Value="CanMinimize" />
@@ -558,7 +556,9 @@
                 <ControlTemplate TargetType="{x:Type Window}">
                     <Border Background="Transparent" Padding="3" CacheMode="{StaticResource DefaultBitmapCache}">
                         <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding common:FrameworkElementBaseAttached.CornerRadius}" Effect="{DynamicResource NotifyMessageShadowEffect}">
-                            <ContentPresenter ClipToBounds="True" />
+                            <AdornerDecorator KeyboardNavigation.IsTabStop="False">
+                                <ContentPresenter ClipToBounds="True" />
+                            </AdornerDecorator>
                         </Border>
                     </Border>
                 </ControlTemplate>

@@ -38,7 +38,16 @@ namespace CookPopularCSharpToolkit.Communal
 
         public static void ModifyItem(string key, string value, string sectionName = "appSettings")
         {
-            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            ModifyItem(key, value, sectionName);
+        }
+
+        public static void ModifyItem(string key, string value, string sectionName = "appSettings", string exePath = "")
+        {
+            Configuration configuration;
+            if (!string.IsNullOrEmpty(exePath) && exePath.EndsWith(".exe"))
+                configuration = ConfigurationManager.OpenExeConfiguration(exePath);
+            else
+                configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             configuration.AppSettings.Settings[key].Value = value;
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(sectionName);

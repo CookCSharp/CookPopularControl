@@ -29,21 +29,42 @@
                  Text="{Binding Text}"
                  Margin="0,20" />
 
-        <Border Width="600" Height="500"
-                Background="#FF9C8844"
-                Margin="0,50,0,0"
-                pc:DialogBox.Mark="DialogBoxContainer">
-            <pc:DialogBoxContainer>
-                <StackPanel>
-                    <Button Width="300" Height="40"
+        <!--<pc:DialogBoxContainer>
+            <StackPanel>
+                <Button Width="300" Height="40"
                             Content="OpenDialogBoxInside"
                             Click="ButtonInherit_Click" />
-                    <TextBox Width="300" Height="40"
+                <TextBox Width="300" Height="40"
                              Text="Chance"
                              Margin="0,20" />
-                </StackPanel>
-            </pc:DialogBoxContainer>
-        </Border>
+            </StackPanel>
+        </pc:DialogBoxContainer>-->
+        <StackPanel>
+            <Button Width="300" Height="40"
+                    Content="OpenDialogBoxInside"
+                    Click="ButtonInherit_Click" />
+            <TextBox Width="300" Height="40"
+                     Text="Chance"
+                     Margin="0,20" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Border Width="300" Height="300"
+                Background="#FF9C8844"
+                Margin="0,10,0,0" 
+                pc:DialogBox.Mark="DialogBoxContainer1">
+                <pc:DialogBoxContainer>
+                    <Grid/>
+                </pc:DialogBoxContainer>
+            </Border>
+            <Border Width="300" Height="300"
+                Background="#FF9C8844"
+                Margin="10,10,0,0" 
+                pc:DialogBox.Mark="DialogBoxContainer2">
+                <pc:DialogBoxContainer>
+                    <StackPanel/>
+                </pc:DialogBoxContainer>
+            </Border>
+        </StackPanel>
     </StackPanel>
 
 </UserControl>

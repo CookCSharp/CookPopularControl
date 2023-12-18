@@ -12,11 +12,30 @@
              d:DataContext="{Binding Source={d:DesignInstance Type=vm:AdornerViewModel}}"
              d:DesignHeight="450"
              d:DesignWidth="400"
+             Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=ActualWidth}"
+             Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=ActualHeight}"
              Focusable="True"
+             pc:DialogBox.IsUseAnimation="True"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
+    <!--
+        Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=ActualWidth}"
+        Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=ActualHeight}"
+    -->
+
+    <!--<UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Width"
+                                     From="0" To="400" Duration="0:0:0.2" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>-->
+
     <StackPanel x:Name="RootGrid"
-                Width="400" Height="400"
+                Width="400"
                 Background="#FF9C8844"
                 HorizontalAlignment="Left">
         <Button x:Name="ChanceBtn"

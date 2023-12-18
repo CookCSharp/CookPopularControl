@@ -47,7 +47,9 @@ namespace MvvmTestDemo.DemoViews
 
         private async Task<string> DialogWindowShow()
         {
-            Text = await CookPopularControl.Windows.DialogWindow.Show<Adorner>().Initialize<AdornerViewModel>(vm => { vm.Message = Text; vm.Result = Text; }).GetResultAsync<string>();
+            Text = await CookPopularControl.Windows.DialogWindow.Show<Adorner>()
+                .Initialize<AdornerViewModel>(vm => { vm.Message = Text; vm.Result = Text; })
+                .GetResultAsync<string>();
 
             return Text;
         }

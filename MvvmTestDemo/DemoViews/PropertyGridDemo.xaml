@@ -14,7 +14,7 @@
         <!--<Path Width="20" Height="20" Stretch="Uniform"
               Data="{StaticResource CategoryGeometry}" Fill="Red"/>-->
 
-        <pc:PropertyGrid Width="500" SelectedObject="{Binding DemoModel}" />
+        <pc:PropertyGrid x:Name="prop" Width="500" SelectedObject="{Binding DemoModel}" />
     </StackPanel>
 
 </UserControl>

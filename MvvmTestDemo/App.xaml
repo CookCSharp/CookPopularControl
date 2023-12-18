@@ -1,9 +1,11 @@
-﻿<Application x:Class="MvvmTestDemo.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             ShutdownMode="OnExplicitShutdown">
+﻿<pt:ApplicationBase x:Class="MvvmTestDemo.App"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+                    xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    IsSingleInstance="True"
+                    ShutdownMode="OnExplicitShutdown">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -29,4 +31,4 @@
         </ResourceDictionary>
     </Application.Resources>
 
-</Application>
+</pt:ApplicationBase>

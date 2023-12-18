@@ -232,6 +232,9 @@ namespace CookPopularCSharpToolkit.Windows
             return parent == null ? Enumerable.Empty<DependencyObject>() : parent.GetVisualChildren();
         }
 
+
+
+
         /// <summary>
         /// Get the bounds of an element relative to another element.
         /// </summary>

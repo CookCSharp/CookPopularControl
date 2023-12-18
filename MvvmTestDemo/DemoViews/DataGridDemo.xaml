@@ -33,7 +33,7 @@
         <Grid Width="{StaticResource DemoViewsDefaultWidth}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="90" />
-                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="20" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Content="添加" Click="Button_Click" />
@@ -43,12 +43,12 @@
                     RowBackground="FloralWhite"
                 -->
                 <DataGrid Height="Auto"
-                          pc:DataGridAssistant.ComboBoxColumnEditingStyle="{StaticResource Demo.DataGridComboBoxColumnEditingStyle}"
-                          pc:DataGridAssistant.ComboBoxColumnStyle="{StaticResource Demo.DataGridComboBoxColumnStyle}"
                           AreRowDetailsFrozen="False" AutoGenerateColumns="False" CanUserAddRows="False"
                           CanUserDeleteRows="False" CanUserReorderColumns="True" IsReadOnly="False"
                           ItemsSource="{Binding Workers}"
                           RowHeight="40"
+                          pc:DataGridAssistant.ComboBoxColumnEditingStyle="{StaticResource Demo.DataGridComboBoxColumnEditingStyle}"
+                          pc:DataGridAssistant.ComboBoxColumnStyle="{StaticResource Demo.DataGridComboBoxColumnStyle}"
                           Style="{StaticResource DefaultDataGridStyle}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
@@ -63,11 +63,11 @@
 
                 <DataGrid Height="Auto"
                           Margin="0,20,0,0"
-                          pc:DataGridAssistant.IsRegisterSelectAll="True" pc:DataGridAssistant.IsShowSerialNumber="False"
-                          pc:DataGridAssistant.IsShowThickness="True" AreRowDetailsFrozen="False" AutoGenerateColumns="False"
-                          CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="True"
+                          AreRowDetailsFrozen="False" AutoGenerateColumns="False" CanUserAddRows="False"
+                          CanUserDeleteRows="False" CanUserReorderColumns="True"
                           ItemsSource="{Binding Workers}"
-                          RowHeight="40">
+                          RowHeight="40" pc:DataGridAssistant.IsRegisterSelectAll="True"
+                          pc:DataGridAssistant.IsShowSerialNumber="False" pc:DataGridAssistant.IsShowThickness="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
                         <DataGridComboBoxColumn Header="性别" SelectedValueBinding="{Binding Gender}" TextBinding="{Binding Gender}">
@@ -116,8 +116,13 @@
                 <DataGrid x:Name="TestDataGrid"
                           Width="300" Height="200"
                           AutoGenerateColumns="False" CanUserAddRows="False"
-                          Style="{StaticResource DefaultDataGridStyle}" />
-                <!--ItemsSource="{Binding TestDatas}"-->
+                          Style="{StaticResource DefaultDataGridStyle}">
+                    <DataGrid.RowHeaderTemplate>
+                        <HierarchicalDataTemplate>
+                            <CheckBox Content="123" Background="Red" />
+                        </HierarchicalDataTemplate>
+                    </DataGrid.RowHeaderTemplate>
+                </DataGrid>
             </StackPanel>
         </Grid>
     </ScrollViewer>

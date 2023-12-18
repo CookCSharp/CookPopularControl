@@ -25,18 +25,20 @@ namespace MvvmTestDemo.DemoViews
         private DialogBox dialogBox;
         private async void ButtonDefault_Click(object sender, RoutedEventArgs e)
         {
-            //var win = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            var win = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             //var adornerDemo = new Adorner { Width = win.ActualWidth, Height = win.ActualHeight};
-            ////dialogBox = DialogBox.Show(adornerDemo);
+            var adornerDemo = new Adorner();
+            dialogBox = DialogBox.Show(adornerDemo);
             //dialogBox = DialogBox.Show<Adorner>();
             //dialogBox.MouseLeftButtonUp += (s, e) => dialogBox.Close();
 
-            Text = await DialogBox.Show<Adorner>().Initialize<AdornerViewModel>(vm => { vm.Message = Text; vm.Result = Text; }).GetResultAsync<string>();
+            //Text = await DialogBox.Show<Adorner>().Initialize<AdornerViewModel>(vm => { vm.Message = Text; vm.Result = Text; }).GetResultAsync<string>();
         }
 
         private void ButtonInherit_Click(object sender, RoutedEventArgs e)
         {           
-            dialogBox = DialogBox.Show<Adorner>("DialogBoxContainer");
+            dialogBox = DialogBox.Show<Adorner>("DialogBoxContainer1");
+            var dialogBox1 = DialogBox.Show<Adorner>("DialogBoxContainer2");
         }
     }
 }

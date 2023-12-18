@@ -51,11 +51,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
                     <Expander Header="{Binding Name}"
-                              Style="{DynamicResource CustomExpanderStyle}"
                               IsExpanded="True" common:FrameworkElementBaseAttached.IconHeight="14"
                               common:FrameworkElementBaseAttached.IconWidth="14"
-                              pc:ExpanderAssistant.CollapsedGeometry="{DynamicResource MinusNoCircleGeometry}"
-                              pc:ExpanderAssistant.ExpandedGeometry="{DynamicResource PlusNoCircleGeometry}">
+                              pc:ExpanderAssistant.CollapsedGeometry="{DynamicResource PlusNoCircleGeometry}"
+                              pc:ExpanderAssistant.ExpandedGeometry="{DynamicResource MinusNoCircleGeometry}"
+                              Style="{DynamicResource CustomExpanderStyle}">
                         <Border>
                             <ItemsPresenter Margin="{TemplateBinding Padding}" />
                         </Border>
@@ -86,18 +86,18 @@
                                     <RadioButton Width="30" Height="30"
                                                  Command="{x:Static common:ControlCommands.SortByCategoryCommand}"
                                                  IsChecked="True"
-                                                 Style="{DynamicResource ToggleButtonOutlineStyle}"
                                                  common:FrameworkElementBaseAttached.CornerRadius="0"
                                                  common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource CategoryGeometry}"
                                                  common:FrameworkElementBaseAttached.IconHeight="16"
-                                                 common:FrameworkElementBaseAttached.IconWidth="16" />
+                                                 common:FrameworkElementBaseAttached.IconWidth="16"
+                                                 Style="{DynamicResource ToggleButtonOutlineStyle}" />
                                     <RadioButton Width="30" Height="30"
                                                  Command="{x:Static common:ControlCommands.SortByNameCommand}"
-                                                 Style="{DynamicResource ToggleButtonOutlineStyle}"
                                                  common:FrameworkElementBaseAttached.CornerRadius="0"
                                                  common:FrameworkElementBaseAttached.IconGeometry="{DynamicResource AZGeometry}"
                                                  common:FrameworkElementBaseAttached.IconHeight="16"
-                                                 common:FrameworkElementBaseAttached.IconWidth="16" />
+                                                 common:FrameworkElementBaseAttached.IconWidth="16"
+                                                 Style="{DynamicResource ToggleButtonOutlineStyle}" />
                                 </StackPanel>
                                 <pc:SearchBar x:Name="PART_SearchBar" Margin="10,0,0,0" />
                             </DockPanel>

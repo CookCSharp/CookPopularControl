@@ -13,7 +13,7 @@ namespace MvvmTestDemo
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : ApplicationBase
     {
         private readonly HookFactory hookFactory = new HookFactory();
         private KeyboardWatcher keyboardWatcher;

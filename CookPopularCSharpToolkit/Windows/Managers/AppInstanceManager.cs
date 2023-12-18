@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
@@ -22,7 +21,6 @@ using System.Windows.Threading;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Ipc;
-using CookPopularCSharpToolkit.Windows.Interop;
 
 #endif
 
@@ -120,7 +118,7 @@ namespace CookPopularCSharpToolkit.Windows
         private class SingletonManagerHelper
         {
 #if NETFRAMEWORK
-        private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous;
+            private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous;
 #elif NETCOREAPP3_1_OR_GREATER
             private const PipeOptions NamedPipeOptions = PipeOptions.Asynchronous | PipeOptions.CurrentUserOnly;
 #endif
@@ -151,7 +149,7 @@ namespace CookPopularCSharpToolkit.Windows
                     while (true)
                     {
 #if NETFRAMEWORK
-                    var bytesRead = await pipeServer.ReadAsync(buffer, 0, bufferLength, cancellationToken).ConfigureAwait(false);
+                        var bytesRead = await pipeServer.ReadAsync(buffer, 0, bufferLength, cancellationToken).ConfigureAwait(false);
 #elif NETCOREAPP3_1_OR_GREATER
                         var bytesRead = await pipeServer.ReadAsync(buffer.AsMemory(0, bufferLength), cancellationToken).ConfigureAwait(false);
 #endif
@@ -198,7 +196,7 @@ namespace CookPopularCSharpToolkit.Windows
                     content = stream.ToArray();
                 }
 #if NETFRAMEWORK
-            await pipeClient.WriteAsync(content, 0, content.Length, cancellationToken).ConfigureAwait(false);
+                await pipeClient.WriteAsync(content, 0, content.Length, cancellationToken).ConfigureAwait(false);
 #elif NETCOREAPP3_1_OR_GREATER
                 await pipeClient.WriteAsync(content.AsMemory(0, content.Length), cancellationToken).ConfigureAwait(false);
 #endif

@@ -17,8 +17,10 @@ namespace MvvmTestDemo.DemoViews
     [AddINotifyPropertyChangedInterface]
     public partial class DataGridDemo : UserControl
     {
-        public ObservableCollection<Person> Workers { get; set; }
         public static IEnumerable<string> Movies = new[] { "僵尸叔叔", "警察故事", "速度与激情", "侏罗纪公园" };
+
+        public ObservableCollection<Person> Workers { get; set; }
+
         public ObservableCollection<dynamic> TestDatas { get; set; }
 
         public DataGridDemo()
@@ -73,7 +75,7 @@ namespace MvvmTestDemo.DemoViews
             TestDataGrid.Columns.Add(new DataGridTextColumn() { Header = "性别", Binding = new Binding("Gender") });
             for (int i = 0; i < 5; i++)
             {
-                TestDataGrid.Columns.Add(new DataGridTextColumn() { Header = $"Column{kks[i].Key}", Binding = new Binding("Value") });
+                TestDataGrid.Columns.Add(new DataGridComboBoxColumn() { Header = $"Column{kks[i].Key}", ItemsSource = kks[i].Value });
             }
 
             TestDataGrid.ItemsSource = lss;

@@ -26,6 +26,7 @@ namespace CookPopularControl.Controls
 
         public PropertyItemsControl()
         {
+            ScrollViewer.SetCanContentScroll(this, false);
             VirtualizingPanel.SetIsVirtualizingWhenGrouping(this, true);
             VirtualizingPanel.SetScrollUnit(this, ScrollUnit.Pixel);
 

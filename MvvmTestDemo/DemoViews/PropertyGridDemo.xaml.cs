@@ -17,7 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CookPopularControl.Controls;
 using PropertyChanged;
-
+using CookPopularCSharpToolkit.Windows;
+using System.Runtime.Intrinsics.X86;
 
 namespace MvvmTestDemo.DemoViews
 {
@@ -38,16 +39,16 @@ namespace MvvmTestDemo.DemoViews
 
             DemoModel = new PropertyGridDemoModel
             {
-                String = "写代码的厨子",
+                //String = "写代码的厨子",
                 Integer = 100,
                 Double = 23.5,
                 Boolean = false,
                 Enum = Country.China,
-                Lists = new List<string>() { "Chance1","Chance2","Chance3"},
+                Lists = new List<string>() { "Chance1", "Chance2", "Chance3"},
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Stretch,
                 ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/MvvmTestDemo;component/Resources/Gif/tomcat.jpg")),
-            };      
+            };
         }
     }
 
@@ -56,6 +57,7 @@ namespace MvvmTestDemo.DemoViews
     {
         [Category("Category1")]
         [Description("这是String")]
+        [DefaultValue("写代码的厨子123")]
         public string String { get; set; }
 
         [Category("Category1")]

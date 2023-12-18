@@ -1,11 +1,17 @@
-﻿using CookPopularCSharpToolkit.Windows;
+﻿using CookPopularCSharpToolkit.Communal;
+using CookPopularCSharpToolkit.Windows;
 using Microsoft.Xaml.Behaviors.Layout;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 
 
@@ -18,7 +24,7 @@ using System.Windows.Input;
 namespace CookPopularControl.Controls
 {
     /// <summary>
-    /// 对话窗口
+    /// 装饰器盒子
     /// </summary>
     public class DialogBox : ContentControl, IDialog
     {
@@ -28,6 +34,16 @@ namespace CookPopularControl.Controls
         public static readonly ICommand CloseDialogCommand = new RoutedCommand("CloseDialog", typeof(DialogBox));
 
         public bool IsClosed { get; private set; }
+
+
+        public static bool GetIsUseAnimation(DependencyObject obj) => (bool)obj.GetValue(IsUseAnimationProperty);
+        public static void SetIsUseAnimation(DependencyObject obj, bool value) => obj.SetValue(IsUseAnimationProperty, ValueBoxes.BooleanBox(value));
+        /// <summary>
+        /// <see cref="IsUseAnimationProperty"/>表示<see cref="DialogBox"/>是否启用动画的附加属性
+        /// </summary>
+        public static readonly DependencyProperty IsUseAnimationProperty =
+            DependencyProperty.RegisterAttached("IsUseAnimation", typeof(bool), typeof(DialogBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
 
         public static string GetMark(DependencyObject obj) => (string)obj.GetValue(MarkProperty);
         public static void SetMark(DependencyObject obj, string value) => obj.SetValue(MarkProperty, value);
@@ -41,7 +57,7 @@ namespace CookPopularControl.Controls
         {
             if (d is FrameworkElement element)
             {
-                var isExist = DialogInstances.Select(d => GetMark(d) == e.NewValue.ToString()).SingleOrDefault();
+                var isExist = DialogInstances.Any(d => GetMark(d) == e.NewValue.ToString());
                 if (!isExist)
                     DialogInstances.Add(element);
             }
@@ -69,11 +85,22 @@ namespace CookPopularControl.Controls
         {
             if (content is FrameworkElement fe)
             {
-                fe.MouseLeftButtonUp += (s, e) => e.Handled = true; //只有在content以外的区域DialogBox.MouseLeftButtonUp才生效
+                if (fe is UserControl uc && GetIsUseAnimation(fe))
+                {
+                    (uc.Content as FrameworkElement).Loaded += (s, e) =>
+                    {
+                        var ucContent = uc.Content as FrameworkElement;
+                        var animation = AnimationHelper.CreateDoubleAnimation(0, ucContent.ActualWidth, 0.25);
+                        ucContent.BeginAnimation(WidthProperty, animation);
+                    };
+                }
+
+                //只有在content以外的区域DialogBox.MouseLeftButtonUp才生效
+                fe.MouseLeftButtonDown += (s, e) => e.Handled = true;
+                fe.MouseLeftButtonUp += (s, e) => e.Handled = true; 
             }
 
-            DialogBox dialogBox;
-            dialogBox = new DialogBox { Content = content, IsClosed = false };
+            DialogBox dialogBox = new DialogBox { Content = content, IsClosed = false };
             SetMark(dialogBox, mark);
 
             FrameworkElement element;
@@ -82,14 +109,20 @@ namespace CookPopularControl.Controls
             if (string.IsNullOrEmpty(GetMark(dialogBox)))
             {
                 element = WindowExtension.GetActiveWindow();
-                adorner = VisualTreeHelperExtension.GetVisualDescendants(element).OfType<AdornerDecorator>().FirstOrDefault();
+                adorner = element.GetVisualDescendants().OfType<AdornerDecorator>().FirstOrDefault();
             }
             else
             {
                 element = DialogInstances.SingleOrDefault(d => GetMark(d) == mark);
-                adorner = element is Window ? VisualTreeHelperExtension.GetVisualDescendants(element).OfType<AdornerDecorator>().FirstOrDefault()
-                                            : VisualTreeHelperExtension.GetVisualDescendants(element).OfType<DialogBoxContainer>().FirstOrDefault();
+                adorner = element is Window ? element.GetVisualDescendants().OfType<AdornerDecorator>().FirstOrDefault()
+                                            : element.GetVisualDescendants().OfType<DialogBoxContainer>().FirstOrDefault();
             }
+
+            //(content as FrameworkElement).Loaded += (s, e) =>
+            //{
+            //    (content as FrameworkElement).Width = element.ActualWidth;
+            //    (content as FrameworkElement).Height = element.ActualHeight;
+            //};
 
             if (adorner is not null)
             {
@@ -118,11 +151,11 @@ namespace CookPopularControl.Controls
         {
             if (element != null && Container != null)
             {
-                var decorator = VisualTreeHelperExtension.GetVisualDescendants(element).OfType<AdornerDecorator>().FirstOrDefault();
-                if (decorator != null)
+                var adorner = element.GetVisualDescendants().OfType<AdornerDecorator>().FirstOrDefault();
+                if (adorner != null)
                 {
                     IsClosed = true;
-                    var layer = decorator.AdornerLayer;
+                    var layer = adorner.AdornerLayer;
                     layer?.Remove(Container);
                     DialogInstances.Remove(this);
                 }

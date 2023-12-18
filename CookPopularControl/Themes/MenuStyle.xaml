@@ -135,8 +135,8 @@
                                         <Viewbox x:Name="GlyphPanel"
                                                  Width="16" Height="16"
                                                  HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                 Visibility="Collapsed"
-                                                 FlowDirection="LeftToRight">
+                                                 FlowDirection="LeftToRight"
+                                                 Visibility="Collapsed">
                                             <Grid Width="24" Height="24">
                                                 <Path x:Name="Glyph"
                                                       Data="{DynamicResource CheckGeometry}"
@@ -153,9 +153,9 @@
                                                           RecognizesAccessKey="True"
                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                           VerticalAlignment="Center"
-                                                          Visibility="Hidden"
                                                           ContentSource="Header" TextBlock.FontWeight="Bold"
-                                                          TextElement.Foreground="{TemplateBinding Foreground}" />
+                                                          TextElement.Foreground="{TemplateBinding Foreground}"
+                                                          Visibility="Hidden" />
                                         <ContentPresenter x:Name="HeaderPresenter"
                                                           Content="{TemplateBinding Header}"
                                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
@@ -391,12 +391,12 @@
                                       Height="{TemplateBinding Height}"
                                       Foreground="{TemplateBinding Foreground}"
                                       IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
-                                      Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}"
                                       common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding Height}"
                                       common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding Width}"
                                       pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
-                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}" />
+                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                                      Style="{StaticResource ToggleButtonTransparentDoubbleIconStyle}" />
                         <pc:ExtendPopup x:Name="PART_MenuItems"
                                         AllowsTransparency="True"
                                         IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
@@ -467,12 +467,12 @@
                                       Height="{TemplateBinding Height}"
                                       Foreground="{TemplateBinding Foreground}"
                                       IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"
-                                      Style="{DynamicResource ToggleButtonTransparentDoubbleIconStyle}"
                                       common:FrameworkElementBaseAttached.IconHeight="50"
                                       common:FrameworkElementBaseAttached.IconWidth="50"
                                       pc:ToggleButtonAssistant.IsAddCheckedAnimation="True"
                                       pc:ToggleButtonAssistant.OnCheckedGeometry="{DynamicResource MinusGeometry}"
-                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}" />
+                                      pc:ToggleButtonAssistant.UnCheckedGeometry="{DynamicResource PlusGeometry}"
+                                      Style="{DynamicResource ToggleButtonTransparentDoubbleIconStyle}" />
                         <pc:ExtendPopup x:Name="PART_MenuItems"
                                         AllowsTransparency="True"
                                         IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsShowMenu, Mode=TwoWay}"

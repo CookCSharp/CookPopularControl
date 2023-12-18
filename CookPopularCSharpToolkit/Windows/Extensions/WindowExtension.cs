@@ -49,7 +49,7 @@ namespace CookPopularCSharpToolkit.Windows
             return window;
         }
 
-        public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
+        public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
 
         public static void RemoveIcon(this Window window)
         {

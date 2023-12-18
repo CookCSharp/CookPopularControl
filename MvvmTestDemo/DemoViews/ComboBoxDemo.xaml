@@ -1,15 +1,22 @@
 ﻿<UserControl x:Class="MvvmTestDemo.DemoViews.ComboBoxDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MvvmTestDemo.DemoViews"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pc="https://Chance.CookPopularControl/2021/xaml"
+             xmlns:pt="https://Chance.CookPopularCSharpToolkit/2021/xaml"
+             xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d"
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="450"
              d:DesignWidth="800"
              Foreground="{StaticResource PrimaryForegroundBrush}">
+
+    <UserControl.Resources>
+        <pt:BindingProxy x:Key="BindingProxy" Data="{Binding}" />
+    </UserControl.Resources>
 
     <Grid Width="{StaticResource DemoViewsDefaultWidth}" VerticalAlignment="Center">
         <Grid.RowDefinitions>
@@ -99,11 +106,17 @@
                       Style="{StaticResource MultiComboBoxImageGifItemsStyle}" />
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center">
-            <ComboBox Width="200"
+            <ComboBox Width="200" x:Name="tb_com"
                       IsEditable="True"
                       ItemsSource="{Binding Lists}"
                       SelectedIndex="0" pc:SelectorAttached.IsItemChecked="ComboBox_IsItemChecked"
-                      Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}" />
+                      Style="{StaticResource AddClearButtonMultiComboBoxCheckBoxItemsStyle}">
+                <behavior:Interaction.Triggers>
+                    <behavior:EventTrigger EventName="TextChanged" SourceObject="{Binding RelativeSource={RelativeSource AncestorType=TextBox}}">
+                        <behavior:InvokeCommandAction Command="{Binding TextChangedCommand}" />
+                    </behavior:EventTrigger>
+                </behavior:Interaction.Triggers>
+            </ComboBox>
             <ComboBox Width="200"
                       Margin="0,10"
                       IsEditable="True"

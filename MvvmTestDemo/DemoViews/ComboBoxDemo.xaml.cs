@@ -1,4 +1,5 @@
 ﻿using CookPopularControl.Communal;
+using Prism.Commands;
 using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
@@ -23,6 +24,13 @@ namespace MvvmTestDemo.DemoViews
         public ObservableCollection<SelectorItem> ImageLists { get; set; }
 
         public ObservableCollection<SelectorItem> GifLists { get; set; }
+
+        public DelegateCommand TextChangedCommand => new DelegateCommand(OnTextChanged);
+
+        private void OnTextChanged()
+        {
+            
+        }
 
         public ComboBoxDemo()
         {
@@ -73,6 +81,11 @@ namespace MvvmTestDemo.DemoViews
             var s = e.Source;
 
             Lists.Remove(o.Content);
+        }
+
+        private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

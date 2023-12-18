@@ -125,10 +125,10 @@
                                           ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           Margin="{TemplateBinding Padding}"
-                                          Style="{DynamicResource ToggleButtonIconStyle}"
                                           common:ButtonBaseAttached.IsShowRipple="True"
                                           common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}">
+                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                          Style="{DynamicResource ToggleButtonIconStyle}">
                                 <ToggleButton.Content>
                                     <ContentPresenter Content="{TemplateBinding Header}"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -418,10 +418,10 @@
                                           ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           Margin="{TemplateBinding Padding}"
-                                          Style="{DynamicResource ToggleButtonIconStyle}"
                                           common:ButtonBaseAttached.IsShowRipple="True"
                                           common:FrameworkElementBaseAttached.IconHeight="{TemplateBinding common:FrameworkElementBaseAttached.IconHeight}"
-                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}">
+                                          common:FrameworkElementBaseAttached.IconWidth="{TemplateBinding common:FrameworkElementBaseAttached.IconWidth}"
+                                          Style="{DynamicResource ToggleButtonIconStyle}">
                                 <ToggleButton.Content>
                                     <ContentPresenter Content="{TemplateBinding Header}"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"

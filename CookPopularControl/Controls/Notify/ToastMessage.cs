@@ -25,7 +25,7 @@ using System.Windows.Threading;
 namespace CookPopularControl.Controls
 {
     /// <summary>
-    /// 表示类似Android的Toast消息框
+    /// 表示类似Android/IOS的Toast消息框
     /// </summary>
     [TemplatePart(Name = ElementBorder, Type = (typeof(UIElement)))]
     public class ToastMessage : NormalWindow
@@ -81,6 +81,21 @@ namespace CookPopularControl.Controls
         /// 显示<see cref="ToastMessage"/>
         /// </summary>
         /// <param name="content">内容</param>
+        public static void ShowInfo(object content)
+        {
+            ToastMessageInfo messageInfo = new ToastMessageInfo()
+            {
+                Content = content,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("InfoGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogInfoBrush"),
+            };
+            InternalShow(messageInfo);
+        }
+
+        /// <summary>
+        /// 显示<see cref="ToastMessage"/>
+        /// </summary>
+        /// <param name="content">内容</param>
         public static void ShowWarning(object content)
         {
             ToastMessageInfo messageInfo = new ToastMessageInfo()
@@ -89,6 +104,75 @@ namespace CookPopularControl.Controls
                 MessageIcon = ResourceHelper.GetResource<Geometry>("WarningGeometry"),
                 MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogWarningBrush"),
             };
+            InternalShow(messageInfo);
+        }
+
+        /// <summary>
+        /// 显示<see cref="ToastMessage"/>
+        /// </summary>
+        /// <param name="content">内容</param>
+        public static void ShowError(object content)
+        {
+            ToastMessageInfo messageInfo = new ToastMessageInfo()
+            {
+                Content = content,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("ErrorGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogErrorBrush"),
+            };
+            InternalShow(messageInfo);
+        }
+
+        /// <summary>
+        /// 显示<see cref="ToastMessage"/>
+        /// </summary>
+        /// <param name="content">内容</param>
+        public static void ShowFatal(object content)
+        {
+            ToastMessageInfo messageInfo = new ToastMessageInfo()
+            {
+                Content = content,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("FatalGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogFatalBrush"),
+            };
+            InternalShow(messageInfo);
+        }
+
+        /// <summary>
+        /// 显示<see cref="ToastMessage"/>
+        /// </summary>
+        /// <param name="content">内容</param>
+        public static void ShowQuestion(object content)
+        {
+            ToastMessageInfo messageInfo = new ToastMessageInfo()
+            {
+                Content = content,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("QuestionGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogQuestionBrush"),
+            };
+            InternalShow(messageInfo);
+        }
+
+        /// <summary>
+        /// 显示<see cref="ToastMessage"/>
+        /// </summary>
+        /// <param name="content">内容</param>
+        public static void ShowSuccess(object content)
+        {
+            ToastMessageInfo messageInfo = new ToastMessageInfo()
+            {
+                Content = content,
+                MessageIcon = ResourceHelper.GetResource<Geometry>("SuccessGeometry"),
+                MessageIconBrush = ResourceHelper.GetResource<Brush>("MessageDialogSuccessBrush"),
+            };
+            InternalShow(messageInfo);
+        }
+
+        /// <summary>
+        /// 显示<see cref="ToastMessage"/>
+        /// </summary>
+        /// <param name="messageInfo">消息内容</param>
+        public static void Show(ToastMessageInfo messageInfo)
+        {
             InternalShow(messageInfo);
         }
 
@@ -103,8 +187,45 @@ namespace CookPopularControl.Controls
                 ToastMessageIconBrush = messageInfo.MessageIconBrush,
             };
 
-            toastMessage.Show();
+            toastMessage.ShowAnimation(toastMessage, messageInfo.ShowType);
             toastMessage.SetTimer(toastMessage, messageInfo.Duration, messageInfo.ShowType);
+            toastMessage.Show();
+            //Application.Current.Dispatcher.InvokeAsync(() => toastMessage.ShowDialog());
+        }
+
+        private void ShowAnimation(ToastMessage toast, ToastMessageShowType showType)
+        {
+            switch (showType)
+            {
+                case ToastMessageShowType.None:
+                    break;
+                case ToastMessageShowType.Fade:
+                    toast.Opacity = 0;
+                    var fadeAnimation = AnimationHelper.CreateDoubleAnimation(1);
+                    toast.BeginAnimation(OpacityProperty, fadeAnimation);
+                    break;
+                case ToastMessageShowType.Scroll:
+                    toast.Opacity = 0;
+                    var scale = new ScaleTransform() { ScaleX = 1, ScaleY = 1 };
+                    toast.RenderTransform = scale;
+                    toast.RenderTransformOrigin = new Point(0.5, 0.5);
+                    var animation1 = AnimationHelper.CreateDoubleAnimation(0, 1, 0.1);
+                    var animation2 = AnimationHelper.CreateDoubleAnimation(0, 1, 0.1);
+                    var Animation3 = AnimationHelper.CreateDoubleAnimation(1, 0);
+                    toast.BeginAnimation(OpacityProperty, Animation3);
+                    scale.BeginAnimation(ScaleTransform.ScaleXProperty, animation1);
+                    scale.BeginAnimation(ScaleTransform.ScaleYProperty, animation2);
+                    break;
+                case ToastMessageShowType.Rotate:
+                    var rotate = new RotateTransform() { Angle = 0 };
+                    toast.RenderTransform = rotate;
+                    toast.RenderTransformOrigin = new Point(0.5, 0.5);
+                    var rotateAnimation = AnimationHelper.CreateDoubleAnimation(360D);
+                    rotate.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void SetTimer(ToastMessage toast, double duration, ToastMessageShowType showType)
@@ -148,7 +269,7 @@ namespace CookPopularControl.Controls
                     var rotate = new RotateTransform() { Angle = 0 };
                     toast.RenderTransform = rotate;
                     toast.RenderTransformOrigin = new Point(0.5, 0.5);
-                    var rotateAnimation = AnimationHelper.CreateDoubleAnimation(360D);
+                    var rotateAnimation = AnimationHelper.CreateDoubleAnimation(-360D);
                     rotateAnimation.Completed += Animation_Completed;
                     rotate.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
                     break;
@@ -160,50 +281,6 @@ namespace CookPopularControl.Controls
         private void Animation_Completed(object sender, EventArgs e) => Close();
     }
 
-
-    public class ToastMessageInfo
-    {
-        /// <summary>
-        /// 消息内容
-        /// </summary>
-        public object Content { get; set; }
-
-        /// <summary>
-        /// 消息图标
-        /// </summary>
-        public Geometry MessageIcon { get; set; }
-
-        /// <summary>
-        /// 消息图标颜色
-        /// </summary>
-        public Brush MessageIconBrush { get; set; }
-
-        /// <summary>
-        /// 动画显示类型
-        /// </summary>
-        public ToastMessageShowType ShowType { get; set; } = ToastMessageShowType.Fade;
-
-        /// <summary>
-        /// 是否显示关闭按钮
-        /// </summary>
-        public bool IsShowCloseButton { get; set; } = true;
-
-        /// <summary>
-        /// 消息是否自动关闭
-        /// </summary>
-        public bool IsAutoClose { get; set; } = true;
-
-        /// <summary>
-        /// 消息持续时间
-        /// </summary>
-        /// <remarks>单位:s</remarks>
-        public double Duration { get; set; } = 3;
-
-        /// <summary>
-        /// 消息关闭前触发的方法
-        /// </summary>
-        public Action<bool> ActionBeforeClose { get; set; }
-    }
 
     /// <summary>
     /// <see cref="ToastMessage"/>动画显示类型
@@ -226,5 +303,49 @@ namespace CookPopularControl.Controls
         /// 旋转动画显示
         /// </summary>
         Rotate,
+    }
+
+    public class ToastMessageInfo
+    {
+        /// <summary>
+        /// 消息内容
+        /// </summary>
+        public object Content { get; set; }
+
+        /// <summary>
+        /// 消息图标
+        /// </summary>
+        public Geometry MessageIcon { get; set; }
+
+        /// <summary>
+        /// 消息图标颜色
+        /// </summary>
+        public Brush MessageIconBrush { get; set; }
+
+        /// <summary>
+        /// 动画显示类型
+        /// </summary>
+        public ToastMessageShowType ShowType { get; set; } = ToastMessageShowType.Scroll;
+
+        /// <summary>
+        /// 是否显示关闭按钮
+        /// </summary>
+        public bool IsShowCloseButton { get; set; } = true;
+
+        /// <summary>
+        /// 消息是否自动关闭
+        /// </summary>
+        public bool IsAutoClose { get; set; } = true;
+
+        /// <summary>
+        /// 消息持续时间
+        /// </summary>
+        /// <remarks>单位:s</remarks>
+        public double Duration { get; set; } = 2D;
+
+        /// <summary>
+        /// 消息关闭前触发的方法
+        /// </summary>
+        public Action<bool> ActionBeforeClose { get; set; }
     }
 }

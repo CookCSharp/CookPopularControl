@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -19,9 +20,9 @@ namespace CookPopularCSharpToolkit.Windows
     /// <remarks><see cref="Dispatcher"/>与<see cref="SynchronizationContext"/></remarks>
     public sealed class SynchronizationWithAsync
     {
-        public static DispatcherOperation AppInvokeAsync(Action action)
+        public static async Task AppInvokeAsync(Action action)
         {
-            return Application.Current.Dispatcher.InvokeAsync(action, DispatcherPriority.Normal);
+            await Application.Current.Dispatcher.InvokeAsync(action, DispatcherPriority.Normal);
         }
 
         public static void AppInvoke(Action action)

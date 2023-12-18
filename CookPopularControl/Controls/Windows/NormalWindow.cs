@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
@@ -273,6 +274,16 @@ namespace CookPopularControl.Windows
 
             if (Icon == null) SetDefaultWindowIcon();
 
+            var windowChrome = new WindowChrome
+            {
+                CornerRadius = default,
+                GlassFrameThickness = new Thickness(-1),
+                ResizeBorderThickness = new Thickness(2),
+                UseAeroCaptionButtons = false
+            };
+            BindingOperations.SetBinding(windowChrome, WindowChrome.CaptionHeightProperty, new Binding(ClientTitleBarHeightProperty.Name) { Source = this });
+            WindowChrome.SetWindowChrome(this, windowChrome);
+
             this.Loaded += NormalWindow_Loaded;
         }
 
@@ -321,7 +332,7 @@ namespace CookPopularControl.Windows
         }
 
         /// <summary>
-        /// shezhiWindow圆角
+        /// 设置Window圆角
         /// </summary>
         private void SetWindowRound()
         {
@@ -397,7 +408,6 @@ namespace CookPopularControl.Windows
                     Padding = WindowState == WindowState.Maximized ? WindowParameters.WindowMaximizedPadding : Padding;
                     break;
                 case InteropValues.WM_NCHITTEST:
-                    // for fixing #886
                     // https://developercommunity.visualstudio.com/t/overflow-exception-in-windowchrome/167357
                     try
                     {
